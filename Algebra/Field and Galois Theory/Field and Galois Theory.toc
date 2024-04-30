@@ -1,0 +1,23 @@
+\contentsline {section}{\numberline {1}Maps Between Fields}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}F-Homomorphisms}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Field Automorphisms}{4}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Splitting Fields, Normal Fields and Separating Fields}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Splitting Fields}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Algebraically Closed Fields}{9}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Normal Fields}{10}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Separable Fields}{11}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Galois Theory}{13}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Galois Extensions}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Galois Groups}{13}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Relations to the Symmetric Group}{15}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Biquadratic Extensions}{16}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Finite Fields}{19}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Existence of Finite Fields}{19}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Classification of Finite Fields}{21}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Cyclotomic Polynomials}{21}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Radial and Soluble Extensions}{22}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Radical Extensions}{22}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Transcendental Extensions}{23}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Transcendence Basis}{23}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Transcendence Degree}{24}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Linear Disjointness}{24}{subsection.6.3}%

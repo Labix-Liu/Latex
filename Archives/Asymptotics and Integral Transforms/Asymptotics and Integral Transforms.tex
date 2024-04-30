@@ -1,0 +1,256 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Asymptotics and Integral Transforms}
+\rfoot{\thepage}
+
+\title{Asymptotics and Integral Transforms}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Asymptotics}
+\subsection{Notations}
+\begin{defn}{Big $O$ Notations}{} Let $f,g$ be functions. We say that $f(x)=O(g(x))$ as $x\to a$ if and only if there exists some $M,\delta>0$ such that $$\abs{\frac{f(x)}{g(x)}}<M \text{ for all } \abs{x-a}<\delta$$
+\end{defn}
+
+\begin{defn}{Little $O$ Notations}{} Let $f,g$ be functions. We say that $f(x)=o(g(x))$ as $x\to a$ if and only if $$\abs{\frac{f(x)}{g(x)}}\to 0 \text{ as } x\to a$$
+\end{defn}
+
+\begin{defn}{Big $\Theta$ Notations}{} Let $f,g$ be functions. We say that $f(x)=\Theta(g(x))$ as $x\to a$ if and only if $$f(x)=O(g(x))\text{ and }g(x)=O(f(x))$$
+\end{defn}
+
+\begin{defn}{Asymptotic Series}{} A function $f$ is said to have an asymptotic series as $x\to a$, denoted $f(x)\sim\sum_{j=1}^Nf_j(x)$ as $x\to a$ if and only if there exists $M\leq N$ with $M,N\in\N$ such that $$f(x)-\sum_{j=1}^Mf_j(x)=o(f_M(x))$$
+\end{defn}
+
+\begin{defn}{Asymptotic Sequence}{} A sequence of functions $\{a_n(x)\}$ is said to be an asymptotic series if $$a_{n+1}(x)=o(a_n(x))$$ as $x\to a$ for all $n$. 
+\end{defn}
+
+\begin{defn}{The Error Function}{} The error function is defined to be the function $$\text{Erf}(z)=\frac{2}{\sqrt{\pi}}\int_0^ze^{-t^2}\,dt$$
+\end{defn}
+
+\begin{prp}{}{} The taylor series of the error function is given by $$Erf(z)=\frac{2}{\sqrt{\pi}}\sum_{k=0}^\infty\frac{(-1)^nz^{2n+1}}{(2n+1)n!}$$
+\end{prp}
+
+\begin{prp}{The Successive Approximation Method}{} Given a function $y=f(x,\epsilon)$ with parameter $\epsilon$ to approximate, let $x_0$ such that $f(x_0,\epsilon)=0$. Set $x_1=x_0+e_1$ and solve for $e_1$ in terms of $\epsilon$. Then set $x_2=x_1+e_2$ and solve for $e_2$. In genereal, set $$x_n=x_{n-1}+e_n=x_0+\sum_{k=1}^{n-1}e_k+e_n$$ to find a sequence $x_0,x_1,\dots,x_n,\dots$ that approximates the solution $x$. 
+\end{prp}
+
+\begin{prp}{The Series Expansion Method}{} Given a function $y=f(x)$, set $$x_0=a_0+\epsilon a_1+\epsilon^2 a_2+\epsilon^3 a_3+O(\epsilon^4)$$ and substitute it in to solve for $f(x_0)=0$. 
+\end{prp}
+
+\subsection{Asymptotics of Algebraic Equations}
+\begin{defn}{Singular Perturbations}{} If an approximation with $\epsilon\to 0$ reduces the number of solutions, the problem or function is said to be singular. 
+\end{defn}
+
+\begin{eg}{}{} Find the scalings as $\lambda\to\infty$ for each of the roots of $$x^3-\lambda^2x^2+2\lambda^2x+6\lambda=\pi e^{-\lambda}$$ and find the first two nonzero terms in an asymptotic series approximation for each root. \tcbline
+\begin{proof}
+As $\lambda\to\infty$, the constant term goes to $0$. We now try to match the terms. Label the terms $1,2,3,4$ in order. 
+\begin{itemize}
+\item 1 and 2. We have that $x=\Theta(\lambda^2)$. Thus we have that $$\Theta(\lambda^6)+\Theta(\lambda^6)+\Theta(\lambda^4)+\Theta(\lambda)$$ The first two terms cancel and the remaining terms are smaller than the cancelled term thus this case is possible. \\~\\
+Since the first two cancel, we get $x^3-\lambda^2x^2\approx0$ and $x\approx\lambda^2$. Set $x=\lambda^2+e_1$ and substituting $x$ in, we get $e_1=-2$ by only considering the next dominant term after $\lambda^6$ thus $x=\lambda^2-2+o(1)$. 
+\item 1 and 3. We have that $x=\Theta(\lambda)$. Thus we have that $$\Theta(\lambda^3)+\Theta(\lambda^4)+\Theta(\lambda^3)+\Theta(\lambda)$$ The two terms cancel and one remaining term is larger than the cancelled term thus this case is not possible. 
+\item 1 and 4. We have that $x=\Theta(\lambda^{1/3})$. Thus we have that $$\Theta(\lambda)+\Theta(\lambda^{8/3})+\Theta(\lambda^{7/3})+\Theta(\lambda)$$ The two terms cancel and the remaining terms are larger than the cancelled term thus this case not possible. 
+\item 2 and 3. We have that $x=\Theta(1)$. Thus we have that $$\Theta(1)+\Theta(\lambda^2)+\Theta(\lambda^2)+\Theta(\lambda)$$ The two terms cancel and the remaining terms are smaller than the cancelled term thus this case is possible.\\~\\
+Since the two terms cancel we have $-\lambda^2x^2+2\lambda^2x\approx0$ and $x\approx 2$. Let $x=2+e_1$ where $e_1$ is a term involving $\lambda^{-1}$. Using this fact and substituting in and cancelling and considering highest powers gives us $-2\lambda^2e_1+6\lambda=0$, thus $e_1=-\frac{3}{\lambda}$ and $x=2-\frac{3}{\lambda}+o\left(\frac{1}{\lambda^2}\right)$
+\item 2 and 4. We have that $x=\Theta\left(\frac{1}{\sqrt{\lambda}}\right)$. Thus we have that $$\Theta\left(\frac{1}{\lambda^{3/2}}\right)+\Theta(\lambda)+\Theta(\lambda^{3/2})+\Theta(\lambda)$$ The two terms cancel and a remaining term is larger than the cancelled term thus this case is not possible. 
+\item 3 and 4. We have that $x=\Theta\left(\frac{1}{\lambda}\right)$. Thus we have that $$\Theta\left(\frac{1}{\lambda^3}\right)+\Theta(1)+\Theta(\lambda)+\Theta(\lambda)$$ The two terms cancel and the remaining terms are smaller than the cancelled term thus this case possible. \\~\\
+Since the two terms cancel we have $2\lambda^2x+6\lambda\approx0$ and $x\approx-\frac{3}{\lambda}$. Let $x=-\frac{3}{\lambda}+e_1$, where $e_1$ is a term of $\lambda^{-2}$. Using this fact and substituting in and cancelling and considering highest powers gives us $-9+2\lambda6^2e_1=0$, thus $e_1=\frac{9}{2\lambda^2}$ and $x=-\frac{3}{\lambda}+\frac{9}{2\lambda^2}+o\left(\frac{1}{\lambda^3}\right)$
+\end{itemize}
+\end{proof}
+\end{eg}
+
+\subsection{Asymptotics of Integrals}
+Integrals involving a small parameter $\epsilon$ can be approximated by asymptotic series exactly as previous. 
+
+\begin{prp}{The Exponenetial Integral}{} The Exponential integral for $z>0$ is defined to be $$E_1(z)=\int_z^\infty\frac{e^{-x}}{x}\,dx$$ It approximates to $$E_1(\epsilon)\sim\log\left(\frac{1}{\epsilon}\right)-\gamma+\epsilon-\frac{\epsilon^2}{2\cdot2!}+\frac{\epsilon^3}{3\cdot3!}$$
+\end{prp}
+
+\begin{lmm}{Watson's Lemma}{} If $f(x)\sim\sum_{k=0}^na_kx^{\alpha_k}$ as $x\to 0$ with $a_0>-1$, and if $f(x)$ is bounded for $x\in[\epsilon,a]$, then $$\int_0^af(x)e^{-\lambda x}\,dx\sim\sum_{k=0}^n\frac{a_k\Gamma(\alpha_k+1)}{\lambda^{\alpha_k+1}}$$ as $\lambda\to\infty$. \tcbline
+\begin{proof}
+Rescaling, we have that $$I(\lambda)=\int_0^af(x)e^{-\lambda x}\,dx=\int_0^{a\lambda}f\left(\frac{t}{\lambda}\right)\frac{e^{-t}}{\lambda}\,dt$$ But $a$ here is unimportant since $e^{-\lambda x}\to\infty$ as $x\to\infty$. Thus the dominant contribution is when $x=0$. We try and expand $f$ with its taylor series to get 
+\begin{align*}
+I(\lambda)&=\int_0^{a\lambda}\sum_{k=0}^\infty\frac{t^kf^k(0)}{\lambda^{k+1}k!}e^{-t}\,dt\\
+&=\sum_{k=0}^\infty\left(\frac{f^k(0)}{\lambda^{k+1}k!}\int_0^{a\lambda}t^ke^{-t}\,dt\right)\\
+&=\sum_{k=0}^\infty\left(\frac{f^k(0)}{\lambda^{k+1}k!}\Gamma(k+1)\right)+O\left(\frac{e^{-a\lambda}}{\lambda}\right)\\
+&=\sum_{k=0}^\infty\left(\frac{f^k(0)}{\lambda^{k+1}}\right)+O\left(\frac{e^{-a\lambda}}{\lambda}\right)
+\end{align*}
+The error term comes from the fact that we assumed that $a\lambda$ is infinitely large. This is not exactly the proof but rather an example. 
+\end{proof}
+\end{lmm}
+
+Watson's lemma basically says that if we have an integral that is exponentially weighted at one end, then the integral is dominated asymptotically by the behaviour there. \\~\\
+Watson's lemma can also apply to a slightly more general case if given with care. 
+\begin{crl}{}{} Let $\max_{x\in[a,b]}g(x)=g(a)$ and $\frac{dg}{dx}\neq 0$ at $x=a$. Consider as $\lambda\to\infty$. Then $$\int_a^bf(x)e^{\lambda g(x)}\,dx\sim e^{\lambda g(a)}\sum_{k=0}^\infty\frac{F^k(x)}{\lambda^{k+1}}$$ \tcbline
+\begin{proof}
+Indeed we have 
+\begin{align*}
+\int_a^bf(x)e^{\lambda g(x)}\,dx&=\int_a^{a+\delta}f(x)e^{\lambda g(x)}\,dx+\int_{a+\delta}^bf(x)e^{\lambda g(x)}\,dx\\
+&=e^{\lambda g(a)}\int_0^{g(a)-g(x)}e^{-\lambda y}\frac{f(x(y))}{-g'(x(y))}\,dy+\text{exponentially small}\tag{$y=g(a)-g(x)$, $x=y^{-1}$}
+\end{align*}
+Let $F(y)=\frac{f(x(y))}{-g'(x(y))}$ and apply Watson's lemma to $F(y)$ to get $$\int_a^bf(x)e^{\lambda g(x)}\,dx\sim e^{\lambda g(a)}\sum_{k=0}^\infty\frac{F^k(x)}{\lambda^{k+1}}$$
+As long as $F$ has an asymptotic or taylor expansion. 
+\end{proof}
+\end{crl}
+
+But what happens if the integral is not dominated by either end, but instead right in somewhere of the bounds? What happens if $g'(a)=0$? Laplace's method give an answer to this situation. 
+
+\begin{prp}{Generalized Laplace's Method}{} If $g(x)$ is twice continuously differentiable on $[a,b]$ and $\exists x_0\in(a,b)$ such that $g(x_0)=\max_{x\in[a,b]}g(x)$ and $g''(x_0)<0$, then $$\int_a^bf(x)e^{\lambda g(x)}\sim f(x_0)e^{\lambda g(x_0)}\sqrt{\frac{2\pi}{-\lambda g''(x_0)}}$$ as $\lambda\to\infty$. \tcbline
+\begin{proof}
+Using the taylor expansion of $g(x)$ at $x=x_0$ and the fact that $g'(x_0)=0$, we have
+\begin{align*}
+I(\lambda)&=e^{\lambda g(x_0)}\int_a^bf(x)e^{\frac{\lambda}{2}g''(x_0)(x-x_0)^2+O(\lambda(x-x_0)^3)}\,dx
+\end{align*}
+Take the substitution $y=\frac{x-x_0}{\sqrt{-\lambda g''(x_0)}}$. Then
+\begin{align*}
+I(\lambda)&=e^{\lambda g(x_0)}\int_{(a-x_0)\sqrt{-\lambda g''(x_0)}}^{(b-x_0)\sqrt{-\lambda g''(x_0)}}f\left(x_0+\frac{y}{\sqrt{-\lambda g''(x_0)}}\right)e^{-\frac{1}{2}y^2+O(\lambda^{-1/2})}\frac{1}{\sqrt{-\lambda g''(x_0)}}\,dy\\
+&\sim e^{\lambda g(x_0)}\int_{-\infty}^\infty \frac{f(x_0)e^{-\frac{1}{2}y^2}}{\sqrt{-\lambda g''(x_0)}}\,dy+O\left(\frac{e^{\lambda g(x_0)}}{\sqrt{-\lambda g''(x_0)}}\frac{1}{\sqrt{\lambda}}\right)\tag{as $\lambda\to\infty$, and taylor of $f$}\\
+&\sim e^{\lambda g(x_0)}\int_{-\infty}^\infty \frac{f(x_0)e^{-\frac{1}{2}y^2}}{\sqrt{-\lambda g''(x_0)}}\,dy\tag{as $\lambda\to\infty$}\\
+&=f(x_0)e^{\lambda g(x_0)}\sqrt{\frac{2\pi}{-\lambda g''(x_0)}}
+\end{align*}
+\end{proof}
+\end{prp}
+
+This method has a number of plus points. In particular, 
+\begin{itemize}
+\item We can better approximate the answer by further expanding the taylor series of $f$ and $g$ at $x_0$. 
+\item We can also deal with cases where $x_0=a$ and $g''(x_0)=0$ and $f(x_0)=0$ by expanding the integrand about $x_0$. 
+\item We can also deal with multiple maximas by splitting the integral so that each integral has only one maximum. 
+\end{itemize}
+
+\begin{lmm}{Stirling's Formula}{} Let $\lambda\in\R$. $$\Gamma(\lambda+1)\sim\lambda^{\lambda}e^{-\lambda}\sqrt{2\pi\lambda}$$
+\end{lmm}
+
+\begin{thm}{Method of Steepest Descent}{} Let $$I(\lambda)=\int_Cf(z)e^{\lambda g(z)}\,dz$$ as $\lambda\to\infty$, where $C$ is some contour in the complex plane and $f,g$ are complex differentiable functions. Then $$I(\lambda)=f(z_\ast)e^{\lambda g(z_\ast)}\sqrt{\frac{2\pi}{-\lambda g''(z_\ast)}}\left(1+O\left(\frac{1}{\lambda}\right)\right)$$ \tcbline
+\begin{proof}
+Note that writing $g(z)=u(z)+iv(z)$, we have that $\nabla^2u=0$ thus $u$ has only saddle points, and that $v$ is constant in directions in which $u$ is varying most rapidly. Let $z=z_\ast$ be the saddle point where $g'(z_\ast)=0$. Near $z_\ast$, we have that $f(z)=f(z_\ast)+(z-z_\ast)f'(z_\ast)+\dots$ and $g(z)=g(z_\ast)+0+\frac{1}{2}(z-z_\ast)^2g''(z_\ast)+\dots$. Steepest descent means that $\frac{1}{2}(z-z_\ast)^2g''(z_\ast)<0$ and is purely real. Parameterize the new contour by $p(t)$ where $p(t_\ast)=z_\ast$, we have that through the change of variables $z-z_\ast=\frac{t_\ast}{\sqrt{-\lambda g''(z_\ast)}}$, 
+\begin{align*}
+I(\lambda)&=\int_{-\infty}^\infty\left(f(z_\ast)+\frac{t_\ast f'(z_\ast)}{\sqrt{-\lambda g''(z_\ast)}}+O\left(\frac{1}{\lambda}\right)\right)e^{\lambda g(z_\ast)-\frac{1}{2}t_\ast^2+O(1/\sqrt{\lambda})}\frac{1}{\sqrt{-\lambda g''(z_\ast)}}\,dt_\ast\\
+&=f(z_\ast)e^{\lambda g(z_\ast)}\sqrt{\frac{2\pi}{-\lambda g''(z_\ast)}}\left(1+O\left(\frac{1}{\lambda}\right)\right)
+\end{align*}
+
+\end{proof}
+\end{thm}
+
+Note that using a similar method as of Laplace's method fails. Let $C=\{p:[a,b]\to\C\}$. Note that writing $g(z)=R(z)e^{i\theta(z)}$ means that only the real part of $g$ concerns with the domainating area of the integral. Suppose that along $C$, this occurs at $z_0=p(t_0)$, where $\frac{d}{dt}\text{Re}(g(p(t)))=0$. The asymptotic expansion near that point is $f(z)=f(z_0)+\dots$ and $g(p(t))=g(z_0)+(t-t_0)p'(t_0)g'(z_0)+\dots$ where the second term is purely imaginary since we have that the real part of $\frac{d}{dt}Re(g)$ is $0$. Then $$f(z)e^{\lambda g(z)}\sim f(z_0)e^{\lambda g(z_0)}e^{\lambda(t-t_0)p'(t_0)g'(z_0)}$$ where the last exponential is highly oscillartory since it is purely imaginary. This means that a lot of cancellation occurs and this method fails. \\~\\
+
+In summary, we have a summary on how to deal with integrals that cannot be regularly integrated. 
+\begin{itemize}
+\item If the integrals look regular enough, use techniques similar to that of algebraic equations. 
+\item Some integrals may require splitting and using different techniques on the two integrals. This is due to the fact that there may be different behaviours for different rescalings. 
+\item For exponentially dominated integrals, we use Watson's lemma if the dominant contribution is at the end points. We use Laplace's method if the dominant contribution is given by the maximum in the interior of the bounds of the integral. We use the method of Steepest descent to deform a complex integral to a more suitable path of integration. 
+\end{itemize}
+
+\subsection{Asymptotics of Differential Equations}
+We nondimensionalize differential equations so that it easily represents the major states and results of the possible results of solving the equation. \\~\\
+Most of the methods used in approxmating algebraic equations can also be applied to differential equations. 
+
+\begin{eg}{}{} Solve the differential equation $$\frac{d^2y}{dt^2}+\frac{1}{\epsilon}\frac{dy}{dt}+y=0$$ with $y(0)=0$ and $\frac{dy}{dt}\bigg{|}_{y=0}=1$ using rescaling and balancing. \tcbline
+\begin{proof}
+Note that $\frac{1}{\epsilon}$ becomes unbounded as $\epsilon$ becomes small. This suggests us to do a change of variable. Take $t=a\tau$. Then the differential equation becomes $$\frac{1}{a^2}\frac{d^2y}{d\tau^2}+\frac{1}{a\epsilon}\frac{dy}{d\tau}+y=0$$ and $y(0)=0$ and $\frac{dy}{d\tau}\bigg{|}_{y=0}=a$. We try and match the order of the terms. 
+\begin{itemize}
+\item $1$ and $3$. Then $\frac{1}{a^2}=1$ and $a=1$ which means no change of variables occured. 
+\item $2$ and $3$. Take 
+\end{itemize}
+\end{proof}
+\end{eg}
+
+\begin{prp}{Van Dyke's Matching Rule}{} If the solution $f(x)$ of a differential equation has an outer solution which satisfies, as $\epsilon\to 0$ with $x$ fixed, $$f(x)\sim\sum_{k=0}^P\epsilon^nf_n(x)=E_Pf$$ Suppose also that for $x=\epsilon\xi$, then as $\epsilon\to 0$ with $\xi$ fixed we have an inner solution $$f(\epsilon\xi)\sim\sum_{k=0}^Q\epsilon^ng_n(\xi)=H_Qf$$ Then Van Dyke's matching rule states that $$E_PH_Qf=H_QE_Pf$$ for suitable values of $P$ and $Q$ ($\abs{P-Q}$ sufficiently small). 
+\end{prp}
+
+\begin{prp}{Composite Solution}{} If $f(x)\sim E_Pf$ is an outer solution and $f(\epsilon\xi)\sim H_qf$ is an inner soluition and $E_PH_Qf=H_QE_Pf$ then $$F=E_Pf+H_Qf-E_PH_Qf$$ is a solution that is a valid as $\epsilon\to 0$ for fixed $\xi$ or $x$. 
+\end{prp}
+
+\pagebreak
+\section{Integral Transforms}
+\subsection{Fourier Transforms}
+\begin{defn}{Fourier Transform}{} Let $f:\R\to\R$ be a function. Define the fourier transform of $f$ to be $$\mathcal{F}(f)=\int_{-\infty}^\infty e^{-ikx}f(x)\,dx$$ For the fourier transform to converge, we need $f$ to be absolutely integrable on $(-\infty,\infty)$, finitely many extrema and finite discontinuities and has no infinite discontinuities. 
+\end{defn}
+
+\begin{prp}{}{} Let $f,g:\R\to\R$ be functions. Then 
+\begin{itemize}
+\item Linearity: $\mathcal{F}(af(x)+bg(x))=a\mathcal{F}(f(x))+b\mathcal{F}(g(x))$
+\item Shift Property (I): $\mathcal{F}(f(x-a))(k)=e^{-ika}\mathcal{F}(f(x))(k)$
+\item Shift Property (II): $\mathcal{F}(e^{iax}f(x))(k)=\mathcal{F}(f)(k-a)$
+\item Scaling: $\mathcal{F}(f(ax))(k)=\frac{1}{\abs{a}}\mathcal{F}(f(x))\left(\frac{k}{a}\right)$
+\item Differentiation: $\mathcal{F}(f'(t))=ik\mathcal{F}(f)(k)$
+\item $\mathcal{F}(tf(t))=i\frac{d}{dk}\left(\mathcal{F}(f(x))(k)\right)$. 
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Inverse Fourier Transform}{} Let $f:\R\to\R$ be a function. Denote $\mathcal{F}(f)=F(k)$ the fourier transform of $f$. Define the inverse fourier transform to be $$\mathcal{F}^{-1}(F(k))=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty e^{ikx}F(k)\,dk$$
+\end{defn}
+
+\begin{prp}{}{} Let $f:\R\to\R$, then $$\mathcal{F}^{-1}(\mathcal{F}(f))=f$$
+\end{prp}
+
+\begin{defn}{Convolution}{} Let $f,g:\R\to\C$ be functions. Define the convolution $h=f\ast g$ to be $$h(t)=\int_{-\infty}^\infty f(\tau)g(t-\tau)\,d\tau=\int_{-\infty}^\infty f(t-\tau)g(\tau)\,d\tau$$
+\end{defn}
+
+\begin{prp}{}{} Let $f,g:\R\to\R$ be functions. Then $$\mathcal{F}(f(x)\ast g(x))=\mathcal{F}(f(x))\mathcal{F}(g(x))$$
+\end{prp}
+
+\begin{thm}{Parseval's Theorem}{} Let $f,g:\R\to\R$ be functions Let $F(k),G(k)$ denote their fourier transform respectively. Then $$\frac{1}{2\pi}\int_{-\infty}^\infty F(k)\overline{G(k)}\,dk=\int_{-\infty}^\infty f(t)\overline{g(t)}\,dt$$
+\end{thm}
+
+\begin{defn}{Mutidimensional Fourier Transform}{} Let $f:\R^2\to\R$. Then define the fourier transform of $f$ to be $$\tilde{f}(\vb{k})=\int_{\R^2}f(\vb{x})e^{-i\vb{k}\cdot\vb{x}}\,d^2\vb{x}$$ Define the inverse fourier transform to be $$f(\vb{x})=\frac{1}{(2\pi)^2}\int_{\R^2}\tilde{f}(\vb{k})e^{i\vb{k}\cdot\vb{x}}\,d^2\vb{k}$$
+\end{defn}
+
+
+\subsection{Laplace Transform}
+\begin{defn}{Laplace Transform}{} Let $f:[0,\infty)\to\C$ be an arbitrary function. Define the laplace transform of $f$ to be $$\mathcal{L}(f)(s)=\int_0^\infty f(t)e^{-st}\,dt$$
+\end{defn}
+
+\begin{prp}{}{} Let $f,g:[0,\infty)\to\C$ be functions. Then 
+\begin{itemize}
+\item Linearity: $\mathcal{L}(af(t)+bg(t))(s)=a\mathcal{L}(f)(s)+b\mathcal{L}(g)(s)$
+\item Shift Property (I): $\mathcal{L}(f(t-a))(s)=e^{-sa}\mathcal{L}(f)(s)$
+\item Shift Property (II): $\mathcal{L}(e^{at}f(t))(s)=\mathcal{L}(f)(s-a)$
+\item Scaling: $\mathcal{L}(f(at))(s)=\frac{1}{a}\mathcal{L}\left(f\right)\left(\frac{s}{a}\right)$ where $a>0$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $f,g:[0,\infty)\to\C$ be functions. Then 
+\begin{itemize}
+\item Differentiation (I): $\mathcal{L}(f'(t))=s\mathcal{L}(f)(s)-f(0)$
+\item Differentiation (II): $\mathcal{L}(f''(t))(s)=s^2\mathcal{L}(f)(s)-\left(sf(0)+f'(0)\right)$
+\item $\mathcal{L}(tf(t))(s)=-\mathcal{L}\left(f'(t)\right)(s)$
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Inverse Laplace Transform}{} Let $f:[0,\infty)\to\C$ be an arbitrary function. Denote $\mathcal{L}(f)=F(s)$ the laplace transform of $f$. Define the inverse laplace transform to be $$\mathcal{L}^{-1}(F(s))=\frac{1}{2\pi i}\int_{\alpha-i\infty}^{\alpha+i\infty}e^{st}F(s)\,ds$$ where $\alpha>\max\{Re(s_1),\dots,Re(s_n)\}$ and $s_1,\dots,s_n$ are singularities of $\mathcal{L}(f)$
+\end{defn}
+
+\begin{prp}{}{} Let $f:[0,\infty)\to\C$, then $$\mathcal{L}^{-1}(\mathcal{L}(f))=f$$
+\end{prp}
+
+\begin{prp}{}{} Let $f,g:[0,\infty)\to\C$ be functions. Then $$\mathcal{L}(f(t)\ast g(t))=\mathcal{L}(f(t))\mathcal{L}(g(t))$$
+\end{prp}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

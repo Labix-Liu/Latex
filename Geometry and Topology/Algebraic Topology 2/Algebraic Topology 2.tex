@@ -1,0 +1,1233 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Algebraic Topology 2}
+\rfoot{\thepage}
+
+\title{Algebraic Topology 2}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\begin{itemize}
+\item Notes on Algebraic Topology by Oscar Randal-Williams
+\end{itemize}
+\end{abstract}
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{Algebra of Chain Complexes}
+\subsection{Chain Complexes}
+\begin{defn}{Chain Complex}{} A chain complex $(C,\partial)$ is a family of abelian groups $C_n$ for $n\in\Z$ and maps $\partial_n:C_n\to C_{n-1}$ such that $\partial_n\circ\partial_{n+1}=0$ for all $n$. \\~\\
+In other words, we have the diagram: \\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\cdots\arrow[r] & C_{n+1}\arrow[r, "\partial_{n+1}"] & C_n\arrow[r, "\partial_n"] & C_{n-1}\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+for which we require that $$\im(\partial_{n+1})\subseteq\ker(\partial_n)$$ for each $n$. 
+\end{defn}
+
+\begin{defn}{Homology Group}{} Let $(C,\partial)$ be a chain complex. Define $Z_n(C)=\ker(\partial_n)$ and $B_n(C)=\im(\partial_{n+1})$. Define the $n$th homology group of $(C,\partial)$ to be $$H_n(C)=\frac{Z_n(C)}{B_n(C)}=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}$$
+Elements of $Z_n(C)=\ker(\partial_n)$ are called $n$-cycles and elements of $B_n(C)=\im(\partial_{n+1})$ are called $n$-boundaries. 
+\end{defn}
+
+\begin{defn}{Chain Map}{} Let $(C,\partial)$ and $(C',\partial')$ be two chain complexes. A chain map $f:C\to C'$ is a family of maps $$f_n:C_n\to C_n'$$ such that $\partial_n'\circ f_n=f_{n-1}\circ\partial_n$ for all $n$. \\~\\
+In other words, we have the following commutative diagram: \\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\cdots\arrow[r] & C_{n+1}\arrow[r, "\partial_{n+1}"]\arrow[d, "f_{n+1}"] & C_n\arrow[r, "\partial_n"]\arrow[d, "f_n"] & C_{n-1}\arrow[r]\arrow[d, "f_{n-1}"] & \cdots\\
+\cdots\arrow[r] & C_{n+1}'\arrow[r, "\partial_{n+1}'"] & C_n'\arrow[r, "\partial_n'"] & C_{n-1}'\arrow[r] & \cdots
+\end{tikzcd}}
+\end{defn}
+
+\begin{lmm}{}{} A chain map $f:C\to D$ induces group homomorphisms $$f_n:H_n(C)\to H_n(D)$$ between homology groups. \tcbline
+\begin{proof}
+It is clear that $f$ induces a map of $n$-cycles $f_n:Z_n(C)\to Z_n(D)$ by restriction. Composing with the projection map $Z_n(D)\to\frac{Z_n(D)}{B_n(D)}$ gives a map $$f_n:Z_n(C)\to\frac{Z_n(D)}{B_n(D)}$$ It remains to show that $B_n(C)\subseteq\ker(f_n)$. Let $x\in B_n(C)$. Then there exists some $z\in C_{n+1}$ such that $\partial_{n+1}(z)=x$. Then we have 
+\begin{align*}
+f_n(x)&=f_n(\partial_{n+1}(z))\\
+&=\partial_{n+1}'(f_{n+1}(z))
+\end{align*}
+But $f_{n+1}$ restricts to a map $B_{n+1}(C)$ to $B_{n+1}(D)$ which means that $f_{n+1}(z)=\partial_{n+2}'(a)$ for some $a\in D_{n+2}$. Then $$\partial_{n+1}'(f_{n+1}(z))=\partial_{n+1}'(\partial_{n+2}'(a))=0$$ Thus $x\in\ker(f_n)$. 
+\end{proof}
+\end{lmm}
+
+\subsection{Exact Sequences}
+Exact sequences occur naturally from sequences of chain complexes. In particular, exact sequences with $3$ consecutive non-zero terms is a compact way of saying that certain maps in the chain complex hold the property of being injective and surjective. 
+
+\begin{defn}{Exact Sequence}{} A chain complex $(C_\bullet,\partial_\bullet)$ is said to be exact if $\im(\partial_{n+1})=\ker(\partial_n)$ for all $n$. 
+\end{defn}
+
+Notice that the homology groups of an exact sequence is trivial. 
+
+\begin{defn}{Short Exact Sequence}{} Let $A,B,C$ be abelian groups. A short exact sequence is an exact sequence of the form \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\~\\
+where $f:A\to B$ and $g:B\to C$ are group homomorphisms. 
+\end{defn}
+
+\begin{prp}{}{} Let $A,B,C$ be abelian groups and $f:A\to B$ and $g:B\to C$ be group homomorphisms. A chain complex \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is short exact if and only if $f$ is injective and $g$ is surjective. \tcbline
+\begin{proof}
+Suppose that we have the above short exact sequence. Then by exactness at $A$, we have $\im(0)=\ker(f)$ and so $f$ is injective. By exactness at $C$, $\im(g)=\ker(0)$ and so $g$ is surjective. \\~\\
+
+Now suppose that $f$ is injective and $g$ is surjective. Then $\im(0\to A)\subseteq\ker(f)=0$ implies exactness at $A$. Moreover, $\im(g)\subseteq\ker(C\to 0)$ implies that $C\subseteq\ker(C\to 0)$ and so the chain complex is exact at $C$. 
+\end{proof}
+\end{prp}
+
+\begin{defn}{Split Exact Sequence}{} Let $A,B,C$ be abelian groups such that \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is a short exact sequence. We say that it is split exact if $B\cong A\oplus C$. 
+\end{defn}
+
+\begin{prp}{Split Exact Sequence}{} Let $A,B,C$ be abelian groups. Then the following are equivalent for a short exact sequence \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\
+\begin{itemize}
+\item The short exact sequence is split exact sequence
+\item There exists a homomorphism $p:B\to A$ such that $p\circ f$ is the identity
+\item There exists a homomorphism $s:C\to B$ such that $g\circ s$ is the identity
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $(1)\implies(2),(3)$: Suppose that $B\cong A\oplus C$. Then the projection map $p:A\oplus C\to A$ and the inclusion map $s:C\to A\oplus C$ is such that $p\circ f=\text{id}_A$ and $g\circ s=\text{id}_C$. 
+\item $(2)\implies(1)$: Suppose that $p:B\to A$ is a homomorphism such that $p\circ f=\text{id}_A$. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $A,B,C$ be groups such that \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is a short exact sequence. If $C$ is a free group then it is a split exact sequence. 
+\end{prp}
+
+\begin{lmm}{Five Lemma}{} Consider the commutative diagram \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+A\arrow[r, "i"]\arrow[d, "\alpha"] & B\arrow[r, "j"]\arrow[d, "\beta"] & C\arrow[r, "k"]\arrow[d, "\gamma"] & D\arrow[r, "l"]\arrow[d, "\delta"] & E\arrow[d, "\epsilon"]\\
+A'\arrow[r, "i'"] & B'\arrow[r, "j'"] & C'\arrow[r, "k'"] & D'\arrow[r, "l'"] & E'
+\end{tikzcd}}\\~\\
+where all the objects are abelian groups. If the two rows are exact and $\alpha,\beta,\delta,\epsilon$ are isomorphisms then $\gamma$ is an isomorphism. 
+\end{lmm}
+
+\begin{lmm}{Snake Lemma}{} Consider the commutative diagram \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+ & A\arrow[r, "f"]\arrow[d, "a"] & B\arrow[r, "g"]\arrow[d, "b"] & C\arrow[r]\arrow[d, "c"] & 0\\
+0\arrow[r] & A\arrow[r, "f'"] & B\arrow[r, "g'"] & C & 
+\end{tikzcd}}\\~\\
+where all the objects are abelian groups. If the two rows are exact, then there is an exact sequence relating the kernels and cokernels of $a,b,c$ \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\ker(a)\arrow[r] & \ker(b)\arrow[r] & \ker(c)\arrow[r, "d"] & \coker(a)\arrow[r] & \coker(b)\arrow[r] & \coker(c)
+\end{tikzcd}}\\~\\
+where $d$ is called the connecting homomorphism. 
+\end{lmm}
+
+\subsection{Chain Homotopy}
+\begin{defn}{Chain Homotopy}{} Let $a,b:C\to C'$ be two chain maps. Then a chain homotopy from $a$ to $b$ is a collection of morphisms $$\eta_n:C_n\to C_{n+1}'$$ such that $$b_n-a_n=\partial_{n+1}'\eta_n+\eta_{n-1}\partial_n$$ for all $n\in\Z$. In this case, $a$ and $b$ are said to be chain homotopic. \\~\\
+In other words, we have the diagram: \\~\\
+\adjustbox{scale=1.15,center}{\begin{tikzcd}
+	\cdots && {C_{n+1}} && {C_n} && {C_{n-1}} && \cdots \\
+	\\
+	\cdots && {C_{n+1}'} && {C_n'} && {C_{n-1}'} && \cdots
+	\arrow[from=1-1, to=1-3]
+	\arrow["{\partial_{n+1}}", from=1-3, to=1-5]
+	\arrow["{\partial_n}", from=1-5, to=1-7]
+	\arrow[from=3-1, to=3-3]
+	\arrow["{\partial_{n+1}'}", from=3-3, to=3-5]
+	\arrow["{\partial_n'}", from=3-5, to=3-7]
+	\arrow["{\eta_{n+1}}"{description}, from=1-3, to=3-1]
+	\arrow["{\eta_n}"{description}, from=1-5, to=3-3]
+	\arrow["{\eta_{n-1}}"{description}, from=1-7, to=3-5]
+	\arrow["{b_{n+1}-a_{n+1}}"{description}, from=1-3, to=3-3]
+	\arrow["{b_n-a_n}"{description}, from=1-5, to=3-5]
+	\arrow["{b_{n-1}-a_{n-1}}"{description}, from=1-7, to=3-7]
+	\arrow[from=1-7, to=1-9]
+	\arrow[from=3-7, to=3-9]
+\end{tikzcd}}
+\end{defn}
+
+\begin{lmm}{}{} Let $a,b$ be chain homotopic. Then their induced maps in homology are equal. Meaning $$a_n=b_n:H_n(X)\to H_n(Y)$$ \tcbline
+\begin{proof}
+Let $c\in\ker(\partial_n)$ be an $n$-cycle. Using the equation for chain homotopy, we have that $$b(c)-a(c)=\partial_{n+1}'(\eta_n(c))+\eta_{n-1}(\partial(c))=\partial_{n+1}'(\eta(c))$$ is a boundary in $\im(\partial_{n+1}')\subseteq C_n'$. Thus $b_n(c)$ and $a_n(c)$ are of the same coset in $H_n(X)$. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Chain homotopy defines an equivalence relation on all chain maps between two chain complexes $(C_\bullet, \partial)$ and $(C_\bullet',\partial)$. 
+\end{prp}
+
+\begin{defn}{Chain Homotopy Equivalence}{} A chain map $a:C\to C'$ is called a chain homotopy equivalence if there exists a chain map $b:C\to C'$ such that the composition $b\circ a$ is chain homotopic to the identity map of $C$ and $a\circ b$ is chain homotopic to the identity map of $C'$. 
+\end{defn}
+
+\begin{lmm}{}{} Chain homotopic equivalent maps induces an isomorphism $a_\bullet:H_n(C_\bullet)\to H_n(C_\bullet')$ in all degrees $n$. 
+\end{lmm}
+
+\subsection{Sequences of Chain Complexes}
+\begin{defn}{Short Exact Sequence of Chain Complexes}{} Let $A_\bullet,B_\bullet,C_\bullet$ be chain complexes. Let $i:A_\bullet\to B_\bullet$ and $j:B_\bullet\to C_\bullet$ be chain maps. A short exact sequence of chain complexes is a diagram of the form \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+& 0\arrow[d] & 0\arrow[d] & 0\arrow[d] &\\
+\cdots\arrow[r] & A_{n+1}\arrow[r, "d_A"]\arrow[d, "i"] & A_n\arrow[r, "d_A"]\arrow[d, "i"] & A_{n-1}\arrow[r]\arrow[d, "i"] & \cdots\\
+\cdots\arrow[r] & B_{n+1}\arrow[r, "d_B"]\arrow[d, "j"] & B_n\arrow[r, "d_B"]\arrow[d, "j"] & B_{n-1}\arrow[r]\arrow[d, "j"] & \cdots\\
+\cdots\arrow[r] & C_{n+1}\arrow[r, "d_C"]\arrow[d] & C_n\arrow[r, "d_C"]\arrow[d] & C_{n-1}\arrow[r]\arrow[d] & \cdots\\
+& 0 & 0 & 0 &
+\end{tikzcd}}\\~\\
+such that for each $n$ (vertically in the diagram), the sequence \\~\\
+\adjustbox{scale=1.0, center}{\begin{tikzcd}
+0\arrow[r] & A_n\arrow[r, "i"] & B_n\arrow[r, "j"] & C_n\arrow[r] & 0
+\end{tikzcd}}\\~\\ is a short exact sequence. We write this as \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & A_\bullet\arrow[r, "i"] & B_\bullet\arrow[r, "j"] & C_\bullet\arrow[r] & 0
+\end{tikzcd}}
+\end{defn}
+
+\begin{thm}{}{} Let $A_\bullet,B_\bullet,C_\bullet$ be a chain complexes such that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & A_\bullet\arrow[r, "i"] & B_\bullet\arrow[r, "j"] & C_\bullet\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is a short exact sequence of chain complexes. Then there exists a connecting homomorphism $\partial:H_n(C)\to H_{n-1}(A)$ such that the following sequence of homology groups \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\cdots\arrow[r] & H_{n+1}(C)\arrow[r, "\partial"] & H_n(A)\arrow[r, "i_\ast"] & H_n(B)\arrow[r, "j_\ast"] & H_n(C)\arrow[r, "\partial"] & H_{n-1}(A)\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+is exact. 
+\end{thm}
+
+\pagebreak
+\section{Simplicial Homology}
+\subsection{Simplexes}
+\begin{defn}{Affinely Independent}{}{} We say that a set of points $\{v_0,\dots,v_n\}\subset\R^n$ is affinely independent if $v_1-v_0,\dots,v_n-v_0$ are linearly independent. 
+\end{defn}
+
+\begin{defn}{$n$-Simplex}{} Let $v_0,\dots,v_n$ be affinely independent. An $n$-simplex is the set of points $$\Delta^n=\left\{\sum_{k=0}^nt_kv_k\bigg{|}\sum_{k=0}^nt_k=1\text{ and }t_k\geq 0\text{ for all }k=0,\dots,n\right\}$$ We write $\Delta^n=[v_0,\dots,v_n]$ to indicate the spanning vectors. The standard $n$-simplex is just the $n$-simplex whose vertices are the standard vectors. 
+\end{defn}
+
+Note that the vertices here are an ordered set so that we can paths can be defined conveniently. Realistically, the order of the vertices does not change the homology groups which we will define later. 
+
+\begin{defn}{Properties of $n$-Simplexes}{} Let $\Delta^n=[v_0,\dots,v_n]$ be an $n$-simplex. 
+\begin{itemize}
+\item The $k$th face of $\Delta^n$ is a the $n-1$ simplex $\partial_k\Delta^n=\Delta^n\cap\{x_k=0\}$. We use $[v_0,\dots,\hat{v}_k,\cdots,v_n]$ to indicate the $k$th $n-1$dimensional face
+\item The boundary of $\Delta$, written $\partial\Delta^n$ is the union of all its proper faces
+\item The interior is defined to be $(\Delta^n)^\circ=\Delta^n\setminus\partial\Delta^n$
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Any two $k$-simplexes where one in $\R^m$ and one in $\R^n$ are homeomorphic. 
+\end{lmm}
+
+\begin{defn}{$\Delta$-Set}{} A $\Delta$-set is a collection of sets $S_n$ (usually $n$-simplexes) together with maps $d_i^n:S_n\to S_{n-1}$ for $0\leq i\leq n$ such that $$d_i^{n-1}\circ d_j^n=d_{j-1}^{n-1}\circ d_i^n$$ called the face relation whenever $i<j$. 
+\end{defn}
+
+In particular, $d_i$ sends an $n$-simplex to its $i$th face, which is an $n-1$ simplex. This means that for $s=[v_1,\dots,v_n]\in S_n$, $d_i(s)=[v_1,\dots,\hat{v}_i,\cdots,v_n]$. 
+
+\begin{defn}{Delta Complexes}{} Let $S=(S_\bullet,d_\bullet)$ be a $\Delta$-set. A delta complex (also called the geometric realization of $S$) is a topological space $X$ that is built up inductively as follows: 
+\begin{itemize}
+\item The $0$-skeleton $X^0$ is a discrete set with points in $S_0$
+\item Given the $n-1$ skeleton $X^{n-1}$ and $S_{n-1}$. Now define $$X^n=\left(X^{n-1}\cup\bigsqcup_{\alpha\in I_n}\Delta_\alpha^n\right)/\sim$$ where $\sim$ is the equivalence relation $\Delta_\beta^{n-1}\sim\partial_k\Delta_\alpha^n$ given from the face maps $d_\bullet$. (Intuitively, each face of the $n$-simplex in $S_n$ gets identified with a $n-1$ simplex in $X^{n-1}$)
+\item Define $X=\bigcup_nX^n$. The minimal $n$ for which $X=X^n$ is called the dimension of $n$
+\end{itemize}
+We also write $X$ as $\abs{S}$ to indicate the $\Delta$-set. 
+\end{defn}
+
+$\Delta$-complexes act much nicer than CW complex (chapter $6$) because they are combinatorial. Indeed the attaching maps $d_j^n$ given by the $\Delta$-set are combinatorial in nature: we just need to define which element in $S_{n-1}$ each face of the simplex gets mapped to. In other words, $d_k^n:S_n\to S_{n-1}$ maps each $\Delta\in S_n$ to its $k$th face in $S_{n-1}$. 
+
+\begin{defn}{$\Delta$-complex Structure}{} Let $X$ be a topological space. A $\Delta$-complex structure on $X$ is a $\Delta$-set $S$ together with a homeomorphism $\abs{S}\cong X$. 
+\end{defn}
+
+\subsection{Simplicial Homology}
+The main goal is now to associate to every $\Delta$-set an abelian group. This abelian group will serve as an invariant of the $\Delta$-set. This is a two step process. To every $\Delta$-set $S$, $$S\mapsto(\Delta_\bullet(S),\partial_\bullet)\mapsto H_\bullet(S)$$ Both of this are functorial. It means that this construction respects associativity an identity given maps of $\Delta$-sets. 
+
+\begin{defn}{Simplicial $n$-Chains}{} Let $S$ be a $\Delta$-set. Define the group of simplicial $n$-chains on $S$ to be $$\Delta_n(S)=\left\{\sum_km_k\Delta_k\bigg{|}m_i\in\Z\text{ and }\Delta_k\in S_n\right\}=\text{The free group on }S_n$$
+\end{defn}
+
+\begin{defn}{Boundary Operator}{} Let $S$ be a $\Delta$-set. Define the boundary operator $\partial_n:\Delta_n(S)\to\Delta_{n-1}(S)$ by $$\partial_n(s)=\sum_{k=0}^n(-1)^kd_i^n(s)$$
+Elements of $Z_n=\ker(\partial_n)$ are called cycles and $B_n=\im(\partial_{n+1})$ are called boundaries. 
+\end{defn}
+
+\begin{prp}{}{} For any $n$, $\partial_n\circ\partial_{n+1}=0$ for all $n\in\N$ where $\partial_n$ is the boundary operator above. \tcbline
+\begin{proof}
+Let $s\in C_{n+1}^\Delta(X)$. Then we have that $$(\partial_n\circ\partial_{n+1})(s)=\partial_n\left(\sum_{j=0}^{n+1}(-1)^jd_j^{n+1}(s)\right)=\sum_{i=0}^n\sum_{j=0}^{n+1}(-1)^{i+j}d_i^n(d_j^{n+1}(s))$$ Fix a pair $0\leq i<j\leq n+1$. By definition 2.1.5, $A=(-1)^{i+j}d_i^n(d_j^{n+1}(s))$ and $B=(-1)^{i+j}d_{j-1}^n(d_i^{n+1}(s))$ cancel out. Moreover every summand is of the form $A$ or $B$ and not both so that the sum vanishes. In other words, we have that 
+\begin{align*}
+\sum_{i=0}^n\sum_{j=0}^{n+1}(-1)^{i+j}d_i^n(d_j^{n+1}(s))&=\sum_{0\leq i<j\leq n+1}(-1)^{i+j}d_i^n(d_j^{n+1}(s))+\sum_{0\leq j<i\leq n}(-1)^{i+j}d_i^n(d_j^{n+1}(s))\\
+&=\sum_{0\leq i<j\leq n+1}(-1)^{i+j}d_{j-1}^n(d_i^{n+1}(s))+\sum_{0\leq j<i\leq n}(-1)^{i+j}d_i^n(d_j^{n+1}(s))\\
+&=\sum_{0\leq i\leq j\leq n}(-1)^{i+j-1}d_j^n(d_i^{n+1}(s))+\sum_{0\leq j\leq i\leq n}(-1)^{i+j}d_i^n(d_j^{n+1}(s))\\
+&=0
+\end{align*}
+\end{proof}
+\end{prp}
+
+\begin{crl}{}{} The family of abelian groups $\Delta_n(S)$ of a $\Delta$-set $S$ and the boundary operator $\partial$ forms a chain complex $$(\Delta_\bullet(S),\partial_\bullet)$$
+\end{crl}
+
+\begin{defn}{The Simplicial Homology Groups}{} Let $S$ be a $\Delta$-set and $(\Delta_\bullet(S),\partial_\bullet)$ the chain complex of $S$. 
+\begin{itemize}
+\item Define the group of $n$-cycles to be $Z_n(S)=\ker(\partial_n)$
+\item Define the group of $n$-boundaries to be $B_n(S)=\im(\partial_{n+1})$
+\item Define the $n$th simplicial homology group to be the quotient $$H_n(S)=\frac{Z_n(S)}{B_n(S)}=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}=H_n(\Delta_\bullet(S))$$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Simplicial Homology Groups of a Geometric Realization}{} Let $X$ be a topological space with a $\Delta$-complex structure $\abs{S}\cong X$, define its $n$th simplicial homology group to be $$H_n^\Delta(X)=H_n(S)$$
+\end{defn}
+
+By definition, $H_n^\Delta(X)$ would be nonzero exactly when the cycles in $X$, quotiented out with boundary of the faces is exactly the $n$ dimensional holes. This is because cycles in $X$ does not necessarily capture holes as there may be some faces within the cycles. Therefore we have to quotient out the cycles that encapture faces. 
+
+\subsection{Barycentric Subdivision}
+Barycentric subdivisions is the main ingredient for proving one of the major results of singular homology. It is defined first through $\Delta$-set, and then passed on to singuar $n$-simplexes, which we will see in the next chapter. 
+
+\begin{defn}{Barycenter}{} Let $\Delta^n=[v_0,\dots,v_n]$ be a standard $n$-simplex. The barycenter of $\Delta^n$ is the point $$b=\frac{1}{n+1}\sum_{i=0}^nv_i$$
+\end{defn}
+
+In fact, we can find the barycenter inductively. Knowing the barycenter $b_i$ on the $i$th face $[v_0,\dots,\hat{v}_i,\dots,v_n]$, let $l_i$ be the line connecting $b_i$ and $v_i$. Then $b$ is the intersection of all these lines $l_i$. 
+
+\begin{defn}{Barycetric Subdivision}{} Let $[w_1,\dots,w_n]\subseteq\Delta^n$ be a linear $(n-1)$-simplex of the standard $n$-simplex. Define its barycentric cone $$\mB[w_1,\dots,w_n]=[b,w_1,\dots,w_n]\subseteq\Delta^n$$ where $b$ is the barycenter of $\Delta^n$. This definition is extended linearly to linear combinations of $(n-1)$-simplices. \\~\\
+Define the inductively the barycentric subdivision $S(\Delta^n)\in C_n(\Delta^n)$ of $\Delta^n$ to be
+\begin{itemize}
+\item When $n=0$, $S(\Delta^0)=\Delta^0$
+\item When $n>0$, define $$S(\Delta^n)=\mB S(\partial\Delta^n)=\sum_{i=0}^n(-1)^i\mB S(\partial_i\Delta^n)$$
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $\sigma=[w_1,\dots,w_n]\subseteq\Delta^n$ be a linear $(n-1)$-simplex. Then we have $$\partial(\mB(\sigma))+\mB(\partial\sigma)=\sigma$$ Moreover, we have $\partial S(\Delta^n)=S(\partial\Delta^n)$. \tcbline
+\begin{proof}
+We have that 
+\begin{align*}
+\partial\mB[w_1,\dots,w_n]&=\partial[b,w_1,\dots,w_n]\\
+&=\sum_{i=0}^n(-1)^i\partial_i[b,w_1,\dots,w_n]\\
+&=[w_1,\dots,w_n]-\mB(\partial[w_1,\dots,w_n])
+\end{align*}
+And thus the first identity is satisfied. \\~\\
+We prove the second item inductively. When $n=0$, we have $0$ on both sides. When $n>0$, we have
+\begin{align*}
+\partial S\Delta^n&=\partial\mB(S(\partial\Delta^n))\\
+&=\text{id}(S\partial\Delta^n)-\mB(\partial(S\partial\Delta^n))\tag{First Identity}\\
+&=S\partial\Delta^n-\mB(S\partial^2\Delta^n)\tag{Induction}\\
+&=S\partial\Delta^n
+\end{align*}
+\end{proof}
+\end{lmm}
+
+\pagebreak
+\section{Introduction to Singular Homology}
+\subsection{Singular n-Simplexes and Singular Homology}
+There are a few problems with simplicial homology. In particular, not every space has a $Delta$-complex structure. We would want to extend this definition to any space, with or without $\Delta$-complex structures. Moreover, we have not yet shown that simplicial homology is independent of the choice of $\Delta$-complex structures. Maps between $\Delta$-complex structures may not necessarily define a map between its homology groups (though this is true). \\~\\
+We therefore want a better version of homology that does all of this, and in particular, to allow any space to have a well defined homology groups. 
+
+\begin{defn}{Singular $n$-Simplexes}{} A singular $n$-simplex in a topological space $X$ is a continuous map $\sigma:\Delta^n\to X$ where $\Delta^n$ is an $n$-simplex. 
+\end{defn}
+
+We say that these are singular because we allow potentially deformations of the faces. 
+
+\begin{defn}{Singular $n$-Chains}{} Let $X$ be a topological space. Define the group of singular $n$-chains on $X$ to be $$C_n(X)=\left\{\sum_{\substack{\text{Singular} \\ n \text{ simplexes } \sigma}}m_\sigma\sigma\bigg{|}m_\sigma\in\Z\right\}=\text{The free abelian group on all singular $n$ simplices}$$
+\end{defn}
+
+\begin{defn}{Boundary Operator}{} Let $X$ be a topological space. Define the boundary operator $\partial_n:C_n(X)\to C_{n-1}(X)$ to be the homeomorphism given by $$\partial_n(\sigma)=\sum_{k=0}^n(-1)^k\sigma|_{\partial_i\Delta^n}$$
+\end{defn}
+
+\begin{prp}{}{} The family of abelian groups $C_n(X)$ of a simplicial complex and the boundary operator $\partial$ forms a chain complex. 
+\end{prp}
+
+Being a chain complex means that the group of $n$-cycles and $n$-boundaries are automatically defined. 
+
+\begin{defn}{$k$-th Singular Homology Group}{} Let $X$ be a topological space. The $k$-th singular homology group of a singular chain complex $(C_\bullet(X),\partial_\bullet)$ is defined to be $$H_k(X)=H_k(C_\bullet(X))$$
+\end{defn}
+
+\begin{prp}{}{} Let $f:X\to Y$ be a continuous map. Then $f$ induces a chain map $f_\ast:H_n(X)\to H_n(Y)$ for each $n$ satisfying
+\begin{itemize}
+\item $\text{id}_\ast=\text{id}$
+\item $(f\circ g)_\ast=f_\ast\circ g_\ast$
+\end{itemize} \tcbline
+\begin{proof}
+Let $\sigma:\Delta^n\to X$ be a singular $n$-simplex in $X$. Then $f\circ\sigma:\Delta^n\to Y$ is a singular $n$-simplex in $Y$ by continuity of $f$. We can linearly extend this to a group homomorphism $f_n:C_n(X)\to C_n(Y)$. The collection of these group homomorphisms lead to a chain map $f_\ast:C_\bullet(X)\to C_\bullet(Y)$: Indeed we have that 
+\begin{align*}
+f_{n-1}\circ\partial_n(\sigma)&=f_{n-1}\left(\sum_{k=0}^n(-1)^k\sigma|_{\partial_i\Delta^n}\right)\\
+&=\sum_{k=0}^n(-1)^kf_{n-1}\left(\sigma|_{\partial_i\Delta^n}\right)\\
+&=\sum_{k=0}^n(-1)^k\left(\sigma|_{\partial_i(f_n(\Delta^n))}\right)\\
+&=\partial_n(f_n(\sigma))
+\end{align*}
+which shows that $f$ is a chain map. By lemma 1.1.4, this yields a group homomorphism $f_n:H_n(X)\to H_n(Y)$ on each degree. \\~\\
+
+It is clear that the chain map $\text{id}_\ast:C_\bullet(X)\to C_\bullet(Y)$ is the identity and so it also descends to the identity map on homology groups. The second property also follows immediately from the construction above. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $X$ be a topological space and that $\{X_\alpha|\alpha\in I\}$ is the path components of $X$. Then $$H_n(X)=\bigoplus_{\alpha\in I} H_n(X_\alpha)$$ \tcbline
+\begin{proof}
+Let $\sigma:\Delta^n\to X$ be a singular $n$-simplex. Then its image is path-connected and therefore lies entirely in one of the $X_\alpha$. This means that $$C_n(X)=\bigoplus_{\alpha\in I}C_n(X_\alpha)$$ Moreover, the boundary of $\sigma$ is a linear combination of $(n-1)$ simplices which all lie in $X_\alpha$. This means that the chain complex splits into $$C_\bullet(X)=\bigoplus_{\alpha\in I}C_\bullet(X_\alpha)$$ This decomposition therefore passes down to cycles, boundaries and homology. 
+\end{proof}
+\end{prp}
+
+\subsection{Relation to the Low Degree Homotopy Groups}
+We follow up with a geometric interpretation of $H_0$ and $H_1$. 
+
+\begin{defn}{Homologous Elements}{} Let $X$ be a topological space. Let $x,y\in C_n(X)$. We say that $x$ and $y$ are homologous if there exists $z\in C_{n+1}(X)$ such that $\partial_{n+1}(z)=x-y$. 
+\end{defn}
+
+We observe that if $\gamma:[0,1]=\Delta^1\to X$ is a singular $1$-simplex with $\gamma(0)=x$ and $\gamma(1)=y$ with $x,y\in C_0(X)$, then $$\partial_1(\gamma)=\gamma|_{\partial_0\Delta^1}-\gamma|_{\partial_1\Delta^1}=\gamma(1)-\gamma(0)=y-x$$ which means that $x$ and $y$ are homologous. In fact, we have the following: 
+
+\begin{lmm}{}{} Let $X$ be a path connected space. Then the $0$th homology is the integers $$H_0(X)\cong\Z$$ \tcbline
+\begin{proof}
+Define a map $\text{deg}:C_0(X)\to\Z$ by $\text{deg}(x)=1$. We can extend this definition of basis into a group homomorphism. Firstly $\deg$ is surjective since $X$ is non-empty, we have $\exists x\in X$ such that $\deg(x)=1$. \\~\\
+Now we show $B_0(X)\subseteq\ker(\deg)$. Let $\gamma:\Delta^1\to X$. Then 
+\begin{align*}
+\deg(\partial_1\gamma)&=\deg(\gamma(1)-\gamma(0))\\
+&=\deg(\gamma(1))-\deg(\gamma(0))\\
+&=1-1\\
+&=0
+\end{align*}
+Thus we are done. Now we show that $\ker(\deg)\subseteq B_0(X)$. Suppose that $L=\sum_{x\in X}\lambda_x\cdot x\in\ker(\deg)$ for $\lambda_x\in\Z$ and finitely many non-zero. Then we have the following: 
+\begin{align*}
+L&=\sum_{\substack{x\in X\\\lambda_x\geq 0}}\lambda_x\cdot x-\sum_{\substack{y\in X\\\lambda_y<0}}(-\lambda_y)\cdot y\\
+0=\deg(L)&=\deg\left(\sum_{\substack{x\in X\\\lambda_x\geq 0}}\lambda_x\cdot x-\sum_{\substack{y\in X\\\lambda_y<0}}(-\lambda_y)\cdot y\right)\\
+&=\sum_{\substack{x\in X\\\lambda_x\geq 0}}\lambda_x-\sum_{\substack{y\in X\\\lambda_y<0}}(-\lambda_y)
+\end{align*}
+This means that we can pair up the positives and the negatives so that $$L=\sum(x_i-y_i)$$ for $x_i\in X$ with positive coefficient and $y_i\in X$ for negative coefficients. \\~\\
+Since $X$ is path connected, for any $x_i,y_i$, there exists $\gamma_i:[0,1]=\Delta^1\to X$ such that $\gamma_i(0)=x_i$, $\gamma_i(1)=y_i$. Then 
+\begin{align*}
+L&=\sum(x_i-y_i)\\
+&=\sum\partial_1\gamma_i\\
+&=\partial_1\left(\sum_i\gamma_i\right)
+\end{align*}
+Thus $L\in B_0(X)$. Combining the fact that $\deg$ is surjective and $B_0(X)=\ker(\deg)$, we obtain $$H_0(X)\cong\Z$$ and thus we are done. 
+\end{proof}
+\end{lmm}
+
+\begin{crl}{}{} Let $X$ be a space. Then $$H_0(X)\cong\Z\pi_0(X)$$ \tcbline
+\begin{proof}
+For any space $X$, $\pi_0(X)$ is the path components of $X$. We know from proposition 3.2.2 that the zero homology of each path connected components is $\Z$. Proposition 3.1.7 shows that we can split the homology of $X$ into direct sum of homology of path connected components. This leaves us with the claim. 
+\end{proof}
+\end{crl}
+
+The remainder of this section is dedicated to the first homology group $H_1(X)$ and its relation to the fundamental group $\pi(X,x)$. We begin with two lemmas on homologous elements that help with the main proof later. 
+
+\begin{lmm}{}{} Let $\gamma_1,\gamma_2$ be two paths in a space $X$ that are homotopic relative to their end points. Then $\gamma_1$ and $\gamma_2$ are homologous elements of $C_1(X)$. \tcbline
+\begin{proof}
+Suppose that $H:I\times I\to X$ is the homotopy between $\gamma_1$ and $\gamma_2$ relative to end points $x$ and $y$. Let $c_x$ be the constant loop at $x$ and vice versa for $c_y$. Define $\gamma(t)=H(t,t)$. Then $\gamma_1\cdot c_y\cdot \overline{\gamma}=0$ which means that it is the boundary of some $2$-chain, say $\sigma_1$. Similarly, $c_x\cdot\gamma_2\cdot\overline{\gamma}=0$ and so it is the boundary of a $2$-chain, say $\sigma_2$. We then have that 
+\begin{align*}
+\partial_2(\sigma_2-\sigma_1)&=\gamma_2-\gamma+c_x-c_y+\gamma-\gamma_1\\
+&=(\gamma_2-\gamma_1)+(c_x-c_y)
+\end{align*}
+Our goal is to show that $c_x-c_y\in B_1(X)$ so that $\gamma_1$ and $\gamma_2$ are homologous via the $2$-chain $\sigma_2-\sigma_1$. \\~\\
+
+Let $\sigma:\Delta^2\to X$ be the constant map with value $x$. Then $$\partial_2(\sigma)=c_x-c_x+c_x=c_x$$ shows that $c_x\in B_1(X)$. This is the same for $c_y$ and so every constant path on $X$ lie in $B_1(X)$. 
+\end{proof}
+\end{lmm}
+
+\begin{lmm}{}{} Let $\gamma_1,\gamma_2$ be two paths in $X$ with $\gamma_1(1)=\gamma_2(0)$. Then $\gamma_1\cdot\gamma_2$ is homologous to $\gamma_1+\gamma_2$. Moreover, $\overline{\gamma}$ is homologous to $-\gamma$. \tcbline
+\begin{proof}
+It is clear that $\gamma_1,\gamma_2,\gamma_1\cdot\gamma_2$ form the boundary of a $2$-simplex, say $\sigma=[v_0,v_1,v_2]$ since $\gamma_1\cdot\gamma_2\cdot\overline{\gamma_1\cdot\gamma_2}=0$. Now project $v_1$ orthogonally down to the face $[v_0,v_2]$ to get a new two simplex $$\sigma:[v_0,v_1,v_2]\to[v_0,v_2]\to X$$ Then we have $\partial_2(\sigma)=\gamma_1+\gamma_2-\gamma_1\cdot\gamma_2$ which shows that $\gamma_1+\gamma_2$ and $\gamma_1\cdot\gamma_2$ are homologous. \\~\\
+
+Now we have that $\gamma+\overline{\gamma}$ is homologous to $\gamma\cdot\overline{\gamma}$, and this is homologous to the trivial loop. This means that $\overline{\gamma}$ is homologous to $-\gamma$. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $X$ be a topological space. The map $$h_1:\pi_1(X,x)\to H_1(X)$$ defined by $h_1([\gamma])=[\gamma]$ for $[\gamma]\in\pi_1(X,x)$ is a group homomorphism. \tcbline
+\begin{proof}
+We have shown from the previous lemma that every constant path on $X$ lie in $B_1(X)$. Then $h_1([c_x])=(0+B_1(X))\in H_1(X)$ implies that $h_1$ maps units to units. Now let $\gamma_1,\gamma_2$ be two loops based at $x$ and $\gamma_1\cdot\gamma_2$ be their concatenation. Our goal is to show that $h_1([\gamma_1]\cdot[\gamma_2])=h_1([\gamma_1)+h_1([\gamma_2)$. This amounts to showing that $\gamma_1\cdot\gamma_2$ is homologous to $\gamma_1+\gamma_2$. Then by the above lemma, we are done. 
+\end{proof}
+\end{prp}
+
+\begin{thm}{}{} Let $X$ be a non-empty path connected topological space. Then there is an isomorphism $$\pi_1(X,x)^\text{ab}\cong H_1(X)$$ \tcbline
+\begin{proof}
+Since $X$ is path connected, for every $y\in X$, we can once and for all, choose a path $\eta_y$ from $x$ to $y$. Given any path $\gamma:\Delta^1\to X$, we associate a loop based at $x$, as the following concatenation: $$g(\gamma)=\eta_{\gamma(0)}\cdot\gamma\cdot\eta_{\gamma(1)}^{-1}$$ We can extend this map linearly to obtain a homomorphism $$g:Z_1(X)\subseteq C_1(X)\to\pi_1(X,x)^\text{ab}$$ Now we want $g(b)=0$ for any boundary $b\in B_1(X)$. Now notice that for a singular $2$-simplex with boundary $\gamma_1:I\to[v_0,v_1],\gamma_2:I\to[v_1,v_2],\gamma_3:I\to[v_0,v_2]$, we have that $\gamma_1\cdot\gamma_2$ is homotopic relative to their end points. It follows that for $\partial_2(\sigma)\in B_1(X)$, we have 
+\begin{align*}
+g(\partial_2(\sigma))&=g(\gamma_1+\gamma_2-\gamma_3)\\
+&=g(\gamma_1)+g(\gamma_2)-g(\gamma_3)\\
+&=[\eta_{v_0}\cdot\gamma_1\cdot\eta_{v_1}^{-1}]+[\eta_{v_1}\cdot\gamma_2\cdot\eta_{v_2}^{-1}]+[\eta_{v_2}\cdot\overline{\gamma_3}\cdot\eta_{v_0}^{-1}]\\
+&=[\eta_{v_0}\cdot\gamma_1\cdot\gamma_2\cdot\overline{\gamma_3}\cdot\eta_{v_0}^{-1}]\\
+&=[\eta_{v_0}\eta_{v_0}^{-1}]\\
+&=0
+\end{align*}
+This means that $\overline{g}:H_1(X)\to\pi_1(X,x)^\text{ab}$ is well defined. \\~\\
+
+It remains to show that the two composites are the identity. Let $[gamma]\in\pi_1(X,x)^\text{ab}$. Then we have 
+\begin{align*}
+\overline{g}(\overline{h}_1([\gamma]))&=\overline{[\gamma]}\\
+&=[\eta_x\cdot\gamma\cdot\eta_x^{-1}]\\
+&=[\eta_x]+[\gamma]+[\eta_x^{-1}]\\
+&=[\gamma]
+\end{align*}
+Thus $\overline{g}\circ\overline{h}_1=\text{id}$. Now let $L=\sum\lambda_\gamma\gamma\in Z_1(X)$ by a $1$-cycle where $\lambda_\gamma\in\Z$. By replacing $-\gamma$ by $\overline{\gamma}$ if necessary (Lemma 3.2.5), we may assume that $\lambda_\gamma\in\N\setminus\{0\}$. Relabelling gives $$L=\sum_{i=1}^n\gamma_i$$ where $\gamma_i$ can possibly repeat. If $\gamma_1$ is not a loop, then there must exist $i>1$ such that $\gamma_1(1)=\gamma_i(0)$. Replacing $\gamma_1+\gamma_i$ by the concatenation $\gamma_1\cdot\gamma_i$ (By lemma 3.2.5) and doing induction reduces the claim for $L=\gamma$ a single loop, say based at $y$. In this case we have that 
+\begin{align*}
+\overline{h_1}(\overline{g}([\gamma]))&=[\eta_y\cdot\gamma\cdot\eta_y^{-1}]\\
+&=[\eta_y]+[\gamma]-[\eta_y]\\
+&=[\gamma]
+\end{align*}
+and this completes the proof. 
+\end{proof}
+\end{thm}
+
+This gives a rather nice interpretation of the first homology group: It is the abelianization of the fundamental group. Intuitively, since $H_1(X)$ is abelian, it makes detecting differences in this invariant easier, when compared to the non-abelian $\pi_1(X,x)$, which also depends on base point. \\~\\
+
+We have an immediate application based on calculations of the fundamental group. 
+
+\begin{crl}{}{} If $X$ is simply connected then $H_1(X)=0$. \tcbline
+\begin{proof}
+In this case the fundamental group is trivial and by the above theorem, we have that $H_1(X)=0$. 
+\end{proof}
+\end{crl}
+
+\subsection{Reduced Homology}
+Using corollary 3.2.3, we see that path-connected spaces will have non-trivial $0$th homology group. This motivates the minor modification into reduced homology since the intuition should show that homology groups of single points should be equal to $0$. \\~\\
+We shall see in later chapters that this also simplifies the statements of homology in many cases. 
+
+\begin{defn}{Reduced Homology}{} Let $X$ be a topological space and let \\~\\ \adjustbox{scale=1.0,center}{\begin{tikzcd}
+\cdots\arrow[r, "\partial_{n+1}"] & C_n\arrow[r, "\partial_n"] & \cdots\arrow[r, "\partial_2"] & C_1\arrow[r, "\partial_1"] & C_0\arrow[r, "\partial_0"] & 0
+\end{tikzcd}}\\~\\
+be its group of $n$-chains. Define the reduced homology to be the homology of the augmented chain complex \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\cdots\arrow[r, "\partial_{n+1}"] & C_n\arrow[r, "\partial_n"] & \cdots\arrow[r, "\partial_2"] & C_1\arrow[r, "\partial_1"] & C_0\arrow[r, "\varepsilon"] & \Z\arrow[r] & 0
+\end{tikzcd}}\\~\\
+The map $\varepsilon:C_0\to\Z$ is defined by $$\varepsilon\left(\sum_{i\in I}n_i\sigma_i\right)=\sum_{i\in I}n_i$$ The homology of the augmented chain complex is denoted $\widetilde{H}_n(X)$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a topological space. Then for $n\geq 1$, the homology and the reduced homology are equal. This means that $$\widetilde{H}_n(X)\cong H_n(X)$$ for all $n\geq 1$. \tcbline
+\begin{proof}
+The chain complex is entirely the same for $n\geq 1$ so their homology groups will also be the same. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $X$ be a topological space. Then we have the isomorphism $$\widetilde{H}_0(X)\cong\ker(H_0(X)\to\Z)$$ of degree $0$ homology groups. Moreover, we have that $$H_0(X)\cong\widetilde{H}_0(X)\oplus\Z$$ \tcbline
+\begin{proof}
+By definition, we have that $\widetilde{H}_0(X)=\frac{\ker(\varepsilon)}{\im(\partial_1)}$. 
+\end{proof}
+\end{prp}
+
+Note that the upcoming two theorems: homotopy invariance and Mayer Vietoris also holds for reduced homology. 
+
+\subsection{Homotopy Invariance}
+\begin{defn}{Prism Operator}{} Let $\Delta^n=[v_0,\dots,v_n]$ be an $n$-simplex. Define the prism operator by $$P(\Delta^n)=\sum_{i=0}^n(-1)^i[v_{00},\dots,v_{i0},v_{i1},\dots,v_{n1}]\in C_{n+1}(\Delta^n\times[0,1])$$ where $v_{ij}$ denotes the $i$th vertex of the $j$th $\Delta^n$ simplex for $0\leq i\leq n$ and $0\leq j\leq 1$. 
+\end{defn}
+
+\begin{lmm}{}{} For every $n\geq 0$, we have in $C_n(\Delta^n\times[0,1])$ that $$\partial P(\Delta^n)=[v_{01},\dots,v_{n1}]-[v_{00},\dots,v_{n0}]-P(\partial\Delta^n)$$ \tcbline
+\begin{proof} We have that
+\begin{align*}
+\partial_{n+1}P(\Delta^n)&=\sum_{j\leq i}(-1)^{i+j}[v_{00},\dots,\hat{v}_{j0},\dots,v_{i0},v_{i1},\dots,v_{n1}]\\
+&+\sum_{j\geq i}(-1)^{i+j+1}[v_{00},\dots,v_{i0},v_{i1},\dots,\hat{v}_{j1},\dots,v_{n1}]
+\end{align*}
+Notice that for $i=j$, we get $$\sum_{i=0}^n[v_{00},\dots,v_{(i-1)0},v_{i1},\dots,v_{n1}]-\sum_{i=0}^n[v_{00},\dots,v_{i0},v{(i+1)1},\dots,v_{n1}]$$
+All but two of which cancel out, leaving us with $$[v_{01},\dots,v_{n1}]-[v_{00},\dots,v_{n0}]$$~\\
+For $i\neq j$, apply the prism operator $P$ to each face $[v_0,\dots,\hat{v}_j,\dots,v_n]$ of $\Delta^n$ to get 
+\begin{align*}
+P([v_0,\dots,\hat{v}_j,\dots,v_n])&=\sum_{i<j}(-1)^i[v_{00},\dots,v_{i0},v_{i1},\dots,\hat{v}_{j1},\dots,v_{n1}]\\
+&+\sum_{j<i}(-1)^{i+1}[v_{00},\dots,\hat{v}_{j0},\dots,v_{i0},v_{i1},\dots,v_{n1}]
+\end{align*}
+Taking the alternating sum over all $j$, we get 
+\begin{align*}
+P(\partial_n\Delta^n)&=\sum_{i<j}(-1)^{i+j}[v_{00},\dots,v_{i0},v_{i1},\dots,\hat{v}_{j1},\dots,v_{n1}]\\
+&+\sum_{j<i}(-1)^{i+j+1}[v_{00},\dots,\hat{v}_{j0},\dots,v_{i0},v_{i1},\dots,v_{n1}]
+\end{align*}
+This is precisely the negative terms of of $\partial_{n+1}P(\Delta^n)$ yet to be accounted for (terms for which $i\neq j$) Combining the results concludes the proof. 
+\end{proof}
+\end{lmm}
+
+\begin{thm}{Homotopy Invariance}{} Suppose $f,g:X\to Y$ are homotopic continuous maps. Then they induce the same homomorphism $$f_n=g_n:H_n(X)\to H_n(Y)$$ In particular, if $X$ and $Y$ are homotopy equivalent then $H_n(X)\cong H_n(Y)$. \tcbline
+\begin{proof}
+Suppose that $H:X\times I\to Y$ is a homotopy from $f$ to $g$. Let $\sigma:\Delta^n\to X$ be a singular $n$-simplex in $X$. Consider $H\circ(\sigma\times\text{id}):\Delta^n\times[0,1]\to Y$. This map induces a map on $(n+1)$-chains: $$(H\circ(\sigma\times\text{id}))_\ast:C_{n+1}(\Delta^n\times[0,1])\to C_{n+1}(Y)$$ Then define a chain homotopy $\eta_n:C_n(X)\to C_{n+1}(Y)$ by $$eta_n(\sigma)=(H\circ(\sigma\times\text{id}))_\ast(P(\Delta^n))$$ Indeed the calculation
+\begin{align*}
+\partial(\eta_n(\sigma))&=\partial(H\circ(\sigma\times\text{id})_\ast(P(\Delta^n)))\tag{Definition of $\eta_n$}\\
+&=H\circ(\sigma\times\text{id})_\ast(P(\Delta^n))\tag{Chain map}\\
+&=H\circ(\sigma\times\text{id})_\ast([v_{01},\dots,v_{n1}]-[v_{00},\dots,v_{n0}]-P(\partial\Delta^n))\tag{By the above lemma}\\
+&=g_\ast(\sigma)-f_\ast(\sigma)-\eta_{n-1}(\partial(\sigma))
+\end{align*}
+shows that $\eta_n$ satisfies the chain homotopy equation. Since chain homotopy induces the same map in homology, we are done. 
+\end{proof}
+\end{thm}
+
+\begin{crl}{}{} Let $X$ and $Y$ be homotopy equivalent, then $H_n(X)\cong H_n(Y)$ are isomorphic. \tcbline
+\begin{proof}
+Suppose that the homotopy equivalence is given by $f:X\to Y$ and $g:Y\to X$. That is, we have $f\circ g\simeq\text{id}_Y$ and $g\circ f\simeq\text{id}_X$. Then by propsition 3.1.6 and homotopy invariance, we have that $$f_\ast\circ g_\ast=(f\circ g)_\ast=(\text{id}_Y)=\text{id}$$ and similarly $g_\ast\circ f_\ast=\text{id}$. Thus $g_\ast$ and $f_\ast$ are inverses of each other and so $H_n(X)\cong H_n(Y)$. 
+\end{proof}
+\end{crl}
+
+\subsection{Mayer-Vietoris Sequence}
+The Mater-Vietoris sequence is another powerful for breakdown spaces into subspaces in order to compute homology groups. We will make use of the notion of Barycentric subdivisions to proof the theorem. 
+
+\begin{defn}{Barycentric Subdivision of Singular Simplices}{} Let $X$ be a space and $\sigma:\Delta^n\to X$ a singular $n$-simplex. Define the barycentric subdivision of $\sigma$ to be the $n$-chain $$S(\sigma)=\sigma_\ast(S\Delta^n)\in C_n(X)$$ Extending linearly, we have a homomorphism $$S:C_n(X)\to C_n(X)$$
+\end{defn}
+
+\begin{lmm}{}{} The map $S:C_\bullet(X)\to C_\bullet(X)$ is a chain map. \tcbline
+\begin{proof}
+We have that 
+\begin{align*}
+\partial S(\sigma)&=\partial\sigma_\ast(S\Delta^n)\\
+&=\sigma_\ast\partial(S\Delta^n)\tag{$\sigma_\ast$ is a chain map}\\
+&=\sigma_\ast(S(\partial\Delta^n))\tag{Above lemma}\\
+&=\sum_{i=0}^n(-1)^i\sigma_\ast S(\partial_i\Delta^n)\\
+&=\sum_{i=0}^n(-1)^iS(\partial_i\sigma)\tag{Definition of $S$}\\
+&=S(\partial\sigma)
+\end{align*}
+Thus we are done. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} The barycentric subdivision is chain homotopic to the identity map. \tcbline
+\begin{proof}
+\end{proof}
+\end{prp}
+
+\begin{lmm}{}{} Let $[w_0,\dots,w_n]$ be a simplex in the barycentric subdivision of $[v_0,\dots,v_n]$. Then $$\diam([w_0,\dots,w_n])\leq\frac{n}{n+1}\diam([v_0,\dots,v_n])$$
+\end{lmm}
+
+\begin{defn}{Subgroup of $n$-Chains from Subspaces}{} Let $X$ be a space and $U_1,U_2$ be open such that $X=U_1\cup U_2$. Define $$C_n(U_1+U_2)=\left\{\sum_{i\in I}\sigma_i+\sum_{j\in J}\tau_j\bigg{|}\sigma_i\in C_n(U_1)\text{ and }\tau_i\in C_n(U_2)\right\}$$ the subgroup of $C_n(X)$ of $n$-chains that can be written as the sum of $n$-chains in $U_1$ and $n$-chains in $U_2$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a space and $U_1,U_2$ be open such that $X=U_1\cup U_2$. Let $j_1:U_1\to X$, $j_2:U_2\to X$ and $i_1:U_1\cap U_2\to U_1$, $i_2:U_1\cap U_2\to X$ be inclusions. Then the sequence of chain complexes \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & C_\bullet(U_1\cap U_2)\arrow[rr, "(i_1)_\ast-(i_2)_\ast"] && C_\bullet(U_1)\oplus C_\bullet(U_2)\arrow[rr, "(j_1)_\ast+(j_2)_\ast"] && C_\bullet(U_1+U_2)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is exact. \tcbline
+\begin{proof}
+We have to show exactness at the three spots in each degree $n$. 
+\begin{itemize}
+\item Since the inclusion $(i_1)_\ast:C_n(U_1\cap U_2)\to C_n(U_1)$ is already injective, so is $(i_1)_\ast-(i_2)_\ast$. 
+\item 
+\item The subgroup $C_n(U_1+U_2)$ is defined precisely as the image of $(j_1)_\ast+(j_2)_\ast$, so this map is surjective. 
+\end{itemize}
+And so the sequence of chain complexes is exact. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $X$ be a space and $U_1,U_2$ be open such that $X=U_1\cup U_2$. Then the inclusion $C_\bullet(U_1+U_2)\hookrightarrow C_\bullet(X)$ induces isomorphisms in homology. \tcbline
+\begin{proof}
+For $U_i$ where $i=1,2$, the boundary of an $n$-chain in $U_i$ is an $n-1$ chain in $U_i$. This means that the differential in $C_\bullet(X)$ restricts to $C_\bullet(U_1+U_2)$ so that $C_\bullet(U_1+U_2)$ is a subchain complex and that the inclusion is a chain map that induces a homomorphism in homology. 
+\end{proof}
+\end{prp}
+
+\begin{thm}{Mayer-Vietoris Sequence}{} Let $X=A\cup B$ be the union of two open subspaces with $j_1:U_1\to X$ and $j_2:U_2\to X$ the inclusion maps. Let $i_1:A\cap B\to A$ and $i_2:A\cap B\to B$ also be the inclusion maps. Then there exists connecting homomorphisms $\partial:H_n(X)\to H_{n-1}(U_1\cap U_2)$ such that \\~\\
+\adjustbox{scale=0.80,center}{\begin{tikzcd}
+\cdots\arrow[r] & H_{n+1}(X)\arrow[r, "\partial"] & H_n(U_1\cap U_2)\arrow[rr, "(i_1)_\ast-(i_2)_\ast"] && H_n(U_1)\oplus H_n(U_2)\arrow[rr, "(j_1)_\ast+(j_2)_\ast"] && H_n(X)\arrow[r, "\partial"] & H_{n-1}(U_1\cap U_2)\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+is a long exact sequence. \tcbline
+\begin{proof}
+The short exact sequence in proposition 3.5.6 induces a long exact sequence by theorem 1.4.2. By the above proposition, we can replace $H_n(C_\bullet(U_1+U_2))$ by $H_n(X)$ and so we are done. 
+\end{proof}
+\end{thm}
+
+\subsection{Computations of the Homology Groups}
+\begin{prp}{}{} Let $X=\ast$ be a point. Then the homology of the one point space is $$H_n(\ast)\cong\begin{cases}
+\Z & \text{if } n=0\\
+0 & \text{otherwise}
+\end{cases}$$ \tcbline
+\begin{proof}
+For each $n\geq 0$, there is a unique singular $n$-simplex, $c_n:\Delta^n\to\ast$ the constant map. Thus the singular chain complex becomes \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & \Z & \Z & \Z & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\partial_2}", from=1-2, to=1-3]
+	\arrow["{\partial_1}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Now notice that 
+\begin{align*}
+\partial_n(c_n)&=\sum_{i=0}^n(-1)^nc_n|_{\partial_i\Delta^n}\\
+&=\sum_{i=0}^n(-1)^nc_{n-1}\\
+&=\begin{cases}
+c_{n-1} & \text{if } n>0\text{ is even }\\
+0 & \text{otherwise }
+\end{cases}
+\end{align*}
+This means that $\partial_n$ is an isomorphism when $n$ is even, $\partial_n$ is the zero map when $n$ is odd. When $n\neq 0$ is even, we have that $$H_n(\ast)=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}=\frac{\{0\}}{\{0\}}=0$$ When $n$ is odd, we have that $$H_n(\ast)=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}=\frac{\Z}{\Z}=0$$ Finally when $n=0$, we have that $H_0(\ast)=\Z$. 
+\end{proof}
+\end{prp}
+
+\begin{crl}{}{} Let $X$ be a contractible space. Then $$H_n(X)\cong\begin{cases}
+\Z & \text{if } n=0\\
+0 & \text{otherwise}
+\end{cases}$$ \tcbline
+\begin{proof}
+Follows from the homology of one point space and homotopy invariance. 
+\end{proof}
+\end{crl}
+
+\begin{thm}{}{} Let $k\in\N$. Then the homology of the $k$-sphere $S^k$ is $$H_n(S^k)\cong\begin{cases}
+\Z & \text{if } n=k,0\\
+0 & \text{otherwise}
+\end{cases}$$ \tcbline
+\begin{proof}
+We first consider the case of $S^1$. Since $S^1$ is path connected, $H_0(S^1)\cong\Z$. Moreover, $\pi_1(S^1,1)\cong\Z$ is already abelian and so $H_1(X)\cong\Z$. Let $U_1$ be the upper half of $S^1$ and $U_2$ the lower half. It is clear that $U_1$ and $U_2$ are contractible, and that $U_1\cap U_2\simeq\ast\amalg\ast$. By Mayer Vietoris sequence and homotopy invariance, we have \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {H_{n+1}(S^1)} & {H_n(\ast\amalg\ast)} & {H_n(\ast)\oplus H_n(\ast)} & {H_n(S^1)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+\end{tikzcd}}\\~\\
+Combining the homology of one point space and the fact that homology can be decomposed into the homology of its path connected components, we have an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {H_n(S^1)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+which shows that $$H_k(S^1)\cong\begin{cases}
+\Z & \text{if } k=0,1\\
+0 & \text{otherwise}
+\end{cases}$$~\\
+
+We now induct on $k$ with the base case $k=1$ completed above. Suppose that the homology of the sphere $S^{k-1}$ is given by the formula. Write $S^k$ as the union of the open upper hemisphere $U_1$ and the open lower hemisphere $U_2$ each containing the equator. Then $U_1\cap U_2\simeq S^{k-1}$ and $U_1,U_2$ are contractible. By Mayer Vietoris sequence and homotopy invariance, we have \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {H_{n+1}(S^k)} & {H_n(S^{k-1})} & {H_n(\ast)\oplus H_n(\ast)} & {H_n(S^k)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+\end{tikzcd}}\\~\\
+$S^k$ is path connected and so $H_0(S^k)=\Z$. We know that $\pi_1(S^k,x)=0$ and thus $H_1(S^k)=0$. Now consider the case of $n>1$. Combining the homology of one point space and induction hypothesis, we have an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {H_n(S^k)} & {H_{n-1}(S^{k-1})} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}}\\~\\
+Again using induction hypothesis, we see that $$H_n(S^k)\cong H_{n-1}(S^{k-1})\cong\begin{cases}
+\Z & \text{if } n=k\\
+0 & \text{otherwise}
+\end{cases}$$
+and so we conclude. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{}{} Let $\T=S^1\times S^1$ denote the torus. Then the homology of the torus $\T$ is $$H_k(\T)=\begin{cases}
+\Z & \text{if } k=0,2\\
+\Z^2 & \text{if } k=1\\
+0 & \text{otherwise}
+\end{cases}$$
+\end{thm}
+
+\begin{thm}{}{} Let $K$ denote the Klein bottle. Then the homology of the Klein bottle $K$ is $$H_k(K)=\begin{cases}
+\Z & \text{if } k=0\\
+\Z\oplus\Z/2\Z & \text{if } k=1\\
+0 & \text{otherwise}
+\end{cases}$$
+\end{thm}
+
+\subsection{Applications of Singular Homology}
+\begin{crl}{}{} For any $k\in\N$, $S^{k-1}$ is not a retract of $D^k$. \tcbline
+\begin{proof}
+Assume to the contrary that $i:S^{k-1}\hookrightarrow D^k$ admits a retraction $r:D^k\to S^{k-1}$. Then $\text{id}_{S^k}=r\circ i$ so that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\widetilde{H}_{k-1}(S^{k-1})} & {\widetilde{H}_{k-1}(D^k)} & {\widetilde{H}_{k-1}(S^{k-1})}
+	\arrow["{i_\ast}", from=1-1, to=1-2]
+	\arrow["{r_\ast}", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+is the identity map. Substituting the homology of $S^{k-1}$ and $D^k$, we have that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\Z & 0 & \Z
+	\arrow["{r_\ast}", from=1-2, to=1-3]
+	\arrow["{i_\ast}", from=1-1, to=1-2]
+\end{tikzcd}}\\~\\
+is the identity map which is impossible. 
+\end{proof}
+\end{crl}
+
+\begin{crl}{Brouwer Fixed-point Theorem}{} Every continuous map $f:D^k\to D^k$ has a fixed point. \tcbline
+\begin{proof}
+Suppose not, then the ray starting at $f(x)$ in the direction of $x$ meets $S^{k-1}$ in exactly one point $g(x)\neq f(x)$. Then $g:D^k\to S^{k-1}$ defines a retraction. By the above corollary, this is a contradiction. 
+\end{proof}
+\end{crl}
+
+\begin{crl}{Invariance of Domain}{} If $n\neq m$, then $\R^n$ is not isomorphic $\R^m$. \tcbline
+\begin{proof}
+Assume that $\R^n\cong\R^m$. Then $f:\R^n\setminus\{0\}\to\R^m\setminus\{0\}$ is also a homeomorphism. Since $\R^n\setminus\{0\}\simeq S^{n-1}$ and $\R^m\setminus\{0\}\simeq S^{m-1}$, we have that $f_\ast$ induces an isomorphism $$\Z\cong\widetilde{H}_{n-1}(S^{n-1})\cong\widetilde{H}_{n-1}(S^{m-1})$$ by homotopy invariance and the computation of the homology groups of the $n$-sphere. This can only be true when $n=m$ by our computations. 
+\end{proof}
+\end{crl}
+
+\begin{defn}{Jordan Curve}{} A Jordan Curve is a simple closed curve in $\R^2$. 
+\end{defn}
+
+\begin{thm}{Jordan Curve Theorem}{} Let $\gamma:[0,1]\to\R^2$ be a Jordan curve with image $C$. Then $$H_n(\R^2\setminus C)=\begin{cases}
+\Z^2 & \text{ if } n=0\\
+\Z & \text{ if } n=1\\
+0 & \text{ if } n>1
+\end{cases}$$
+\end{thm}
+
+\pagebreak
+\section{Relative Homology}
+\subsection{Relative Homology Groups}
+Given a subspace $A$ of a space $X$, we know that the inclusion map $A\hookrightarrow X$ induces an inclusion $C_n(A)\hookrightarrow C_n(X)$. Unfortunately, this does not induce an injection $H_n(A)\to H_n(X)$. Relative homology gives a precise measure of the failure of injectivity and surjectivity of the map in homology. 
+
+\begin{prp}{}{} Let $X$ be a topological space and $A\subseteq X$ a subspace. Denote $C_n(X,A)$ the quotient group $C_n(X)/C_n(A)$. Then \\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\cdots\arrow[r] & C_n(X,A)\arrow[r, "\partial"] & C_{n-1}(X,A)\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+is a chain complex. 
+\end{prp}
+
+\begin{defn}{Relative Homology Group}{} Let $X$ be a topological space and $A\subseteq X$ a subspace. Define the relative homology group $H_n(X,A)$ to be the homology group of the chain complex \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\cdots\arrow[r] & C_n(X,A)\arrow[r, "\partial"] & C_{n-1}(X,A)\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+In other words, $$H_n(X,A)=\frac{\ker(\partial:C_n(X,A)\to C_{n-1}(X,A))}{\im(\partial:C_{n+1}(X,A)\to C_n(X,A))}=H_n(C_\bullet(X,A))$$~\\
+Elements of $Z_n(X,A)$ are called relative $n$-cycles, while elements of $B_n(X,A)$ are called relative $n$-boundaries. 
+\end{defn}
+
+Geometrically, relative $n$-cycles are $n$-cycles in $C_n(X)$ such that $\partial z\in C_{n-1}(A)$ which means that the boundary of $z$ is contained in the subspace $A$. 
+\begin{thm}{}{} Let $X$ be a space and $A\subseteq X$ a subspace of $X$. Then there is an exact sequence \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\cdots\arrow[r] & H_n(A)\arrow[r, "\iota_\ast"] & H_n(X)\arrow[r, "j_\ast"] & H_n(X,A)\arrow[r, "\partial"] & H_{n-1}(A)\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+where $\iota:A\to X$ is the inclusion map and $j:X\to X\setminus A$ is the quotient map. \\~\\
+Moreover, the connecting homomorphism $\partial:H_n(X,A)\to H_{n-1}(A)$ is defined by $[z]\mapsto[\partial z]$ for $z\in C_n(X)$ a relative cycle. \tcbline
+\begin{proof}
+Notice that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & C_\bullet(A)\arrow[r, "\iota_\ast"] & C_\bullet(X)\arrow[r, "j"] & C_\bullet(X,A)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is a short exact sequence by construction. Thus it induces a long exact sequence in homology groups. 
+\end{proof}
+\end{thm}
+
+Notice that relative homology is more generalized than reduced homology in the following sense: 
+
+\begin{lmm}{}{} Let $X$ be space and $x\in X$ be a point. Then there is an isomorphism $$H_n(X,x)\cong\widetilde{H}_n(X)$$ of homology groups for all $n\in\N$. \tcbline
+\begin{proof}
+We have a long exact sequence as in theorem 4.1.3. In particular, since $H_n(\{x\})=0$ for all $n\geq 1$, we have an isomorphism $$H_n(X,x)\cong H_n(X)$$ which descends to an isomorphism in reduced homology. We are now left with the exact sequence: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & H_1(X)\arrow[r, "j_\ast"] & H_1(X,x)\arrow[r, "\partial"] & H_0(x)\arrow[r, "\iota_\ast"] & H_0(X)\arrow[r, "j_\ast"] & H_0(X,x)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+Now since $\iota:\{x\}\to X$ is the inclusion map, the projection map $p:X\to\{x\}$ is such that $p\circ\iota=\text{id}$. By proposition 3.1.6 we have $p_\ast\circ\iota_\circ=\text{id}_\ast$ and thus $\iota_\ast$ is injective and has kernel $0$. Exactness then implies that $\im(\partial)=\ker(\iota_\ast)=0$ and thus $\partial$ is the zero map. This means that $\tilde{H}_1(X)\cong H_1(X)\cong H_1(X,x)$. \\~\\
+
+We are now left with a short exact sequence\\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \Z\arrow[r, "\iota_\ast"] & H_0(X)\arrow[r, "j_\ast"] & H_0(X,x)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+Since $H_0(\ast)\cong\Z$. The map $p_\ast:H_0(X)\to H_0(x)$ has the property that $p_\ast\circ\iota_\ast=\text{id}_\ast$. This means that the short exact sequence is split exact and we have that $$H_0(X)\cong\Z\oplus H_0(X,x)$$ Consider the map \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+H_0(X)\arrow[r, "p_\ast\times j_\ast", "\cong"'] & H_0(x)\oplus H_0(X,x)\arrow[r, "\pi"] & H_0(x)
+\end{tikzcd}}\\~\\
+where $\pi:H_0(x)\oplus H_0(X,x)\to H_0(x)$ is defined by $\pi(a,c)=a$. This map sends $b\in H_0(X)$ to $p_\ast(b)$. Then we have 
+\begin{align*}
+\widetilde{H}_0(X)&\cong\ker(H_0(X)\to H_0(x))\\
+&\cong\ker(H_0(X)\oplus H_0(X,x)\overset{p_\ast}{\to}H_0(x))\\
+&=H_0(X,x)
+\end{align*}
+Therefore we conclude. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} If two maps $f,g:(X,A)\to (Y,B)$ are homotopic through maps of pairs $(X,A)\to(Y,B)$, then $$f_\ast=g_\ast:H_n(X,A)\to H_n(Y,B)$$ 
+\end{prp}
+
+\subsection{Quotient Spaces and Excision}
+\begin{thm}{The Excision Theorem}{} Let $X$ be a space and $Z,A$ be subspaces of $X$ such that $\overline{Z}\subseteq A^\circ$. Then the inclusion map $(X\setminus Z,A\setminus Z)\to (X,A)$ induces an isomorphism $$H_n(X\setminus Z,A\setminus Z)\cong H_n(X,A)$$ for all $n$. \tcbline
+\begin{proof}
+Let $B=X\setminus Z$. Then notice that $A\cap B=A\setminus Z$, $A^\circ\cup B^\circ=A^\circ\cup(X\setminus\overline{Z})=X$. Moreover, we have that 
+\begin{align*}
+C_n(X\setminus Z,A\setminus Z)&=C_n(B,A\cap B)\\
+&=\frac{C_n(B)}{C_n(A\cap B)}\tag{By definition}\\
+&\cong\frac{C_n(A+B)}{C_n(A)}\tag{Second Isomorphism Theorem}
+\end{align*}
+This implies that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & C_\bullet(A)\arrow[r] & C_\bullet(A+B)\arrow[r] & C_\bullet(X\setminus Z,A\setminus Z)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is a short exact sequence of chain complexes. Moreover, by considering inclusion maps, we have the following commutative diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & C_\bullet(A)\arrow[r]\arrow[d, "="] & C_\bullet(A+B)\arrow[r]\arrow[d] & C_\bullet(X\setminus Z,A\setminus Z)\arrow[r]\arrow[d] & 0\\
+0\arrow[r] & C_\bullet(A)\arrow[r] & C_\bullet(X)\arrow[r] & C_\bullet(X,A)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+Considering that the rows are short exact sequences of chain complexes, they induce long exact sequences in homology: \\~\\
+\adjustbox{scale=0.9,center}{\begin{tikzcd}
+\cdots\arrow[r] & H_n(A)\arrow[r]\arrow[d, "="] & H_n(A+B)\arrow[r]\arrow[d] & H_n(X\setminus Z,A\setminus Z)\arrow[r]\arrow[d] & H_{n-1}(A)\arrow[r]\arrow[d, "="] & H_{n-1}(A+B)\arrow[r]\arrow[d] & \cdots\\
+\cdots\arrow[r] & H_n(A)\arrow[r] & H_n(X)\arrow[r] & H_n(X,A)\arrow[r] & H_{n-1}(A)\arrow[r] & H_{n-1}(X)\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+where the vertical arrows are naturally induced by inclusion. By proposition 8.2.3, the second the fifth arrows are isomorphisms. Thus by five lemma, we have that $$H_n(X\setminus Z,A\setminus Z)\cong H_n(X,A)$$
+\end{proof}
+\end{thm}
+
+\begin{lmm}{}{} The Excision Theorem is equivalent to the following version: If $A,B\subset X$ are subspaces such that $X=A^\circ\cup B^\circ$, then the inclusion $(B,A\cap B)\to (X,A)$ induces isomorphisms $H_n(B,A\cap B)\to H_n(X,A)$ for all $n$. 
+\end{lmm}
+
+\begin{defn}{Good Pairs}{} Let $X$ be a space and $A$ a closed subspace of $X$. We say that the pair $(X,A)$ is a good pair if there exists an open set $V$ such that $A\subset V$ and $V$ deformation retracts to $A$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a space and $A$ a closed subspace of $X$ such that $(X,A)$ is a good pair. Then the quotient map $X\to X/A$ induces an isomorphism $$H_n(X,A)\cong H_n(X/A,A/A)\cong\widetilde{H}_n(X/A)$$ in homology groups. 
+\end{prp}
+
+\begin{lmm}{}{} Assume that each $(X_i,x_i)$ is a good pair. Then we have an isomorphism $$\widetilde{H}_n\left(\bigvee_{i\in I}(X_i,x_i)\right)=\bigoplus_{i\in I}\widetilde{H}_n(X_i)$$ in reduced homology. 
+\end{lmm}
+
+\pagebreak
+\section{Cellular Homology}
+\subsection{Degree of Continuous Maps}
+The degree is a main component of the explicit construction of maps in cellular homology. Therefore we develop some of the basic theory here. Degree theory is also an important subject in its own right. 
+
+\begin{defn}{Degree of a Continuous Map}{} Let $f:S^k\to S^k$ be a continuous map. Let $f_\ast:\widetilde{H}_k(S^k)\cong\Z\to\widetilde{H}_k(S^k)\cong\Z$ be induced by $f$ and let $f_\ast(1)=n$. Define the degree of $f$ to be $\deg(f)=n$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $f,g:S^k\to S^k$ be continuous maps. Then the following are true regarding the degree. 
+\begin{itemize}
+\item $\deg(\text{id})=1$
+\item $\deg(g\circ f)=\deg(g)\circ\deg(f)$
+\item If $f\simeq g$ then $\deg(g)=\deg(f)$
+\item If $f$ is a homotopy equivalence then $\deg(f)=\pm1$
+\item If $f$ is not surjective then $\deg(f)=0$. 
+\end{itemize}
+\end{lmm}
+
+\begin{prp}{}{} For all $k\geq 1$ and for all $n\in\Z$, there exists a continuous map $f:S^k\to S^k$ of degree $n$. 
+\end{prp}
+
+\begin{lmm}{}{} Let $S^k\subseteq\R^{k+1}$ be the unit circle. Let $f:S^k\to S^k$ be the reflection of a hyperplane through $0$ in $\R^{k+1}$. Then $\deg(f)=-1$. 
+\end{lmm}
+
+\begin{defn}{Local Degree}{} Let $f:S^k\to S^k$ be a continuous map. Assume that $f^{-1}(y)=\{x_1,\dots,x_n\}$. Let $U_i$ be an open neighbourhood of $x_i$ such that $U_i\cap U_j=\emptyset$ for each $i\neq j$. Define the local degree of $f$ to be the degree of the map $$f|_{x_i}:H_k(U_i,U_i\setminus\{x_i\})\to H_k(S^k,S^k\setminus{y})$$ denoted by $\deg(f|_{x_i})$. 
+\end{defn}
+
+\begin{lmm}{}{} The local degree of a map $f:S^k\to S^k$ is well defined. 
+\end{lmm}
+
+\begin{prp}{}{} Let $f:S^k\to S^k$ be a map. Let $f^{-1}(y)=\{x_1,\dots,x_n\}$. Then $$\deg(f)=\sum_{i=1}^n\deg(f|_{x_i})$$
+\end{prp}
+
+\subsection{Cellular Homology}
+\begin{lmm}{}{} Let $X$ be a CW-complex. Then $(X^n,X^{n-1})$ is a good pair. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $X$ be a CW-complex with $n$-cells $\{D_\alpha^n\}$ for $n\geq 0$. Then $$H_m(Xn,X^{n-1})\cong\begin{cases}
+\oplus_\alpha\Z\cdot\{D_\alpha^n\} & \text{ if } m=n\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{lmm}
+
+\begin{lmm}{}{} Let $X$ be a CW-complex. Then the following are true regarding the singular homology of $X$. 
+\begin{itemize}
+\item If $X$ is of dimension $k$ then $H_n(X)=0$ for all $n>k$. 
+\item The map $H_n(X^m)\to H_n(X)$ induced by the inclusion $X^m\to X$ is an isomorphism if $n<m$ and surjective if $n=m$. 
+\end{itemize}
+\end{lmm}
+
+Using the above lemma, we now have a spliced diagram : 
+\\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	&&& 0 \\
+	0 && {H_n(X^{n+1})} \\
+	& {H_n(X^n)} \\
+	{H_{n+1}(X^{n+1},X^n)} && {H_n(X^n,X^{n-1})} && {H_{n-1}(X^{n-1},X^{n-2})} \\
+	&&& {H_{n-1}(X^{n-1})} \\
+	&& 0
+	\arrow["\alpha", from=4-1, to=3-2]
+	\arrow[from=3-2, to=2-3]
+	\arrow[from=2-3, to=1-4]
+	\arrow[from=2-1, to=3-2]
+	\arrow["\beta", color={rgb,255:red,92;green,92;blue,214}, from=3-2, to=4-3]
+	\arrow["\gamma", color={rgb,255:red,92;green,92;blue,214}, from=4-3, to=5-4]
+	\arrow["{d_{n+1}}", color={rgb,255:red,214;green,92;blue,92}, from=4-1, to=4-3]
+	\arrow["\delta", from=5-4, to=4-5]
+	\arrow["{d_n}", color={rgb,255:red,214;green,92;blue,92}, from=4-3, to=4-5]
+	\arrow[from=6-3, to=5-4]
+\end{tikzcd}}\\~\\
+where the diagonals come from the long exact sequence in the proof of the first part of lemma 7.4.3. 
+
+\begin{lmm}{}{} The composition $d_n\circ d_{n+1}$ is zero. 
+\end{lmm}
+
+\begin{defn}{Cellular Chain Complex}{} Let $X$ be a CW-complex. Define the cellular chain complex $C_\bullet^\text{CW}(X)$ where $C_{n+1}^{\text{CW}}(X)=H_n(X^{n+1},X^n)$ together with differentials $d_n$ as defined above. Define the cellular homology groups of this chain complex to be $$H_n^\text{CW}(X)=H_n(C_\bullet^\text{CW}(X))$$
+\end{defn}
+
+\begin{lmm}{}{} For any CW-complex $X$, there are canonical isomorphisms $$H_n^\text{CW}(X)\cong H_n(X)$$
+\end{lmm}
+
+Recall that a CW-complex $X$ is defined recursively through the use of attaching maps $\{\phi_\alpha:S_\alpha^{n-1}\to X^{n-1}|\alpha\in I_n\}$ for each $n$, such that $$X^n=\left(X^{n-1}\amalg\coprod_{\alpha\in I_n}D_\alpha^n\right)/\sim$$ where the equivalence relation is $x\sim\phi_\alpha(x)$ for all $x\in\partial D_\alpha^n$ (This is an amalgamated product over $\phi_\alpha(x)$). Notice that we have $$\frac{X^n}{X^{n-1}}\cong\bigvee_{\alpha\in I_n}\frac{D_\alpha^n}{\partial D_\alpha^n}=\bigvee S_\alpha^n$$ implies that there are canonical quotient maps obtain by collapsing all sphere other than one into a single point by an equivalence relation: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\pi_\alpha:X^n} & {\frac{X^n}{X^{n-1}}\cong\bigvee_{\alpha\in I_n}S_\alpha^n} & {S_\alpha^n}
+	\arrow[two heads, from=1-1, to=1-2]
+	\arrow[two heads, from=1-2, to=1-3]
+\end{tikzcd}} We will use this map in the following formula. 
+
+\begin{thm}{Cellular Boundary Formula}{} Let $X$ be a CW-complex with attaching maps denoted $\phi_\alpha$, and $C_\bullet^\text{CW}(X)$ the cellular chain complex of $X$ with generators $\{[D_\alpha^n]|_{\alpha\in I_n}\}$ for each degree $n$. The boundary operator of the chain complex is given by the following formula: 
+\begin{itemize}
+\item In degree $n=1$, we have $$d_1\left([D_\alpha^1]\right)=[\phi_\alpha(1)]-[\phi_\alpha(0)]$$
+\item In degrees $n>1$, we have $$d_n\left([D_\alpha^n]\right)=\sum_{\beta\in I_{n-1}}d_{\alpha\beta}\cdot[D_\beta^{n-1}]$$ where $$d_{\alpha\beta}=\deg\left(\Delta_{\alpha\beta}:S_\alpha^{n-1}\overset{\phi_\alpha}{\rightarrow}X^{n-1}\overset{\pi_\beta}{\rightarrow}S_\beta^{n-1}\right)$$
+\end{itemize}
+\end{thm}
+
+On computation, one crucial fact to notice is that the map $\pi_\beta$ is a projection to the quotient topology. This means that after applying $\pi_\beta$, the map $$\Delta_{\alpha\beta}=\pi_\beta\circ\phi_\alpha:S_\alpha^{n-1}\to S_\beta^{n-1}$$ forgets about every boundary of the attached discs to $X^n$ other than the boundary of the disc $D_\beta^n$. Also notice that $\alpha\in I_n$ loops over all attaching maps and disks on the $n$th dimension, while $\beta\in I_{n-1}$ loops over that of the $n-1$ dimension. Notice that in the formula, $\beta$ is used to indicate the $S^{n-1}$ which are of dimension $n$. This makes sense because in $\pi_\beta$, there is a projection $X^{n-1}\to X^{n-1}/X^{n-2}$. $$\frac{X^{n-1}}{X^{n-2}}=\bigvee_{\beta\in I_{n-1}}\frac{D_\beta^{n-1}}{\partial D_\beta^{n-1}}$$ is then a wedge sum of all disks in dimension $n-1$ modulo boundary so that it makes sense. 
+
+\pagebreak
+\section{The Eileenberg Steenrod Axioms}
+\subsection{The Homology Theories}
+\begin{defn}{The Category of TopPairs}{} Define the category of topological pairs denoted $\bold{TopPairs}$ to be the category where objects are pairs of spaces, and the morphisms are maps of pairs. 
+\end{defn}
+
+\begin{defn}{Generalized Homology Theory}{} A Generalized Homology Theory is a functor $F:\bold{TopPairs}\to\text{Graded Abelian Groups}$ together with a natural transformation $\delta:F(X,A)\to F(X,\emptyset)$ satisfying the following. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g$ then $F(f)=F(g)$
+\item Exactness: There exists a short exact sequence $$\cdots\to F_\ast(A,\emptyset)\to F_\ast(X,\emptyset)\to F_\ast(X,A)\overset{\delta}{\to} F_{\ast-1}(A.\emptyset)\to\cdots$$
+\item Additivity: If $(X,A)=\bigsqcup_i(X_i,A_i)$ with inclusion maps $\iota_i:X_i\to X$, the direct sum map $$\bigoplus_iF(\iota_i):\bigoplus_iF(X_i,A_i)\to F(X,A)$$ is an isomorphism
+\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then $$F(X\setminus E,A\setminus E)\cong F(X,A)$$ induced by the inclusion map
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} The excision axiom is equivalent to saying that $X=A^\circ\cup B^\circ$ with inclusion map $\iota:(B,A\cap B)\to (X,A)$ implies $F(\iota):F(B,A\cap B)\to F(X,A)$ is an isomorphism. 
+\end{lmm}
+
+\begin{defn}{Homology Theory}{} If a generalized homology theory $(F,\delta)$ in addition satisfies 
+\begin{itemize}
+\item Dimension: $$F_\ast(\text{One Point Space})=\begin{cases}
+\Z & \text{ if } \ast=0\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{itemize}
+Then $F$ is called a homology theory. 
+\end{defn}
+
+\subsection{Unification of the Homology Theories}
+We studied three different homology theories, namely the simplicial homology $H_\ast^{\Delta}$, singular homology $H_\ast$ and Cellular homology $H_\ast^{\text{CW}}$. We have seen that $H_\ast^{\text{CW}}(X)\cong H_n(X)$ for a CW-complex $X$. 
+
+\begin{thm}{}{} Let $X$ be a topological space endowed with a $\Delta$-complex structure $(T,\abs{T}\cong X)$. The induced map $H_n^\Delta(X)\to H_n(X)$ by the map $s:\Delta^n\to X$ is an isomorphism. 
+\end{thm}
+
+\begin{lmm}{}{} Let $X$ be a topological space endowed with a $\Delta$-complex structure $(T,\abs{T}\cong X)$. The canonical homomorphism $H_n(T^k,T^{k-1})\to H_n(\abs{T^k},\abs{T^{k-1}})$ is an isomorphism. 
+\end{lmm}
+
+\begin{crl}{}{} The simplicial homology $H_\bullet^\Delta(X)$ depends on $X$ only and not on the $\Delta$-complex structure. 
+\end{crl}
+
+\begin{crl}{}{} Suppose $X$ has a $\Delta$-complex structure with simplicies in dimension $\leq k$ only. Then $H_n(X)=0$ for all $n>k$. 
+\end{crl}
+
+\pagebreak
+\section{Algebra of Cochain Complexes}
+\subsection{Hom Functor for Abelian Groups}
+\begin{defn}{The Hom Set}{} Let $H,G$ be abelian groups. Denote $\Hom(H,G)$ the set of all homomorphisms from $H$ to $G$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $H,G$ be abelian groups. Then $\Hom(H,G)$ is also an abelian group. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $f:A\to B$ be a homomorphism of abelian groups. Then $f$ induces a homomorphism $f^\ast:\Hom(B,G)\to\Hom(A,G)$ for any group $G$. Moreover, if $g:B\to C$ is a homomorphism of abelian groups, then $(g\circ f)^\ast=f^\ast\circ g^\ast$. 
+\end{lmm}
+
+\begin{prp}{}{} Let $A,B,C$ be abelian groups. Then the $\Hom$ functor has the following properties. 
+\begin{itemize}
+\item $\Hom(A\oplus B,G)=\Hom(A,G)\oplus\Hom(B,G)$
+\item $\Hom(A\times B,G)=\Hom(A,G)\times\Hom(B,G)$
+\item If $A\overset{f}{\to} B\overset{g}{\to} C\to 0$ is an exact sequences, then \\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \Hom(C,G)\arrow[r, "g^\ast"] & \Hom(B,G)\arrow[r, "f^\ast"] & \Hom(A,G)
+\end{tikzcd}}
+\end{itemize}
+\end{prp}
+
+\subsection{Cochain Complexes}
+\begin{defn}{Cochain Group}{} Let $(C,\partial)$ be a chain complex. Let $G$ be a fixed abelian group. For each abelian group $C_n$, define the dual cochain group to be $$C^n=\Hom(C_n,G)$$ which is the set of all homomorphisms from $C_n$ to $G$. 
+\end{defn}
+
+\begin{defn}{Coboundary Map}{} Let $(C,\partial)$ be a chain complex. Define the coboundary map as a function $\delta_n=\partial_n^\ast:C^{n-1}\to C^n$ by $$\delta_n(\phi)(\alpha)=\psi(\partial_{n+1}(\alpha))$$
+\end{defn}
+
+Notice that this makes sense since $\delta_n$ itself is a function between dual cochain groups so feeding an element $\phi$ of $C_{n-1}^\ast$ should also result in a function that maps $C_n$ to $G$. In other words, $\delta_n$ is a push forward map. Moreover, this $\delta_n$ arises naturally by considering the $\Hom$ functor in category theory, without explicitly defining it. The following lemma is precisely made trivial if category theory is considered. 
+
+\begin{lmm}{}{} The coboundary map satisfies $\delta_n\circ\delta_{n-1}=0$ for all $n$ such that $(C^\bullet,\delta_n)$ is a chain complex. 
+\end{lmm}
+
+\begin{defn}{Cochain Complex}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Let $G$ be a group. Define the cochain complex $(C^\bullet,\delta_n)$ to be the collection of all cochain groups $C^n=\Hom(C_n,G)$ and coboundary maps $\delta_n:C^{n-1}\to C^n$. In other words, we have the diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\cdots & C^{n+1}\arrow[l] & C^n\arrow[l, "\delta_{n+1}"'] & C^{n-1}\arrow[l, "\delta_n"'] & \cdots\arrow[l]
+\end{tikzcd}}\\~\\
+such that $\im(\delta_n)\subseteq\ker(\delta_{n+1})$. 
+\end{defn}
+
+\begin{defn}{Cohomology Group}{} For a cochain complex $(C^\bullet,\delta_\bullet)$ with fixed abelian group $G$, define the $n$th cohomology group to be $$H^n(C^\bullet;G)=\frac{\ker(\delta_{n+1})}{\im(\delta_n)}=H_n(C^\bullet,\delta_n)$$
+\end{defn}
+
+We next want to investigate the relation between $H^n(C;G)$ and $\Hom(H_n(C),G)$ since $C_n^\ast=\Hom(C_n,G)$, it makes sense to see if they bear some sort of similarity. 
+
+\begin{prp}{}{} There exists a surjective homomorphism from $H^n(C;G)$ to $\Hom(H_n(C),G)$. \tcbline
+\begin{proof}
+We describe the process of mapping an element from the domain to the codomain as below. Firstly, let $\phi\in H^n(C;G)$. This means that $\delta_{n+1}(\phi)=0$ and $\phi:C_n\to G$ by definition. But $\delta_{n+1}(\phi)=0$ implies $\phi\circ\partial_{n+1}=0$ and thus $\phi$ vanishes on $\im(\partial_{n+1})$. The restriction map $\phi_0=\phi|_{\ker(\partial_n)}$ then induces a quotient map $$\overline{\phi_0}:\frac{\ker(\partial_n)}{\im(\partial_{n+1})}$$ thus we are done. \\~\\
+To check that it is well defined, we want to show that $\phi\in\im(\partial_{n+1})$ implies $\overline{\phi_0}=0$. \\~\\
+For surjectivity, we consider the short exact sequence\\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \ker(\partial_n)\arrow[r] & C_n\arrow[r, "\partial_n"] & \im(\partial_n)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+This is in fact a split exact sequence since $\im(\partial_n)\leq C_n$ is a free group. This means that $C_n\cong\ker(\partial_n)\oplus\im(\partial_n)$ and thus we obtain a projection map $\rho:C_n\to\ker(\partial_n)$. This map gives us a way to map elements in $\Hom(H_n(C),G)$ to $\ker(\partial_n)$. Say $\phi\in\Hom(H_n(C),G)$. We can extend this function so that its domain is $C_n$ by defining $\phi_0=\phi\circ\rho$. If $\phi$ originally was a function that vanishes in $\im(\partial_{n+1})$, then $\phi_0$ is also a function that vanishes in $\im(\partial_{n+1})$. Moreover, using the fact that $\delta_{n+1}(\phi)=\phi\circ\partial_{n+1}$, which is equal to $0$ since $\phi$ vanishes in $\im(\partial_{n+1})$, we see that $\delta_{n+1}(\phi_0)=0$ which means that $\phi_0\in\ker(\delta)$. Finally, recalling that $\ker(\delta)\to\H^n(C;G)$ is a natural quotient map, we have a map from $\Hom(H_n(C),G)$ to $H^n(C;G)$, which means that the original map from $H^n(C;G)$ to $\Hom(H_n(C),G)$ is surjective. 
+\end{proof}
+\end{prp}
+
+By introducing $ker(h)$ and the inclusion map, we in fact get a split short exact sequence: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \ker(h)\arrow[r] & H^n(C;G)\arrow[r, "h"] & \Hom(H_n(C),G)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+
+Recall that the cokernel of a group homomorphism $\phi:G\to H$ is the quoitient group $\frac{H}{\phi(G)}$. 
+
+\begin{lmm}{}{} Denote $i_n:B_n\to Z_n$ the inclusion map. Then we have $$\ker(h)=\text{coker}(i_{n-1}^\ast)$$
+\end{lmm}
+
+\subsection{Free Resolutions}
+\begin{defn}{Free Resolutions}{} An exact sequence of the form \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\cdots\arrow[r] & F_{2}\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & H\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is said to be a free resolution of $H$ if each $F_n$ is a free group. 
+\end{defn}
+
+\begin{prp}{}{} Let $F$ and $F'$ be two free resolutions of an abelian group $H$. Then every homomorphism $\alpha:H\to H'$ extends to a chain map from $F$ to $F'$. Moreover, any two such extended maps are chain homotopic. 
+\end{prp}
+
+\begin{lmm}{}{} Every abelian group has a free resolution of the form \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & F_1\arrow[r] & F_0\arrow[r, "h"] & H\arrow[r] & 0
+\end{tikzcd}}
+\end{lmm}
+
+\subsection{Measuring the Failure of Exactness of the Hom Functor}
+\begin{defn}{Ext Group}{} Let $H$ be an abelian group. Denote the first cohomology group of the free resolution of $H$ to be $$\text{Ext}(H,G)=H^1(F,G)$$ where $F$ is the free resolution of $H$. This group is called the $\text{Ext}$ Group of $H$. 
+\end{defn}
+
+\begin{thm}{Universal Coefficient Theorem for Cohomology}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex of free abelian groups with homology group $H_n(C_\bullet)$. Then the cohomology groups $H^n(C_\bullet;G)$ of the cochain are determined by split exact sequences of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \text{Ext}(H_{n-1}(C_\bullet),G)\arrow[r] & H^n(C_\bullet;G)\arrow[r, "h"] & \Hom(H_n(C_\bullet),G)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+In particular, split exactness implies that $$H^n(C_\bullet;G)\cong\text{Ext}(H_{n-1}(C_\bullet),G)\oplus\Hom(H_n(C_\bullet),G)$$
+\end{thm}
+
+\begin{prp}{}{} Let $H$ and $G$ be abelian groups. Then the following are true regarding the Ext group. 
+\begin{itemize}
+\item $\text{Ext}(H\oplus H',G)=\text{Ext}(H,G)\oplus\text{Ext}(H',G)$
+\item $\text{Ext}(H,G)=0$ if $H$ is free abelian
+\item $\text{Ext}(\Z/n\Z,G)=G/nG$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $0\to A\to B\to C\to 0$ be a short exact sequence of abelian groups. Then there is a six term exact sequence: \\~\\
+\adjustbox{scale=0.85,center}{\begin{tikzcd}
+	0 & {\Hom(C,G)} & {\Hom(B,G)} & {\Hom(A,G)} & {\text{Ext}(C,G)} & {\text{Ext}(B,G)} & {\text{Ext}(A,G)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+	\arrow[from=1-7, to=1-8]
+\end{tikzcd}}
+\end{prp}
+
+\pagebreak
+\section{Singular Cohomology}
+\subsection{Singular Cohomology}
+\begin{defn}{Cochain Complex}{} Let $X$ be a topological space. Let $G$ be an abelian group. Write $C^n=\Hom(C_n;G)$ and $\delta_n=\partial_n^\ast$. Define the singular cochain complex of $X$ to be the following cochain complex: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\cdots & C^{n+1}\arrow[l] & C^n\arrow[l, "\delta_{n+1}"'] & C^{n-1}\arrow[l, "\delta_n"'] & \cdots\arrow[l]
+\end{tikzcd}}\\~\\
+It is denoted as $(C^\bullet(X),\delta_\bullet)$. In particular it is the dual of the chain complex $(C_\bullet(X),\partial_\bullet)$ with coefficients in $G$. 
+\end{defn}
+
+\begin{defn}{Cohomology Group}{} Let $X$ be a topological space and $(C^\bullet(X),\delta_\bullet)$ the singular cochain complex of $X$ with coefficients in an abelian group $A$. The $n$th cohomology group of $X$ with coefficients in $A$ is defined to be $$H^n(C^\bullet;A)=\frac{\ker(\delta^n)}{\im(\delta^{n-1})}$$ where $(C_\bullet,\partial_\bullet)$ is a singular chain complex. 
+\end{defn}
+
+\begin{thm}{Reduced Cohomology Groups}{}
+\end{thm}
+
+\begin{thm}{Relative Cohomology Groups}{}
+\end{thm}
+
+\begin{thm}{Induced Homomorphisms}{} Let $f:X\to Y$ be a continuous map. Then $f$ induces a pullback map $$f^\ast:H^n(Y)\to H^n(X)$$ on singular cohomology. 
+\end{thm}
+
+\begin{thm}{Homotopy Invariance}{} Let $f,g:X\to Y$ be continuous such that $f\simeq g$. Then $f$ and $g$ induces the same map $$f^\ast=g^\ast:H^n(Y)\to H^n(X)$$ on singular cohomology. 
+\end{thm}
+
+\begin{thm}{Excision}{}
+\end{thm}
+
+\begin{thm}{Mayer-Vietoris Sequence}{} Let $X$ be a topological space and $U_1,U_2$ be open sets of $X$ such that $X=U_1\cup U_2$ and that $U_1\cap U_2\neq\emptyset$. Write $i_1:U_1\cap U_2\to U_1$, $i_2:U_1\cap U_2\to U_2$, $j_1:U_1\to X$ and $j_2:U_2\to X$ the inclusion maps. Let $G$ be an abelian group. Then there is a long exact sequence \\~\\
+\adjustbox{scale=0.7,center}{\begin{tikzcd}
+\cdots\arrow[r] & H^{n-1}(X;G)\arrow[r, "\partial"] & H^n(U_1\cap U_2;G)\arrow[rr, "(i_1)^\ast-(i_2)^\ast"] && H^n(U_1;G)\oplus H^n(U_2;G)\arrow[rr, "(j_1)^\ast+(j_2)^\ast"] && H^n(X;G)\arrow[r, "\partial"] & H^{n+1}(U_1\cap U_2;G)\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+in cohomology. 
+\end{thm}
+
+\subsection{Equivalence to Simplicial and Cellular Cohomology}
+\begin{defn}{Eilenberg-Steenrod Axioms}{}
+\end{defn}
+
+\begin{thm}{}{} $H^n(X,A;G)\cong H_\Delta^n(X,A;G)$. 
+\end{thm}
+
+\subsection{The Cup Product}
+\begin{defn}{Cup Product}{} Let $\phi\in C^k$ and $\psi\in C^l$ with coefficients in a ring $R$. Define the cup product to be $\phi\smile\psi:C_{k+l}\to R$ where for $\sigma=[v_0,\dots,v_{k+l}]$, we have that $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_k]})\cdot\psi(\sigma|_{[v_k,\dots,v_{k+l}]})$$
+\end{defn}
+
+\begin{prp}{}{} Let $\phi\in C^k$ and $\psi\in C^l$ with coefficients in a ring $R$. Then we have that $$\delta(\phi\smile\psi)=\delta\phi\smile\psi+(-1)^k\phi\smile\delta\psi$$
+\end{prp}
+
+\begin{lmm}{}{} There is a well defined product $$\smile:H^m(X)\times H^n(X)\to H^{m+n}(X)$$
+\end{lmm}
+
+\begin{lmm}{}{} Let $f:X\to Y$ be a map. Then the induced map $f^\ast:H^n(Y,R)\to H^n(X,R)$ satisfies $f^\ast(\phi\smile\psi)=f^\ast(\phi)\smile f^\ast(\psi)$. 
+\end{lmm}
+
+\begin{prp}{}{} If $\phi\in H^m(X,R)$ and $\psi\in H^n(X,R)$, then $$\phi\smile\psi=(-1)^{mn}\psi\smile\phi$$
+\end{prp}
+
+\begin{thm}{The Cohomology Ring}{} Let $X$ be a topological space and $R$ a commutative ring with identity. Then $$H^\ast(X,R)=\bigoplus_{i=1}^\infty H^i(X,R)$$ is a graded commutative ring with identity under the cup product. Moreover, $H^\ast(X,R)$ is an $R$-algebra. 
+\end{thm}
+
+\subsection{The Kunneth Formula}
+\begin{defn}{The Cross Product}{} Let $X,Y$ be topological spaces. Denote $p_1:X\times Y\to X$ and $p_2:X\times Y\to Y$ the projection maps. Define the cross product of $x\in H^m(X;R)$ and $y\in H^m(Y;R)$ for a ring $R$ to be $$x\times y=p_1^\ast(x)\smile p_2^\ast(y)$$ where $x\times y\in H^{m+n}(X\times Y;R)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $a,c\in H^\ast(X;R)$ and $b,d\in H^\ast(Y;R)$ with $c\in H^m(X;R)$ and $d\in H^n(Y;R)$ we have $$(a\times b)\smile(c\times d)=(-1)^{mn}(a\smile c)\times(b\smile d)$$
+\end{prp}
+
+\begin{thm}{The Kunneth Formula}{} Let $X$ and $Y$ be CW-complexes and $R$ a ring. Then the cross product $$\times:H^\ast(X;R)\otimes_R H^\ast(Y;R)\to H^\ast(X\times Y;R)$$ is an isomorphism of rings if $H^k(Y;R)$ is a finitely generated free $R$-module for all $k$. 
+\end{thm}
+
+\pagebreak
+\section{The Euler Characteristic}
+\subsection{The Characteristic as an Invariant}
+\begin{defn}{Plane Graph}{} A plane graph is a finite $1$-dimensional CW-complex embedded in the real plane $\R^2$. Equivalently, it is a finite graph in the plane in which the edges do not cross. A planar graph is a finite $1$-dimensional CW-complex that exhibits such an embedding. \\~\\
+
+A face of a graph $X$ is a connected component of $\R^2\setminus X$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a topological space that admits the structure of a CW-complex. Then the alternating sum $$\sum_{n\geq 0}(-1)^n\abs{\{n\text{-cells}\}}$$ is independent of the choice of CW-complex structure. 
+\end{prp}
+
+\begin{prp}{Euler's Formula}{} Let $X$ be a planar graph with $v$ vertices, $e$ edges and $f$ faces. Then we have $$v-e+f=2$$
+\end{prp}
+
+\begin{crl}{}{} Let $C_\bullet$ be a chain complex with only finitely many non-zero terms, all of which are finitely generated abelian groups. Then $$\sum_{n\in\Z}(-1)^n\rank(C_n)=\sum_{n\in\Z}(-1)^n\rank(H_n(C_\bullet))$$
+\end{crl}
+
+\begin{defn}{The Euler Characteristic}{} Let $X$ be a space with only finitely many non-zero homology groups, all of which are finitely generated abelian groups. Then the Euler characteristic is defined as $$\chi(X)=\sum_{n\geq 0}(-1)^n\rank(H_n(X))$$
+\end{defn}
+
+Note that if $X$ is a finite CW-complex, then the alternating sum as in proposition 2 coincides with that of the Euler characteristic. 
+
+\subsection{First Properties of the Euler Characteristic}
+\begin{prp}{}{} Let $X=U\cup V$ be a space and assume that either $X$ is a CW-complex and $U,V$ are subcomplexes or $U,V\subseteq X$ are open. Then if $\chi(U),\chi(V),\chi(U\cap V)$ are well defined, $\chi(X)$ is also well defined and we have $$\chi(X)=\chi(U)+\chi(V)-\chi(U\cap V)$$
+\end{prp}
+
+\begin{prp}{}{} Let $X$ and $Y$ be finite CW-comnplexes. Then so is $X\times Y$ and we have $$\chi(X\times Y)=\chi(X)\times\chi(Y)$$
+\end{prp}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

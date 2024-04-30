@@ -1,0 +1,82 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Lie Groups and Lie Algebra}
+\rfoot{\thepage}
+
+\title{Lie Groups and Lie Algebra}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Lie Groups}
+\subsection{Lie Groups}
+\begin{defn}{Lie Groups}{} A Lie group $G$ is a smooth manifold which is also a group such that the multiplication map $G\times G\to G$ given by $(g,h)\mapsto gh$ and the inverse map $i:G\to G$ given by $g\mapsto g^{-1}$ are smooth maps. 
+\end{defn}
+
+\begin{prp}{}{} Let $G$ be a Lie group. A subgroup $H$ of $G$ has the unique structure of a Lie subgroup if $H$ is closed in $G$. 
+\end{prp}
+
+\subsection{Lie Algebras}
+\begin{defn}{Lie Algebras}{} A Lie algebra is a vector space $V$ over a field $K$ together with a bilinear map $[-,-]:V\times V\to V$ such that for all $X,Y,Z\in V$, we have the following. 
+\begin{itemize}
+\item Anti-commutativity: $[X,Y]=-[Y,X]$
+\item Jacobi identity: $[[X,Y],Z]+[[Y,Z],X]+[[Z,X],Y]=0$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Homomorphism of Lie algebra}{} Let $V$ and $W$ be Lie algebras over $K$. A homomorphism from $V$ to $W$ is an $K$-linear map $F:V\to W$ such that $$[F(a),F(b)]=[a,b]$$ for all $a,b\in V$. 
+\end{defn}
+
+\begin{defn}{Lie Subalgebra}{} Let $V$ be a Lie algebra over $K$. A lie subalgebra of $V$ is a vector subspace $W$ of $V$ such that $$[w_1,w_2]\in W$$ for all $w_1,w_2\in W$. 
+\end{defn}
+
+It is clear that a Lie subalgebra is also a Lie algebra in its own right. Moreover, the inclusion $W\to V$ is a Lie algebra homomorphism. 
+
+\begin{defn}{Ideal}{} Let $V$ be a Lie algebra over $K$. An ideal in $V$ is a subspace $U$ of $V$ such that $$[v,u]\in U$$ for all $v\in V$ and $u\in U$. 
+\end{defn}
+
+\begin{prp}{}{} Let $V$ be a Lie algebra over $K$ and $U$ an ideal of $V$. Then $V/U$ has a unique Lie algebra structure such that the quotient map $V\to V/U$ is a Lie algebra homomorphism. 
+\end{prp}
+
+\subsection{Relation between Lie Groups and Lie Algebras}
+For a group $G$, denote the left multiplication map of $h\in G$ by $l_h$. If $G$ is a Lie group, we have seen that $l_h$ is a smooth map, and so it induces a differential $(l_h)_\ast$. 
+
+\begin{defn}{Left Invariant Vector Field}{} Let $G$ be a Lie group and $X$ a vector field on $G$. We say that $X$ is left invariant if $$(l_h)_\ast(X_g)=X_{hg}$$ for all $X_g\in T_g(G)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $G$ be a Lie group. The vector space of left invariant vector fields of $G$ is a Lie algebra of dimension $\dim(G)$. Moreover, if $X_e\in T_e(G)$ is a tangent vector at $e$ the identity, then there is a unique left invariant vector field $X$ on $G$ such that its identity is $X_e$. 
+\end{prp}
+
+\begin{defn}{Lie Algebra of a Lie Group}{} Let $G$ be a Lie group. Define the Lie algebra $V$ of $G$ to be the vector space $T_e(G)$. 
+\end{defn}
+
+Recall that given a homomorphism of Lie groups $\phi:G\to H$, it induces a differential $\phi_\ast:T_g(G)\to T_{\phi(g)}(H)$. 
+
+\begin{prp}{}{} Let $\phi:G\to H$ be a homomorphism of Lie groups with Lie algebras $V$ and $W$ respectively. Then the induced map from the differential $\phi_\ast:V\to W$ is a Lie algebra homomorphism. 
+\end{prp}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

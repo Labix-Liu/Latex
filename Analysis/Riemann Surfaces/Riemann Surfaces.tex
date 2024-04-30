@@ -1,0 +1,93 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Riemann Surfaces}
+\rfoot{\thepage}
+
+\title{Riemann Surfaces}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+These notes will act as a an introductory text with a collection of theorems and definitions for differential equations. 
+\end{abstract}
+\tableofcontents
+\pagebreak
+
+\section{Riemann Surfaces}
+\subsection{Complex Analytic Manifolds}
+\begin{defn}{Complex Charts}{} Let $M$ be a topological space. A complex chart on $M$ is a homeomorphism $\phi:U\to\C^n$ of an open subset $U\subset M$ onto $\phi(U)\subset\C^n$. The coordinates on $\C^n$ determine complex valued functions $z_1,\dots,z_n:U\to\C$, called complex coordinates on $U$. 
+\end{defn}
+
+\begin{defn}{Complex Analytic Atlas}{} A complex atlas on a topological space $M$ is a collection of complex charts $$\Phi=\{\phi_i:U_i\to\C^{n_i}|i\in I\}$$ such that the collection $\{U_i|i\in I\}$ covers $M$. We say that the complex atlas is analytic if the transition maps $$\phi_j\circ\phi_i^{-1}:\phi_i(U_i\cap U_j)\to\phi_j(U_i\cap U_j)$$ are holomorphic for all $i,j\in I$. 
+\end{defn}
+
+\begin{defn}{Complex Analytic Manifolds}{} A topological space $M$ is said to be a complex analytic manifold if 
+\begin{itemize}
+\item $M$ is Hausdorff
+\item $M$ is equipped with a complex analytic atlas $\Phi$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Holomorphic Mappings of Complex Manifolds}{} A mapping $f:M\to N$ of complex manifolds is said to be holomorphic if the functions $f_i(z_1,\dots,z_n)$ for $i=1,\dots,n$ given by coordinate functions on $M$, which is $z_1,\dots,z_n$, are holomorphic in their domain of definition. 
+\end{defn}
+
+\begin{defn}{Dimension}{} The dimension of a chart $\phi:U\to\C^n$ is the number $n$. For a connected complex manifold $M$, the number is independent of the choice of charts and is called the dimension of $M$. 
+\end{defn}
+
+\begin{defn}{Riemann Surfaces}{} A Riemann surface is a connected complex analytic manifold of dimension $1$. 
+\end{defn}
+
+\subsection{Mappings between Riemann Surfaces}
+The goal of this section is to develop the set of meromorphic functions on a Riemann surface, which is basically equivalent to the set of rational functions on a variety. 
+
+\begin{defn}{Holomorphic Functions and Mappings}{} A holomorphic function $f:S\to\C$ on a Riemann Surface $S$ is a function such that for every $p\in X$, if $(U,\phi)$ is a chart containing $p$, then $$f\circ\phi^{-1}$$ is holomorphic in the usual sense. \\~\\
+A holomorphic mapping $f:S_1\to S_2$ betweem two Riemann Surfaces is a function such that for every $p\in X$, if $(U,\phi)$ is a chart containing $p$ and $(V,\psi)$ is a chart containing $f(p)$, then $$\psi\circ f\circ\phi^{-1}$$ is holomorphic in the usual sense. 
+\end{defn}
+
+\begin{defn}{Poles}{} Let $f:S\to\C$ be a function on a Riemann Surface $S$. We say that $p\in S$ is a pole of $f$ if $$\lim_{q\to p}f(q)=\infty$$
+\end{defn}
+
+\begin{prp}{}{} The following are equivalent for a function $f:S\to\C$ on a Riemann surface $S$. 
+\begin{itemize}
+\item $p\in S$ is a pole of $f$
+\item $f(z)$ can be written locally as a Laurent Series $$f(z)=\sum_{k=-n}^\inftya_kz^k$$ where $a_{-n}\neq 0$ and $z$ is the local coordinate such that z(p)=0$
+\item $f$ can be written locally as a quotient of holomorphic functions $g$ and $h$, namely $f=\frac{g}{h}$ in some neighbourhood of $p$ such that $g(p)\neq 0$ and $h(p)=0$
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Meromorphic Functions}{}
+\end{defn}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

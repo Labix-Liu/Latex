@@ -1,0 +1,109 @@
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, total={6in, 8in}, margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage[listings]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage[inputlanglinenos=true]{minted}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+\usetikzlibrary{arrows.meta}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\ext}{Ext}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\homo}{Hom}
+\DeclareMathOperator{\edo}{End}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\vari}{Var}
+\DeclareMathOperator{\cha}{char}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\coker}{coker}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\GG}{\mathbb{G}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prj}{\mathbb{P}}
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\A}{\mathbb{A}}
+\renewcommand{\H}{\mathbb{H}}
+
+\newcommand\todoin[2][]{\todo[backgroundcolor=white!20!white, inline, caption={2do}, #1]{
+\begin{minipage}{\textwidth-4pt}#2\end{minipage}}}
+
+\tcbuselibrary{listings, theorems, breakable, skins}
+
+\newtcbtheorem[number within=subsection]{thm}{Theorem}%
+{colback=gray!5, colframe=gray!65!black, fonttitle=\bfseries, breakable, enhanced jigsaw, halign=left}{th}
+\newtcbtheorem[number within=subsection, use counter from=thm]{defn}{Definition}%
+{colback=gray!5, colframe=gray!65!black, fonttitle=\bfseries, breakable, enhanced jigsaw, halign=left}{th}
+\newtcbtheorem[number within=subsection, use counter from=thm]{axm}{Axiom}%
+{colback=gray!5, colframe=gray!65!black, fonttitle=\bfseries, breakable, enhanced jigsaw, halign=left}{th}
+\newtcbtheorem[number within=subsection, use counter from=thm]{prp}{Proposition}%
+{colback=gray!5, colframe=gray!65!black, fonttitle=\bfseries, breakable, enhanced jigsaw, halign=left}{th}
+\newtcbtheorem[number within=subsection, use counter from=thm]{lmm}{Lemma}%
+{colback=gray!5, colframe=gray!65!black, fonttitle=\bfseries, breakable, enhanced jigsaw, halign=left}{th}
+\newtcbtheorem[number within=subsection, use counter from=thm]{crl}{Corollary}%
+{colback=gray!5, colframe=gray!65!black, fonttitle=\bfseries, breakable, enhanced jigsaw, halign=left}{th}
+\newtcbtheorem[number within=subsection, use counter from=thm]{eg}{Example}%
+{colback=gray!5, colframe=gray!65!black, fonttitle=\bfseries, breakable, enhanced jigsaw, halign=left}{th}
+\newtcbtheorem[number within=subsection, use counter from=thm]{ex}{Exercise}%
+{colback=gray!5, colframe=gray!65!black, fonttitle=\bfseries, breakable, enhanced jigsaw, halign=left}{th}
+\newtcbtheorem[number within=subsection, use counter from=thm]{alg}{Algorithm}%
+{colback=gray!5, colframe=gray!65!black, fonttitle=\bfseries, breakable, enhanced jigsaw, halign=left}{th}
+
+\newcounter{qtnc}
+\newtcolorbox[use counter=qtnc]{qtn}%
+{colback=gray!5, colframe=gray!65!black, fonttitle=\bfseries, breakable, enhanced jigsaw, halign=left}
+
+\tcbuselibrary{minted,breakable,xparse,skins}
+
+\renewcommand{\theFancyVerbLine}{\sffamily
+\textcolor[rgb]{1,1,1}{\scriptsize
+\oldstylenums{\arabic{FancyVerbLine}}}}
+
+\definecolor{bg}{rgb}{0.1,0.1,0.1}
+\usemintedstyle{fruity}
+\setminted[python]{xleftmargin=20pt, linenos, bgcolor = bg, breaklines=true}
+ 
+
+
+
+\raggedright

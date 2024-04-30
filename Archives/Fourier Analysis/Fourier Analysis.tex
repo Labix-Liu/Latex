@@ -1,0 +1,87 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Fourier Analysis}
+\rfoot{\thepage}
+
+\title{Fourier Analysis}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\tableofcontents
+\pagebreak
+
+\section{The Fourier Series}
+\subsection{Introduction to the Fourier Series}
+\begin{defn}{The $n$th Fourier Coefficient}{} Let $f$ be an integrable function on an interval $[a,b]$ with $b-a=L$, then the $n$th Fourier coefficient of $f$ is defined by $$f_n=\frac{1}{L}\int_a^bf(x)e^{-\frac{2\pi in}{L}x}\,dx$$ where $n\in\Z$
+\end{defn}
+
+\begin{defn}{Fourier Series}{} Define the Fourier series of $f$ is given by $$f_F(x)=\sum_{n=-\infty}^\infty f_ne^{\frac{2\pi in}{L}x}$$
+\end{defn}
+
+\begin{defn}{$N$th partial sum}{} The $N$th partial sum of the Fourier series of $f$, for $N\in\N$ is given by $$S_N(f)(x)=\sum_{n=-N}^N f_ne^{\frac{2\pi in}{L}x}$$
+\end{defn}
+
+\begin{thm}{}{} Suppose that $f$ is an integrable function on the circle with $f_n=0$ for all $n\in\N$, then $f(\theta_0)=0$ whenever $f$ is continuous at the point $\theta_0$. 
+\end{thm}
+
+\begin{crl}{}{} Let $f$ be a continuous function on the circle and that the Fourier series of $f$ is absolutely convergent, then the Fourier series converges uniformly to $f$. That is $$\lim_{N\to\infty}S_N(f)(\theta)=f(\theta)$$
+\end{crl}
+
+\begin{crl}{}{} Let $f$ be twice differentiable defined on the circle. Then $$f_n=O\left(\frac{1}{\abs{n}^2}\right)$$ as $\abs{n}\to\infty$. 
+\end{crl}
+
+\begin{defn}{Convolution}{} Let $f,g$ be $2\pi$-periodic integrable functions on $\R$. Define their convolution $f\ast g$ on $[-\pi,\pi]$ by $$(f\ast g)(x)=\frac{1}{2\pi}\int_{-\pi}^\pi f(y)g(x-y)\,dy$$
+\end{defn}
+
+\begin{prp}{}{} Let $f,g,h$ be $2\pi$-periodic integrable functions. Then
+\begin{itemize}
+\item $f\ast(g+h)=(f\ast g)+(f\ast h)$
+\item $(cf)\ast g=c(f\ast g)=f\ast(cg)$ for any $c\in\C$
+\item $f\ast g=g\ast f$
+\item $(f\ast g)\ast h=f\ast(g\ast h)$
+\item $f\ast g$ is continuous
+\item $(f\ast g)_n=f_ng_n$
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Family of Kernels}{} A family of kernels $\{K_n(x)\}_{n=1}^\infty$ on the circle is said to be a family of good kernels if 
+\begin{itemize}
+\item For all $n\in\N$, $\frac{1}{2\pi}\int_{-\pi}^\pi K_n(x)\,dx=1$
+\item There exists $M>0$ such that for all $n\in\N$, $\int_{-\pi}^\pi\abs{K_n(x)}\,dx\leq M$
+\item For every $\delta>0$. $\int_{\delta\leq\abs{x}\leq\pi}\abs{K_n(x)}\,dx\to0$
+\end{itemize}
+\end{defn}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,181 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Solutions to Hatcher}
+\rfoot{\thepage}
+
+\title{Solutions to Hatcher}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+Solutions to the book Algebraic Topology authored by Allen Hatcher
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{The Fundamental Group}
+\subsection{Basic Constructions}
+\begin{ex}{}{} Show that the composition of paths satisfy the following cancellation property: If $f_0\cdot g_0\simeq f_1\cdot g_1$ and $g_0\simeq g_1$ then $f_0\simeq f_1$. \tcbline
+\begin{proof}
+From the relation $g_0\simeq g_1$ we have that $g_1\cdot\overline{g}_0\simeq e$. It follows that 
+\begin{align*}
+f_0\cdot g_0&\simeq f_1\cdot g_1\\
+f_0\cdot g_0\cdot\overline{g}_0&\simeq f_1\cdot g_1\cdot\overline{g}_0\\
+&=f_0\simeq f_1
+\end{align*}
+and so we conclude. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Show that the change of basepoint homomorphism $\beta_h$ depends only on the homotopy class of $h$. \tcbline
+\begin{proof}
+Recall that the isomorphism is defined by $\beta_h:\pi_1(X,x_1)\to\pi_1(X,x_0)$ sending $[\alpha]\in\pi_1(X,x_1)$ to $[h\cdot\alpha\cdot\overline{h}]$. We have that $h\overset{\partial}{\simeq}h'$ implies $h\cdot\alpha\cdot\overline{h}\simeq h'\cdot\alpha\cdot\overline{h'}$ so that $\beta_h([\alpha])=\beta_{h'}([\alpha])$. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} For a path connected space $X$, show that $\pi_1(X)$ is abelian if and only if all base point change homomorphisms $\beta_h$ depend only on the endpoints of the path $h$. \tcbline
+\begin{proof}
+Suppose that $\pi_1(X)$ is abelian. We want to show that $\beta_h=\beta_{h'}$ if $h(1)=h'(1)$. We have that 
+\begin{align*}
+\beta_h([\alpha])&=[h\cdot\alpha\overline{h}]\\
+\beta_{h'}([\alpha])&=[h'\cdot\alpha\cdot\overline{h'}]
+\end{align*}
+Since $\pi_1(X)$ is abelian, we have that 
+\begin{align*}
+\beta_h([\alpha])\cdot\overline{\beta_{h'}([\alpha])}&=[h\cdot\alpha\cdot\overline{h}\cdot h'\cdot\alpha\cdot\overline{h'}]\\
+&=[h\cdot(\overline{h}\cdot h')\cdot\alpha\cdot\overline{\alpha}\cdot\overline{h'}]\tag{$\overline{h}\cdot h'$ is a loop on $x_1$}\\
+&=[h'\cdot\overline{h'}]\\
+&=[e_{x_0}]
+\end{align*}
+This implies that $[h\cdot\alpha\cdot\overline{\alpha}]=[h'\cdot\alpha\cdot\overline{h'}]$ which is what is required. \\~\\
+
+Now suppose that $\pi_1(X)$ is not abelian. Then there exists $[a],[b]\in\pi_1(X)$ such that $[a]\cdot[b]\neq[b]\cdot[a]$. In other words, $[\overline{b}]\cdot[a]\cdot[b]\neq[a]$. But clearly for the constant loop $e$, we have that $[\overline{e}]\cdot[a]\cdot[e]=[a]$ which implies that 
+\begin{align*}
+[\overline{b}]\cdot[a]\cdot[b]&\neq[\overline{e}]\cdot[a]\cdot[e]\\
+\beta_b([a])&\neq\beta_e([a])
+\end{align*}
+even though $b$ and $e$ have the same end points. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Show that if a subspace $X\subset\R^n$ is locally star-shaped, then every path in $X$ is homotopic in $X$ to a piecewise linear path. Show this applies in particular when $X$ is open or when $X$ is a union of finitely many closed convex sets. \tcbline
+\begin{proof}
+Let $\gamma$ be a path in $X$. Consider the open cover of $\gamma([0,1])$ by the star-shaped neighbourhood of each $x\in\gamma([0,1])$. Since $[0,1]$ is compact, $\gamma([0,1])$ is compact so the open cover has a finite subcover $U_1,\dots,U_m$ which are neighbourhoods of $\gamma(t_1)=x_1,\dots,\gamma(t_m)=x_m$ for $t_1<\cdots<t_m$. For any $U_i\cap U_{i+1}$ (nonempty since open cover), choose $\gamma(s_i)=y_i$ and $t_1<s_1<t_2<s_2<\cdots<s_{m-1}<t_m$. Since each $U_i$ is star-shaped at $x_i$, there are straight paths from $x_i$ to $y_{i-1}$ and $y_i$, say $a_{i-1}:I\to X$ and $b_i:I\to X$. Since $U_i$ is star-shaped at $x_i$, any point between the paths $a_{i_1}$ and $\gamma_{[s_{i-1},t_i]}$ (likewise $\gamma_{[t_i,s_i]}$ and $b_i$) is reachable via a straight line, so that $\gamma_{[s_{i-1},t_i]}$ is homotopic to the straight path $a_{i-1}$ and likewise $\gamma_{[t_i,s_i]}$ is homotopic to the straight path $b_i$ and so we are done. \\~\\
+
+If $X$ is a union of finitely many closed convex sets, then notice that each convex set is star-shaped. Each $x\in X$ must be contained in one of the convex sets and so $X$ is locally star-shaped. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Show that for a space $X$, the following three conditions are equivalent: 
+\begin{enumerate}[label=(\alph*)]
+\item Every map $S^11\to X$ is homotopic to a constant map, with image a point. 
+\item Every map $S^1\to X$ extends to a map $D^2\to X$. 
+\item $\pi_1(X,x_0)=0$ for all $x_0\in X$. 
+\end{enumerate} 
+Deduce that a space $X$ is simply-connected if and only if all maps $S^1\to X$ are homotopic (Without regards to basepoint). \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $(a)\implies(b)$: Suppose that $f\simeq e_{x_0}$. This means that there exists a homotopy $H:S^1\times I\to X$ from $f$ to $e_{x_0}$. Now by the universal property of quotient spaces, we have a factorization \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+	{S^1\times I} && {\frac{S^1\times I}{S^1\times\{1\}}} \\
+	\\
+	&& X
+	\arrow["p", from=1-1, to=1-3]
+	\arrow["H"', from=1-1, to=3-3]
+	\arrow["{\tilde{H}}", from=1-3, to=3-3]
+\end{tikzcd}}\\~\\
+where $p$ is the quotient map. This is possible because $H(S^1\times I)=\{x_0\}$. Since $\frac{S^1\times I}{S^1\times\{1\}}\cong D^2$, we obtain an extension. 
+
+\item $(a)\implies(c)$: $S^1\cong\frac{I}{0\sim 1}$ so that every map $f:S^1\to X$ is just a loop in $X$. Since all loops in $X$ is homotopic to the constant map, we must have $\pi_1(X,x)=0$. 
+
+\item $(b)\implies(a)$: Suppose that $f:S^1\to X$ is a map. By assumption, $f$ can be extended to a map $\tilde{f}:D^2\to X$. Since $D^2$ is contractible, we have $\text{id}_{D^2}\simeq e$, which implies that $$\tilde{f}\simeq f\circ e_{x_0}=e_{f(x_0)}$$ In particular, $f$ is also homotopic to a constant map by the same homotopy. 
+
+\item $(c)\implies(a)$: Suppose that $\pi_1(X,x_0)=0$. Then any loop $f:I\to X$ is such that $f\simeq e_{x_0}$. In particular, a loop with domain $I$ is just a map from $S^1$ because $S^1\cong\frac{I}{0\sim1}$. 
+\end{itemize} 
+
+For the remainder of the question, suppose that $X$ is simply connected. This means that $\pi_1(X,x_0)=0$. This means that any loop $S^1\to X$ is homotopic to a constant map. Since simply connectedness implies path connectedness, any constant paths are homotopic. This means that any $S^1\to X$ are homotopic. \\~\\
+
+Now suppose that any $S^1\to X$ are homotopic. Then in particular, they are all homotopic to the constant path. Thus $\pi_1(X,x_0)=0$ for any $x_0\in X$. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} There is a natural map $\Psi:\pi_1(X,x_0)\to[S^1,X]$ obtained by ignoring basepoints. Show that $\Psi$ is onto if $X$ is path-connected, and that $\Psi([f])=\Psi([g])$ if and only if $[f]$ and $[g]$ are conjugate in $\pi_1(X,x_0)$. \tcbline
+\begin{proof}
+Suppose that $X$ is path connected, and let $[f]\in[S^1,X]$. Let $x_1$ be the end point of the loop $f$. Since $X$ is path connected, there exists $\gamma:I\to X$ such that $\gamma(0)=x_0$ and $\gamma(1)=x_1$. This means that $\gamma\cdot f\cdot\overline{\gamma}$ is a loop starting at $x_0$. But $[\gamma\cdot f\cdot\overline{\gamma}]=[f]$ via the homotopy 
+
+\begin{center}
+\includegraphics[scale = 0.3]{Image 1}
+\end{center}
+
+Thus $\Psi([\gamma\cdot f\cdot\overline{\gamma})=[f]$. \\~\\
+
+Now suppose that $\Psi([f])=\Psi([g])$. Then this implies that $f\simeq g$ are free homotopic where $f$ and $g$ have basepoint $x_0$. Let $H:I\times I\to X$ be the homotopy. Let $h:I\to X$ be defined as $h(t)=H(0,t)$. Then we have 
+\begin{gather*}
+h(0)=H(0,0)=f(0)=x_0\\
+h(1)=H(0,1)=g(0)=x_0
+\end{gather*}
+so that $h$ is a loop. By lemma 1.19, we have that $(H_0)_\ast=\beta_h\circ(H_1)_\ast$ if and only if $f_\ast=\beta_h\circ g_\ast$. Plugging in the generator $\omega_1$ of $\pi_1(S^1,1)\cong\Z$, we have that 
+\begin{align*}
+f_\ast(\omega_1)&=(\beta_h\circ g_\ast)(\omega_1)\\
+f\circ\omega_1&=\beta_h(g\circ\omega_1)
+\end{align*}
+But $f\simeq f\circ\omega_1$ and $\overline{h}\cdot g\cdot h\simeq\beta_h(g\circ\omega_1)$ and so we have that $[f]=[\overline{h}]\cdot[g]\cdot[h]$. \\~\\
+
+Suppose that $[f]=[\overline{\gamma}\cdot g\cdot\gamma]$ for some $\gamma:I\to X$ a loop so that $f,g,\gamma$ are loops based at $x_0$. Applying $\Psi$, we have that $\Psi([f])=\Psi([\overline{\gamma}\cdot g\cdot\gamma])$. Consider $\Psi([g])\in[S^1,X]$. It is clear that $g\in\Psi([g])$. Moreover, we must have $g\simeq\overline{\gamma}\cdot g\cdot\gamma$ by the same homotopy given above (replace $f$ with $g$). Thus we have that $f$ is free homotopic to $g$. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Define $f:S^1\times I\to S^1\times I$ by $f(\theta,s)=(\theta+2\pi s,s)$ so $f$ restricts to the identity on the two boundary circles $S^1\times I$. Show that $f$ is homotopic to the identity by a homotopy $f_t$ that is stationary on one of the boundary circles, but not by any homotopy $f_t$ that is stationary on both boundary circles. \tcbline
+\begin{proof}
+Define $H:(S^1\times I)\times I\to S^1\times I$ by $$(\theta,s,t)\mapsto(\theta+2\pi s(1-t),s)$$ Clearly $H$ is continuous. Moreover, 
+\begin{align*}
+H(\theta,s,0)&=f(\theta,s)\\
+H(\theta,s,1)&=\text{id}(\theta,s)\\
+H(\theta,0,t)&=(\theta,0)
+\end{align*}
+Thus we have that $$f\overset{S^1\times\{0\}}{\simeq}\text{id}$$ Now suppose that $H$ is a homotopy from $\text{id}$ to $f$ that fixes $S^1\times\{0\}$ and $S^1\times\{1\}$. Let $\gamma:I\to S^1\times I$ be a path defined as $\gamma(s)=\theta_0+s$ for some fixed $\theta_0$. Then the conditions on $H$ implies that 
+\begin{align*}
+H(\gamma(s),0)&=\gamma(s)\\
+H(\gamma(s),1)&=(f\circ\gamma)(s)
+\end{align*}
+so that we have a homotopy $\gamma\simeq f\circ\gamma$. \\~\\
+
+Consider the projection $p:S^1\times I\to S^1$. Then we have that 
+\begin{align*}
+\gamma&\simeq f\circ\gamma\\
+p\circ\gamma&\simeq p\circ f\circ\gamma\\
+e&\simeq\omega_1
+\end{align*}
+But $\omega_1$ is a generator of $\pi_1(S^1)$ hence this is a contradiction. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Does the Borsak-Ulam theorem hold for the torus? In other words, for every map $f:S^1\times S^1\to\R^2$, must there exist $(x,y)\in S^1\times S^1$ such that $f(x,y)=f(-x,-y)$? \tcbline
+\begin{proof}
+The Borsak-Ulam theorem fails on the torus. Consider the map $f:S^1\times S^1\subset\R^3\to\R^2$ that forgers the $z$ coordinate of the torus. It is clear that for two points to have the same image under $f$, it must have the same $y$ value in $S^1\times S^1$ (Think of the first circle in $S^1\times S^1$ having the $y$-axis passing  through and the second circle having the $z$-axis passing through). Assume that the theorem holds. Then $f(x,y)=f(-x,-y)$ together with $y=-y$ implies that $y=0$ in $\R^3$ coordinates. But not point in the torus has $\R^3$ coordinate $y=0$, which is a contradiction. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Let $A_1,A_2,A_3$ be compact sets in $\R^3$. Use the Borsa-Ulam theorem to show that there is one plane $P\subset\R^3$ that simultaneously divides each $A_i$ into two pieces of equal measure. \tcbline
+\begin{proof}
+Consider $S^2\subset\R^3$. Let $v$ be a vector in $S^2$ and consider its span which I also denote by $v$. For any scalar $p$, there is a normal plane of $v$ that passes through $pv$. In particular, there is a continuous collection of planes that slices through $A_i$ for $i=1,2,3$. Define a measure of volume in $\R^3$. Such a measure must be continuous so that the intermediate value theorem implies that there exists one such $p_i$ for which the normal plane at $p_iv$ slices $A_i$ in half by volume. \\~\\
+
+This is because as $p$ increases in $\R$, $$\text{Vol}\left(A\cap\text{lower of half of }\R^3\text{ bounded by the normal plane}\right)$$ increases and eventually attains full volume (full volume is finite since $A_i$ is compact) so that we can apply IVT. \\~\\
+
+Doing this for every vector $v$ in $\R^3$, we obtain a function $f:S^2\to\R^2$ defined by $f(v)=(p_1-p_3,p_2-p_3)$. By Borsak-Ulam theorem, there exists $v\in S^2$ such that $f(v)=f(-v)$ (Showing continuity of $f$ is hard!). In other words, we have that $(p_1-p_3,p_2-p_3)=(p_3-p_1,p_3-p_2)$. This implies that $p_1=p_2=p_3$. But this means that the hyperplane at $p_1v=p_2v=p_3v$ cuts through all $A_1,A_2,A_3$ and thus we conclude. 
+\end{proof}
+\end{ex}
+
+
+
+
+\end{document}

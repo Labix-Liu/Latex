@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Completion}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Direct and Inverse Systems}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}The Artin-Rees Lemma}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Hensel's Lemma}{3}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Dimension Theory}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Dimension and Height}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The Hilbert Polynomial}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Fundamental Theorem on Local Rings}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Regular Local Rings}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Regular Local Rings}{5}{subsection.3.1}%

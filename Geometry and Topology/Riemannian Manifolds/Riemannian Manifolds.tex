@@ -1,0 +1,65 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Riemannian Manifolds}
+\rfoot{\thepage}
+
+\title{Riemannian Manifolds}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Riemannian Metrics}
+\subsection{The Riemannian Metric}
+\begin{defn}{Riemannian Metric}{} Let $M$ be a smooth manifold. A Riemannian metric on $M$ is a function $g: TM\times TM\to\R$ such that for each $p\in M$, the restriction of $g$ to $T_pM\times T_pM$, denoted $g_p$ has the following properties. 
+\begin{itemize}
+\item Symmetric: $g_p(X_p,Y_p)=g_p(Y_p,X_p)$ for all $X_p,Y_p\in T_pM$
+\item Positive Definite: $g_p(X_p,X_p)>0$ for all $X_p\in T_pM$ with $X_p\neq 0$
+\item Bilinearity: $g_p(aX_p+bY_p,Z_p)=ag_p(X_p,Z_p)+bg_p(Y_p,Z_p)$ and $g_p(X_p,aY_p+bZ_p)=ag_p(X_p,Y_p)+bg_p(X_p,Z_p)$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Riemannian Manifold}{} A Riemannian manifold $(M,g)$ is a manifold $M$ together with a Riemannian metric $g$ on $M$. 
+\end{defn}
+
+\subsection{Bundle Metric}
+\begin{defn}{Bundle Metric}{} Let $M$ be a topological manifold and $p:E\to M$ a vector bundle on $M$. Then a bundle metric on $E$ is a section of $E^\ast\otimes E^\ast$ such that it is nondegenerate and symmetric. 
+\end{defn}
+
+In other words, a bundle metric is an assignment to each fibre, an inner product. Bilinearity is seen from $E^\ast\otimes E^\ast$, which is exactly the set of all bilinear forms $E\times E\to\R$. 
+
+\begin{prp}{}{} Let $M$ be a smooth manifold. Then a Riemannian metric give rise to a bundle metric on $TM$. A bundle metric on $TM$ gives rise to a Riemannian metric. 
+\end{prp}
+
+\pagebreak
+\section{Levi-Civita Connection}
+
+\pagebreak
+\section{Geodesics}
+\begin{defn}{Geodesics}{} A curve $\gamma:(a,b)\to M$ is called a geodesic if $D_t(\gamma'(t))=0$ for all $t\in(a,b)$. 
+\end{defn}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

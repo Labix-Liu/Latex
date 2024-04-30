@@ -1,0 +1,211 @@
+\documentclass[a4paper]{article}
+
+\input{Headers}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{CS137}
+\rfoot{\thepage}
+
+\title{CS137}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Asymptotic Relations}
+\begin{defn} $g=O(f)$ means that g has at most run time $f$ by a constant. $g=\Omega(f)$ means $g$ has at least run time $f$ by a constant. $g=\theta(f)$ means $g$ has run time equal to $f$ by a constant
+\end{defn}
+
+\begin{thm}[Divide and Conquer] The runtime of a divide and conquer algorithm. $a$ is the number of subparts. $O(n)$ is the merging time. $$T(n)=aT\left(\floor{\frac{a}{2}}\right)+O(n)$$
+\end{thm}
+
+\begin{thm}[Master Theorem] If $T(n)=aT\left(\frac{n}{b}\right)+O(n^d)$ for some constants $a>0$, $b>1$, $d\geq 0$. Then $$T(n)=\begin{cases}O(n) & \text{ if }d>\ln_b(a)\\O(n^d\ln(n)) & \text{ if }d=\ln_b(a)\\O(n^{\ln_b(a)}) & \text{ if }d<\ln_b(a)\end{cases}$$
+\end{thm}
+
+\begin{thm}[Recurrence Relations] Let $$f_n=af_{n-1}+b^n$$ and $f_0=1$ $f_n$ can be solved explicitly following the steps below. 
+\begin{align*}
+\sum_{k=0}^\infty f_nx^n-1&=a\sum_{k=1}^\infty f_{n-1}x^n+\sum_{k=1}^\infty(bx)^n\\
+&=ax\sum_{k=0}^\infty f_{n}x^n+\frac{1}{1-bx}-1\\
+\sum_{k=0}^\infty f_nx^n&=\frac{1}{(1-ax)(1-bx)}\\
+&=\frac{a}{(1-ax)(a-b)}-\frac{b}{(1-bx)(a-b)}\\
+&=\frac{a}{a-b}\sum_{k=0}^\infty (ax)^n-\frac{b}{a-b}\sum_{k=0}^\infty (bx)^n\\
+f_n&=\frac{a^{n+1}}{a-b}-\frac{b^{n+1}}{a-b}\\
+\end{align*}
+\end{thm}
+
+\pagebreak
+\section{Graph Theory}
+\subsection{Classification of Graphs}
+\begin{defn} A graph $G=(V,E)$ is a set of vertices $V$ and edges $E$. 
+\end{defn}
+
+\begin{defn}[Multiple Edges] A multiple edge are two edges such that both connectes $a$ to $b$. 
+\end{defn}
+
+\begin{defn}[Loops] A loop is an edge that connects to itself. 
+\end{defn}
+
+\begin{defn}[Simple Graph] A graph with no loops and no multiple edges is a simple graph. 
+\end{defn}
+
+\begin{defn}[Complete Graphs] A graph is complete if every pair of vertices has an edge. 
+\end{defn}
+
+\begin{defn}[Bipartite Graph] A grpah is bipartite if its vertices can be partitioned into two sets such that every edge has one end point in each set. 
+\end{defn}
+
+\subsection{Matchings}
+\begin{defn}[Matching] A matching $M$ in $G$ is a set of edges such that no two edge share common vertices. 
+\end{defn}
+
+\begin{thm}[Hall's Theorem] Consider any bipartite graph $G=(L\cup R,E)$ with $\abs{L}=n$. It contains a matching $M\subseteq E$ of size $$\abs{M}=\abs{L}$$ if and only if $$\abs{N(A)}\geq\abs{A}$$ for all $A\subseteq L$. 
+\end{thm}
+
+\begin{defn}[Alternating Path] An alternating path is a path that begins with an unmatched vertex, and whose edge belongs alternativelt to the matching and not to the matching. 
+\end{defn}
+
+\begin{defn} A maximal matching is a matching $M$ of a group that is not a subset of any other matching. 
+\end{defn}
+
+\begin{defn}[Maximum Matching] A maximum matching is a matching that contains the largest possible number of edges. 
+\end{defn}
+
+\begin{thm} If $M$ is a matching in a bipartite graph that no alternating chain can exists, then $M$ is a maximum matching. 
+\end{thm}
+
+\begin{defn}[Vertex Cover] Let $G$ be a graph. A set of vertices $V$ is said to be a vertex cover of $G$ if every edge in $G$ has at least one end point in $V$. 
+\end{defn}
+
+\begin{prp} Let $M$ be a matching in a bipartite graph $G$ and $S$ a vertex cover, then $\abs{M}\leq\abs{S}$
+\end{prp}
+
+\begin{defn} Denote $\mu(G)$ the size of a maximum matching of $G$ and $\tau(G)$ the size of a minimum vertex cover of $G$. 
+\end{defn}
+
+\begin{thm} For every bipartite graph $G$, $\mu(G)=\tau(G)$
+\end{thm}
+
+\subsection{Walks}
+\begin{defn}[Degree Sequence] The degree sequence of a graph is a list of its degrees. 
+\end{defn}
+
+\begin{thm} In any graph, let $d_1,\dots,d_n$ be a degree sequence. Then $$\sum_{k=1}^nd_k=2\abs{E}$$
+\end{thm}
+
+\begin{defn} A sequence is graphical if it can be drawn into a graph
+\end{defn}
+
+\begin{thm} A degree sequence $d_1\geq\dots\geq d_n$ is graphical if and only if $\sum_{k=1}^nd_k$ is even and for all $m\in\{1,\dots,n\}$, $$\sum_{k=1}^md_k\leq m(m-1)+\sum_{k=m+1}^n\min\{d_k,m\}$$
+\end{thm}
+
+\begin{defn}[Walk] A walk on a graph is a sequence of alternating vertices and edges that start and end with vertices. (You are walking on a graph)
+\end{defn}
+
+\begin{defn}[Closed Walk] A closed walk is a walk that starts and ends in the same vertex. 
+\end{defn}
+
+\begin{defn}[Euler Walk] An Euler walk is a walk that uses every vertex only once. 
+\end{defn}
+
+\begin{defn}[Euler Circuit] An Euler circuit is a closed walk that uses every vertex only once. 
+\end{defn}
+
+\begin{thm} Let $G$ be connected. There exists a Euler circuit on $G$ if and only if every vertex has even degree. 
+\end{thm}
+
+\begin{thm} Let $G$ be connected. There exists a Euler walk on $G$ if and only if exactly two vertices have odd degree. 
+\end{thm}
+
+\subsection{Cliques and Independent Sets}
+\begin{defn}[Cliques] An $l$-clique is a complete graph on $l$ vertices. 
+\end{defn}
+
+\begin{defn}[Independent Sets] Let $G=(V,E)$ be a graph and $X\subseteq V$. $X$ is said to be independent if no two vertices in $X$ are connected by an edge. 
+\end{defn}
+
+\begin{prp} $G$ is a clique if and only if the complement of $G$ is independent. 
+\end{prp}
+
+\begin{prp} Let $G=(V,E)$ be a graph and $S\subseteq V$. Then $S$ is a vertex cover of $G$ if and only if $G[V\setminus S]$ is independent. 
+\end{prp}
+
+\begin{defn} Let $k,l\in\N$. $R(k,l)$ denotes the smallest positive integer such that every graph on $R(k,l)$ vertices contains a $k$-clique or an independent set on $l$ vertices. 
+\end{defn}
+
+\begin{prp} For all $k\in\N$, $R(1,k)=R(k,1)=1$
+\end{prp}
+
+\begin{prp} For all $k,l\in\N$, $R(k,l)=R(l,k)$
+\end{prp}
+
+\begin{thm} Denote $\binom{V}{k}$ the set of all $k$-sized subsets of $V$. Let $n,k\in\N$ such that $\binom{n}{k}2^{1-\binom{k}{2}}<1$. Then $R(k,k)>n$. 
+\end{thm}
+
+\subsection{Pigeonhole Principle}
+\begin{thm}[Piegeonhole principle] For every pair of non-empty finite sets $A$ and $B$ and for every function $f:A\to B$, if $\abs{A}>(c-1)\abs{B}$, then there exists an element $b\in B$ such that $\abs{f^{-1}(b)}\geq c$. 
+\end{thm}
+
+\begin{thm}[Piegeonhole Principle 2] For every $q_1,\dots,q_n\in\N$, for every pair of non-empty finite sets $A=\{a_1,\dots,a_r\}$ and $B=\{b_1,\dots,b_n\}$ such that $r=\sum_{k=1}^nq_k-n+1$, and for every function $f:A\to B$, there exists $i\in\{1,\dots,n\}$ such that $\abs{f^{-1}(b_i)}\geq q_i$
+\end{thm}
+
+
+
+
+
+
+
+
+
+\begin{defn} A directed graph is an ordered pair $(V,A)$ where the $V$ is the set of vertices and $A\subseteq V\times V$ is the set of arcs. 
+\end{defn}
+
+\begin{defn}[Tournament] A directed graph $D=(V,A)$ is called a tournament if for every $i,v\in V$, only either one of $(u,v)$ or $(v,u)$ is in $A$. 
+\end{defn}
+
+\begin{defn} Let $D=(V,A)$ be a tournament and let $S\subset V$. $S$ is $k$-strong if $\abs{S}=k$ and moreover, for every $v\in V\setminus S$, there is a $u\in S$ such that $(u,v)\in A$. 
+\end{defn}
+
+\subsection{Probability}
+\begin{thm}[Markov's Inequality] Let $X:\Omega\to\R^+$ be a random variable. Let $a>0$ Then $$P(X\geq a)\leq\frac{E[X]}{a}$$
+\end{thm}
+\begin{proof} 
+\begin{align*}
+E[X]&=\sum_{k=0}^{a-1}kP(X=k)+\sum_{k=a}^\infty kP(X=k)\\
+&\geq\sum_{k=a}^\infty kP(X=k)\\
+&\geq\sum_{k=a}^\infty aP(X=k)\\
+&=aP(X\geq a)
+\end{align*}
+\end{proof}
+
+\begin{thm}[Law of Total Expectation] Let $X:\Omega\to\R$ be a random variable. Let $A_1,\dots,A_n$ be a parition of $\Omega$ in the sample space $\Omega$ such that $P(A_i)\neq0$ for all $i\in\{1,\dots,n\}$. Then $$E[X]=\sum_{k=1}^nE[X|A_k]P(A_k)$$
+\end{thm}
+
+\begin{thm} The expected number of cycles of length $k$ in a permutation of $S_n$ is given by $\frac{1}{k}$. 
+\end{thm}
+\begin{proof} First choose $k$ elements from $n$ elements to form the cycle of length $k$. The number of possible cycles of length $k$ is given by $\frac{k!}{k}$ because $(a_1,a_2\dots,a_{k-1},a_k)=(a_2,\dots,a_{k-1},a_k,a_1)$ and vice versa. Then multiply it by the number of permutations that fixes the $k$ elements we chose. And finally divide by the total number of possible permutations in $n$ elements. We have that $$\binom{n}{k}(k-1)!(n-k)!\frac{1}{n!}=\frac{1}{k}$$
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

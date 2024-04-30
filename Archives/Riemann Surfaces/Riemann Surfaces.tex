@@ -1,0 +1,53 @@
+\documentclass[a4paper]{article}
+
+\input{Headers}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Riemann Surfaces}
+\rfoot{\thepage}
+
+\title{Riemann Surfaces}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Riemann Surfaces}
+\subsection{Basic Notations}
+\begin{defn}[Complex Chart] Let $M$ be a topological space. We say that $\phi:U\subset M\to\C^n$ is a complex chart on $M$ where $U$ is open and $\phi(U)$ is open if $\phi$ is a topological homeomorphism. 
+\end{defn}
+Since the homeomorphism is bijective, we can assign to each point $p\in U$ a coordinate on $\C^n$, given by the coordinate functions $z_1,\dots,z_n$. The function $z_i$ return the $i$th coordinate of $p$. Thus the coordinates in $U$ has representation $\phi(p)=(z_1(p),\dots,z_n(p))$. 
+\begin{defn}[Complex Atlas] Let $M$ be a topological space. A complex atlas on $M$ is a countable colletion of complex charts $A=\{\phi_i:U_i\subset M\to\C^n|i\in I\}$ and $M\subset\bigcup_{i\in I}U_i$
+\end{defn}
+
+\begin{defn}[Analytic Atlas] A compelx atlas $A$ is an analytic atlas if the transition maps $$\phi_j\circ\phi_i^{-1}:\phi(U_i\cap U_j)\to\phi_j(U_i\cap U_j)$$ are holomorphic for all $i,j\in I$. 
+\end{defn}
+
+\begin{defn}[Complex Manifolds] A Hausdorff Space $M$ equipped with a complex analytic atlas $A$ is called a complex manifold. 
+\end{defn}
+
+\begin{defn}[Complex Analytic Chart] A complex chart on a complex manifold $M$ is said to be analytic if it can be added to $A$ without destorying the analyticity of the atlas. 
+\end{defn}
+
+\begin{defn}[Holomorphic Mappings] Let $M,N$ be complex manifolds. A mapping $f:M\to N$ of complex manifolds is said to be holomorphic if in local coordinates it is given by holomorphic functions. 
+\end{defn}
+
+\begin{defn}[Riemann Surface] A Riemann Surface is a connected complex analytic manifold of dimension $1$. 
+\end{defn}
+
+\subsection{Mappings of Riemann Surfaces}
+
+
+
+
+
+\end{document}

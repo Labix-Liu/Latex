@@ -1,0 +1,78 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Commutative Algebra 2}
+\rfoot{\thepage}
+
+\title{Commutative Algebra 2}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\pagebreak
+
+\section{Completion}
+\subsection{Direct and Inverse Systems}
+\subsection{The Artin-Rees Lemma}
+\begin{thm}{Artin-Rees Lemma}{} Assume $A$ is Noetherian and $I$ is an ideal of $A$. Let $M$ be a finite module and $N\subset M$ a submodule. Then there exists $c>0$ such that $$I^nM\cap N=I^{n-c}(I^cM\cap N)$$ for every $n>c$. 
+\end{thm}
+
+\subsection{Hensel's Lemma}
+
+\pagebreak
+\section{Dimension Theory}
+\subsection{Dimension and Height}
+\begin{defn}{Krull Dimension}{} Let $R$ be a commutative ring. Define the Krull dimension of $R$ to be $$\dim(R)=\sup\{t\in\N|p_0\subset\dots\subset p_t\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
+\end{defn}
+
+\begin{defn}{Height of a Prime Ideal}{} Let $p$ be a prime ideal in a ring $R$. Define the height of $p$ to be $$\text{ht}(p)=\sup\{t\in\N|p_0\subset\dots\subset p_t=p\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $p$ be a prime ideal in a ring $R$. Then $\text{ht}(p)=\dim(R_p)$. 
+\end{lmm}
+
+\subsection{The Hilbert Polynomial}
+
+\subsection{Fundamental Theorem on Local Rings}
+\begin{thm}{}{}
+\end{thm}
+
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring and let $k=R/m$ be the residue field. Then $$\dim(R)\leq\dim_k(m/m^2)$$
+\end{prp}
+
+\begin{thm}{Krull's Principal Ideal Theorem}{}
+\end{thm}
+
+\pagebreak
+\section{Regular Local Rings}
+\subsection{Regular Local Rings}
+Regularity is an important concept in algebraic geometry to detecting singularities. We motivate the definition by the following proposition. 
+
+\begin{defn}{Regular Local Rings}{} A local ring $R$ is said to be regular if $\dim_k(m/m^2)=\dim(R)$ for $k$ the residue field of $R$. 
+\end{defn}
+
+\begin{thm}{}{} Let $A$ be a Noetherian local ring of dimension $1$ with maximal ideal $m$. Then the following are equivalent: 
+\begin{itemize}
+\item $A$ is regular
+\item $m$ is principal
+\item $A$ is an integral domain, and all ideals are of the form $m^n$ for $n\geq 0$ or $(0)$
+\item $A$ is a principal ideal domain
+\end{itemize}
+\end{thm}
+
+
+
+
+\end{document}

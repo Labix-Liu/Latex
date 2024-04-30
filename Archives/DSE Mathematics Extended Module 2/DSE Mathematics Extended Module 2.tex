@@ -1,0 +1,414 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{DSE M2}
+\rfoot{\thepage}
+
+\title{DSE Mathematics Extended Module 2}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Mathematical Induction}
+\subsection{Content}
+\begin{defn}{}{}[Mathematical Inductiuon] Mathematical Induction is a process to prove statements. Let $P(n)$ be a statement. If 
+\begin{itemize}
+\item $P(1)$ is true
+\item $P(k)$ is true for some arbitrary $k$ in the natural number implies that $P(k+1)$ is also true
+\end{itemize} Then the statement is true for the entirety of natural numbers. 
+\end{defn}
+Often the haradest part is to prove that the truth $P(k)$ of an arbitrary $k$ implies the next natural number $k+1$ to also assert $P(k+1)$ to be true. It is however, just as strong as it's difficulty in the sense that we are selecting an arbitrary number and imposing that the next in line is also true. Thus we would not have to prove true for every number $2,3,4,\dots$. \linebreak\linebreak
+There is not much to say about its truthfulness nor to explain it. It would prove more useful to take a look at some examples. 
+\subsection{Examples}
+\begin{eg}{}{}[Easy] Prove that $P(n):\sum_{i=1}^{n}i=\frac{n(n+1)}{2}$ is true. \linebreak\linebreak
+We follow the principle of mathematical induction. When $n=1$, $$\text{L.H.S.}=\sum_{i=1}^1i=1$$ \begin{align*}
+\text{R.H.S.}&=\frac{1(2)}{2}\\
+&=1
+\end{align*} We have L.H.S.$=$R.H.S. thus $P(1)$ is true. \linebreak\linebreak
+Assume that $P(k)$ is true for some $k$ in the natural numbers. Consider $n=k+1$. 
+\begin{align*}
+\text{L.H.S.}&=\sum_{i=1}^{k+1}i\\
+&=\sum_{i=1}^ki+(k+1)\\
+&=\frac{k(k+1)}{2}+(k+1)\tag{By assumption}\\
+&=(k+1)\left(\frac{k}{2}+1\right)\\
+&=\frac{(k+1)(k+2)}{2}\\
+\text{R.H.S.}&=\frac{(k+1)(k+2)}{2}
+\end{align*} We have L.H.S.$=$R.H.S. thus $P(k+1)$ is true. By the principal of mathematical induction, $P(n)$ is true for all natural numbers $n$. 
+\end{eg}
+Not much to take away here, standard application of mathematical induction. Readers should be absolutely familiar with this standard usage. 
+
+\begin{eg}{}{}[Moderate]
+\end{eg}
+
+\begin{eg}{}{}[Hard] Prove that $P(n):\sum_{i=n+1}^{2n}i=\frac{n(3n+1)}{2}$ is true. 
+We follow the principle of mathematical induction. When $n=1$, 
+\begin{align*}
+\text{L.H.S.}&=\sum_{i=2}^2i\\
+&=2\\
+\text{R.H.S.}&=\frac{1(4)}{2}\\
+&=2
+\end{align*} We have L.H.S.$=$R.H.S. thus $P(1)$ is true. \linebreak\linebreak
+Assume that $P(k)$ is true for some $k$ in the natural numbers. Consider $n=k+1$. 
+\begin{align*}
+\text{L.H.S.}&=\sum_{i=k+2}^{2(k+1)}i\\
+&=\sum_{i=k+1}^{2k}i-(k+1)+(2k+1)+(2k+2)\tag{Check that this is true!}\\
+&=\frac{k(3k+1)}{2}-(k+1)+(2k+1)+(2k+2)\tag{By assumption}\\
+&=\frac{k(3k+1)}{2}+(2k+1)+(k+1)\\
+&=\frac{1}{2}(3k^2+k+4k+2+2k+2)\\
+&=\frac{1}{2}(3k^2+7k+4)\\
+&=\frac{1}{2}(k+1)(3k+4)\\
+\text{R.H.S.}&=\frac{1}{2}(k+1)(3k+4)
+\end{align*} We have L.H.S.$=$R.H.S. thus $P(k+1)$ is true. By the principal of mathematical induction, $P(n)$ is true for all natural numbers $n$. 
+\end{eg}
+The main thing to take away here is that you must find a way to use your assumption. In this question I have purposefully changed the bounds of summation and manipulated a few terms in order to apply my induction hypothesis. This is also a good example showing that instead of the end of the summation, the start of the summation can also vary with $n$. 
+
+\begin{eg}{[Insane]}{} Prove that $n^3+2n$ is divisible by $3$ for all natural numbers $n$. 
+We follow the principle of mathematical induction. When $n=1$, 
+\begin{align*}
+1^3+2&=3\\
+\end{align*} $3$ is divisible by $3$ thus the statement is true for $n=1$. \linebreak\linebreak
+Assume that $k^3+2k$ is true for some $k$ in the natural numbers. Consider $n=k+1$. 
+\begin{align*}
+(k+1)^3+2(k+1)&=k^3+3k^2+3k+1+2k+2\\
+&=(k^3+2k)+(3k^2+3k+3)\\
+&=(k^3+2k)+3(k^2+k+1)
+\end{align*} By assumption, we have that the left is divisble by $3$. Since there is a factor of $3$ on the right side of the sum, it is also divisible by $3$ thus the entire expression is divisible by $3$. We thus have that the statement is true for $n=k+1$. By the principal of mathematical induction, the statement is true for all natural numbers $n$. 
+\end{eg}
+A very new take on mathematical induction for DSE players. However the induction process remains the same. It need not matter whether there is an equation on the line or not. Simply assume that it is true for some value then try and plug the next value into the statement and see what happens. 
+
+\pagebreak
+\section{Binomial Theorem}
+\subsection{Content}
+\begin{defn}{Factorial}{} The factorial of $n$ where $n$ is a natural number is given by $$n!=n(n-1)(n-2)\dots3\cdot2\cdot1$$
+\end{defn}
+
+\begin{defn}{Binomial Coefficient}{} Define the binomial coefficient as $$\binom{n}{k}=\frac{n!}{k!(n-k)!}$$
+\end{defn}
+
+\begin{prp}{}{} The binomial coefficient has some interesting properties. 
+\begin{itemize}
+\item $\binom{n}{k}=\binom{n}{n-k}$
+\item $\binom{n}{k-1}+\binom{n}{k}=\binom{n+1}{k+1}$
+\end{itemize}
+\end{prp}
+
+The second statement is precisely the connnection between binomial coefficients and pascal's triangle. 
+
+\begin{thm}{Binomial Theorem}{} The binomial theorem simply states that $$(x+y)^n=\sum_{k=0}^n\binom{n}{k}x^ky^{n-k}$$ for any $x,y$ in real numbers and any $n$ in the natural numbers. 
+\end{thm}
+
+\subsection{Examples}
+\begin{eg}{[Easy]}{} Expand $$(3-x)^7(x^2-x-1)$$ up to the terms of $x^2$. 
+\end{eg}
+
+\begin{eg}{[Moderate]}{} Suppose that the coefficients of $x$ and $x^2$ in the expansion of $(5+ax)^n$ are $-18750$ and $45000$ respectively, find the values of $a$ and $n$. 
+\end{eg}
+
+\begin{eg}{[Moderate] }{}Suppose that the coefficient of $x^3$ term in the expansion of $(x+3)^n\left(3-\frac{4}{x}\right)^4$ is $1674$. Find $n$ and the constant term in the expansion. 
+\end{eg}
+
+\pagebreak
+\section{Trigonometry}
+\subsection{Content}
+We begin the topic with three new definitions. 
+\begin{defn}{Inverse Trignometric Functions}{} Define $$\sec(\theta)=\frac{1}{\cos(\theta)}$$ $$\csc(\theta)=\frac{1}{\sin(\theta)}$$ $$\cot(\theta)=\frac{1}{\tan(\theta)}$$
+\end{defn}
+This section are mostly formulas between trignometric functions. 
+\begin{prp}{Circular Formulas}{} For any $\theta$,
+\begin{itemize}
+\item $\sin^2(\theta)+\cos^2(\theta)=1$
+\item $\tan^2(\theta)+1=\sec^2(\theta)$
+\item $1+\cot^2(\theta)=\csc^2(\theta)$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{Angle Sum Formulas}{} For any $x,y$,
+\begin{itemize}
+\item $\sin(x\pm y)=\sin(x)\cos(y)\pm\cos(x)\sin(y)$
+\item $\cos(x\pm y)=\cos(x)\cos(y)\mp\sin(x)\sin(y)$
+\item $\tan(x\pm y)=\frac{\tan(x)\pm\tan(y)}{1\mp\tan(x)\tan(y)}$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{Double Angle Formulas}{} For any $\theta$,
+\begin{itemize}
+\item $\sin(2\theta)=2\sin(\theta)\cos(\theta)$
+\item $\cos(2\theta)=\cos^2(\theta)-\sin^2(\theta)$
+\item $\tan(2\theta)=\frac{2\tan(\theta)}{1-\tan^2(\theta)}$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{More $\cos(2\theta)$ Formulas}{} For any $\theta$,
+\begin{itemize}
+\item $\cos^2(\theta)=\frac{1}{2}(1+\cos(2\theta))$
+\item $\sin^2(\theta)=\frac{1}{2}(1-\cos(2\theta))$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{Sum to Product}{} For any $x,y$,
+\begin{itemize}
+\item $\sin(x)+\sin(y)=2\sin\left(\frac{x+y}{2}\right)\cos\left(\frac{x-y}{2}\right)$
+\item $\cos(x)+\cos(y)=2\cos\left(\frac{x+y}{2}\right)\cos\left(\frac{x-y}{2}\right)$
+\end{itemize}
+\end{prp}
+
+Instead of memorizing the difference formulas as well, DSE players should instead be familiar with the fact that $\sin(-x)=-\sin(x)$ and $\cos(-x)=\cos(x)$ and $\sin(90^\circ-x)=\cos(x)$ to deduce the difference fomulas yourselves. 
+
+\begin{prp}{Product to Sum}{} For any $x,y$, $$\sin(x)\cos(y)=\frac{1}{2}(\sin(x+y)+\cos(x-y))$$
+\end{prp}
+
+Similarly, by using the fact that $\sin(90^\circ-x)=\cos(x)$, DSE players should manipulate this fact to obtaino other product to sum formulas instead of memorizing all those identities. 
+
+\begin{defn}{}{}[Radians] Simplest thing to remember is that we write $\pi$ as $180^\circ$ in radians. From this we could obtain expressions for $90^\circ$ and other angles. Think of $\pi$ as an expression for $180^\circ$. 
+\end{defn}
+
+\subsection{Examples}
+\begin{eg}{}{}[Moderate] Find $\cos(3x)$ and $\sin(3x)$
+\end{eg}
+
+\pagebreak
+\section{Limits}
+Common Limits to recognize include $$\lim_{x\to 0}\frac{\sin(x)}{x}=1$$ and $$\lim_{x\to 0}\frac{e^x-1}{x}=1$$
+Evaluataing limits: Direct Substitution and Rationalization\\~\\
+Direct substitution works as long as not both denominator and numerator is $0$ or $\infty$. 
+\begin{eg}{[Easy]}{} Find $$\lim_{x\to 5}\frac{x-5}{\sqrt{x}-\sqrt{5}}$$
+\end{eg}
+
+\pagebreak
+\section{Differentiation}
+\subsection{First Principle}
+\begin{defn}{[First Principle]}{} To find the derivative of a function $f(x)$, we can use first principle. $$f'(x)=\lim_{\Delta x\to0}\frac{f(x+\Delta x)-f(x)}{\Delta x}$$
+\end{defn}
+
+\begin{eg}{[Easy]}{} Find the derivative of $f(x)=x^2+6$ using first principle. 
+\end{eg}
+
+We provide a list of dervatives for reference. \linebreak
+$\frac{d}{dx}(x^n)=nx^{n-1}$ for every $n$. \linebreak
+$\frac{d}{dx}(ln(x))=\frac{1}{x}$\linebreak
+$\frac{d}{dx}(\sin(x))=\cos(x)$\linebreak
+$\frac{d}{dx}(\cos(x))=-\sin(x)$\linebreak
+$\frac{d}{dx}(\tan(x))=\sec^2(x)$\linebreak
+
+\subsection{Properties of Differentiation}
+\begin{prp}{Sum, Product and Quotient Rule}{} Let $f(x),g(x)$ be differentiable functions. Then $$\frac{d}{dx}(f(x)+g(x))=\frac{d}{dx}f(x)+\frac{d}{dx}g(x)$$ and $$\frac{d}{dx}(f(x)g(x))=g(x)\frac{d}{dx}f(x)+f(x)\frac{d}{dx}g(x)$$ and $$\frac{d}{dx}\left(\frac{f(x)}{g(x)}\right)=\frac{g(x)f'(x)-f(x)g'(x)}{g^2(x)}$$
+\end{prp}
+
+\begin{prp}{Chain Rule}{} Let $y=f(u)$ and $u=g(x)$ be functions that can be composed into $y=f(g(x))$. Then their derivative is given by $$\frac{d}{dx}(f(g(x)))=f'(g(x))g'(x)\text{\qquad or\qquad }\frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx}$$
+\end{prp}
+
+\subsection{Extremum Values}
+We use the derivative to find maximum and minimum values. The method for finding extremum values is as follows. \\~\\
+1. Take the derivative of the function and solve for it equal to zero $\frac{df}{dx}=0$\\
+2. Find the sign of the slope of neighbouring points: $+,0,-$ means that it is a maxmimum, $-,0,+$ means that it is a minimum\\
+3. If the global extremum is required, make sure to return ONE answer only and also check the boundary of the interval if the interval is closed like $[a,b)$. 
+
+\subsection{Rate of Changes}
+Basically an application of differentiation. The rule is particularly important in this section. 
+
+\pagebreak
+\section{Integration}
+Two main types of integration will be examined. Indefinite integrals are in general used to find anti-derivatives. They are used to find functions $F(x)$ that satisfy $F'(x)=f(x)$, when provided with $\int f(x)\,dx$. Remember to include the constant of integration at the back of your answer once you arrived at the final function. \linebreak
+
+Definite integrals are used to evaluate numbers, instead of functions. They are meant for calculating areas under graphs or even volumes. Therefore the answer should USUALLY be numbers instead of functions, unless there are two variables in the function for integration. \linebreak
+
+There are quite a number of techniques avaliable. Students should be familiar with their mechanism in order to carry out calculations at ease. 
+
+\subsection{Substitution}
+The prinicple is $$\int f(u)\,du=\int f(g(x))g'(x)\,dx\text{ where }u=g(x)$$
+Here, $u$ is a function of $x$. By evaluating $du$ in terms of $dx$, I was able to convert the integral into an integral in the playground of $x$. However,  be wary that when calculating indefinite integrals, you must substitute back $u=g(x)$ into the final answer so that it is expressed in the variable it started in. While in definite integrals, you should also change the limits of integration using the substitution. \\~\\
+Some non-common substitutions include $$\begin{cases}
+u=\cos(x), & du=-\sin(x)dx\\
+u=\sin(x), & du=\cos(x)dx\\
+u=\tan(x), & du=\sec^2(x)dx\\
+u=\ln(x), & du=\frac{1}{x}dx
+\end{cases}$$
+
+Some rare-substitutions include $$\begin{cases}
+u=\tan\left(\frac{x}{2}\right), & du=\frac{1}{2}\sec^2\left(\frac{x}{2}\right)dx
+\end{cases}$$
+
+\begin{eg}{[Easy]}{} Compute $$\int \sqrt{x+5}\,dx$$ \tcbline
+Let $u=x+5$. This is the new function I defined. It is in terms of $x$. Then $\frac{du}{dx}=1$ and $1du=dx$. This notation may look unfamiliar but for the time being we will bear with it, it is done simply by considering $\frac{du}{dx}$ as a fraction. Then
+\begin{align*}
+\int\sqrt{x+5}\,dx&=\int\sqrt{u}\,du\tag{Applying $u=x+5$ and $1du=dx$}\\
+&=\frac{2}{3}u^{3/2}+C\\
+&=\frac{2}{3}(x+5)^{3/2}+C\tag{Substitute in $u=x+5$}
+\end{align*}
+\end{eg}
+
+\begin{eg}{[Easy]}{} Evaluate $$\int_6^{15} 2x\sqrt{x^2+19}\,dx$$ \tcbline
+\begin{align*} 
+\int_6^{15} 2x\sqrt{x^2+64}\,dx&=\int_{100}^{289}\sqrt{u}\,du\tag{$u=x^2+64$, $du=2xdx$}\\
+&=\frac{2}{3}u^{3/2}\bigg\vert_{100}^{289}\\
+&=\frac{7826}{3}
+\end{align*}
+\end{eg}
+
+\begin{eg}{[Moderate]}{} Compute $$\int \frac{\ln^2(x)}{x}\,dx$$ \tcbline
+\begin{align*}
+\int\frac{\ln^2(x)}{x}\,dx&=\int u^2\,du\tag{$u=\ln(x)$, $du=\frac{1}{x}dx$}\\
+&=\frac{1}{3}u^3+C\\
+&=\frac{1}{3}\ln^3(x)+C
+\end{align*}
+\end{eg}
+
+\begin{eg}{[Moderate]}{} Evaluate $$\int_0^2 \sqrt{4-x^2}\,dx$$ \tcbline
+\begin{align*}
+\int_0^2 \sqrt{4-x^2}\,dx&=\int_0^{\frac{\pi}{2}} (2\cos(\theta))\sqrt{4-(4\sin^2(\theta))^2}\,d\theta\tag{$x=2\sin(\theta)$, $dx=2\cos(\theta)d\theta$}\\
+&=\int_0^{\frac{\pi}{2}} (2\cos(\theta))2(\cos(\theta))\,d\theta\\
+&=4\int_0^{\frac{\pi}{2}} \cos^2(\theta)\,d\theta\\
+&=4\int_0^{\frac{\pi}{2}} \frac{1}{2}(1+\cos(2\theta))\,d\theta\\
+&=2\int_0^{\frac{\pi}{2}} 1+\cos(2\theta)\,d\theta\\
+&=2\left(\theta+\frac{1}{2}\sin(2\theta)\right)_0^{\frac{\pi}{2}}\\
+&=\pi
+\end{align*}
+\end{eg}
+
+\subsection{Integration by Parts}
+One of the hardest integration techniques to master, while also a last resort if no other method works. $$\int f(x)g'(x)\,dx= f(x)g(x)-\int f'(x)g(x)\,dx$$
+
+\begin{eg}{}{}[Hard] Evaluate $$\int_0^{\ln(2)} x^2e^x\,dx$$
+\end{eg}
+
+\subsection{Partial Fraction Decomposition}
+While not on the normal curiculum, learning partial fraction decomposition(p.f.d.) would be useful in quite a handful of situations. Consider the following fraction $\frac{x-2}{(x-3)^2(x-5)}$. Due to a square in the factor $(x-a)$ and the factor $(x-b)$, we split the fraction into three components, $$\frac{A}{x-3}+\frac{B}{(x-3)^2}+\frac{C}{x-5}$$ We then attempt to solve for $A,B,C$ by setting both equal. The split fraction becomes $$\frac{(Ax^2-3Ax-5Ax+15A)+(Bx-5B)+(Cx^2-6Cx+9C)}{(x-a)^2(x-b)}$$ We now have $$\begin{cases}
+A+C=0\\
+-8A+B-6C=1\\
+15A-5B+9C=-2
+\end{cases}$$ upon comparing coefficients of powers of $x$. Solving gives $A=-\frac{1}{8}$ and $B=-\frac{1}{4}$ and $C=\frac{1}{8}$ and $$\frac{x-2}{(x-3)^2(x-5)}=-\frac{1}{8(x-3)}-\frac{1}{4(x-3)^2}+\frac{1}{8(x-5)}$$ More complicated cases of PFD exists but I doubt students will find it useful. 
+
+The basic guideline as to using which technique of integration would be as follows. 
+
+\subsection{Solids of Revolution}
+
+\pagebreak
+\section{Matrices}
+\subsection{Matrices and its Operations}
+\begin{defn}{}{} A rectangular array of $mn$ real numbers, called the elements, or entries, $$A=
+\begin{pmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\vdots&\vdots\\
+a_{m1}&a_{m2}&\cdots&a_{mn}
+\end{pmatrix}$$ is called an $m\times n$ matrix over $\mathbb{R}$. For $i=1,\dots,m$, let $$r_i=
+\begin{pmatrix}
+a_{i1}&a_{i2}&\cdot&a_{in}
+\end{pmatrix}$$ and for $j=1,\dots,n$, let $$c_j=
+\begin{pmatrix}
+a_{1j}\\
+a_{2j}\\
+\vdots\\
+a_{mj}
+\end{pmatrix}$$ then $r_i$ is called the $i$th row of $A$ and $c_j$ is called the $j$th row of $A$. The element of $A$ at the intersection of the $i$th row and $j$th column is called the $(i,j)$th entry of $A$. The set of all $m\times n$ matrices over $\mathbb{R}$ is denoted by $M_{m\times n}(\mathbb{R})$. We sometimes denote $A$ as $(a_{i,j})_{m\times n}$
+\end{defn}
+
+\begin{defn}{Zero and Identity Matrix}{} The matrix that has all its elements $0$ is called the zero matrix, denoted by $0_{m\times n}$. Any matrix with $I_{n\times n}$ is an identity matrix as long as the diagonal from $a_{1,1}$ to $a_{n,n}$ are all $1$ and all other elements $0$. 
+\end{defn}
+
+\begin{defn}{Addition of Matrices}{} Let $A,B$ be $m\times n$ matrices. We define addition of matrices to be $$A+B=
+\begin{pmatrix}
+a_{11}+b_{11}&a_{12}+b_{12}&\cdots&a_{1n}+b_{1n}\\
+a_{21}+b_{21}&a_{22}+b_{22}&\cdots&a_{2n}+b_{2n}\\
+\vdots&\vdots&\vdots&\vdots\\
+a_{m1}+b_{m1}&a_{m2}+b_{m2}&\cdots&a_{mn}+b_{mn}
+\end{pmatrix}$$
+\end{defn}
+
+\begin{defn}{Scalar Multiplication}{} Let $A=(a_{i,j})_{m\times n}$ and $\lambda\in\mathbb{R}$. We define the scalar multiplication as $\lambda A=(\lambda a_{i,j})_{m\times n}$. 
+\end{defn}
+
+\begin{defn}{Matrix Multiplication}{} Let $A_{m\times p}$ and $B_{p\times n}$. We define matrix multiplication as $$AB=(c_{i,j})_{m\times n}$$ with $$c_{i,j}=\sum_{k=1}^pa_{ik}b_{kj}$$
+\end{defn}
+
+\begin{defn}{}{}[Transpose] Let $A=(a_{ij})_{m\times n}$.  The transpose of $A$ is the $n\times m$ matrix denoted by $A^T$ obtained by interchanging the row and columns of A, that is, $A^T=(a_{ji})_{n\times m}$
+\end{defn}
+
+\begin{defn}{}{} A square matrix $A$ is said to be invertible or non-singular if there is a square matrix $B$ such that $AB=BA=I$. In this case $B$ is the inverse of $A$. A matrix that is not-invertible is a singular matrix. 
+\end{defn}
+
+\subsection{Calculating Inverses}
+
+\subsection{Calculating Powers}
+
+\pagebreak
+\section{System of Linear Equations}
+\subsection{Existence of Solutions}
+Given a system of equations (usually $3\times 3$) like $$\begin{cases}
+a_1x+b_1y+c_1z=d_1\\
+a_2x+b_2y+c_2x=d_2\\
+a_3x+b_3y+c_3z=d_3
+\end{cases}$$ We can write it in matrix form, namely $$\begin{pmatrix}
+a_1 & b_1 & c_1\\
+a_2 & b_2 & c_2\\
+a_3 & b_3 & c_3
+\end{pmatrix}\begin{pmatrix}
+x\\ y\\ z
+\end{pmatrix}=\begin{pmatrix}
+d_1\\ d_2\\ d_3
+\end{pmatrix}$$
+This allows us to analyze the solutions through matrices. \\~\\
+Notation: We write $\triangle x=\begin{pmatrix}
+d_1 & b_1 & c_1\\
+d_2 & b_2 & c_2\\
+d_3 & b_3 & c_3
+\end{pmatrix}$, $\triangle y=\begin{pmatrix}
+a_1 & d_1 & c_1\\
+a_2 & d_2 & c_2\\
+a_3 & d_3 & c_3
+\end{pmatrix}$, $\triangle z=\begin{pmatrix}
+a_1 & b_1 & d_1\\
+a_2 & b_2 & d_2\\
+a_3 & b_3 & d_3
+\end{pmatrix}$, \\~\\
+\begin{prp}{}{} Given a system of linear equations $$A\vb{x}=\vb{b}$$ If $\det(A)\neq 0$ then the system has a unique solution given by $\vb{x}=A^{-1}\vb{b}$
+\end{prp}
+Note that consistent means that it has AT LEAST ONE solution while inconsistent means it has NO solution. \\~\\
+Homogenous means that $d_1=d_2=d_3=0$ and it MUST BE CONSISTENT and HAS AT LEAST ONE SOLUTION namely $\begin{pmatrix}
+0\\ 0\\ 0
+\end{pmatrix}$
+
+\subsection{Method of Calculations}
+\begin{prp}{Crammer's Rule}{} As long as it has unique solution, the solution to the system of equations is given by $$x=\frac{\triangle x}{\det(A)}\text{\qquad and \qquad}y=\frac{\triangle y}{\det(A)}\text{\qquad and \qquad}z=\frac{\triangle z}{\det(A)}$$
+\end{prp}
+
+\begin{prp}{Gaussian Elimination}{} This is best done with an example. 
+\end{prp}
+If there is one remaining equation, take two free variables. If there are two remaining equations, take one free variable. These two possibilities wil result in infinitely many solutions. \\~\\
+If you reach a contradiction such as $3=5$, then there are no solutions. 
+
+\pagebreak
+\section{Vectors}
+\subsection{Arbitrary Vectors}
+Instead of using points on space, some mathematicians like using arrows starting from the origin that points towards our point in question. 
+
+
+\subsection{Centers of Triangles}
+
+
+
+
+\subsection{3D Vectors}
+
+
+
+
+
+
+
+
+
+
+\end{document}

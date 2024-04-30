@@ -1,0 +1,262 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Homotopy Theory}
+\rfoot{\thepage}
+
+\title{Homotopy Theory}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\begin{itemize}
+\item Notes on Algebraic Topology by Oscar Randal-Williams
+\end{itemize}
+\end{abstract}
+\pagebreak
+\tableofcontents
+
+\pagebreak
+
+\section{Homotopy Theory}
+\subsection{The nth Homotopy Groups}
+\begin{defn}{Pairs of Space}{} Let $X$ be a topological space. A pair of space is a pair $(X,A)$ where $A\subseteq X$ is a subspace of $X$. A map of pairs $f:(X,A)\to(Y,B)$ is a continuous map $f:X\to Y$ such that $f(A)\subseteq B$. 
+\end{defn}
+
+\begin{defn}{Homotopy between Maps of Pairs}{} Let $f,g:(X,A)\to (Y,B)$ be maps of pairs. A homotopy between $f$ and $g$ is a homotopy $H:X\times[0,1]\to Y$ such that $H(A\times[0,1])\subseteq B$. 
+\end{defn}
+
+\begin{defn}{The nth Homotopy Groups}{} Let $(X,x_0)$ be a pointed space. Define the $n$th homotopy group $\pi_n(X,x_0)$ to be $$\pi_n(X,x_0)=\frac{\left\{f:\left(I^n,\partial I^n\right)\to\left(X,\{x_0\}\right)\;\bigg{|}\;f \text{ is continuous }\right\}}{\simeq}$$ where we say that $f\simeq g$ if there exists a homotopy between $f$ and $g$. 
+\end{defn}
+
+\begin{defn}{Concatenation}{} For $n\geq 1$, define a composition law on $\pi_n(X,x_0)$ for a pointed space $(X,x_0)$ by the formula $$(f\cdot g)(t_1,\dots,t_n)=\begin{cases}
+f(2t_1,t_2,\dots,t_n) & \text{ if } 0\leq t_1\leq\frac{1}{2}\\
+g(2t_1-1,t_2,\dots,t_n) & \text{ if } \frac{1}{2}\leq t\leq 1
+\end{cases}$$ for $f,g\in\pi_n(X,x_0)$. 
+\end{defn}
+
+\begin{thm}{}{} Let $(X,x_0)$ be a pointed space and $n\geq 1$. The operation $\cdot$ on $\pi_n(X,x_0)$ is well defined and endows it with the structure of a group. 
+\end{thm}
+
+\begin{prp}{}{} Let $(X,x_0)$ be a pointed space. Then $\pi_n(X,x_0)$ is abelian for $n\geq 2$. 
+\end{prp}
+
+\subsection{Properties of Homotopy}
+\begin{defn}{Category of Pointed Spaces}{} The Category of Pointed spaces $\text{Top}_\ast$ is defined where 
+\begin{itemize}
+\item The objects are pointed topological spaces $(X,x_0)$ for $x_0\in X$. 
+\item The morphisms are continuous maps $f:X\to Y$ such that $f(x_0)=y_0$ for two pointed spaces $(X,x_0)$ and $(Y,y_0)$. 
+\item Composition is defined as the composition of continuous maps that preserve the base point. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{Functoriality}{} For each $n\geq 1$, $\pi_n(-):\text{Top}_\ast\to\text{Grp}$ is a functor where 
+\begin{itemize}
+\item On objects, it sends $(X,x_0)$ to the $n$th homotopy group $\pi_n(X,x_0)$
+\item On morphisms, it sends $f:(X,x_0)\to (Y,y_0)$ to the induced map $$\pi_n(f):\pi_n(X,x_0)\to\pi_n(Y,y_0)$$ defined as $[\varphi]\mapsto[f\circ\varphi]$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $(X,x_0),(Y,y_0)$ be pointed spaces and $f,g:(X,x_0)\to (Y,y_0)$ be pointed maps. If $f$ and $g$ are homotopic, then the induced maps $$\pi_n(f)=\pi_n(g):\pi_n(X,x_0)\to\pi_n(Y,y_0)$$ are equal. Moreover, if $f$ is a homotopy equivalence, then $\pi_n(f)$ is an isomorphism. 
+\end{prp}
+
+\begin{thm}{}{} Let $(X,x_0)$ and $(X,x_1)$ be pointed spaces with the same base space. If $u:I\to X$ is a path from $x_0$ to $x_1$, then $u$ induces a map $$u_\#:\pi_n(X,x_1)\to\pi_n(X,x_0)$$ satisfying the following functorial properties: 
+\begin{itemize}
+\item $u_\#$ is a group homomorphism
+\item If $v:I\to X$ is a path from $x_1$ to $x_2$ and $u\cdot v$ is the concatenation of these paths, then $$(u\cdot v)_\#=u_\#\circ v_\#$$
+\item If $c_{x_0}$ is the constant path from $x_0$ to $x_0$ then $(c_{x_0})_\#$ is the identity
+\end{itemize}
+\end{thm}
+
+\begin{prp}{}{} Let $(X,x_0)$ and $(X,x_1)$ be pointed spaces with the same base space. Let $u,v:I\to X$ be paths from $x_0$ to $x_1$. If $u$ and $v$ are homotopic relative to end points then the induced maps $$u_\#=v_\#:\pi_n(X,x_1)\to\pi_n(X,x_0)$$ are equal. 
+\end{prp}
+
+\begin{crl}{}{} Let $(X,x_0)$ and $(X,x_1)$ be pointed spaces with the same base space. If $x_0$ and $x_1$ are path connected, then $$\pi_n(X,x_0)\cong\pi_n(X,x_1)$$ where the isomorphism depends on the choice of path from $x_0$ to $x_1$. 
+\end{crl}
+
+\begin{prp}{}{} Let $(X,x_0)$ be a pointed space and $f\in\pi_n(X,x_0)$. Let $u:I\to X$ be a loop on $x_0$. Then $u$ induces a left action of $\pi_1(X,x_0)$ on $\pi_n(X,x_0)$ by the map $$(u,f)\mapsto u_\#(f)=u\cdot f\cdot u^{-1}$$ In particular, for $n\geq 2$, $\pi_n(X,x_0)$ is a $\Z\pi_1(X,x_0)$-module. 
+\end{prp}
+
+\subsection{Relative Homotopy Groups}
+\begin{defn}{Triplets of Spaces}{} Let $X$ be a topological space. A pointed pair of space is a triple $(X,A_1,A_2)$ where $A_2\subseteq A_1\subseteq X$ are subspaces of $X$. A map between triplets of spaces $f:(X,A_1,A_2)\to(Y,B_1,B_2)$ is a map $f:X\to Y$ such that $f(A_1)\subseteq B_1$ and $f(A_2)\subseteq B_2$. \\~\\
+If $A_2=\{x_0\}$ is a single point we say that $(X,A,x_0)$ is a pointed pair of spaces. 
+\end{defn}
+
+\begin{defn}{Homotopy between Maps of Triplets}{} Let $f,g:(X,A_1,A_2)\to(Y,B_1,B_2)$ be maps triplets of spaces. A homotopy between $f$ and $g$ is a homotopy between $f:X\to Y$ and $g:X\to Y$, namely $H:X\times[0,1]\to Y$ such that $H(A_1\times[0,1])\subseteq B_1$ and $H(A_2\times[0,1])\subseteq B_2$. 
+\end{defn}
+
+For a pointed pair of spaces $(X,A,x_0)$, the inclusion $\iota:(A,x_0)\to(X,x_0)$ induces a map on homotopy $$\pi_n(\iota)=\pi_n(A,x_0)\to\pi_n(X,x_0)$$ which is in general not injective. For $[\alpha]\in\pi_n(A,x_0)$ to lie in the kernel, it must satisfy that for any map $f:(I,\partial I^n)\to(A,x_0)$ representing $[\alpha]$, $\iota\circ f$ is homotopic to the constant map $c_{x_0}$ on $x_0$. Such a homotopy is a map $H:I^n\times I\to X$ satisfying the following conditions: 
+\begin{itemize}
+\item $H(-,1)=f$
+\item $H(-,0)=c_{x_0}$
+\item $H|_{\partial I^n\times I}=c_{x_0}$
+\end{itemize}
+Thus if we denote $$J^n=I^n\times\{0\}\cup\partial I^n\times I$$ which is a subspace of the boundary $\partial I^{n+1}$, such a homotopy $H$ is a map of triplets of spaces $$H:(I^{n+1},\partial I^n,J^n)\to(X,A,x_0)$$
+
+\begin{defn}{The nth Relative Homotopy Groups}{} Let $(X,A,x_0)$ be a pointed pair of space. Define the relative homotopy groups of the triple by $$\pi_n(X,A,x_0)=\frac{\left\{f:\left(I^n,\partial I^n,J^{n-1}\right)\to\left(X,A,\{x_0\}\right)\;\bigg{|}\;f \text{ is continuous }\right\}}{\simeq}$$ for $n\geq 2$, where $J^n=I^n\times\{0\}\cup\partial I^n\times I$ and we say that $f\simeq g$ if there exists a homotopy between $f$ and $g$. 
+\end{defn}
+
+\begin{thm}{}{} Let $(X,A,x_0)$ be a pointed pair of space. The composition law on definition 1.1.4 defines a group structure on $\pi_n(X,A,x_0)$ for $n\geq 2$. 
+\end{thm}
+
+\begin{crl}{}{} Let $(X,A,x_0)$ be a pointed pair of space. For $n\geq 3$, $\pi_n(X,A,x_0)$ is abelian. 
+\end{crl}
+
+\subsection{Induced Maps of Relative Homotopy Groups}
+\begin{thm}{}{} Let $(X,A,x_0)$ and $(Y,B,y_0)$ be pointed pairs of spaces and $f:(X,A,x_0)\to(Y,B,y_0)$ a map. Then $f$ induces a map on the relative homotopy groups $$f_\ast:\pi_n(X,A,x_0)\to\pi_n(Y,B,y_0)$$ for $n\geq 2$ satisfying the following functorial properties: 
+\begin{itemize}
+\item $f_\ast$ is a group homomorphism
+\item If $g:(Y,B,y_0)\to(Z,C,z_0)$ is a map, then $$(g\circ f)_\ast=g_\ast\circ f_\ast$$
+\item If $\text{id}_{(X,A,x_0)}$ is the identity map on $(X,A,x_0)$, then $$(\text{id}_{(X,A,x_0)})_\ast=\text{id}_{\pi_n(X,A,x_0)}$$
+\end{itemize}
+\end{thm}
+
+\begin{prp}{}{} Let $(X,A,x_0),(Y,B,y_0)$ be pointed pairs of spaces and $f,g:(X,A,x_0)\to (Y,B,y_0)$ be pointed maps. If $f$ and $g$ are homotopic, then the induced maps $$f_\ast=g_\ast:\pi_n(X,A,x_0)\to\pi_n(Y,B,y_0)$$ are equal. Moreover, if $f$ is a homotopy equivalence, then $f_\ast$ is an isomorphism. 
+\end{prp}
+
+\begin{prp}{}{} The relative homotopy groups of $(X,A,x_0)$ fit into a long exact sequence \\~\\
+\adjustbox{scale=0.75,center}{\begin{tikzcd}
+	\cdots & {\pi_{n+1}(X,A,x_0)} & {\pi_n(A,x_0)} & {\pi_n(X,x_0)} & {\pi_n(X,A,x_0)} & {\pi_{n-1}(A,x_0)} & \cdots & {\pi_0(X,x_0)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\partial_{n+1}}", from=1-2, to=1-3]
+	\arrow["{i_\ast}", from=1-3, to=1-4]
+	\arrow["{j_\ast}", from=1-4, to=1-5]
+	\arrow["{\partial_n}", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+	\arrow[from=1-8, to=1-9]
+	\arrow[from=1-7, to=1-8]
+\end{tikzcd}}\\~\\
+where $\partial_n$ is defined by $[f]\mapsto [f|_{I^{n-1}}]$ and $i_\ast$ and $j_\ast$ are induced by inclusions. 
+\end{prp}
+
+Note that even though at the end of the sequence group structures are not defined, exactness still makes sense: kernels in this case consists of elements that map to the homotopy class of the constant map. 
+
+\begin{thm}{The Hurewicz Homomorphism}{} Let $(X,A,x_0)$ be a pointed pair of space. Let $u_n$ be a generator of $H_n(S^n)\cong\Z$. Then the map $$h:\pi_n(X,A,x_0)\to H_n(X,A)$$ defined by $[f]\mapsto f_\ast(u_n)$ is a group homomorphism. 
+\end{thm}
+
+\subsection{n-Connectedness}
+\begin{defn}{n-Connected Space}{} We say that the pair $(X,A)$ is $n$-connected if $\pi_i(X,A)=0$ for $i\leq n$ and $X$ is $n$-connected if $\pi_i(X)=0$ for $i\leq n$. 
+\end{defn}
+
+\subsection{Weakly Contractible Space}
+\begin{defn}{Weakly Contractible}{} Let $X$ be a space. We say that $X$ is weakly contractible if $$\pi_n(X)=0$$ for all $n\geq 0$. 
+\end{defn}
+
+\pagebreak
+\section{Homotopy and CW-Complexes}
+\subsection{The Homotopy Extension Property and Compression Lemma}
+\begin{defn}{Homotopy Extension Property}{} Let $(X,A)$ be a pair of space. Let $F_0:X\to Y$ a map and a homotopy $H:A\times I\to Y$ such that $H(-,0)=F_0|_A$. We say that $(X,A)$ satisfies the homotopy extension property (HEP) if there is a homotopy $F:X\times I\to Y$ extending $H$ and $F_0$. 
+\end{defn}
+
+\begin{prp}{}{} Any CW pair has the homotopy extension property. 
+\end{prp}
+
+\subsection{Whitehead's Theorem}
+\begin{defn}{Weak Homotopy Equivalence}{} We say that a map $f:X\to Y$ is a weak homotopy equivalence if it induces isomorphisms on all homotopy groups $\pi_n$ on any choice of base point. 
+\end{defn}
+
+\begin{thm}{Whitehead's Theorem}{} If $X$ and $Y$ are CW-complexes and $f:X\to Y$ is a weak homotopy equivalence, then $f$ is a homotopy equivalence. 
+\end{thm}
+
+\begin{crl}{}{} If $X$ and $Y$ are CW-complexes with $\pi_1(X)=\pi_1(Y)=0$ and $f:X\to Y$ induces isomorphisms on homology groups $H_n$ for all $n$, then $f$ is a homotopy equivalence. 
+\end{crl}
+
+\subsection{Cellular Approximations}
+\begin{defn}{Cellular Maps}{} Let $X$ and $Y$ be CW-complexes. A map $f:X\to Y$ is called cellular if $f(X_n)\subset Y_n$ for all $n$, where $X_n$ is the $n$-skeleton of $X$. 
+\end{defn}
+
+\begin{defn}{Cellular Approximations}{} Let $X$ and $Y$ be CW-complexes. We say that $f:X\to Y$ has a cellular approximations if $f$ is homotopic to a cellular map $f':X\to Y$. 
+\end{defn}
+
+\begin{thm}{Cellular Approximation Theorem}{} Any map $f:X\to Y$ between CW-complexes has a cellular approximation $f':X\to Y$. Moreover, if $f$ is already cellular on a subcomplex $A\subseteq X$, then we can take $f'|_A=f|_A$. 
+\end{thm}
+
+\begin{thm}{Relative Cellular Approximation}{} Any map $f:(X,A)\to (Y,B)$ between pairs of CW-complexes has a cellular approximation. 
+\end{thm}
+
+\begin{crl}{}{} Let $A\subset X$ be CW-complexes and suppose that all cells $X\setminus A$ have dimension larger than $n$. Then $\pi_i(X,A)=0$ for all $i\leq n$. 
+\end{crl}
+
+\begin{crl}{}{} If $X$ is a CW-complex, then $\pi_i(X,X_n)=0$ for all $i\leq n$. 
+\end{crl}
+
+\begin{crl}{}{} Let $X$ be a CW-complex. Then $$\pi(X)\cong\pi(X_n)$$ for $i<n$. 
+\end{crl}
+
+\subsection{CW Approximations}
+\begin{defn}{CW Approximation}{} A CW approximation of $X$ is a weak homotopy equivalence $f:Z\to X$ where $Z$ is a CW approximation. 
+\end{defn}
+
+
+\begin{defn}{CW Model}{} Let $(X,A)$ be a non-empty pair of CW-complexes. An $n$-connected CW model of $(X,A)$ is an $n$-connected CW pair $(Z,A)$ together with a map $f:Z\to X$ with $f|_A=\text{id}_A$ such that $$f_\ast:\pi_i(Z)\to\pi_i(X)$$ is an isomorphism for $i>n$ and an injection for $i=n$ for any choice of base point. 
+\end{defn}
+
+\begin{thm}{}{} For any non-empty pair $(X,A)$ of CW-complexes, there exists an $n$-connected model $(Z,A)$. Moreover, $Z$ can be built from $A$ by attaching cells of dimension greater than $n$. 
+\end{thm}
+
+\begin{crl}{}{} Every pair of CW-complex $(X,A)$ has a CW approximation $(Z,B)$. 
+\end{crl}
+
+Thus we have shown existence of CW approximations, it remains to show uniqueness. 
+
+\begin{crl}{}{} CW-approximations are unique up to homotopy equivalence. 
+\end{crl}
+
+\pagebreak
+
+\section{Applications of Approximations to Homotopy}
+\subsection{Excision for Homotopy Groups}
+\begin{thm}{}{} Let $X$ be a CW-complex decomposed as the union of subcomplexes $A$ and $B$ with non-empty connected intersection $C=A\cap B$. If $(A,C)$ is $m$-connected and $(B,C)$ is $n$-connected for $m,n\geq 0$, then the map $$\iota_\ast\pi_i(A,C)\to(X,B)$$ induced by the inclusion $\iota:(A,C)\to(X,B)$ is an isomorphism for $i<m+n$ and a surjection for $i=m+n$. 
+\end{thm}
+
+\begin{crl}{Freudenthal Suspension Theorem}{} Let $X$ be a $n-1$-connected CW-complex. The suspension map $\pi_i(X)\to\pi_{i+1}(SX)$ is an isomorphism for $i<2n-1$ and a surjection for $i=2n-1$. 
+\end{crl}
+
+\begin{crl}{}{} We have that $$\pi_n(S^n)\cong\Z$$ for all $n\geq 1$. Moreover, it is generated by the identity map. 
+\end{crl}
+
+\subsection{Hurewicz's Theorem}
+\begin{thm}{Hurewicz's Theorem}{} Let $X$ be a $(n-1)$-connected space and $n\geq 2$. Then $\widetilde{H}_i(X)=0$ for all $i<n$ and $\pi_n(X)\cong H_n(X)$. \\~\\
+
+Moreover, if a pair $(X,A)$ is $(n-1)$-connected with $n\geq 2$ and $\pi_1(A)=0$, then $H_i(X,A)=0$ for all $i<n$ and $\pi_n(X,A)\cong H_n(X,A)$
+\end{thm}
+
+\pagebreak
+\section{Spectral Sequences}
+\subsection{Spectral Sequences}
+\begin{defn}{Bigraded Abelian Groups}{} A bigraded abelian group $A_{\bullet,\bullet}$ is an abelian group $A$ together with a decomposition $$A=\bigoplus_{p,q\in\Z}A_{p,q}$$ A degree $(a,b)$ map $f:A_{\bullet,\bullet}\to B_{\bullet,\bullet}$ of bigraded abelian groups is a homomorphism $f:A\to B$ such that $$f(A_{p,q})\subseteq B_{p+a,q+b}$$
+\end{defn}
+
+\begin{defn}{Spectral Sequences}{} A homological spectral sequence is a sequence $$E_{\bullet,\bullet}^1,E_{\bullet,\bullet}^2,E_{\bullet,\bullet}^3,\dots$$ of bigraded abelian groups, each called pages, together with maps $$d^r:E_{\bullet,\bullet}^r\to E_{\bullet,\bullet}^r$$ of degree $(-r,r-1)$ such that $d^r\circ d^r=0$ and $E_{\bullet,\bullet}^{r+1}=H_\bullet(E_{\bullet,\bullet}^r,d^r)$. This means that $$E_{p,q}^{r+1}=\frac{\ker(d^r:E_{p,q}^r\to E_{p-r,q+r-1}^r)}{\im(d^r:E_{p+r,q-r+1}\to E_{p,q}^r)}$$
+\end{defn}
+
+\begin{defn}{Exact Couple}{} An exact couple of type $r$ consists of bigraded abelian groups $E_{\bullet,\bullet}$ and $A_{\bullet,\bullet}$ and maps $i:A_{\bullet,\bullet}\to A_{\bullet,\bullet}$ of degree $(1,-1)$, $j:A_{\bullet,\bullet}\to E_{\bullet,\bullet}$ of degree $(-r,r)$ and $k:E_{\bullet,\bullet}\to A_{\bullet,\bullet}$ of degree $(-1,0)$ such that the triangle \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{A_{\bullet,\bullet}} && {A_{\bullet,\bullet}} \\
+	\\
+	& {E_{\bullet,\bullet}}
+	\arrow["i", from=1-1, to=1-3]
+	\arrow["j", from=1-3, to=3-2]
+	\arrow["k", from=3-2, to=1-1]
+\end{tikzcd}}\\~\\
+is exact at each vertex ($\im(i)=\ker(j)$ and so on). 
+\end{defn}
+
+\subsection{Serre Spectral Sequences}
+
+
+
+
+
+
+
+
+
+\end{document}

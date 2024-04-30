@@ -1,0 +1,363 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Stochastics Processes}
+\rfoot{\thepage}
+
+
+\title{Stochastics Processes}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\tableofcontents
+\pagebreak
+
+\section{Stochastic Processes}
+\subsection{Markov Chains}
+\begin{defn}{Stochastic Matrix}{} A matrix is a stochastic matrix if 
+\begin{itemize}
+\item $0\leq p_{ij}\leq 1$ for all $i,j\in I$
+\item For all $i\in I$, we have $\sum_{j\in I}P_{ij}=1$
+\end{itemize}
+In particular, we use a stochastic matrix to represent the full set of probability of transitions between states. 
+\end{defn}
+
+\begin{defn}{Markov Chain}{} Let $X_0,X_1,\dots X_n$ be a sequence of random variables with common image $I=\{E_0,\dots,E_k\}$ with $X_0\sim\lambda$ where $\lambda$ is some fixed distribution. We say $(X_n)_{n\geq 0}$ is a markov chain if $$\Prj(X_{n+1}=E_{n+1}|X_0=E_0,\dots,X_n=E_n)=\Prj(X_{n+1}=E_{n+1}|X_n=E_n)$$ for all $n\in\N$. 
+\end{defn}
+
+In other words, Markov chains are a sequence of random variables where the next step does not depends on what states you visited previously, but only on the state now. There is an important property that makes studying Markov chains worth while. 
+
+\begin{thm}{Markov Property}{} Let $(X_n)_{n\geq0}$ be a markov chain. Suppose that $X_m=E_m$ is given. Then $(X_{m+n})_{n\geq 0}$ is a Markov chain. 
+\end{thm}
+
+
+Notice that the transition probabbility $\Prj(X_{n+1}=j|X_n=i)$ still depedns on $i,j,n$. We further restrict out study of Markov chains to the following type. 
+
+\begin{defn}{Homogenous Markov Chains}{} We say that a Markov chain $(X_n)_{n\geq 0}$ is homogenous if $$\Prj(X_{n+1}=j|X_n=i)=\Prj(X_1=j|X_0=i)$$
+\end{defn}
+
+This means that homogenous Markov chains are time independent. 
+
+\begin{defn}{Transition Matrix}{} Define the transition matrix of a homogenous Markov chain with state space $\{1,\dots,n\}$ to be $$P=\begin{pmatrix}
+\Prj(X_1=1|X_0=1) & \cdots & \Prj(X_1=n|X_0=1)\\
+\vdots & \ddots & \vdots\\
+\Prj(X_1=1|X_0=n) & \cdots & \Prj(X_1=n|X_0=n)
+\end{pmatrix}$$
+\end{defn}
+
+\begin{lmm}{}{} The transition matrix $P$ of a homogenous Markov chain is a Stochastic matrix. 
+\end{lmm}
+
+\begin{thm}{}{} Let $(X_n)_{n\geq 0}$ be Markov. Then for all $m,n\geq0$, we have
+\begin{itemize}
+\item $\Prj(X_n=j|X_0=i)=\Prj(X_1=j|X_0=i)^n$
+\item $\Prj(X_n=j)=\sum_{i\in I}\Prj(X_0=i)\Prj(X_n=j|X_0=i)$
+\end{itemize}
+\end{thm}
+
+This theorem is saying that $\Prj(X_n=j|X_0=i)$ is equal to the $i,j$th entry of the matrix $P^n$ if $P$ is the transition matrix. To find out the total probability of reaching the $j$th state at the $n$the step regardless of the starting point, you sum up the $\Prj(X_n=j|X_0=i)$ multiplying the probability that you start at state $i$. \\~\\
+
+We often like to create new Markov chains from old (at least from exams). If we want to show that a squence $(X_n)_{n\geq 0}$ of random vriables is Markov, try and write $X_{n+1}=X_n+\text{ some term only related to }n+1$. 
+
+\subsection{Communicating Classes}
+\begin{defn}{Talks and Communicates}{} Let $i,j$ be states. We say that $i$ talks to $j$ which is $i\rightarrow j$ if there exists $n\in\N$ such that $$\Prj(X_n=j|X_0=i)>0$$ We say that two states $i$ and $j$ communicate if $i\leftrightarrow j$. 
+\end{defn}
+
+\begin{defn}{Communicating Class}{} Let $C\subseteq I$. $C$ is a communicating class if $\forall i,j\in C$, $i\leftrightarrow j$ and $\forall i\in C$ and $\forall k\in I\setminus C$, $i\not{\rightarrow} k$ 
+\end{defn}
+
+\begin{defn}{Closed and Absorbing}{} We say that a class is closed if no states in the class talks to any states outside of that class. We say that a class is absorbing if it forms a closed class by itself. 
+\end{defn}
+
+\begin{defn}{Irreducible Markov Chains}{} A Markov chain is said to be irreducible if for all $i,j\in I$, $i\leftrightarrow j$. 
+\end{defn}
+
+\subsection{Hitting Times}
+\begin{defn}{Stopping Times}{} Let $(X_n)_{n\geq 0}$ be Markov. Then a random variable $$T:\Omega\to\N\cup\{\infty\}$$ is a stopping time if for all $n\geq 0$, the event $\{T=n\}$ depends only on $X_0,\dots,X_n$. 
+\end{defn}
+
+\begin{defn}{Hitting Times}{} Let $(X_n)_{n\geq 0}$ be Markov. The hitting time of a subset $A\subseteq I$ is a random variable $$H_A:\Omega\to\N\cup\{\infty\}$$ defined by $$H_A(\omega)=\inf\{n\geq 0|X_n(\omega)\in A\}$$ We use $$h_i^A=\Prj(H^A<\infty|X_0=i)$$ to denote the corresponding probability. We use $$k_i^A=E_i[H_A]=\sum_{k=0}^\infty k\Prj(H_A=k|X_0=i)+\infty\Prj(H_A=\infty|X_0=i)$$ to denote the expectation. 
+\end{defn}
+
+\begin{prp}{}{} We can find the probabilities of all hitting times by solving the system of linear equations $$\begin{cases}
+\Prj(H_A<\infty|X_0=i)=1 & i\in A\\
+\Prj(H_A<\infty|X_0=i)=\sum_{j\in I}\Prj(X_1=j|X_0=i)\Prj(H_A<\infty|X_0=j) & x\notin A
+\end{cases}$$
+\end{prp}
+
+\begin{prp}{}{} We can find the expected number of hitting times by solving the system of linear equations $$\begin{cases}
+E_i[H_A]=0 & i\in A\\
+E_i[H_A]=1+\sum_{j\notin A}\Prj(X_1=j|X_0=i)E_j[H_A] & i\notin A
+\end{cases}$$
+\end{prp}
+
+\subsection{Strong Markov Property}
+\begin{thm}{Strong Markov Property}{} Let $(X_n)_{n\geq 0}$ be Markov$(\lambda,P)$ and $T$ a stopping time of $(X_n)_{n\geq 0}$. Then conditional on both $\{X_T=i\}$ and $\{T<\infty\}$, we have $(X_{T+n})_{n\geq 0}$ is Markov$(\delta_i,P)$ and independent of $X_0,\dots,X_T$. 
+\end{thm}
+
+\subsection{Recurrence and Transcience}
+\begin{defn}{Recurrence and Transcience}{} A state $i\in I$ is recurrent if $\Prj_i(X_n=i\text{ for infinitely many }n)=1$. A state $i\in I$ is transient if $\Prj_i(X_n=i\text{ for infinitely many }n)=0$. 
+\end{defn}
+
+\begin{defn}{$k$-th Passage Time}{} The first passage time of state $i$ is a stopping time such that $$T_i(\omega)=\inf\{n\geq 1|X_n(\omega)=i\}$$ The $k$-th passage time is a stopping time such that $$T_i^{(k)}(\omega)=\inf\{n\geq T_i^{(k-1)}|X_n(\omega)=i\}$$ The $k$-th excursion time is defined by $$S_i^{(k)}=\begin{cases}
+T_i^{(k)}-T_i^{(k-1)} & \text{ if }T_i^{(k-1)}<\infty\\
+\infty & \text{ otherwise }
+\end{cases}$$
+\end{defn}
+
+Intuitively, $T_i^{(k)}$ outputs the time it takes for the Markov chain to reach state $i$ for the $k$th time and $S_i^k$ outputs the number of steps taken between consecutive visits. 
+
+\begin{lmm}{}{} For $k=2,3,\dots$ and if $T_i^{(k-1)}<\infty$, then $S_i^{(k)}$ is independent of $\{X_m:m\leq T_i^{(k-1)}\}$ and $$\Prj(S_i^{(k)}=n|T_i^{(k-1)}<\infty)=\Prj_i(T_i=n)$$
+\end{lmm}
+
+\begin{defn}{Visit Counting Function}{} Let $i\in I$ be a state. Define $$V_i(n)=\sum_{k=0}^n1_{\{X_k=i\}}$$ the number of visits ever to state $i$. We use $V_i$ to denote $\sum_{k=0}^\infty 1_{\{X_k=i\}}$. 
+\end{defn}
+
+\begin{lmm}{}{} If $V_i$ counts the number of vists to state $i$, then $$E_i(V_i)=\sum_{k=0}^\infty P_{ii}^{(k)}$$
+\end{lmm}
+
+\begin{lmm}{}{} For $k=0,1,2,\dots$, we have $$\Prj_i(V_i>k)=(\Prj_i(T_i<\infty))^k$$
+\end{lmm}
+
+This lemma means that $V_i$ asserts a geometric distribution. 
+
+\begin{thm}{Characteristic of Recurrent and Transient States}{} Let $(X_n)_{n\geq 0}$ be a Markov chain. Let $T_i$ be the first passage time of state $i$. If $\Prj_i(T_i<\infty)=1$, then $i$ is recurrent and $\sum_{k=1}^\infty\Prj(X_1=k|X_0=k)^n=\infty$. If $\Prj_i(T_i<\infty)<1$, then $i$ is transient and $\sum_{k=1}^\infty\Prj(X_1=k|X_0=k)^n<\infty$. 
+\end{thm} 
+
+\begin{thm}{}{} Let $C$ be a communicating class. Then either all states in $C$ are transient or all are recurrent. 
+\end{thm}
+
+\begin{thm}{}{} Let $C\subset I$ be a class of a Markov chain. Then
+\begin{itemize}
+\item Every recurrent class is closed
+\item Every finite closed class is recurrent
+\end{itemize}
+\end{thm}
+
+\begin{thm}{}{} If $P$ is irreducible and recurrent then for all $j\in I$, $$\Prj(T_j<\infty)=1$$
+\end{thm}
+
+\begin{defn}{Component Independent Simple Random Walk on $\Z^d$}{} A component independent simple random walk on $\Z^d$ for $d\in\N$ is defined as $$X_{n+1}=X_n+Z_{n+1}$$ where $Z_{n+1}=(Z_{n+1}^1,\dots,Z_{n+1}^d)$ with $$Z_m^j=\begin{cases}
+1 & \text{ with probability }p_j\\
+-1 & \text{ with probabilty }q_j
+\end{cases}$$
+where $Z_m^j$ are independent for all $j,m$. 
+\end{defn}
+
+\begin{prp}{}{} Let $(X_n)_{n\geq 0}$ be a CISRW on $\Z^d$. If there exists $j\in\{1,\dots,d\}$ such that $p_j\neq\frac{1}{2}$ then $(X_n)$ is transient. 
+\end{prp}
+
+\begin{prp}{}{} Let $(X_n)_{n\geq 0}$ be a CISRW on $\Z^d$ and $p_j=q_j=\frac{1}{2}$ for all $j$. Then
+\begin{itemize}
+\item If $d\leq 2$ then all states are recurrent
+\item If $d\geq 3$ then all states are transient
+\end{itemize}
+\end{prp}
+
+\pagebreak
+\section{Branching Process}
+\subsection{Branching Process}
+\begin{defn}{Branching Process}{} Let $(X_n)_{n\geq 0}$ be the number of individuals in a population at time $n$ where $X_n\in\{0\}\cup\N$. At every time step each individual in the population gives birth to a random number of offspring. Thus $X_{n+1}$ is defined to be $$X_{n+1}=\sum_{k=1}^{X_n}Z_k^n$$ where $Z_k^n\sim Z$ and $\Prj(Z\geq 0)=1$. Then $(X_n)_{n\geq 0}$ is said to be a branching process. 
+\end{defn}
+
+\begin{prp}{}{} Define $G(s)=E[s^Z]$ and $F_{n+1}(s)=E[S^{X_{n+1}}|X_0=1]$ for $s\in(0,1)$. Then $$F_n(s)=G(F_{n-1}(s))$$
+\end{prp}
+
+\begin{prp}{}{} For a braching process $(X_n)_{n\geq 0}$ with off-spring distribution $Z$ where $E[Z]=\mu$, we have $$E[X_n]=\mu^n$$
+\end{prp}
+
+\begin{thm}{Extinction Probability}{} The extinction probability is the smallest non-negative root of $G(\alpha)=\alpha$. 
+\end{thm}
+
+\begin{thm}{}{} Suppose that $G(0)>0$, $\mu=E[Z]=G'(1)$. Then $\mu\leq 1$ implies certain extiction. $\mu>1$ implies uncertain extinction. 
+\end{thm}
+
+\pagebreak
+\section{Invariant Distributions}
+\subsection{Basics of Invariant Distributions}
+\begin{defn}{Invariant Distribution}{} A measure $\lambda=(\lambda_i:i\in I)$ with non-negative entries is said to be an invariant measure of $P$ if 
+\begin{itemize}
+\item $\lambda P=P$
+\item $\pi_i\in[0,1]$ for all $i$
+\end{itemize}
+If in addition it satisfies $\sum_{i\in I}\pi_i=1$ then $\lambda$ is said to be invariant distribution. 
+\end{defn}
+
+The following theorem shows that after applying a Markov process to an invariant distribution, the new distribution will be the same as the old one. Notice here that right multiplication of a distribution gives the next step on the Markov chain instead of the usual left multiplication. 
+
+\begin{thm}{}{} Let $(X_n)_{n\geq 0}$ be Markov$(\pi,P)$, where $\pi$ is an invariant distribution for $P$. Then $\forall m\geq 0$, $(X_{n+m})_{n\geq 0}$ is Markov$(\pi,P)$. \tcbline
+\begin{proof}
+By the Markov property, the new sequence will be Markov. But we do not yet know its distribution. We have that 
+\begin{align*}
+\Prj(X_m=i)&=(\pi P^m)_i\tag{this denotes the $i$th entry of $P$}\\
+&=(\pi PP^{m-1})_i\\
+&=(\pi P^{m-1})_i
+\end{align*}
+Thus by induction, we see that $\Prj(X_m=i)=\pi_i$ thus we are done. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{}{} Let $I$ be finite. Suppose that for some $i\in I$, $$\lim_{n\to\infty}P_{ij}^n=\pi_j$$ for all $j\in I$. Then $\pi=(\pi_j:j\in I)$ is an invariant distribution. 
+\end{thm}
+
+Let us look at an example. 
+
+\begin{eg}{Gene Mutation}{} Recall the gene mutation example that has transition matrix $P=\begin{pmatrix}
+1-\alpha & \alpha\\
+\beta & 1-\beta
+\end{pmatrix}$. Recall that $$P^n=\begin{pmatrix}
+\frac{\beta}{\alpha+\beta}+\frac{\alpha}{\alpha+\beta}(1-\alpha-\beta)^n & \frac{\alpha}{\alpha+\beta}-\frac{\alpha}{\alpha+\beta}(1-\alpha-\beta)^n\\
+? & ?
+\end{pmatrix}$$
+As $n\to\infty$, observe that the first entry tends to $\frac{\beta}{\alpha+\beta}$ the second entry tends to $\frac{\alpha}{\alpha+\beta}$. This means that $\pi=\left(\frac{\beta}{\alpha+\beta},\frac{\alpha}{\alpha+\beta}\right)$ is an invariant distribution for the gene mutation model. \\~\\
+We can also find the invariant distribution directly: Let $\pi=(\pi_1,\pi_2)$ be an invariant distribution for $P$. We have that 
+\begin{align*}
+\pi P&=\pi\\
+\begin{pmatrix}
+\pi_1(1-\alpha)+\pi_2\beta & \pi_1\alpha+\pi_2(1-\beta)
+\end{pmatrix}&=\begin{pmatrix}
+\pi_1 & \pi_2
+\end{pmatrix}\\
+\begin{pmatrix}
+\pi_2\beta-\pi_1\alpha & \pi_1\alpha-\pi_2\beta
+\end{pmatrix}&=0\\
+\end{align*} Notice that these two equations mean the same thing. (In general if you have an $n\times n$ transition matrix, only the first $n-1$ equations will be useful and the last one will be redundant.) This is why we need to use the fact that $\pi_1+\pi_2=1$ as our final equation. \\~\\
+Now solving it, we have that $\pi=\left(\frac{\beta}{\alpha+\beta},\frac{\alpha}{\alpha+\beta}\right)$ which is the exact same answer as the one given in the first method. \\~\\
+A third way to think about it is that notice that $P^T\pi^T=\pi^T$ is the equation that we are attempting to solve. Recall that $1$ is necessarily an eigenvector of a transtition matrix which means that this equation really is just a question of finding eigenvectors from the eigenvalue $1$. 
+\end{eg}
+
+The above examples gives a lot of practical information when calculating the invariant distribution of a transition matrix. \\~\\
+Observe that in general, solving the equation $\pi P=\pi$ does not give a unique invariant distribution. We require additional constraints. 
+
+\subsection{Uniqueness of Invariant Distribution}
+\begin{defn}{Expected Time Spent}{} Define the expected time spent in state $i$ in between visits to state $k$ by $$\gamma_i^k=E_k\left(\sum_{n=0}^{T_k-1}\mathcal{X}_{X_n=i}\right)$$
+\end{defn}
+
+This uses $k$ as a reference, and as we keep going back to $k$, this records how much time we have spent in $i$ in the process of leaving and returning to $k$. \\~\\
+
+\begin{thm}{}{} Let $P$ be irreducible and recurrent. Then
+\begin{itemize}
+\item $\gamma_k^k=1$
+\item $\gamma^k=(\gamma_i^k:i\in I)$ is an invariant measure satisfying $\gamma^kP=\gamma^k$
+\item $0<\gamma_i^k<\infty\;\forall i\in I$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Trivial
+\item Notice that $\{T_k\geq n\}=\{T_k<n\}^c$ depends only on $X_0,\dots,X_{n-1}$, thus by the Markov property at time $n-1$ we have 
+\begin{align*}
+\Prj_k(X_{n-1}=i,X_n=j,T_k\geq n)&=\Prj_k(X_{n-1}=i)\Prj_k(X_n=j,T_k\geq n|X_{n-1}=i)
+\end{align*}
+\item Since $P$ is irreducible, for all $i\in I$, there exists $m,n\in\N$ such that $P_{ik}^n>0$ and $P_{kj}^m>0$. Then 
+\begin{align*}
+\gamma_i^k&=\sum_{j\in I}\gamma_j^kP_{ji}^m\\
+&\geq\gamma_k^kP_{ki}^m>0\\
+&>0
+\end{align*}
+We also have that 
+\begin{align*}
+\gamma_i^k&=\sum_{n=1}^{T_k}\mathcal{X}_{X_n=i}\\
+&<\infty
+\end{align*}
+Since $T_k<\infty$. 
+\end{itemize}
+\end{proof}
+\end{thm}
+
+\begin{thm}{}{} Let $P$ be irreducible and $\lambda$ and invariant measure and $\lambda_k=1$ for some $k$. Then $\lambda\geq\gamma^k$. If in addition we also have that $P$ is recurrent, then $\lambda=\gamma^k$. \tcbline
+\begin{proof}
+\end{proof}
+\end{thm}
+
+This theorem assesrts that as long as $P$ is irreducible and recurrent, then any invariant measure is exactly equal to the $\gamma^k$ we defined, which means that there is really only one invariant measure up to rescaling. In other words, irreducibility and recurrence guarantees uniqueness of the invariant measure. However, notice that this still does not assures that we can normalize the invariant measure to become an invariant distribution. 
+
+\begin{defn}{Positive Recurrent}{} A state $i\in I$ is positive recurrent if it is recurrent and $$E_i[T_i]<\infty$$ A state which is not positive recurrent but is recurrent is called null recurrent. 
+\end{defn}
+
+\begin{thm}{}{} Let $P$ be irreducible. Then the following are equivalent. 
+\begin{itemize}
+\item Every state is positive recurrent
+\item Some state $i$ is positive recurrent
+\item $P$ has an invariant distribution $\pi$. More over, $\pi_i=\frac{1}{E_i[T_i]}$
+\end{itemize}
+\end{thm}
+
+Essentially, combining these conditions, we required that the transition matrix $P$ is irreducible and positive recurrent in order for an invariant distribution to exists and is unique. 
+
+\subsection{Convergence to Equilibrium}
+\begin{defn}{Periodicity}{} Let $i\in I$ be a state. Define the periodicity of $i$ to be $$\gcd\{n\geq 0|P_{ii}^n>0\}$$ A state $i$ is said to be aperiodic if $d=1$. 
+\end{defn}
+
+\begin{prp} Let $i\in I$ be a state. Then $i$ is aperiodic if and only if there exists $N\in\N$ such that $P_{ii}^n>0$ for all $n\geq N$. 
+\end{prp}
+
+\begin{lmm}{}{} Suppose that a Markov chain is irreducible and $i\in I$ is aperiodic. Then for all $j,k\in I$, there exists $M\in\N$ such that $$P_{jk}^m>0$$ for all $m>M$. In other words, aperiodicity is a class property. 
+\end{lmm}
+
+\begin{thm}{Convergence to Equilibrium}{} Let $P$ be irreducible and aperiodic. Suppose that $P$ has an invariant distribution $\pi$. Let $\lambda$ be any distribution. If $(X_n)_{n\geq 0}$ is Markov$(\lambda,P)$, then we have $$\lim_{n\to\infty}\Prj(X_n=j)=\pi_j$$ In other words, $\lim_{n\to\infty}\Prj_{ij}^n=\pi_j$ for all $i,j\in I$. 
+\end{thm}
+
+\subsection{Time Reversal and Invariant Distributions}
+\begin{thm}{}{} Let $P$ be irreducible and have invariant distribution $\pi$. Suppose that $(X_n)_{0\leq n\leq N}$ is Markov$(\pi,P)$. Define $Y_n=X_{N-n}$ for each $N$. Then $(Y_n)_{0\leq n\leq N}$ is Markov$(\pi,P')$ where $P'$ is given by $$\pi_jP_{ji}'=\pi_iP_{ij}$$ and $P'$ is also irreducible with invariant distribution $\pi$. 
+\end{thm}
+
+\begin{defn}{Time Reversal}{} The above sequence of random variables $(Y_n)_{0\leq n\leq N}$ is called the time reversal of $(X_n)_{0\leq n\leq N}$. 
+\end{defn}
+
+\begin{defn}{Reversible}{} If the time reversal sequence of random variables $(Y_n)_{0\leq n\leq N}$ of $(X_n)_{0\leq n\leq N}$ are both Markov$(\lambda,P)$, then we say that $(X_n)_{0\leq n\leq N}$ is reversible. 
+\end{defn}
+
+\begin{defn}{Detailed Balance}{} A stochastic matrix $P$ and a measure $\lambda$ is said to be in detailed balance if $$\lambda_ip_{ij}=\lambda_jp_{ji}$$ for all $i,j\in I$. 
+\end{defn}
+
+\begin{lmm}{}{} If $P$ and $\lambda$ are in detailed balance then $\lambda$ is an invariant measure for $P$. 
+\end{lmm}
+
+\begin{thm}{}{} Let $P$ be an irreducible stochastic matrix. Let $\lambda$ be a distribution. Let $(X_n)_{n\geq 0}$ is Markov$(\lambda,P)$. Then $(X_n)_{n\geq 0}$ is reversible if and only if $P$ and $\lambda$ are in detailed balance. 
+\end{thm}
+
+This provides a good way to check whether a transition matrix and a measure is an invariant distrbution. 
+
+\subsection{The Ergodic Theorem}
+Recall that $V_i(n)$ is the visit counting function. 
+
+\begin{thm}{The Ergodic Theorem}{} Let $P$ be irreducible and let $\lambda$ be any distribution. If $(X_n)_{n\geq 0}$ is Markov$(\lambda,P)$ then $$\Prj\left(\lim_{n\to\infty}\frac{V_i(n)}{n}=\frac{1}{E(T_i)}\right)=1$$
+\end{thm}
+
+\begin{crl}{}{} Let $(X_n)_{n\geq 0}$ be a positive recurrent Markov chain. Then for any $f:I\to\R$ such that $E_\pi(\abs{f(x)})<\infty$, we have $$\Prj\left(\frac{1}{n}\sum_{k=0}^{n-1}f(X_k)\to E_\pi(f(x))\right)=1$$
+\end{crl}
+
+Notice that $E_\pi(f(x))=\sum_{i\in I}\pi_if(i)$ in the corollary. \\~\\
+
+We wish that given an invariant distribution, we can construct a Markov chain so that we can use the Ergodic theorem to get estimates of $E_\pi(f(x))$. 
+
+\begin{thm}{Markov Chain Monte Carlo Process}{} Describe a procedure as follows. \\
+Step 1: Define $X_0=i\in I$. \\
+Step 2: Set $m=0$, $Y=i$, $N$ to be something big. \\
+Step 3: While $m\leq N$, 
+\begin{enumerate} 
+\item Sample $Y\sim q_{X_m}$
+\item Calculate $\alpha_{X_m,y}=\min\left\{1,\frac{\pi_yq_{y,X_m}}{\pi_{X_m}q_{X_m,y}}\right\}$, the acceptance probability
+\item Sample $U\sim\text{Uniform}(0,1)$
+\item If $(U<\alpha_{X_m,y})$, set $X_{m+1}=Y$. Else set $X_{m+1}=X_m$. 
+\end{enumerate}
+Step 4: Output $\{X_0,\dots,X_N\}$. 
+\end{thm}
+
+
+
+
+
+
+
+
+\end{document}

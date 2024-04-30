@@ -1,0 +1,158 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Classical Mechanics}
+\rfoot{\thepage}
+
+\title{Classical Mechanics}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{Newton's Laws of Motion}
+\subsection{Space and Time}
+\begin{defn}{Position}{} The position of a particle is defined in relation to a coordinate system centered on an arbitrary fixed reference point in space. 
+\end{defn}
+
+\begin{defn}{Velocity}{} The velocity of a particle with position $\vb{r}$ is given by $$\vb{v}=\frac{d\vb{r}}{dt}$$
+\end{defn}
+
+\begin{defn}{Acceleration}{} The acceleration of a particle with position $\vb{r}$ is given by $$\vb{a}=\frac{d\vb{v}}{dt}=\frac{d^2\vb{r}}{dt^2}$$
+\end{defn}
+
+\begin{defn}{Frame of Reference}{} A frame of reference is an abstract coordinate system whose origin, orientation and scale are specified by a set of reference points. 
+\end{defn}
+
+\begin{defn}{Inertial Frame of Reference}{} An intertial frame of reference is a frame of reference not undergoing accleration. 
+\end{defn}
+
+\subsection{Newton's Laws of Motion}
+\begin{defn}{Mass}{} Mass is the quantity of matter, measured in $kg$. 
+\end{defn}
+
+\begin{defn}{Momentum}{} Momentum is the quantity of motion, defined to be $$\vb{p}=m\vb{v}$$
+\end{defn}
+
+\begin{defn}{Force}{} A force is an influence that can change the motion of an object. 
+\end{defn}
+
+\begin{axm}{Newton's First Law}{} In the absense of forces, a particle moves with constant velocity $\vb{v}$. 
+\end{axm}
+
+\begin{axm}{Newton's Second Law}{} For any particle of mass $m$, the net force $\vb{F}$ on the particle is always equal to the mass $m$ times the particle's accleration. In other words, $$\vb{F}=m\vb{a}=\frac{d\vb{p}}{dt}$$
+\end{axm}
+
+\begin{axm}{Newton's Third Law}{} If object $1$ exerts a force $\vb{F}_{21}$ on onject $2$, then the object $2$ always exerts a reaction force $\vb{F}_{12}$ on object $1$ given by $$\vb{F}_{12}=-\vb{F}_{21}$$
+\end{axm}
+
+\begin{thm}{Conservation of Momentum}{} If the net external force $\vb{F}^\text{ext}$ on an $N$-particle system if $0$, then then system's total momentum $\vb{P}$ is constant. \tcbline
+\begin{proof} Suppose we have $n$ particles named $\alpha_1,\dots,\alpha_n$. For each $i\in\{1,\dots,n\}$, $$\vb{F}_{\alpha_i}=\sum_{k=1, k\neq i}^n\vb{F}_{\alpha_i\alpha_k}+\vb{F}_{\alpha_i}^\text{ext}$$ Now the total momentum of the system is given by $$\vb{P}=\sum_{k=1}^n\vb{p}_{\alpha_k}$$ Differentiating it gives $$\frac{d\vb{P}}{dt}=\sum_{k=1}^n\frac{d\vb{p}_{\alpha_k}}{dt}$$ Substituting $\vb{F}_{\alpha_i}=\frac{d\vb{p}_{\alpha_i}}{dt}$, we have 
+\begin{align*}
+\frac{d\vb{P}}{dt}&=\sum_{k=1}^n\sum_{j=1,j\neq k}^n\vb{F}_{\alpha_k\alpha_j}+\sum_{k=1}^n\vb{F}_{\alpha_k}^\text{ext}\\
+&=\sum_{k=1}^n\sum_{j=k+1}^n(\vb{F}_{\alpha_k\alpha_j}+\vb{F}_{\alpha_j\alpha_k})+\sum_{k=1}^n\vb{F}_{\alpha_k}^\text{ext}\\
+&=\sum_{k=1}^n\vb{F}_{\alpha_k}^\text{ext}\\
+&=\vb{F}^\text{ext}
+\end{align*} Thus if the net external force $\vb{F}^{ext}=0$, $\vb{P}$ is a constant. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{Law of Gravity}{} Suppose two mass $m_1,m_2$ are in play and they are $r$ distance apart. Newton's law of gravity states that there is a force acting on $m_2$ by $m_1$ and vice versa given by $$F=\frac{Gm_1m_2}{r^2}$$
+\end{thm}
+
+\subsection{Friction}
+\begin{defn}{Static Friction}{} Friction arises when one onject is in contact with another. Denote $f_{\text{max}}$ the maximal of static friction before it changes into kinetic friction. If $\vb{F}<f_{\text{max}}$, then the static friction $\vb{f}=-\vb{F}$. We also have $f_{\text{max}}=\mu\abs{\vb{N}}$, meaning the max friction is proportional to $\vb{N}$. 
+\end{defn}
+
+\begin{defn}{Coefficient of Friction}{} $\mu$ is called the coefficient of friction. We have $0<\mu\leq 1$. 
+\end{defn}
+
+\begin{defn}{Kinetic Friction}{} When motion occurs, friction is still roughly proportional to the normal force, but the coefficient changes $$f_k=\mu_kN$$ where $\mu_k$ is the coefficient of kinetic or dynamic friction and $f_k$ is the kinetic friction. 
+\end{defn}
+
+\subsection{Drag Force}
+\begin{defn}{Drag Force}{} Drag force is experienced when moaing fluid or gas, the force that hinders your movement. $$D=\frac{1}{2}C\rho Av^2$$ where $\rho$ is the air density, $A$ is the effective cross-sectional area, $C$ the drag coefficient. 
+\end{defn}
+
+\begin{thm}{Falling}{} When free falling, the total force acting on the body is $D-F_g$. Drag force reaches maximum $F_g$ when $a=0$. The velocity required thus is given by $$v_t=\sqrt{\frac{2F_g}{C\rho A}}$$
+\end{thm}
+
+\subsection{Circular Motion}
+\begin{thm}{}{} If a particle moves in a circle or a circular arc of radius $R$ at constant speed $v$, the particle experiences centripetal acceleration $\vb{a}$ with $$\abs{\vb{a}}=\frac{v^2}{R}$$
+\end{thm}
+
+\begin{thm}{}{} Thus the force experienced by the particle is given by $$F=m\frac{v^2}{R}$$
+\end{thm}
+
+\pagebreak
+\section{Work and Energy}
+\subsection{Kinetic Energy}
+\begin{axm}{Principle of Energy Conservation}{} Energy in a system is conserved. 
+\end{axm}
+
+\begin{defn}{Kinetic Energy}{} Kinetic Energy $K$ is energy associated with the state of motion of an object. For an object of mass $m$ whose speed $v$ is well below the speed of light, $$K=\frac{1}{2}mv^2$$
+\end{defn}
+
+\subsection{Work}
+\begin{defn}{Work}{} Work $W$ is energy transferred to or from an object by means of a force acting on the object. 
+\end{defn}
+
+\begin{thm}{}{} $$W=Fd\cos(\theta)$$ where $\theta$ is the angle between $\vb{F}$ and $\vb{d}$. 
+\end{thm}
+
+\begin{defn}{}{}$$W=\vb{F}\cdot\vb{d}$$ where $d$ is the displacement of the object. 
+\end{defn}
+
+\begin{thm}{Work Kinetic Energy Theorem}{} The change in kinectic energy is equal to the network done. $$W=T_2-T_1$$ where $T_1$ is the initial kinetic energy and $T_2$ its final. 
+\end{thm}
+
+\begin{thm}{Work Done by Gravitational Force}{} $$W_g=mgd\cos(\theta)$$
+\end{thm}
+
+\begin{thm}{Hooke's Law}{} $$\vb{F}_s=-k\vb{d}$$ where $k$ is called the spring constant, $\vb{d}$ is the displacement. 
+\end{thm}
+
+\begin{thm}{}{} Work done by a spring force $$W_s=\frac{1}{2}k(x_i^2-x_f^2)$$
+\end{thm}
+
+\subsection{Work done by a Force as a Variable}
+\begin{defn}{}{} The work done by $F$ on the $x$ component is given by $$W=\int_{x_i}^{x_f}F(x)\,dx$$
+\end{defn}
+
+\begin{thm}{}{} The work done $$W=\int_{x_i}^{x_f}F_x\,dx+\int_{y_i}^{y_f}F_y\,dy+\int_{z_i}^{z_f}F_z\,dz$$
+\end{thm}
+
+\subsection{Power}
+\begin{defn}{}{} power is defined as the rate at which work is done. $$P=\frac{dW}{dt}$$
+\end{defn}
+
+\begin{defn}{}{} The instantaneous power at a point in time is given by $P=\vb{F}\cdot\vb{v}$
+\end{defn}
+
+\pagebreak
+\section{Simple Harmonic Motion}
+\subsection{Mass on a Spring}
+\begin{thm}{}{} Springs produce a force $F$ that is linear to the displacement of $x$. $$F=-kx$$
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+\end{document}

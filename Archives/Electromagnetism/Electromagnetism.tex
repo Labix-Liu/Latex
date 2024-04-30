@@ -1,0 +1,270 @@
+\documentclass[a4paper]{article}
+
+\input{Headers}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Electromagnetism}
+\rfoot{\thepage}
+
+\title{Electromagnetism}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{Coulumb's Law}
+\subsection{Charge}
+\begin{defn} The charge of an electron is negative, denoted $-e$. The charge of a proton is positive, denoted $e$. Like charges repel each other and opposite charges attract. 
+\end{defn}
+
+\begin{axm}[Conservation of Charge] The total charge in an isolated system never changes. 
+\end{axm}
+
+\begin{axm}[Quantization of Charge]
+\end{axm}
+
+\begin{defn}[Coulomb's Law] The interaction between electric charges at rest is described by Coulomb's Law. $$\vb{F}_{21}=\frac{q_1q_2}{4\pi\epsilon_0\abs{\vb{r}_2-\vb{r}_1}^2}\vb{r}_{21}$$ where $q_1$ and $q_2$ are the value of the electric charges. 
+\end{defn}
+
+\begin{defn} The force on charge $q_0$ exerted by $q_1,\dots,q_n$ is given by $$\vb{F}=\frac{1}{4\pi\epsilon_0}\sum_{k=1}^n\frac{q_0q_k}{\abs{\vb{r}_k-\vb{r}_0}}\vb{r}_{k0}$$
+\end{defn}
+
+\begin{thm} The work required to bring two particles to have the distance of $r$ is $$W=\frac{1}{4\pi\epsilon_0}\frac{q_1q_2}{r}$$
+\end{thm}
+
+\begin{thm} The potential energy of a system of charge is $$U=\frac{1}{2}\sum_{j=1}^n\sum_{k\neq j}\frac{1}{4\pi\epsilon_0}\frac{q_jq_k}{\abs{\vb{r}_j-\vb{r}_k}^2}$$
+\end{thm}
+
+\begin{defn} The electric field $\vb{E}$ of a charge distribution is $$\vb{E}(x,y,z)=\frac{1}{4\pi\epsilon_0}\sum_{k=1}^n\frac{q_k}{\abs{\vb{r}_k-\vb{r}_0}}\vb{r}_{k0}$$ such that $\vb{F}=q\vb{E}$
+\end{defn}
+
+By developing the concept of an electric field, we can predict what force the charge receives at $(x,y,z)$ and where it moves. 
+
+\begin{defn} For a continuous charge distribution, the electric field it generates is given by $$\vb{E}(\vb{r})=\frac{1}{4\pi\epsilon_0}\iiint_V\frac{\rho(\vb{r}')(\vb{r}-\vb{r}')}{\abs{\vb{r}-\vb{r}'}^{3/2}}\,d^3\vb{r}'$$
+\end{defn}
+
+Let there be an arbitrarily volume in 3 dimensions. Let there be a sphere enclosed by the volume. Let the normal of the sphere be $\vb{a}$. Then project the patch onto the volume with a cone starting from the origin. The patch projected scales with a factor of $\left(\frac{R}{r}\right)^2$. And owing to its inclination $\frac{1}{\cos(\theta)}$, where $\theta$ is the angle made between the normal of the old patch and the normal of the new patch. $E_R$ is also scaled by a factor of $E_r$ due to being further away from the origin. We have that the flux through the outer patch is given by $\vb{E}_R\cdot\vb{A}=E_RA\cos(\theta)$ and $vb{E}_r\cdot\vb{a}=E_ra$. \linebreak
+
+The flux of the electric field through any surface enclosing a point charge $q$ is $\frac{q}{\epsilon_0}$
+
+\begin{thm}[Gauss's Law] The flux of the electric field is equal to $\frac{1}{\epsilon_0}$ times the total charge enclosed by the surface. $$\int\vb{E}\cdot\,d\vb{a}=\frac{1}{\epsilon_0}\int\rho\,dV=\frac{1}{\epsilon_0}\sum_{k=1}^nq_k$$
+\end{thm}
+
+\begin{thm}[Field of a Sphere] $$E=\frac{Q}{4\pi\epsilon_0r^2}$$ where $Q$ is the total charge on the sphere. if it is uniformly distributed, is equal to $4\pi r_0^2\sigma$. 
+\end{thm}
+
+\begin{thm}[Field of a Line Charge] $$E=\frac{\lambda}{2\pi\epsilon_0r}$$
+\end{thm}
+
+\begin{thm}[Field of an Infinite Flat Sheet of Charge] $$E=\frac{\sigma}{2pi\epsilon_0}$$ where $\sigma$ is the surface charge distribution
+\end{thm}
+
+\begin{thm} The force per unit area on a layer of charfe equals the density times the average of the fields on either side $$\frac{F}{A}=\frac{1}{2}(E_1+E_2)\sigma$$
+\end{thm}
+
+\begin{defn}[Energy Density] The energy density of an electric field is $\frac{\epsilon_0E^2}{2}$
+\end{defn}
+
+\begin{thm} The total energy in a system equals $$U=\frac{\epsilon_0}{2}\int E^2\,dV$$
+\end{thm}
+
+\pagebreak
+\section{Electric Potential}
+\begin{prp} The line integral $$\int_{p_1}^{p_2}\vb{E}\cdot\,ds$$ is path independent. 
+\end{prp}
+
+\begin{prp} The line integral $$\int \vb{E}\cdot\,ds$$ around any closed path in an electric field is $0$. 
+\end{prp}
+
+\begin{defn}[Electric Potential Difference] Define $$\phi_{21}=-\int_{p_1}^{p_2}\vb{E}\cdot\,ds$$ the work per unit charge done by external agency in moving a positive charge from $p_1$ to $p_2$ in the field $\vb{E}$. We call work per unit charge done the electric potential difference. 
+\end{defn}
+
+Note the differenecs. The potential energy of a system of charges is the total work required to assemble it. The Electric potential is the work per unit charge required to move a unit positive test charge from some reference point to the point $(x,y,z)$ in the field. 
+
+\begin{thm} The electric field can be derived from the electric potential function $$\vb{E}=-\nabla\phi$$
+\end{thm}
+
+\begin{thm}[Superposition] The potential function given from multiple sources is given by $$\phi=\int_{\text{all sources}}\frac{\rho(x',y',z')}{4\pi\epsilon_0r}\,dx'\,dy'\,dz'=\sum_{\text{all sources}}\frac{q_i}{4\pi\epsilon_0r}$$ where $r$ is the distance from the volume element or charge to the point. 
+\end{thm}
+
+Note that the above sources must be confined to some finite region of space. 
+
+\begin{thm} $$U=\frac{1}{2}\int\rho\phi\,dV$$
+\end{thm}
+
+\begin{thm} $$\nabla\cdot\vb{E}=\frac{\rho}{\epsilon_0}$$
+\end{thm}
+
+\begin{thm}[Poisson's Equation] $$\nabla\cdot\vb{E}=-\nabla^2\phi=\frac{\rho}{\epsilon_0}$$
+\end{thm}
+
+\subsection{Laplace's Equation}
+\begin{defn}[Laplace's Equation] $$\nabla^2\phi=0$$
+\end{defn}
+
+\begin{thm} If $\phi$ satisfies Laplace's Equation, then the average value of $\phi$ over the surface of any sphere is equal to the value of $\phi$ at the center of the sphere
+\end{thm}
+
+\begin{thm}[Earnshaw's Theorem] It is impossible to construct an electrostatic field that will hold a charged particle in stable equilibrium in empty space. 
+\end{thm}
+
+\begin{thm} Electrostatic fields must have $\nabla\times\vb{E}=0$
+\end{thm}
+
+\pagebreak
+\section{Electric Fields around Conductors}
+\begin{defn} Given a system of conductors, the following holds. 
+\begin{itemize}
+\item $\vb{E}=0$ inside the material of a conductor
+\item $\rho=0$ inside the material of a conductor
+\item $\phi=\phi_k$ for all points inside the material and on the surface of the $k$th conductor
+\item At any point just outside the conductor, $\vb{E}$ is perpendicular to the surface and $E=\frac{\sigma}{\epsilon_0}$ where $\sigma$ is the local density of surface charge
+\item $Q_k=\int_{S_k}\sigma\,da=\epsilon_0\int_{S_k}\vb{E}\cdot\,d\vb{a}$ where $Q_k$ is the charge on conductor $S_k$
+\end{itemize}
+\end{defn}
+
+\begin{defn} An isolated conductor carrying a charge $Q$ has a certain potential $\phi_0$. $Q$ would be proportional to $\phi_0$, depending linearly on the size and shape of the conductor. $$Q=C\phi_0$$ where $C$ is the capacitance of the conductor. 
+\end{defn}
+
+\begin{defn} $$Q=C(\phi_1-\phi_2)$$ where $C$ isc called the capacitance of the capacitor. 
+\end{defn}
+
+\begin{thm} $$W=\frac{Q_f^2}{2C}$$
+\end{thm}
+
+\begin{thm} $$U=\frac{1}{2}C\phi^2$$
+\end{thm}
+
+\begin{thm} $$F=\frac{Q^2}{2}\frac{d}{dx}\frac{1}{C}$$
+\end{thm}
+
+\pagebreak
+\section{Electric Currents}
+\begin{defn} $$A=\frac{C}{t}$$
+\end{defn}
+
+\begin{defn} Current through a frame of $n$ particles of equal charge and direction  is $$I=nq\vb{a}\cdot\vb{u}$$ where $a$ is the normal of the frame, $u$ is the velocity vector of the charge. The sum of different classes of particles is $$I=\vb{a}\cdot\sum_{k}n_kq_k\vb{u}_k$$
+\end{defn}
+
+\begin{defn}[Current Density] $$\vb{J}=\sum_kn_kq_k\vb{u}_k$$
+\end{defn}
+
+\begin{prp} $$\vb{J}=-eN_e\overline{\vb{u}_e}$$ where $N_e$ is the total electron in a volume, $\vb{u}_e$ the average velocity vector. 
+\end{prp}
+
+\begin{thm} $$I=\int_S\vb{J}\cdot\,d\vb{a}$$ where $S$ is a surface. 
+\end{thm}
+
+\begin{thm} $$\nabla\cdot\vb{J}=0$$ if $\vb{J}$ is time independent
+\end{thm}
+
+\begin{thm} $\nabla\cdot\vb{J}=-\frac{\partial\rho}{\partial t}$ if $\vb{J}$ is time dependent. 
+\end{thm}
+
+\begin{thm} $$\vb{J}=\sigma\vb{E}$$ where $\sigma$ is called the conductivity of the material. 
+\end{thm}
+
+\begin{thm} Denote $V$ the electric potential difference $\phi_1-\phi_2$. $$V=IR$$ where $R$ is the constant called the resistance of the conductor. $R$ depends on the shape, size and conductivity of the material. 
+\end{thm}
+
+\begin{defn} $$\rho=\frac{1}{\sigma}$$ resistivity is the inverse of conductivity
+\end{defn}
+
+\begin{thm} Resistance of a wire $$R=\frac{\rho L}{A}$$ where $L$ is the length and $A$ is the cross-sectional area. 
+\end{thm}
+
+\begin{thm} Average momentum of $N$ positive ions $$M\overline{\vb{u}_+}=\frac{1}{N}\sum_j(M\vb{u}_j^c+e\vb{E}t_j)$$ $\vb{u}_j^c$ is the velocity of the $j$th ion after its last collision. 
+\end{thm}
+
+\begin{prp} Average velocity of a positive ion in $\vb{E}$ is $$\overline{\vb{u}_+}=\frac{\vb{E}e\overline{t_+}}{M_+}$$
+\end{prp}
+
+\begin{prp} $$\sigma\approx e^2\left(\frac{N_+\tau_+}{M_+}+\frac{N_-\tau_-}{M_-}\right)$$ where $\tau$ is the mean time between collisions. 
+\end{prp}
+
+\begin{thm} Resistance in series $$R=R_1+R_2$$ Resistance in parallel $\frac{1}{R}=\frac{1}{R_1}+\frac{1}{R_2}$
+\end{thm}
+
+\begin{thm} Current is found via Ohm's law and Kirchhoff's rules. 
+\begin{itemize}
+\item $V=IR$
+\item At a node of the network, a point where three or more connecting wires meet, the algebraic sum of currents into the node must be $0$. 
+\item The sum of potential differences taken in order around a loop of the network is $0$. 
+\end{itemize}
+\end{thm}
+
+\begin{thm} Work done $$P=I^2R$$
+\end{thm}
+
+\begin{thm} A battery utilizes chemical reactions to supply an electromotive foce. Since the line integral of the electric field around a complete circuit is $0$, there must be locations where ions move against the electric field. This force is provided by the chemical reaction. 
+\end{thm}
+
+\begin{thm}[Thevenin's Theorem] Any circuit is equivalent to a single voltage source and a single resistor. 
+\end{thm}
+
+\pagebreak
+\section{Magnetic Force}
+\begin{thm}[Lorentz Force] Total force experienced by a particle with charge $q$ is $$\vb{F}=q\vb{E}+q\vb{v}\times\vb{B}$$ where $\vb{B}$ is the magnetic field. 
+\end{thm}
+
+\begin{thm}[Moving charges] $$Q=\epsilon_0\int_{S(t)}\vb{E}\cdot\,d\vb{a}$$ Gauss's law holds for moving charges. 
+\end{thm}
+
+\begin{thm} Total charge in a system is not changed by the motion of the charge carriers. 
+\end{thm}
+
+\begin{thm} $$\vb{E}'_{||}=\vb{E}_{||}$$ and $$\vb{E}'_{\perp}=\gamma\vb{E}_{\perp}$$
+\end{thm}
+
+\begin{thm} The field of a point charge moving with constant velocity $v=\beta c$ is radial and has magnitude $$E=\frac{Q}{4\pi\epsilon_0r^2}\frac{1-\beta^2}{(1-\beta^2\sin^2(\theta))^{3/2}}$$
+\end{thm}
+
+\begin{thm} $$\vb{F}'_{||}=\vb{F}_{||}$$ and $$\vb{F}'_{\perp}=\frac{1}{\gamma}\vb{F}_{\perp}$$
+\end{thm}
+
+\begin{thm} If a charge is moving with respect to other changes that are also moving in the lab frame, then the charge experiences a magnetic force. This force can also be viewed as an electric force in the particle's frame. 
+\end{thm}
+
+\pagebreak
+\section{Magnetic Field}
+\begin{thm} $$\vb{B}=\vb{k}\frac{\mu_0I}{2\pi r}$$ where $$\mu_0=\frac{1}{\epsilon_0c^2}$$
+\end{thm}
+
+\begin{thm} Force between two parallel wires $$F=\frac{\mu_0I_1I_2\vb{l}}{2\pi r}$$ and $$d\vb{F}=Id\vb{l}\times\vb{B}$$
+\end{thm}
+
+\begin{thm}[Ampere's Law] $$\int\vb{B}\cdot\,d\vb{s}=\mu_0I$$ where $I$ is the current enclosed by the path. 
+\end{thm}
+
+\begin{thm} $$\nabla\times\vb{B}=\mu_0\vb{J}$$
+\end{thm}
+
+\begin{thm} $$\nabla\cdot\vb{B}=0$$
+\end{thm}
+
+\begin{defn} Define $\vb{A}$ to be $$\vb{B}=\nabla\times\vb{A}$$ the vector potential. 
+\end{defn}
+
+\begin{thm} $$\vb{A}=\frac{\mu_0}{4\pi}\int\frac{\vb{J}}{r}\,dv$$
+\end{thm}
+
+\begin{thm} $$d\vb{B}=\frac{\mu_0\vb{I}}{4\pi}\frac{d\vb{l}\times\vb{r}}{r^2}$$
+\end{thm}
+
+
+
+
+
+
+
+
+\end{document}

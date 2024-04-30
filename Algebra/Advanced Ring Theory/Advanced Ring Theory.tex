@@ -1,0 +1,305 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Advanced Ring Theory}
+\rfoot{\thepage}
+
+\title{Advanced Ring Theory}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\begin{itemize}
+\item Abstract Alebra by Thomas W. Judson
+\end{itemize}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Division Rings}
+\subsection{The Structure of Quaternions}
+\begin{defn}{Quaternions}{} Define the quaternions as the quotient algebra $$\H=\frac{\R\langle x_1,x_2,x_3\rangle}{I}$$ where $I=(x_1^2+1,x_2^2+1,x_3^2+1,x_1x_2x_3+1)$. \\~\\
+Elements of $\H$ are of the form $a+b\vb{i}+c\vb{j}+d\vb{k}$ for $a,b,c,d\in\R$ and by writing $\vb{i}=x_1+I$, $\vb{j}=x_2+I$ and $\vb{k}=x_3+I$. \\~\\
+A quaternion is said to be real if $b=c=d=0$. It is said to be imaginary if $a=0$. Denote the set of all imaginary quaternions by $\H_0$. 
+\end{defn}
+
+\begin{prp}{}{} The quaternions satisfy the following multiplication table: \begin{center}
+\begin{tabular}{ |c|c|c|c|c| } 
+\hline
+$\cdot$ & $1$ & $\vb{i}$ & $\vb{j}$ & $\vb{k}$\\\hline
+$1$ & $1$ & $\vb{i}$ & $\vb{j}$ & $\vb{k}$\\\hline
+$\vb{i}$ & $\vb{i}$ & $-1$& $\vb{k}$ & $-\vb{j}$ \\\hline
+$\vb{j}$ & $\vb{j}$& $-\vb{k}$& $-1$& $\vb{i}$\\\hline
+$\vb{k}$ & $\vb{k}$ & $\vb{j}$ & $-\vb{i}$ & $-1$\\\hline
+\end{tabular}
+\end{center}\tcbline
+\begin{proof}
+We only need to consider products that does not involve $1$. It clear for $t=1,2,3$, $x_t^2+1\in I$. This means that $x_t^2+I=-1+I$ and thus $\vb{i}^2=\vb{j}^2=\vb{k}^1=-1$. Similarly, we have that $x_1x_2x_3+I=-1+I$ and thus $\vb{ijk}=-1$. Multiplying this expression by $-\vb{i}$ on the left gives $\vb{jk}=\vb{i}$. We can also multiply the expression by $-\vb{k}$ on the right to get $\vb{ij}=\vb{k}$. Now multiply $\vb{i}$ to the left of the equation $\vb{ij}=\vb{k}$ to get $-\vb{j}=\vb{ik}$. We can also multiply $\vb{ij}=\vb{k}$ by $\vb{j}$ on the right gives $-\vb{i}=\vb{kj}$. Finally we have $\vb{j}(\vb{i}=\vb{jk})\implies\vb{ji}=-\vb{k}$ and $(\vb{ji}=-\vb{k})(-\vb{i})\implies\vb{j}=\vb{ki}$. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} The elements $1,\vb{i},\vb{j},\vb{k}$ form a basis for the $\R$-algebra $\H$. \tcbline
+\begin{proof}
+It is clear that $1,x_1,x_2,x_3,x_1x_2,x_1x_3,x_2,x_3,\dots$ span $\H$. By writing $x_1,x_2,x_3$ each in terms of $1,\vb{i},\vb{j},\vb{k}$ respectively, we have can see that $1,\vb{i},\vb{j},\vb{k}$ span $\H$. It remains to show that they are linearly independent. \\~\\
+
+Consider the $\R$-algebra homomorphism $f:\R\langle x_1,x_2,x_3\rangle\to M_{2\times 2}(\C)$ defined by $f(x_1)=\begin{pmatrix}
+i & 0\\
+0 & -i
+\end{pmatrix}$, $f(x_2)=\begin{pmatrix}
+0 & 1\\
+-1 & 0
+\end{pmatrix}$ and $f(x_3)=\begin{pmatrix}
+0 & i\\
+i & 0
+\end{pmatrix}$. It is clear that $I\subseteq\ker(f)$ since $f(x_1^2+1)=f(x_2^2+1)=f(x_3^2+1)=f(x_1x_2x_3+1)=0$. By the first and third isomorphism theorem for modules, we have that $$\frac{\H}{\ker(f)/I}\cong\frac{\R\langle x_1,x_2,x_3\rangle}{\ker(f)}\cong\im(f)$$
+This means that $\dim_\R(\H)\geq\dim_\R(\im(f))$. Since the matrices $f(x_1),f(x_2),f(x_3)$ and $1$ are all linearly independent over $\R$, we have that $\im(f)$ is at least $4$-dimensional. Hence the four spanning elements of $\H$ must be linearly independent. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} The imaginary quaternions $\H_0$ form a three dimensional vector subspace of $\H$. The real quaternions form a subalgebra $\R$ of $\H$. 
+\end{prp}
+
+We treat the imaginary quaternions $\H_0$ as the standard $3$-space with dot product $$(b_1\vb{i}+c_1\vb{j}+d_1\vb{k})\cdot(b_2\vb{i}+c_2\vb{j}+d_2\vb{k})=b_1b_2+c_1c_2+d_1d_2$$ and cross product 
+\begin{align*}
+(b_1\vb{i}+c_1\vb{j}+d_1\vb{k})\times_c(b_2\vb{i}+c_2\vb{j}+d_2\vb{k})&=(c_1d_2-c_2d_1)\vb{i}+(d_1b_2-d_2b_1)\vb{j}+(b_1c_2-c_2b_1)\vb{k}\\
+&=\begin{vmatrix}
+\vb{i} & \vb{j} & \vb{k}\\
+b_1 & c_1 & d_1\\
+b_2 & c_2 & d_2
+\end{vmatrix}
+\end{align*}
+
+\begin{prp}{}{} Let $a_1+\vb{h}_1$ and $a_2,\vb{h}_2$ be quaternions such that $a_1,a_2\in\R$ and $\vb{h}_1,\vb{h}_2\in\H_0$. Then $$(a_1+\vb{h}_1)(a_2+\vb{h}_2)=(a_1a_2-\vb{h}_1\cdot\vb{h}_2)+(a_1\vb{h}_2+a_2\vb{h}_1+\vb{h}_1\times_c\vb{h}_2)$$
+\end{prp}
+
+\begin{defn}{Conjugate and Norm}{} Let $x=a+b\vb{i}+c\vb{j}+d\vb{k}\in\H$ be a quaternion. Define the conjugate of $x$ to be $$x^\ast=a-b\vb{i}-c\vb{j}-d\vb{k}$$ Also define the norm of $x$ to be $$\|x\|=\sqrt{a^2+b^2+c^2+d^2}$$
+\end{defn}
+
+\begin{prp}{}{} Let $x,y\in\H$ be quaternions. The following are true regarding the conjugate and norm of the quaternions: 
+\begin{itemize}
+\item $xx^\ast=\|x\|$
+\item $(xy)^\ast=y^\ast x^\ast$
+\item $\|xy\|=\|x\|\|y\|$
+\end{itemize} \tcbline
+\begin{proof}
+
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} $\H$ is a division ring. \tcbline
+\begin{proof}
+Let $x\in\H$. By the above proposition, we have that $x\frac{x^\ast}{\|x\|}=1$ which means we have found an inverse $\frac{x^\ast}{\|x\|}$ of $x$. 
+\end{proof}
+\end{prp}
+
+\subsection{The Multiplicative Group of Quaternions}
+\begin{defn}{The Quaternionic Unitary Group}{} Define the quaternionic unitary group to be the subgroup $$U(\H)=\{x\in\H\;|\;\|x\|=1\}$$ of $\H^\times$. 
+\end{defn}
+
+\begin{prp}{}{} The multiplicative group $\H^\times$ is isomorphic to $\R_+^\times\times U(\H)$, where $\R_+^\times$ is the multiplicative group of non-zero real numbers. \tcbline
+\begin{proof}
+
+\end{proof}
+\end{prp}
+
+\begin{prp}{Quaternionic Euler's Formula}{} Write a quaternion into the form $q=a+b\vb{x}\in\H$ where $a,b\in\R$ and $\vb{x}\in\H_0$ is purely imaginary such that $\|\vb{x}\|=1$. Then $$e^q=e^a(\cos(b)+\vb{x}\sin(b))$$
+\end{prp}
+
+\begin{prp}{Quaternionic De Moivre's Formula}{} Let $\vb{x}\in H_0$ be purely imaginary such that $\|\vb{x}\|=1$. Let $n\in\Z$. Then $$(\cos(b)+\vb{x}\sin(b))^n=\cos(nb)+\vb{x}\sin(nb)$$
+\end{prp}
+
+\subsection{3D Rotations using Quaternions}
+Recall the special orthogonal group in $3$-dimensions is the group $$\text{SO}_3(\R)=\{M\in\text{GL}_3(\R)|\det(M)=1\}$$
+
+\begin{prp}{}{} Let $M\in\text{SO}_3(\R)$ be a special orthogonal transformation. Then there exists an orthonormal basis of $\R^3$ such that the matrix decomposes into the direct sum $(1)\oplus R_\alpha$, where $R_\alpha=\begin{pmatrix}
+\cos(\alpha) & -\sin(\alpha)\\
+\sin(\alpha) & \cos(\alpha)
+\end{pmatrix}$ is a rotation in $\R^2$. 
+\end{prp}
+
+Now we know that every special orthogonal transformation is just a rotation in the plane orthogonal to $e_1$. In generality, we write $R_{\vb{x}}^\alpha$ for the anti-clockwise rotation in angle $\alpha$ in the plane orthogonal to $\vb{x}\in\R^3$. We can use the quaternions to write out a formula for applying the special orthogonal transformation to a vector. 
+
+\begin{lmm}{}{} Let $\vb{x}\in\H_0\cap U(\H)$ be an imaginary unit. Let $\theta\in\R$. Then $$R_{\vb{x}}^{2\theta}(\vb{w})=e^{\theta\vb{x}}\vb{w}e^{-\theta\vb{x}}$$ for all $\vb{w}\in\H_0$. 
+\end{lmm}
+
+This leads tot he fundamental fact behind the theory of spinors in Geometry and Physics. 
+
+\begin{thm}{}{} The conjugation action map $$\phi:U(\H)\to\text{SO}(\H_0)\cong\text{SO}_3(\R)$$ defined by $\phi(x)(\vb{z})=x\vb{z}x^{-1}$ for $\vb{z}\in\H_0$ and $x\in U(\H)$ is a surjective two to one group homomorphism. 
+\end{thm}
+
+\subsection{Division Rings over Real and Complex Numbers}
+\begin{prp}{}{} The only finite dimensional $\C$-division algebra is $\C$. \tcbline
+\begin{proof}
+Let $D$ be a finite dimensional $\C$-division algebra. Then in particular, $\C\subseteq D$. Suppose that $a\in D$. Then the minimal polynomial $\mu_a(x)$ is an irreducible element of $\C[x]$. By the fundamental theorem of algebra, $\mu_a(x)=x-\alpha$ with $\alpha\in\C$. This means that $a=\alpha\in\C$ and thus $D=\C$. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} The only odd dimensional $\R$-division algebra is $\R$. \tcbline
+\begin{proof}
+Let $D$ be an $\R$-division algebra of odd dimension $n$. Then in particular, $\R\subseteq D$. Let $a\in D$. In linear algebra we know that the $\R$-linear map $L:D\to D$ defined by $L(d)=ad$ admits a real eigenvalue $\alpha\in D$ and eigenvector $v$. Then $av=\alpha v$ implies that $(a-\alpha)v=0$. Since $D$ is a division algebra, we have that $a=\alpha\in\R$. Thus $\R=D$. 
+\end{proof}
+\end{prp}
+
+\begin{thm}{Frobenius Theorem}{} A finite dimensional division algebra over $\R$ is isomorphic to $\R$, $\C$ or $\H$. 
+\end{thm}
+
+\begin{thm}{}{} The only countably generated division algebra over $\R$ up to isomorphism is either $\R$, $\C$ or $\H$. 
+\end{thm}
+
+\subsection{Finite Division Rings}
+\begin{lmm}{}{} Let $R$ be a division ring. Then $Z(R)$ is a field. Moreover, $R$ is a $Z(R)$-algebra. 
+\end{lmm}
+
+\begin{crl}{}{} Let $D$ be a finite division ring. Then the following statements are true regrading $D$. 
+\begin{itemize}
+\item $Z(D)$ is a finite field $\F_{p^n}$ for some $n\in\N\setminus\{0\}$
+\item The dimension of $D$, $m=\dim_{Z(D)}D$ over $Z(D)$ is finite
+\item $\abs{D}={p^n}^m$
+\end{itemize}
+\end{crl}
+
+\begin{lmm}{}{} Let $R$ be a division ring and $x\in R$. Then $C_R(x)$ is a division ring and a $Z(R)$-subalgebra. 
+\end{lmm}
+
+\begin{prp}{}{} Let $D$ be a finite division ring of dimension $m$ over its center $Z(D)=\F_q$, where $q=p^n$ for some prime $p$ and $n\in\N\setminus\{0\}$. Then there exists positive integers $d_1,\dots,d_k$ such that $d_i|m$, $d_i<m$ and $$q^m=q+\sum_{i=1}^k\frac{q^m-1}{q^{d_i}-1}$$
+\end{prp}
+
+\begin{thm}{Little Wedderburn's Theorem}{} A finite division ring is a field. 
+\end{thm}
+
+\subsection{Laurent Series}
+\begin{defn}{Laurent Series}{} Let $R$ be a ring. A Laurent series in variable $x$ with coefficients in a ring $R$ is an expression of the form $$\sum_{n=m}^\infty a_nx^n$$ for $m\in\Z$ and $a_n\in R$. Denote the set of Laurent series in $x$ by $$R((x))$$
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a ring. Then $R((x))$ is also a ring. If $R$ is a field, then $R((x))$ is also a field. 
+\end{lmm}
+
+\begin{lmm}{}{} The center of $\H((x))$ is precisely $\R((x))$. 
+\end{lmm}
+
+\pagebreak
+\section{Semisimplicity}
+\subsection{Semisimple Modules}
+\begin{defn}{Semisimple Modules}{} A left $R$-module $M$ is semisimple if $M$ is a direct sum of simple modules. 
+\end{defn}
+
+\begin{defn}{Socle of a Module}{} Denote $\mathcal{SM}(M)=\{S\leq M|S\text{ is simple}\}$. A socle of a left $R$-module $M$ is a submodule $$\text{soc}(M)=\sum_{S\in\mathcal{SM}(M)}S$$
+\end{defn}
+
+\begin{lmm}{}{} A module $M$ is semisimple if and only if $\text{soc}(M)=M$. 
+\end{lmm}
+
+\begin{crl}{}{} A quotient module of a semisimple module is semisimple. 
+\end{crl}
+
+\begin{defn}{Completely Reducible Modules}{} Let $M$ be an $R$-module. $M$ is said to be completely reducible if for every submodule $N$ of $M$, there exists a submodule $L$ of $M$ such that $M=N\oplus L$. 
+\end{defn}
+
+\begin{prp}{}{} Let $M$ be an $R$-module such that $M=N\oplus L$. Then there is an isomorphism $$L\cong\frac{M}{N}$$ of $R$-modules. 
+\end{prp}
+
+\begin{lmm}{}{} A submodule of a completely reducible module is reducible. 
+\end{lmm}
+
+\begin{lmm}{}{} A non-zero completely reducible module contains a simple submodule. 
+\end{lmm}
+
+\begin{thm}{}{} Let $M$ be an $R$-module. Then $M$ is semisimple if and only if $M$ is completely reducible. 
+\end{thm}
+
+\begin{crl}{}{} A submodule of a semisimple module is semisimple. 
+\end{crl}
+
+\subsection{Peirce Decomposition for Modules}
+\begin{defn}{Idempotents}{} Let $M$ be a module. We say that $e\in M$ is an idempotent if $e^2=e$. 
+\end{defn}
+
+\begin{prp}{}{} Let $M$ be an $R$-module. Then there is a bijection between the set of all finite direct sum decompositions $M=\bigoplus_{i=1}^n M_i$ with all $M_i\neq 0$ and the set of all full orthogonal system of idempotents in $S=\text{End}_R(M)$. 
+\end{prp}
+
+Note that in particular, we can also take $M$ to just be $R$ to get a decomposition on idempotents by ideals of $R$. This means that for $\{e_1,\dots,e_n\}$ a full orthogonal system of idempotents, we have a decomposition $$R=Re_1\oplus\cdots\oplus Re_n$$
+
+\begin{thm}{Peirce Decompositions}{} A full system of orthogonal idempotents in $R$ gives a direct sum decomposition of $R$ and $M$ into $\Z$-modules that can be written in matrix forms $$R=\bigoplus_{i,j=1}^n e_iRe_j=\begin{pmatrix}
+e_1Re_1 & \cdots & e_1Re_n\\
+\vdots & \ddots & \vdots\\
+e_nRe_1 & \cdots & e_nRe_n
+\end{pmatrix}$$ and $$M=\bigoplus_{i=1}^ne_iM=\begin{pmatrix}
+e_1M\\
+\vdots\\
+e_nM
+\end{pmatrix}$$ that satisfies the following: 
+\begin{itemize}
+\item If $R$ is an $\F$-algebra, all $e_iRe_j$ and $e_iM$ are $\F$-vector subspaces
+\item The multiplication in $R$ defines the structure of a ring on each $e_iRe_j$. This ring is non-zero. 
+\item The $R$-module action on $M$ defines a structure of $e_iRe_i$-module on $e_iM$
+\item In the matrix interpretation, the multiplication in $R$ and the $R$ action on $M$ satisfies the standard matrix rules
+\end{itemize}
+\end{thm}
+
+\subsection{Artin-Wedderburn Theorem}
+\begin{thm}{Artin-Wedderburn Theorem}{} Let $R$ be a ring. Then the following are equivalent characterizations of semisimplicity. 
+\begin{itemize}
+\item Every left $R$-module is semisimple
+\item The regular left $R$-module is semisimple
+\item There exists $n_1,\dots,n_k\in\N$ and division rings $D_1,\dots,D_k$ such that $R$ is isomorphic to the direct product $\prod_{i=1}^kM_{n_i}(D_i)$
+\end{itemize} \tcbline
+\begin{proof}
+
+\end{proof}
+\end{thm}
+
+\begin{crl}{}{} A ring is left semisimple if and only if it is right semisimple. 
+\end{crl}
+
+\begin{prp}{}{} The following are true regarding semisimple algebras over fields. 
+\begin{itemize}
+\item A semisimple $\C$-algebra of at most countable dimension is isomorphic to $$\prod_{i=1}^kM_{k_i}(\C)$$
+\item A semisimple $\R$-algebra of at most countable dimension is isomorphic to $$\prod_{i=1}^kM_{k_i}(\R)\times\prod_{i=1}^nM_{n_i}(\C)\times\prod_{i=1}^tM_{t_i}(\H)$$
+\item A finite dimensional semisimple $\F_q$ algebra is isomorphic to $$\prod_{i=1}^k M_{k_i}(\F_q^{t(i)})$$
+\end{itemize}
+\end{prp}
+
+\subsection{Radical}
+\begin{defn}{Cosimple}{} Let $M$ be an $R$-module. We say that a submodule $N$ of $M$ is cosimple if $\frac{M}{N}$ is simple. 
+\end{defn}
+
+\begin{lmm}{}{} Let $M$ be an $R$-module and $N$ a submodule of $M$. Then $N$ is cosimple if and only if $N$ is a maximal proper submodule of $M$. 
+\end{lmm}
+
+\begin{defn}{Radical}{} Let $M$ be an $R$-module. Define the radical of $M$ to be the intersection $$\text{rad}(M)=\bigcap_{\substack{S\leq M\\S\text{ is cosimple }}}S$$ of all cosimple submodules of $M$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $M$ be an $R$-module. If $M$ is semisimple, then $\text{rad}(M)=0$. 
+\end{lmm}
+
+\begin{defn}{Artinian Modules}{} A left $R$-module $M$ is said to be Artinian if for every descending chain of submodules $$N_1\supseteq N_2\supseteq\cdots\supseteq N_n\supseteq\cdots$$ there exists $m\in\N$ such that $N_n=N_m$ for all $n>m$. 
+\end{defn}
+
+\begin{thm}{}{} Let $M$ be an Artinian left $R$-module. Then $M$ is semisimple if and only if $\text{rad}(M)=0$. 
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

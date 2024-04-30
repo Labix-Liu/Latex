@@ -1,0 +1,409 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Homological Algebra}
+\rfoot{\thepage}
+
+\title{Homological Algebra}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{A Second Course on Modules}
+\subsection{Chain Complexes}
+\begin{defn}{Chain Complex}{} A chain complex $(C,\partial)$ is a family of $R$-modules $C_n$ for $n\in\Z$ and maps $\partial_n:C_n\to C_{n-1}$ such that $\partial_n\circ\partial_{n+1}=0$ for all $n$. \\~\\
+In other words, we have the diagram: \\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\cdots\arrow[r] & C_{n+1}\arrow[r, "\partial_{n+1}"] & C_n\arrow[r, "\partial_n"] & C_{n-1}\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+Equivalently, we require that $$\im(\partial_{n+1})\subseteq\ker(\partial_n)$$ for each $n$. 
+\end{defn}
+
+\begin{defn}{Exact Sequence}{} A chain complex is said to be exact if $\im(\partial_{n+1})=\ker(\partial_n)$ for all $n$. 
+\end{defn}
+
+\begin{prp}{}{} Let $M,N$ be $R$-modules. 
+\begin{itemize}
+\item $f:M\to N$ is surjective if and only if the following sequence is exact: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+M\arrow[r, "f"] & N\arrow[r] & 0
+\end{tikzcd}}\\~\\
+\item $f:M\to N$ is injective if and only if the following sequence is exact: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & M\arrow[r, "f"] & N
+\end{tikzcd}}\\~\\
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Short Exact Sequence}{} A short exact sequence is an exact sequence of the form \\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}
+\end{defn}
+
+\begin{prp}{}{} A chain complex \\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is short exact if and only if $f$ is injective and $g$ is surjective. 
+\end{prp}
+
+\begin{defn}{Split Exact Sequence}{} A short exact sequence \\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is said to be split exact if $B\cong A\oplus C$
+\end{defn}
+
+\begin{prp}{Split Exact Sequence}{} The following are equivalent for a short exact sequence \\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\~\\
+\begin{itemize}
+\item The short exact sequence is split exact sequence
+\item There exists a homomorphism $p:B\to A$ such that $p\circ f$ is the identity
+\item There exists a homomorphism $s:C\to B$ such that $g\circ s$ is the identity
+\end{itemize}
+\end{prp}
+
+\subsection{Projective and Injective Modules}
+\begin{defn}{Projective Modules}{} An $R$-module $M$ is said to be projective if for every surjective homomorphism $f:N\twoheadrightarrow M$ and every module homomorphism $g:P\to M$, there exists a module homomorphism $h:P\to N$ such that $f\circ h=g$. In other words, the following diagram commutes: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+& N\arrow[d, "f", twoheadrightarrow]\\
+P\arrow[ru, "\exists h", dashed]\arrow[r, "g"'] & M
+\end{tikzcd}} \\
+\end{defn}
+
+\begin{thm}{}{} An $R$-module $P$ is projective if and only if for every short exact sequence $0\to A\overset{f}{\to}B\overset{g}{\to}C\to 0$ we have that $$0\to \Hom(P,A)\overset{f}{\to}\Hom(P,B)\overset{g}{\to}\Hom(P,C)\to 0$$
+is exact. 
+\end{thm}
+
+\begin{lmm}{}{} Every free module is projective. 
+\end{lmm}
+
+\begin{prp}{}{} A direct sum $\oplus_{i\in I}P_i$ is projective if and only if each $P_i$ is. 
+\end{prp}
+
+\begin{prp}{}{} Let $P$ be a module. Then $P$ is projective if and only if every exact sequence of the following form splits: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r] & B\arrow[r] & P\arrow[r] & 0
+\end{tikzcd}} \\
+\end{prp}
+
+\begin{defn}{Injective Modules}{} An $R$-module $M$ is said to be projective if for every injective homomorphism $f:N\rightarrowtail M$ and every module homomorphism $g:N\to I$, there exists a module homomorphism $h:M\to I$ such that $f\circ h=g$. In other words, the following diagram commutes: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+N\arrow[d, "f"', rightarrowtail]\arrow[rd, "g"''] &\\
+M\arrow[r, "\exists h"', dashed] & I
+\end{tikzcd}} \\
+\end{defn}
+
+\begin{thm}{}{} An $R$-module $I$ is injective if and only if for every short exact sequence $0\to A\overset{f}{\to}B\overset{g}{\to}C\to 0$ we have that $$0\to \Hom(A,I)\overset{f}{\to}\Hom(B,I)\overset{g}{\to}\Hom(C,I)\to 0$$
+is exact. 
+\end{thm}
+
+\begin{prp}{}{} Let $E$ be a module. Then $E$ is projective if and only if every exact sequence of the following form splits: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & E\arrow[r] & B\arrow[r] & C\arrow[r] & 0
+\end{tikzcd}} \\
+\end{prp}
+
+\subsection{Flat Modules}
+\begin{defn}{Flat Modules}{} Let $R$ be a ring. An $R$-module $M$ is said to be flat if for every injective linear map $\phi:K\to L$ of $R$-modules, the map $$\phi\otimes M:K\otimes_RM\to L\otimes_RM$$ is also injective. 
+\end{defn}
+
+\begin{thm}{}{} Let $R$ be a ring and $M$ an $R$-module. Let $0\to K\to L\to J\to 0$ be an exact sequence, then the sequence $$K\otimes_RM\to L\otimes_RM\to J\otimes_RM\to 0$$ is also exact. 
+\end{thm}
+
+\begin{thm}{}{} Let $R$ be a ring and $M$ an $R$-module. Then $M$ is a flat module if and only if for every short exact sequence $0\to K\to L\to J\to 0$, the sequence $$0\to K\otimes_RM\to L\otimes_RM\to J\otimes_RM\to 0$$ is also exact. 
+\end{thm}
+
+\begin{thm}{}{} Let $R$ be a ring. Then the following are true. 
+\begin{itemize}
+\item Product: If $A$ and $B$ are flat over $R$ then $A\otimes_R B$ is flat over $R$
+\item Base Change: Let $S$ be an $R$-algebra ($R\to S$ a ring hom). Then $M\otimes_RS$ is flat over $S$ for any flat $R$-module $M$
+\item Transitivity: Let $S$ be an $R$-algebra such that $S$ is flat over $R$. If $C$ is flat over $S$ then $C$ is flat over $R$. 
+\end{itemize}
+\end{thm}
+
+We have the following inclusion of modules $$\text{Free Modules}\subset\text{Projective Modules}\subset\text{Flat Modules}\subset\text{Torsion Free Modules}$$
+
+\pagebreak
+\section{Abelian Categories and its Properties}
+\subsection{Category of Modules}
+\begin{defn}{Category of $R$-Modules}{} Define the category of $R$-modules to be $_R\mathcal{M}$ where objects are exactly modules and morphisms are morphisms between modules. Define $\text{Hom}_R(A,B)$ to be the set of $R$-modules homomorphisms between $R$-modules $A$ and $B$. 
+\end{defn}
+
+\begin{prp}{}{} For any $R$-modules $A$ and $B$, $\Hom_R(A,B)$ is an $R$-module. \tcbline
+\begin{proof}
+Trivially $\Hom_R(A,B)$ is an abelian group by defining $$(f+g)(x)=f(x)+g(x)$$ for $f,g\in\Hom_R(A,B)$. For $r\in R$, define $$(rf)(x)=rf(x)$$ Then clearly $\Hom_R(A,B)$ is an $R$-module. 
+\end{proof}
+\end{prp}
+
+\subsection{Additive Categories}
+\begin{defn}{Pre-Additive Categories}{} A category $\mathcal{C}$ is pre-additive if it is a category that satisfies the fact that each $\Hom_\mathcal{C}(X,Y)$ is given the structure of an abelian group where $$\Hom_\mathcal{C}(X,Y)\times\Hom_\mathcal{C}(Y,Z)\to\Hom_\mathcal{C}(X,Z)$$ are bilinear. This means that if $f:X\to Y$ and $g,h:Y\to Z$, then $g+h=h+g:Y\to Z$ and $f\circ(g+h)=(f\circ g)+(f\circ h)$ and the same distributive property for the first element. 
+\end{defn}
+
+\begin{defn}{Additive Categories}{} A category $\mathcal{A}$ is additive if in addition to being pre-additive, it also satisfies the following: 
+\begin{itemize}
+\item $\mathcal{A}$ has a zero object, denoted $0$
+\item $\mathcal{A}$ has finite products
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $\mathcal{A}$ be an additive category. Then coproducts and products coincide, meaning that $$X\times Y\cong X\sqcup Y$$ for any $X,Y\in Obj(\mathcal{A})$. 
+\end{lmm}
+
+\subsection{Abelian Categories}
+\begin{defn}{Abelian Categories}{} An additive category $\mathcal{A}$ is said to be abelian if it satisfies the following: 
+\begin{itemize}
+\item Every morphism in $\mathcal{A}$ has a kernel and a cokernel
+\item Every monic morphism is the kernel of its cokernel
+\item Every epic morphism is the cokernel of its kernel
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} The category of $R$-modules is an abelian category. 
+\end{prp}
+
+\begin{thm}{}{} Let $\mathcal{A}$ be an abelian category whose objects form a set. Then there exists a ring $R$ and an exact functor $F:\mathcal{A}\to R-\text{mod}$ which is an embedding on objects and an isomorphism on $\text{Hom}$ sets. 
+\end{thm}
+
+\begin{defn}{Injectivity and Surjectivity}{} Let $f:X\to Y$ be a morphism in an abelian category. 
+\begin{itemize}
+\item We say that $f$ is injective if $\ker(f)=0$
+\item We say that $f$ is surjective if $\text{coker}(f)=0$
+\end{itemize}
+\end{defn}
+
+In particular, these notions coincide that of epics and monics in an abelian category. 
+
+\begin{prp}{}{} Let $f:X\to Y$ be a morphism in an abelian category. Then the following are true. 
+\begin{itemize}
+\item $f$ is injective if and only if $f$ is a monomorphism
+\item $f$ is surjective if and only if $f$ is epimorphism
+\end{itemize}
+\end{prp}
+
+\begin{thm}{}{} The category $R$-mod of $R$-modules is an abelian category. 
+\end{thm}
+
+\subsection{Exact Functors}
+\begin{defn}{Additive Functors}{} Let $\mathcal{A},\mathcal{B}$ be abelian categories. We say that a functor $F:\mathcal{A}\to\mathcal{B}$ is additive if for every $X,Y\in\mathcal{A}$, the map $$\Hom_\mathcal{A}(X,Y)\to\Hom_\mathcal{B}(F(X),F(Y))$$ is a homomorphism of abelian groups. 
+\end{defn}
+
+\begin{defn}{Exact Functors}{} Let $F:\mathcal{A}\to\mathcal{B}$ be an additive functor of abelian categories. 
+\begin{itemize}
+\item We say that $F$ is exact if it preserves exact sequences
+\item We say that $F$ is right exact if for every exact sequence $A\to B\to C\to 0$, the sequence $$F(A)\to F(B)\to F(C)\to 0$$ is exact
+\item We say that $F$ is left exact if for every exact sequence $0\to A\to B\to C$, the sequence $$0\to F(A)\to F(B)\to F(C)$$ is exact
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $F:\mathcal{A}\to\mathcal{B}$ be an additive functor. Then $F$ preserves split exact sequences. 
+\end{prp}
+
+\begin{thm}{Freyd-Mitchell Embedding Theorem}{} Let $\mathcal{A}$ be a small abelianc category. Then there exists a ring $R$ and an exact, fully faithful functor $F:\mathcal{A}\to R-\text{mod}$. \\~\\
+This means that $$\Hom_{\mathcal{A}}(M,N)\cong\Hom_R(F(M),F(N))$$
+\end{thm}
+
+\begin{lmm}{}{} The Freyd-Mitchell embedding preserves kernels and cokernels. Moreover, it maps the zero object to the zero object. 
+\end{lmm}
+
+\subsection{Chain Complexes in an Abelian Category}
+\begin{defn}{Chain Complexes}{} Let $\mathcal{A}$ be an abelian category. Let $\{C_n|n\in\N\}$ be a collection of objects in $\mathcal{A}$ and $d_n:C_n\to C_{n-1}$ a collection of morphisms. \\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\cdots\arrow[r] & C_{n+1}\arrow[r, "d_{n+1}"] & C_n\arrow[r, "d_n"] & C_{n-1}\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+We say that this is a chain complex if $d_n\circ d_{n+1}=0$ for each $n$, denoted $(C^\bullet,d)$
+\end{defn}
+
+\begin{defn}{Cohomology of a Chain}{} Let $\mathcal{A}$ be an abelian category. Let $(C^\bullet,d)$ be a chain complex. Define the $n$th cohomology of $(C^\bullet,d)$ to be the object $$H^n(C^\bullet)=\coker(a^{n-1})=\ker(b^n)$$ determined by the following commutative diagram: \\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+& \coker(d^{n-1})\arrow[rdd, "b^n"] &\\
+&&\\
+X^{n-1}\arrow[rdd, "a^{n-1}"]\arrow[r, "d^{n-1}"] & X^n\arrow[r, "d^n"]\arrow[uu] & X^{n+1}\\
+&&\\
+& \ker(d^n)\arrow[uu]&
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{defn}{Acyclic Object}{} Let $\mathcal{A}$ be an abelian category and $(C^\bullet,d)$ a chain complex in $\mathcal{A}$. The complex is said to be a cyclic at the $n$th term if $H^n(C^\bullet)=0$. 
+\end{defn}
+
+\begin{defn}{Exact Sequences}{} Let $\mathcal{A}$ be an abelian category and $(C^\bullet,d)$ a chain complex in $\mathcal{A}$. The complex is said to be an exact sequence if it is acyclic at all terms. 
+\end{defn}
+
+\begin{prp}{}{} Let $\mathcal{A}$ be an abelian category. Let $A,B,C$ be objects in $\mathcal{A}$ and $f:A\to B$, $g:B\to C$ be morphisms. Then the following are true. 
+\begin{itemize}
+\item A sequence $0\to A\to B$ is exact if and only if $f$ is injective
+\item A sequence $B\to C\to 0$ is exact if and only if $g$ is surjective
+\item A sequence $0\to A\to B\to 0$ is exact if and only if $f$ is an isomorphism
+\item A sequence $0\to A\to B\to C\to 0$ is exact if and only if $f$ is injective and $g$ is surjective
+\end{itemize}
+\end{prp}
+
+Recall that coproducts and products coincide in an additive category. Denote this common product by $A\oplus B$. 
+
+\begin{defn}{Split Exact Sequence}{} Let $\mathcal{A}$ be an abelian category. We say that a sequence \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is split exact if $B\cong A\oplus C$. 
+\end{defn}
+
+\begin{lmm}{The Five Lemma}{} Suppose that the following diagram in an abelian category commutes: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+X_1\arrow[r]\arrow[d, "f_1"] & X_2\arrow[r]\arrow[d, "f_2"] & X_3\arrow[r]\arrow[d, "f_3"] & X_4\arrow[r]\arrow[d, "f_4"] & X_5\arrow[d, "f_5"]\\
+Y_1\arrow[r] & Y_2\arrow[r] & Y_3\arrow[r] & Y_4\arrow[r] & Y_5
+\end{tikzcd}}\\~\\
+Suppose further that the rows are exact, and $f_1$ is an epimorphism and $f_5$ is a monomorphism and $f_2,f_4$ are isomorphisms. Then $f_3$ is also an isomorphism. 
+\end{lmm}
+
+\begin{lmm}{The Snake Lemma}{} Suppose that the following diagram in an abelian category commutes: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & X_1\arrow[r]\arrow[d, "f_1"] & X_2\arrow[r]\arrow[d, "f_2"] & X_3\arrow[r]\arrow[d, "f_3"] & 0\\
+0\arrow[r] & Y_1\arrow[r] & Y_2\arrow[r] & Y_3\arrow[r] & 0
+\end{tikzcd}}\\~\\
+Suppose further that the rows are exact. Then there exists two exact sequence \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & \ker(f_1)\arrow[r, "a_1"] & \ker(f_2)\arrow[r, "a_2"] & \ker(f_3)&\\
+&\coker(f_1)\arrow[r, "b_1"] & \coker(f_2)\arrow[r, "b_2"] & \coker(f_3)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+Moreover, there exists a natural morphism $\delta:\ker(f_3)\to\coker(f_1)$ that glues these two exact sequences into a long exact sequence. 
+\end{lmm}
+
+\pagebreak
+\section{Derived Functors}
+\subsection{Injective and Projective Objects}
+Injectivity and Projectivity objects are created just for the sake of allowing the $\Hom$ functor to be exact. Therefore its definition is also direct. 
+
+\begin{defn}{Projective and Injective Objects}{} Let $\mathcal{A}$ be an abelian category. 
+\begin{itemize}
+\item We say that an object $Y$ of $\mathcal{A}$ is injective if the functor $X\mapsto\Hom(X,Y)$ is exact. 
+\item We say that an object $Y$ of $\mathcal{A}$ is projective if the functor $X\mapsto\Hom(Y,X)$ is exact. 
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} The projective objects in $R$-mod is precisely the projective $R$-modules. The injective objects in $R$-mod is precisely the injective $R$-modules. 
+\end{lmm}
+
+\begin{defn}{Enough Injectives and Enough Projectives}{} Let $\mathcal{A}$ be an abelian category. $\mathcal{A}$ is said to have enough injectives if every object is subobject of an injective object. $\mathcal{A}$ is said to have enough projectives if every object is quotient of an projective object. 
+\end{defn}
+
+There are however equivalent definitions from the categorical point of view. 
+
+\subsection{Resolutions of Objects}
+There are in general, four types of resolutions. Namely injective resolutions, projective resolutions, free resolutions and acyclic resolutions. We will study all four of them and their relations in this section. 
+
+\begin{defn}{Injective Resolution}{} Let $\mathcal{A}$ be an abelian category. An injective resolution of an object $A$ is an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "\epsilon"] & I^0\arrow[r] & I_1\arrow[r] & I_2\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+where each $I^k$ is injective. 
+\end{defn}
+
+\begin{thm}{}{} Let $\mathcal{A}$ be an abelian category. Then $\mathcal{A}$ has enough injectives if and only if every object of $\mathcal{A}$ has an injective resolution. 
+\end{thm}
+
+\begin{thm}{}{} The category of $R$-mod has enough injectives. 
+\end{thm}
+
+\begin{prp}{}{} Let $\phi:A\to A'$ be a morphism in an abelian category $\mathcal{A}$. Let $d:A\to I$ and $d':A'\to I'$ be injective resolutions of $A$ and $A'$ respectively. Then there exists a morphism of complexes $\phi':I\to I'$ that extends $\phi$. Moreover, any two such extensions are homotopic. 
+\end{prp}
+
+\begin{lmm}{}{} Let $\mathcal{A}$ be an abelian category. Then any two injective resolutions of an object $A$ are homotopically equivalent. 
+\end{lmm}
+
+\subsection{Derived Functors}
+\begin{defn}{Right Derived Functors}{} Let $F:\mathcal{A}\to\mathcal{B}$ be a left exact functor. Suppose that $\mathcal{A}$ has enough injectives. Define the right derived functors $R^iF:\mathcal{A}\to\mathcal{B}$ for $i\geq 0$ as follows. 
+\begin{itemize}
+\item On objects, $R^iF(A)=H^i(F(I^\bullet))$ where $d:A\to I^\bullet$ is an injective resolution of $A$
+\item On Morphisms, $R^iF(\phi:A\to B)=H^i(F(\phi^\bullet:I^\bullet\to (I')^\bullet))$ where $\phi^\bullet:I^\bullet\to(I')^\bullet$ is an extension of $\phi$ to resolutions. 
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $A$ is an injective object, then $R^iF(A)=0$ for $n\neq 0$. 
+\end{lmm}
+
+\begin{thm}{}{} Let $F:\mathcal{A}\to\mathcal{B}$ be a left exact functor. The $n$th right derived functor $R^nF$ is an additive functor from $\mathcal{A}$ to $\mathcal{B}$. 
+\end{thm}
+
+\begin{crl}{}{} If $F:\mathcal{A}\to\mathcal{B}$ is a left exact functor, then $R^0F=F$. 
+\end{crl}
+
+\begin{thm}{}{} Let $\mathcal{A},\mathcal{B}$ be abelian categories with enough injective. Let $F:\mathcal{A}\to\mathcal{B}$ be a left exact functor. For any short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & A'\arrow[r] & A\arrow[r] & A''\arrow[r] & 0
+\end{tikzcd}}\\~\\
+there is a canonical long exact sequence \\~\\
+\adjustbox{scale=0.9,center}{\begin{tikzcd}
+0\arrow[r] & R^0F(A')\arrow[r] & R^0F(A)\arrow[r] & R^0F(A'')\arrow[r] & R^1F(A')\arrow[r] & R^1F(A)\arrow[r] & R^1F(A'')\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+\end{thm}
+
+\begin{defn}{Acyclic Objects}{} Let $\mathcal{A}$ be an abelian category. We say that $A\in\mathcal{A}$ is an acyclic object for the functor $F$ if $R^iF(A)=0$ for all $i>0$. 
+\end{defn}
+
+\begin{prp}{}{} Let $\mathcal{A}$ be an abelian category and $(C,d)$ be a resolution of an object $A$ such that $C^i$ are acyclic for a functor $F$. Then $R^iF(M)=0$ for all $i>0$. 
+\end{prp}
+
+\subsection{The Case of Dual}
+\begin{defn}{Projective Resolution}{} Let $\mathcal{A}$ be an abelian category. An projective resolution of an object $A$ is an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\cdots\arrow[r] & P_2\arrow[r] & P_1\arrow[r] & P_0\arrow[r, "d"] & A\arrow[r] & 0
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{thm}{}{} Let $\mathcal{A}$ be an abelian category. Then $\mathcal{A}$ has enough projectives if and only if every object of $\mathcal{A}$ has a projective resolution. 
+\end{thm}
+
+\begin{thm}{}{} The category of $R$-mod has enough projectives.
+\end{thm}
+
+\begin{defn}{Left Derived Functors}{} Let $F:\mathcal{A}\to\mathcal{B}$ be a right exact functor. Suppose that $\mathcal{A}$ has enough projectives. Define the left derived functors $L_iF:\mathcal{A}\to\mathcal{B}$ for $i\geq 0$ as follows. 
+\begin{itemize}
+\item On objects, $L_iF(A)=H_i(F(P^\bullet))$ where $d:P_\bullet\to A$ is an projective resolution of $A$
+\item On Morphisms, $L_iF(\phi:A\to B)=L_i(F(\phi_\bullet:P_\bullet\to (P')_\bullet))$ where $\phi_\bullet:P_\bullet\to(P')_\bullet$ is an extension of $\phi$ to resolutions. 
+\end{itemize}
+\end{defn}
+
+\subsection{Applications to Module Theory}
+\begin{defn}{The Ext Functor}{} Denote $_R\bold{Mod}$ the category of $R$-modules. Let $A$ be an $R$-module. Define the right derived functor of the functor $T:_R\bold{Mod}\to\bold{Ab}$ defined by $T(B)=\Hom(A,B)$ to be $$\text{Ext}_R^i(A,B)=(R^iT)(B)$$ Explicitly, for $$0\to B\to I^0\to I^1\to\cdots$$ an injective resolution, form the cochain complex $$0\to\Hom_R(A,I^0)\to\Hom_R(A,I^1)\to\cdots$$ and define $\text{Ext}$ to be the cohomology group $$\text{Ext}_R^i(A,B)=\frac{\ker(\Hom_R(A,I^i)\to\Hom_R(A,I^{i+1}))}{\im(\Hom_R(A,I^{i-1})\to\Hom_R(A,I^i))}$$
+\end{defn}
+
+\begin{thm}{}{} Let $A,B$ be $R$-modules. Then the following are true regarding the Ext group. 
+\begin{itemize}
+\item $\text{Ext}_R^0(A,B)\cong\Hom_R(A,B)$
+\item $\text{Ext}_R^i(A,B)=0$ for all $i>0$ if $A$ is projective or $B$ is injective
+\item
+\end{itemize}
+\end{thm}
+
+\begin{defn}{The Tor Functor}{} Denote $_R\bold{Mod}$ the category of $R$-modules. Let $B$ be an $R$-module. Define the right derived functor of the functor $T: _R\bold{Mod}\to\bold{Ab}$ defined by $T(A)=A\otimes_RB$ to be $$\text{Tor}_i^R(A,B)=(L_iT)(A)$$ Explicitly, for $$\cdots\to P_1\to P_0\to A\to 0$$ an injective resolution, form the chain complex $$\cdots\to P_1\otimes_RB\to P_0\otimes_RB\to 0$$ and define $\text{Tor}$ to be the homology group $$\text{Tor}_i^R(A,B)=\frac{\ker(P_i\otimes_RB\to P_{i-1}\otimes_RB)}{\im(P_{i+1}\otimes_RB\to P_i\otimes_RB)}$$
+\end{defn}
+
+\pagebreak
+\section{Triangulated Categories}
+
+
+
+
+
+
+
+
+
+
+\end{document}

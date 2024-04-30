@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}Group Representations}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Matrix and Linear Representations}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}KG-Modules}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}KG-Submodules}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Maschke's Theorem}{6}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Character Theory}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Trace of a Matrix}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Characters of a Representation}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Orthogonality Relations of Characters}{9}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}The Wedderburn Isomorphism}{10}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Character Tables}{10}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}The Isotypic Decomposition}{11}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Induced Representations}{12}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Decomposition of Regular Representations}{13}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Computations of Representations}{14}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Representations of the Cyclic Group}{14}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Representations of the Symmetric Group}{15}{subsection.3.2}%

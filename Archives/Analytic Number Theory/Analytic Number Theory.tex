@@ -1,0 +1,182 @@
+\documentclass[a4paper]{article}
+
+\input{Headers}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Analytic Number Theory}
+\rfoot{\thepage}
+
+\title{Analytic Number Theory}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\tableofcontents
+\pagebreak
+
+\section{Arithmetic Functions}
+\subsection{Mobius Function and Euler Totient Function}
+\begin{defn}[Arithmetical Functions] A function $f:\N\to\C$ is an arithmetical function. 
+\end{defn}
+
+\begin{defn}[Mobius Function] Let $n=\prod_{i=1}^kp_i^{\alpha_i}$. Define the mobius function as $$\mu(n)=(-1)^k$$ if $\alpha_1=\dots=\alpha_k=1$. And $0$ otherwise.  
+\end{defn}
+
+\begin{thm} For $n\in\N$, we have $$\sum_{d|n}\mu(d)=\floor*{\frac{1}{n}}=\begin{cases}
+1 & \text{ if }n=1\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{thm}
+
+\begin{defn}[Euler's Totient Function] Let $\phi(n)$ denote the numeber of positive integers less than $n$ and relatively prime to $n$. 
+\end{defn}
+
+\begin{thm} Let $n\geq 1$. $$n=\sum_{d|n}\phi(d)$$
+\end{thm}
+
+\begin{thm} For $n\in\N$ we have $$\phi(n)=\sum_{d|n}\mu(d)\frac{n}{d}$$
+\end{thm}
+
+\begin{thm} For $n\in\N$ we have $$\phi(n)=n\prod_{p|n}\left(1-\frac{1}{p}\right)$$
+\end{thm}
+
+\begin{prp} The Euler's Totient Function has the following properties. 
+\begin{itemize}
+\item $\phi(p^n)=p^{n-1}(p-1)$
+\item $\phi(mn)=\phi(m)\phi(n)\left(\frac{d}{\phi(d)}\right)$, where $d=\gcd(m,n)$
+\item $a|b\implies\phi(a)|\phi(b)$
+\item $\phi(n)$ is even for $n\geq 3$. Moreover, if $n$ has $r$ distinct odd prime factors, then $2^r|\phi(n)$
+\end{itemize}
+\end{prp}
+
+\subsection{Dirichlet Functions}
+\begin{defn}[Dirichlet Product] If $f$ and $g$ are two arithmetical functions we define their dirichlet product to be the arithmetical function $h$ defined by the equation $$h(n)=\sum_{d|n}f(d)g\left(\frac{n}{d}\right)$$
+\end{defn}
+
+\begin{thm} Dirichlet multiplication is commutative and associative. 
+\end{thm}
+
+\begin{defn} The arithmetical function $I$ given by $$I(n)=\floor*{\frac{1}{n}}=\begin{cases}
+1 & \text{ if }n=1\\
+0 & \text{ otherwise }
+\end{cases}$$ is called the identity function. 
+\end{defn}
+
+\begin{prp} For all $f$ we have $I\ast f=f\ast I=f$
+\end{prp}
+
+\begin{thm} Let $f$ be an arithmetical function with $f(1)\neq0$. There is a unique arithemetical function $f^{-1}$, called the Dirichlet inverse of $f$ such that $$f\ast f^{-1}=f^{-1}\ast f=I$$ Moreover $f^{-1}$ is given by the recursion formulas $$f^{-1}(1)=\frac{1}{f(1)}$$ and $$f^{-1}(n)=\frac{-1}{f(n)}\sum_{d|n\text{ and }d<n}f\left(\frac{n}{d}\right)f^{-1}(d)$$ for $n>1$. 
+\end{thm}
+
+\begin{defn}[Unit Function] Define the unit function $u$ to be the arithmetical function such that $u(n)=1$ for all $n$. 
+\end{defn}
+
+\begin{prp} The Dirichlet Inverse of the mobius function is the unit function. 
+\end{prp}
+
+\begin{thm}[Mobius Inversion Formula] Let $f,g$ be arithmetical functions. $$f(n)=\sum_{d|n}g(d)$$ if and only if $$g(n)=\sum_{d|n}f(d)\mu\left(\frac{n}{d}\right)$$
+\end{thm}
+
+\subsection{Mangoldt Function}
+\begin{defn}[Mangoldt's Function] For $n\in\N$ define $$\Lambda(n)=\begin{cases}
+\ln(p) & \text{ if } n=p^m \text{ for some prime } p \text{ and some } m\geq 1\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{defn}
+
+\begin{thm} For $n\in\N$, $$\ln(n)=\sum_{d|n}\Lambda(d)$$
+\end{thm}
+
+\begin{thm} For $n\in\N$ we have $$\Lambda(n)=\sum_{d|n}\mu(d)\ln\left(\frac{n}{d}\right)=-\sum_{d|n}\mu(d)\ln(d)$$
+\end{thm}
+
+\subsection{Multiplicative Functions}
+\begin{defn}[Multiplicative Functions] An arithmetical function $f$ is called multiplicative if $f$ is not identically $0$ and if $$f(mn)=f(m)f(n)$$ when $\gcd(m,n)=1$ It is completely multiplicative if it is multiplicative regardless of the condition. 
+\end{defn}
+
+\begin{prp} If $f$ is multiplicative then $f(1)=1$. 
+\end{prp}
+
+\begin{prp} Let $f(1)=1$ be an arithmetical function. $f$ is multiplicative if and only if $$f\left(\prod_{i=1}^kp_i^{\alpha_i}\right)=\prod_{i=1}^kf\left(p_i^{\alpha_i}\right)$$
+\end{prp}
+
+\begin{prp} Let $f(1)=1$ be an arithmetical function. $f$ is completely multiplicative if and only if $f(p)^\alpha=f(p)^\alpha$ for all primes $p$ and all integers $\alpha\geq 1$. 
+\end{prp}
+
+\begin{prp} If $f$ and $g$ are multiplicative, so is their Dirichlet product. 
+\end{prp}
+
+\begin{prp} If $f$ and $f\ast g$ are multiplicative, then $g$ is multiplicative. 
+\end{prp}
+
+\begin{prp} If $f$ is multiplicative, so is $f^{-1}$. 
+\end{prp}
+
+\subsection{Completely Multiplicative Functions}
+\begin{thm} Let $f$ be multiplicative. Then $f$ is completely multiplicative if and only if $$f^{-1}(n)=\mu(n)f(n)$$ for all $n\geq 1$. 
+\end{thm}
+
+\begin{thm} If $f$ is multiplicative we have $$\sum_{d|n}\mu(d)f(d)=\prod_{p|n}(1-f(p))$$
+\end{thm}
+
+\subsection{Liouville's Function}
+\begin{defn}[Liouville's Function] Define $\lambda(1)=1$ and if $$n=\prod_{i=1}^kp_i^{\alpha_i}$$ define $$\lambda(n)=(-1)^{\alpha_1+\dots+\alpha_k}$$
+\end{defn}
+
+\begin{prp} $\lambda(n)$ is completely mutiplicative. 
+\end{prp}
+
+\begin{thm} For $n\in\N$ we have $$\sum_{d|n}\lambda(d)=\begin{cases}
+1 & \text{ if } n \text{ is a square }\\
+0 & \text{ otherwise }
+\end{cases}$$ Also $\lambda^{-1}(n)=\abs{\mu(n)}$ for all $n$. 
+\end{thm}
+
+\subsection{The Divisor Function}
+\begin{defn} For real and complex $\alpha$ and any $n\in\N$ define $$\sigma_\alpha(n)=\sum_{d|n}d^\alpha$$
+\end{defn}
+
+\begin{prp} $\sigma_\alpha(n)$ is multiplicative. 
+\end{prp}
+
+\begin{thm} For $n\in\N$ we have $$\sigma_\alpha^{-1}(n)=\sum_{d|n}d^\alpha\mu(d)\mu\left(\frac{n}{d}\right)$$
+\end{thm}
+
+\subsection{Bell Series}
+\begin{defn}[Bell Series] Let $f$ be an arithmetical function and $p$ a prime. Denote $$f_p(x)=\sum_{n=0}^\infty f(p^n)x^n$$ the bell series of $f$ modulo $p$. 
+\end{defn}
+
+\begin{thm} Let $f,g$ be multiplicative functions. Then $f=g$ if and only if $f_p(x)=g_p(x)$ for all primes $p$. 
+\end{thm}
+
+\begin{thm} Let $f,g$ be arithmetical functions and let $h=f\ast g$. Then for every prime $p$ we have $$h_p(x)=f_p(x)g_p(x)$$
+\end{thm}
+
+\subsection{Derivatives}
+\begin{defn}[Derivatives of Arithmetical Functions] For any arithmetical function $f$ define $f'$ to be its derivative where $$f'(n)=f(n)\ln(n)$$ for $n\geq 1$. 
+\end{defn}
+
+\begin{thm} Let $f,g$ be arithmetical functions. 
+\begin{itemize}
+\item $(f+g)'=f'+g'$
+\item $(f\ast g)'=f'\ast g+f\ast g'$
+\item $(f^{-1})'=-f'\ast(f\ast f)^{-1}$ whenever $f(1)\neq0$
+\end{itemize}
+\end{thm}
+
+\subsection{Selberg Identity}
+\begin{thm}[Selberg Identity] For $n\in\N$ we have $$\Lambda(n)\ln(n)+\sum_{d|n}\Lambda(d)\Lambda\left(\frac{n}{d}\right)=\sum_{d|n}\mu(d)\ln^2\left(\frac{n}{d}\right)$$
+\end{thm}
+
+
+
+
+
+
+\end{document}

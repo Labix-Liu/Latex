@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {1}Linear Forms and Quadratic Forms}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Linear Forms}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Quadratic Forms}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Bilinear Forms}{6}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Sesquilinear Forms}{8}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Inner Product Spaces}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Norms}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Inner Products}{10}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Orthogonality}{12}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Orthogonal Vectors}{12}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Orthonormal Basis}{13}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Orthogonal Complements}{14}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Orthogonal Maps}{15}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Orthgonality in $\mathbb {R}^n$}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Reduction of Quadratic Forms over $\mathbb {R}$}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Reduction of Inner Products}{17}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Adjoints}{18}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Singular Value Decomposition}{21}{subsection.4.4}%
