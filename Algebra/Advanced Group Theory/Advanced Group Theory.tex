@@ -548,14 +548,25 @@ Suppose that $n_2(G)=3$. Then $G$ acts on $\text{Syl}_2(G)$ non-trivially. Then 
 \end{proof}
 \end{crl}
 
+\begin{lmm}{}{} Let $G$ be a finite group such that $\abs{G}=p^km$ where $p$ is a prime and $\gcd(p,m)=1$. Let $$F_p(G)=\{x\in G|x\neq 1\text{ and }\abs{x}=p^n\text{ for some }n\}$$ Let $N$ be a normal subgroup of $G$. Then the following are true. 
+\begin{itemize}
+\item If $x\in N$, then $\{gxg^{-1}\;|\;g\in G\}\subseteq N$
+\item If $p$ does not divide $n$, then $\text{Syl}_p(G)=\text{Syl}_p(N)$ and $F_p(G)=F_p(N)$. 
+\end{itemize}
+\end{lmm}
+
 \begin{prp}{}{} The alternating group $A_5$ is simple. \tcbline
 \begin{proof}
 Suppose that there exists $N$ a non-trivial normal subgroup of $A_5$. By Lagrange's theorem, $\abs{N}$ divides $\abs{A_5}=60$ and thus at least one of the prime divisors are either $2,3$ or $5$. \\~\\
-The $5$-cycles of $A_5$ are precisely elements of $A_5$ with order $5$. Since each $5$-cycle is of the form $\begin{pmatrix} a_1 & \cdots & a_5\end{pmatrix}$, there are $5$ possible choices for $a_1$, $4$ for $a_2$ and so on. Since also that moving elements transitively along the cycle gives another presentation of the same cycle, we divide by $5$ to obtain that there are precisely $24$ elements of order $5$ of $A_5$. A similar argument show that $A_5$ has $20$ elements. \\~\\
+The $5$-cycles of $A_5$ are precisely elements of $A_5$ with order $5$. Since each $5$-cycle is of the form $\begin{pmatrix} a_1 & \cdots & a_5\end{pmatrix}$, there are $5$ possible choices for $a_1$, $4$ for $a_2$ and so on. Since also that moving elements transitively along the cycle gives another presentation of the same cycle, we divide by $5$ to obtain that there are precisely $24$ elements of order $5$ of $A_5$. A similar argument show that $A_5$ has $20$ elements of order $3$. \\~\\
+
 The only elements of order $2$ are products of two disjoint transpositions. A similar argument shows that there are $15$ of them. We know that they are part of the same conjugacy class in $A_5$. \\~\\
+
 Case 1: Either $3$ divides $\abs{N}$ or $5$ divides $\abs{N}$. \\
-Let $p=3$ or $5$ such that $p$ divides $\abs{N}$. Then we know that $p$ does not divide $[G:N]$ so by the above theorem we deduce that $F_p(G)=F_p(N)$. If $p=5$ then $F_p(N)=24$ and thus $\abs{N}\geq 25$. Since $\abs{N}|60$ this implies that $\abs{N}=30$. Then there are only distinct cosets of $N$ in $G$ and thus $N$ is normal. If $p=3$ then $F_p(N)=20$ and thus $\abs{N}\geq 21$. Since $\abs{N}|60$ we thus have $\abs{N}=30$. \\~\\
-Case 2: Neither $3$ or $5$ divides $\abs{N}$. Then $\abs{N}$ divides $4$ by Lagrange's theorem. By Cauchy's theorem, there exists $x\in N$ of order $2$. Thus using the above corollary, we have that $4=\abs{N}\geq\text{Cl}(x)=15$ which is a contradiction. 
+Let $p=3$ or $5$ such that $p$ divides $\abs{N}$. Then we know that $p$ does not divide $[G:N]$ so by the above theorem we deduce that $F_p(G)=F_p(N)$. If $p=5$ then $F_p(N)=24$ and thus $\abs{N}\geq 25$. Since $\abs{N}\;|\;60$ this implies that $\abs{N}=30$. If $p=3$ then $F_p(N)=20$ and thus $\abs{N}\geq 21$. Since $\abs{N}\;|\;60$ we thus have $\abs{N}=30$. If either $3$ divides $\abs{N}$ or $5$ divides $\abs{N}$ then both $3$ and $5$ divides $\abs{N}$. But $F_3(N)+F_5(N)>\abs{N}$, a contradiction. \\~\\
+
+Case 2: Neither $3$ or $5$ divides $\abs{N}$. \\
+Then $\abs{N}$ divides $4$ by Lagrange's theorem. By Cauchy's theorem, there exists $x\in N$ of order $2$. Thus using the above corollary, we have that $4=\abs{N}\geq\text{Cl}(x)=15$ which is a contradiction. 
 \end{proof}
 \end{prp}
 
@@ -601,8 +612,11 @@ In fact, we can show that $A_5$ is the unique simple group of order $60$. We wil
 \pagebreak
 \section{Classification of Groups of Order up to 16}
 \subsection{Collection of Useful Results}
-\begin{prp}{}{} Let $G$ be a group such that $g^2=1$ for all $g\in G$. Then $G$ is abelian. 
-\end{prp}
+\begin{lmm}{}{} Let $G$ be a group such that $g^2=1$ for all $g\in G$. Then $G$ is abelian. \tcbline
+\begin{proof}
+For $g,h\in G$, we have that $$gh=g^{-1}h^{-1}=(hg)^{-1}=hg$$ and so we conclude. 
+\end{proof}
+\end{lmm}
 
 Recall the following result from groups and rings. 
 
@@ -615,7 +629,7 @@ Let $n=\abs{ab}$. Since $a$ and $b$ commute, we have that $$1=(ab)^n=a^nb^n$$ so
 \begin{defn}{Inversion Homomorphism}{} The inversion homomorphism between two subgroups $H$ and $K$ of $G$ is the homomorphism $$\phi:H\to\text{Aut}(K)$$ defined by $\phi_1(k)=k$ and $\phi_h(k)=k^{-1}$ for $h\neq 1$. 
 \end{defn}
 
-\begin{lmm}{Fitting's Lemma}{} Let $G$ be a finite group. Suppose that $K\trianglelefteq G$ is abelian with odd order $\frac{\abs{G}}{2}$. Let $H=\langle x\rangle\in\text{Syl}_2(G)$. Let $k\in K$. Define $$[K,x]=\langle[v,x]|v\in K\rangle$$ Then the following are true. 
+\begin{lmm}{Fitting's Lemma}{} Let $G$ be a finite group. Suppose that $K\trianglelefteq G$ is abelian with odd order $\frac{\abs{G}}{2}$. Let $H=\langle x\rangle\in\text{Syl}_2(G)$. Define $$[K,x]=\langle[v,x]\;|\;v\in K\rangle$$ Then the following are true. 
 \begin{itemize}
 \item $xax^{-1}=a^{-1}$ for all $a\in[K,x]$
 \item $K=C_K(x)\times[K,x]$
@@ -634,7 +648,8 @@ f(k_1k_2)&=k_1k_2xk_2^{-1}k_1^{-1}x^{-1}\\
 &=f(k_1)f(k_2)
 \end{align*}
 Thus $f$ is a homomorphism. Clearly $\ker(f)=C_K(x)$. Also since $\im(f)$ is a subgroup of $[K,x]$ and contains a generating set for $[K,x]$, we have $\im(f)=[K,x]$. Thus by the first isomorphism theorem, we have that $$\abs{K}=\abs{\ker(f)}\abs{\im(f)}=\abs{C_K(x)}\abs{[K,x]}$$ Thus $K=C_K(x)[K,x]$. Since $K$ is abelian, we have that $K=C_K(x)\times[K,x]$ and so we conclude. 
-\item 
+\item Step 1: $[K,x]\trianglelefteq G$. \\
+Notice that $G=\langle x\cup K\rangle$. We just have to show that every element in the generating set normalizes $[K,x]$. By the first part of this lemma, it is easy to see that $x$ normalizes $[K,x]$. Since $K$ is abelian, $K$ also normalizes $[K,x]$. Thus we are done. 
 \end{itemize}
 \end{proof}
 \end{lmm}
@@ -823,10 +838,10 @@ It is easy to see that the Cayley diagram can be formed from these relations whi
 \end{thm}
 
 \subsection{Groups of Order 12}
-\begin{defn}{Dicyclic Group of Order $12$}{} Let $C_4=\langle h\rangle$. Define $\phi:C_4\to\text{Aut}(C_3)$ to be the inversion homomorphism for. Define the dicyclic group of order $12$ to be $$\text{Dic}_{12}=C_4\ltimes_\phi K$$ 
+\begin{defn}{Dicyclic Group of Order $12$}{} Let $C_4=\langle h\rangle$. Define $\phi:C_4\to\text{Aut}(C_3)$ to be the inversion homomorphism for. Define the dicyclic group of order $12$ to be $$\text{Dic}_{12}=C_4\ltimes_\phi C_3$$ 
 \end{defn}
 
-\begin{prp}{}{} Let $G$ be a group of order $12$. Then $G$ is isomorphic to one of the following groups: 
+\begin{thm}{}{} Let $G$ be a group of order $12$. Then $G$ is isomorphic to one of the following groups: 
 \begin{itemize}
 \item The cyclic group $C_{12}$
 \item $C_6\times C_2$
@@ -853,22 +868,24 @@ We now have that $H\leq G$, $K_1\trianglelefteq G$, $H\cap K_1=\{1\}$ by Lagrang
 Case 2: $G$ has no element of order $6$. \\
 By Cauchy's theorem, we may choose an element of order $3$. Since $x\in C_G(x)$ and $G$ has no element of order $6$, we see that $2$ does not divide $\abs{C_G(x)}$. Indeed if it did, then we could choose an element of order $2$ in $C_G(x)$ by Cauchy's theorem. But then $\abs{xy}=6$ by proposition 1.3.6 in Groups and Rings. Thus we must have that $\abs{C_G(x)}=3$ by Lagrange's theorem. By the orbit stabilizer theorem, we have that $\abs{\text{Cl}(x)}=[G:C_G(x)]=4$. Since $G$ has precisely $n_3(G)\times(3-1)$ elements of order $3$ by corollary 5.3.1, we deduce that $n_3(G)>1$. In particular, $H$ is not a normal subgroup of $G$. \\~\\
 
-Finally, let $H\in\text{Syl}_3(G)$ and consider the action of $G$ on $\frac{G}{H}$ by left multiplication. Let $K$ be the kernel of this action. Then $K\leq H$ by ???. But $H$ is not normal in $G$. So we must have $\abs{K}=1$ since $\abs{H}=3$. Thus $G\cong\frac{G}{K}$ is isomorphic to a subgroup of $S_4$. But the only subgroup of $S_4$ of order $12$ is $A_4$ by ???. Thus $G\cong A_4$. 
+Finally, let $H\in\text{Syl}_3(G)$ and consider the action of $G$ on $\frac{G}{H}$ by left multiplication. Let $K$ be the kernel of this action. Then $K\leq H$ by ???. But $H$ is not normal in $G$. So we must have $\abs{K}=1$ since $\abs{H}=3$. Thus $G\cong\frac{G}{K}$ is isomorphic to a subgroup of $S_4$. But the only subgroup of $S_4$ of order $12$ is $A_4$. Thus $G\cong A_4$. 
 \end{proof}
-\end{prp}
+\end{thm}
 
 \subsection{Unique Simple Group of Order 60}
 As an application of the classification of small groups, together with the Sylow theorems, we prove that the unique group of order $60$ is $A_5$. 
 
 \begin{thm}{}{} Let $G$ be a simple group of order $60$. Then $G\cong A_5$. \tcbline
 \begin{proof}~\\
-Step 1: $G$ does not contain a proper subgroup of index $n\geq 4$. 
-Assume the contrary. Let $H\leq G$ with $1\neq[G:H]\leq 4$. Then $G$ acts non-trivially by left multiplication on the set of left cosets $G/H$ of $H$ in $G$, and $\abs{G/H}=n$ for some $2\leq n\leq 4$. Since $G$ is simple, the kernel of this action is trivial. Thus $G$ is isomorphic to the subgroup of $S_n$. Since $2\leq n\leq 4$, we have that $\abs{S_n}\leq 4!=24$. But $\abs{G}=60$ so that this contradicts Lagrange's theorem. \\~\\
+Step 1: $G$ does not contain a proper subgroup of index $n\leq 4$. 
+Assume the contrary. Let $H\leq G$ with $1\neq[G:H]\leq 4$. Then $G$ acts non-trivially by left multiplication on the set of left cosets $G/H$ of $H$ in $G$, and $\abs{G/H}=n$ for some $2\leq n\leq 4$. Since $G$ is simple, the kernel of this action is trivial. Thus $G$ is isomorphic to a subgroup of $S_n$. Since $2\leq n\leq 4$, we have that $\abs{S_n}\leq 4!=24$. But $\abs{G}=60$ so that this contradicts Lagrange's theorem. \\~\\
 
 Step 2: $G$ contains a subgroup of index $5$. \\
-Assume the contrary. Let $P\in\text{Syl}_2(G)$. By Sylow's theorem, we have that $n_2(G)$ is odd and $n_2(G)$ divides 15. Moreover $n_2(G)\neq 1$ since $G$ is simple. We also know that $n_2(G)=\frac{\abs{G}}{\abs{N_G(P)}}$ so by step 1, $n_2(G)=5$ or $15$. If $n_2(G)=5$ then $\frac{\abs{G}}{\abs{N_G(P)}}=5$, a contradiction. So suppose $n_2(G)=15$. Let $g\in G\setminus N_G(P)$. Let $H=\langle P\cup gPg^{-1}\rangle$. Then $H$ contains at least two Sylow $2$-subgroups namely $P$ and $gPg^{-1}$. So $n_2(G)$ being an odd number, is at least $3$. Since $4$ does divides $\abs{H}$, we deduce that $\abs{H}$ is divisible by $4n_2(H)$. By step 1, we have either $H=G$ or $\abs{H}<\frac{\abs{G}}{4}=15$. Thus we must have either $H\neq G$ and $n_2(H)=3$ or $H=G$. If $H\neq G$ and $n_2(H)=3$, then 12 divides $\abs{H}$ so we must have $\abs{H}=12$ by step $1$. Thus $[G:H]=5$ as needed. \\~\\
+Assume the contrary. Let $P\in\text{Syl}_2(G)$. By Sylow's theorem, we have that $n_2(G)$ is odd and $n_2(G)$ divides 15. Moreover $n_2(G)\neq 1$ since $G$ is simple. We also know that $n_2(G)=\frac{\abs{G}}{\abs{N_G(P)}}$ so by step 1, $n_2(G)=5$ or $15$. If $n_2(G)=5$ then $\frac{\abs{G}}{\abs{N_G(P)}}=5$, a contradiction. \\~\\
 
-Now assume that for all $g\in G\setminus N_G(P)$, then $G=\langle P\cup gPg^{-1}\rangle$. If $x\in P\cap gPg^{-1}$, then $x$ is centralized by both $P$ and $gPg^{-1}$, since groups of order $4$ are abelian. Thus $x$ is centralized in $G$ since $G=\langle P\cup gPg^{-1}\rangle$. Since $G$ is simple, we have $Z(G)=\{1\}$ and that $P\cap gPg^{-1}=\{1\}$ for all $g\in G$. Now $$F_2(G)=\bigcup_{P\in\text{Syl}_2(G)}P\setminus\{1_G\}$$ by consequences of the Sylow theorems. By the above work, this is a disjoint union. Thus $\abs{F_2(G)}=n_2(G)\times 3=45$. By Sylow's theorem, we have that $n_5(G)\equiv 1\;(\bmod\;5)$ and $n_5(G)$ divides $12$. Since $G$ is simple, we have $n_5(G)>1$ so that $n_5(G)=6$. But then $\abs{F_5(G)}=6\times 4=24$. This means that $\abs{G}>\abs{F_2(G)}+\abs{F_5(G)}=69$, a contradiction. This completes the proof of step 2. \\~\\
+So suppose $n_2(G)=15$. Let $g\in G\setminus N_G(P)$. Let $H=\langle P\cup gPg^{-1}\rangle$. Then $H$ contains at least two Sylow $2$-subgroups namely $P$ and $gPg^{-1}$. So $n_2(H)$ being an odd number, is at least $3$. Since $4$ divides $\abs{H}$, we deduce that $\abs{H}$ is divisible by $4n_2(H)$. By step 1, we have either $H=G$ or $\abs{H}<\frac{\abs{G}}{4}=15$. Thus we must have either $H\neq G$ and $n_2(H)=3$ or $H=G$. If $H\neq G$ and $n_2(H)=3$, then 12 divides $\abs{H}$ so we must have $\abs{H}=12$ by step $1$. Thus $[G:H]=5$ as needed. \\~\\
+
+Now assume that for all $g\in G\setminus N_G(P)$, we then have $G=\langle P\cup gPg^{-1}\rangle$. Assume that $x\in P\cap gPg^{-1}$, then $x$ is centralized by both $P$ and $gPg^{-1}$, since groups of order $4$ are abelian. Thus $x$ is centralized in $G$ since $G=\langle P\cup gPg^{-1}\rangle$. Then $x\in Z(G)$. Since $G$ is simple, we have $Z(G)=\{1\}$ and so $x=1$ and we conclude that $P\cap gPg^{-1}=\{1\}$ for all $g\in G$. Now $$F_2(G)=\bigcup_{P\in\text{Syl}_2(G)}P\setminus\{1_G\}$$ by consequences of the Sylow theorems. By the above work, this is a disjoint union. Thus $\abs{F_2(G)}=n_2(G)\times 3=45$. By Sylow's theorem, we have that $n_5(G)\equiv 1\;(\bmod\;5)$ and $n_5(G)$ divides $12$. Since $G$ is simple, we have $n_5(G)>1$ so that $n_5(G)=6$. But then $\abs{F_5(G)}=6\times 4=24$. This means that $\abs{G}>\abs{F_2(G)}+\abs{F_5(G)}=69$, a contradiction. This completes the proof of step 2. \\~\\
 
 Step 3: Final result. \\
 Let $H\leq G$ be a subgroup of index $5$. Then $G$ acts non-trivially by left multiplication on the set of left cosets $G/H$ of $H$ in $G$. Since $G$ is simple, the kernel of this action is trivial, and thus $G$ is isomorphic to a subgroup of $S_5$. But the only subgroup of $S_5$ of order $60$ is $A_5$, which completes the proof. 
