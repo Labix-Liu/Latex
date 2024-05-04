@@ -52,3 +52,5 @@
 \contentsline {subsection}{\numberline {9.4}Finitely Generated Field Extensions}{67}{subsection.9.4}%
 \contentsline {subsection}{\numberline {9.5}Algebraic Elements}{68}{subsection.9.5}%
 \contentsline {subsection}{\numberline {9.6}Algebraic Extensions}{70}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Finite Fields}{71}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.8}Cyclotomic Polynomials}{71}{subsection.9.8}%

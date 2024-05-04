@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 
-\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -28,7 +28,12 @@
 \subsection{Isomophism Theorem for Rings}
 The isomorphism theorem for rings is a direct result that extends the group isomorphism theorems. \\~\\ Their proofs are mostly the same except that we also have to check that multplication is preserved so that the isomorphisms inherited from groups is indeed a ring isomorphism. 
 
-\begin{thm}{The First Isomorphism Theorem for Rings}{} If $\phi:R\to S$ is a homomorphism of rings, then $\ker(\phi)$ is an ideal of $R$, $\im(\phi)\leq S$ and $$R/\ker(\phi)\cong\phi(R)$$ in rings. \tcbline
+\begin{thm}{The First Isomorphism Theorem for Rings}{} If $\phi:R\to S$ is a homomorphism of rings, then the following are true. 
+\begin{itemize}
+\item $\ker(\phi)$ is an ideal of $R$
+\item $\im(\phi)\leq S$ is a subring of $S$
+\end{itemize}
+Moreover, we have an isomorphism $$\frac{R}{\ker(\phi)}\cong\phi(R)$$ in rings. \tcbline
 \begin{proof}
 A group isomorphism $R/\ker(\phi)\cong\phi(R)$ can be established from the first isomorphism theorem for groups. Moreover we know that $\ker(\phi)$ is a normal subgroup. To show that $\ker(\phi)$ is an ideal, notice that for $r\in R$ and $k\in\ker\phi$, $\phi(rk)=\phi(r)\phi(k)=0$ thus $rk\in\ker(\phi)$. To show that $R/\ker(\phi)\cong\phi(R)$ is a ring isomorphism, suppose that $\pi$ is the induced group isomorphism. Notice that 
 \begin{align*}
@@ -37,10 +42,16 @@ A group isomorphism $R/\ker(\phi)\cong\phi(R)$ can be established from the first
 &=\phi(r_1)\phi(r_2)\\
 &=\pi(r_1+\ker(\phi))\pi(r_2+\ker(\phi))
 \end{align*}
+and so we conclude. 
 \end{proof}
 \end{thm}
 
-\begin{thm}{The Second Isomorphism Theorem for Rings}{} Let $A\leq R$ and $B$ an ideal of $R$. Then $A+B=\{a+b|a\in A,b\in B\}$ is a subring of $R$. $A\cap B$ is an ideal of $A$ and $$(A+B)/B\cong A/(A\cap B)$$
+\begin{thm}{The Second Isomorphism Theorem for Rings}{} Let $A\leq R$ and $B$ an ideal of $R$. Then the following are true. 
+\begin{itemize}
+\item $A+B=\{a+b\;|\;a\in A,b\in B\}$ is a subring of $R$
+\item $A\cap B$ is an ideal of $A$
+\end{itemize}
+Moreover, we have an isomorphism $$\frac{A+B}{B}\cong\frac{A}{A\cap B}$$ in rings. 
 \end{thm}
 
 \begin{thm}{The Third Isomorphism Theorem for Rings}{} Let $I,J$ be ideals of $R$ with $I\subset J$. Then $J/I$ is an ideal of $R/I$ and $(R/I)/(J/I)\cong R/J$
@@ -51,11 +62,11 @@ A group isomorphism $R/\ker(\phi)\cong\phi(R)$ can be established from the first
 
 \subsection{Chinese Remainder Theorem}
 In this section we develop the necessary notions in order to illustrate the Chinese Remainder Theorem. 
-\begin{defn}{Direct product of Rings}{} Let $R,S$ be rings. Define the direct product of $R$ and $S$ to be $R\times S$. Elements of $R\times S$ are of the form $(r,s)$ where $r\in R$ and $s\in S$. 
+
+\begin{defn}{Direct product of Rings}{} Let $R,S$ be rings. Define the direct product of $R$ and $S$ to be the set $R\times S=\{(r,s)\in R\times S\}$ together with the binary operations defined element wise. 
 \end{defn}
 
-\begin{prp}{}{} Let $R,S$ be rings. Define addition as $$(r_1,s_1)+(r_2,s_2)=(r_1+r_2,s_1+s_2)$$ and $$(r_1,s_1)\cdot(r_2,s_2)=(r_1r_2,s_1s_2)$$ and $0=(0,0)$ and $1=(1,1)$. Then $R\times S$ is a ring. In particular, if $R_1,\dots,R_n$ are rings. Then $R_1\times\dots\times R_n$ is also a ring. 
-\end{prp}
+It is a routine exercise to check that $R\times S$ is indeed a ring in its own right. \\~\\
 
 A rather unintuitive definition is that of coprime ideals. 
 
@@ -64,17 +75,30 @@ A rather unintuitive definition is that of coprime ideals.
 
 But there is indeed a good reason for the name. Notice that in $\Z$, the prime ideals are exactly the ideals $(p)$ where $p$ is a prime. We also have a nice inclusion of ideals whenever $p|a$ which is $(a)\subseteq(p)$, which we will prove later. This means that in general, the smaller the number $a$ is, the larger the ideal $(a)$ is and indeed, the smaller the number is in $\Z$, the more numbers it can possibly divide. Now recall that if $a$ and $b$ are coprime in $\Z$, then their gcd will be $1$. Indeed we will develop the notion of gcd for ideals as well, which is to say that if $d=\gcd(a,b)$ in the usual sense, then $(a)\subseteq(d)$ and $(b)\subseteq(d)$. Then if $a$ and $b$ are coprime, their ideals are both subsets of $(1)$, which is exactly $R$. This leads to why we say that two ideals are coprime. 
 
-\begin{prp}{}{} Let $A,B$ be ideals of a ring $R$. If $A$ and $B$ are coprime then $$AB=A\cap B$$
+\begin{prp}{}{} Let $A,B$ be ideals of a ring $R$. If $A$ and $B$ are coprime then $$AB=A\cap B$$ \tcbline
+\begin{proof}
+
+\end{proof}
 \end{prp}
 
-\begin{thm}{Chinese Remainder Theorem}{} Let $I_1,\dots, I_n$ be ideals of a ring $R$. Then the ring homomorphism $$\phi:A\to A/I_1\times\dots\times A/I_n$$ defined by $\phi(x)=(x+I_1,\dots,x+I_n)$ has kernel $$I=\bigcap_{k=1}^nI_k$$
+\begin{thm}{Chinese Remainder Theorem}{} Let $I_1,\dots, I_n$ be ideals of a ring $R$. Then the ring homomorphism $$\phi:R\to\frac{R}{I_1}\times\cdots\times\frac{R}{I_n}$$ defined by $\phi(x)=(x+I_1,\dots,x+I_n)$ has kernel $$I=\bigcap_{k=1}^nI_k$$ Moreover, if each $I_j$ and $I_k$ are pairwise coprime, then there is an isomorphism $$\frac{R}{I}\cong\frac{R}{I_1}\times\cdots\times\frac{R}{I_n}$$ given by $\phi$. \tcbline
+\begin{proof}
+Since $\phi$ is a collection of projections on to each factor, $\phi$ is a ring homomorphism. It is clear that $I$ is the kernel of the homomorphism. Indeed given $x\in I$, then $x$ lies in each and every $I_k$ for $1\leq k\leq n$. Thus $\phi(x)=(x+I_1,\dots,x+I_n)=0$. Conversely, if $(x+I_1,\dots,x+I_n)$ is such that applying $\phi$ gives $0$, then $x\in I_1,\dots,I_n$ so that $x\in I$. \\~\\
+
+When the ideals are pairwise corpime, consider the elements $e_k=(0,\dots,0,x+I_k,0,\dots,0)$ for $1\leq k\leq n$ (these are called full system of orthogonal central idempotents). Notice that they satisfy the equation $1=e_1+\dots+e_n$ and $e_k^2=e_k$ for $1\leq k\leq n$ for $i\neq j$, we have $e_ie_j=0$. Now since $I_i$ and $I_j$ are coprime, we have that $R=I_i+I_j$ so that $1=a_j+z_j$ for $a_j\in I_i$ (note the subscript) and $z_j\in I_j$. Define $x_i=z_1\cdots z_{i-1}\cdot z_{i+1}\cdots z_n$ for each $1\leq i\leq n$. Write the projection homomorphism as $\psi:R\to R/I_j$. If $i\neq j$, then $\phi_j(x_i)=0$ because $x_i$ contains the element $z_j$ that lies in $I_j$. Also, we have that $$\psi_i(z_j)=\psi_i(1-a_j)=\psi_i(1)-\psi_i(a_j)=\psi_i(1)=1$$ in $R/I_i$ since $a_j\in I_i$. Thus we have that $$\psi_i(x_i)=\psi_i(z_1)\cdots\psi_i(z_n)=1$$~\\
+
+All this means that $x_i\in R$ is such that $\psi(x_i)=(0,\dots,0,1+I_i,0,\dots,0)$ for $1\leq i\leq n$. Now to prove surjectivity, let $(r_1,\dots,r_n)$ be an element in the product. Then we have that $$(r_1,\dots,r_n)=\sum_{j=1}^n\psi(r_i)e_i=\sum_{j=1}^n\psi(r_ix_i)$$ and so $r_1x_1+\dots+r_nx_n\in R$ is our desired element. And so we are done. 
+\end{proof}
 \end{thm}
 
-\begin{lmm}{Chinese Remainder Theorem Abstract Form}{} Let $I_1,\dots, I_n$ be ideals of a ring $R$. Let $I=\bigcap_{k=1}^nI_k$. If each pair of ideals is coprime, then $$\phi:R/I\to R/I_1\times\dots\times R/I_n$$ is a ring isomorphism. In other words, $$R/I\cong R/I_1\times\dots\times R/I_n$$ \tcbline
-\begin{proof}
-Since $I_1,\dots,I_n$ are pairwise coprime, we must have $I=I_1\cdots I_n$. By the first isomorphism theorem for rings, we have that $R/(I_1\cdots I_n)\cong\phi(R)$ and thus $$R/I\cong R/I_1\times\dots\times R/I_n$$
-\end{proof}
-\end{lmm}
+This is a more generalized version of the Chinese Remainder Theorem in number theory. Indeed, to recover the one in number theory, take $R=\Z$ and $I_k=(n_k)$ for some $n_k\in\Z$ so that $I_k$ is the principal ideal on $n_k$. Moreover, by choosing each $n_k$ to be pairwise coprime, we obtain the isomorphism which proves that the congruence relation can be solved. \\~\\
+
+Notice that the proof is instructive. Indeed we can simply follow the steps of the proof to find a solution. Namely, given $(r_1,\dots,r_n)$ in the product, we can find $r\in R$ such that $\phi(r)=(r_1,\dots,r_n)$. The steps are as follows. 
+\begin{enumerate}
+\item Using $R=I_i+R_j$, find $a_j\in R_i$ and $z_j\in R_j$ such that $1=a_j+z_j$. This can be done for example by Bezout's lemma in $R=\Z$. 
+\item Define $x_i=z_1\cdots z_{i-1}\cdot z_{i+1}\cdots z_n$ for $1\leq k\leq n$. 
+\item The solution is then $r=r_1x_1+\dots+r_nx_n$. 
+\end{enumerate}
 
 \subsection{Graded Rings}
 \begin{defn}{Graded Rings}{} A graded ring $R$ is a ring such that the underlying additive group is a direct sum of abelian groups $R_i$, meaning that $$R=\bigoplus_{n\in\N}R_n$$ and such that for $r_i\in R_i$ and $r_j\in R_j$, $r_ir_j\in R_{i+j}$. A $\Z$ graded ring is a ring graded in $\Z$ instead of $\N$. 
@@ -104,16 +128,12 @@ Since $I_1,\dots,I_n$ are pairwise coprime, we must have $I=I_1\cdots I_n$. By t
 \pagebreak
 \section{Module Theory}
 \subsection{Introduction to Modules}
-\begin{defn}{Modules}{} Let $R$ be a ring. A left $R$-module or a left module over $R$ is a set $M$ together with
+\begin{defn}{Modules}{} Let $R$ be a ring. A left $R$-module or a left module over $R$ is an abelian group $(M,+)$ together with an action of $R$ on $M$ denoted by $\cdot:R\times M\to M$ such that 
 \begin{itemize}
-\item A binary operation $+$ on $M$ under which $M$ is an abelian group
-\item An action of $R$ on $M$ denoted by $\cdot:R\times M\to M$ and $(r,m)\mapsto r\cdot m$ such that 
-\begin{itemize}
-\item $(r+s)\cdot m=r\cdot m+s\cdot m$ for all $r,s\in R$, $m\in M$
-\item $(rs)\cdot m=r\cdot (s\cdot m)$ for all $r,s\in R$, $m\in M$
 \item $r\cdot (m+n)=r\cdot m+r\cdot n$ for all $r,s\in R$, $m\in M$
+\item $(rs)\cdot m=r\cdot (s\cdot m)$ for all $r,s\in R$, $m\in M$
+\item $(r+s)\cdot m=r\cdot m+s\cdot m$ for all $r,s\in R$, $m\in M$
 \item $1\cdot m=m$ for all $m\in M$ if $1\in R$
-\end{itemize}
 \end{itemize}
 A right $R$-module consists of the same axioms except that the action is on the right, meaning that the action of $R$ on an abelian group $M$ is the map $\cdot:M\times R\to M$. 
 \end{defn}
@@ -123,6 +143,8 @@ Notice that while most of the time we exclusively work with left $R$-modules, al
 \begin{defn}{Submodules}{} Let $R$ be a ring and let $M$ be an $R$-module. An $R$-submodule of $M$ is an abelian subgroup $N$ of $M$ which is closed under the action of ring elements, meaning $rn\in N$ for all $r\in R$, $n\in N$. 
 \end{defn}
 
+Submodules of a ring $R$ are well known objects. They are just the ideals of $R$. 
+
 \begin{prp}{Submodule Criterion}{} Let $R$ be a ring and let $M$ be an $R$-module. A subset $N$ of $M$ is a submodule of $M$ if and only if
 \begin{itemize}
 \item $N\neq\emptyset$
@@ -130,8 +152,14 @@ Notice that while most of the time we exclusively work with left $R$-modules, al
 \end{itemize}
 \end{prp}
 
-\begin{prp}{Sum of Submodules}{} Let $M,N$ be left $R$-submodules of an $R$-module $K$. Then the sum $$M+N=\{m+n|m\in M,n\in N\}$$ is a left $R$-submodule of $K$. Moreover, $M,N$ are both $R$-submodules of $M+N$. 
-\end{prp}
+\begin{defn}{Sum of Submodules}{} Let $M,N$ be left $R$-submodules of an $R$-module $K$. Define the sum of $M$ and $N$ to be the set $$M+N=\{m+n\;|\;m\in M,n\in N\}$$ together with a ring operation $\cdot:R\times M+N\to M+N$ defined by $$(r,m+n)=r\cdot(m+n)=r\cdot m+r\cdot n$$
+\end{defn}
+
+\begin{lmm}{}{} Let $M$ and $N$ be left $R$-submodules of an $R$-module $K$. Then $M+N$ is an $R$-submodule of $K$. \tcbline
+\begin{proof}
+Notice that since the underlying group of $K$ is abelian, we have that $M+N$ is a group. Also it is clear by definition of the ring operation on $M+N$ that the operation is closed. Thus $M+N$ is an $R$-submodule of $K$. 
+\end{proof}
+\end{lmm}
 
 \begin{prp}{Intersection of Modules}{} Let $M,N$ be left $R$-modules. Then the intersection $M\cap N$ is a left $R$-submodule of both $M$ and $N$. 
 \end{prp}
@@ -152,8 +180,8 @@ We say that $\phi$ is a $R$-module isomorphism if it is bijective.
 \end{itemize}
 \end{defn}
 
-\begin{prp}{Quotient Module}{} Let $R$ be a ring. Let $M$ be a left $R$-module and let $N$ be a submodule of $M$. Then the quotient group $M/N$ is a left $R$-module. 
-\end{prp}
+\begin{defn}{Quotient Module}{} Let $M$ be an $R$-module and $N$ a submodule of $M$. Define the quotient module of $M$ and $N$ to be the abelian quotient group $$\frac{M}{N}=\{m+N\;|\;m\in M\}$$ together with the left ring operation $\cdot:R\times\frac{M}{N}\to\frac{M}{N}$ defined by $$(r,m+N)=r\cdot(m+N)=rm+N$$
+\end{defn}
 
 \subsection{Isomorphism Theorem for Modules}
 Similar to the isomorphism theorem for rings, the isomorphism theorem for modules extends the definition of the original isomorphism for groups. Therefore most of the time we just have to check the compatibility of the isomorphism theorems with the ring action on the abelian group. 
@@ -162,8 +190,9 @@ Similar to the isomorphism theorem for rings, the isomorphism theorem for module
 \begin{itemize}
 \item $\ker(\phi)$ is a submodule of $M$
 \item $\im(\phi)$ is a submodule of $N$
-\item $M/\ker(\phi)\cong\phi(M)$
-\end{itemize} \tcbline
+\end{itemize}
+Moreover, we have an isomorphism $$\frac{M}{\ker(\phi)}\cong\phi(M)$$ of modules. 
+ \tcbline
 \begin{proof}
 We have seen all these statements for groups. We just have to show that the statements are compatible with the left action of the left $R$-module structure. 
 \begin{itemize}
@@ -180,8 +209,15 @@ Thus they all are compatible with left multiplication.
 \end{proof}
 \end{thm}
 
-\begin{thm}{Second isomorphism Theorem for Modules}{} Let $A,B$ be left $R$-submodules of an $R$-module $M$. Then we have the following isomorphism of quotient $R$-modules: $$\frac{A+B}{B}\cong\frac{A}{A\cap B}$$ \tcbline
+\begin{thm}{Second isomorphism Theorem for Modules}{} Let $A,B$ be left $R$-submodules of an $R$-module $M$. Then the following are true. 
+\begin{itemize}
+\item $A$ and $B$ are submodules of $A+B$
+\item $A\cap B$ is a submodule of $A$ and $B$
+\end{itemize}
+Moreover, we have the following isomorphism $$\frac{A+B}{B}\cong\frac{A}{A\cap B}$$ of quotient $R$-modules. \tcbline
 \begin{proof}
+It is clear that $A$ and $B$ are subgroups of $A+B$. Moreover, the left $R$-action on $A$ and $B$ is closed since they are left $R$-submodules. Thus $A$ and $B$ are submodules of $A+B$. The proof for $A\cap B$ is similar. \\~\\
+
 Consider the composition of $R$-module homomorphisms $\phi:A\to A+B\to\frac{A+B}{B}$ defined by $a\mapsto a+B$. It is a homomorphism since it is the composition of the inclusion and the quotient map. This maps is surjective since for any $(a+b)+B$, we have that $(a+b)+B=a+B$ and thus $a\in A$ maps to this element. \\~\\
 I claim that $\ker(\phi)=A\cap B$. If $a\in\ker(\phi)$ then $a+B=B$ implies that $a\in A$. Thus $a\in A\cap B$. If $a\in A\cap B$ then clearly $\phi(a)=a+B=B$. By the first isomorphism theorem, we have that $$\frac{A+B}{B}\cong\frac{A}{A\cap B}$$ and we are done. 
 \end{proof}
@@ -190,34 +226,36 @@ I claim that $\ker(\phi)=A\cap B$. If $a\in\ker(\phi)$ then $a+B=B$ implies that
 \begin{thm}{Third isomorphism Theorem for Modules}{} Let $M$ be a left $R$-module. Let $A$ be an $R$-submodule of $M$ and $B$ an $R$-submodule of $A$. Then we have the following isomorphism of quotient $R$-modules: $$\frac{M/B}{A/B}\cong\frac{M}{A}$$
 \end{thm}
 
-\begin{thm}{Correspondence Theorem for Modules}{} Let $N$ be a submodule of the $R$-module $M$. There is a bijection between the submodules of $M$ which contain $N$ and the submodules of $M/N$. The correspondence is given by $A$ to $A/N$ for all $A\supseteq N$. This correspondence commutes with the processes of taking sums and intersections. 
+\begin{thm}{Correspondence Theorem for Modules}{} Let $N$ be a submodule of the $R$-module $M$. There is a bijection between the submodules of $M$ which contain $N$ and the submodules of $M/N$. $$\left\{\substack{\text{Submodules of }M\\\text{containing }N}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Submodules }\\\text{of }M/N}\right\}$$ The correspondence is given by sending $A$ to $A/N$ for all $A\supseteq N$. 
 \end{thm}
 
 \subsection{The Endomorphism Ring}
-\begin{defn}{Endomorphisms of a Module}{} Let $R$ be a ring and $M$ a left $R$-module. An endomorphism of $M$ is a homomorphism $\phi:M\to M$. Denote the set of all $R$-endomorphisms by $\edo_R(M)$. 
+\begin{defn}{Endomorphisms of a Module}{} Let $R$ be a ring and $M$ a left $R$-module. An endomorphism of $M$ is a homomorphism $\phi:M\to M$. Denote the set of all $R$-endomorphisms by $$\text{End}_R(M)=\{\phi:M\to M\;|\;\phi\text{ is an isomorphism of }M\}$$
 \end{defn}
 
-\begin{prp}{}{} Let $R$ be a ring and $M$ a left $R$-module. Then $\edo_R(M)$ is a ring. \tcbline
+\begin{prp}{}{} Let $R$ be a ring and $M$ a left $R$-module. Then $\text{End}_R(M)$ is a ring. \tcbline
 \begin{proof}
-Let $\phi,\psi\in\edo_R(M)$. Define $\phi+\psi:M\to M$ by $m\mapsto\phi(m)+\psi(m)$. We first show that $\edo_R(M)$ is a group. 
+Let $\phi,\psi\in\edo_R(M)$. Define $\phi+\psi:M\to M$ by $m\mapsto\phi(m)+\psi(m)$. We first show that $\text{End}_R(M)$ is a group. 
 \begin{itemize}
 \item Since $M$ is associative as an additive group, associativity follows
-\item Clearly the zero map $0\in\edo_R(M)$ acts as the additive inverse since for any $\phi\in\edo_R(M)$, we have that $\phi(m)+0=0+\phi(m)=\phi(m)$ since $0$ is the additive identity for $M$
-\item For every $\phi\in\edo_R(M)$, the map taking $m$ to $-\phi(m)$ also lies in $\edo_R(M)$. Since $-\phi(m)$ is the inverse of $\phi(m)$ in $M$, we have that $-\phi$ is the inverse of $\phi$
+\item Clearly the zero map $0\in\edo_R(M)$ acts as the additive inverse since for any $\phi\in\text{End}_R(M)$, we have that $\phi(m)+0=0+\phi(m)=\phi(m)$ since $0$ is the additive identity for $M$
+\item For every $\phi\in\text{End}_R(M)$, the map taking $m$ to $-\phi(m)$ also lies in $\text{End}_R(M)$. Since $-\phi(m)$ is the inverse of $\phi(m)$ in $M$, we have that $-\phi$ is the inverse of $\phi$
 \end{itemize}
-Now define $\phi\cdot\psi\in\edo_R(M)$ by $m\mapsto\phi(\psi(m))$. We show the remaining axioms for a ring. 
+Now define $\phi\cdot\psi\in\text{End}_R(M)$ by $m\mapsto\phi(\psi(m))$. We show the remaining axioms for a ring. 
 \begin{itemize}
 \item Since composition of functions is associative, associativity follows
 \item The identity map $\id$ acts as the identity since composition of any map with identity is itself
-\item Since $\phi\in\edo_R(M)$ is a module homomorphism, we have $$\phi((\psi+\varphi)(m))=\phi(\psi(m)+\varphi(m))=\phi(\psi(m))+\phi(\varphi(m))$$ and thus distributivity is satisfied. 
+\item Since $\phi\in\text{End}_R(M)$ is a module homomorphism, we have $$\phi((\psi+\varphi)(m))=\phi(\psi(m)+\varphi(m))=\phi(\psi(m))+\phi(\varphi(m))$$ and thus distributivity is satisfied. 
 \end{itemize}
 Thus we are done. 
 \end{proof}
 \end{prp}
 
-\begin{lmm}{}{} Let $R$ be a ring. Then $R$ is a left $R$-module. Moreover, $\edo_R(R)\cong R$. \tcbline
+The following lemma shows that endomorphisms of $R$ as an $R$-module consists of precisely the left multiplications of $R$ by each element in $R$ (Thus also having an isomorphism on right multiplication). Moreover, the ring structures are compatible so that it is not just a bijection. 
+
+\begin{lmm}{}{} Let $R$ be a ring. Then $R$ is a left $R$-module. Moreover, $\text{End}_R(R)\cong R$. \tcbline
 \begin{proof}
-Clearly $R$ is a left $R$-module where the left action is just left multiplication. \\~\\ Define a map $\phi:R\to\edo_R(R)$ by $r\mapsto\phi(r)(x)=x\cdot r$. We check that $\phi$ is a ring homomorphism. 
+Clearly $R$ is a left $R$-module where the left action is just left multiplication. \\~\\ Define a map $\phi:R\to\text{End}_R(R)$ by $r\mapsto\phi(r)(x)=x\cdot r$. We check that $\phi$ is a ring homomorphism. 
 \begin{itemize}
 \item $\phi$ preserves addition since 
 \begin{align*}
@@ -237,7 +275,7 @@ Clearly $R$ is a left $R$-module where the left action is just left multiplicati
 We also show that $\phi$ is bijective. 
 \begin{itemize}
 \item The kernel $\phi$ is $0$ because letting $r\in\ker(\phi)$, we have $\phi(r)=0$. But we also know that $\phi(r)(1_R)=1_R\cdot r$. Equating gives $r=0$. 
-\item Let $\eta\in\edo_R(R)$. Let $x\in R$. Then we have 
+\item Let $\eta\in\text{End}_R(R)$. Let $x\in R$. Then we have 
 \begin{align*}
 \eta(x)&=\eta(x\cdot 1_R)\\
 &=x\cdot\eta(1_R)\tag{$\eta$ is a module homomorphism}\\
@@ -249,14 +287,32 @@ Thus $\phi$ is a ring isomorphism.
 \end{lmm}
 
 \subsection{Direct Sum of Modules}
-\begin{defn}{External Direct Sum of Modules}{} Let $I$ be an indexing set and $\{M_i|i\in I\}$ be a family of $R$-modules. Define the direct sum of the family of modules to be $$\prod_{i\in I}M_i=\{(m_i)_{i\in I}|m_i\in M_i\text{ and }m_i\neq 0\text{ for finitely many }i\}$$
+\begin{defn}{Direct Product of Modules}{} Let $I$ be an indexing set and $\{M_i\;|\;i\in I\}$ a family of $R$-modules. Define the direct product to be the set $$\prod_{i\in I}M_i=\left\{(m_i)_{i\in I}\;\bigg{|}m_i\in M_i\;\right\}$$ together with the left $R$-module structure inherited component wise. 
 \end{defn}
 
-\begin{defn}{Internal Direct Sum of Modules}{} Let $I$ be an indexing set and $\{N_i|i\in I\}$ be a family of submodules of a left $R$-module $M$. The internal direct sum of the family of submodules is defined to be $$\sum_{i\in I}N_i=\{a_1+\dots+a_n|a_i\in N_i\}$$ If $M=\sum_{i\in I}N_i$ then we say that $M$ is the internal direct sum. 
+\begin{defn}{External Direct Sum of Modules}{} Let $I$ be an indexing set and $\{M_i\;|\;i\in I\}$ be a family of $R$-modules. Define the direct sum of the family of modules to be $$\bigoplus_{i\in I}M_i=\left\{(m_i)_{i\in I}\in\prod_{i\in I}M_i\;\bigg{|}\;m_i\neq 0\text{ for finitely many }i\right\}$$
 \end{defn}
+
+There is no different between finite direct sum and finite direct products. However when $I$ is an infinite indexing set, there is a big difference. For instance, a direct product of rings is still a ring but infinite direct product of rings is not a ring. 
+
+\begin{defn}{Internal Direct Sum of Modules}{} Let $I$ be an indexing set and $\{N_i\;|\;i\in I\}$ be a family of submodules of a left $R$-module $M$. Define $$\sum_{i\in I}N_i=\{a_1+\dots+a_n\;|\;a_i\in N_i\}$$ If the external direct product is isomorphic to $$\bigoplus_{i\in I}N_i\cong\sum_{i\in I}N_i$$ then we call $\sum_{i\in I}N_i$ the internal direct sum and denote it with $\bigoplus_{i\in I}N_i$ instead. If $M\cong\bigoplus_{i\in I}N_i$ then we say that $M$ is the internal direct sum. 
+\end{defn}
+
+Thus there is no distinction in external and internal direct sum of modules, just that whether our view point starts with the larger module $M$ or with the collection $\{M_i\;|\;i\in I\}$. 
+
+\begin{lmm}{}{} Let $I$ be an indexing set and $\{N_i\;|\;i\in I\}$ be a family of submodules of a left $R$-module $M$. Define $\phi:\bigoplus_{i\in I}N_i\to M$ by $$\phi\left((m_i)_{i\in I}\right)=\sum_{i\in I}m_i$$ Then the following are true. 
+\begin{itemize}
+\item $\im(\phi)=\sum_{i\in I}N_i$
+\item If $\phi$ is injective then $\sum_{i\in I}N_i$ is the internal direct sum
+\item $\phi$ is bijective then $M$ is the internal direct sum of $\{N_i\;|\;i\in I\}$
+\end{itemize} \tcbline
+\begin{proof}
+Firstly, it is clear that $\im(\phi)=\sum_{i\in I}N_i$ by definition of $\phi$. If $\phi$ is injective then we obtain an isomorphism $\bigoplus_{i\in I}N_i\cong\sum_{i\in I}N_i$ by the first isomorphism theorem of modules. Finally if $\phi$ is also surjective then we have $M=\sum_{i\in I}N_i\cong\bigoplus_{i\in I}N_i$ and so we are done. 
+\end{proof}
+\end{lmm}
 
 \subsection{Free Modules}
-\begin{defn}{Basis}{} Let $R$ be a ring and $M$ a left $R$-module. Let $B\subseteq M$. 
+\begin{defn}{Basis of a Module}{} Let $R$ be a ring and $M$ a left $R$-module. Let $B\subseteq M$. 
 \begin{itemize}
 \item We say that $B$ is linearly independent if for every $\{b_1,\dots,b_n\}\subseteq B$ such that $$\sum_{i=1}^nr_ib_i=0_M$$ we have that $r_1=\dots=r_n=0_R$
 \item We say that $B$ is a generating set of $M$ if for all $m\in M$, $$m=\sum_{b\in B}r_b\cdot b$$ for finitely many non zero $r_b$
@@ -264,24 +320,63 @@ Thus $\phi$ is a ring isomorphism.
 \end{itemize}
 \end{defn}
 
+By considering $r_b$ being dependent on $b\in B$, we can define $$\text{Fun}_f(B,R)=\{f:B\to R\;|\;f(b)=0_R\text{ for all but finitely many }b\in B\}$$ then we can rewrite the definition of generating sets to be if for every $m\in M$, there exists $f\in\text{Fun}_f(B,R)$ such that $m=\sum_{b\in B}f(b)\cdot b$. We can also define linear independence in a similar fashion. \\~\\
+
+Basis for a module is similar to a basis for vector spaces. Indeed every field is a ring so one can think of modules as a generalization for vector spaces. However, not every module admits a basis just like the theory in vector spaces. When they do admit a basis, we call the module a free module. 
+
 \begin{defn}{Free R-Module}{} Let $R$ be a ring and $M$ a left $R$-module. We say that $M$ is a free $R$-module if $M$ has a basis. 
 \end{defn}
 
-\begin{lmm}{}{} For every set $B$ there is a free left $R$-module, denoted $\oplus_BR$ with basis of cardinality $\abs{B}$. 
+Conversely, every set of elements forms the basis for a free $R$-module. This is what it means for the $R$-module to be free, as a universal property. 
+
+\begin{lmm}{}{} For every set $B$ there is a free left $R$-module $$\bigoplus_{b\in B}R=\left\{(r_1,r_2,\dots)\in\prod_{b\in B}R\;|\;\text{ All but finitely many }r_i\text{ is }0\right\}$$ with basis of cardinality $\abs{B}$. \tcbline
+\begin{proof}
+$\prod_{b\in B}R$ inherits the structure of an $R$-module be defining component wise addition and left $R$-action. Notice that $\{(1,0,\dots,),(0,1,0,\dots),\dots\}$ is then a basis with cardinality $B$ since every element in $\bigoplus{b\in B}R$ only has finitely many non zero components so that it is a unique linear combination of the the set. \\~\\
+
+Alternatively, notice that $\prod_{b\in B}R=\text{Fun}(B,R)$ the set of all functions from $B$ to $R$ together with addition and left $R$-action defined on elements. Then $\bigoplus_{b\in B}R=\text{Fun}_f(B,R)$ and that the delta functions $$\delta_b(x)=\begin{cases}
+1 & \text{ if } x=b\\
+0 & \text{ if } x\neq b
+\end{cases}$$ form a basis for $\bigoplus_{b\in B}R$. 
+\end{proof}
 \end{lmm}
 
-\begin{lmm}{}{} Every left $R$-module is isomorphic to a quotient of a free module. 
+Notice that while the countable Cartesian product $\prod_{b\in B}R$ is indeed a left $R$-module, it is not a free module. Because in the definition of a generating set we always require it to be finite. But elements in $\prod_{b\in B}R$ can have countably many long components. 
+
+\begin{lmm}{}{} Every left $R$-module is isomorphic to a quotient of a free module. \tcbline
+\begin{proof}
+Let $M$ be an $R$-module. Choose a generating set $B\subseteq M$. This is always possible because trivially we can choose $B=M$. Define a map $\pi_B:\bigoplus_{b\in B}R\to M$ by $$\pi_B(r_1,r_2,\dots)=\sum_{b\in B}r_b\cdot b$$ Note that the sum is finite since elements of $\bigoplus_{b\in B}R$ has finitely many non-zero components. It is clear that it is an $R$-module homomorphism. It is also surjective by definition of a generating set. By the first isomorphism theorem for module, we have that $$\frac{\bigoplus_{b\in B}R}{\ker(\pi_B)}\cong M$$ and so we conclude. 
+\end{proof}
 \end{lmm}
+
+The following definition is reminiscent of a theorem in linear algebra. However note that we require that $R$ to be a division ring. However, because we only dealt with finite dimensional vector spaces in Linear Algebra, we will need Zorn's lemma to deal with the case that the basis set has countable cardinality. Recall Zorn's lemma: If $(\mP,\preceq)$ is a non empty poset such that every chain $P_1\preceq P_2\preceq\cdots$ has an upper bound, then $(\mP,\preceq)$ contains a maximal element. 
 
 \begin{thm}{}{} Let $R$ be a division ring. Let $M$ be a left $R$-module. Then
 \begin{itemize}
-\item $M$ is a free $R$-module
 \item Every linearly independent subset $S\subseteq M$ can be extended to a basis
 \item Every generating set $Q\subseteq M$ contains a basis
+\item $M$ is a free $R$-module
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $S$ be a linearly independent set. Let $(\mP,\subseteq)$ be the poset ordered by inclusion, where elements are subsets $S\subseteq X\subseteq M$ and that $X$ is linearly independent. $\mP$ is non empty since $S\in\mP$. Let $\mC$ be a chain in $\mP$. If $\mC$ is empty, then any $X\in\mP$ is an upper bound. So assume that $\mC$ is non-empty. Consider the set $$T=\bigcup_{X\in\mC}X$$ Clearly $X\subseteq T$ for all $X\in\mC$. It remains to show that $T\in\mP$. \\~\\
+
+Clearly $S\subseteq T$. We now want to show that $T$ is a linearly independent set. Let $v_1,\dots,v_m\in T$ and $a_1,\dots,a_m\in R$ such that $$\sum_{k=1}^ma_kv_k=0$$ Since $T$ is the union of $X\in\mC$, each $v_j$ belongs to some $X_j\in\mC$. Since $\mC$ is a chain, one of these sets, $X_m$ contains all the other $X_j$. Thus $v_1,\dots,v_m\in X_m$. Since $X_m\in\mP$, we conclude that $a_1=\dots=a_m=0$. Thus $T$ is linearly independent so that $T\in\mP$. \\~\\
+
+By Zorn's lemma, $\mP$ has a maximal element $Z$. Suppose that $Z$ does not span $M$. Then there exists $v\in M$ that is not a finite linear combination of elements of $Z$. Since $Z$ is maximal, $Z\cup\{v\}$ does not belong to $\mP$ and hence is linearly dependent. Thus there are $v_1,\dots,v_m\in Z$ and $a_1,\dots,a_m,a\in R$ not all $0$ such that $$\sum_{k=1}^ma_kv_k+av=0$$ If $a=0$ then we have linear dependence among $v_1,\dots,v_m$, a contradiction. Thus $a\neq 0$. Since $R$ is a division ring, $a$ has an inverse $a^{-1}$. Hence $$v=-a^{-1}a_1v_1-\cdots-a^{-1}a_mv_m$$ This is a contradiction. Thus $Z$ is a basis. 
+
+\item Suppose that $(\mP,\subseteq)$ is the poset under inclusion with elements of $\mP$ being subsets $X\subseteq Q$ and $X$ is linearly independent. Notice that $\emptyset\in\mP$ so $\mP$ is non empty. By a similar argument as above, we can conclude that $\mP$ has an upper bound. By Zorn's lemma, $\mP$ has a maximal element $Z$. It is linearly independent and is contained in $Q$. Now $Z$ is a basis once we have shown that $Z$ generates $M$. Since every $v\in M$ is a finite linear combination of elements of $Q$, we just have to express every $q\in Q$ as a linear combination of $Z$. \\~\\
+
+Suppose that this is false. Then there exists $q\in Q$ such that $q$ is not a linear combination of $Z$. By a similar argument as above, $Z\cup\{v\}$ is a bigger element of $\mP$, contradicting the fact that $Z$ is maximal. Thus we are done. 
+
+\item Either apply the first point with $S=\emptyset$ or apply the second point with $Q=M$. 
 \end{itemize}
+This concludes the proof. 
+\end{proof}
 \end{thm}
 
 \subsection{Simple Modules}
+The first structural result on Modules is the baby Artin-Wedderburn theorem. It relies on another powerful lemma called Schur's lemma, which has a fundamental application in Representation theory. We begin with the notion of simple modules. 
+
 \begin{defn}{Simple Module}{} A left $R$-module $M$ is simple if $M\neq 0$ and that $0$ and $M$ are the only submodules of $M$. 
 \end{defn}
 
@@ -293,12 +388,19 @@ By the correspondence theorem, ideals of $R/L$ are in 1-1 correspondence to idea
 
 In particular, this means that every field $\F$ is a simple $\F$-module. 
 
-\begin{thm}{}{} Let $R$ be a non-zero ring. Then $R$ has a maximal left ideal. 
+\begin{thm}{}{} Let $R$ be a non-zero ring. Then $R$ has a maximal left ideal. \tcbline
+\begin{proof}
+Let $\mP$ be the set of all proper left ideals of $R$ ordered by inclusion. Since $R$ is non-zero, the ideal $(0)$ is proper and so belongs to $\mP$. Thus $\mP\neq\emptyset$. Let $\mC$ be a chain in $\mP$. Define $$Z=\bigcup_{X\in\mC}X$$ If $\mC$ is empty then $Z=\{0\}$. We show that $Z$ is a left ideal. Clearly $0\in Z$. If $a\in Z$ and $r\in R$, then $a\in X$ for some $X\in\mC$ so that $ra\in X\subseteq Z$. Now suppose that $a,b\in Z$. Then $a\in X$ and $b\in Y$ for some $X,Y\in\mC$. Since $\mC$ is a chain, without loss of generality assume that $X\subseteq Y$. Then $a\in Y$ so that $a+b\in Y\subseteq Z$. Thus $Z$ is a left ideal. \\~\\
+
+Since all $X\in\mC$ are proper ideals with $1\notin X$, then $1\notin Z$. Then $Z$ is proper and $Z\in\mP$. $Z$ is then an upper bound of $\mC$. By Zorn's lemma, $\mP$ has a maximal element. Then the maximal element is a maximal left ideal of $R$. 
+\end{proof}
 \end{thm}
+
+As a result, we can prove the existence of a simple left $R$-module for any ring $R$. 
 
 \begin{crl}{}{} Every non-zero ring $R$ has a simple left $R$-module. \tcbline
 \begin{proof}
-Since every ring $R$ has a maximal left ideal $L$, $R/L$ is a non-trivial simple $R$-module by lemma 2.6.2. 
+Since every ring $R$ has a maximal left ideal $L$, $R/L$ is a non-trivial simple $R$-module by lemma 2.7.2. 
 \end{proof}
 \end{crl}
 
@@ -316,19 +418,19 @@ Let $\phi\in\text{End}_R(M)$ be non-zero. Since $M$ is simple, Schur's lemma I t
 
 \begin{thm}{Baby Artin-Wedderburn Theorem}{} Let $R$ be a non-zero ring. Then every left $R$-module is free if and only if $R$ is a division ring. \tcbline
 \begin{proof}
-If $R$ is a division ring, then every left $R$-module has basis by theorem 2.5.5. Now suppose that $R$ is a non-zero ring such that every left $R$-module is free. By corollary 2.6.4, there exists a simple left $R$-module $M$. Let $x$ be a basis element of $M$. \\~\\
+If $R$ is a division ring, then every left $R$-module has basis by theorem 2.6.5. Now suppose that $R$ is a non-zero ring such that every left $R$-module is free. By corollary 2.7.4, there exists a simple left $R$-module $M$. Let $x$ be a basis element of $M$. \\~\\
 
 Consider the homomorphism $\pi:R\to M$ defined by $\pi(r)=rx$. Then $\ker(\pi)=0$ otherwise there would be a linear dependency on the basis element $x$. Since $\im(\pi)$ is a non-zero submodule of $M$, a simple module, $\im(\pi)=M$. By the first isomorphism theorem, $M\cong R$ as left $R$-modules. By lemma 2.4.3, we have an isomorphism $$\text{End}_R(M)\cong\text{End}_R(R)\cong R$$ of rings. By Schur's lemma II, we have that $\text{End}_R(M)\cong R$ is a division ring. 
 \end{proof}
 \end{thm}
 
 \pagebreak
-\section{Associative Algebras}
-\subsection{Algebras over a Ring}
+\section{Algebras over a Ring}
+\subsection{Associative Algebras}
 \begin{defn}{Associative Algebras}{} Let $R$ be a commutative ring. An $R$-algebra is a ring $(A,+,\times)$ such that $(A,+)$ is an $R$-module and that the following distributivity law is satisfied: $$r\cdot(x\times y)=(r\cdot x)\times y=x\times(r\cdot y)$$ for all $r\in R$ and $x,y\in A$. 
 \end{defn}
 
-Here $A$ is not required to be commutative. 
+A prototypical example of an algebra would be a ring itself. Indeed for a ring $R$, $R$ is a left $R$-module via the action of left multiplication. 
 
 \begin{prp}{}{} Let $R$ be a ring. Then the following are equivalent characterizations of an $R$-algebra. 
 \begin{itemize}
@@ -337,8 +439,21 @@ Here $A$ is not required to be commutative.
 \end{itemize}
 \end{prp}
 
-\begin{lmm}{}{} Let $F$ be a field and $R$ be a commutative ring. Then $R$ is an $F$-algebra if and only if $R$ is a vector space over $F$. 
+This establishes a one-to-one correspondence $$\left\{(A,R)\;\bigg{|}\;A\text{ is an }R\text{-algebra}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\phi:R\to A\;\bigg{|}\;\substack{\phi\text{ is a ring homomorphism}\\\text{ such that }f(R)\subseteq Z(A)}\right\}\;\;$$
+
+Notice that when $R$ is a field, the algebra $A$ becomes a vector space over $R$. 
+
+\begin{lmm}{}{} Let $F$ be a field and $A$ be a commutative ring. Then $A$ is an $F$-algebra if and only if $A$ is a vector space over $F$. \tcbline
+\begin{proof}
+If $A$ is an $F$-algebra, then it is clear that properties of a vector space holds. Indeed $A$ is an abelian group and $F$ is a left action on $A$ such that distributivity, associativity and identity is satisfied. Conversely, if $A$ is a vector space over $F$, then the distributivity law is satisfied by definition of a vector space. Moreover $F$ satisfies associativity and identity so that $F$ is a ring action on $A$. 
+\end{proof}
 \end{lmm}
+
+\begin{defn}{R-Subalgebra}{} Let $A$ be an $R$-algebra. An $R$-subalgebra of $A$ is a subring of $A$ which is also an $R$-algebra in its own right. 
+\end{defn}
+
+\begin{prp}{}{} Let $A$ be an $R$-algebra. Then any left, right or two-sided ideals of $A$ is an $R$-subalgebra of $A$. 
+\end{prp}
 
 \begin{defn}{R-Algebra Homomorphism}{} Let $R$ be a commutative ring and $A,B$ be both $R$-algebras. We say that a map of sets $f:A\to B$ is an $R$-algebra homomorphism if the following are satisfied: 
 \begin{itemize}
@@ -346,9 +461,6 @@ Here $A$ is not required to be commutative.
 \item $f$ is a ring homomorphism: $f(xy)=f(x)f(y)$ for $x,y\in A$
 \end{itemize}
 \end{defn}
-
-\begin{prp}{}{} Let $A$ be an $R$-algebra. Then any left, right or two-sided ideals of $A$ is an $R$-subalgebra of $A$. 
-\end{prp}
 
 \begin{defn}{Graded Algebra}{} A graded algebra $A$ over $R$ is an algebra that is also a graded ring. 
 \end{defn}
@@ -368,19 +480,41 @@ Suppose that $A$ is a commutative ring together with a ring homomorphism $f:R\to
 \end{proof}
 \end{prp}
 
+Under the correspondence of associative algebra, the above proposition gives a another correspondence between the first one. $$\left\{(A,R)\;\bigg{|}\;\substack{A\text{ is a commutative }\\R\text{-algebra}}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\phi:R\to A\;\bigg{|}\;\substack{\phi\text{ is a ring homomorphism}\\\text{ such that }f(R)\subseteq Z(A)=A}\right\}\;\;$$ In particular, the construction above are inverses of each other so that it gives the one-to-one correspondence. 
+
 \subsection{Free Algebras}
-\begin{prp}{}{} Let $\F$ be a field. Then the polynomial ring $\F[x]$ is an $\F$ algebra. Its vector space structure has basis $\{x^n|n\in\N\}$. 
+The polynomial rings defined in Group and Rings enjoy much more structure than just being a ring. In fact, the prototypical example of an algebra is the polynomial ring $R[x]$ for a ring $R$. It is in fact a free $R$-module with basis $\{1,x,x^2,\dots\}$. While $R[x]$ can be decomposed into a direct sum of $R$-modules, $R[x]$ itself is also an $R$-module so that $R[x]$ becomes a commutative algebra. 
+
+\begin{prp}{}{} Let $\F$ be a field. Then the polynomial ring $\F[x]$ is an $\F$ algebra. Its vector space structure has basis $\{x^n\;|\;n\in\N\}$. 
 \end{prp}
 
-\begin{defn}{Free Algebra}{} Let $\F$ be a field. Let $X=\{x_1,\dots,x_k\}$. The free algebra $\F\langle X\rangle=\F\langle x_1,\dots,x_k\rangle$ is the free $R$-module with a basis consisting of all words over $X$ together with multiplication rule defined as follows: for $x_{i_1}\cdots x_{i_n}$ and $y_{j_1}\cdots y_{j_m}$ words of $\F\langle X\rangle$, $$(x_{i_1}\cdots x_{i_n})(y_{j_1}\cdots y_{j_m})=x_{i_1}\cdots x_{i_n}\cdot y_{j_1}\cdots y_{j_m}$$
+If we do not allow the basis elements of $R[x]$ to commute, we obtain a free algebra. 
+
+\begin{defn}{Free Algebra}{} Let $R$ be a ring. Let $X=\{x_1,\dots,x_k\}$. The free algebra $R\langle X\rangle=\F\langle x_1,\dots,x_k\rangle$ is the free $R$-module with a basis consisting of all words over $X$ together with multiplication rule defined as follows: for $x_{i_1}\cdots x_{i_n}$ and $y_{j_1}\cdots y_{j_m}$ words of $\F\langle X\rangle$, $$(x_{i_1}\cdots x_{i_n})(y_{j_1}\cdots y_{j_m})=x_{i_1}\cdots x_{i_n}\cdot y_{j_1}\cdots y_{j_m}$$
 \end{defn}
 
-\begin{prp}{}{} If $X$ is a non-empty countable set, then the dimension $\dim_\F(\F\langle X\rangle)$ is countable. 
+For $X=\{x\}$ to be a set of one element, then $\F\langle X\rangle$ has vector space basis $\{1,x,x^2,\dots\}$ which coincides with $\F[x]$. Thus $\F[x]=\F\langle x\rangle$. However, if $X=\{x,y\}$ is a set of two elements, then the basis of $\F\langle X\rangle$ as a vector space over $\F$ is $$\{1,x,y,x^2,xy,yx,y^2,\dots\}$$ Compare it to that of $\F[x,y]$ which has basis $$\{1,x,y,x^2,xy=yx,y^2,\dots\}$$ Since $\F\langle X\rangle$ not commuting, the cardinality of the basis becomes large. Fortunately, the size of the basis is still countable. 
+
+\begin{prp}{}{} If $X$ is a non-empty countable set, then the dimension $\dim_\F(\F\langle X\rangle)$ is countable. \tcbline
+\begin{proof}
+Relabel elements of $X$ as $X=\{x_1,x_2,\dots\}$. The monomials $x_i$ form a basis of $\F\langle X\rangle$. For each $d$, the monomials of degree $d$ are finite. Thus the basis of $X$ is a countable union of finite sets. Thus the basis is countable. 
+\end{proof}
 \end{prp}
 
 We use the notion of free algebras to define the universal property of $R$-algebras. 
 
-\begin{prp}{Universal Property}{} Let $A$ be an $R$-algebra. For every $f:X\to A$ a map of sets, there exists a unique homomorphism of algebras $\varphi:\F\langle X\rangle\to A$ such that $\varphi(x_i)=f(x_i)$ for each $x_i\in X$. 
+\begin{prp}{Universal Property}{} The free algebra $R\langle X\rangle$ over a ring $R$ satisfies the following universal property. If $A$ is an $R$-algebra, then for every $f:X\to A$ a map of sets, there exists a unique homomorphism of algebras $\varphi:R\langle X\rangle\to A$ such that $\varphi(x_i)=f(x_i)$ for each $x_i\in X$. In other words, the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & {R\langle X\rangle} \\
+	& A
+	\arrow["\iota", hook, from=1-1, to=1-2]
+	\arrow["f"', from=1-1, to=2-2]
+	\arrow["{\exists!varphi}", dashed, from=1-2, to=2-2]
+\end{tikzcd}}\\~\\
+where $\iota:X\to R\langle X\rangle$ is the inclusion. \tcbline
+\begin{proof}
+Consider the set of monomials over elements of $X$. They form a basis of $R\langle X\rangle$ as an $R$-module. For a monomial $x_{i_1}\cdots x_{i_m}$, define $$\varphi(x_{i_1}\cdots x_{i_m})=f(x_{i_1})\cdots f(x_{i_m})$$ and extend it by $R$-linearity. Then it is clear that $\varphi$ is a well defined algebra homomorphism that satisfies the theorem. Any other homomorphism as in the theorem must satisfy the above conditions thus $\varphi$ is unique. 
+\end{proof}
 \end{prp}
 
 \subsection{Amitsur-Schur Lemma}
@@ -399,9 +533,12 @@ Thus we can apply the usual calculations with fractions: $$0=\sum_{i=1}^k\beta_i
 \end{proof}
 \end{thm}
 
-The following statement is often referred to as Schur's lemma in representation theory. 
+The following statement is core to the entire theory of Groups and Representations. 
 
-\begin{crl}{}{} Let $A$ be a countable generated $\C$-algebra. Let $M$ is a simple left $A$-module. Then $\text{End}_A(M)=\C$. 
+\begin{crl}{}{} Let $A$ be a countable generated $\C$-algebra. Let $M$ is a simple left $A$-module. Then $\text{End}_A(M)=\C$. \tcbline
+\begin{proof}
+The dimension of $A$ is countable since $A$ is a quotient of $\C\langle X\rangle$ by proposition 3.3.3. Since $M$ is simple, it is isomorphic to $A/L$ for some left ideal $L$. Hence the dimension of $M$ over $\C$ is also countable. This implies that $\dim_\C(\text{End}_\C(M))$ is countable, and so is the dimension of its subalgebra $\text{End}_A(M)$. But $\C$ is uncountable. Thus every $f\in\text{End}_A(M)$ is algebraic by the Amitsur-Schur lemma. By the fundamental theorem of algebra, the $\C$ is algebraically closed so that the minimal polynomial of $f$, which is irreducible, has degree $1$. Thus the minimal polynomial has root $f\in\C$. 
+\end{proof}
 \end{crl}
 
 
@@ -533,7 +670,36 @@ Again here we are quotienting out symmetric objects so that we can treat them as
 \pagebreak
 
 \section{Division Rings}
+Division rings are very closed to being a field. They are just missing commutativity. As one can seen in Field and Galois theory, fields and field homomorphisms are rather rigid objects, so one can expect division rings to be restrictive. Indeed, in this section we will show that any finite division ring must be a field. Moreover, the only finite dimensional division algebra over $\R$ can only take $3$ forms, namely $\R$, $\C$ or $\H$. In particular, they have dimension $1$, $2$ and $4$ respectively. 
+
+\subsection{Properties of Division Rings}
+\begin{prp}{}{} Let $D$ be a division ring. The following are true regarding the properties of a division ring. 
+\begin{itemize}
+\item The only ideals of $D$ are $(0)$ and $D$. 
+\item If $D$ is an division algebra, then $D$ is a simple $D$-module. 
+\end{itemize} \tcbline
+\begin{proof}
+Let $I$ be a non-trivial ideal of $D$. Then by property of an ideal, for $x\in I\setminus\{0\}$, $x^{-1}x\in I$ so that $1\in I$. Then for any $d\in D$, $d\cdot 1\in I$ thus $D=I$. \\~\\
+
+Since the submodules of $D$ are precisely the ideals of $D$, we conclude that $D$ is a simple $D$-module. 
+\end{proof}
+\end{prp}
+
+\begin{lmm}{}{} Let $D$ be a division ring. Then the following are true. 
+\begin{itemize}
+\item $Z(D)$ is a field and $D$ is a $Z(D)$-algebra
+\item $C_D(x)$ is a division ring and a $Z(D)$-subalgebra
+\end{itemize} \tcbline
+\begin{proof}
+$Z(D)$ as a subdivision ring is also a division ring in its own right. Since $Z(D)$ consists of all commuting elements, $Z(D)$ is commutative and so is a field. Thus $D$ is a $Z(D)$-algebra by multiplication. \\~\\
+
+It is clear that $0,1\in C_D(x)$. Let $a,b\in C_D(x)$. Then $$(a-b)x=ax-bx=xa-xb=x(a-b)$$ so that $a-b\in C_D(x)$. Also $abx=axb=xab$ implies that $ab\in C_D(x)$. Finally, $ax=xa$ implies that $x=a^{-1}xa$ so that $xa^{-1}=a^{-1}x$ and that $a^{-1}\in D$. Thus $C_D(x)$ is a sub division ring. Since $C_R(x)$ contains $Z(R)$, $C_R(x)$ is thus a $Z(D)$-algebra. 
+\end{proof}
+\end{lmm}
+
 \subsection{The Structure of Quaternions}
+Recall in Group theory that we have encountered the quaternion group. We can turn it into a vector space over $\R$ by allowing coefficients on the quaternion group. 
+
 \begin{defn}{Quaternions}{} Define the quaternions as the quotient algebra $$\H=\frac{\R\langle x_1,x_2,x_3\rangle}{I}$$ where $I=(x_1^2+1,x_2^2+1,x_3^2+1,x_1x_2x_3+1)$. \\~\\
 Elements of $\H$ are of the form $a+b\vb{i}+c\vb{j}+d\vb{k}$ for $a,b,c,d\in\R$ and by writing $\vb{i}=x_1+I$, $\vb{j}=x_2+I$ and $\vb{k}=x_3+I$. \\~\\
 A quaternion is said to be real if $b=c=d=0$. It is said to be imaginary if $a=0$. Denote the set of all imaginary quaternions by $\H_0$. 
@@ -585,7 +751,10 @@ b_2 & c_2 & d_2
 \end{vmatrix}
 \end{align*}
 
-\begin{prp}{}{} Let $a_1+\vb{h}_1$ and $a_2,\vb{h}_2$ be quaternions such that $a_1,a_2\in\R$ and $\vb{h}_1,\vb{h}_2\in\H_0$. Then $$(a_1+\vb{h}_1)(a_2+\vb{h}_2)=(a_1a_2-\vb{h}_1\cdot\vb{h}_2)+(a_1\vb{h}_2+a_2\vb{h}_1+\vb{h}_1\times_c\vb{h}_2)$$
+\begin{prp}{}{} Let $a_1+\vb{h}_1$ and $a_2+\vb{h}_2$ be quaternions such that $a_1,a_2\in\R$ and $\vb{h}_1,\vb{h}_2\in\H_0$. Then $$(a_1+\vb{h}_1)(a_2+\vb{h}_2)=(a_1a_2-\vb{h}_1\cdot\vb{h}_2)+(a_1\vb{h}_2+a_2\vb{h}_1+\vb{h}_1\times_c\vb{h}_2)$$ \tcbline
+\begin{proof}
+By $\R$-bilinearity, we have that we have that $$(a_1+\vb{h}_1)(a_2+\vb{h}_2)=(a_1a_2+a_1\vb{h}_2+a_1\vb{h}_1+\vb{h}_1\vb{h}_2)$$ A simple calculation yields $\vb{h}_1\vb{h}_2=-\vb{h}_1\cdot\vb{h}_2+\vb{h}_1\times\vb{h}_2$ using multiplication rules of quaternions. Thus we are done. 
+\end{proof}
 \end{prp}
 
 \begin{defn}{Conjugate and Norm}{} Let $x=a+b\vb{i}+c\vb{j}+d\vb{k}\in\H$ be a quaternion. Define the conjugate of $x$ to be $$x^\ast=a-b\vb{i}-c\vb{j}-d\vb{k}$$ Also define the norm of $x$ to be $$\|x\|=\sqrt{a^2+b^2+c^2+d^2}$$
@@ -593,52 +762,118 @@ b_2 & c_2 & d_2
 
 \begin{prp}{}{} Let $x,y\in\H$ be quaternions. The following are true regarding the conjugate and norm of the quaternions: 
 \begin{itemize}
-\item $xx^\ast=\|x\|$
+\item $xx^\ast=\|x\|^2$
 \item $(xy)^\ast=y^\ast x^\ast$
 \item $\|xy\|=\|x\|\|y\|$
 \end{itemize} \tcbline
-\begin{proof}
-
+\begin{proof}~\\
+\begin{itemize}
+\item Write $x=a+b\vb{i}+c\vb{j}+d\vb{k}$. Then by considering the purely imaginary quaternions as a $3$ dimensional vector space, we have that 
+\begin{align*}
+xx^\ast&=\left(a^2-\begin{pmatrix}
+b\\c\\d\\\end{pmatrix}\cdot\begin{pmatrix}-b\\-c\\-d\\\end{pmatrix}\right)+\left(a\begin{pmatrix}b\\c\\d\\\end{pmatrix}-a\begin{pmatrix}b\\c\\d\\\end{pmatrix}-\begin{pmatrix}b\\c\\d\\\end{pmatrix}\times\begin{pmatrix}b\\c\\d\\\end{pmatrix}\right)\\
+&=a^2+b^2+c^2+d^2\\
+&=\|x\|^2
+\end{align*}
+\item Again write $x=a_1+\vb{h}_1$ and $y=a_2+\vb{h}_2$, then by a similar method, we have that 
+\begin{align*}
+y^\ast x^\ast&=(a_2a_1+\vb{h}_2\cdot\vb{h}_1)+(-a_1\vb{h}_2-a_2\vb{h}_1+\vb{h}_2\times\vb{h}_1)\\
+&=(a_2a_1+\vb{h}_2\cdot\vb{h}_1)-(a_1\vb{h}_2+a_2\vb{h}_1+\vb{h}_1\times\vb{h}_2)\\
+&=(xy)^\ast
+\end{align*}
+by using the fact that $-\vb{x}\times\vb{y}=\vb{y}\times\vb{x}$. 
+\item Using the above two identity, we have that 
+\begin{align*}
+\|xy\|^2&=(xy)(xy)^\ast\\
+&=xyy^\ast x^\ast\\
+&=x\|y\|^2 x^\ast\\
+&=xx^\ast\|y\|^2\\
+&=\|x\|^2\|y\|^2
+\end{align*}
+\end{itemize}
+And so we are done. 
 \end{proof}
 \end{prp}
 
 \begin{prp}{}{} $\H$ is a division ring. \tcbline
 \begin{proof}
-Let $x\in\H$. By the above proposition, we have that $x\frac{x^\ast}{\|x\|}=1$ which means we have found an inverse $\frac{x^\ast}{\|x\|}$ of $x$. 
+Let $x\in\H$. By the above proposition, we have that $x\frac{x^\ast}{\|x\|}=1$ which means we have found an inverse $\frac{x^\ast}{\|x\|}$ for $x$. 
 \end{proof}
 \end{prp}
 
-\subsection{The Multiplicative Group of Quaternions}
+Similar to the real and complex counter part, we can form all kinds of special groups for quaternions, beginning with the unitary group. 
+
 \begin{defn}{The Quaternionic Unitary Group}{} Define the quaternionic unitary group to be the subgroup $$U(\H)=\{x\in\H\;|\;\|x\|=1\}$$ of $\H^\times$. 
 \end{defn}
 
+Note that this is different from the quaternion group since the quaternion group only consists of the basis vectors and their inverses. 
+
 \begin{prp}{}{} The multiplicative group $\H^\times$ is isomorphic to $\R_+^\times\times U(\H)$, where $\R_+^\times$ is the multiplicative group of non-zero real numbers. \tcbline
 \begin{proof}
-
+Define $\phi:\R_+^\times\times U(\H)\to\H$ by $\phi(r,x)=rx$. It is clear that this is a group homomorphism. Moreover, its kernel is trivial since scalar multiplication is equal to $0$ if and only if $x=0$. Also it is surjective. Indeed any vector $x$ can be written as $\|x\|\frac{x}{\|x\|}$ where $\frac{x}{\|x\|}$ now lies in the unitary group. Thus $\phi$ is a bijective homomorphism.  
 \end{proof}
 \end{prp}
 
-\begin{prp}{Quaternionic Euler's Formula}{} Write a quaternion into the form $q=a+b\vb{x}\in\H$ where $a,b\in\R$ and $\vb{x}\in\H_0$ is purely imaginary such that $\|\vb{x}\|=1$. Then $$e^q=e^a(\cos(b)+\vb{x}\sin(b))$$
+By writing every quaternion group as a scalar multiplied by an element of the unitary group, we obtain a polar coordinate representation similar to that of the complex numbers in terms of the argument and magnitude. 
+
+\begin{prp}{Quaternionic Euler's Formula}{} Write a quaternion into the form $q=a+b\vb{x}\in\H$ where $a,b\in\R$ and $\vb{x}\in\H_0$ is purely imaginary such that $\|\vb{x}\|=1$. Then $$e^q=e^a(\cos(b)+\vb{x}\sin(b))$$ \tcbline
+\begin{proof}
+If $q=a+b\vb{x}$ then notice that $q$ lies in the two dimensional $\R$-subalgebra $\R(x)=\R+\R\vb{x}$. This is isomorphic to $\C$ so in particular, all partial sums $$\sum_{k=0}^n\frac{\vb{x}^n}{n!}$$ also lie in $\R(x)\cong\C$ and quaternionic Euler's formula follows from the usual Euler's formula. 
+\end{proof}
 \end{prp}
 
-\begin{prp}{Quaternionic De Moivre's Formula}{} Let $\vb{x}\in H_0$ be purely imaginary such that $\|\vb{x}\|=1$. Let $n\in\Z$. Then $$(\cos(b)+\vb{x}\sin(b))^n=\cos(nb)+\vb{x}\sin(nb)$$
+However, note that in general since quaternions do not commutate, $e^{X+Y}\neq e^Xe^Y$. This is true only if $X,Y\in\R(x)$. This is because then $XY=YX$ so that $e^{X+Y}=e^Xe^Y$. 
+
+\begin{prp}{Quaternionic De Moivre's Formula}{} Let $\vb{x}\in H_0$ be purely imaginary such that $\|\vb{x}\|=1$. Let $n\in\Z$. Then $$(\cos(b)+\vb{x}\sin(b))^n=\cos(nb)+\vb{x}\sin(nb)$$ \tcbline
+\begin{proof}
+We have that $$(\cos(b)+\vb{x}\sin(b))^n=e^{{b\vb{x}}^n}=e^{nb\vb{x}}=\cos(nb)+\vb{x}\sin(nb)$$ and so we are done. 
+\end{proof}
 \end{prp}
 
 \subsection{3D Rotations using Quaternions}
 Recall the special orthogonal group in $3$-dimensions is the group $$\text{SO}_3(\R)=\{M\in\text{GL}_3(\R)|\det(M)=1\}$$
 
-\begin{prp}{}{} Let $M\in\text{SO}_3(\R)$ be a special orthogonal transformation. Then there exists an orthonormal basis of $\R^3$ such that the matrix decomposes into the direct sum $(1)\oplus R_\alpha$, where $R_\alpha=\begin{pmatrix}
+\begin{prp}{}{} Let $M\in\text{SO}_3(\R)$ be a special orthogonal transformation. Then there exists an orthonormal basis of $\R^3$ such that the matrix decomposes into the direct sum $(1)\oplus R_\alpha$, where $$R_\alpha=\begin{pmatrix}
 \cos(\alpha) & -\sin(\alpha)\\
 \sin(\alpha) & \cos(\alpha)
-\end{pmatrix}$ is a rotation in $\R^2$. 
+\end{pmatrix}$$ is a rotation in $\R^2$. \tcbline
+\begin{proof}
+Since $M$ is a bijective linear transformation, $M$ has at least $1$ real eigenvector $\vb{v}$ with eigenvalue $\alpha\in\R$. Note that since $M$ is also in the special orthogonal group, $a=\pm1$. Let $W$ be the plane orthogonal to $\vb{v}$. Note that $M\vb{w}\in W$ for any $\vb{w}\in W$ because $M$ is bijective and that $$\vb{v}\cdot M\vb{w}=M(\alpha^{-1}\vb{v})\cdot(M\vb{w})=\alpha^{-1}\vb{v}\cdot\vb{w}=0$$ so that $M\vb{w}\in W$. Thus the linear transformation of $M$ restricted to $W$ is an orthogonal transformation. But orthogonal transformations in $\R^2$ is exactly given by $R_\alpha$ for some angle $\alpha$, or a reflection $S_\alpha$ along an angle. \\~\\
+
+If $\alpha=1$, we must have that $M$ restricted to the orthogonal plane is a rotation $R_\alpha$. Then we are done by choosing the ordered basis $\vb{v}$ and any orthonormal basis $e_2$ and $e_3$ of $W$. If $\alpha=-1$, then $M$ restricted to the orthogonal plane is a reflection $S_\alpha$. But $S_\alpha$ then has eigenvalues $1$ and $-1$. We can then return to the start of the proof and choose the eigenvector corresponding to the eigenvalue $1$. Thus then we will arrive at the case of $\alpha=1$. 
+\end{proof}
 \end{prp}
 
-Now we know that every special orthogonal transformation is just a rotation in the plane orthogonal to $e_1$. In generality, we write $R_{\vb{x}}^\alpha$ for the anti-clockwise rotation in angle $\alpha$ in the plane orthogonal to $\vb{x}\in\R^3$. We can use the quaternions to write out a formula for applying the special orthogonal transformation to a vector. 
+Now we know that every special orthogonal transformation is just a rotation in the plane orthogonal to $e_1$. In generality, we write $R_{\vb{x}}^\alpha$ for the anti-clockwise rotation in angle $\alpha$ in the plane orthogonal to $\vb{x}\in\R^3$. We can use the quaternions to write out a formula for applying the special orthogonal transformation to a vector. This is more compact than the usual notations. 
 
-\begin{lmm}{}{} Let $\vb{x}\in\H_0\cap U(\H)$ be an imaginary unit. Let $\theta\in\R$. Then $$R_{\vb{x}}^{2\theta}(\vb{w})=e^{\theta\vb{x}}\vb{w}e^{-\theta\vb{x}}$$ for all $\vb{w}\in\H_0$. 
+\begin{lmm}{}{} Let $\vb{x}\in\H_0$ be an imaginary unit. Let $\theta\in\R$. Then $$R_{\vb{x}}^{2\theta}(\vb{w})=e^{\theta\vb{x}}\vb{w}e^{-\theta\vb{x}}$$ for all $\vb{w}\in\H_0$. \tcbline
+\begin{proof}
+Choose $\vb{y}\in\H_0$ an orthogonal vector to $\vb{x}$ that is a unit vector. Let $\vb{z}=\vb{x}\times\vb{y}$. By proposition 5.1.5, we have that $\vb{x}^2+\vb{y}^2+\vb{z}^2=-1$ and \begin{gather*}
+\vb{x}\vb{y}=-\vb{y}\vb{x}=\vb{z}\\
+\vb{y}\vb{z}=-\vb{z}\vb{y}=\vb{x}\\
+\vb{z}\vb{x}=-\vb{x}\vb{z}=\vb{y}
+\end{gather*} so that $\vb{x}$, $\vb{y}$, $\vb{z}$ forms a basis for $\H_0$. 
+It suffices to check the equation on basis vectors since the rotation is a linear map. Notice that $e^{-\theta\vb{x}}=\cos(\theta)-\vb{x}\sin(\theta)$. Now we have that $$
+e^{\theta\vb{x}}\vb{x}e^{-\theta\vb{x}}=\vb{x}e^{\theta\vb{x}}e^{-\theta\vb{x}}=\vb{x}=R_{\vb{x}}^{2\theta}(\vb{x})$$ Now also, 
+\begin{align*}
+e^{\theta\vb{x}}\vb{y}e^{-\theta\vb{x}}&=(\cos(\theta)+\vb{x}\sin(\theta))\vb{y}(\cos(\theta)-\vb{x}\sin(\theta))\\
+&=(\vb{y}\cos(\theta)+\vb{z}\sin(\theta))(\cos(\theta)-\vb{x}\sin(\theta))\\
+&=((\cos(\theta))^2-(\sin(\theta))^2)\vb{y}+(2\cos(\theta)\sin(\theta))\vb{z}\\
+&=\vb{y}\cos(2\theta)+\vb{z}\sin(2\theta)\\
+&=R_{\vb{x}}^{2\theta}(\vb{y})
+\end{align*} Finally we have that 
+\begin{align*}
+e^{\theta\vb{x}}\vb{z}e^{-\theta\vb{x}}&=(\cos(\theta)+\vb{x}\sin(\theta))\vb{z}(\cos(\theta)-\vb{x}\sin(\theta))\\
+&=(\vb{z}\cos(\theta)-\vb{y}\sin(\theta))(\cos(\theta)-\vb{x}\sin(\theta))\\
+&=((\cos(\theta))^2-(\sin(\theta))^2)\vb{z}-(2\cos(\theta)\sin(\theta))\vb{y}\\
+&=\vb{z}\cos(2\theta)-\vb{y}\sin(2\theta)\\
+&=R_{\vb{x}}^{2\theta}(\vb{z})
+\end{align*}
+and so we conclude. 
+\end{proof}
 \end{lmm}
 
-This leads tot he fundamental fact behind the theory of spinors in Geometry and Physics. 
+This leads to the fundamental fact behind the theory of spinors in Geometry and Physics. 
 
 \begin{thm}{}{} The conjugation action map $$\phi:U(\H)\to\text{SO}(\H_0)\cong\text{SO}_3(\R)$$ defined by $\phi(x)(\vb{z})=x\vb{z}x^{-1}$ for $\vb{z}\in\H_0$ and $x\in U(\H)$ is a surjective two to one group homomorphism. 
 \end{thm}
@@ -656,42 +891,130 @@ Let $D$ be an $\R$-division algebra of odd dimension $n$. Then in particular, $\
 \end{proof}
 \end{prp}
 
-\begin{thm}{Frobenius Theorem}{} A finite dimensional division algebra over $\R$ is isomorphic to $\R$, $\C$ or $\H$. 
-\end{thm}
+In order to proof the grand result, we need the notion of the trace map from Linear Algebra. 
 
-\begin{thm}{}{} The only countably generated division algebra over $\R$ up to isomorphism is either $\R$, $\C$ or $\H$. 
-\end{thm}
+\begin{defn}{Trace Map}{} Let $D$ be a real division algebra of finite dimension over $\R$. Define the trace map $\text{Tr}_D:D\to\R$ by $$\text{Tr}_D(a)=\text{Tr}(L_a)$$ where $L_a:D\to D$ is the left multiplication map $L_a(d)=ad$. 
+\end{defn}
 
-\subsection{Finite Division Rings}
-\begin{lmm}{}{} Let $R$ be a division ring. Then $Z(R)$ is a field. Moreover, $R$ is a $Z(R)$-algebra. 
+\begin{lmm}{}{} Let $A$ be a finite dimensional algebra over a field $\F$. If $a\in A$ then the minimal polynomial of $L_a$ is equal to $\mu_a$. \tcbline
+\begin{proof}
+Notice that we have $L_a^n(b)=a^nb=L_{a^n}(b)$ so that $$f(L_a)(b)=f(a)b=L_{f(a)}(b)$$ for each polynomial $f(x)$ and $b\in A$. If $f(a)=0$, then $f(L_a)=0$. If $f(L_a)=0$, then $f(a)=f(a)\cdot 1=f(L_a)(1)=0$. Thus the minimal polynomial of $L_a$ and $a$ are the same. 
+\end{proof}
 \end{lmm}
 
+\begin{thm}{Frobenius Theorem}{} A finite dimensional division algebra over $\R$ is isomorphic to $\R$, $\C$ or $\H$. \tcbline
+\begin{proof}
+Let $D$ be a finite dimensional division algebra over $\R$. \\~\\
+
+Step 1: $D=\R\oplus\ker(\text{Tr}_D)$. \\
+The trace map is defined to be linear over the components of the matrix. Moreover, the second one follows from the fact that $L_a:D\to D$ is given by the matrix $aI_n$. Finally, it is clear that the kernel of the trace map is $n-1$ dimensional. Moreover it is surjective and that $\R\cap\ker(\text{Tr}_D)=0$. \\~\\
+
+Step 2: If $a\in\ker(\text{Tr}_D)$ then $a^2\in\R$ and $a^2\leq 0$. \\
+Now let $a\in D$ lie in the kernel. If $a\in\R$ then since $D$ is the direct sum of $\R$ and the kernel, we must have that $a=0$. So suppose that $a\notin\R$. Then since any irreducible polynomial in $\R[x]$ must either be linear or quadratic with discriminant less than $0$. Since $a\notin\R$, the minimal polynomial $\mu_a$ of $a$ must be quadratic: $$\mu_a(x)=x^2+\alpha x+\beta$$ where $\alpha^2-4\beta<0$. By the above corollary, $L_a$ also has $\mu_a$ as the minimal polynomial. The characteristic polynomial $c_{L_a}(x)$ of $L_a$ has the same roots as $\mu_a$. Since $\mu_a$ is irreducible, $c_{L_a}$ must be a power of $\mu_a$. It follows that $$c_{L_a}(x)=\mu_a(x)^{n/2}=(x^2+\alpha x+\beta)^{n/2}=x^n+\frac{n\alpha}{2}x^{n-1}+\dots+\beta^{n/2}$$ From Linear Algebra, we know that the trace appears as the first coefficient of the characteristic polynomial. By definition of $\ker(\text{Tr}_D)$, we have that $\text{Tr}_D(a)=0$. It follows that $\alpha=0$, $\beta>0$ and $\alpha^2+\beta=0$. Thus $\alpha^2=-\beta<0$. We then conclude that $a^2\leq 0$. \\~\\
+
+Write $D_0=\ker(\text{Tr}_D)$. We now have a function $q:D_0\to\R$ defined by $$q(a)=-a^2$$ This is a positive definite quadratic form. We can polarize it to obtain $\tau:D_0\times D_0\to\R$ defined by $$\tau(a,b)=-\frac{1}{2}(ab+ba)$$~\\
+
+Step 3: $(D_0,\tau)$ is a finite dimensional Euclidean space. \\
+It is clear that $\tau$ is symmetric since $\tau(a,b)=\tau(b,a)$. $\tau$ is bilinear since 
+\begin{align*}
+\tau(a+b,c)&=-\frac{1}{2}((a+b)c+c(a+b))\\
+&=-\frac{1}{2}(ac+ca)-\frac{1}{2}(bc+cb)\\
+&=\tau(a,c)+\tau(b,c)
+\end{align*} and the property that $\tau(\lambda a,b)=\lambda\tau(a,b)$ for $\lambda\in\R$ is clear. Thus $\tau$ is a bilinear form. It is positive definite by step 2 since $\tau(a,a)=-a^2>0$. \\~\\
+
+By Gram-schimdt, we obtain an orthonormal basis for $D_0$, namely $e_1,\dots,e_{n-1}$. \\~\\
+
+Step 4: $e_i^2=-1$ and $e_i\cdot e_j=-e_j\cdot e_i$ for all $1\leq i\neq j\leq n-1$. Also, $e_k=\pm(e_i\cdot e_j)^{-1}$ for $1\leq i<j<k\leq n-1$. \\
+As the basis is orthonormal, we have that $\tau(e_i,e_i)=1$ and $\tau(e_i,e_j)=0$ for all $i\neq j$. The results then follow from the definition of $\tau$. Also, let $u=e_ie_je_k$. We have that 
+\begin{align*}
+u^2&=(e_ie_j)e_ke_ie_je_k\\
+&=-e_j(e_ie_k)e_ie_je_k\\
+&=e_je_k(e_ie_i)e_je_k\\
+&=-(e_je_k)e_je_k\\
+&=e_je_je_ke_k\\
+&=1
+\end{align*}
+Thus $u^2=1$ implies $(u-1)(u+1)=0$. Since $D$ is a division algebra, $e_ie_je_k=u=\pm1$. Hence we conclude. 
+
+Step 5: Conclusion. \\
+By analzing the dimension $n$, we have the following: 
+\begin{itemize}
+\item If $n=1$, then we must have $D=\R$. 
+\item If $n=2$, then $e_1^2=1$ so that $D\cong\C$. 
+\item If $n=3$, then it is impossible by proposition 5.4.2. 
+\item If $n=4$, then $D=\R\oplus\R e_1\oplus\R e_2\oplus\R e_3$. Let $i=e_1$, $j=e_2$ and $k=e_1e_2$. Then by step 4, we have that $i^2=j^2=k^2=-1$ and $ijk=kk=-1$. Thus $D\cong\H$. 
+\item If $n=5$, then it is impossible by step 4. Indeed we have that $e_3\pm(e_1e_2)^{-1}$ and $e_4=\pm(e_1e_2)^{-1}$ so that $e_4=\pm e_3$. This contradicts the fact that $e_1,\dots,e_{n-1}$ is a basis. 
+\end{itemize}
+\end{proof}
+\end{thm}
+
+Together with Amitsur-Schur lemma, we can prove a stronger statement. 
+
+\begin{thm}{}{} The only countably generated division algebra over $\R$ up to isomorphism is either $\R$, $\C$ or $\H$. \tcbline
+\begin{proof}
+Let $D$ be a countable generated $\R$-division algebra. Then $D$ is a simple module and $\text{End}_D(D)\cong D$ by lemma 2.4.3. Moreover, by Amitsur-Schur lemma, every element $d\in D$ is algebraic. The algebra $\R(d)$ generated by $d$ is a finite dimensional field. If $d\notin\R$, then by Frobenius theorem, $\R(d)\cong\C$ and the minimal polynomial is quadratic. Write it as $\mu_d=x^2+\alpha_dx+\beta_d$. If $\R(d)=D$, then we are done. \\~\\
+
+If $\R\langle d\rangle\neq D$, pick $c\in D\setminus\R\langle d\rangle$. Then subalgebra $A=\R(c,d)$ generated by $d$ and $c$ is a division algebra because each element $r\notin R$ can be inverted from $r^2+\alpha_r+\beta_r=0$. Indeed we have that $(r+\alpha_r)r=-\beta_r$ so that $r^{-1}=-\beta_r^{-1}(r+\alpha_r)$. Note that $\beta_r\neq0$ since $\mu_r(x)$ is irreducible. \\~\\
+
+Now we have that $$(c+d)^2+\alpha_{c+d}(c+d)+\beta_{c+d}=c^2+cd+dc+d^2+\alpha_{c+d}(c+d)+\beta_{c+d}$$ This is the minimal polynomial of $c+d$, and so it is $0$. It follows that 
+\begin{align*}
+dc&=-c^2-cd-d^2-\alpha_{c+d}(c+d)-\beta_{c+d}\\
+&=\alpha_cc+\beta_c-cd+\alpha_dd+\beta_d-\alpha_{c+d}(c+d)-\beta_{c+d}
+\end{align*}
+Thus every element of $\R\langle c,d\rangle$ is an $\R$-linear combination of $1,c,d,cd$. By Frobenius theorem, we have that $\R\langle c,d\rangle\cong\H$. If $\R\langle c,d\rangle=D$ then we are done. \\~\\
+
+Suppose that $\R\langle c,d\rangle\neq D$. Pick $b\in D\setminus\R\langle c,d\rangle$. Consider the subalgebra $\R\langle b,c,d\rangle$ generated by $b,c,d$. By the same argument as above, $\R\langle b,c,d\rangle$ is a division algebra. By the argument with the minimal polynomials of $b,r$ and $b+r$ for some $r\in\R\langle c,d\rangle$, we can write every element as an $\R$-linear combination of $1,c,d,cd,b,cb,db$ and $cdb$. Thus $\R\langle b,c,d\rangle$ is a finite dimensional division algebra over $\R$ of dimension at least $5$. This contradicts Frobenius theorem. 
+\end{proof}
+\end{thm}
+
+However this is no longer true for division algebras over $\R$ of uncountable dimension. For example, the ring of Laurent series $\R((x))$, $\C((x))$ and $\H((x))$ are all examples of such. 
+
+\subsection{Finite Division Rings}
 \begin{crl}{}{} Let $D$ be a finite division ring. Then the following statements are true regrading $D$. 
 \begin{itemize}
 \item $Z(D)$ is a finite field $\F_{p^n}$ for some $n\in\N\setminus\{0\}$
 \item The dimension of $D$, $m=\dim_{Z(D)}D$ over $Z(D)$ is finite
 \item $\abs{D}={p^n}^m$
-\end{itemize}
+\end{itemize} \tcbline
+\begin{proof}
+We know that $Z(D)$ is a field. Since $D$ is finite, $Z(D)$ is finite. Every finite field is of the form $\F_{p^n}$ from Field and Galois theory. Since $D$ is a $Z(D)$-algebra and $D$ is finite, we must have $\dim_{Z(D)}D$ is finite. The final point also follows. 
+\end{proof}
 \end{crl}
 
-\begin{lmm}{}{} Let $R$ be a division ring and $x\in R$. Then $C_R(x)$ is a division ring and a $Z(R)$-subalgebra. 
-\end{lmm}
+\begin{prp}{}{} Let $D$ be a finite division ring and $\dim_{Z(D)}(D)=m$ for $Z(D)\cong\F_{p^n}$ for some prime $p$ and $n\in\N\setminus\{0\}$. Then there exists positive integers $d_1,\dots,d_k$ such that $d_i|m$, $d_i<m$ and $$q^m=q+\sum_{i=1}^k\frac{q^m-1}{q^{d_i}-1}$$ \tcbline
+\begin{proof}
+The group $D^\times$ acts on $D$ by conjugation. By the class equation, we have that $$q^m=\abs{D}=\abs{Z(R)}+\sum_{i=1}^k\abs{\text{Orb}_{D^\times}(x_i)}$$ for $Z(R),\text{Orb}_{D^\times}(x_1),\dots,\text{Orb}_{D^\times}(x_k)$ the distinct orbits of the action. \\~\\
 
-\begin{prp}{}{} Let $D$ be a finite division ring of dimension $m$ over its center $Z(D)=\F_q$, where $q=p^n$ for some prime $p$ and $n\in\N\setminus\{0\}$. Then there exists positive integers $d_1,\dots,d_k$ such that $d_i|m$, $d_i<m$ and $$q^m=q+\sum_{i=1}^k\frac{q^m-1}{q^{d_i}-1}$$
+If $D$ is a field, then $Z(D)=D$ and $m=1$. All orbits moreover have size $1$ since $D$ is commutative. Thus we have that $q=q$ for the identity. \\~\\
+
+Now suppose that $D$ is not a field. There exists orbits of size greater than $1$ since in general. $xyx^{-1}\neq y$. Thus $k\geq 1$. Let $\text{Orb}_{D^\times}(y_1),\dots,\text{Orb}_{D^\times}(y_k)$ be the distinct orbits of size at least $2$. Notice that 
+\begin{align*}
+\text{Stab}_{D^\times}(y_i)&=\{g\in D^\times\;|\;gy_ig^{-1}=y_i\}\\
+&=\{g\in D^\times\;|\;gy_i=y_ig\}\\
+&=C_D(y_i)\setminus\{0\}
+\end{align*}
+Since $C_D(y_i)$ is a division algebra, its dimension $d_i$ must be finite since $D$ is finite. It is also strictly less than $m$ since $C_D(y_i)$ is a $Z(R)$-subalgebra of $D$. The orbit stabilizer theorem together with the class equation gives 
+\begin{align*}
+q^m&=\abs{D}\\
+&=\abs{Z(R)}+\sum_{i=1}^k\abs{\text{Orb}_{D^\times}(x_i)}\\
+&=q+\sum_{i=1}^k\frac{\abs{D^\times}}{\abs{C_D(y_i)\setminus\{0\}}}\\
+&=q+\sum_{i=1}^k\frac{q^m-1}{q^{d_i}-1}
+\end{align*}
+and so we conclude. 
+\end{proof}
 \end{prp}
 
-\begin{thm}{Little Wedderburn's Theorem}{} A finite division ring is a field. 
+\begin{thm}{Little Wedderburn's Theorem}{} A finite division ring is a field. \tcbline
+\begin{proof}
+Firstly, the function $h(x)=\frac{x^m-1}{x^{d_i}-1}$ is a polynomial since $d_i$ divides $m$. Any factor $x-\zeta^k$ where $\zeta=e^{2\pi i/m}$ of the cyclotomic polynomial $\Psi_m(x)$ divides $x^m-1$ but not $x^{d_i}-1$ and hence it divides $h(x)$. Thus $\Psi_m(x)$ divides $h(x)$ and $\Psi_m(q)$ divides the right hand side of $$q-1=q^m-1-\sum_{i=1}^k\frac{q^m-1}{q^{d_i}-1}$$ Hence $\Psi_m(q)$ divides $q-1$. But this is a contradiction since $\abs{\Psi_m(q)}>q-1$. Indeed, we have that 
+\begin{align*}
+\abs{\Psi_m(q)}&=\prod_{t=1,\gcd(t,m)=1}^{m-1}\abs{q-\zeta^t}\\
+&>(q-1)^{\deg(\Psi_m(x))}\\
+&\geq q-1
+\end{align*}
+where the first inequality $\abs{q-\zeta^t}>q-1$ is clear since $\zeta^t\neq 1$ and on the complex plane, $q-1$ is the distinct from the real point $q$ to $1$ and $\abs{q-\zeta^t}$ is the distance from $q$ to $\zeta^t$ which is on the unit circle and thus is further away from $q$ than $1$. 
+\end{proof}
 \end{thm}
-
-\subsection{Laurent Series}
-\begin{defn}{Laurent Series}{} Let $R$ be a ring. A Laurent series in variable $x$ with coefficients in a ring $R$ is an expression of the form $$\sum_{n=m}^\infty a_nx^n$$ for $m\in\Z$ and $a_n\in R$. Denote the set of Laurent series in $x$ by $$R((x))$$
-\end{defn}
-
-\begin{lmm}{}{} Let $R$ be a ring. Then $R((x))$ is also a ring. If $R$ is a field, then $R((x))$ is also a field. 
-\end{lmm}
-
-\begin{lmm}{}{} The center of $\H((x))$ is precisely $\R((x))$. 
-\end{lmm}
 
 \pagebreak
 \section{Semisimplicity}
@@ -699,10 +1022,18 @@ Let $D$ be an $\R$-division algebra of odd dimension $n$. Then in particular, $\
 \begin{defn}{Semisimple Modules}{} A left $R$-module $M$ is semisimple if $M$ is a direct sum of simple modules. 
 \end{defn}
 
-\begin{defn}{Socle of a Module}{} Denote $\mathcal{SM}(M)=\{S\leq M|S\text{ is simple}\}$. A socle of a left $R$-module $M$ is a submodule $$\text{soc}(M)=\sum_{S\in\mathcal{SM}(M)}S$$
+\begin{defn}{Socle of a Module}{} Let $M$ be a left $R$-module. The socle of $M$ is defined by $$\text{soc}(M)=\sum_{\substack{S\text{ is a simple}\\\text{submodule}}}S$$
 \end{defn}
 
-\begin{lmm}{}{} A module $M$ is semisimple if and only if $\text{soc}(M)=M$. 
+\begin{lmm}{}{} A module $M$ is semisimple if and only if $\text{soc}(M)=M$. \tcbline
+\begin{proof}
+Suppose that $M$ is semisimple. Then $M$ is a direct sum of simple submodules so that $M=\text{soc}(M)$. Now suppose that $\text{soc}(M)=M$. Suppose that $M=\sum_{i\in I}S_i$ is the internal direct product of some submodules of $M$. Consider the poset $$\mP=\left\{X\subseteq I\;\bigg{|}\;\sum_{i\in X}S_i\text{ is a direct sum}\right\}$$ ordered by inclusion. In particular, recall from Rings and Modules that $X\in\mP$ if and only if $\phi:\bigoplus_{i\in X}S_i\to M$ defined by $\phi\left((m_i)_{i\in X}\right)=\sum_{i\in X}m_i$ is injective. The kernel of $\phi$ is given by 
+\begin{align*}
+\ker(\phi)&=\left\{(m_i)_{i\in X}\;|\;\sum_{i\in X}m_i=0\right\}\\
+&=\left\{(m_i)_{i\in X}\;\bigg{|}\;\text{ for all }i_1,\dots i_k\in X\text{ we have }m_{i_1}+\dots+m_{i_k}=0\right\}
+\end{align*}
+The kernel being trivial is equivalent to the condition that for all $i_1,\dots,i_k\in X$ and all $m_{i_t}\in S_{i_t}$, we have $m_{i_1}+\dots+m_{i_k}=0$ implies $m_{i_1}=\dots=m_{i_k}=0$. Let $\mC$ be a chain in $\mP$. It is clear that $T=\bigcup_{Z\in\mC}Z$ is an upper bound of $\mC$. Indeed if the above condition fails, then it fails on some finitely many elements $x_i$ which are contained in $X\subseteq Z\subseteq T$. By Zorn's lemma, $\mP$ has a maximal element $J$. We know that $N=\sum_{i\in J}S_i$ is a direct sum. It remains to show that $N=M$. If this is false, then there exists $S_k$ not a subset of $N$. In particular, $k\neq J$. Consider the set $J\cup\{k\}$. In particular the above condition fails and such a failure must contain a non-zero element $x_k\in S_k$ since the condition holds before $k$ was introduced to $J$. Then $x_k=-\sum_{j\neq k}x_j\in N$ and $N\cap S_k$ is non-zero. Since $S_k$ is simple, $N\cap S_k=S_k$ and thus $N\supseteq S_k$, which is a contradiction. 
+\end{proof}
 \end{lmm}
 
 \begin{crl}{}{} A quotient module of a semisimple module is semisimple. \tcbline
@@ -711,106 +1042,13 @@ Suppose that $M$ is semisimple. Then $M=\bigoplus_{i\in I}S_i$ where $S_i$ are s
 \end{proof}
 \end{crl}
 
-\subsection{Peirce Decomposition for Modules}
-\begin{defn}{Idempotents}{} Let $R$ be a ring. We say that $e\in R$ is idempotent if $e^2=e$. 
-\end{defn}
+Recall the radical 
 
-\begin{defn}{Orthogonal Idempotents}{} Let $R$ be a ring. We say that two idempotent elements $e,f\in R$ is orthogonal if $ef=fe=0$. 
-\end{defn}
-
-\begin{defn}{Full System of Orthogonal Idempotents}{} Let $R$ be a ring. A full system of orthogonal idempotents is a finite collection of non-zero pairwise orthogonal idempotent elements $e_1,\dots,e_n\in R$ such that $e_1+\dots+e_n=1$. 
-\end{defn}
-
-\begin{prp}{}{} Let $M$ be an $R$-module. Then there is a bijection between the set of all finite direct sum decompositions $M=\bigoplus_{i=1}^n M_i$ with all $M_i\neq 0$ and the set of all full orthogonal system of idempotents in $\text{End}_R(M)$. \tcbline
+\begin{lmm}{}{} Let $M$ be an $R$-module. If $M$ is semisimple, then $\text{rad}(M)=0$. \tcbline
 \begin{proof}
-A decomposition $M=\bigoplus_{i=1}^nM_i$ gives a system of idempotents through its component maps $e_k:M\to M$ defined by $(x_1,\dots,x_n)\mapsto(0,\dots,0,x_i,0,\dots,0)$. This map is an endomorphism since it is the composition of the projection with to $M_k$ with the inclusion to $M$. It is clear that they form a full system of orthogonal idempotents for $\text{End}_R(M)$. \\~\\
-
-Now suppose that we have a full orthogonal system of idempotents $e_1,\dots,e_n$ in $\text{End}_R(M)$. Define $M_k=Me_k=\im(e_k)$ for $1\leq k\leq n$. $\phi:\bigoplus_{i=1}^nM_i\to M$ defined by $(m_1,\dots,m_n)\mapsto\sum_{i=1}^nm_i$ is surjective because each $m\in M$ can be written as 
-\begin{align*}
-\text{id}_{\text{End}_R(M)}(m)&=(e_1+\dots+e_n)(m)\\
-&=e_1(m)+\dots+e_n(m)\\
-&=\phi(e_1(m),\dots,e_n(m))
-\end{align*}
-It is injective because if $\phi(x)=0$ for $x=(e_1(m_1),\dots,e_n(m_n))$ implies that 
-\begin{align*}
-0&=e_k(\phi(x))\\
-&=e_k(e_1(m_1)+\dots+e_n(m_n))\\
-&=\sum_{i=1}^ne_k(e_i(m_i))\\
-&=e_k(m_k)
-\end{align*}
-This implies that $m_k=0$ for $1\leq k\leq n$ and so $x=0$. \\~\\
-
-It is clear that these constructions are inverse functions between the stated sets. 
+Suppose that $M$ is semisimple. Then $M=\bigoplus_{i\in I}S_i$ for $S_i$ simple submodules of $M$. Define $$M_i=\bigoplus_{j\in I\setminus\{i\}}S_j$$ for each $i\in I$.  Since $M/M_i\cong S_i$, we have that $M_i$ is cosimple. Then $$\text{rad}(M)=\bigcap_{\substack{N\leq M\\N\text{ is cosimple }}}N\subseteq\cap_{i\in I}M_i=0$$ Thus $\text{rad}(M)=0$. 
 \end{proof}
-\end{prp}
-
-Note that in particular, we can also take $M$ to just be $R$ to get a decomposition on idempotents by ideals of $R$. This means that for $\{e_1,\dots,e_n\}$ a full orthogonal system of idempotents, we have a decomposition $$R=Re_1\oplus\cdots\oplus Re_n$$
-
-\begin{prp}{}{} Let $e,f,g\in R$ be idempotents of a ring. Then the map $\psi:eRf\to\Hom_R(Re,Rf)$ defined by $$\psi(erf):Re\to Rf$$ to be the map $se\mapsto serf$ is an isomorphism of abelian groups such that $\psi(erf)\psi(fsg)=\psi(erfsg)$. In particular, if $e=f$, then $\psi$ is a ring isomorphism. 
-\end{prp}
-
-\begin{thm}{Peirce Decompositions}{} A full system of orthogonal idempotents in $R$ gives a direct sum decomposition of $R$ and $M$ into $\Z$-modules that can be written in matrix forms $$R=\bigoplus_{i,j=1}^n e_iRe_j=\begin{pmatrix}
-e_1Re_1 & \cdots & e_1Re_n\\
-\vdots & \ddots & \vdots\\
-e_nRe_1 & \cdots & e_nRe_n
-\end{pmatrix}$$ and $$M=\bigoplus_{i=1}^ne_iM=\begin{pmatrix}
-e_1M\\
-\vdots\\
-e_nM
-\end{pmatrix}$$ that satisfies the following: 
-\begin{itemize}
-\item If $R$ is an $\F$-algebra, all $e_iRe_j$ and $e_iM$ are $\F$-vector subspaces
-\item The multiplication in $R$ defines the structure of a ring on each $e_iRe_j$. This ring is non-zero. 
-\item The $R$-module action on $M$ defines a structure of $e_iRe_i$-module on $e_iM$
-\item In the matrix interpretation, the multiplication in $R$ and the $R$ action on $M$ satisfies the standard matrix rules
-\end{itemize} \tcbline
-\begin{proof}
-
-\end{proof}
-\end{thm}
-
-\subsection{Artin-Wedderburn Theorem}
-\begin{thm}{Artin-Wedderburn Theorem}{} Let $R$ be a ring. Then the following are equivalent characterizations of semisimplicity. 
-\begin{itemize}
-\item Every left $R$-module is semisimple
-\item The ring $R$ as a left $R$-module is semisimple
-\item There exists $n_1,\dots,n_k\in\N$ and division rings $D_1,\dots,D_k$ such that $R$ is isomorphic to the direct product $\prod_{i=1}^kM_{n_i}(D_i)$
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item $(1)\implies(2)$ is obvious because $R$ is also a left $R$-module. 
-\item $(2)\implies(1)$: Let $M$ be an $R$-module. Choose a generating set $B$ of $M$. Then $M$ is a quotient of the free module $\bigoplus_{b\in B}Rb$. Since $R$ is semisimple, $RB$ is also semisimple. By corollary 6.1.4, $M$ is also a semisimple module. 
-\item $(2)\implies(3)$: Write the $R$-module $R$ as a direct sum of simple modules $R=\bigoplus_{i\in I}S_i$. Note that the set $I$ is finite because $1=\sum_{i\in I}s_i$  for $s_i\in S_i$ and so we can remove the $0$ in the sum to get $1=s_1,\dots,s_m$. Then each element $r\in R$ can be written as $r=rs_1+\dots+rs_m$. Hence $R=\bigoplus_{i=1}^mS_i$. \\~\\
-
-Let $L_1,\dots,L_k$ be distinct simple modules among the $S_i$. By Schur's lemma, $D_i=\text{End}_RL_i$ is a division ring. Reorder the summands so that we can group them as following: $$R=\underbrace{S_1\oplus\cdots\oplus S_{n_1}}_{\text{each }S_i\cong L_1}\oplus\cdots\oplus\underbrace{S_{n_1+\dots+n_{k-1}+1}\oplus\cdots\oplus S_m}_{\text{each }S_i\cong L_k}$$ Replace each $S_i$ with the corresponding $L_j$ together with lemma 2.4.3 to get $$R\cong\text{End}_R\cong\text{End}_R\left(\underbrace{L_1\oplus\cdots\oplus L_1}_{n_1}\oplus\cdots\oplus\underbrace{L_{i_k}\oplus\cdots\oplus L_k}_{n_k}\right)=\text{End}_R\left(\bigoplus_{j=1}^kL_j^{n_j}\right)$$ Now let $e_1,\dots,e_m$ be the full system of orthogonal idempotents corresponding to the above decomposition by proposition 6.2.4. Consider $e_j$ in the $j$th group and $e_s$ in the $t$th group. By proposition 6.2.5, we have $$e_jRe_s\cong\Hom_R(L_j,L_t)=\begin{cases}
-0 & \text{ if } j\neq t\\
-D_j & \text{ if }j=t
-\end{cases}$$ Then by the Peirce decomposition, $$R=\begin{pmatrix}
-D_1 & \cdots & D_1 & 0 & \cdots & 0 & \cdots\\
-\vdots & & \vdots & \vdots & & \vdots & \\
-D_1 & \cdots & D_1 & 0 & \cdots & 0 & \cdots\\
-0 & \cdots & 0 & D_2 & \cdots & D_2 & \cdots\\
-\vdots & & \vdots & \vdots & & \vdots & \\
-0 & \cdots & 0 & D_2 & \cdots & D_2 & \cdots\\
-\vdots & & \vdots & \vdots & & \vdots & 
-\end{pmatrix}=M_{n_1}(D_1)\times M_{n_2}(D_2)\times\cdots\times M_{n_k}(D_k)$$
-\item $(3)\implies(2)$: Let $R=\prod_{i=1}^kM_{n_i}(D_i)$. Then elementary matrix $E_{i,i}^t\in M_{n_t}(D_t)$ form a full system of orthogonal idempotents. Then the $R$-module $RE_{i,i}^t$ is simple because it is isomorphic to the column module $D_t^{n_t}$. Thus $R=\bigoplus_{i,t}RE_{i,i}^t$ is a direct sum of semisimple modules. 
-\end{itemize}
-\end{proof}
-\end{thm}
-
-Similarly, there is a decomposition for right semisimple rings. 
-
-\begin{crl}{}{} A ring is left semisimple if and only if it is right semisimple. 
-\end{crl}
-
-\begin{prp}{}{} The following are true regarding semisimple algebras over fields. 
-\begin{itemize}
-\item A semisimple $\C$-algebra of finite or countable dimension is isomorphic to $$\prod_{i=1}^kM_{k_i}(\C)$$
-\item A semisimple $\R$-algebra of finite or countable dimension is isomorphic to $$\prod_{i=1}^kM_{k_i}(\R)\times\prod_{i=1}^nM_{n_i}(\C)\times\prod_{i=1}^tM_{t_i}(\H)$$
-\item A finite dimensional semisimple $\F_q$ algebra is isomorphic to $$\prod_{i=1}^k M_{k_i}(\F_q^{t(i)})$$
-\end{itemize}
-\end{prp}
+\end{lmm}
 
 \subsection{Maschke's Theorem}
 For Maschke's theorem, we would need an equivalent definition of semisimplicity of modules. 
@@ -852,27 +1090,257 @@ If $M$ is semisimple, then $M$ is completely reducible. Submodule of completely 
 \end{proof}
 \end{crl}
 
-\begin{thm}{Maschke's Theorem}{} Let $G$ be a group, $\F$ a field of characteristic $p$. Then the group algebra $\F G$ is semisimple if and only if $G$ is of finite order $n$ with $p$ not dividing $n$. 
+Using the notion of completely reducible, we can prove that the decomposition of a semisimple module into simple modules is essentially unique. 
+
+\begin{prp}{}{} Let $M$ be a semisimple left $R$-module with two decompositions $$M=\bigoplus_{i=1}^nS_i\;\;\;\;\text{ and }\;\;\;\; M=\bigoplus_{j=1}^mT_j$$ into simple modules. Then $n=m$ and the simple modules $S_i$ and $T_j$ are isomorphic up to reordering. \tcbline
+\begin{proof}
+We proceed by induction on $n$. If $n=1$, then, $M$ is simple and we are done. \\~\\
+
+Suppose that it is true for $n-1$. Let $K=\bigoplus_{i=1}^{n-1}S_i$. Consider the quotient homomorphism $\psi:M\to M/K$. Clearly we have that $$\frac{M}{K}=\psi(M)=\psi\left(\sum_{j=1}^mT_j\right)=\sum_{j=1}^m\psi(T_j)$$ Then each $\psi(T_j)$ is either $0$ or simple and isomorphic to $T_j$ so that we can reduce the indexing set so that we exclude the $j\in J$ for which $\psi(T_j)=0$. Now we have that $M=K\oplus\left(\bigoplus_{j\in J}T_j\right)$. By proposition 2.2.2, we have that $S_n$ and $\left(\bigoplus_{j\in J}T_j\right)$ are isomorphic. Thus $\bigoplus_{j\in J}T_j$ is actually just a single element. Without loss of generality, take $J=\{m\}$. Both $\bigoplus_{i=1}^{n-1}S_i$ and $\bigoplus_{j=1}^{m-1}T_j$ are direct complements of $T_m$. They are isomorphic by proposition 2.2.2. By the induction hypothesis, we conclude. 
+\end{proof}
+\end{prp}
+
+\begin{thm}{Maschke's Theorem}{} Let $G$ be a group, $\F$ a field of characteristic $p$. Then the group algebra $\F G$ is semisimple if and only if $G$ is of finite order $n$ with $p$ not dividing $n$. \tcbline
+\begin{proof}
+Suppose that $\F G$ is semisimple. Consider $\F$ as the trivial $\F G$-module defined by $g\cdot x=x$ for all $x\in\F$ and $g\in G$ and extend it by linearity. Then there is a homomorphism of $\F G$-modules $\psi:\F G\to\F$ defined by $$\psi\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in G}\lambda_g$$ Since $\F G$ is semisimple, $\ker(\psi)$ has a direct complement $L$. By proposition 2.2.2, and the first isomorphism theorem for modules, we have that $L\cong\F$. Since $L\cong\F$, $hx=x$ for all $h\in G$. Thus $$\sum_{g\in G}\lambda_g(hg)=\sum_{g\in G}\lambda_gg$$ for all $h\in G$. Thus all $\lambda_g$ are equal. Hence $L=\cong\F z$ where $z=\sum_{g\in G}g$. If $G$ is infinite then $z$ is not well defined. Finally, if $n=\abs{G}$ is finite and $p\;|\;n$, then $\psi(z)=n=0_\F$ and $\psi:L\to\F$ is not surjective, contradicting proposition 2.2.2. Thus $p$ does not divide $n$. \\~\\
+
+Now suppose the contrary. Since $p$ does not divide $n$, we can choose $\lambda\in\F$ such that $n\lambda=1_\F$. Let $N$ be an $\F G$-submodule of an $\F G$-module $M$. Then $N$ is a vector subspace of $M$ and so we can choose a vector space complement $L$ such that $M=N\oplus L$ in the sense of Linear Algebra. This gives a projection map $p:M\to M$ such that $\ker(p)=L$, $\im(p)=N$ and $p^2=p$ and is linear. Define $q:M\to M$ a linear map by $$q(x)=\lambda\sum_{g\in G}g\cdot p(g^{-1}(x))$$ By definition, $N\supseteq\im(q)$. Moreover, for each $x\in N$, we have that $g^{-1}x\in N$ so that $$q(x)=\lambda_{g\in G}g\cdot(g^{-1}x)=\lambda\sum_{g\in G}x=\lambda nx=x$$ Thus $q$ is another idempotent $N=\im(q)$. Moreover, $q\in\text{End}_{\F G}(M)$ since for $x\in M$ and $h\in G$, we have that 
+\begin{align*}
+q(hx)&=\lambda\sum_{g\in G}g\cdot(g^{-1}hx)\\
+&=\lambda\sum_{g,k\in G,gk=h}g\cdot(kx)\\
+&=\lambda\sum_{g\in G}hg\cdot(g^{-1}kx)\\
+&=hq(x)
+\end{align*}
+so that $\ker(q)$ is a direct complement and so we conclude. 
+\end{proof}
 \end{thm}
 
-\subsection{Radical}
+\subsection{Peirce Decomposition for Modules}
+\begin{defn}{Idempotents}{} Let $R$ be a ring. We say that $e\in R$ is idempotent if $e^2=e$. 
+\end{defn}
+
+\begin{defn}{Full System of Orthogonal Idempotents}{} Let $R$ be a ring. Two idempotents $e,f$ are orthogonal if $ef=fe=0$. A full system of orthogonal idempotents is a finite collection of non-zero pairwise orthogonal idempotent elements $e_1,\dots,e_n\in R$ such that $e_1+\dots+e_n=1$. 
+\end{defn}
+
+Such a system always exists and may not be unique up even just up to the size $n\in\N$. Indeed one such trivial system is to take the identity $1$. 
+
+\begin{prp}{}{} Let $M$ be an $R$-module. Then there is a bijection $$\left\{\substack{\text{Finite direct sum}\\\text{decompositions }M=\bigoplus_{i=1}^n M_i}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\substack{\text{Full orthogonal system}\\\text{of idempotentes in }\text{End}_R(M)}\right\}$$ between the set of all finite direct sum decompositions $M=\bigoplus_{i=1}^n M_i$ with all $M_i\neq 0$ and the set of all full orthogonal system of idempotents in $\text{End}_R(M)$. \tcbline
+\begin{proof}
+A decomposition $M=\bigoplus_{i=1}^nM_i$ gives a system of idempotents through its component maps $e_k:M\to M$ defined by $(x_1,\dots,x_n)\mapsto(0,\dots,0,x_i,0,\dots,0)$. This map is an endomorphism since it is the composition of the projection with to $M_k$ with the inclusion to $M$. It is clear that they form a full system of orthogonal idempotents for $\text{End}_R(M)$. \\~\\
+
+Now suppose that we have a full orthogonal system of idempotents $e_1,\dots,e_n$ in $\text{End}_R(M)$. Define $M_k=Me_k=\im(e_k)$ for $1\leq k\leq n$. $\phi:\bigoplus_{i=1}^nM_i\to M$ defined by $(m_1,\dots,m_n)\mapsto\sum_{i=1}^nm_i$ is surjective because each $m\in M$ can be written as 
+\begin{align*}
+\text{id}_{\text{End}_R(M)}(m)&=(e_1+\dots+e_n)(m)\\
+&=e_1(m)+\dots+e_n(m)\\
+&=\phi(e_1(m),\dots,e_n(m))
+\end{align*}
+It is injective because if $\phi(x)=0$ for $x=(e_1(m_1),\dots,e_n(m_n))$ implies that 
+\begin{align*}
+0&=e_k(\phi(x))\\
+&=e_k(e_1(m_1)+\dots+e_n(m_n))\\
+&=\sum_{i=1}^ne_k(e_i(m_i))\\
+&=e_k(m_k)
+\end{align*}
+This implies that $m_k=0$ for $1\leq k\leq n$ and so $x=0$. \\~\\
+
+It is clear that these constructions are inverse functions between the stated sets. 
+\end{proof}
+\end{prp}
+
+Note that in particular, we can also take $M$ to just be $R$ to get a decomposition on idempotents by ideals of $R$. This means that for $\{e_1,\dots,e_n\}$ a full orthogonal system of idempotents, we have a decomposition $$R=Re_1\oplus\cdots\oplus Re_n$$
+
+\begin{defn}{Peirce Decompositions}{} Let $M$ be an $R$-module. A finite direct sum decomposition $$M=\bigoplus_{i=1}^nM_i$$ arising from a full orthogonal system of idempotents are called Peirce decompositions. 
+\end{defn}
+
+For two idempotents $e$ and $f$, $eRf$ loses the structure of a ring and is just an abelian group. We give a useful interpretation of $eRf$ as follows. 
+
+\begin{prp}{}{} Let $e,f,g\in R$ be idempotents of a ring. Then the map $\psi:eRf\to\Hom_R(Re,Rf)$ defined by $$\psi(erf):Re\to Rf$$ to be the map $se\mapsto serf$ is an isomorphism of abelian groups such that $\psi(erf)\psi(fsg)=\psi(erfsg)$. In particular, if $e=f$, then $\psi$ is a ring isomorphism. 
+\end{prp}
+
+By collecting all the abelian groups $eRf$ in a matrix, we can recover the ring $R$ itself. 
+
+\begin{thm}{Two-Sided Peirce Decompositions}{} Let $R$ be a ring and $M$ an $R$-module. A full orthogonal system of idempotents in $R$ gives a direct sum decomposition of $R$ and $M$ into $\Z$-modules that can be written in matrix forms $$R=\bigoplus_{i,j=1}^n e_iRe_j=\begin{pmatrix}
+e_1Re_1 & \cdots & e_1Re_n\\
+\vdots & \ddots & \vdots\\
+e_nRe_1 & \cdots & e_nRe_n
+\end{pmatrix}\;\;\;\;\text{ and }\;\;\;\;M=\bigoplus_{i=1}^ne_iM=\begin{pmatrix}
+e_1M\\
+\vdots\\
+e_nM
+\end{pmatrix}$$ that satisfies the following: 
+\begin{itemize}
+\item If $R$ is an $\F$-algebra for $\F$ a field, then all $e_iRe_j$ and $e_iM$ are $\F$-vector subspaces
+\item The multiplication in $R$ defines the structure of a ring on each $e_iRe_j$. This ring is non-zero. 
+\item The $R$-module action on $M$ defines a structure of $e_iRe_i$-module on $e_iM$
+\item In the matrix interpretation, the multiplication in $R$ and the $R$ action on $M$ satisfies the standard matrix rules
+\end{itemize} \tcbline
+\begin{proof}
+Let $e_1,\dots,e_n$ be the given full orthogonal system of idempotents of the ring $R$.  Then by proposition 2.2.4 we obtain a finite direct sum decomposition $$R=\bigoplus_{i=1}^ne_iR\;\;\;\;\text{ and }\;\;\;\;M=\bigoplus_{i=1}^ne_iM$$ Each $e_iR$ is an $R$-module since they are left ideals. Thus we can apply proposition 2.2.4 to obtain $e_iR=\bigoplus_{i=1}^ne_iRe_j$ so that we obtain the required decompositions for $R$ and $M$. \\~\\
+
+Let $\lambda\in\F$ and $x\in e_iRe_j$. Then $x=e_iye_j$ for some $y\in R$. Then $$\lambda x=\lambda e_iye_j=e_i(y\lambda)e_j\in e_iRe_j$$ since $R$ is an $\F$-algebra. Since $e_iRe_j$ is an abelian subgroup, it follows that $e_iRe_j$ is an $\F$-vector subspace. The proof for $e_iM$ is similar. \\~\\
+
+Multiplication in $R$ is given by $(e_ixe_i)\cdot(e_iye_i)=e_ixye_i$ so that multiplication is closed. Moreover, $1_{e_iRe_i}=e_i$ is not equal to $0$ so that the ring is non-zero. \\~\\
+
+Similarly, $(e_ixe_i)\cdot(e_im)=e_ixm\in e_iM$ so that $e_iM$ is closed under the ring action. Thus $e_iM$ becomes an $e_iRe_i$-module. \\~\\
+
+It is easy to check that multiplication defined in the matrix way makes sense. 
+\end{proof}
+\end{thm}
+
+Note component wise multiplication only defines a group isomorphism between $R=\bigoplus_{i,j=1}^ne_iRe_j$ To obtain a ring isomorphism, one needs to consider multiplication as matrices. 
+
+\subsection{Artin-Wedderburn Theorem}
+\begin{thm}{Artin-Wedderburn Theorem}{} Let $R$ be a ring. Then the following are equivalent characterizations of semisimplicity. 
+\begin{itemize}
+\item Every left $R$-module is semisimple
+\item The ring $R$ as a left $R$-module is semisimple
+\item There exists $n_1,\dots,n_k\in\N$ and division rings $D_1,\dots,D_k$ such that $R$ is isomorphic to the direct product $\prod_{i=1}^kM_{n_i}(D_i)$ Moreover, the decomposition in to matrix rings are unique up to reordering. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $(1)\implies(2)$ is obvious because $R$ is also a left $R$-module. 
+\item $(2)\implies(1)$: Let $M$ be an $R$-module. Choose a generating set $B$ of $M$. Then $M$ is a quotient of the free module $\bigoplus_{b\in B}Rb$. Since $R$ is semisimple, $RB$ is also semisimple. By corollary 6.1.4, $M$ is also a semisimple module. 
+\item $(2)\implies(3)$: Write the $R$-module $R$ as a direct sum of simple modules $R=\bigoplus_{i\in I}S_i$. Note that the set $I$ is finite because $1=\sum_{i\in I}s_i$  for $s_i\in S_i$ and so we can remove the $0$ in the sum to get $1=s_1,\dots,s_m$. Then each element $r\in R$ can be written as $r=rs_1+\dots+rs_m$. Hence $R=\bigoplus_{i=1}^mS_i$. \\~\\
+
+Let $L_1,\dots,L_k$ be distinct simple modules among the $S_i$. By Schur's lemma, $D_i=\text{End}_RL_i$ is a division ring. Reorder the summands so that we can group them as following: $$R=\underbrace{S_1\oplus\cdots\oplus S_{n_1}}_{\text{each }S_i\cong L_1}\oplus\cdots\oplus\underbrace{S_{n_1+\dots+n_{k-1}+1}\oplus\cdots\oplus S_m}_{\text{each }S_i\cong L_k}$$ Replace each $S_i$ with the corresponding $L_j$ together with lemma 2.4.3 to get $$R\cong\text{End}_R\cong\text{End}_R\left(\underbrace{L_1\oplus\cdots\oplus L_1}_{n_1}\oplus\cdots\oplus\underbrace{L_{i_k}\oplus\cdots\oplus L_k}_{n_k}\right)=\text{End}_R\left(\bigoplus_{j=1}^kL_j^{n_j}\right)$$ Now let $e_1,\dots,e_m$ be the full system of orthogonal idempotents corresponding to the above decomposition by proposition 6.2.4. Consider $e_j$ in the $j$th group and $e_s$ in the $t$th group. By proposition 6.2.5, we have $$e_jRe_s\cong\Hom_R(L_j,L_t)=\begin{cases}
+0 & \text{ if } j\neq t\\
+D_j & \text{ if }j=t
+\end{cases}$$ Then by the Peirce decomposition, $$R=\begin{pmatrix}
+D_1 & \cdots & D_1 & 0 & \cdots & 0 & \cdots\\
+\vdots & & \vdots & \vdots & & \vdots & \\
+D_1 & \cdots & D_1 & 0 & \cdots & 0 & \cdots\\
+0 & \cdots & 0 & D_2 & \cdots & D_2 & \cdots\\
+\vdots & & \vdots & \vdots & & \vdots & \\
+0 & \cdots & 0 & D_2 & \cdots & D_2 & \cdots\\
+\vdots & & \vdots & \vdots & & \vdots & 
+\end{pmatrix}=M_{n_1}(D_1)\times M_{n_2}(D_2)\times\cdots\times M_{n_k}(D_k)$$
+\item $(3)\implies(2)$: Let $R=\prod_{i=1}^kM_{n_i}(D_i)$. Then elementary matrix $E_{i,i}^t\in M_{n_t}(D_t)$ form a full system of orthogonal idempotents. Then the $R$-module $RE_{i,i}^t$ is simple because it is isomorphic to the column module $D_t^{n_t}$. Thus $R=\bigoplus_{i,t}RE_{i,i}^t$ is a direct sum of semisimple modules. By uniqueness of decomposition of semisimple module into direct sum of simple modules, we conclude. 
+\end{itemize}
+\end{proof}
+\end{thm}
+
+Similarly, there is a decomposition for right semisimple rings. 
+
+\begin{crl}{}{} A ring is left semisimple if and only if it is right semisimple. \tcbline
+\begin{proof}
+$R$ is a right $R$-module if and only if it is a left $R^{\text{op}}$-module. Moreover $M_n(D^\text{op})\cong M_n(D^\text{op})$ so that we conclude by Artin-Wedderburn theorem. 
+\end{proof}
+\end{crl}
+
+It thus makes sense to just say that a ring is semisimple instead of distinguishing left and right. 
+
+\begin{prp}{}{} The following are true regarding semisimple algebras over fields. 
+\begin{itemize}
+\item A semisimple $\C$-algebra of countable dimension is isomorphic to $$\prod_{i=1}^kM_{k_i}(\C)$$
+\item A semisimple $\R$-algebra of countable dimension is isomorphic to $$\prod_{i=1}^kM_{k_i}(\R)\times\prod_{i=1}^nM_{n_i}(\C)\times\prod_{i=1}^tM_{t_i}(\H)$$
+\item A finite dimensional semisimple $\F_q$ algebra is isomorphic to $$\prod_{i=1}^k M_{k_i}(\F_{q^{t_i}})$$
+\end{itemize} \tcbline
+\begin{proof}
+If $R$ is an $\F$-algebra that is semisimple, we have that $$R=\prod_{i=1}^kM_{n_i}(D_i)$$ by Artin-Wedderburn theorem. In particular, each $M_{n_i}(D_i)$ is also an $\F$-algebra. Moreover, by identifying $D$ in any one component of $M_{n_i}$, we can see that $D$ is also an $\F$-algebra. Each $D_i$ is a finite dimensional $\F$-vector space if and only if $R$ is finite dimensional. Then we have the following. 
+\begin{itemize}
+\item If $\F=\C$ then $D_i$ can only possibly be $D_i=\C$
+\item If $\F=\R$ then $D_i$ is either $\R$ or $\C$ or $\H$ by Frobenius theorem and theorem 1.4.6. 
+\item If $\F=\F_{q}$ then $D_i=\F_{q^{t_i}}$ for some $t_i\in\N$ by Little Wedderburn's theorem. 
+\end{itemize}
+Thus we conclude. 
+\end{proof}
+\end{prp}
+
+\pagebreak
+\section{Radicals}
+\subsection{The Radical of a Module}
 \begin{defn}{Cosimple}{} Let $M$ be an $R$-module. We say that a submodule $N$ of $M$ is cosimple if $\frac{M}{N}$ is simple. 
 \end{defn}
 
-\begin{lmm}{}{} Let $M$ be an $R$-module and $N$ a submodule of $M$. Then $N$ is cosimple if and only if $N$ is a maximal proper submodule of $M$. 
+\begin{lmm}{}{} Let $M$ be an $R$-module and $N$ a submodule of $M$. Then $N$ is cosimple if and only if $N$ is a maximal proper submodule of $M$. \tcbline
+\begin{proof}
+If $N$ is cosimple then $M/N$ has no non-trivial submodules. By the correspondence theorem this implies that there are not submodules of $M$ containing $N$. Thus $N$ is a maximal proper submodule of $M$. If $N$ is a maximal proper submodule of $M$, then by the correspondence theorem, $M/N$ has no submodules and so is simple. 
+\end{proof}
 \end{lmm}
 
 \begin{defn}{Radical}{} Let $M$ be an $R$-module. Define the radical of $M$ to be the intersection $$\text{rad}(M)=\bigcap_{\substack{S\leq M\\S\text{ is cosimple }}}S$$ of all cosimple submodules of $M$. 
 \end{defn}
 
-\begin{lmm}{}{} Let $M$ be an $R$-module. If $M$ is semisimple, then $\text{rad}(M)=0$. 
-\end{lmm}
+We can draw a connection between the radical and the socle. Consider $\Z$ as a $\Z$-module. It is clear that $\Z$ has no simple submodules. Indeed for any $k\in\Z$, $k\Z$ has a submodule $(2k)\Z$. Since $\Z$ is a principal ideal domain this concludes all possible ideals. Thus $$\text{soc}(\Z)=0$$ As for the radical, notice that quotient modules of $\Z$ are modules of the form $\Z/k\Z$. It does not have a subgroup exactly when $k=p$ is a prime. The intersection of all such groups is then $0$ so that $$\text{rad}(\Z)=0$$~\\
 
-\begin{defn}{Artinian Modules}{} A left $R$-module $M$ is said to be Artinian if for every descending chain of submodules $$N_1\supseteq N_2\supseteq\cdots\supseteq N_n\supseteq\cdots$$ there exists $m\in\N$ such that $N_n=N_m$ for all $n>m$. 
+There is a duality between the radical and the socle as follows. For $n\in\N$, consider $\Z/n\Z$ as a $\Z$-module. Clearly we have that its simple modules are exactly the submodules $\Z/(n/k)\Z$ when $n/k$ is a prime number. Similarly, $\Z/n\Z$ has a cosimple submodule of the form $\Z/(n/p)\Z$ when $p$ is a prime. \\~\\
+
+The notion of a radical is reminiscent to the radical of a number. In number theory, the radical of $n=p_1^{a_1}\cdots p_k^{a_k}\in\N$ is defined by $\text{rad}(n)=p_1\cdots p_k$. Write $r=\text{rad}(n)$. It is easy to see that $$\text{soc}(\Z/n\Z)=\frac{n}{r}\Z/n\Z\cong\Z/r\Z\cong\frac{\Z/n\Z}{\text{rad}(\Z/n\Z)}$$ and that $$\text{rad}(\Z/n\Z)\cong\Z/(n/r)\Z$$
+
+\subsection{The Nilradical Ideal}
+\begin{defn}{Nilpotents}{} Let $R$ be a ring. An element $x\in R$ is said to be nilpotent if $x^n=0$ for some $n\in\N$. 
 \end{defn}
 
-\begin{thm}{}{} Let $M$ be an Artinian left $R$-module. Then $M$ is semisimple if and only if $\text{rad}(M)=0$. 
+\begin{defn}{Nil Ideals and Nilpotent Ideals}{} Let $R$ be a ring. An ideal $I$ is said to be nil if all $x\in I$ is nilpotent. $I$ is said to be nilpotent if $I^n=0$ for some $n\in\N$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a ring. Then every nilpotent ideal is nil. 
+\end{lmm}
+
+Not every nil ideal is nilpotent. 
+
+\begin{defn}{Quasiregular}{} Let $R$ be a ring. An element $x\in R$ is said to be quasiregular if $1+x$ is invertible. An ideal $I$ in $R$ is said to be quasiregular if every $x\in I$ is quasiregular. 
+\end{defn}
+
+\begin{lmm}{}{} Every nilpotent element is quasiregular. Moreover, every nil ideal of a ring $R$ is quasiregular. \tcbline
+\begin{proof}
+If $x^n=0$, then $$(1+x)(1-x+x^2-\cdots+(-1)^{n-1}x^{n-1})=1+(-1)^{n-1}x^n=1$$ Thus we have constructed an inverse. It follows that every nil ideal is quasiregular. 
+\end{proof}
+\end{lmm}
+
+The converse is in general false. Consider the matrix ring $M_n(\F)$ over a field $\F$. A matrix is nilpotent if and only if $0$ is the only eigenvalue. A matrix is quasiregular if and only if $-1$ is not an eigenvalue. These are not strict implications on one another. \\~\\
+
+For the statement for ideals, consider $\C[[x]]$ the ring of formal power series and the subring $\C((x))$ of Laurent power series. The ideal $$(x)=\{f\in\C((x))\;|\;a_0=0\}$$ is quasiregular but not nil. Indeed $x\in(x)$ is not nilpotent but every $z\in(x)$ is of the form $a_1x+a_2x^2+\dots$ so that $1+z=1+a_1x+a_2x^2+\dots$ is invertible. 
+
+\begin{prp}{}{} Suppose that $R$ is a ring such that $I$ and $J$ are nilpotent. Then $I+J$ is nilpotent. \tcbline
+\begin{proof}
+Suppose that $I^n=0$ and $J^m=0$. For any $x_i\in I$ and $y_j\in J$, we have that $$\prod_{i=1}^n(x_i+y_i)=x_1x_2\cdots x_n+\text{ terms involving at least one }y_i$$ so that $$(I+J)^{nm}=((I+J)^n)^m\subseteq(I^n+J)^m=J^m=0$$
+\end{proof}
+\end{prp}
+
+\subsection{Annihilator}
+\begin{defn}{Annihilators}{} Let $R$ be a ring and $M$ an $R$-module. Let $m\in M$. Define the annihilator of $m$ to be $$\text{Ann}_R(m)=\{r\in R\;|\;rm=0\}$$ Define the annihilator of $M$ to be $$\text{Ann}_R(M)=\{r\in R\;|\;rm=0\text{ for all }m\in M\}$$ Right annihilators are defined similarly. 
+\end{defn}
+
+When $R$ is commutative left annihilators and right annihilators are the same. 
+
+\begin{lmm}{}{} Let $R$ be a ring and $M$ an $R$-module. Let $m\in M$. Then $\text{Ann}_R(m)$ and $\text{Ann}_R(M)$ are left ideals of $R$. Moreover, $\text{Ann}_R(m)$ is a maximal ideal of $R$. 
+\end{lmm}
+
+\subsection{The Jacobson Radical}
+\begin{defn}{Jacobson Radical}{} Let $R$ be a ring. The Jacobson radical of $R$ is the radical of $R$ as a left $R$-module. This is denoted as $$J(R)=\text{rad}(R)$$
+\end{defn}
+
+\begin{thm}{}{} Let $R$ be a ring. The following are equal for $R$ as a left $R$-module. 
+\begin{itemize}
+\item The Jacobson radical $J(R)=\text{rad}(R)$
+\item The intersection $$J_1=\bigcap_{\substack{I\text{ is a maximal}\\\text{ideal of }R}}I$$ of maximal ideals
+\item The intersection $$J_2=\bigcap_{M\text{ is simple}}\text{Ann}_R(M)$$ of all annihilators of simple modules
+\item The largest quasiregular two-sided ideal $J_3$. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $J(R)\subseteq J_2$: Let $x\in J(R)$ and $M$ a simple $R$-module. For each $m\in M$ non zero, $\text{Ann}_R(m)$ is a maximal left ideal of $R$, in other words it is a cosimple submodule of $R$ as a left $R$-module. Thus $x\in\text{Ann}_R(m)$ and $xm=0$. It follows that $xM=0$ and $x\in J_2$. 
+
+\item $J_2\subseteq J_1$: Let $x\in J_2$ and let $I$ be a maximal left ideal of $R$. Then $R/I$ is a simple left module so $x(R/I)=0$. It follows that $x+I=x(1+I)=I$. Thus $x\in I$ and $x\in J_1$. 
+
+\item $J_1$ is a quasiregular ideal. Let $x\in J_1$. Notice that $R(1+x)=R$ because if not, then $R(1+x)$ is contained in a maximal ideal $L$. Then both $x\in L$ and $1+x\in L$, thus $1\in L$ and $L=R$. Thus $1+x$ has an inverse in $R$, say $1+y$. Then $(1+y)(1+x)=1$ so that $y+x+yx=0$ and so that $y=-x-yx\in J_1$. Hence $1+y$ also has a left inverse $z$. Thus $$z=z(1+y)(1+x)=1+x$$ and that $x$ is quasiregular. 
+
+\item For any quasiregular ideal $I$, $I\subseteq J(R)$. Suppose the contrary. Then there exists a quasiregular ideal $I$ not in $J(R)$. Since $J(R)\subseteq J_2\subseteq J_1$ and $J_1$ is the intersection of maximal left ideals, there exists a maximal left ideal $L$ and $x\in I$ such that $x\notin L$. Then $L+Rx=R$ and $1=k+rx$ for some $k\in L$ and $r\in R$. But then $k=1-rx=1+(-r)x$ is invertible since $-rx\in I$. This implies that $L=R$, which is a contradiction. 
+
+\item $J_2$ is a two sided ideal. It is clear that $J_2$ is an additive subgroup. Let $x\in J_2$ and $r\in R$ and $M$ a simple $R$-module. We know that $xM=0$. But also we have that $xrM\subseteq xM=0$ and $rxM\subseteq r\{0\}=0$. Thus $J_2$ is a two sided-ideal. 
+
+\item Conclusion: By the fist four points, $J(R)\subseteq J_2\subseteq J_1\subseteq J(R)$ so that they all are equal. Moreover, $J(R)$ contains every quasiregular ideal so $J(R)=J_3$. 
+\end{itemize}
+\end{proof}
 \end{thm}
+
+In particular, the last equivalent characterization means that $J(R)$ is a two sided ideal so that all the above equivalent characterizations also work when considering $R$ as a right $R$-module. \\~\\
+
+One can imagine the Jacobson radical to work well in commutative algebra. Indeed it is a two sided ideal so that when everything is commutative, the notion of the Jacobson radical still makes sense. We will see more of the Jacobson radical in Commutative Algebra. 
+
+\begin{lmm}{}{} Let $R$ be a ring. Then we have $$J\left(\frac{R}{J(R)}\right)=0$$
+\end{lmm}
 
 
 

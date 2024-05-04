@@ -421,10 +421,7 @@ We introduce a notation for subgroups of order a power of a prime.
 \begin{defn}{Sylow $p$-groups}{} Let $G$ be a group of order $p^km$ where $\gcd(p,m)=1$, then subgroups of $G$ of order $p^k$ is called a Sylow $p$-subgroup of $G$. The set of all Sylow $p$-subgroups of $G$ is denoted $$\text{Syl}_p(G)=\{H\leq G\;|\;H\text{ is a Sylow }p\text{-subgroup }\}$$ and the number of Sylow $p$-subgroups is denoted $$n_p(G)=\abs{\text{Syl}_p(G)}$$ 
 \end{defn}
 
-The maximal power of the prime $p$ that divides $\abs{G}$ is also called the $p$-part of $G$. This is denoted as $\abs{G}_p$. Before we prove the main theorems of the section, we need some lemmas. 
-
-\begin{lmm}{}{} Let $P\in\text{Syl}_p(G)$ be a Sylow $p$ subgroup of a group $G$. If $Q$ is any $p$ subgroup of $G$, then $Q\cap N_G(P)=Q\cap P$
-\end{lmm}
+The maximal power of the prime $p$ that divides $\abs{G}$ is also called the $p$-part of $G$. This is denoted as $\abs{G}_p$. Before we prove the main theorems of the section, we need a lemma. 
 
 \begin{lmm}{}{} Let $p$ be prime. Let $n,m\in\N$ such that $\gcd(m,p)=1$. Then the following are true. 
 \begin{itemize}
@@ -468,7 +465,7 @@ Define a map $f:\{\text{Orb}_G(T_i)|1\leq i\leq t\}\to\text{Syl}_p(G)$ by $f(\te
 Injectivity: Let $1\leq i,j\leq t$. Suppose that $T_i=T_j$. Then $$\text{Orb}_G(S_i)=\text{Orb}_G(T_i)=\text{Orb}_G(T_j)=\text{Orb}_G(S_j)$$ so $S_i=S_j$ since we have chosen $S_1,\leq,S_r$ so that their orbits are distinct. \\
 Surjectivity: Let $p\in\text{Syl}_p(G)$. Then $P\in X$, and $\text{Stab}_G(P)=P$. It follows that $p$ does not divide $m=[G:P]=[G:\text{Stab}_G(P)]=\abs{\text{Orb}_G(P)}$, so $\text{Orb}_G(P)=\text{Orb}_G(T_i)$ for some $i$. Since $1_G\in T_i$, and $\text{Orb}_G(T_i)=\{xS_i\;|\;x\in G\}$, $T_i$ is the unique element of $\text{Orb}_G(T_i)$ containing $1_G$. Thus we must have $P=T_i=f(\text{Orb}_G(T_i))$ as required. \\~\\
 
-We resume the proof of the second Sylow theorem. Since we know that $\abs{X}\equiv m\;(\bmod\;p)$, and that $$\abs{X}\equiv\sum_{i=1}^r\abs{O_{T_i}}\;(\bmod\;p)$$ Since $\abs{\text{Orb}_G(T_i)}=[G:\text{Stab}_G(T_i)]=\abs{G}/\abs{T_i}=m$ by claim 1, and $t=\abs{\text{Syl}_p(G)}$ by claim 2. From the above sum we deduce that $$m\equiv mn_p(G)\;(\bmod\;p)$$ Since we also have that $\gcd(m,p)=1$, we can cancel $m$ on both sides to get $n_p(G)\equiv1\;(\bmod\;p)$. This also proves the first Sylow theorem. 
+We resume the proof of the second Sylow theorem. Since we know that $\abs{X}\equiv m\;(\bmod\;p)$, and that $$\abs{X}\equiv\sum_{i=1}^r\abs{\text{Orb}_G(T_i)}\;(\bmod\;p)$$ Since $\abs{\text{Orb}_G(T_i)}=[G:\text{Stab}_G(T_i)]=\abs{G}/\abs{T_i}=m$ by claim 1, and $t=\abs{\text{Syl}_p(G)}$ by claim 2. From the above sum we deduce that $$m\equiv mn_p(G)\;(\bmod\;p)$$ Since we also have that $\gcd(m,p)=1$, we can cancel $m$ on both sides to get $n_p(G)\equiv1\;(\bmod\;p)$. This also proves the first Sylow theorem. 
 \end{proof}
 \end{thm}
 
@@ -538,13 +535,25 @@ Suppose that $n_2(G)=3$. Then $G$ acts on $\text{Syl}_2(G)$ non-trivially. Then 
 \end{prp}
 
 \subsection{Simplicity of $A_n$ for $n\geq 5$}
-\begin{crl}{}{} Let $G$ be a finite group such that $\abs{G}=p^km$ where $p$ is a prime and $\gcd(p,m)=1$. Let $$F_p(G)=\{x\in G|x\neq 1\text{ and }\abs{x}=p^n\text{ for some }n\}$$ Then the following are true. 
+Using the Sylow theorems, we can also analyzes the number of elements that possess a power of prime order. For a finite group $G$, define $$F_p(G)=\{x\in G\;|\;x\neq 1\text{ and }\abs{x}=p^n\text{ for some }n\}$$ to be the number of elements in $G$ that has its order the power of a prime $p$. We can deduce a number of information from  the Sylow theorems, so that we can eventually some sort of contradiction in our proof of simplicity. 
+
+\begin{crl}{}{} Let $G$ be a finite group such that $\abs{G}=p^km$ where $p$ is a prime and $\gcd(p,m)=1$. Let $$F_p(G)=\{x\in G\;|\;x\neq 1\text{ and }\abs{x}=p^n\text{ for some }n\}$$ Then the following are true. 
 \begin{itemize}
 \item $F_p(G)=\bigcup_{P\in\text{Syl}_p(G)}(P\setminus\{1\})$
 \item $\abs{F_p(G)}\geq p^k-1$ with equality if and only if $\abs{\text{Syl}_p(G)}=1$
 \item If $k=1$ then $\abs{F_p(G)}=\abs{\text{Syl}_p(G)}\cdot(p-1)$
 \end{itemize} \tcbline
-\begin{proof}
+\begin{proof}~\\
+\begin{itemize}
+\item First let $x\in F_p(G)$. Then $\langle x\rangle$ has a prime power order and so is a $p$-subgroup of $G$. Any $p$-subgroup is contained in a Sylow $p$-subgroup and so $x$ lies in $\bigcup_{P\in\text{Syl}_p(G)}(P\setminus\{1\})$. Now if $y$ lies in the union of the Sylow $p$-subgroups, then $\langle y\rangle$ is a subgroup of some Sylow $p$-subgroup. By Lagrange's theorem, the order of $y$ must be a power of $p$ since any Sylow $p$-subgroup has prime power order. Thus $y\in F_p(G)$. 
+
+\item From the above characterization of $F_p(G)$, we have that $F_p(G)\supseteq(P\setminus\{1\})$ for any Sylow $p$-subgroup. Thus $\abs{F_p(G)}\geq p^k-1$. Now suppose that equality holds. Suppose for a contradiction that there are two distinct Sylow $p$-subgroups $P$ and $Q$. This means that there exists an element in $Q$ not contained in $P$. Hence $\abs{F_p(G)}\geq\abs{P\setminus\{1\}}+1=p^k$, this contradicts the assumption of equality. It is also clear that if $n_p(G)=1$ then $\abs{F_p(G)}=p^k-1$. 
+
+\item Firstly notice that when $k=1$, we have that the first property in this corollary is a disjoint union. Indeed, if $P_i$ and $P_j$ are Sylow $p$-subgroups that intersect with element $x\in P_i\cap P_j$, then $\langle x\rangle$ has order $p$ so that $P_i=\langle x\rangle=P_j$. \\~\\
+
+We will now show that $$F_p(G)=\coprod_{P\in\text{Syl}_p(G)}(P\setminus\{1\})$$ If $x\in F_p(G)$, then $x$ has order $p$ so that $\langle x\rangle$ is a Sylow $p$-subgroup and $x\in\langle x\rangle\subseteq\coprod_{P\in\text{Syl}_p(G)}(P\setminus\{1\})$. Now suppose that $y$ is an element that lies in the coproduct. Then $y$ lies in some Sylow $p$-subgroup. Any Sylow $p$-subgroup is cyclic and isomorphic to $C_p$ since $k=1$. Thus $y$ has order $p$ and $y\in F_p(G)$. Now $\abs{F_p(G)}=\abs{\text{Syl}_p(G)}(p-1)$ and so we conclude. 
+\end{itemize}
+This completes the proof. 
 \end{proof}
 \end{crl}
 

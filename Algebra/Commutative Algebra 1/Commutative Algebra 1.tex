@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 
-\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -29,10 +29,10 @@ We say that an ideal is radical if $\sqrt{I}=I$.
 \end{defn}
 
 \subsection{Nilradical and Jacobson Ideals}
-Recall that we say an element $r\in R$ is nilpotent if there is some $n\in\N$ such that $r^n=0$. 
-
-\begin{defn}{Nilradicals}{} Let $R$ be a ring. Define the nilradical of $R$ to be $$N(R)=\{r\in R|r\text{ is nilpotent }\}$$
+\begin{defn}{Nilradicals}{} Let $R$ be a ring. Define the nilradical of $R$ to be $$N(R)=\{r\in R\;|\;r\text{ is nilpotent}\}$$
 \end{defn}
+
+Note that this is different from nilpotent ideals. However the Nilradical ideal is a nil ideal and every subideal of the nilradical is a nil ideal. 
 
 \begin{prp}{}{} Let $R$ be a ring and $N(R)$ its nilradical. Then the following are true. 
 \begin{itemize}
@@ -53,6 +53,8 @@ We want to show that $$N(R)=\bigcap_{\substack{P\text{ a prime}\\\text{ideal of 
 Trivially $N(R)$ is a prime ideal. Now suppose that $r\in R$ is in the intersection of all prime ideals. Then $r^n$ also lies in every prime ideal. 
 \end{proof}
 \end{prp}
+
+Recall the notion of the Jacobson radical from Rings and Modules. 
 
 \begin{defn}{Jacobson Radical of a Ring}{} Let $R$ be a ring. Define the Jacobson radical of $R$ to be $$J(R)=\bigcap_{\substack{M\text{ is a}\\\text{maximal ideal}\\\text{of }R}}M$$
 \end{defn}
@@ -245,9 +247,6 @@ In practise we value lower powers of the last variable $x_n$.
 \section{Primary Decomposition}
 \subsection{Support of a Module}
 \begin{defn}{Support of a Module}{} Let $M$ be an $A$-module. The support of $M$ is the subset $$\text{Supp}(M)=\{P\text{ a prime ideal of }A|M_P\neq 0\}$$
-\end{defn}
-
-\begin{defn}{Annihilator}{} Let $M$ be an $A$-module. Let $m\in M$. Define the annihilator of $m$ to be $$\text{Ann}(m)=\{f\in A|fm=0\}$$ Also define the annihilator of $M$ to be $$\text{Ann}(M)=\{f\in A|fM=0\}$$
 \end{defn}
 
 \subsection{Associated Prime}

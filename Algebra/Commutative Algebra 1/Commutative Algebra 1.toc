@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {5.1}Support of a Module}{12}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Associated Prime}{12}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Primary Ideals}{12}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Primary Decomposition}{13}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.4}Primary Decomposition}{12}{subsection.5.4}%
 \contentsline {section}{\numberline {6}Integral Dependence}{14}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Integral Extensions}{14}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}The Going-Up and Going-Down Theorems}{14}{subsection.6.2}%
