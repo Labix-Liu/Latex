@@ -477,6 +477,43 @@ But we also know that $\text{Gal}(L/K)=4$ since $L/K$ is Galois. So $\text{Gal}(
 \end{proof}
 \end{thm}
 
+\pagebreak
+\section{Finite Fields}
+\subsection{Existence and Uniqueness of Finite Fields}
+\begin{prp}{}{} If $K$ is a finite field, then it has $\text{char}(K)=p$ a prime, and $\abs{K}=p^n$ for some $n\in\N\setminus\{0\}$. \tcbline
+\begin{proof}
+Since $K$ is finite, there is no field homomorphism $\Z\to K$ since such a homomorphism must be injective. This means that the prime subfield of $K$ must be $\F_p$ for some prime $p$. So $K$ is a finite dimensional vector space over $\F_p$, and after choosing any basis, its elements are simply vectors $(a_1,\dots,a_n)$ where $a_i\in\F_p$, where $n=[K:\F_p]$, and there are obviously $p^n$ of these vectors. 
+\end{proof}
+\end{prp}
+
+\begin{lmm}{}{} Let $\F$ be any field. A finite subgroup of $\F^\times$ is cyclic. 
+\end{lmm}
+
+\begin{prp}{}{} Every finite field is isomorphic to $\frac{\F_p[x]}{(f)}$ where $p$ is a prime number and $f\in F_p[x]$ is an irreducible polynomial. 
+\end{prp}
+
+\subsection{Cyclotomic Polynomials}
+\begin{lmm}{}{} Let $d,n\in\N\setminus\{0\}$ where $d|n$. Then $x^d-1$ divides $x^n-1$ as elements of the polynomial ring $\Z[x]$. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $n>0$ be an integer and for $0\leq i<n$, define $d_i=\gcd(n,i)$. Then the following are true regarding the $n$-th roots of unity $\left\{\zeta_n^0,\zeta_n^1,\dots,\zeta_n^{n-1}\right\}$. 
+\begin{itemize}
+\item $\zeta_n^i$ has order $n/d_i$
+\item $\zeta_n^i$ is a primitive $(n/d_i)$th root of unity
+\item $\zeta_n^i$ is a primitive $n$th root of unity if and only if $d_i=1$
+\end{itemize}
+\end{lmm}
+
+\begin{defn}{Cyclotomic Polynomials}{} Let $n\in\N\setminus\{0\}$. Define the $n$th cyclotomic polynomial as $$\Phi_n(x)=\prod_{\substack{0\leq i<n\\\gcd(n,i)=1}}\left(x-\zeta_n^i\right)$$
+In other words the polynomial is the product over all linear factors of primitive $n$th roots of unity. 
+\end{defn}
+
+\begin{prp}{}{} The cyclotomic polynomials factorizes in $\C[x]$ into $$x^n-1=\prod_{d|n}\Phi_d(x)$$
+\end{prp}
+
+\begin{prp}{}{} For each $n\in\N$, $\Phi_n(x)$ is monic and has coefficients in $\Z$. 
+\end{prp}
+
 \subsection{Galois Theory for Finite Fields}
 \begin{thm}{}{} Let $p$ be a prime number and $n\geq 1$. Let $q=p^n$. Then the splitting field $L$ of $$f(x)=x^q-x\in \F_p[x]$$ is a field with $p^n$ elements. Moreover, $L/\F_p$ is a Galois extension. \tcbline
 \begin{proof}

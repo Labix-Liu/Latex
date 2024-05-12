@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  17 APR 2024 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  10 MAY 2024 13:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -846,6 +846,50 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count330
 \enitdp@description=\count331
 )
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen304
+\captionmargin=\dimen305
+\caption@leftmargin=\dimen306
+\caption@rightmargin=\dimen307
+\caption@width=\dimen308
+\caption@indent=\dimen309
+\caption@parindent=\dimen310
+\caption@hangindent=\dimen311
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count332
+\c@continuedfloat=\count333
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+)
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count334
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count335
+) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen312
+\WF@size=\dimen313
+\c@WF@wrappedlines=\count336
+\WF@box=\box80
+\WF@everypar=\toks50
+Package: wrapfig 2003/01/31  v 3.6
+)
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgpagella.sty
+Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
+) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+qpl on input line 11
+2.
+
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qpl.fd
+File: t1qpl.fd 2009/09/25 v1.2 font definition file for T1/qpl
+))
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbtheorems.c
 ode.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.2.0'
@@ -857,9 +901,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box80
-\tcb@totalupperbox=\box81
-\tcb@totallowerbox=\box82
+\tcb@testbox=\box81
+\tcb@totalupperbox=\box82
+\tcb@totallowerbox=\box83
 )
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskins.code
 .tex
@@ -876,14 +920,14 @@ Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzlibraryfil
 l.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box83
+\l__tikzfill_img_box=\box84
 ))
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskinsjigsa
 w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
-\c@tcb@cnt@thm=\count332
-Package hyperref Info: Option `colorlinks' set `true' on input line 195.
+\c@tcb@cnt@thm=\count337
+Package hyperref Info: Option `colorlinks' set `true' on input line 220.
 ) (Solutions to Hatcher.aux)
 \openout1 = `"Solutions to Hatcher.aux"'.
 
@@ -944,17 +988,17 @@ LaTeX Font Info:    ... okay on input line 16.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count333
-\scratchdimen=\dimen304
-\scratchbox=\box84
-\nofMPsegments=\count334
-\nofMParguments=\count335
-\everyMPshowfont=\toks50
-\MPscratchCnt=\count336
-\MPscratchDim=\dimen305
-\MPnumerator=\count337
-\makeMPintoPDFobject=\count338
-\everyMPtoPDFconversion=\toks51
+\scratchcounter=\count338
+\scratchdimen=\dimen314
+\scratchbox=\box85
+\nofMPsegments=\count339
+\nofMParguments=\count340
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count341
+\MPscratchDim=\dimen315
+\MPnumerator=\count342
+\makeMPintoPDFobject=\count343
+\everyMPtoPDFconversion=\toks52
 )
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -966,12 +1010,15 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count339
+\c@lstlisting=\count344
 Package hyperref Info: Link coloring ON on input line 16.
  (Solutions to Hatcher.out) (Solutions to Hatcher.out)
 \@outlinefile=\write4
 \openout4 = `"Solutions to Hatcher.out"'.
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 
@@ -986,18 +1033,60 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 [1
 
-{C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+{C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
+a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 (Solutions to Hatcher.toc)
 \tf@toc=\write5
 \openout5 = `"Solutions to Hatcher.toc"'.
 
- [2] [3] [4]
-<Image 1.png, id=63, 490.83376pt x 512.91624pt>
+ [2] [3]
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 8
+7.
+
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
+File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
+)
+[4{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+enc}]
+<Image 1.png, id=71, 490.83376pt x 512.91624pt>
 File: Image 1.png Graphic file (type png)
 <use Image 1.png>
 Package pdftex.def Info: Image 1.png  used on input line 116.
 (pdftex.def)             Requested size: 147.25125pt x 153.87605pt.
  [5 <./Image 1.png>] [6] [7]
+<Image 2.png, id=92, 328.97906pt x 120.45pt>
+File: Image 2.png Graphic file (type png)
+<use Image 2.png>
+Package pdftex.def Info: Image 2.png  used on input line 187.
+(pdftex.def)             Requested size: 263.1836pt x 96.3601pt.
+<Image 4.png, id=93, 311.66437pt x 146.79843pt>
+File: Image 4.png Graphic file (type png)
+<use Image 4.png>
+Package pdftex.def Info: Image 4.png  used on input line 199.
+(pdftex.def)             Requested size: 249.33183pt x 117.43889pt.
+<Image 5.png, id=94, 130.23656pt x 103.13531pt>
+File: Image 5.png Graphic file (type png)
+<use Image 5.png>
+Package pdftex.def Info: Image 5.png  used on input line 205.
+(pdftex.def)             Requested size: 104.18938pt x 82.50835pt.
+ [8 <./Image 2.png> <./Image 4.png> <./Image 5.png>]
+<Image 3.png, id=104, 136.25906pt x 130.23656pt>
+File: Image 3.png Graphic file (type png)
+<use Image 3.png>
+Package pdftex.def Info: Image 3.png  used on input line 225.
+(pdftex.def)             Requested size: 109.00739pt x 104.18938pt.
+ [9 <./Image 3.png>]
+<Image 6.png, id=112, 146.04562pt x 152.06813pt>
+File: Image 6.png Graphic file (type png)
+<use Image 6.png>
+Package pdftex.def Info: Image 6.png  used on input line 282.
+(pdftex.def)             Requested size: 116.83664pt x 121.65466pt.
+<Image 7.png, id=113, 124.21407pt x 194.97844pt>
+File: Image 7.png Graphic file (type png)
+<use Image 7.png>
+Package pdftex.def Info: Image 7.png  used on input line 288.
+(pdftex.def)             Requested size: 99.37137pt x 155.98294pt.
+ [10] [11 <./Image 6.png> <./Image 7.png>] [12]
 (Solutions to Hatcher.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -1005,41 +1094,35 @@ L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Solutions to Hatcher".out' has not changed.
 
-(rerunfilecheck)             Checksum: C0B9068BEE967B04EB193072B325233B;309.
+(rerunfilecheck)             Checksum: 71425D6D3B5F07EF89AAECA7B6730AFB;618.
  ) 
 Here is how much of TeX's memory you used:
- 30170 strings out of 474424
- 599444 string characters out of 5741739
- 1955496 words of memory out of 5000000
- 52010 multiletter control sequences out of 15000+600000
- 567220 words of font info for 71 fonts, out of 8000000 for 9000
+ 32236 strings out of 474424
+ 637834 string characters out of 5741739
+ 1967496 words of memory out of 5000000
+ 54037 multiletter control sequences out of 15000+600000
+ 599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,16n,100p,1004b,1548s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\liula\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1000.pk><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmbx9.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/l
-iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:
-/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12
-.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmr17.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmr9.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liula/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/l
-iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.p
-fb>
-Output written on "Solutions to Hatcher.pdf" (7 pages, 325074 bytes).
+ 88i,16n,120p,1004b,1548s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/li
+ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/
+Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.
+pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
+ymbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/tex-gyre/qplri.pfb>
+Output written on "Solutions to Hatcher.pdf" (12 pages, 498977 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 34 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 PDF objects out of 1000 (max. 8388607)
+ 39 named destinations out of 1000 (max. 500000)
+ 80 words of extra memory for PDF output out of 10000 (max. 10000000)
 

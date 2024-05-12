@@ -9,12 +9,11 @@
 \contentsline {subsection}{\numberline {2.4}The Endomorphism Ring}{10}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Direct Sum of Modules}{11}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Free Modules}{12}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Simple Modules}{15}{subsection.2.7}%
-\contentsline {section}{\numberline {3}Algebras over a Ring}{17}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Associative Algebras}{17}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Commutative Algebras}{18}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Free Algebras}{18}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Amitsur-Schur Lemma}{19}{subsection.3.4}%
+\contentsline {subsection}{\numberline {2.7}Simple Modules}{16}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Algebras over a Ring}{18}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Associative Algebras}{18}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Commutative Algebras}{19}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Free Algebras}{19}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Tensor Products}{21}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Tensor Products of Modules}{21}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Multilinear Maps}{21}{subsection.4.2}%
@@ -22,19 +21,11 @@
 \contentsline {subsection}{\numberline {4.4}Exterior Algebra}{23}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Symmetric Algebra}{24}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Symmetric and Alternating Tensors}{25}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Division Rings}{26}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Properties of Division Rings}{26}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}The Structure of Quaternions}{26}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}3D Rotations using Quaternions}{30}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Division Rings over Real and Complex Numbers}{32}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Finite Division Rings}{35}{subsection.5.5}%
-\contentsline {section}{\numberline {6}Semisimplicity}{37}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Semisimple Modules}{37}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Maschke's Theorem}{38}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Peirce Decomposition for Modules}{41}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Artin-Wedderburn Theorem}{44}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Radicals}{46}{section.7}%
-\contentsline {subsection}{\numberline {7.1}The Radical of a Module}{46}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}The Nilradical Ideal}{46}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Annihilator}{48}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}The Jacobson Radical}{48}{subsection.7.4}%
+\contentsline {section}{\numberline {5}Radicals}{26}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The Radical of a Module}{26}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The Nilradical Ideal}{26}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Annihilator}{28}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}The Jacobson Radical}{28}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Chain Conditions}{30}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Noetherian Rings and Modules}{30}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Artinian Rings and Modules}{30}{subsection.6.2}%

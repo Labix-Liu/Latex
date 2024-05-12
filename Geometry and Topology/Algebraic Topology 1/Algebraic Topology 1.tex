@@ -1040,7 +1040,7 @@ The definition of CW complexes may seem daunting. But intuitively, it is built u
 \begin{defn}{CW Complexes}{} A CW complex is a topological space $X$ that is built up inductively as follows: 
 \begin{itemize}
 \item The zero-skeleton $X^0$ is a discrete set
-\item Given the $n-1$ skeleton $X^{n-1}$, a collection of closed $n$-dimensional disks $\{D_{\alpha}^n|\alpha\in I_n\}$ such that $D_\alpha^n\cong B_1(0)\subseteq\R^n$ with $S_\alpha^{n-1}=\partial D_\alpha^n$ and a collection of attaching maps $\varphi_\alpha:S_\alpha^{n-1}\to X^{n-1}$. Now define $$X^n=\left(X^{n-1}\sqcup\bigsqcup_{\alpha\in I_n}D_\alpha^n\right)/\sim$$ where $\sim$ is the equivalence relation $x\sim\varphi_\alpha(x)$ for all $x\in S_\alpha^{n-1}$ (The unions in $X$ are all disjoint)
+\item Given the $n-1$ skeleton $X^{n-1}$, a collection of closed $n$-dimensional disks $\{D_{\alpha}^n|\alpha\in I_n\}$ such that $D_\alpha^n\cong B_1(0)\subseteq\R^n$ with $S_\alpha^{n-1}=\partial D_\alpha^n$ and a collection of attaching maps $\varphi_\alpha:S_\alpha^{n-1}\to X^{n-1}$. Now define $$X^n=\left(X^{n-1}\amalg\coprod_{\alpha\in I_n}D_\alpha^n\right)/\sim$$ where $\sim$ is the equivalence relation $x\sim\varphi_\alpha(x)$ for all $x\in S_\alpha^{n-1}$ (The unions in $X$ are all disjoint)
 \item Define $X=\bigcup_nX^n$ equipped with the weak topology: a set $A\subset X$ is open if and only if $A\cap X^n$ is open in $X^n$ for every $n$. 
 \end{itemize}
 We say that $e_\alpha^n=D_\alpha^n\setminus S_\alpha^{n-1}$ the open cells of $X$ and $D_\alpha^n$ are the closed cells with boundary $S_\alpha^{n-1}$. If the inductive construction terminates at the $n$th skeleton, we say that $X$ is of dimension $n$. 
@@ -1052,7 +1052,7 @@ This method can be used to create traditionally known topological spaces such as
 
 On the other hand, we say that a space $X$ is a CW complex if it admits a CW complex structure. 
 
-\begin{defn}{Characteristic Maps}{} Let $X$ be a CW-complex. Let $D_\alpha^n$ be a closed cell of $X$. Define the characteristic map of $D_\alpha^n$ to be the map $$\Psi_\alpha^n:D_\alpha^n\to X$$ given by the following diagram \\~\\
+\begin{defn}{Characteristic Maps}{} Let $X$ be a CW-complex. Let $D_\alpha^n$ be a closed cell of $X$. Define the characteristic map of $D_\alpha^n$ to be the map $$\Phi_\alpha^n:D_\alpha^n\to X$$ given by the following diagram \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	& {X^{n-1}\amalg\left(\coprod_{\alpha}D_\alpha^n\right)} \\
 	\\
@@ -1064,17 +1064,31 @@ On the other hand, we say that a space $X$ is a CW complex if it admits a CW com
 \end{tikzcd}}\\~\\where $X^n$ arises by identifying $x\sim\varphi_\alpha^n(x)$ meaning $q$ is the quotient map induced by the identification. 
 \end{defn}
 
-Each of the $\varphi_\alpha^n$ defines $\Psi_\alpha^n$ because the attaching maps describes how the boundary of a cell is attached and the remaining interior is mapped arbitrarily and continuously. Notice that the restriction of $\Psi_\alpha^n$ to $e_\alpha^n$ is a homeomorphism to its image, which we also denote by $e_\alpha^n$. We can therefore characterize CW-complexes in terms of the disjoint union of all cells of the form $e_\alpha^n$. \\~\\
+Each of the $\varphi_\alpha^n$ defines $\Phi_\alpha^n$ because the attaching maps describes how the boundary of a cell is attached and the remaining interior is mapped arbitrarily and continuously. Notice that the restriction of $\Phi_\alpha^n$ to $e_\alpha^n$ is a homeomorphism to its image, which we also denote by $e_\alpha^n$. We can therefore characterize CW-complexes in terms of the disjoint union of all cells of the form $e_\alpha^n$. \\~\\
 
 The weak topology is just the quotient topology when the inductive build up of the CW complex terminates after finite steps. 
 
-\begin{prp}{}{} Let $X$ be a CW-complex of finite dimension. Then the weak topology on $X$ is equal to the quotient topology on $X$. 
+\begin{prp}{}{} Let $X$ be a CW complex. Then the following are true regarding the topology of $X$. 
+\begin{itemize}
+\item A subset $A\subseteq X$ is open in $X$ if and only if $\Phi_\alpha^{-1}(A)$ is open in $D_\alpha^n$ for all characteristic maps $\Phi_\alpha:D_\alpha^n\to X$. 
+\item A subset $B\subseteq X$ is closed in $X$ if and only if $\Phi_\alpha^{-1}(B)$ is closed in $D_\alpha^n$ for all characteristic maps $\Phi_\alpha:D_\alpha^n\to X$. 
+\end{itemize} \tcbline
+\begin{proof}
+Suppose that $A$ is open in $X$. Then $A\cap X^n$ is open in $X^n$ for every $n$. Then it is clear that $\Phi_\alpha^{-1}(A)$ is open by continuity of $\Phi_\alpha$. The same is true for closed subsets. Conversely, suppose that $A\subseteq X$ is such that $\Phi_\alpha^{-1}(A)$ is open for all characteristic maps $\Phi_\alpha:D_\alpha^n\to X$. Suppose further by induction that $A\cap X^{n-1}$ is open in $X^{n-1}$. $X^n$ is defined as quotient space so $A$ is open in $X^n$ if and only if $p^{-1}(A)$ is open in $X^{n-1}\amalg\coprod_{\alpha\in I_n}D_\alpha^n$ where $p$ is the projection map. It is clear that before taking quotient, the space is a disjoint union. By definition of open sets of disjoint unions, $A\in X^n$ is open if and only if $A\cap X^{n-1}$ and $\phi_\alpha^{-1}(A)$ is open in $D_\alpha^n$. But we already have these information so we are done. 
+\end{proof}
 \end{prp}
 
 \begin{defn}{Subcomplex}{} A subcomplex of a CW complex $X$ is a space $A$ that is a union of cells $D_\alpha^n\setminus S_\alpha^{n-1}$ in $X$ such that for every cell it also contains its closure. 
 \end{defn}
 
-\begin{prp}{}{} A compact topological subspace of a CW complex $X$ is contained in a finite subcomplex. 
+\begin{prp}{}{} A compact topological subspace of a CW complex $X$ is contained in a finite subcomplex. \tcbline
+\begin{proof}
+First we show that a compact set $C$ in a CW complex $X$ can meet only finitely many cells of $X$. Suppose the contrary. Then there is an infinite sequence of points $x_i\in C$ all lying in distinct cells. Then set $S=\{x_1,x_2,\dots\}$. Assume that $S\cap X^{n-1}$ is closed in $X$ by induction on $n$. Then for each cell $e_\alpha^n$ of $X$. $\varphi_\alpha^{-1}(S)$ is closed in $\partial D_\alpha^n$. and $\Psi_\alpha^{-1}(S)$ consists of at most one more point in $D_\alpha^n$, so $\Psi_\alpha^{-1}(S)$ is closed in $\partial D_\alpha^n$. Therefore $S\cap X^n$ is closed in $X^n$ for each $n$. By the topology of $X$, $S$ is closed. The same argument shows that any subset of $S$ is closed thus $S$ has the discrete topology. Since $C$ is compact and $S$ is a closed subset of $C$, $S$ is compact. Thus $S$ must be finite, a contradiction. \\~\\
+
+We prove by induction that any cell of $X$ is contained in a finite subcomplex. Any $0$-dimensional cell is itself a finite subcomplex. Assume this is true for each cell of $X$ of dimension $n-1$. Let $e_\alpha^n$ be an $n$-cell of $X$. Then $\partial D_\alpha^n$ is compact and so $\varphi_\alpha(\partial D_\alpha^n)$ is compact in $X$. By the above paragraph, $\varphi_\alpha^n$ meets only a finite number of cells in $X^{n-1}$. By induction each of those cells are contained in a finite subcomplex. Thus their union is also a finite subcomplex. Attaching $e_\alpha^n$ to this finite subcomplex shows that $e_\alpha^n$ is contained in a finite subcomplex. This completes the induction. \\~\\
+
+Since we know that $C$ meets finitely many cells of $X$, and these finitely many cells are each contained in a finite subcomplex, the finite union of these finite subcomplexes is again a finite subcomplex and so we conclude. 
+\end{proof}
 \end{prp}
 
 \subsection{Properties of CW Complexes}
@@ -1099,7 +1113,31 @@ Intuitively, attaching $2$-cells to the CW-complex allows homotopy to occur on t
 \begin{thm}{}{} Let $X$ be a path connected CW complex with $x_0\in X^2$. The inclusion map $\iota:X^2\to X$ induces an isomorphism of fundamental groups $$\pi_1(X^2,x_0)\cong\pi_1(X,x_0)$$
 \end{thm}
 
-This is why we cannot distinguish higher dimensional topological properties just by studying the fundamental group. Which is a set of $1$-dimensional objects, namely loops. 
+This is why we cannot distinguish higher dimensional topological properties just by studying the fundamental group. Which is a set of $1$-dimensional objects, namely loops. \\~\\
+
+\subsection{Admitting CW-Complex Structures}
+It is natural to ask that given a space and data mapping $n$-cells into the space, when will the space admit a CW complex structure. The answer is given by the following. 
+
+\begin{thm}{}{} Let $X$ be a Hausdorff space and let $\Phi_\alpha:D_\alpha^n\to X$ be a collection of maps. Then these maps form the characteristic map of a CW-complex structure on $X$ if and only if the following are true. 
+\begin{itemize}
+\item Each $\Phi_\alpha$ is injective on to the interior $(D_\alpha^n)\circ\cong e_{\alpha}^n$. 
+\item Each interior $e_\alpha^n$ are disjoint form one another and $X=\coprod_{\alpha,n}e_{\alpha}^n$
+\item Each $\Phi_\alpha(\partial D_\alpha^n)$ is contained in the union of a finite number of cells of dimension less than $n$
+\item A subset $X$ is closed if and only if it meets the closure of each cell of $X$ in a closed set. 
+\end{itemize}
+\end{thm}
+
+Finally, we can relate CW complexes to covering space. 
+
+\begin{prp}{}{} Let $X$ be a finite CW complex and $p:\tilde{X}\to X$ be a covering space of $X$. Then $\tilde{X}$ is also a CW complex. \tcbline
+\begin{proof}
+Let $\Phi_\alpha:D_\alpha^n\to X$ be one of the characteristic maps. By the lifting property, there are precisely $D$ lifts of the characteristic map. Label them $\Phi_{\alpha,i}:D_{\alpha,i}^n\to\tilde{X}$. Note that the fourth requirement above is void since $X$ is a finite CW-complex and that there are finitely many cells. \\~\\
+
+Now since $\Phi_{\alpha}=p\circ\Phi_{\alpha,i}$ is injective on the interior, so is $\Phi_{\alpha,i}$. Let $U\subseteq(D_{\alpha,i}^n)^\circ$ be a non-empty open subset. Let $y$ in the image with $x=p(y)\in X$. Then there exists a small open neighbourhood $x\in V\subseteq e_\alpha^n$ that is evenly covered. This means that $p^{-1}(V)=\coprod_{j=1}^dV_j$ for some disjoint $V_j$ and $V_j\cong V$. It follows that $V_i\cap p^{-1}(\Phi_\alpha(U))\subseteq\Phi_{\alpha,i}(U)$ is an open neighbourhood of $y$ inside $e_{\alpha,i}^n$. If $y\in\tilde{X}$ is an arbitrary point with image $x=p(y)$, then there exists unique $n$ and $\alpha$ such that $x\in e_{\alpha}^n$. By the unique lifting property, $y\in e_{\alpha,i}^n$ for exactly one $i$. $y$ cannot belong to some $e_{\beta,j}^m$ with $(n,\alpha)\neq(m,\beta)$ either as otherwise $x\in e_\beta^m$. Thus the first and second condition is shown. \\~\\
+
+For the third condition, if $y=\Phi_{\alpha,i}(z)$ for some point $z\in\partial D_{\alpha,i}^n$ on the boundary, then $p(y)=x\in e_\beta^m$ for some $m<n$ and some $\beta$. Thus $e_{\beta,j^m}$ for some unique $j$. 
+\end{proof}
+\end{prp}
 
 \subsection{Computation of the Fundamental Group of CW Complexes}
 Recall that the fundamental group cannot distinguish higher dimensional topological properties, so without loss of assumption we can take all CW complexes in this section to be 2-skeletons. Without loss of generality, we can take the 2-skeleton to be path-connected. \\~\\

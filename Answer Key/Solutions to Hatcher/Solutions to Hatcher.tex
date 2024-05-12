@@ -175,6 +175,181 @@ Doing this for every vector $v$ in $\R^3$, we obtain a function $f:S^2\to\R^2$ d
 \end{proof}
 \end{ex}
 
+\pagebreak
+
+\section{Homology}
+\subsection{Simplicial and Singular Homology}
+\begin{ex}{}{} What familiar space is the quotient $\Delta$-complex of a $2$-simplex $[v_0,v_1,v_2]$ obtained by identifying the edges $[v_0,v_1]$ and $[v_1,v_2]$, preserving the order of vertices? \tcbline
+\begin{proof}
+By cutting through a straight line from $v_1$ down to the face $[v_0,v_2]$ perpendicularly, we can glue it back together according to the identification $[v_0,v_1]\sim[v_1,v_2]$ to obtain the following. 
+
+\begin{center}
+\includegraphics[scale = 0.8]{Image 2}
+\end{center}
+
+It is then clear that this is a Möbius strip. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Show that the $\Delta$-complex obtained from $\Delta^3$ by performing the edge identifications $[v_0,v_1]\sim[v_1,v_3]$ and $[v_0,v_2]\sim[v_2,v_3]$ deformation retracts onto a Klein bottle. Find other pairs of identifications of edges that produce $\Delta$-complexes deformation retracting onto a torus, a $2$-sphere and $\R\Prj^2$. \tcbline
+\begin{proof}
+Notice that the face $[v_0,v_1,v_3]$ can be deformation retracted onto the union of $[v_0,v_1]$ and $[v_1,v_3]$ so that $\Delta^3$ is now a square with two faces $[v_0,v_2,v_1]$ and $[v_2,v_1,v_3]$ as follows 
+
+\begin{center}
+\includegraphics[scale = 0.8]{Image 4}
+\end{center}
+
+Then by cutting along the $1$-simplex $[v_1,v_2]$ an gluing it back up along the identified edges $[v_0,v_2]$ and $[v_2,v_3]$, we obtain the following 
+
+\begin{center}
+\includegraphics[scale = 0.8]{Image 5}
+\end{center}
+
+It is then clear that this is precisely the $\Delta$-complex structure of the Klein bottle. \\~\\
+
+For the torus, the identification is $[v_0,v_1]\sim[v_2,v_3]$ and $[v_0,v_2]\sim[v_1,v_3]$ and then deformation retracting the same face $[v_0,v_1,v_3]$ onto the union of $[v_0,v_1]$ and $[v_1,v_3]$. No edges should be identified to form the $2$-sphere since $\Delta^3$ is already homeomorphic to the sphere. Finally, $\R\Prj^2$ is obtained by identifying $[v_0,v_2]\sim[v_3,v_1]$ and $[v_0,v_1]\sim[v_3,v_3]$ in the order of the vertices mentioned. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Construct a $\Delta$-complex structure on $\R\Prj^n$ as a quotient of a $\Delta$-complex structure on $S^n$ having vertices the two vectors of length $1$ along each coordinate axis in $\R^{n+1}$ \tcbline
+\begin{proof}
+Write the unit vectors of $\R^{n+1}$ by $e_0,\dots,e_n$ and its negatives by $-e_0,\dots,-e_n$. A $\Delta$-complex structure of $S^n$ can be obtained as follows. The $n$-simplexes for $0\leq k\leq n$ are the simplexes of the form $[\pm e_0,\dots,\pm\hat{e}_i,\dots,\pm e_n]$ where the hat means that $\hat{e}_i$ is omitted so that it indeed denotes an $n$-simplex. The $k$-simplexes are then precisely the boundaries of the $(k+1)$-simplexes for $0\leq k\leq n-1$ and the $0$-simplexes are then precisely the points $\pm e_0,\dots,\pm e_n$. For $[(-1)^{a_0}e_0,\dots,(-1)^{a_n}e_n]$ an $n$-simplex, identify it with $$[(-1)^{a_0+1}e_0,\dots,(-1)^{a_n+1}e_n]$$ This identification on $S^n$ gives precisely $\R\Prj^2$ because for any point $v$ on the $n$-simplex, it is identified with $-v$. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Compute the simplicial homology groups of the triangular parachute obtained from $\Delta^2$ by identifying its three vertices to a single point. \tcbline
+\begin{proof}
+The triangular parachute has a $\Delta$ complex structure with one $0$-simplex $p$, three $1$-simplexes $a,b,c$ with boundary the only simplex, and $2$-simplex with boundary $b-c+a$ given by the following picture: 
+
+\begin{center}
+\includegraphics[scale = 0.8]{Image 3}
+\end{center}
+
+This means that we have the following chain complex: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & \Z & {\Z^3} & \Z & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{d_2}", from=1-2, to=1-3]
+	\arrow["{d_1}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+The matrix of $d_1$ and $d_2$ are given by $$d_1=0\;\;\;\;\text{ and }\;\;\;\; d_2=\begin{pmatrix}
+1\\1\\-1
+\end{pmatrix}$$ respectively. Then the Smith normal form of $d_2$ is just $\begin{pmatrix}
+1\\0\\0
+\end{pmatrix}$ and thus the homology groups are given as $$H_n(X)=\begin{cases}
+\Z & \text{ if } n=0\\
+\Z^2 & \text{ if } n=1\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Compute the simplicial homology groups of the Klein bottle using the $\Delta$-complex structure described at the beginning of this section. \tcbline
+\begin{proof}
+The $\Delta$-complex structure of the Klein bottle described consists of one $0$-simplex $v$, three $1$-simplexes $a,b,c$ and two $2$-simplexes $U$ and $L$. This means that this gives its simplicial chain complex as \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & \Z^2 & {\Z^3} & \Z & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{d_2}", from=1-2, to=1-3]
+	\arrow["{d_1}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Since there is only one $0$-simplex, every $1$-simplex has boundary $v-v=0$ and so $d_1$ is the zero map. From the $\Delta$-complex structure, the boundary of $U$ can be seen to be oriented by $a,b$ and $c$. So we have that $d_2(U)=b-c+a$. Similarly, we have that $d_2(L)=a-b+c$. Thus the matrix of the map $d_2:\Z^2\to\Z^3$ can be written as $$\begin{pmatrix}
+1 & 1\\
+1 & -1\\
+1 & -1
+\end{pmatrix}\overset{\text{SNF}}{\longrightarrow}\begin{pmatrix}
+1 & 0\\
+0 & 2\\
+0 & 0
+\end{pmatrix}$$ where SNF mean the Smith normal form. It is easy to see that $\ker(d_2)=0$ and $\im(d_2)\cong \Z\oplus 2\Z$. Thus we have that $$H_n(K)=\begin{cases}
+\Z & \text{ if } n=0\\
+\Z/2\Z & \text{ if } n=1\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Compute the simplicial homology groups of the $\Delta$-complex obtained from $n+1$ $2$-simplices $\Delta_0^2,\dots,\Delta_n^2$ by identifying all three edges of $\Delta_0^2$ to a single edge, and for $i>0$ identifying the edges $[v_0,v_1]$ and $[v_1,v_2]$ of $\Delta_i^2$ to a single edge and the edge $[v_0,v_2]$ to the edge $[v_0,v_1]$ of $\Delta_{i-1}^2$. 
+\end{ex}
+
+\begin{ex}{}{} Find a way of identifying pairs of faces of $\Delta^3$ to produce a $\Delta$-complex structure on $S^3$ having a single $3$-simplex, and compute the simplicial homology groups of this $\Delta$-complex. \tcbline
+\begin{proof}
+Identify the faces of $\Delta^3$ via $[v_0,v_1,v_2]\sim[v_0,v_1,v_3]$ and $[v_0,v_2,v_3]\sim[v_1,v_2,v_3]$. The first identification can be visualized as follows: hold the two points $v_2$ and $v_3$ of $\Delta^3$ and move it along a circular arc, thinking of $[v_2,v_3]$ as the diameter. 
+
+\begin{center}
+\includegraphics[scale = 0.8]{Image 6}
+\end{center}
+
+Gluing the faces, together, we obtain the following: 
+
+\begin{center}
+\includegraphics[scale = 0.8]{Image 7}
+\end{center}
+
+This is homeomorphic to $D^3$ by thinking of $v_1$ and $v_0$ as the north and south poles respectively, and then inflating it. Now it is known that $$S^3\cong\frac{D^3}{\sim}$$ where $v\sim -v$ for $v\in\partial D$. Then the identification of $[v_0,v_2,v_3]\sim[v_1,v_2,v_3]$ in $\Delta^3$ is precisely taking $D^3$ and then defining the same equivalence relation on $\partial D^3\cong S^2$. Thus we know have $\Delta^3$ being a $\Delta$-complex structure on $S^3$. 
+
+To compute the homology groups, notice that there are now two $0$-simplexes $[v_0]\sim[v_1]$ and $[v_2]\sim[v_3]$. There are three $1$-simplexes $[v_2,v_2=v_3]$, $[v_1,v_2]\sim[v_0,v_2]\sim[v_1,v_3]\sim[v_0,v_3]$ and $[v_0,v_0=v_1]$. There are two $2$-simplexes $[v_0,v_2,v_3]\sim[v_1,v_2,v_3]$ and $[v_0,v_1,v_2]\sim[v_0,v_1,v_3]$ and one $3$-simplex $[v_0,v_1,v_2,v_3]$. The simplicial chain complex is thus \\~\\
+\adjustbox{scale=0.8,center}{\begin{tikzcd}
+	0 & {\Z[v_0,v_1,v_2,v_3]} & {\Z[v_0,v_1,v_2]\oplus\Z[v_0,v_2,v_3]} & {\Z[v_0,v_1]\oplus\Z[v_1,v_2]\oplus\Z[v_2,v_3]} & {\Z[v_0]\oplus\Z[v_2]} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+\end{tikzcd}}\\~\\
+The boundary maps can be understood as follows. The first boundary map can be computed as \begin{align*}
+d_1([v_0,v_1])&=[v_1]-[v_0]=0\\
+d_1([v_1,v_2])&=[v_2]-[v_1]=[v_2]-[v_0]\\
+d_1([v_2,v_3])&=[v_3]-[v_2]=0
+\end{align*}
+Then the second boundary map: 
+\begin{align*}
+d_2([v_0,v_1,v_2])&=[v_1,v_2]-[v_0,v_2]+[v_0,v_1]=[v_1,v_2]-[v_1,v_2]+[v_0,v_1]=[v_0,v_1]\\
+d_2([v_0,v_2,v_3])&=[v_2,v_3]-[v_0,v_3]+[v_0,v_2]=[v_2,v_3]
+\end{align*}
+And the last one: $$d_3([v_0,v_1,v_2,v_3])=[v_1,v_2,v_3]-[v_0,v_2,v_3]+[v_0,v_1,v_3]-[v_0,v_1,v_2]=0$$
+We can write them in to a matrix so that 
+\begin{gather*}
+d_1=\begin{pmatrix}
+0 & -1 & 0\\
+0 & 1 & 0
+\end{pmatrix}\;\;\;\;\overset{\text{SNF}}{\longrightarrow}\;\;\;\;\begin{pmatrix}
+1 & 0 & 0\\
+0 & 0 & 0
+\end{pmatrix}\\
+d_2=\begin{pmatrix}
+1 & 0\\
+0 & 0\\
+0 & 1
+\end{pmatrix}\;\;\;\;\overset{\text{SNF}}{\longrightarrow}\;\;\;\;\begin{pmatrix}
+1 & 0\\
+0 & 1\\
+0 & 0
+\end{pmatrix}\\
+d_3=\begin{pmatrix}
+0\\
+0
+\end{pmatrix}
+\end{gather*}
+Then the homology groups can be read off as $$H_n(S^3)=\begin{cases}
+\Z & \text{ if } n=0,3\\
+0 & \text{ otherwise }
+\end{cases}$$
+which one can check is precisely the singular homology of $S^3$. 
+\end{proof}
+\end{ex}
+
+\begin{ex}{}{} Compute the homology groups of the $\Delta$-complex $X$ obtained from $\Delta^n$ by identifying all faces of the same dimension. Thus $X$ has a single $k$-simplex for each $k\leq n$. \tcbline
+\begin{proof}
+It is clear that the simplicial chain complex of $X$ is just one copy of $\Z$ on dimensions $0,1,\dots,n$. We have to understand the boundary maps. For a $k$-simplex $[v_0,\dots,v_k]$, we have the formula $$d_k([v_0,\dots,v_k])=\sum_{i=0}^k(-1)^i\sigma[v_0,\dots,\hat{v}_i,\dots,v_k]$$ In $X$, there is only one $(k-1)$-simplex so the formula becomes $$d_k([v_0,\dots,v_k])=\begin{cases}
+0 & \text{ if } 0\leq k\leq n \text{ is odd}\\
+[v_0,\dots,\hat{v}_i,\dots,v_k] & \text{ if } 0\leq k\leq n \text{ is even}
+\end{cases}$$
+This means that $d_k$ is either the identity or the zero map. When $0<k<n$ is even, we have that $$H_k(X)=\frac{\ker(d_k)}{\im(d_{k+1})}=\frac{\ker(\text{id})}{\im(0)}\cong 0$$ When $0<k<n$ is odd, we have that $$H_k(X)=\frac{\ker(d_k)}{\im(d_{k+1})}=\frac{\ker(0)}{\im(\text{id})}\cong 0$$ When $k=0$, we have $H_0(X)=\Z$. When $k=n$ and $n$ is odd, we have that $H_n(X)=\Z$. When $k=n$ and $n$ is even, we have that $H_n(X)=0$. 
+\end{proof}
+\end{ex}
 
 
 

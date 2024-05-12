@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  1 MAY 2024 08:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  10 MAY 2024 16:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -927,7 +927,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count337
-Package hyperref Info: Option `colorlinks' set `true' on input line 214.
+Package hyperref Info: Option `colorlinks' set `true' on input line 220.
 ) (Algebraic Topology 1.aux)
 \openout1 = `"Algebraic Topology 1.aux"'.
 
@@ -1060,13 +1060,14 @@ LaTeX Warning: Reference `prp:2.5.1' on page 35 undefined on input line 948.
 LaTeX Warning: Command \l invalid in math mode on input line 993.
 
 Missing character: There is no ª in font cmr10!
-[37] [38] [39] [40] [41]
-<Image 1.png, id=495, 508.90125pt x 493.845pt>
+[37] [38] [39] [40] [41] [42] [43]
+<Image 1.png, id=513, 508.90125pt x 493.845pt>
 File: Image 1.png Graphic file (type png)
 <use Image 1.png>
-Package pdftex.def Info: Image 1.png  used on input line 1124.
+Package pdftex.def Info: Image 1.png  used on input line 1162.
 (pdftex.def)             Requested size: 152.67155pt x 148.15463pt.
- [42] [43 <./Image 1.png>] (Algebraic Topology 1.aux)
+ [44 <./Image 1.png>] [45]
+(Algebraic Topology 1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
@@ -1075,15 +1076,18 @@ L3 programming layer <2024-03-14>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `"Algebraic Topology 1".out' has not changed.
 
-(rerunfilecheck)             Checksum: 21BF724343F0A6D133C1D1A88ADED804;5644.
+(rerunfilecheck)             Checksum: C8985FE15662495200518BCB1EFEC989;5863.
  ) 
 Here is how much of TeX's memory you used:
- 32750 strings out of 474424
- 648118 string characters out of 5741739
- 1968496 words of memory out of 5000000
- 54399 multiletter control sequences out of 15000+600000
+ 32761 strings out of 474424
+ 648263 string characters out of 5741739
+ 1969496 words of memory out of 5000000
+ 54405 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,17n,120p,1385b,1470s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1103,9 +1107,9 @@ ymbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Topology 1.pdf" (43 pages, 709174 bytes).
+Output written on "Algebraic Topology 1.pdf" (45 pages, 720430 bytes).
 PDF statistics:
- 615 PDF objects out of 1000 (max. 8388607)
- 191 named destinations out of 1000 (max. 500000)
- 234 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 632 PDF objects out of 1000 (max. 8388607)
+ 196 named destinations out of 1000 (max. 500000)
+ 242 words of extra memory for PDF output out of 10000 (max. 10000000)
 
