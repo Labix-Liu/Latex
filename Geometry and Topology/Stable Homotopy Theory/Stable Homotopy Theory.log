@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  22 APR 2024 09:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  20 MAY 2024 23:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"./The Topology of Fiber Bundles.tex"
-(The Topology of Fiber Bundles.tex
+**"./Stable Homotopy Theory.tex"
+(Stable Homotopy Theory.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -23,7 +23,7 @@ File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
 )
-(C:/Users/liula/Desktop/Latex/Headers.tex
+(C:/Users/liula/Desktop/Latex/Headers V1.2.tex
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
 Package: mathtools 2024/03/11 v1.30 mathematical typesetting tools
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
@@ -846,8 +846,50 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count330
 \enitdp@description=\count331
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 26.
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen304
+\captionmargin=\dimen305
+\caption@leftmargin=\dimen306
+\caption@rightmargin=\dimen307
+\caption@width=\dimen308
+\caption@indent=\dimen309
+\caption@parindent=\dimen310
+\caption@hangindent=\dimen311
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count332
+\c@continuedfloat=\count333
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+)
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count334
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count335
+) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen312
+\WF@size=\dimen313
+\c@WF@wrappedlines=\count336
+\WF@box=\box80
+\WF@everypar=\toks50
+Package: wrapfig 2003/01/31  v 3.6
+)
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgpagella.sty
+Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
+) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+qpl on input line 11
+2.
+
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qpl.fd
+File: t1qpl.fd 2009/09/25 v1.2 font definition file for T1/qpl
+))
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbtheorems.c
 ode.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.2.0'
@@ -859,9 +901,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box80
-\tcb@totalupperbox=\box81
-\tcb@totallowerbox=\box82
+\tcb@testbox=\box81
+\tcb@totalupperbox=\box82
+\tcb@totallowerbox=\box83
 )
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskins.code
 .tex
@@ -878,16 +920,16 @@ Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzlibraryfil
 l.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box83
+\l__tikzfill_img_box=\box84
 ))
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskinsjigsa
 w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
-\c@tcb@cnt@thm=\count332
-\c@qtnc=\count333
-) (The Topology of Fiber Bundles.aux)
-\openout1 = `"The Topology of Fiber Bundles.aux"'.
+\c@tcb@cnt@thm=\count337
+Package hyperref Info: Option `colorlinks' set `true' on input line 222.
+) (Stable Homotopy Theory.aux)
+\openout1 = `"Stable Homotopy Theory.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
@@ -946,17 +988,17 @@ LaTeX Font Info:    ... okay on input line 16.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count334
-\scratchdimen=\dimen304
-\scratchbox=\box84
-\nofMPsegments=\count335
-\nofMParguments=\count336
-\everyMPshowfont=\toks50
-\MPscratchCnt=\count337
-\MPscratchDim=\dimen305
-\MPnumerator=\count338
-\makeMPintoPDFobject=\count339
-\everyMPtoPDFconversion=\toks51
+\scratchcounter=\count338
+\scratchdimen=\dimen314
+\scratchbox=\box85
+\nofMPsegments=\count339
+\nofMParguments=\count340
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count341
+\MPscratchDim=\dimen315
+\MPnumerator=\count342
+\makeMPintoPDFobject=\count343
+\everyMPtoPDFconversion=\toks52
 )
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -968,12 +1010,15 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count340
+\c@lstlisting=\count344
 Package hyperref Info: Link coloring ON on input line 16.
- (The Topology of Fiber Bundles.out) (The Topology of Fiber Bundles.out)
+ (Stable Homotopy Theory.out) (Stable Homotopy Theory.out)
 \@outlinefile=\write4
-\openout4 = `"The Topology of Fiber Bundles.out"'.
+\openout4 = `"Stable Homotopy Theory.out"'.
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 
@@ -988,67 +1033,70 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 [1
 
-{C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-(The Topology of Fiber Bundles.toc)
+{C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
+a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
+(Stable Homotopy Theory.toc)
 \tf@toc=\write5
-\openout5 = `"The Topology of Fiber Bundles.toc"'.
+\openout5 = `"Stable Homotopy Theory.toc"'.
 
- [2] [3] [4] [5] [6] [7]
-(The Topology of Fiber Bundles.aux)
+ [2]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 29.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Omega' on input line 29.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 29.
+
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 3
+7.
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
+File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
+)
+[3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+enc}]
+
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 66.
+
+[4] (Stable Homotopy Theory.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-
-
-Package rerunfilecheck Warning: File `"The Topology of Fiber Bundles".out' has 
-changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"The Topology of Fiber Bundles".out
-':
-(rerunfilecheck)             Before: 4F4F70EEE087894D42E626EB7EF47B1C;1409
-(rerunfilecheck)             After:  8FA403AEEFB81C367BA5E94BB3103688;1221.
+Package rerunfilecheck Info: File `"Stable Homotopy Theory".out' has not change
+d.
+(rerunfilecheck)             Checksum: 1C1FE9BC9F8A18EF31DD84BF5AC2E417;553.
  ) 
 Here is how much of TeX's memory you used:
- 30363 strings out of 474424
- 604203 string characters out of 5741739
- 1958496 words of memory out of 5000000
- 52188 multiletter control sequences out of 15000+600000
- 567211 words of font info for 71 fonts, out of 8000000 for 9000
+ 31849 strings out of 474424
+ 629334 string characters out of 5741739
+ 1955496 words of memory out of 5000000
+ 53667 multiletter control sequences out of 15000+600000
+ 591738 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,16n,100p,570b,1474s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{subsection.1.6} has been referenced but does not ex
-ist, replaced by a fixed one
-
- <C:\Users\liula\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm10
-00.pk> <C:\Users\liula\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-tcrm0900.pk><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmbx12.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/liula/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/liula/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/
-liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C
-:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
-7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmr12.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr17.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/liula/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liula/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/l
-iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.p
-fb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/sy
-mbols/msbm7.pfb>
-Output written on "The Topology of Fiber Bundles.pdf" (7 pages, 242438 bytes).
+ 88i,11n,120p,563b,1186s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/liula/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
+liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
+:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
+/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/te
+x-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/tex-gyre/qplr.pfb>
+Output written on "Stable Homotopy Theory.pdf" (4 pages, 224561 bytes).
 PDF statistics:
- 226 PDF objects out of 1000 (max. 8388607)
- 39 named destinations out of 1000 (max. 500000)
- 85 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 PDF objects out of 1000 (max. 8388607)
+ 20 named destinations out of 1000 (max. 500000)
+ 37 words of extra memory for PDF output out of 10000 (max. 10000000)
 

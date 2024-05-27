@@ -32,7 +32,7 @@ Homological algebra is the backbone for algebraic topology. In this chapter we w
 \subsection{Chain Complexes}
 We begin with a very important notion in homological algebra. A chain complex records a sequence of abelian groups together with group homomorphisms that connect them up. All of homology and cohomology starts with establish a chain complex out of a topological space. 
 
-\begin{defn}{Chain Complex}{} A chain complex $(C_\bullet,\partial_\bullet)$ is a family of abelian groups $C_n$ for $n\in\Z$ and maps $\partial_n:C_n\to C_{n-1}$ such that $\partial_n\circ\partial_{n+1}=0$ for all $n$. \\~\\
+\begin{defn}{Chain Complex}{1.1.1} A chain complex $(C_\bullet,\partial_\bullet)$ is a family of abelian groups $C_n$ for $n\in\Z$ and maps $\partial_n:C_n\to C_{n-1}$ such that $\partial_n\circ\partial_{n+1}=0$ for all $n$. \\~\\
 In other words, we have the diagram: \\
 \adjustbox{scale=1.1,center}{\begin{tikzcd}
 \cdots\arrow[r] & C_{n+1}\arrow[r, "\partial_{n+1}"] & C_n\arrow[r, "\partial_n"] & C_{n-1}\arrow[r] & \cdots
@@ -42,7 +42,7 @@ for which we require that $$\im(\partial_{n+1})\subseteq\ker(\partial_n)$$ for e
 
 The requirement of each $C_n$ only being abelian means that this notion naturally extends to algebraic objects with extra structure such as $R$-module for a ring $R$, or even vector spaces. However it is crucial that each $C_n$ is abelian instead of just being a group. This is because of the following definition. 
 
-\begin{defn}{Homology Group}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Define $Z_n(C_\bullet)=\ker(\partial_n)$ and $B_n(C_\bullet)=\im(\partial_{n+1})$. Define the $n$th homology group of $(C_\bullet,\partial_\bullet)$ to be $$H_n(C_\bullet)=\frac{Z_n(C_\bullet)}{B_n(C_\bullet)}=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}$$
+\begin{defn}{Homology Group}{1.1.2} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Define $Z_n(C_\bullet)=\ker(\partial_n)$ and $B_n(C_\bullet)=\im(\partial_{n+1})$. Define the $n$th homology group of $(C_\bullet,\partial_\bullet)$ to be $$H_n(C_\bullet)=\frac{Z_n(C_\bullet)}{B_n(C_\bullet)}=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}$$
 Elements of $Z_n(C_\bullet)=\ker(\partial_n)$ are called $n$-cycles and elements of $B_n(C_\bullet)=\im(\partial_{n+1})$ are called $n$-boundaries. 
 \end{defn}
 
@@ -50,7 +50,7 @@ Note that the definition of homology groups make sense. Indeed every boundary op
 
 It is routine to also define maps between chain complexes. Indeed in Groups and Rings we introduced groups and group homomorphisms. In Topology we defined topological spaces and continuous maps. 
 
-\begin{defn}{Chain Map}{} Let $(C_\bullet,\partial_\bullet)$ and $(C_\bullet',\partial_\bullet')$ be two chain complexes. A chain map $f_\bullet:C_\bullet\to C_\bullet'$ is a family of maps $$f_n:C_n\to C_n'$$ such that $\partial_n'\circ f_n=f_{n-1}\circ\partial_n$ for all $n$. \\~\\
+\begin{defn}{Chain Map}{1.1.3} Let $(C_\bullet,\partial_\bullet)$ and $(C_\bullet',\partial_\bullet')$ be two chain complexes. A chain map $f_\bullet:C_\bullet\to C_\bullet'$ is a family of maps $$f_n:C_n\to C_n'$$ such that $\partial_n'\circ f_n=f_{n-1}\circ\partial_n$ for all $n$. \\~\\
 In other words, we have the following commutative diagram: \\
 \adjustbox{scale=1.1,center}{\begin{tikzcd}
 \cdots\arrow[r] & C_{n+1}\arrow[r, "\partial_{n+1}"]\arrow[d, "f_{n+1}"] & C_n\arrow[r, "\partial_n"]\arrow[d, "f_n"] & C_{n-1}\arrow[r]\arrow[d, "f_{n-1}"] & \cdots\\
@@ -60,7 +60,7 @@ In other words, we have the following commutative diagram: \\
 
 Commutative diagram will appear a lot in Algebraic Topology. This is due to the fact that underlying theory of Algebraic Topology is exercised with Category Theory and Homological Algebra. In fact, Category Theory is motivated precisely due to Algebraic Topology. 
 
-\begin{lmm}{}{} A chain map $f_\bullet:C_\bullet\to C_\bullet'$ induces group homomorphisms $$f_\ast:H_n(C_\bullet)\to H_n(C_\bullet')$$ between homology groups. \tcbline
+\begin{lmm}{}{1.1.4} A chain map $f_\bullet:C_\bullet\to C_\bullet'$ induces group homomorphisms $$f_\ast:H_n(C_\bullet)\to H_n(C_\bullet')$$ between homology groups defined by $f_\ast([z])=[f(z)]$. \tcbline
 \begin{proof}
 For every map $f_n:C_n\to C_n'$, we can restrict the domain to cycles so that we obtain a map $f_n:Z_n(C_\bullet)\to C_n'$. Using the relation given between the boundary operator and the family of maps, we check that this map descends to a map in homology. \\~\\
 
@@ -77,22 +77,27 @@ It is customary to drop the $n\in\N$ in the notation as it is usually implicit. 
 
 We then have functoriality of the induced map. 
 
-\begin{prp}{}{} Let $f_\bullet:C_\bullet\to D_\bullet$ and $g_\bullet:D_\bullet\to E_\bullet$ be two chain maps. Then $g_\bullet\circ f_\bullet$ is also a chain map. Moreover, the induced map on the homology groups satisfy the following: 
+\begin{prp}{}{1.1.5} Let $f_\bullet:C_\bullet\to D_\bullet$ and $g_\bullet:D_\bullet\to E_\bullet$ be two chain maps. Then $g_\bullet\circ f_\bullet$ is also a chain map. Moreover, the induced map on the homology groups satisfy the following: 
 \begin{itemize}
 \item $g_\ast\circ f_\ast=(g\circ f)_\ast$
 \item $\text{id}_\ast=\text{id}_{H_n}$
-\end{itemize}
+\end{itemize} \tcbline
+\begin{proof}
+Firstly, we have that $$\partial\circ g_n\circ f_n=g_{n-1}\circ\partial\circ f_n=g_{n-1}\circ f_{n-1}\circ\partial$$ so that $g\circ f$ is indeed a chain map. \\~\\
+
+We have that $g_\ast(f_\ast([z]))=g_\ast([f(z)])=[g(f(z))]=(g_\ast\circ f_\ast)([z])$. Also, we have that $$\text{id}_\ast([z])=[\text{id}(z)]=[z]=\text{id}_{H^n}([z])$$ and so we conclude. 
+\end{proof}
 \end{prp}
 
 \subsection{Exact Sequences}
 Exact sequences occur naturally from sequences of chain complexes. In particular, exact sequences with $3$ consecutive non-zero terms is a compact way of saying that certain maps in the chain complex hold the property of being injective and surjective. 
 
-\begin{defn}{Exact Sequence}{} A chain complex $(C_\bullet,\partial_\bullet)$ is said to be exact if $\im(\partial_{n+1})=\ker(\partial_n)$ for all $n$. 
+\begin{defn}{Exact Sequence}{1.2.1} A chain complex $(C_\bullet,\partial_\bullet)$ is said to be exact if $\im(\partial_{n+1})=\ker(\partial_n)$ for all $n$. 
 \end{defn}
 
 Notice that the homology groups of an exact sequence is trivial. 
 
-\begin{defn}{Short Exact Sequence}{} Let $A,B,C$ be abelian groups. A short exact sequence is an exact sequence of the form \\~\\
+\begin{defn}{Short Exact Sequence}{1.2.2} Let $A,B,C$ be abelian groups. A short exact sequence is an exact sequence of the form \\~\\
 \adjustbox{scale=1.1,center}{\begin{tikzcd}
 0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
 \end{tikzcd}}\\~\\
@@ -101,7 +106,7 @@ where $f:A\to B$ and $g:B\to C$ are group homomorphisms.
 
 It should be reflex action that whenever one sees a short exact sequence, they can deduce the following equivalent information out of the sequence. 
 
-\begin{prp}{}{} Let $A,B,C$ be abelian groups and $f:A\to B$ and $g:B\to C$ be group homomorphisms. A chain complex \\~\\
+\begin{prp}{}{1.2.3} Let $A,B,C$ be abelian groups and $f:A\to B$ and $g:B\to C$ be group homomorphisms. A chain complex \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
 \end{tikzcd}}\\~\\
@@ -115,7 +120,7 @@ Now suppose that $f$ is injective and $g$ is surjective and $\ker(g)\subseteq\im
 
 It is easy to also deduce the following consequences: 
 
-\begin{lmm}{}{} Let $A,B,C$ be abelian groups and $f:A\to B$ and $g:B\to C$ group homomorphisms such that \\~\\
+\begin{lmm}{}{1.2.4} Let $A,B,C$ be abelian groups and $f:A\to B$ and $g:B\to C$ group homomorphisms such that \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
 \end{tikzcd}}\\~\\
@@ -135,7 +140,7 @@ When dealing with exact sequences, the first isomorphism theorem is often your b
 
 Split exact sequence are a special type of exact sequences that will come up a lot in the study of homology since we are dealing with a lot of free groups, which are isomorphic to some number of copies of $\Z$. 
 
-\begin{defn}{Split Exact Sequence}{} Let $A,B,C$ be abelian groups such that \\~\\
+\begin{defn}{Split Exact Sequence}{1.2.5} Let $A,B,C$ be abelian groups such that \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
 \end{tikzcd}}\\~\\
@@ -144,7 +149,7 @@ is a short exact sequence. We say that it is split exact if $B\cong A\oplus C$.
 
 The following is an important equivalent characterization of split exact sequence. 
 
-\begin{thm}{The Splitting Lemma}{} Let $A,B,C$ be abelian groups. Then the following are equivalent for a short exact sequence \\~\\
+\begin{thm}{The Splitting Lemma}{1.2.6} Let $A,B,C$ be abelian groups. Then the following are equivalent for a short exact sequence \\~\\
 \adjustbox{scale=1.1,center}{\begin{tikzcd}
 0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
 \end{tikzcd}}\\
@@ -171,7 +176,7 @@ Thus we conclude.
 
 The reason why split exact sequences are important for homology, is given by the following proposition. 
 
-\begin{prp}{}{} Let $A,B,C$ be abelian groups such that \\~\\
+\begin{prp}{}{1.2.7} Let $A,B,C$ be abelian groups such that \\~\\
 \adjustbox{scale=1.1,center}{\begin{tikzcd}
 0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
 \end{tikzcd}}\\~\\
@@ -183,7 +188,7 @@ Since $C$ is a free group, there exists a basis $X=\{c_1,\dots,c_n\}$ such that 
 
 The following two lemmas are very intuitive and straight forward to remember. 
 
-\begin{lmm}{Five Lemma}{} Consider the commutative diagram \\~\\
+\begin{lmm}{Five Lemma}{1.2.8} Consider the commutative diagram \\~\\
 \adjustbox{scale=1.1,center}{\begin{tikzcd}
 A\arrow[r, "f"]\arrow[d, "l"] & B\arrow[r, "g"]\arrow[d, "m"] & C\arrow[r, "h"]\arrow[d, "n"] & D\arrow[r, "j"]\arrow[d, "p"] & E\arrow[d, "q"]\\
 A'\arrow[r, "r"] & B'\arrow[r, "s"] & C'\arrow[r, "t"] & D'\arrow[r, "u"] & E'
@@ -200,7 +205,7 @@ Let $c'\in C'$. By exactness, we have that $u(t(c'))=0$. Since $p$ is an isomorp
 
 The proof is long but is rather straight forward. In every step there is only one possible way to advance, and so one eventually arrives at the conclusion. 
 
-\begin{lmm}{Snake Lemma}{} Consider the commutative diagram \\~\\
+\begin{lmm}{Snake Lemma}{1.2.9} Consider the commutative diagram \\~\\
 \adjustbox{scale=1.1,center}{\begin{tikzcd}
  & A\arrow[r, "f"]\arrow[d, "a"] & B\arrow[r, "g"]\arrow[d, "b"] & C\arrow[r]\arrow[d, "c"] & 0\\
 0\arrow[r] & A'\arrow[r, "f'"] & B'\arrow[r, "g'"] & C' & 
@@ -209,12 +214,21 @@ where all the objects are abelian groups. If the two rows are exact, then there 
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 \ker(a)\arrow[r] & \ker(b)\arrow[r] & \ker(c)\arrow[r, "d"] & \coker(a)\arrow[r] & \coker(b)\arrow[r] & \coker(c)
 \end{tikzcd}}\\~\\
-where $d$ is called the connecting homomorphism. 
+where $d$ is called the connecting homomorphism. \tcbline
+\begin{proof}
+Let $k\in\ker(c)$. By exactness, $g$ is surjective. Thus there exists $l\in B$ such that $g(l)=k$. Then $$g'(b(l))=c(g(l))=c(k)=0$$ which means that $b(l)\in\ker(g')$. By exactness, there exists $m\in A'$ such that $f'(m)=b(l)$ since $\im(f')=\ker(g')$. This $m$ is unique since $f'$ is injective. In particular, $[m]\in\text{coker}(a)$. \\~\\
+
+For uniqueness, suppose that $l'$ is another element in $B$ such that $g(l')=k$. Then $g(l-l')=0$ so that $l-l'\in\ker(g)$. By exactness, $\im(f)=\ker(g)$ so there is some $n\in A$ such that $f(n)=l-l'$. By a similar argument as the first paragraph, one can find $m'\in A'$ such that $f'(m')=b(l')$. Then $$f'(a(n))=b(f(n))=b(l-l')=b(l)-b(l')=f'(m)-f'(m')$$ Since $f'$ is injective by exactness, we have that $a(n)=m-m'$ so that $m-m'\in\im(a)$ and hence $[m]=[m']$. Thus $d$ is a well defined map. \\~\\
+
+Since all operations above are group homomorphisms, $d$ is also a group homomorphism. \\~\\
+
+It remains to show exactness of the sequence. 
+\end{proof}
 \end{lmm}
 
 We can relate short exact sequences with chain complexes. In particular, one can always extract short exact sequences from chain complexes. 
 
-\begin{lmm}{}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Then for any $n$, the sequence \\~\\
+\begin{lmm}{}{1.2.10} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Then for any $n$, the sequence \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	0 & {Z_n(C_\bullet)} & {C_n} & {B_{n-1}(C_\bullet)} & 0
 	\arrow[from=1-1, to=1-2]
@@ -233,7 +247,7 @@ In algebraic topology 1, we defined the notion of homotopies between two maps. I
 
 One can think of the chain complexes as our objects, chain maps as morphisms between chain complexes and morphisms between chain maps as chain homotopies. This is precisely the notion of the category of chain complexes. 
 
-\begin{defn}{Chain Homotopy}{} Let $a_\bullet,b_\bullet:C_\bullet\to C_\bullet'$ be two chain maps. Then a chain homotopy from $a$ to $b$ is a collection of morphisms $$\eta_n:C_n\to C_{n+1}'$$ such that $$b_n-a_n=\partial_{n+1}'\eta_n+\eta_{n-1}\partial_n$$ for all $n\in\Z$. In this case, $a$ and $b$ are said to be chain homotopic. \\~\\
+\begin{defn}{Chain Homotopy}{1.3.1} Let $a_\bullet,b_\bullet:C_\bullet\to C_\bullet'$ be two chain maps. Then a chain homotopy from $a$ to $b$ is a collection of morphisms $$\eta_n:C_n\to C_{n+1}'$$ such that $$b_n-a_n=\partial_{n+1}'\eta_n+\eta_{n-1}\partial_n$$ for all $n\in\Z$. In this case, $a$ and $b$ are said to be chain homotopic. \\~\\
 In other words, we have the diagram: \\~\\
 \adjustbox{scale=1.15,center}{\begin{tikzcd}
 	\cdots && {C_{n+1}} && {C_n} && {C_{n-1}} && \cdots \\
@@ -262,7 +276,7 @@ Note that $b_n-a_n$ makes sense as a map. Indeed for each $c\in C_n$, $a_n(c)$ a
 
 One consequence of chain homotopies is the following. 
 
-\begin{lmm}{}{} Let $a,b$ be chain homotopic. Then their induced maps in homology are equal. Meaning $$a_n=b_n:H_n(X)\to H_n(Y)$$ \tcbline
+\begin{lmm}{}{1.3.2} Let $a,b$ be chain homotopic. Then their induced maps in homology are equal. Meaning $$a_n=b_n:H_n(X)\to H_n(Y)$$ \tcbline
 \begin{proof}
 Let $c\in\ker(\partial_n)$ be an $n$-cycle. Using the equation for chain homotopy, we have that 
 \begin{align*}
@@ -275,7 +289,7 @@ b(c)-a(c)&=\partial_{n+1}'(\eta_n(c))+\eta_{n-1}(\partial(c))\\
 
 Chain homotopies are also well defined in compositions. 
 
-\begin{prp}{}{}{} Let $f_1,g_1:C_\bullet\to D_\bullet$ and $f_2,g_2:D_\bullet\to E_\bullet$ be chain maps. If $f_1$ and $g_1$ are chain homotopic and $f_2$ and $g_2$ are chain homotopic, then $f_2\circ f_1$ is chain homotopic to $g_2\circ g_1$. \tcbline
+\begin{prp}{}{1.3.3} Let $f_1,g_1:C_\bullet\to D_\bullet$ and $f_2,g_2:D_\bullet\to E_\bullet$ be chain maps. If $f_1$ and $g_1$ are chain homotopic and $f_2$ and $g_2$ are chain homotopic, then $f_2\circ f_1$ is chain homotopic to $g_2\circ g_1$. \tcbline
 \begin{proof}
 The chain homotopies between $f_1$ and $g_1$ imposes the identity $$\partial\eta+\eta\partial=g_1-f_1$$ for $\eta:C_\bullet\to D_\bullet$ the given chain homotopy. Similarly, for $\nu:D_\bullet\to E_\bullet$ we have the identity $$\partial\nu+\nu\partial=g_2-f_2$$ Then we have that 
 \begin{align*}
@@ -291,7 +305,7 @@ Thus $g_2\eta+\nu f_1:C_n\to E_{n+1}$ would be a valid chain homotopy from $g_2\
 
 In particular, they define an equivalence relation on the set of all chain maps between two fixed chain complexes. 
 
-\begin{lmm}{}{} Let $C_\bullet$ and $D_\bullet$ be two chain complexes. Then the relation $\simeq$ on the chain maps from $C_\bullet$ to $D_\bullet$ is an equivalence relation. \tcbline
+\begin{lmm}{}{1.3.4} Let $C_\bullet$ and $D_\bullet$ be two chain complexes. Then the relation $\simeq$ on the chain maps from $C_\bullet$ to $D_\bullet$ is an equivalence relation. \tcbline
 \begin{proof}
 Let $f_\bullet,g_\bullet,h_\bullet:C_\bullet\to D_\bullet$ be chain maps. Then it is clear that $f_\bullet\simeq f_\bullet$ by the $0$ map. Indeed we have that $\partial 0+0\partial=0=f-f$. Thus $\simeq$ is reflexive. if $f_\bullet$ and $g_\bullet$ are chain homotopic by $\eta$, then we have the identity $$\partial\eta+\eta\partial=g-f$$ But then we have 
 \begin{align*}
@@ -312,18 +326,18 @@ so that $\nu+\eta$ defines a chain homotopy from $f$ to $h$.
 
 While chain maps induce a map on the homology groups, we will see that chain homotopy equivalences induces isomorphisms on the homology groups, intuitively because they produce an inverse for each map on the level of homology. 
 
-\begin{defn}{Chain Homotopy Equivalence}{} Let $C_\bullet$ and $D_\bullet$ be two chain complexes. We say that they are chain homotopy equivalence if there exists chain maps $a_\bullet:C_\bullet\to D_\bullet$ and $b_\bullet:C_\bullet\to D_\bullet$ such that there are chain homotopies $$b_\bullet\circ a_\bullet\simeq\text{id}_{C_\bullet}\;\;\;\;\text{ and }\;\;\;\;a_\bullet\circ b_\bullet\simeq\text{id}_{D_\bullet}$$
+\begin{defn}{Chain Homotopy Equivalence}{1.3.5} Let $C_\bullet$ and $D_\bullet$ be two chain complexes. We say that they are chain homotopy equivalence if there exists chain maps $a_\bullet:C_\bullet\to D_\bullet$ and $b_\bullet:C_\bullet\to D_\bullet$ such that there are chain homotopies $$b_\bullet\circ a_\bullet\simeq\text{id}_{C_\bullet}\;\;\;\;\text{ and }\;\;\;\;a_\bullet\circ b_\bullet\simeq\text{id}_{D_\bullet}$$
 \end{defn}
 
-\begin{lmm}{}{} Let $C_\bullet$ and $D_\bullet$ be chain homotopy equivalent. Then the chain maps induces an isomorphism $$H_n(C_\bullet)\cong H_n(D_\bullet)$$ in all degrees $n\in\N$. \tcbline
+\begin{lmm}{}{1.3.6} Let $C_\bullet$ and $D_\bullet$ be chain homotopy equivalent. Then the chain maps induces an isomorphism $$H_n(C_\bullet)\cong H_n(D_\bullet)$$ in all degrees $n\in\N$. \tcbline
 \begin{proof}
 We know that $b_\bullet\circ a_\bullet\simeq\text{id}_{C_\bullet}$ which means that they induce the same map: $$b_\ast\circ a_\ast=\text{id}_{H_n(C_\bullet)}$$ Similarly the chain homotopies $a_\bullet\circ b_\bullet\simeq\text{id}_{D_\bullet}$ induce the same map $$a_\ast\circ b_\ast:\text{id}_{H_n(D_\bullet)}$$ as the identity. Then these two identities mean that $a_\ast$ is both injective and surjective. 
 \end{proof}
 \end{lmm}
 
-Similar to homotopies in Algebraic Geometry, chain homotopy also defines an equivalence relation on all the chain maps. 
+Similar to homotopies in Algebraic Topology, chain homotopy also defines an equivalence relation on all the chain maps. 
 
-\begin{prp}{}{} Chain homotopy equivalence defines an equivalence relation on all chain complexes. \tcbline
+\begin{prp}{}{1.3.7} Chain homotopy equivalence defines an equivalence relation on all chain complexes. \tcbline
 \begin{proof}
 Clearly any chain complex is chain homotopy equivalent to itself by the identity map. If $C_\bullet$ and $D_\bullet$ are chain homotopy equivalent by the chain maps $a_\bullet:C_\bullet\to D_\bullet$ and $b_\bullet:D_\bullet\to C_\bullet$, then we have the identities $b_\bullet\circ a_\bullet=\text{id}_{C_\bullet}$ and $a_\bullet\circ b_\bullet=\text{id}_{D_\bullet}$. We can then read them in reverse so that $D_\bullet$ and $C_\bullet$ are chain homotopy equivalence by the maps $b_\bullet$ and $a_\bullet$. \\~\\
 
@@ -376,6 +390,8 @@ This is a group homomorphism since all operations above are group homomorphisms.
 Now we have to show that the sequence is exact. 
 \end{proof}
 \end{thm}
+
+Notice that the above theorem is essentially an application of the snake lemma. One can conclude immediately by the snake lemma. \\~\\
 
 The following theorem looks horrifying but it is not as terrible as it looks. In essence, we want to show a naturality condition. This means that given a morphism of short exact sequences of chain complexes, we want an induced map that satisfies some commutative square. 
 
@@ -486,6 +502,8 @@ is a commutative diagram. \tcbline
 The first square is commutative since $\beta\circ i=i'\circ\alpha$ and $i,i',\alpha,\beta$ are all chain maps so that $\beta_\ast\circ i_\ast=i_\ast'\circ\alpha_\ast$ by proposition 1.1.5. Similarly, the second square is also commutative since $\gamma\circ j=j'\circ\beta$ implies $\gamma_\ast\circ j_\ast=j_\ast'\circ\beta_\ast$. Now recall that the connecting homomorphism is defined by $\partial([c])=[a]$ where $j(b)=c$ and $i(a)=\partial(b)$. Since $$\gamma(c)=\gamma(j(b))=j'(\beta(b))$$ and $$i'(\alpha(a))=\beta(i(a))=\beta(\partial(b))=\partial(\beta(b))$$ we have that $\partial[\gamma(c)]=[\alpha(a)]$. Thus we have that $$\partial(\gamma_\ast([c]))=\alpha_\ast([a])=\alpha_\ast(\partial([c]))$$ and so we conclude. 
 \end{proof}
 \end{thm}
+
+This naturality condition is also satisfied by the exact sequence in the snake lemma. 
 
 \pagebreak
 \section{Simplicial Homology}
@@ -651,7 +669,7 @@ One can imagine that in order to deduce the homology groups of a space, the comp
 
 For now, we are concerned with some immediate consequences of this definition, such as functoriality. 
 
-\begin{prp}{}{} Let $f:X\to Y$ be a continuous map. Then $f$ induces a chain map $$f_\ast:H_n(X)\to H_n(Y)$$ defined by $[\sigma]\mapsto[f\circ\sigma]$ for each $sigma:\Delta^n\to X$ a singular $n$-simplex. This map satisfies 
+\begin{prp}{}{} Let $f:X\to Y$ be a continuous map. Then $f$ induces a chain map $$f_\ast:H_n(X)\to H_n(Y)$$ defined by $[\sigma]\mapsto[f\circ\sigma]$ for each $\sigma:\Delta^n\to X$ a singular $n$-simplex. This map satisfies 
 \begin{itemize}
 \item $\text{id}_\ast=\text{id}_{H_n(X)}$
 \item If $g:Y\to Z$ is another continuous map, then $(g\circ f)_\ast=g_\ast\circ f_\ast$
@@ -681,6 +699,8 @@ We follow up with a geometric interpretation of $H_0$ and $H_1$. This will make 
 
 \begin{defn}{Homologous Elements}{} Let $X$ be a topological space. Let $x,y\in C_n(X)$. We say that $x$ and $y$ are homologous if there exists $z\in C_{n+1}(X)$ such that $\partial_{n+1}(z)=x-y$. 
 \end{defn}
+
+Intuitively, two elements are homologous if they bound some sort of higher dimensional singular complex. In terms of $\Delta$-complexes and CW complexes, two $n$-chains are homologous if they form the boundary of an $(n+1)$-chain. 
 
 \begin{lmm}{}{} Let $X$ be a path connected space. Then the $0$th homology is the integers $$H_0(X)\cong\Z$$ \tcbline
 \begin{proof}
@@ -1350,7 +1370,7 @@ Since $\R^2\setminus C$ is locally path connected, by corollary 3.2.3 we thus ha
 \begin{defn}{Fundamental Class}{} Let $k\in\N$. The fundamental class for the $k$-sphere $S^k$ is a generator of the top homology $$H_k(S^k)\cong\Z$$
 \end{defn}
 
-In fact, we will see in Topological Manifolds that the fundamental class can be defined for any topological manifolds. \\~\\
+In fact, we will see in Topological Manifolds that the fundamental class can be defined for any connected orientable compact manifolds because their top homology group is precisely $\Z$. \\~\\
 
 Recall that $S^k$ and $\partial\Delta^{k+1}$ are homeomorphic. 
 
@@ -1744,44 +1764,42 @@ But the first and latter terms are $0$ since $S^k\setminus\{x_i\}\simeq\R^k$ so 
 
 \begin{prp}{}{} Let $f:S^k\to S^k$ be a map. Let $f^{-1}(y)=\{x_1,\dots,x_n\}$. Then $$\deg(f)=\sum_{i=1}^n\deg(f|_{x_i})$$ \tcbline
 \begin{proof}
-Let $U_i$ be an open neighbourhood of $x_i$ for which $U_i\cap U_j=\emptyset$ for $i\neq j$. Let $f(U_i)\subseteq V$ for all $i$ so that $V$ is a neighbourhood of $y$. This diagram \\~\\
+Let $U_i$ be an open neighbourhood of $x_i$ for which $U_i\cap U_j=\emptyset$ for $i\neq j$. Let $f(U_i)\subseteq V$ for all $i$ so that $V$ is a neighbourhood of $y$. Consider the following diagram. 
+
+\begin{center}
+\includegraphics[scale = 0.5]{Image 3}
+\end{center}
+
+$k_i:H_k(U_i,U_i\setminus\{x_i\})\to H_k(S^k,S^k\setminus f^{-1}(y))$ is by definition of the composition of the obvious maps and so the upper left part of the diagram is commutativity. The upper middle part of the diagram commutes since both are induce by inclusions an direct sum of the induced maps of inclusions. The upper right and lower right part are commutative since they are induced by the same excisions and the direct sum of the very same excisions. Finally, $p_i:H_k(S^k,S^k\setminus f^{-1}(y))\to H_k(S^k,S^k\setminus\{x_i\})$ is defined to be the composition of the obvious maps and so the bottom left diagram is commutative by definition. \\~\\
+
+All of the above shows that the upper left of the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	& {H_k(U_i,U_i\setminus\{x_i\})} & {H_k(V,V\setminus\{y\})} \\
 	{H_k(S^k,S^k\setminus\{x_i\})} & {H_k(S^k,S^k\setminus f^{-1}(y))} & {H_k(S^k,S^k\setminus\{y\})} \\
 	& {H_k(S^k)} & {H_k(S^k)}
-	\arrow["{(f|_{x_i})_\ast}", from=1-2, to=1-3]
+	\arrow["{f_\ast=\times\deg(f|_{x_i})}", from=1-2, to=1-3]
 	\arrow["\cong"', from=1-2, to=2-1]
-	\arrow["{k_i}"', hook, from=1-2, to=2-2]
+	\arrow["{k_i}"', from=1-2, to=2-2]
 	\arrow["\cong", from=1-3, to=2-3]
 	\arrow["{p_i}"', from=2-2, to=2-1]
 	\arrow["{f_\ast}", from=2-2, to=2-3]
 	\arrow["\cong", from=3-2, to=2-1]
 	\arrow["{j_i}", from=3-2, to=2-2]
-	\arrow["{f_\ast}"', from=3-2, to=3-3]
-	\arrow["\cong"', from=3-3, to=2-3]
-\end{tikzcd}}\\~\\
-is commutative and we shall explain it. It is clear that the three $f_\ast$ are appropriate maps. The isomorphisms on the top right is obtained by excision. $k_i$ is induced by the inclusion $(S^k,S^k\setminus\{x_i\})\hookrightarrow(S^k,S^k\setminus f^{-1}(y))$ and then by the very same excision $$H_k(U_i,U_i\setminus\{x_i\})\cong H_k(S^k,S^k\setminus\{x_i\})$$ so that the top right square commutes. $p_i$ is induced by the inclusion $H_k(S^k,S^k\setminus f^{-1}(y))\hookrightarrow H_k(S^k,S^k\setminus\{x_i\})$ and the isomorphism on the top left is also given by the same excision as the previous two. Thus the top left triangle commutes. \\~\\
-
-The bottom two isomorphisms are given by the long exact sequence for relative homology applied before and after $f_\ast$. The map $j$ is complicated. Firstly, notice that there is an isomorphism $$H_k\left(\coprod_{i=1}^nU_i,\coprod_{i=1}^nU_i\setminus\{x_i\}\right)\cong\bigoplus_{i=1}^nH_k(U_i,U_i\setminus\{x_i\})\cong\bigoplus_{i=1}^nH_k(S^k,S^k\setminus\{x_i\})$$ by excision. The inclusions $(S^k,S^k\setminus\{x_i\})\hookrightarrow(S^k,S^k\setminus f^{-1}(y))$ for each $i$ combine to given an isomorphism $$\bigoplus_{i=1}^nH_k(S^k,S^k\setminus\{x_i\})\cong H_k(S^k,S^k\setminus f^{-1}(y))$$ which is actually the map $k=(k_1,\dots,k_n)$ defined by $k(1)=\sum_{i=1}^nk_i(1)$. The map $j$ is the obtained by the composition of the two. In this case $p_i$ is actually the projection of the $i$the element in $\bigoplus_{i=1}^nH_k(S^k,S^k\setminus\{x_i\})$ so that $p_i\circ j$ is actually the isomorphism given by the long exact sequence for relative homology groups. \\~\\
-
-Now we establish this diagram: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	& {H_k(U_i,U_i\setminus\{x_i\})} & {H_k(V,V\setminus\{y\})} \\
-	{H_k(S^k,S^k\setminus\{x_i\})} & {\bigoplus_{i=1}^nH_k(S^k,S^k\setminus\{x_i\})} & {H_k(S^k,S^k\setminus\{y\})} \\
-	& {H_k(S^k)} & {H_k(S^k)}
-	\arrow["{f_\ast}", from=1-2, to=1-3]
-	\arrow["\cong"', from=1-2, to=2-1]
-	\arrow["{k_i}"', hook, from=1-2, to=2-2]
-	\arrow["\cong", from=1-3, to=2-3]
-	\arrow["{p_i}"', from=2-2, to=2-1]
-	\arrow["{f_\ast}", from=2-2, to=2-3]
-	\arrow["\cong", from=3-2, to=2-1]
-	\arrow["{k}", from=3-2, to=2-2]
-	\arrow["{f_\ast}"', from=3-2, to=3-3]
+	\arrow["{f_\ast=\times\deg(f)}"', from=3-2, to=3-3]
 	\arrow["\cong"', from=3-3, to=2-3]
 \end{tikzcd}}\\~\\
 
-Commutativity of the upper square means that $f_\ast(k_i(1))=(f|_{x_i})_\ast(1)=\deg((f|_{x_i})_\ast)$. Hence $k(1)=\sum_{i=1}^n\deg(f|_{x_i})$. Commutativity of the lower square then implies that $\deg(f)=\sum_{i=1}^n\deg(f|_{x_i})$ as desired. 
+The bottom left of this diagram is commutative because: 
+
+\begin{center}
+\includegraphics[scale = 0.5]{Image 4}
+\end{center}
+
+and $s\circ u\circ t$ is the map $j$. The isomorphism on the top right is obtained by excision. $k_i$ is induced by the inclusion $(S^k,S^k\setminus\{x_i\})\hookrightarrow(S^k,S^k\setminus f^{-1}(y))$ and then by the very same excision $$H_k(U_i,U_i\setminus\{x_i\})\cong H_k(S^k,S^k\setminus\{x_i\})$$ so that the top right square commutes. The isomorphism on the bottom right is given by the long exact sequence for relative homology. It is commutative by the naturality of long exact sequences for relative homology. \\~\\
+
+By treating the middle term as $$H_k(S^k,S^k\setminus f^{-1}(y))$$ one can see that $k_i$ is just the inclusion into the direct summands. Similarly, using the first diagram of the proof we see that some part of $p_i$ is a projection of the direct summands. Commutativity of the third diagram shows that $p_i(j(1))=1$. Since $p_i$ is the projection from the direct summand, we must have that $p_i(0,\dots,0,1,0,\dots,0)=1$ which shows that $j(1)=(1,\dots,1)$. At the same time, $k_i$ is the inclusion into the direct summands thus $(1,\dots,1)=\sum_{i=1}^nk_i(1)$. Thus we conclude that $j(1)=\sum_{i=1}^nk_i(1)$. \\~\\
+
+Now recall that $\deg(f)=f_\ast(1)$. By the lower part of the second diagram, we have that $$f_\ast(1)=f_\ast(j(1))=f_\ast\left(\sum_{i=1}^nk_i(1)\right)=\sum_{i=1}^nf_\ast(k_i(1))$$ By the top part of the second diagram, we conclude that $f_\ast(k_i(1))=\deg(f|_{x_i})$ for each $i$. Thus we have shown that $$\deg(f)=\sum_{i=1}^n\deg(f|_{x_i})$$ and so we are done. 
 \end{proof}
 \end{prp}
 
@@ -1804,7 +1822,7 @@ In fact, one can explicitly describe the isomorphism as follows. For $D_\alpha^n
 \begin{lmm}{}{} Let $X$ be a CW-complex. Then the following are true regarding the singular homology of $X$. 
 \begin{itemize}
 \item If $X$ is of dimension $k$ then $H_n(X)=0$ for all $n>k$. 
-\item The map $H_n(X^m)\to H_n(X)$ induced by the inclusion $X^m\to X$ is an isomorphism if $n<m$ and surjective if $n=m$. 
+\item The map $H_n(X^m)\to H_n(X)$ induced by the inclusion $X^m\to X$ is an isomorphism if $m>n$ and surjective if $m=n$. 
 \end{itemize} \tcbline
 \begin{proof}
 We proceed by induction. When $k=0$, it is obvious. Assume the statement is true for $k-1$. Consider the long exact sequence for relative homology: \\~\\
@@ -1851,11 +1869,9 @@ Using the above lemma, we now have a spliced diagram :
 \end{tikzcd}}\\~\\
 where the diagonals come from the long exact sequence in the proof of the first part of lemma 7.4.3. The $d_n$ is then defined through the composition of the diagonal arrows. 
 
-\begin{lmm}{}{} The composition $d_n\circ d_{n+1}$ is zero. Moreover, we have a canonical isomorphism $$H_n(X)\cong\frac{\ker(d_n)}{\im(d_{n+1})}$$ \tcbline
+\begin{lmm}{}{} The composition $d_n\circ d_{n+1}$ is zero. \tcbline
 \begin{proof}
-The composition $d_n\circ d_{n+1}$ factors through the two blue arrows in the diagram. There are part of a long exact sequence and so their composition is $0$. \\~\\
-
-Since $\delta$ is injective, we have that $$\ker(d_n)=\ker(\gamma)=\im(\beta)$$ Also by lemma 7.3.3, we have that $H_n(X^{n+1})\cong H_n(X)$. This means that $$H_n(X)\cong\text{coker}(\alpha)\cong\frac{\im(\beta)}{\im(\beta\circ\alpha)}=\frac{\ker(d_n)}{\im(d_{n+1})}$$ where the second isomorphism comers from the fact that $\beta$ is injective. 
+The composition $d_n\circ d_{n+1}$ factors through the two blue arrows in the diagram. They are part of a long exact sequence and so their composition is $0$. 
 \end{proof}
 \end{lmm}
 
@@ -1864,7 +1880,7 @@ Since $\delta$ is injective, we have that $$\ker(d_n)=\ker(\gamma)=\im(\beta)$$ 
 
 \begin{lmm}{}{} For any CW-complex $X$, there are canonical isomorphisms $$H_n^\text{CW}(X)\cong H_n(X)$$ \tcbline
 \begin{proof}
-This is precisely the claim in lemma 7.3.4. 
+Since $\delta$ is injective, we have that $$\ker(d_n)=\ker(\gamma)=\im(\beta)$$ Also by lemma 7.3.2, we have that $H_n(X^{n+1})\cong H_n(X)$. This means that $$H_n(X)\cong\text{coker}(\alpha)\cong\frac{\im(\beta)}{\im(\beta\circ\alpha)}=\frac{\ker(d_n)}{\im(d_{n+1})}$$ where the second isomorphism comers from the fact that $\beta$ is injective. 
 \end{proof}
 \end{lmm}
 
@@ -1884,47 +1900,47 @@ To compute the cellular homology of a CW complex, we already know that the chain
 \end{itemize}
 \end{thm}
 
-On computation, one crucial fact to notice is that the map $\pi_\beta$ is a projection to the quotient topology. This means that after applying $\pi_\beta$, the map $$\Delta_{\alpha\beta}=\pi_\beta\circ\phi_\alpha:S_\alpha^{n-1}\to S_\beta^{n-1}$$ forgets about every boundary of the attached discs to $X^n$ other than the boundary of the disc $D_\beta^n$. Also notice that $\alpha\in I_n$ loops over all attaching maps and disks on the $n$th dimension, while $\beta\in I_{n-1}$ loops over that of the $n-1$ dimension. Notice that in the formula, $\beta$ is used to indicate the $S^{n-1}$ which are of dimension $n$. This makes sense because in $\pi_\beta$, there is a projection $X^{n-1}\to X^{n-1}/X^{n-2}$. $$\frac{X^{n-1}}{X^{n-2}}=\bigvee_{\beta\in I_{n-1}}\frac{D_\beta^{n-1}}{\partial D_\beta^{n-1}}$$ is then a wedge sum of all disks in dimension $n-1$ modulo boundary. 
+On computation, one crucial fact to notice is that the map $\pi_\beta$ is a projection to the quotient topology. This means that after applying $\pi_\beta$, the map $$\Delta_{\alpha\beta}=\pi_\beta\circ\phi_\alpha:S_\alpha^{n-1}\to S_\beta^{n-1}$$ forgets about every boundary of the attached discs to $X^n$ other than the boundary of the disc $D_\beta^n$. Also notice that $\alpha\in I_n$ loops over all attaching maps and disks on the $n$th dimension, while $\beta\in I_{n-1}$ loops over that of the $n-1$ dimension. Notice that in the formula, $\beta$ is used to indicate the $S^{n-1}$ which are of dimension $n$. This makes sense because in $\pi_\beta$, there is a projection $X^{n-1}\to X^{n-1}/X^{n-2}$. $$\frac{X^{n-1}}{X^{n-2}}=\bigvee_{\beta\in I_{n-1}}\frac{D_\beta^{n-1}}{\partial D_\beta^{n-1}}$$ is then a wedge sum of all disks in dimension $n-1$ modulo boundary. \\~\\
+
+We can now compute the singular homology of more complicated spaces such as the projective space. 
+
+\begin{thm}{}{} Let $n\geq 1$. Then the real projective space $\R\Prj^n$ has the following homology groups: $$H_k(\R\Prj^n)=\begin{cases}
+\Z & \text{ if }k=0\text{ and }k=n\text{ is odd}\\
+\Z/2\Z & \text{ if } 0<k<n\text{ and }k\text{ is odd}\\
+0 & \text{otherwise}
+\end{cases}$$ \tcbline
+\begin{proof}
+Recall that the CW complex structure of $\R\Prj^n$ consists of one $k$-cell for each $0\leq k\leq n$. We have to determine the boundary operator. This is done by induction. \\~\\
+
+The base case is obtained easily since $S^1\cong\R\Prj^1$. \\~\\
+
+Suppose that the attaching maps are defined for all lower values of $k$. Recall that the attaching map of each $k$-cell is defined by the two-to-one map $f:S^{k-1}\to\R\Prj^{k-1}$. This forms the first part of the map $\Delta_{\alpha\beta}$ of the formula for the cellular boundary maps. To proceed, we quotient out the $X^{k-2}$ skeleton to obtain $$S^{k-1}\to\R\Prj^{k-1}\to\frac{\R\Prj^{k-1}}{\R\Prj^{k-2}}\cong S^{k-1}$$ We compute the degree of this map using local degrees. Since it is a two-to-one covering map, we concern ourselves with the north / south pole of $S^{k-1}$. Choose your favourite homeomorphism $D^{k-1}/\partial D^{k-1}\cong S^{k-1}$. Then the map $f:S^{k-1}\to\R\Prj^{k-1}$ is a local homeomorphism since it is a covering space. Thus the degree of the map is $\pm1$, fixed by the choice of the homeomorphism. This similar for the south pole. In fact, the map is identical to that of the local homeomorphism at the north pole and so the local homeomorphism is just the antipodal map composed with the local homeomorphism at the north pole. \\~\\
+
+Denote $N$ and $S$ the north and south pole respectively. Since $\deg(f|_N)=\pm 1$ is fixed and the antipodal map has degree $(-1)^k$, we obtain $$\deg(f)=\deg(f|_N)+(-1)^n\deg(f|_N)=\begin{cases}
+\pm2 & \text{ if } n \text{ is even}\\
+0 & \text{ if } n \text{ is odd}
+\end{cases}$$ Thus the cellular chain complex together with induction, is of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & \Z & \Z & \cdots & \Z & \Z & \Z & \Z & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{d_k}", from=1-2, to=1-3]
+	\arrow["{d_{k-1}}", from=1-3, to=1-4]
+	\arrow["\pm2", from=1-4, to=1-5]
+	\arrow["0", from=1-5, to=1-6]
+	\arrow["{\pm 2}", from=1-6, to=1-7]
+	\arrow["0", from=1-7, to=1-8]
+	\arrow[from=1-8, to=1-9]
+\end{tikzcd}}\\~\\
+where $d_k=\pm2$ if $k$ is even and $d_k=0$ if $k$ is odd. It follows that $$\deg(f)=\deg(f|_N)+(-1)^n\deg(f|_N)=\begin{cases}
+\pm2 & \text{ if } n \text{ is even}\\
+0 & \text{ if } n \text{ is odd}
+\end{cases}$$
+\end{proof}
+\end{thm}
 
 \pagebreak
-\section{The Eileenberg Steenrod Axioms}
+\section{Variants of Singular Homology}
 \subsection{Homology with Coefficients}
-
-\subsection{The Homology Theories}
-\begin{defn}{The Category of TopPairs}{} Define the category of topological pairs denoted $\bold{TopPairs}$ to be the category where objects are pairs of spaces, and the morphisms are maps of pairs. 
-\end{defn}
-
-\begin{defn}{Generalized Homology Theory}{} A Generalized Homology Theory is a collection of functors $$h_n:\bold{TopPairs}\to\text{Graded Abelian Groups}$$ together with a natural transformations $$\delta_n:h_n(X,Y)\to h_{n-1}(Y,\emptyset)$$ satisfying the following. 
-\begin{itemize}
-\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $h_n(f)=h_n(g):h_n(X,A)\to h_n(Y,B)$
-\item Exactness: There exists a short exact sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {h_{n+1}(X,Y)} & {h_n(Y)} & {h_n(X)} & {h_n(X,Y)} & {h_{n-1}(Y)} & \cdots
-	\arrow[from=1-1, to=1-2]
-	\arrow["{\partial_{n+1}}", from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-	\arrow["{\partial_n}", from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-\end{tikzcd}} 
-\item Additivity: If $(X,A)=\coprod_i(X_i,A_i)$ with inclusion maps $\iota_i:X_i\to X$, the direct sum map $$\bigoplus_ih_n(\iota_i):\bigoplus_ih_n(X_i,A_i)\to F(X,A)$$ is an isomorphism
-\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then $$F(X\setminus E,A\setminus E)\cong F(X,A)$$ induced by the inclusion map
-\end{itemize}
-\end{defn}
-
-\begin{lmm}{}{} The excision axiom is equivalent to saying that $X=A^\circ\cup B^\circ$ with inclusion map $\iota:(B,A\cap B)\to (X,A)$ implies $F(\iota):F(B,A\cap B)\to F(X,A)$ is an isomorphism. 
-\end{lmm}
-
-\begin{defn}{Homology Theory}{} If a generalized homology theory $(h_n,\delta_n)$ in addition satisfies 
-\begin{itemize}
-\item Dimension: $$h_n(\text{One Point Space})=\begin{cases}
-\Z & \text{ if } n=0\\
-0 & \text{ otherwise }
-\end{cases}$$
-\end{itemize}
-Then $F$ is called a homology theory. 
-\end{defn}
-
 \subsection{Unification of the Homology Theories}
 We studied three different homology theories, namely the simplicial homology $H_\ast^{\Delta}$, singular homology $H_\ast$ and Cellular homology $H_\ast^{\text{CW}}$. We have seen that $H_\ast^{\text{CW}}(X)\cong H_n(X)$ for a CW-complex $X$. 
 
@@ -2190,11 +2206,6 @@ in cohomology.
 The Euler characteristic is similar to a notion of size. In set theory we have cardinality, in linear algebra we have dimensions, in abelian groups we have rank. The Euler characteristic acts similar to these quantities. 
 
 \subsection{The Characteristic as an Invariant}
-\begin{defn}{Plane Graph}{} A plane graph is a finite $1$-dimensional CW-complex embedded in the real plane $\R^2$. Equivalently, it is a finite graph in the plane in which the edges do not cross. A planar graph is a finite $1$-dimensional CW-complex that exhibits such an embedding. \\~\\
-
-A face of a graph $X$ is a connected component of $\R^2\setminus X$. 
-\end{defn}
-
 Recall that the rank of an abelian group is the size of the torsion free part of the group. This is the same as saying how many copies of $\Z$ are in the abelian group. This is immediate from the results of the fundamental theorem of finitely generated abelian groups. 
 
 \begin{lmm}{}{} Let $A,B,C$ be abelian groups such that the following \\~\\
@@ -2245,6 +2256,11 @@ The above proposition allows the following definition to be well defined under d
 \end{defn}
 
 Note that if $X$ is a finite CW-complex, then the alternating sum coincides with that of the Euler characteristic. \\~\\
+
+\begin{defn}{Plane Graph}{} A plane graph is a finite $1$-dimensional CW-complex embedded in the real plane $\R^2$. Equivalently, it is a finite graph in the plane in which the edges do not cross. A planar graph is a finite $1$-dimensional CW-complex that exhibits such an embedding. \\~\\
+
+A face of a graph $X$ is a connected component of $\R^2\setminus X$. 
+\end{defn}
 
 The Euler characteristic is in fact a generalization of Euler's formula. 
 

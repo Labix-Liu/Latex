@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  9 MAY 2024 20:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  13 MAY 2024 00:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1085,7 +1085,7 @@ L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Topological Manifolds".out' has not changed
 .
-(rerunfilecheck)             Checksum: 75198B012AA11134A98F3F8FC6035879;2809.
+(rerunfilecheck)             Checksum: 93E3112D24F44DA52CECD3314DEEBD14;2738.
  ) 
 Here is how much of TeX's memory you used:
  32561 strings out of 474424
@@ -1110,7 +1110,7 @@ sbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-
 gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/tex-gyre/qplri.pfb>
-Output written on "Topological Manifolds.pdf" (17 pages, 812680 bytes).
+Output written on "Topological Manifolds.pdf" (17 pages, 812602 bytes).
 PDF statistics:
  316 PDF objects out of 1000 (max. 8388607)
  79 named destinations out of 1000 (max. 500000)

@@ -1,17 +1,28 @@
-\contentsline {section}{\numberline {1}A Second Course on Modules}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Chain Complexes}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Projective and Injective Modules}{4}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Flat Modules}{5}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Abelian Categories and its Properties}{7}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Category of Modules}{7}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Additive Categories}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Abelian Categories}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Exact Functors}{8}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Chain Complexes in an Abelian Category}{9}{subsection.2.5}%
+\contentsline {section}{\numberline {1}Abelian Categories and its Properties}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Category of Modules}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Additive Categories}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Abelian Categories}{4}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Chain Complexes in an Abelian Category}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Chain Complexes}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Exact Sequences}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Chain Homotopy}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Sequences of Chain Complexes}{9}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Cochain Complexes}{11}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Derived Functors}{12}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Injective and Projective Objects}{12}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Resolutions of Objects}{12}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Derived Functors}{13}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}The Case of Dual}{13}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Applications to Module Theory}{14}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Triangulated Categories}{15}{section.4}%
+\contentsline {subsection}{\numberline {3.1}Exact Functors}{12}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Injective and Projective Objects}{13}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Resolutions of Objects}{13}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Derived Functors}{14}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}$\delta $-Functors}{16}{subsection.3.5}%
+\contentsline {section}{\numberline {4}A Second Course on Modules}{17}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Projective and Injective Modules}{17}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Flat Modules}{18}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Derived Functors in the Category of R-Modules}{19}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Triangulated Categories}{20}{section.5}%
+\contentsline {section}{\numberline {6}Derived Categories}{21}{section.6}%
+\contentsline {subsection}{\numberline {6.1}The Homotopy Category of Cochain Complexes}{21}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Derived Categories}{21}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Spectral Sequences}{22}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Spectral Sequences}{22}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Filtrations}{23}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Exact Couples}{23}{subsection.7.3}%

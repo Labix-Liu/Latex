@@ -1168,6 +1168,17 @@ Notice that the green part $U_2$ which is a Mobius band deformation retracts to 
 
 A similar method can be employed for the torus and the Klein bottle. 
 
+\subsection{More CW Complex Structures}
+\begin{prp}{}{} Let $n\geq 1$. Then the real projective space $\R\Prj^n$ is a CW complex with one $k$-cell for each $0\leq k\leq n$. \tcbline
+\begin{proof}
+We proceed by induction. When $n=1$, recall that $S^1\cong\R\Prj^2$ and since $S^1$ admits a CW complex structure with one $0$-cell and one $1$-cell $D$ with boundary map $\partial D=0$, conclude. \\~\\
+
+When $n=2$, recall that $\R\Prj^2$ has an open neighbourhood $U_0=\{[x_0:x_1:x_2]\in\R\Prj^2\;|\;x_0\neq 0\}$. This $U_0$ is homeomorphic to $\R^2$. Moreover, when $x_0=0$ in $\R\Prj^2$, one recovers $\R\Prj^1$. Thus $\R\Prj^2=\R^2\cup\R\Prj^1$. $\R^2$ is homeomorphic to the open disc $D^2$. $D^2$ is precisely a $2$-cell so it suffices to show how exactly is $D^2$ attached to $\R\Prj^1$. The attaching map $f:\partial D^2\cong S^1\to\R\Prj^1$ by the two-to-one covering map. In other words, the boundary of $D^2$ is attached to $S^1$ in $\R^2$, then quotient the relation $x\sim-x$ for $x\in\partial D^2$. Note that this makes sense since there is an equivalent characterization $$\R\Prj^2\cong\frac{S^2}{x\sim-x,\;x\in S^2}\cong\frac{D^2}{x\sim-x,\;x\in\partial D^2}$$
+
+Now assume that $\R\Prj^{n-1}$ is obtained by the above method. Notice that similar to the above, one has $\R\Prj^n\cong\R^n\cup\R\Prj^{n-1}$ so it suffices to define how $D^n$ is attached. This is done by $f:\partial D^n\cong S^{n-1}\to\R\Prj^{n-1}$. By a similar argument as above, we thus obtain a valid attaching map for $D^n$ onto $\R\Prj^{n-1}$ to obtain $\R\Prj^n$. 
+\end{proof}
+\end{prp}
+
 
 
 

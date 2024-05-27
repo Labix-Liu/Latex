@@ -10,5 +10,5 @@
 \contentsline {subsection}{\numberline {2.3}Quasicoherent Sheaves}{8}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Sheaf Cohomology}{10}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Category of Sheaves}{10}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Cohomology of Sheaves}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Cohomology of Sheaves}{11}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}\v {C}ech Cohomology}{11}{subsection.3.3}%

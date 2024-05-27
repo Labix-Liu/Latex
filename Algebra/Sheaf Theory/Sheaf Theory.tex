@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 
-\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -23,7 +23,9 @@
 
 \section{Sheaves}
 \subsection{Basic Definition of Sheaves}
-As with how we equipped to each variety $V$ its coordinate ring $k[V]$ which are functions on $V$, we want to equip to each spectrum some ring which are functions on them. It will not make sense that we can define functions on spectrums immediately. 
+As with how we equipped to each variety $V$ its coordinate ring $k[V]$ which are functions on $V$, we want to equip to each spectrum some ring which are functions on them. It will not make sense that we can define functions on spectrums immediately. \\~\\
+
+In its full generality, sheaves are designed to encode all local information into one compact notation. It often has uses in complex geometry for its differential forms and smooth functions. In algebraic geometry it is fundamental for redefining the notion of a variety. 
 
 \begin{defn}{Presheaves}{} Let $(X,\mathcal{T})$ be a topological space. A presheaf on $X$ is consists of
 \begin{itemize}
@@ -70,14 +72,16 @@ Notice that the natural transformation $\phi$ here takes every open set $U$ and 
 \begin{prp}{}{} Let $\phi:\mathcal{F}\to\mathcal{G}$ be a morphism of sheaves on a topological space $X$. Then $\phi$ is an isomorphism if and only if the induced map on the stalk $\phi_p:\mathcal{F}_{X,p}\to\mathcal{G}_{X,p}$ is an isomorphism for all $p\in X$. 
 \end{prp}
 
-\begin{thm}{}{} For every presheaf $\mathcal{F}$, there is a sheaf $\mathcal{F}^+$ and a morphism of sheaves $\theta:\mathcal{F}\to\mathcal{F}^+$ such that for any sheaf $G$, and any morphism of sheaves $\phi:\mathcal{F}\to\mathcal{G}$, there is a unique morphism $\psi:\mathcal{F}^+\to\mathcal{G}$ and that $\phi=\psi\circ\theta$. Furthermore, the pair $(\mathcal{F}^+,\theta)$ is unique up to isomorphism. In other words, the following diagram commutes. \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-\mathcal{F}\arrow[r, "\theta"]\arrow[rd, "\phi"'] & \mathcal{F}^+\arrow[d, "\psi"]\\
+\begin{thm}{}{} Let $\mF$ be a presheaf. Then there exists a unique (up to isomorphism) sheaf $\mF^+$ together with a morphism of presheaves $\theta:\mF\to\mF^+$ such that the following are true. \\~\\
+
+If $G$ is a sheaf such that there is a morphism of sheaves $\phi:\mF\to\mG$, there exists a unique morphism of sheaves $\psi:\mF\to\mG$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\mathcal{F}\arrow[r, "\theta"]\arrow[rd, "\phi"'] & \mathcal{F}^+\arrow[d, dashed, "\exists!\psi"]\\
 &\mathcal{G}
 \end{tikzcd}} \\
 \end{thm}
 
-\begin{defn}{Sheafification}{} The above sheaf $\mathcal{F}^+$ defined by morphisms is called the sheafification of the presheaf $\mathcal{F}^+$. 
+\begin{defn}{Sheafification}{} Let $\mF$ be a presheaf. Define the sheafification of the sheaf to be $\mF^+$ as defined in the above theorem. 
 \end{defn}
 
 
@@ -107,7 +111,6 @@ This means that sheaves are uniquely determined by their values in the basis of 
 \subsection{Image Sheaves}
 \begin{defn}{Direct Image Sheaf}{} Let $f:X\to Y$ be a continuous map of topological spaces. Let $\mathcal{F}$ be a sheaf on $X$. Define the direct image sheaf on $Y$ as follows. For every open set $V\subseteq Y$, define $$f_\ast\mathcal{F}(V)=\mathcal{F}(f^{-1}(V))$$ This means that $f_\ast\mathcal{F}$ is defined as follows: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-X\arrow[r, "f"] & Y\\
 f^{-1}(V)\arrow[dd, "\mathcal{F}"'] & V\arrow[l, "f^{-1}"']\arrow[ldd, "f_\ast\mathcal{F}"]\\
 &\\
 \mathcal{F}(f^{-1}(V))
@@ -140,35 +143,28 @@ If $X$ and $Y$ are locally ringed spaces, then a morphism of locally ringed spac
 \pagebreak
 \section{Coherent Sheaves}
 \subsection{The Category of $\mathcal{O}_X$-Modules}
-\begin{defn}{Sheaf of $\mathcal{O}_X$-modules}{} Let $(X,\mathcal{O}_X)$ be a ringed space. A sheaf of $\mathcal{O}_X$-modules is a sheaf $\mathcal{F}$ on $X$ such that for each open set $U\subseteq X$, $\mathcal{F}(U)$ is an $\mathcal{O}_X(U)$-module, and for each inclusion of open sets $V\subseteq U$, the restriction homomorphism $\mathcal{F}(U)\to\mathcal{F}(V)$ is compatible with the module structures via the ring homomorphism $\mathcal{O}_X(U)\to\mathcal{O}_X(V)$. \\~\\
-This means that the following diagram should commute: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-\mathcal{O}_X(U)\times\mathcal{F}(U)\arrow[r, "\text{action}"]\arrow[d, "\text{res}_{U,V}\times\text{res}_{U,V}"'] &\mathcal{F}(U)\arrow[d, "\text{res}_{U,V}"]\\
-\mathcal{O}_X(V)\times\mathcal{F}(V)\arrow[r, "\text{action}"] & \mathcal{F}(V)
+\begin{defn}{Sheaf of $\mA$-modules}{} Let $\mA$ be a sheaf of rings over $X$. Let $U$ be an open set of $X$. A sheaf of $\mA$-modules over $X$ is a sheaf $\mF$ such that each $\mF(U)$ is an $\mA(U)$-modules. Moreover, for each inclusion of open sets $V\subseteq U$, the restriction homomorphism $\mathcal{F}(U)\to\mathcal{F}(V)$ is such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\mA(U)\times\mF(U)\arrow[r, "\text{action}"]\arrow[d, "\text{res}_{U,V}\times\text{res}_{U,V}"'] &\mF(U)\arrow[d, "\text{res}_{U,V}"]\\
+\mA(V)\times\mF(V)\arrow[r, "\text{action}"] & \mF(V)
 \end{tikzcd}}\\~\\
-Denote the category of $\mathcal{O}_X$-modules by $\text{Mod}(\mathcal{O}_X)$. 
+Denote the category of $\mA$-modules by $$\text{Mod}_X(\mA)$$
 \end{defn}
 
-\begin{prp}{}{} Let $(X,\mathcal{O}_X)$ be a ringed space and $\mathcal{F},\mathcal{G}$ be sheaves of $\mathcal{O}_X$-modules. Let $\varphi,\psi:\mathcal{F}\to\mathcal{G}$ be morphisms of sheaves. Then the map $\varphi+\psi:\mathcal{F}\to\mathcal{G}$ defined by $$(\varphi+\psi)(\mathcal{F}(U)(x)=\varphi(\mathcal{F}(U)(x)+\psi(\mathcal{F}(U))(x)$$ for $x\in\mathcal{F}(U)$ and each $U$ is a bilinear map of sheaves. \\~\\
-Moreover, under this operation, the category $\text{Mod}(\mathcal{O}_X)$ is a pre-additive category. 
+\begin{prp}{}{} Let $\mA$ be a sheaf of rings over $X$ and let $\mF,\mG$ be sheaves of $\mA$-modules. Then the direct sum $$\mF\oplus\mG=\mF\times\mG$$ is also a sheaf of $\mA$-modules. 
 \end{prp}
 
-\begin{prp}{}{} Let $(X,\mathcal{O}_X)$ be a ringed space and $\mathcal{F},\mathcal{G}$ be sheaves of $\mathcal{O}_X$-modules. Then the direct sum $$\mathcal{F}\oplus\mathcal{G}=\mathcal{F}\times\mathcal{G}$$ is also a sheaf of $\mathcal{O}_X$-modules. \\~\\
-Moreover, under this operation, the category $\text{Mod}(\mathcal{O}_X)$ is an additive category. 
-\end{prp}
+\begin{thm}{}{} Let $\mA$ be a sheaf of rings over $X$. Then the category $$\text{Mod}(\mA)$$ of $\mA$-modules is an abelian category. 
+\end{thm}
 
-\begin{prp}{}{} Let $(X,\mathcal{O}_X)$ be a ringed space. Then the category $\text{Mod}(\mathcal{O}_X)$ is an abelian category. 
-\end{prp}
-
-\begin{prp}{}{} Denote $i$ the trivial functor taking a sheaf to its presheaf. Then the functor $i$ and the sheaffication functor $^+$ are adjoints. In other words, $$\Hom(i(\mathcal{F},\mathcal{G})\cong\Hom(\mathcal{F},\mathcal{G}^+)$$ for a presheaf $\mathcal{G}$ and a sheaf $\mathcal{F}$. 
+\begin{prp}{}{} Denote $i$ the trivial functor taking a sheaf to its presheaf. Then the functor $i$ and the sheaffication functor $^+$ are adjoints. In other words, $$\Hom(i(\mathcal{F}),\mathcal{G})\cong\Hom(\mathcal{F},\mathcal{G}^+)$$ for a presheaf $\mathcal{G}$ and a sheaf $\mathcal{F}$. 
 \end{prp}
 
 \begin{prp}{}{} Let $(X,\mathcal{O}_X)$ be a ringed space and $\mathcal{F},\mathcal{G}$ be sheaves of $\mathcal{O}_X$-modules. Then the tensor product $\mathcal{F}\otimes_{\mathcal{O}_X}\mathcal{G}$ defined by $$(\mathcal{F}\otimes_{\mathcal{O}_X}\mathcal{G})(U)=(\mathcal{F}(U)\otimes_{\mathcal{O}_X(U)}\mathcal{G}(U))^+$$ is also a sheaf of $\mathcal{O}_X$-modules. 
 \end{prp}
 
 \subsection{Invertible Sheaves}
-\begin{defn}{Free Sheaf}{} An $\mathcal{O}_X$-module $\mathcal{F}$ is free if $\mathcal{F}\cong\mathcal{O}_X^{\oplus n}$. \\~\\
-It is locally free if $X$ can be covered by open sets $U$ for which $\mathcal{F}|_U\cong\mathcal{O}_X|_U^{\oplus n}$-module. In this case we say that the rank of $\mathcal{F}$ is $n$. 
+\begin{defn}{Free Sheaf}{} Let $\mA$ be a sheaf of rings over $X$ and let $\mF$ be a sheaf of $\mA$-module. We say that $\mF$ is free if $$\mF\cong\mA^{\oplus n}$$ It is locally free if $X$ can be covered by open sets $\{U_i\;|\;i\in I\}$ for which $$\mF|_{U_i}\cong\left(\mA|_{U_i}\right)^{\oplus n}$$ for each $U$. In this case we say that the rank of $\mathcal{F}$ is $n$. Denote the category of locally free sheaves of rank $n$ by $$\text{Loc}_n(X)$$
 \end{defn}
 
 \begin{lmm}{}{} If $X$ is connected then the rank of a locally free sheaf on $X$ is constant. 
@@ -185,7 +181,7 @@ It is locally free if $X$ can be covered by open sets $U$ for which $\mathcal{F}
 \end{itemize}
 \end{thm}
 
-\begin{thm}{}{} The category of locally free sheaves on a space $X$ is equivalent to the category of vector bundles over $X$. 
+\begin{thm}{}{} Let $X$ be a space. Then there is an equivalence of categories $$\text{Vect}_n(X)\cong\text{Loc}_n(X)$$ between vector bundles over $X$ and sheaves of free $\mA$-modules over $X$ for any $n\in\N$. 
 \end{thm}
 
 \subsection{Quasicoherent Sheaves}
@@ -211,19 +207,19 @@ If $A$ is noetherian, the same functor gives an equivalence of categories betwee
 \end{itemize}
 \end{defn}
 
-\begin{prp}{}{} The category of sheaves of abelian groups on a topological space is an abelian category. 
+\begin{prp}{}{} Let $X$ be a space. Then the category $$\bold{Ab}(X)$$ of sheaves of abelian groups is an abelian category. 
 \end{prp}
 
 \begin{prp}{}{} Let $\phi:F\to G$ be a morphism of sheaves. Then the categorical kernel and cokernel of $\phi$ is canonically isomorphic to the sheaves $\ker(\phi)$ and $\coker(\phi)$. 
 \end{prp}
 
-\begin{prp}{}{} Let $X$ be a topological space. The cochain complex \\
+\begin{prp}{}{} Let $X$ be a topological space. The cochain complex \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-\cdots\arrow[r] & F^{i-1}\arrow[r] & F^i\arrow[r] & F^{i+1}\arrow[r] & \cdots
+\cdots\arrow[r] & \mF^{i-1}\arrow[r] & \mF^i\arrow[r] & \mF^{i+1}\arrow[r] & \cdots
 \end{tikzcd}} \\~\\
 is exact in $\bold{Ab}(X)$ if and only if for every $x\in X$ the corresponding sequence of stalks \\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-\cdots\arrow[r] & F^{i-1}_x\arrow[r] & F^i_x\arrow[r] & F^{i+1}_x\arrow[r] & \cdots
+\cdots\arrow[r] & \mF^{i-1}_x\arrow[r] & \mF^i_x\arrow[r] & \mF^{i+1}_x\arrow[r] & \cdots
 \end{tikzcd}} \\~\\
 is exact. 
 \end{prp}

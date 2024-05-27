@@ -1,0 +1,428 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Fiber Bundles and Fibrations}
+\rfoot{\thepage}
+
+\title{Fiber Bundles and Fibrations}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\begin{itemize}
+\item Notes on Algebraic Topology by Oscar Randal-Williams
+\end{itemize}
+\end{abstract}
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{The Category of Fiber Bundles}
+\subsection{Fiber Bundles}
+\begin{defn}{Fiber Bundles}{} Let $E,B,F$ be spaces with $B$ connected, and $p:E\to B$ a trivial map. We say that $p$ is a fiber bundle over $F$ if the following are true. 
+\begin{itemize}
+\item $p^{-1}(b)\cong F$ for all $b\in B$
+\item $p:E\to B$ is surjective
+\item For every $x\in B$, there is an open neighbourhood $U\subset B$ of $x$ and a fiber preserving homomorphism $\Psi_U:p^{-1}(U)\to U\times F$ that is a homeomormorphism such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{p^{-1}(U)} && {U\times F} \\
+	& U
+	\arrow["{\Psi_U}", from=1-1, to=1-3]
+	\arrow["p"', from=1-1, to=2-2]
+	\arrow["\pi", from=1-3, to=2-2]
+\end{tikzcd}}\\~\\
+where $\pi$ is the projection by forgetting the second variable. 
+\end{itemize}
+We say that $B$ is the base space, $E$ the total space. It is denoted as $(F,E,B)$
+\end{defn}
+
+\begin{defn}{Map of Fiber Bundles}{} Let $(F_1,E_1,B_1)$ and $(F_2,E_2,B_2)$ be fiber bundles. A morphism of fiber bundles is a pair of basepoint preserving continuous maps $(\tilde{f}:E_1\to E_2,f:B_1\to B_2)$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{E_1} & {E_2} \\
+	{B_1} & {B_2}
+	\arrow["{\tilde{f}}", from=1-1, to=1-2]
+	\arrow["{p_1}"', from=1-1, to=2-1]
+	\arrow["{p_2}", from=1-2, to=2-2]
+	\arrow["f"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+Such a map of fibrations determine a continuous of the fibers $F_1\cong p_1^{-1}(b_1)\to p_2^{-1}(b_2)\cong F_2$. \\~\\
+
+A map of fibrations $(\tilde{f},f)$ is said to be an isomorphism if there is a map $(\tilde{g}:E_2\to E_1,g:B_2\to B_1)$ such that $\tilde{g}$ is the inverse of $\tilde{f}$ and $g$ is the inverse of $f$. 
+\end{defn}
+
+\begin{defn}{Trivial Bundles}{} We say that a fiber bundle $(F,E,B)$ is trivial if $(F,E,B)$ is isomorphic to the trivial fibration $B\times F\to B$. 
+\end{defn}
+
+\begin{defn}{Sections}{} Let $(F,E,B)$ be a fiber bundle. A section on the fiber bundle is a map $s:B\to E$ such that $p\circ s=\text{id}_B$. Let $U\subset B$ be an open set. A local section of the fiber bundle on $U$ is a map $s:U\to B$ such that $p\circ s=\text{id}_U$. 
+\end{defn}
+
+\begin{defn}{The Pullback Bundle}{} Let $p:E\to B$ be a fiber bundle with fiber $F$. Let $f:B'\to B$ be a continuous function. Define the pullback of $p$ by $f$ to be the space $$f^\ast(E)=\{(b',e)\in B'\times E\;|\;p(e)=f(b')\}$$
+\end{defn}
+
+\subsection{G-Bundles and the Structure Groups}
+Notice that for non empty intersections $U_i\cap U_j$ for $U_i,U_j$ open sets in $B$, there is a well defined homeomorphism $$\varphi_j\circ\varphi_i^{-1}:(U_i\cap U_j)\times F\to(U_i\cap U_j)\times F$$ This is reminiscent of properties of an atlas on $M$. 
+
+\begin{defn}{G-Atlas}{} Let $(F,E,B)$ be a fiber bundle. Let $G$ be topological group with a continuous faithful action on $F$. A $G$-atlas on $(F,E,B)$ is a set of local trivalization charts $\{(U_k,\varphi_k)\;|\;k\in I\}$ such that the following are true. 
+\begin{itemize}
+\item For $(U_k,\varphi_k)$ a chart, define $\varphi_{i,x}:F\to F$ by $f\mapsto\varphi_i(x,f)$. Then the homeomorphism $$\varphi_{j,x}\circ\varphi_{i,x}^{-1}:F\to F$$ for $x\in U_i\cap U_j\neq\emptyset$ is an element of $G$. 
+\item For $i,j\in I$, the map $g_{ij}:U_i\cap U_j\to G$ defined by $$g_{ij}(x)=\varphi_{j,x}\circ\varphi_{i,x}^{-1}$$ is continuous. 
+\end{itemize}
+\end{defn}
+
+If the $(F,E,B)$ is a fiber bundle with $F=\R$, then it is often seen that $G=GL(n,\R)$. Similarly, if $F=\C$ then the structure group is $G=GL(n,\C)$. 
+
+\begin{defn}{Equivalent $G$-Atlas}{} Two $G$-atlases on a fiber bundle $(F,E,B)$ is said to be equivalent if their union is a $G$-atlas. 
+\end{defn}
+
+\begin{defn}{G-Bundle}{} Let $G$ be a topological group. A $G$-bundle is a fiber bundle $(F,E,B)$ together with an equivalence class of $G$-atlas. In this case, $G$ is said to be the structure group of the fiber bundle. 
+\end{defn}
+
+The structure group and the trivialization charts completely determine the isomorphism type of the fiber bundle. 
+
+\subsection{Morphisms of G-Bundles}
+\begin{defn}{Morphisms of $G$-Bundles}{} Let $G$ be a topological group. A morphism of $G$-bundles is a morphism of fiber bundles $(\tilde{h},h):(F,E_1,B_1)\to(F,E_2,B_2)$ where the two are $G$-bundles, such that the following are true. 
+\begin{itemize}
+\item Let $U_i$ be open in $B_1$ and $V_j$ be open in $B_2$. Let $x\in U_u\cap h^{-1}(V_j)$. Let $\widetilde{h_{(E_1)_x}}:(E_1)_x\to(E_2)_{f(x)}$ be the map induced by $\tilde{h}:E_1\to E_2$. Then the map $$\varphi_{j,x}\circ\widetilde{h_{(E_1)_x}}\circ\varphi_{i,x}^{-1}:F\to F$$ is an element of $G$. 
+\item The map $\widetilde{g_{ij}}:U_i\cap h^{-1}(V_j)\to G$ defined by $$\widetilde{g_{ij}}(x)=\varphi_{j,x}\circ\widetilde{h_{(E_1)_x}}\circ\varphi_{i,x}^{-1}$$ is continuous. 
+\end{itemize}
+\end{defn}
+
+It is easy to see that the mapping transformations $\widetilde{g_{ij}}$ satisfy the following two relations: 
+\begin{itemize}
+\item $\widetilde{g_{jk}}(x)\cdot g_{ij}(x)=\widetilde{g_{ik}}(x)$ for all $x\in U_i\cap U_j\cap h^{-1}(V_k)$
+\item $g_{jk}'(h(x))\cdot\widetilde{g_{ij}}(x)=\widetilde{g_{ik}}(x)$ for all $x\in U_i\cap h^{-1}(V_j\cap V_k)$
+\end{itemize}
+
+$g_{jk}'$ here refers to the transition charts in $(F,E_2,B_2)$. \\~\\
+
+Just as the structure groups and trivialization charts determine the isomorphism type of a fiber bundle, the $\widetilde{g_{ij}}$ and a map of base space $h:B_1\to B_2$ completes determines a morphism of $G$-bundle. 
+
+\begin{lmm}{}{} Let $(F,E_1,B_1)$ and $(F,E_2,B_2)$ be two $G$-bundles for a topological group $G$ with the same fiber $F$. Suppose that we have the following. 
+\begin{itemize}
+\item A map $h:B_1\to B_2$ of base space
+\item $\widetilde{g_{ij}}:U_i\cap h^{-1}(V_j)\to G$ a set of continuous maps such that \begin{gather*}
+\widetilde{g_{jk}}(x)\cdot g_{ij}(x)=\widetilde{g_{ik}}(x)\;\;\;\;\text{ for all }\;\;\;\;x\in U_i\cap U_j\cap h^{-1}(V_k)\\
+g_{jk}'(h(x))\cdot\widetilde{g_{ij}}(x)=\widetilde{g_{ik}}(x)\;\;\;\;\text{ for all }\;\;\;\;x\in U_i\cap h^{-1}(V_j\cap V_k)
+\end{gather*}
+\end{itemize}
+Then there exists a unique $G$-bundle morphism having $h$ as the map of base space and having $\{\widetilde{g_{ij}}\;|\;i,j\in I\}$ as its mapping transformations. 
+\end{lmm}
+
+\subsection{Principal G-Bundles}
+\begin{defn}{Principal Bundles}{} Let $G$ be a topological group. A principal $G$-bundle is a $G$-bundle $(F,E,B)$ together with a continuous group action $G$ on $E$ such that the following are true. 
+\begin{itemize}
+\item The action of $G$ preserves fibers. This means that $g\cdot x\in E_b$ if $x\in E_b$. (This also means that $G$ is a group action on each fiber)
+\item The action of $G$ on each fiber is free and transitive
+\item For each $x\in E_b$, the map $G\to E_b$ defined by $g\mapsto g\cdot x$ is homeomorphism. 
+\item Local triviality condition: If $\Psi_U:p^{-1}(U)\to U\times F$ are the local triviality maps, then each $\Psi_U$ are $G$-equivariant maps. 
+\end{itemize}
+\end{defn}
+
+Note that since $G$ is homeomorphic to each fiber $E_b$ of the total space, we can think of the action of $G$ on the fiber simply becomes left  multiplication. \\~\\
+
+For those who know what homogenous spaces are, principal bundles are $G$-bundles such that $F$ is a principal homogenous space for the left action of $G$ itself. \\~\\
+
+Conversely, given a continuous group action on a space, we can ask in what conditions will the space be a principal bundle over the orbit space. 
+
+\begin{prp}{}{} Let $E$ be a space with a free $G$ action. Let $p:E\to E/G$ be the projection map to the orbit space. If for all $x\in E/G$, there is a neighbourhood $U$ of $x$ and a continuous map $s:U\to E$ such that $p\circ s=\text{id}_U$, then $(G,E,E/G)$ is a principal $G$-bundle. 
+\end{prp}
+
+This proposition essentially means that if for each point in $E/G$, there is a local section, then it is sufficient for $E$ to be a principal $G$ bundle over $E/G$. 
+
+\begin{thm}{}{} A principal $G$-bundle is trivial if and only if it admits a global section. 
+\end{thm}
+
+This is entirely untrue for general bundles. For examples, the zero section of a fiber bundle is a global section. 
+
+\subsection{Classifying Space}
+\begin{defn}{Universal G-Bundles}{} Let $G$ be a topological group. A principal $G$-bundle $(F,E,B)$ is said to be universal if for any space $X$, the induced pullback map $$\psi:[X,B]\to\text{Prin}_G(X)$$ defined by $f\mapsto f^\ast(E)$ is a bijective correspondence. 
+\end{defn}
+
+\begin{thm}{}{} Let $(F,E,B)$ be a principal $G$-bundle. If $E$ is contractible then $(F,E,B)$ is a universal $G$-bundle. 
+\end{thm}
+
+\begin{thm}{}{} Let $(F,E_1,B_1)$ and $(F,E_2,B_2)$ be universal principal $G$-bundles. Then there exists a bundle map \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{E_1} & {E_2} \\
+	{B_1} & {B_2}
+	\arrow["{\tilde{f}}", from=1-1, to=1-2]
+	\arrow["{p_1}"', from=1-1, to=2-1]
+	\arrow["{p_2}", from=1-2, to=2-2]
+	\arrow["f"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+such that $f$ is a homotopy equivalence. In particular, this means that any two universal principal $G$-bundles are homotopy equivalent. 
+\end{thm}
+
+\begin{defn}{Classifying Space}{} Let $G$ be a topological group. The classifying space $BG$ of $G$ is the homotopy type of the universal principal $G$-bundle. Also denote $EG$ as the total space of the universal $G$-bundle. 
+\end{defn}
+
+\pagebreak
+\section{The Category of Compactly Generated Spaces}
+\subsection{Compactly Generated Spaces}
+\begin{defn}{Compactly Generated Spaces}{} Let $X$ be a space. We say that $X$ is compactly generated ($k$-space) if for every set $A\subseteq X$, $A$ is open if and only if $A\cap K$ is open in $K$ for every compact subspace $K\subseteq X$. We denote $\mathcal{K}$ as the category of compactly generated spaces. 
+\end{defn}
+
+\begin{defn}{Category of Compactly Generated Spaces}{} Define the category of compactly generated spaces $\mK$ to be the full subcategory of $\text{Top}$ consisting of spaces that are compactly generated. In other words, $\mK$ consists of the following data: 
+\begin{itemize}
+\item $\text{Obj}(\mK)$ consists of all spaces that are compactly generated. 
+\item For $X,Y\in\text{Obj}(\mK)$, the morphisms are $$\Hom_{\mK}(X,Y)=\Hom_{\text{Top}}(X,Y)$$
+\item Association is given by composition of functions. 
+\end{itemize}
+Define similarly the category of pointed compactly generated spaces $\mK_\ast$. 
+\end{defn}
+
+\begin{defn}{New $k$-space from Old}{} Let $X$ be a space. Define $k(X)$ to be the set $X$ together with the topology defined as follows: $A\subseteq X$ is open if and only if $A\cap K$ is open in $K$ for every compact subspace $K\subseteq X$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a space. Then $k(X)$ is a compactly generated space. Moreover, $k$ defines a functor $$k:\mathcal{T}_2\to\mathcal{K}$$ from the category of Hausdorff spaces to $\mathcal{K}$. 
+\end{lmm}
+
+Unfortunately $X\times Y$ may not be compactly generated even when $X$ and $Y$ are. But as it turns out, products do exists in $\mathcal{K}$ and are given by $k(X\times Y)$. 
+
+\begin{prp}{}{} Let $X,Y$ be compactly generated spaces. Then the product of $X$ and $Y$ in the category of compactly generated spaces is given by $$k(X\times Y)$$
+\end{prp}
+
+\begin{defn}{The Mapping Space}{} Let $X$ and $Y$ be compactly generated. Define the mapping space of $X$ and $Y$ by $$\text{Map}(X,Y)=Y^X=k(\Hom_{\mK}(X,Y))$$
+\end{defn}
+
+\begin{thm}{}{} Let $X,Y,Z$ be compactly generated. Then the functors $k(-\times Y):\mK\to\mK$ and $\text{Map}(Y,-):\mK\to\mK$ are adjoint functors with the adjunction formula $$\Hom_{\mK}(k(X\times Y),Z)\cong\Hom_{\mK}(X,\text{Map}(Y,Z))$$ Moreover, by giving the Hom set the compact open topology and applying $k$, we obtain an isomorphism $$\text{Map}(k(X\times Y),Z)\cong\text{Map}(X,\text{Map}(Y,Z))$$
+\end{thm}
+
+\begin{defn}{Loop Spaces}{} Let $X$ be a space with a chosen basepoint. Define the loop space of $(X,x_0)$ to be $$\Omega X=\text{Map}_\ast(S^1,X)$$
+\end{defn}
+
+\subsection{The Smash Product}
+\begin{defn}{The Smash Product}{} Let $(X,x_0)$ and $(Y,y_0)$ be pointed topological spaces. Define the smash product of the two pointed spaces to be the pointed space $$X\wedge Y=\frac{X\times Y}{X\vee Y}$$ together with the point $(x_0,y_0)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X,Y,Z$ be compactly generated spaces with a chosen base point. Then the following are true. 
+\begin{itemize}
+\item $(X\wedge Y)\wedge Z\cong X\wedge(Y\wedge Z)$
+\item $X\wedge Y\cong Y\wedge X$
+\end{itemize}
+\end{prp}
+
+Note that this is not true if we do not restrict the spaces to the category of compactly generated spaces. 
+
+\begin{lmm}{}{} Let $X$ be a space. Then the reduced suspension and the smash product with the circle $$\Sigma X\cong X\wedge S^1$$ are homeomorphic spaces. 
+\end{lmm}
+
+\begin{thm}{}{} Let $X,Y,Z$ be compactly generated with a chosen basepoint. Then the functors $-\wedge Y:\mK_\ast\to\mK_\ast$ and $\text{Map}_\ast(Y,-):\mK_\ast\to\mK_\ast$ are adjoint functors with the adjunction formula $$\Hom_{\mK_\ast}(X\wedge Y,Z)\cong\Hom_{\mK_\ast}(X,\text{Map}_\ast(Y,Z))$$ Moreover, by giving the Hom set the compact open topology and applying $k$, we obtain an isomorphism $$\text{Map}_\ast(X\wedge Y,Z)\cong\text{Map}_\ast(X,\text{Map}_\ast(Y,Z))$$
+\end{thm}
+
+\begin{crl}{}{} Let $X$ be a compactly generated space with a chosen basepoint. Then there is a homeomorphism $$\text{Map}_\ast(\Sigma X,Y)\cong\text{Map}_\ast(X,\Omega Y)$$ given by adjunction of the functors $-\wedge S^1:\mK_\ast\to\mK_\ast$ and $\text{Map}_\ast(S^1,-):\mK_\ast\to\mK_\ast$. 
+\end{crl}
+
+\pagebreak
+\section{Fibrations and Cofibrations}
+From here onwards we assume that all spaces are compactly generated unless otherwise stated. 
+
+\subsection{Fibrations and The Homotopy Lifting Property}
+\begin{defn}{The Homotopy Lifting Property}{} Let $p:E\to B$ be a map and let $X$ be a space. We say that $p$ has the homotopy lifting property with respect to $X$ if for every homotopy $H:X\times I\to B$ and a lift $\widetilde{H(-,0)}:X\to E$ of $H(-,0)$, there exists a homotopy $\widetilde{H}:X\times I\to E$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X\times\{0\}} && E \\
+	\\
+	{X\times I} && B
+	\arrow["H"', from=3-1, to=3-3]
+	\arrow["{\exists\widetilde{H}}"{description}, dashed, from=3-1, to=1-3]
+	\arrow["p", from=1-3, to=3-3]
+	\arrow["\iota"', hook, from=1-1, to=3-1]
+	\arrow["{\widetilde{H(-,0)}}", from=1-1, to=1-3]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{defn}{Fibrations}{} We say that a map $p:E\to B$ is a fibration if it has the homotopy lifting property with respect to all topological spaces $X$. We call $B$ the base space and $E$ the total space. 
+\end{defn}
+
+\begin{defn}{Pullbacks of a Fibration}{} Let $p:E\to B$ be a fibration and let $f:B'\to B$ be a continuous map. Define the pullback of $p$ by $f$ to be $$f^\ast(E)=\{(b',e)\in B'\times E\;|\;f(b')=p(e)\}$$ together with the projection map $p_f:f^\ast(E)\to B'$. 
+\end{defn}
+
+\begin{prp}{}{} Let $p:E\to B$ be a fibration and let $f:B'\to B$ be continuous. Then the map $f^\ast(E)\to B'$ is a fibration. Moreover, the following diagram commutes: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{f^\ast(E)} & E \\
+	{B'} & B
+	\arrow[from=1-1, to=1-2]
+	\arrow["{p_f}"', from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["f"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+where the top map is given by the projection to $E$. 
+\end{prp}
+
+\subsection{Replacing Maps by Fibrations}
+\begin{defn}{The Mapping Path Space}{} Let $f:X\to Y$ be a map of spaces. Denote $\pi:X^I\to X$ the fibration of the mapping space defined by $\pi(\phi)=\phi(0)$. Define the mapping path space to be $$P_f=f^\ast(Y^I)=\{(x,\phi)\subseteq X\times Y^I\;|\;f(x)=\pi(\phi)=\phi(0)\}$$
+\end{defn}
+
+We can factorize any continuous map into a fibration and a homotopy equivalence. 
+
+\begin{thm}{}{} Let $f:X\to Y$ be a map. Then $\pi:P_f\to Y$ defined by $\pi(x,\phi)=\phi(1)$ is a fibration. Moreover, there exists a homotopy equivalence $h:X\to P_f$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X && Y \\
+	& {P_f}
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["{\exists h}"', dashed, from=1-1, to=2-2]
+	\arrow["\pi"', from=2-2, to=1-3]
+\end{tikzcd}}
+\end{thm}
+
+\subsection{Cofibrations and The Homotopy Extension Property}
+\begin{defn}{The Homotopy Extension Property}{} Let $i:A\to X$ be a map and let $Y$ be a space. We say that $i$ has the homotopy lifting property with respect to $Y$ if for every homotopy $H:A\times I\to Y$ such that $$H\circ i_0=f\circ i$$ for $i_0:A\times\{0\}\to A\times I$ the inclusion map, there exists a homotopy $\widetilde{H}:X\times I\to Y$ such that the following diagram commute: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{A\times\{0\}} && {A\times I} \\
+	& Y \\
+	{X\times\{0\}} && {X\times I}
+	\arrow["{i_0}", hook, from=1-1, to=1-3]
+	\arrow["i"', from=1-1, to=3-1]
+	\arrow["H"', from=1-3, to=2-2]
+	\arrow["{i\times\text{id}}", from=1-3, to=3-3]
+	\arrow["f", from=3-1, to=2-2]
+	\arrow[hook, from=3-1, to=3-3]
+	\arrow["{\exists\widetilde{H}}"', dashed, from=3-3, to=2-2]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{defn}{Cofibrations}{} We say that a map $i:A\to X$ is a fibration if it has the homotopy extension property for all spaces $Y$. 
+\end{defn}
+
+\begin{defn}{Pullbacks of a Cofibration}{} Let $i:A\to X$ be a cofibration and let $g:A\to C$ be a map. Define the pullback of $i$ by $g$ to be $$f_\ast(X)=\frac{X\amalg C}{i(a)\sim g(a)}$$ together with the inclusion map $i_f:X\to f_\ast(X)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $i:A\to X$ be a cofibration and let $g:A\to C$ be a map. Then the map $C\to f^\ast(X)$ is a cofibration. Moreover, the following diagram commutes: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	A & C \\
+	X & {f_\ast(X)}
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["i"', from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["{i_f}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+where the map $C\to f_\ast(X)$ is the inclusion map. 
+\end{prp}
+
+\subsection{Replacing Maps by Cofibrations}
+\begin{defn}{Mapping Cylinder}{} Let $f:A\to X$ be a map. Define the mapping cylinder to be $$M_f=\frac{(A\times I)\amalg X}{(a,1)\sim f(a)}$$ together with the induced topology. 
+\end{defn}
+
+\begin{thm}{}{} Let $f:A\to X$ be a map. Then the inclusion map $i:A\to M_f$ defined by $i(a)=[a,0]$ is a cofibration. Moreover, there exists a homotopy equivalence $h:M_f\to X$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	A && X \\
+	& {M_f}
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["i"', from=1-1, to=2-2]
+	\arrow["{\exists h}"', dashed, from=2-2, to=1-3]
+\end{tikzcd}}
+\end{thm}
+
+\subsection{Fibers and Cofibers}
+\begin{defn}{Fibers of a Fibration}{} Let $p:E\to B$ be a fibration. Define the fiber of $p$ at $b\in B$ to be $$E_b=p^{-1}(b)$$
+\end{defn}
+
+\begin{prp}{}{} Let $p:E\to B$ be a fibration. Let $b_1$ and $b_2$ lie in the same path component of $B$. Then there is a homotopy equivalence $$E_{b_1}\simeq E_{b_2}$$
+\end{prp}
+
+\begin{defn}{Homotopy Fibers}{} Let $f:X\to Y$ be a map. Define the homotopy fiber of $f$ to be $$F_f=\{(x,\phi)\in X\times Y^I\;|\;f(x)=\phi(1)\}$$ where $P_f$ is the mapping path space of $f$. 
+\end{defn}
+
+Note the difference between homotopy fibers and the mapping path space. The latter is defined by considering the fibration $\pi:X^I\to X$ where $\pi(\phi)=\phi(0)$. But homotopy fibers are defined the end point $\phi(1)$. In fact, this is the main ingredient in proving that this notion is homotopy equivalent to the usual notion of fibers. 
+
+\begin{prp}{}{} Let $p:E\to B$ be a fibration. Then the homotopy fibers of $p$ are homotopy equivalent to the fibers of $p$. 
+\end{prp}
+
+Instead of defining cofibers and then showing homotopy equivalence cofiberwise, we will take the approach of homotopy cofibers and straight up define it without mentioning the choice of a point on the cofibration. 
+
+\begin{defn}{Mapping Cone}{} Let $f:A\to X$ be a map. Define the mapping cone to be $$C_f=\frac{(A\times I)\amalg X}{(a,1)\sim f(a),A\setminus\{0\}}$$
+\end{defn}
+
+\begin{defn}{Homotopy Cofibers}{} Let $f:X\to Y$. Define the homotopy cofiber of $f$ to be the mapping cone $C_f$. 
+\end{defn}
+
+\subsection{The Fiber and Cofiber Sequences}
+\begin{defn}{Path Spaces}{} Let $(X,x_0)$ be a pointed space. Define the path space of $(X,x_0)$ to be $$PX=\{\phi:(I,0)\to(X,x_0)\;|\;\phi(0)=x_0\}=\text{Map}((I,0),(X,x_0))$$ together with the topology of the mapping space. 
+\end{defn}
+
+\begin{thm}{}{} Let $X$ be a space. Then the following are true. 
+\begin{itemize}
+\item The map $\pi:PX\to X$ defined by $\pi(\phi)=\phi(1)$ is a fibration with fiber $\Omega X$
+\item The map $\pi:X^I\to X$ defined by $\pi(\phi)=\phi(1)$ is a fibration with fiber homeomorphic to $PX$. 
+\end{itemize}
+\end{thm}
+
+We now write a fibration as a sequence $F\to E\to B$ for $F$ the fiber of the fibration $p:E\to B$. This compact notation allows the following theorem to be formulated nicely. 
+
+\begin{thm}{}{} Let $f:X\to Y$ be a fibration with homotopy fiber $F_f$. Let $\iota:\Omega Y\to F_f$ be the inclusion map and $\pi:F_f\to X$ the projection map. Then up to homotopy equivalence of spaces, there is a sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {\Omega^2 X} & {\Omega^2Y} & {\Omega F_f} & {\Omega X} & {\Omega_Y} & {F_f} & X & Y
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\Omega^2 f}", from=1-2, to=1-3]
+	\arrow["{-\Omega\iota}", from=1-3, to=1-4]
+	\arrow["{-\Omega\pi}", from=1-4, to=1-5]
+	\arrow["{-\Omega f}", from=1-5, to=1-6]
+	\arrow["\iota", from=1-6, to=1-7]
+	\arrow["\pi", from=1-7, to=1-8]
+	\arrow["f", from=1-8, to=1-9]
+\end{tikzcd}}\\~\\
+where any two consecutive maps form a fibration. Moreover, $-\Omega f:\Omega X\to\Omega Y$ is defined as $$(-\Omega f)(\zeta)(t)=(f\circ\zeta)(1-t)$$ for $\zeta\in\Omega X$. 
+\end{thm}
+
+There is then the dual notion of loop spaces and the corresponding sequence. Write a cofibration $f:A\to X$ with homotopy cofiber $B$ as $B\to A\to X$. 
+
+\begin{thm}{}{} Let $f:X\to Y$ be a cofibration with homotopy cofiber $C_f$. Let $i:Y\to C_f$ be the inclusion map and $\pi:C_f\to C_f/Y\cong\Sigma X$ be the projection map. Then up to homotopy equivalence of spaces, there is a sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & Y & {C_f} & {\Sigma X} & {\Sigma Y} & {\Sigma C_f} & {\Sigma^2X} & {\Sigma^2Y} & \cdots
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["i", from=1-2, to=1-3]
+	\arrow["\pi", from=1-3, to=1-4]
+	\arrow["{-\Sigma f}", from=1-4, to=1-5]
+	\arrow["{-\Sigma i}", from=1-5, to=1-6]
+	\arrow["{-\Sigma\pi}", from=1-6, to=1-7]
+	\arrow["{\Sigma^2 f}", from=1-7, to=1-8]
+	\arrow[from=1-8, to=1-9]
+\end{tikzcd}}\\~\\
+where any two consecutive maps form a cofibration. Moreover, $-\Sigma f:\Sigma X\to\Sigma Y$ is defined by $$(-\Sigma f)(x\wedge t)=f(x)\wedge(1-t)$$
+\end{thm}
+
+\begin{thm}{}{} Let $p:E\to B$ be a fibration over a connected space $B$ with fiber $F$. Let $\iota:F\hookrightarrow E$ be the inclusion of the fiber. Then there is a long exact sequence in homotopy groups: \\~\\
+\adjustbox{scale=0.75,center}{\begin{tikzcd}
+	\cdots & {\pi_{n+1}(B,b_0)} & {\pi_n(F,e_0)} & {\pi_n(E,e_0)} & {\pi_n(B,b_0)} & {\pi_{n-1}(F,e_0)} & \cdots & {\pi_1(E,e_0)} & {\pi_1(B,b_0)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\partial", from=1-2, to=1-3]
+	\arrow["{\iota_\ast}", from=1-3, to=1-4]
+	\arrow["{p_\ast}", from=1-4, to=1-5]
+	\arrow["\partial", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+	\arrow[from=1-7, to=1-8]
+	\arrow["{p_\ast}", from=1-8, to=1-9]
+\end{tikzcd}}\\~\\
+for $e_0\in E$ and $b_0=p(e_0)$. 
+\end{thm}
+
+\subsection{Serre Fibrations}
+\begin{defn}{Serre Fibration}{} We say that a map $p:E\to B$ is a Serre fibration if it has the homotopy lifting property with respect to all CW-complexes. 
+\end{defn}
+
+\begin{prp}{}{} Every (Hurewicz) fibration is a Serre fibration. Every fiber bundle is a Serre fibration. 
+\end{prp}
+
+We can provide a partial converse for the fact that every fiber bundle is a Serre fibration. 
+
+\begin{prp}{}{} Let $p:E\to B$ be a fiber bundle. If $B$ is paracompact, then $p$ is a (Hurewicz) fibration. 
+\end{prp}
+
+\pagebreak
+\section{Characteristic Classes}
+\begin{defn}{Characteristic Classes}{} Let $G$ be a topological group and $X$ a space. Denote $\text{Prin}_G(X)$ the isomorphism classes of principal $G$-bundles over $X$. Let $H^\ast$ be a cohomology functor. A characteristic class for $G$ is a natural transformation $c$ from $\text{Prin}_G$ to $H^\ast$. \\~\\
+
+Explicitly, if $p:E\to B$ is a principal $G$-bundle, then $c$ assigns $p$ to the collection of cohomology groups $c(p)\in H^\ast(X)$. 
+\end{defn}
+
+\pagebreak
+\section{Obstruction Theory}
+
+\end{document}

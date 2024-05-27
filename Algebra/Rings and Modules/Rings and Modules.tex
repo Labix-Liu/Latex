@@ -253,9 +253,11 @@ Thus we are done.
 
 The following lemma shows that endomorphisms of $R$ as an $R$-module consists of precisely the left multiplications of $R$ by each element in $R$ (Thus also having an isomorphism on right multiplication). Moreover, the ring structures are compatible so that it is not just a bijection. 
 
-\begin{lmm}{}{} Let $R$ be a ring. Then $R$ is a left $R$-module. Moreover, $\text{End}_R(R)\cong R$. \tcbline
-\begin{proof}
-Clearly $R$ is a left $R$-module where the left action is just left multiplication. \\~\\ Define a map $\phi:R\to\text{End}_R(R)$ by $r\mapsto\phi(r)(x)=x\cdot r$. We check that $\phi$ is a ring homomorphism. 
+\begin{prp}{}{} Let $R$ be a ring. Then we have an isomorphism $$\text{End}_R(R)\cong R$$ \tcbline
+\begin{proof}~\\
+Define a map $\phi:R\to\text{End}_R(R)$ by $$r\mapsto\begin{pmatrix}
+\phi(r):R\to R\\x\mapsto x\cdot r
+\end{pmatrix}$$ We check that $\phi$ is a ring homomorphism. 
 \begin{itemize}
 \item $\phi$ preserves addition since 
 \begin{align*}
@@ -284,7 +286,9 @@ We also show that $\phi$ is bijective.
 \end{itemize}
 Thus $\phi$ is a ring isomorphism. 
 \end{proof}
-\end{lmm}
+\end{prp}
+
+Notice that in the proof it might be more natural to show first that $R^\text{op}\cong\text{End}_R(R)$ and then to show that $R^\text{op}\cong R$. The first isomorphism is naturally isomorphic but the second one is not. Naturality refers to category theory. 
 
 \subsection{Direct Sum of Modules}
 \begin{defn}{Direct Product of Modules}{} Let $I$ be an indexing set and $\{M_i\;|\;i\in I\}$ a family of $R$-modules. Define the direct product to be the set $$\prod_{i\in I}M_i=\left\{(m_i)_{i\in I}\;\bigg{|}m_i\in M_i\;\right\}$$ together with the left $R$-module structure inherited component wise. 
@@ -366,7 +370,7 @@ By Zorn's lemma, $\mP$ has a maximal element $Z$. Suppose that $Z$ does not span
 
 \item Suppose that $(\mP,\subseteq)$ is the poset under inclusion with elements of $\mP$ being subsets $X\subseteq Q$ and $X$ is linearly independent. Notice that $\emptyset\in\mP$ so $\mP$ is non empty. By a similar argument as above, we can conclude that $\mP$ has an upper bound. By Zorn's lemma, $\mP$ has a maximal element $Z$. It is linearly independent and is contained in $Q$. Now $Z$ is a basis once we have shown that $Z$ generates $M$. Since every $v\in M$ is a finite linear combination of elements of $Q$, we just have to express every $q\in Q$ as a linear combination of $Z$. \\~\\
 
-Suppose that this is false. Then there exists $q\in Q$ such that $q$ is not a linear combination of $Z$. By a similar argument as above, $Z\cup\{v\}$ is a bigger element of $\mP$, contradicting the fact that $Z$ is maximal. Thus we are done. 
+Suppose that this is false. Then there exists $q\in Q$ such that $q$ is not a linear combination of $Z$. By a similar argument as above, $Z\cup\{q\}$ is a bigger element of $\mP$, contradicting the fact that $Z$ is maximal. Thus we are done. 
 
 \item Either apply the first point with $S=\emptyset$ or apply the second point with $Q=M$. 
 \end{itemize}
@@ -374,6 +378,7 @@ This concludes the proof.
 \end{proof}
 \end{thm}
 
+\subsection{Invariant Basis Number Property}
 It is not a coincidence that we require $R$ to be a division ring. Every division ring is an invariant basis number (IBN) ring. 
 
 \begin{defn}{Invariant Basis Number Property}{} Let $R$ be a ring. We say that $R$ has the invariant basis number (IBN) property if every free $R$-module has equal cardinality for basis. 
@@ -423,7 +428,7 @@ Since every ring $R$ has a maximal left ideal $L$, $R/L$ is a non-trivial simple
 
 \begin{prp}{Schur's Lemma I}{} Let $\phi:M\to N$ be a homomorphism of simple left $R$-modules. Then either $\phi=0$ or $\phi$ is an isomorphism. \tcbline
 \begin{proof}
-Suppose that $\phi\neq 0$. Since $\ker(\phi)$ is a submodule of $M$ and $M$ is simple, we must have that $\ker(\phi)=0$. Then we must have that $\im(\phi)$ is a non-trivial submodule of $N$. But since $N$ is simple, $\im(\phi)=M$. Thus $\phi$ is a bijection. 
+Suppose that $\phi\neq 0$. Since $\ker(\phi)$ is a submodule of $M$ and $M$ is simple, we must have that $\ker(\phi)=0$. Then we must have that $\im(\phi)$ is a non-trivial submodule of $N$. But since $N$ is simple, $\im(\phi)=N$. Thus $\phi$ is a bijection. 
 \end{proof}
 \end{prp}
 
@@ -520,7 +525,7 @@ Relabel elements of $X$ as $X=\{x_1,x_2,\dots\}$. The monomials $x_i$ form a bas
 
 We use the notion of free algebras to define the universal property of $R$-algebras. 
 
-\begin{prp}{Universal Property}{} The free algebra $R\langle X\rangle$ over a ring $R$ satisfies the following universal property. If $A$ is an $R$-algebra, then for every $f:X\to A$ a map of sets, there exists a unique homomorphism of algebras $\varphi:R\langle X\rangle\to A$ such that $\varphi(x_i)=f(x_i)$ for each $x_i\in X$. In other words, the following diagram commutes: \\~\\
+\begin{prp}{Universal Property}{} Let $X$ be a set. The free algebra $R\langle X\rangle$ over a ring $R$ satisfies the following universal property. If $A$ is an $R$-algebra, then for every $f:X\to A$ a map of sets, there exists a unique homomorphism of algebras $\varphi:R\langle X\rangle\to A$ such that $\varphi(x_i)=f(x_i)$ for each $x_i\in X$. In other words, the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	X & {R\langle X\rangle} \\
 	& A
@@ -673,12 +678,6 @@ If $N$ is cosimple then $M/N$ has no non-trivial submodules. By the corresponden
 
 \begin{defn}{Radical}{} Let $M$ be an $R$-module. Define the radical of $M$ to be the intersection $$\text{rad}(M)=\bigcap_{\substack{S\leq M\\S\text{ is cosimple }}}S$$ of all cosimple submodules of $M$. 
 \end{defn}
-
-We can draw a connection between the radical and the socle. Consider $\Z$ as a $\Z$-module. It is clear that $\Z$ has no simple submodules. Indeed for any $k\in\Z$, $k\Z$ has a submodule $(2k)\Z$. Since $\Z$ is a principal ideal domain this concludes all possible ideals. Thus $$\text{soc}(\Z)=0$$ As for the radical, notice that quotient modules of $\Z$ are modules of the form $\Z/k\Z$. It does not have a subgroup exactly when $k=p$ is a prime. The intersection of all such groups is then $0$ so that $$\text{rad}(\Z)=0$$~\\
-
-There is a duality between the radical and the socle as follows. For $n\in\N$, consider $\Z/n\Z$ as a $\Z$-module. Clearly we have that its simple modules are exactly the submodules $\Z/(n/k)\Z$ when $n/k$ is a prime number. Similarly, $\Z/n\Z$ has a cosimple submodule of the form $\Z/(n/p)\Z$ when $p$ is a prime. \\~\\
-
-The notion of a radical is reminiscent to the radical of a number. In number theory, the radical of $n=p_1^{a_1}\cdots p_k^{a_k}\in\N$ is defined by $\text{rad}(n)=p_1\cdots p_k$. Write $r=\text{rad}(n)$. It is easy to see that $$\text{soc}(\Z/n\Z)=\frac{n}{r}\Z/n\Z\cong\Z/r\Z\cong\frac{\Z/n\Z}{\text{rad}(\Z/n\Z)}$$ and that $$\text{rad}(\Z/n\Z)\cong\Z/(n/r)\Z$$
 
 \subsection{The Nilradical Ideal}
 \begin{defn}{Nilpotents}{} Let $R$ be a ring. An element $x\in R$ is said to be nilpotent if $x^n=0$ for some $n\in\N$. 
