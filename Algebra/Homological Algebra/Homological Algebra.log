@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  25 MAY 2024 01:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  12 JUN 2024 20:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -927,7 +927,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count337
-Package hyperref Info: Option `colorlinks' set `true' on input line 222.
+Package hyperref Info: Option `colorlinks' set `true' on input line 224.
 ) (Homological Algebra.aux)
 \openout1 = `"Homological Algebra.aux"'.
 
@@ -1065,22 +1065,22 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 597.
 
-[16] [17] [18] [19] [20] [21] [22] [23] (Homological Algebra.aux)
+[16] [17] [18] [19] [20] [21] [22] [23] [24] [25] (Homological Algebra.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Homological Algebra".out' has not changed.
-(rerunfilecheck)             Checksum: B4DCD5DD31FD6120E660E7272F435923;4701.
+(rerunfilecheck)             Checksum: F66FA5347CFDE3B03F0F41DFC880BB0F;5130.
  ) 
 Here is how much of TeX's memory you used:
- 35205 strings out of 474424
- 713202 string characters out of 5741739
- 2021496 words of memory out of 5000000
- 56897 multiletter control sequences out of 15000+600000
+ 35899 strings out of 474424
+ 730844 string characters out of 5741739
+ 2022496 words of memory out of 5000000
+ 57576 multiletter control sequences out of 15000+600000
  601492 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,18n,120p,666b,1485s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,16n,120p,666b,1485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1101,9 +1101,9 @@ eX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local
 AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/li
 ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/User
 s/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Homological Algebra.pdf" (23 pages, 445323 bytes).
+Output written on "Homological Algebra.pdf" (25 pages, 466382 bytes).
 PDF statistics:
- 488 PDF objects out of 1000 (max. 8388607)
- 142 named destinations out of 1000 (max. 500000)
- 237 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 524 PDF objects out of 1000 (max. 8388607)
+ 157 named destinations out of 1000 (max. 500000)
+ 253 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -10,9 +10,9 @@
 \contentsline {section}{\numberline {3}Semisimplicity}{16}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Peirce Decomposition for Modules}{16}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Semisimple Modules}{18}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Maschke's Theorem}{20}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}The Matrix Rings}{24}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Artin-Wedderburn Theorem}{25}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.3}Completely Reducible Modules}{20}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}The Matrix Rings}{23}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Artin-Wedderburn Theorem}{24}{subsection.3.5}%
 \contentsline {section}{\numberline {4}Exercises}{27}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Problem Set 1}{27}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Problem Set 2}{30}{subsection.4.2}%

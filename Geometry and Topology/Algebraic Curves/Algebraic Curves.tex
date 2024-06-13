@@ -1,0 +1,68 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Algebraic Curves}
+\rfoot{\thepage}
+
+\title{Algebraic Curves}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Algebraic Curves in Classical Algebraic Geometry}
+\begin{defn}{Algebraic Curves}{} An algebraic curve is an irreducible variety of dimension $1$. 
+\end{defn}
+
+\begin{thm}{}{} Any irreducible curve is birationally equivalent to a unique non-singular projective curve. 
+\end{thm}
+
+\section{Algebraic Curves in the Context of Schemes}
+\begin{defn}{Algebraic Curves}{} Let $k$ be an algebraically closed field. A curve over $k$ is an integral separated scheme $X$ of finite type over $k$ that has dimension $1$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be an algebraic curve. Then the arithmetic and geometric genus coincide. In particular, $$p_a(X)=p_g(X)=\dim_kH^1(X,\mO_X)$$
+\end{prp}
+
+We will simply call the genus of a curve $g$ from now on since the arithmetic genus is the same as the geometric genus. 
+
+\subsection{Riemann-Roch Theorem}
+\begin{defn}{Canonical Divisor}{} Let $X$ be an algebraic curve. The canonical divisor $K$ of $X$ is a divisor in the linear equivalence class of $\Omega_{X/k}^1=\omega_X$. 
+\end{defn}
+
+\begin{thm}{Riemann-Roch Theorem}{} Let $X$ be an algebraic curve. Let $D$ be a divisor on $X$ and let $K$ be the canonical divisor of $X$. Denote $l(D)=\dim_k(H^0(X,\mL(D)))$ and let $g$ be the genus of $X$. Then $$l(D)-l(K-D)=\deg(D)+1-g$$
+\end{thm}
+
+\subsection{Classification of Curves in $\Prj^3$}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

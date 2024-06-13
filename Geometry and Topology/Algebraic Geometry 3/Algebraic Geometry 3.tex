@@ -1,0 +1,752 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Algebraic Geometry 3}
+\rfoot{\thepage}
+
+\title{Algebraic Geometry 3}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Categorical Viewpoint of Classical Algebraic Geometry}
+\subsection{The Category of Affine Algebraic Varieties}
+Recall that coordinate rings are finitely generated algebras over $k$ the ground field. 
+
+\begin{thm}{}{} Let $k$ be a field. The opposite category of affine algebraic varieties over $k$ is equivalent to the category of finitely generated non-nilpotent algebras over $k$. 
+\end{thm}
+
+\subsection{Affine Varieties as a Ringed Space}
+Recall that given an affine algebraic variety $V$ and an open set $U$ of $V$, we can equip a ring of rational functions over $U$. We can sort these rings into a sheaf. 
+
+\begin{defn}{Structure Sheaf}{} Let $X$ be an affine algebraic variety over a field $k$. Define the structure sheaf of $X$ on rings $\mO_X:\bold{Open}(X)\to\bold{Rings}$ as follows. 
+\begin{itemize}
+\item On objects, $\mO_X(U)=\{f\in k(X)\;|\;f\text{ is regular over }U\}$ for each $U\subseteq X$ open. 
+\item If $V\subseteq U$, then there is a unique morphism $\iota:V\to U$ given by the inclusion. Define a ring homomorphism $$\mO_X(\iota):\mO_X(U)\to\mO_X(V)$$ in $\bold{Rings}$ that sends $f\in\mO_X(U)$ to its restriction $f|_V\in\mO_X(V)$. 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Let $X$ be an affine algebraic variety over a field $k$. Then the structure sheaf $$\mO_X(U)=\{f\in k(X)\;|\;f\text{ is regular over }U\}$$ defined above is a sheaf on $X$. \tcbline
+\begin{proof}
+We have seen from sheaf theory that this formula precisely gives the stalks of a sheaf as a colimit. 
+\end{proof}
+\end{thm}
+
+\begin{lmm}{}{} Let $X$ be an affine algebraic variety over a field $k$. Then for each $p\in X$, the ring of germs of regular functions is given by $$\mO_{X,p}=\{(U,f)\;|\;U\subseteq X\text{ is open}, p\in U, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. \tcbline
+\begin{proof}
+It is clear by definition that $\mO_X(-)$ is a functor from $\bold{Open}(X)$ to $\bold{Rings}$. Hence $\mO_X(-)$ is indeed a presheaf. We check the identity and gluing axiom. 
+\begin{itemize}
+\item Let $\{U_i\;|i\in I\}$ be an open cover of an open set $V\subseteq X$. Let $f_1,f_2\in\mO_X(V)$ such that $f_1|_{U_i}=f_2|_{U_i}$ for all $i\in I$. Let $v\in V$. Then $v\in U_i$ for some $i\in I$. Since $f_1|_{U_i}=f_2|_{U_i}$, we have that $f_1(v)=f_2(v)$. $v\in V$ is chosen arbitrary hence we conclude that $f_1=f_2$. 
+\item Let $\{U_i\;|i\in I\}$ be an open cover of an open set $V\subseteq X$. Suppose that $f_i\in\mO_X(U_i)$ such that the restriction of $f_i$ and $f_j$ agree on $U_i\cap U_j$ for any $i,j\in I$. Define a function $f:V\to k$ as follows. For $v\in V$, there exists $i\in I$ such that $v\in U_i$. Then define $f(v)=f_i(v)$. It is clear that $f_i=f|_{U_i}$ for any $i\in I$ by definition. It is also well defined since if $v\in U_i\cap U_j$ then $f_i(v)=f_j(v)$. Finally, it is also regular at any point $v\in V$. This is because there exists $v\in U_i$ and locally on $U_i$, there exists $g,h\in\C[X]$ such that $h(v)\neq 0$ and $$f(x)=f_i(x)=\frac{g(x)}{h(x)}$$ by considering a neighbourhood of $v$ lying in $U_i$. 
+\end{itemize}
+We conclude that $\mO_X$ is indeed a sheaf on $X$. 
+\end{proof}
+\end{lmm}
+
+Unfortunately one big problem in classical algebraic geometry is that the ringed space $(V,\mO_V)$ for a variety $V$ is not necessarily a locally ringed space. Ideally, we would want rational functions on a point $p$ to be exactly the local ring $\C[V]_{m_p}$ where $m_p$ is the maximal ideal corresponding to the point $p$ by Hilbert's nullstellensatz. We remedy this by using the spectrum of a ring as a topological space instead of a variety. 
+
+\pagebreak
+\section{The Construction of Schemes}
+\subsection{Spectrum of a Ring}
+\begin{defn}{Max Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the max spectrum of $A$ to be $$\text{maxSpec}(A)=\{m\subseteq A\;|\;m\text{ is a maximal ideal of }A\}$$
+\end{defn}
+
+\begin{defn}{Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the spectrum of $A$ to be $$\text{Spec}(A)=\{p\subseteq A\;|\;p\text{ is a prime ideal of }A\}$$
+\end{defn}
+
+Morphisms of the spectrum comes for free from the definition of morphism of locally ringed space. We omit the same discussion here. However, there is a once again a bijection between geometry and algebra given by the following proposition. 
+
+\begin{prp}{}{} Let $A,B$ be commutative rings. Then there is a bijection $$\left\{\substack{\text{Morphisms}\\\text{Spec}(B)\to\text{Spec}(A)}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Ring homomorphisms}\\ A\to B}\right\}$$
+\end{prp}
+
+What follows is that we will repeat what we did with affine algebraic sets and affine algebraic varieties, except that we now consider the spectrum of a ring instead of the affine space $\A_k^n$. 
+
+\begin{defn}{Zero Locus}{} Let $A$ be a commutative ring. Let $S\subseteq A$. Define the vanishing locus of $S$ to be $$V(S)=\{p\in\text{Spec}(A)\;|\;S\subseteq p\}$$
+\end{defn}
+
+This definition is motivated by the following reason. Consider $A=k[x]$. A subset $S$ of $A$ is just a collection of polynomials over $x$. Ideally, by Hilbert's nullstellensatz, points correspond to maximal ideals. So $V(S)$ should be defined as $V(S)=\{p\in\text{maxSpec}(A)\;|\:S\subseteq p\}$. This way of defining $V(S)$ would be a complete analogue for the zero loci in classical algebraic geometry. This definition turns out to fail completely because ring homomorphisms does not reflect maximal ideals. The reason why we want this will become apparent later. But for now, we relax the condition on maximal ideal and allow prime ideals into the scene instead. \\~\\
+
+Notice that from the definition we can directly see that $V(S)$ and $D(S)$ partitions $\text{Spec}(A)$ for every $S\subset A$. Moreover, if $S$ generates the ideal $a$, $V(a)=V(M)$ hence we will only feed in ideals of $A$ into $V(\cdot)$ from now on. 
+
+\begin{lmm}{}{} Let $A$ be a commutative ring. The following are true. 
+\begin{itemize}
+\item Let $\{a_i|i\in I\}$ be a countable set of ideals of $A$, then $$V\left(\sum_{i\in I}a_i\right)=\bigcap_{i\in I}V(a_i)$$
+\item Let $\{a_1,\dots,a_n\}$ be a finite set of ideals of $A$, then $$V\left(\bigcap_{k=1}^na_k\right)=\bigcup_{k=1}^nV(a_k)$$
+\end{itemize}
+\end{lmm}
+
+\begin{defn}{Ideals from a Zero Locus}{} Let $A$ be a commutative ring. Let $X\subseteq\text{Spec}(R)$. Define $$I(V)=\{f\in A\;|\;f\in p\text{ for all }p\in V\}$$
+\end{defn}
+
+\begin{thm}{Scheme-theoretic Nullstellensatz}{} Let $A$ be a commutative ring. Let $J$ be an ideal of $A$. Then $I(V(J))=\sqrt{J}$. 
+\end{thm}
+
+\begin{crl}{}{} Let $A$ be a commutative ring. Then $V(-)$ and $I(-)$ induce an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Closed Subsets of}\\\text{Spec}(A)}\right\}$$
+\end{crl}
+
+\subsection{Zariski Topology of a Spectrum}
+\begin{defn}{Zariski Topology}{} Let $A$ be a commutative ring. Define the Zariski topology on $\text{Spec}(A)$ to be the topology where the closed sets are exactly sets of the form $V(S)$ for $S\subseteq A$. 
+\end{defn}
+
+We can also explicitly write out the open sets and a basis for the Zariski topology. 
+
+\begin{defn}{Distinguished Open Sets}{} Let $A$ be a commutative ring. Let $S\subseteq A$. Define the distinguished open set of $S$ to be $$D(S)=\{p\in\text{Spec}(A)|S\not\subseteq p\}$$ Let $f\in A$. Then the collection $$D(f)=\{p\in\text{Spec}(A)|f\notin p\}$$ for $f$ varying in $A$ are called basic open sets. 
+\end{defn}
+
+They are called open sets is because sets of the form $D(S)$ will form a topology for $\text{Spec}(A)$, and these basic open sets are precisely the basis for the sets of the form $D(S)$. 
+
+\begin{thm}{}{} Let $A$ be a commutative ring. The open sets of the Zariski topology of $\text{Spec}(A)$ are the sets $D(S)$ for $S\subseteq A$. Moreover, the collection $D(f)$ for $f\in A$ is a basis for the topology. 
+\end{thm}
+
+\subsection{The Structure Sheaf of a Ring}
+We now define the structure sheaf on a spectrum so that they form a ringed space. 
+
+\begin{defn}{Structure Sheaf}{} Let $A$ be a commutative ring and $\text{Spec}(A)$ the spectrum of $A$ as a topological space. Define the structure sheaf on $\text{Spec}(A)$ to be the functor $\mO_{\text{Spec}(A)}:\bold{Open}(\text{Spec}(A))\to\bold{Rings}$ defined as follows. 
+\begin{itemize}
+\item For each $U\subseteq X$ open, define $$\mO_{\text{Spec}(A)}(U)=\left\{s:U\to\coprod_{p\in U}A_p\;\bigg{|}\;\substack{\forall p\in U,\;s(p)\in A_p\text{ and }\\\exists U_p\subset U\text{ s.t. }q\in U_p\text{ implies }s(q)\in A_p}\right\}$$
+\item For $V\subseteq U$ an inclusion, the unique morphism $\mO_{\text{Spec}(A)}(U)\to\mO_{\text{Spec}(A)}(V)$ sends $s\in\mO_{\text{Spec}(A)}(U)$ to the restriction $$s|_V:V\to\coprod_{p\in V}A_p$$
+\end{itemize}
+\end{defn}
+
+Note that each $s$ as a function from $U$ simply means that $s$ is indexed by $U\subseteq\text{Spec}(A)$. Alternatively we can write each element of $\mO(U)$ as $s=(s_p)_{p\in U}$ such that $s_p\in A_p$. 
+
+\begin{thm}{}{} Let $A$ be a commutative ring. Then the structure sheaf $$\mO_{\text{Spec}(A)}:\bold{Open}(\text{Spec}(A))\to\bold{Set}$$ defined above is indeed a sheaf on $\text{Spec}(A)$. 
+\end{thm}
+
+The structure sheaf allows $\text{Spec}(A)$ to be a ringed space. The ringed space on any spectrum is in fact a locally ringed space. But this is not true for the ringed space on varieties in the classical sense. 
+
+\begin{prp}{}{} Let $A$ be a commutative ring. Then the following are true regarding the ringed space $(\text{Spec}(A),\mO_{\text{Spec}(A)})$. 
+\begin{itemize}
+\item For any $p\in\text{Spec}(A)$, there is an isomorphism $\mO_{\text{Spec}(A),p}\cong A_p$ on the level of stalks. 
+\item $(\text{Spec}(A),\mO_{\text{Spec}(A)})$ is a locally ringed space. 
+\item For any element $f\in A$, there is an isomorphism $\mO_{\text{Spec}(A)}(D(f))\cong A_f$
+\item There is an isomorphism $\mO_{\text{Spec}(A)}(\text{Spec}(A))\cong A$ on the global level. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Define a homomorphism $\phi_p:\mO_{\text{Spec}(A),p}\to A_p$ as follows. For $s\in\mO_{\text{Spec}(A),p}$ a local section in a neighbourhood of $p$ to $s(p)\in A_p$. This is well defined: If $(U,s)\sim(V,t)$, then there exists a neighbourhood $W\subseteq U\cap V$ of $p$ such that $s|_W=t|_W$. Hence $s(p)=t(p)$. It is clear that $\phi_p$ is a ring homomorphism by definition of the sheaf. It remains to show that $\phi_p$ is a bijection. \\~\\
+
+Assume that $a/f\in A_p$. Then $D(f)$ is an open neighbourhood of $p$ and $a/f$ becomes a section in $\mO_{\text{Spec}(A)}(D(f))$. Hence $\phi_p$ is surjective. Now suppose that $s$ and $t$ be two local sections in $\mO_{\text{Spec}(A),p}$ such that $s(p)=t(p)$. Assume that $s$ is local on $U$ and $t$ is local on $V$, then $s(p)=a/f$ and $t(p)=b/g$ in $W\subseteq U\cap V$ for some $a,b\in A$ and $f,g\in A\setminus p$. Since $s(p)=t(p)$, we conclude that there exists $h\in A\setminus p$ such that $h(ag-bf)=0$. For any $q\in D(f)\cap D(g)\cap D(h)$, $h(ag-bf)=0$ still holds in $A_q$ hence $a/f=b/g$ in $D(f)\cap D(g)\cap D(h)$, which is a neighbourhood of $p$. Hence $s=t$ in a neighbourhood of $p$. Thus $s$ and $t$ have the same stalk. Thus $\phi_p$ is injective. 
+
+\item From the above we immediately conclude that every stalk of the ringed space is a local ring. Hence $(\text{Spec}(A),\mO_{\text{Spec}(A)})$ is a locally ringed space. 
+
+\item Define a map $\phi:A_f\to\mO_{\text{Spec}(A)}(D(f))$ by sending $a/f^n\in A_f$ to $\left(s:D(f)\to\coprod_{p\in D(f)}A_p\right)\in\mO_{\text{Spec}(A)}(D(f))$ that assigns each $p\in D(f)$ to $a/f^n\in A_p$. This makes sense since $p\in D(f)$ implies $f\notin p$ so that $a/f^n\in A_p$. It is clear that this is a ring homomorphism. It remains to show that $\phi_p$ is a bijection. \\~\\
+
+Suppose that $\phi(a/f^n)=\phi(b/f^m)$. For each $p\in D(f)$, $\phi(a/f^n)(p)=\phi(b/f^m)(p)$ implies that $a/f^n=b/f^m$ hence there exists some $h\in A$ such that $h(f^ma-f^nb)$. Notice that the annihilator $\text{Ann}_A(f^ma-f^nb)$ is such that $h$ lies in it. Since $h\notin p$, we have that $\text{Ann}_A(f^ma-f^nb)$ is not a subset of $p$. This is true for any $p\in D(f)$ hence $V(\text{Ann}_A(f^ma-f^nb))\cap D(f)=\emptyset$. We conclude that $f\in\sqrt{\text{Ann}_A(f^ma-f^nb)}$ so $f^l(f^ma-f^nb)=0$ for some $l$. Since $f$ is invertible in $A_f$, we can multiply the inverse on both sides to obtain $a/f^n=b/f^m$ and so $\phi$ is injective. \\~\\
+
+Let $s\in\mO_{\text{Spec}(A)}(D(f))$. 
+
+\item Using the above applied to $f=1_A$, we conclude that $\mO_{\text{Spec}(A)}(\text{Spec}(A))\cong A$
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ and $S$ be rings. Then there is a one-to-one bijection between ring homomorphisms $\varphi:R\to S$ and morphisms of locally ringed spaces $(f,f^\#):(\text{Spec}(S),\mO_{\text{Spec}(S)})\to\mO_{\text{Spec}(R)}$. This means that $$\left\{\text{Ring homomorphisms }\varphi:R\to S\right\}\;\;\;\;\overset{1:1}{\longleftrightarrow}\;\;\;\;\left\{\substack{\text{Morphisms of locally ringed spaces}\\(f,f^\#):(\text{Spec}(S),\mO_{\text{Spec}(S)})\to\mO_{\text{Spec}(R)}}\right\}$$ \tcbline
+\begin{proof}
+Given a ring homomorphism $\varphi:R\to S$, define a map $f:\text{Spec}(S)\to\text{Spec}(R)$ by $$f(p)=\varphi^{-1}(p)$$ If $a$ is an ideal of $R$, then $$f^{-1}(V(a))=\{b\in\text{Spec}(S)\;|\;f(b)\in V(a)\}=\{b\in\text{Spec}(S)\;|\;a\subseteq f(b)=\varphi^{-1}(p)\}=V(\varphi(a))$$ Thus $f$ is continuous. Now $\varphi$ induces a local homomorphism $$\varphi_p:A_{\varphi^{-1}(p)}\to B_p$$ Let $V\subseteq\text{Spec}(A)$ be open. By the definition of $\mO$, we obtain a homomorphism $$f^\#:\mO_{\text{Spec}(R)}(V)\to\mO_{\text{Spec}(S)}(f^{-1}(V))$$ defined by mapping $s:V\to\coprod_{q\in V}A_q$ to 
+\end{proof}
+\end{prp}
+
+\subsection{Affine Schemes and General Schemes}
+\begin{defn}{Affine Schemes}{} Let $R$ be a commutative ring. An affine scheme is a locally ringed space isomorphic to $(\text{Spec}(R),\mathcal{O}_{\text{Spec}(R)})$ where $\text{Spec}(R)$ is the topological space equipped with the Zariski Topology. 
+\end{defn}
+
+\begin{defn}{The Category of Affine Schemes}{} The category of affine schemes $\bold{AffSch}$ consist of the following data. 
+\begin{itemize}
+\item The objects are affine schemes isomorphic to $(\text{Spec}(R),\mO_{\text{Spec}(R)}$ for some commutative ring $R$. 
+\item Given a ring homomorphism $f:S\to R$, there is a morphism $$(f,f^\#)\in\Hom_{\bold{AffSch}}((R,\mO_{\text{Spec}(R)}),(S,\mO_{\text{Spec}(S)}))$$ where $f:\text{Spec}(R)\to\text{Spec}(S)$ is the corresponding morphism of spectrums and  $f^\#:\mO_\text{Spec(R)}\to f_\ast\mO_{\text{Spec}(S)}$ is the morphism of sheaves defined by the collection of morphisms $$f^\#:\mO_\text{Spec(R)}(V)\to\mO_{\text{Spec}(S)}(f^{-1}(V))$$ of rings such that $(f^\ast,f^\#)$ is a morphism of locally ringed space. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Spec Functor}{} Define the functor $\text{Spec}(-):\bold{Ring}^\text{op}\to\bold{AffSch}$ to consist of the following data. 
+\begin{itemize}
+\item Each $R$ is mapped to $(\text{Spec}(R),\mO_{\text{Spec}(R)})$
+\item Each ring homomorphism $\varphi:R\to S$ is sent to the associated map $$(f,f^\#):(\text{Spec}(S),\mO_{\text{Spec}(S)})\to(\text{Spec}(R),\mO_{\text{Spec}(R)})$$ as in the bijection of 2.3.4
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} There is an equivalence of categories between $\bold{AffSch}$ and $\bold{Ring}^{\text{op}}$ given by the functors $\text{Spec}(-):\bold{Ring}^\text{op}\to\bold{AffSch}$ and $\Gamma:\bold{AffSch}\to\bold{Ring}^\text{op}$
+\end{thm}
+
+\begin{defn}{Schemes}{} A scheme is a locally ringed space $X$ such that every point $x\in X$ has an open neighbourhood $U$ which is isomorphic to an affine scheme as a locally ringed space. 
+\end{defn}
+
+\begin{defn}{Morphisms of Schemes}{} Let $X$ and $Y$ be schemes. We say that a map $f:X\to Y$ is a morphism of schemes if it is a morphism of locally ringed spaces. 
+\end{defn}
+
+\begin{defn}{Affine Open Subsets}{}Let $(X,\mathcal{O}_X)$ be a scheme. Let $U\subset X$ be open.  We say that $U$ is an affine open subset of $X$ if $(U,\mathcal{O}_X|_U)$ is an affine scheme. 
+\end{defn}
+
+\begin{thm}{Gluing Schemes}{} Let $(X_i,\mathcal{O}_{X_i})$ for $i\in I$ be a family of schemes. Denote $U_{ij}$ an open subset of $X_i$ for $i,j\in I$. Suppose that there is a system of morphisms $$\theta_{ij}:(U_{ij},\mathcal{O}_{X_i}|_{U_{ij}})\to(U_{ji},\mathcal{O}_{X_j}|_{U_{ji}})$$ such that $\theta_{ii}=\text{id}$, $\theta_{ij}\circ\theta_{jk}=\theta_{ik}$. Then there exists a scheme $(X,\mathcal{O}_X)$ and an open cover $X=\bigcup_{i\in I}X_i'$ and a family of isomorphisms $\varphi_i:(X_i',\mathcal{O}_X|_{X_i'})\to(X_i,\mathcal{O}_{X_i})$ such that $$(\varphi_j|_{X_i\cap X_j})^{-1}\circ\theta_{ij}\varphi_i|_{X_i\cap X_j}=\text{id}$$ for all $i,j\in I$. 
+\end{thm}
+
+\subsection{Projective Schemes}
+\begin{defn}{Proj(S)}{} Let $S$ be a graded ring. Denote $S_+=\bigoplus_{d>0}S_d$ the irrelevant ideal. Define the set $\text{Proj}(S)$ to be the set of all homogeneous prime ideals $p$ which do not contain all of $S_+$. 
+\end{defn}
+
+\begin{defn}{Vanishing Set and Open Sets of a Homogeneous Ideal}{} Let $a$ be a homogenous ideal of $S$, a graded ring. Define the vanishing set of $a$ to be $$V(a)=\{p\in\text{Proj}(S)\;|\;a\subseteq p\}$$ Define the open set of $a$ to be $$D(a)=\{p\in\text{Proj}(S)\;|\;a\not\subseteq p\}$$
+\end{defn}
+
+\begin{defn}{Basic Open Sets}{} Let $S$ be a graded ring. Define $$D_+(f)=\{p\in\text{Proj}(S)|f\notin p\}$$ for $f\in S_+$ to be a basic open set. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a graded ring. The following are true. 
+\begin{itemize}
+\item If $\{a_1,\dots,a_n\}$ are homogenous ideals of $R$, then $$V(a_1,\dots,a_n)=\bigcup_{k=1}^nV(a_k)$$
+\item If $\{a_i|i\in I\}$ is a family of homogenous ideals of $R$, then $$V\left(\sum_{i\in I}a_i\right)=\bigcap_{i\in I}V(a_i)$$
+\end{itemize}
+\end{prp}
+
+Similar to that of $\text{Spec}(A)$ we can endow a topology on $\text{Proj}(S)$. 
+
+\begin{thm}{}{} A topology can be defined on $\text{Proj}(S)$ which is exactly the Zariski Topology. In particular, 
+\begin{itemize}
+\item The closed sets of $\text{Proj(S)}$ is exactly sets of the form $V(a)$ for $a\subseteq S$ for $a$ a homogenous ideal
+\item The open sets of $\text{Proj}(S)$ is exactly sets of the form$ D(a)$ for $a\subseteq S$ for $a$ a homogenous ideal
+\item The basic open sets of the form $D_+(f)$ for $f\in S_+$ form a basis for the topology. 
+\end{itemize}
+\end{thm}
+
+\begin{thm}{}{} Let $S$ be a graded ring. Let $p\in\text{Proj}(S)$. Consider the ring $$S_{(p)}=T^{-1}S$$ where $T$ is the multiplicative system consisting of all homogenous elements of $S$ which are not in $p$. Construct $\mathcal{O}_{\text{Proj}(S)}:\bold{Open}(\text{Proj}(S))\to\bold{Rings}$ as follows. 
+\begin{itemize}
+\item For $U\subseteq\text{Proj}(S)$ an open set, define $$\mO_{\text{Proj}(S)}(U)=\left\{s:U\to\coprod_{p\in U}S_{(p)}\;\bigg{|}\;\substack{\forall p\in U,\;s(p)\in S_{(p)}\text{ and }\exists\;U_p\subseteq U\\\text{ s.t. }q\in U_p\text{ implies }s(q)=a/f\in S_{(q)}\text{ for }a\text{ and }f\text{ homogenous}}\right\}$$
+\item For $V\subseteq U$ the inclusion, define the unique map $\mO_{\text{Proj}(S)}(U)\to\mO_{\text{Proj}(S)}(V)$ by the restriction of elements. 
+\end{itemize}
+Then $\mO_{\text{Proj}(S)}$ is a sheaf on $S$. 
+\end{thm}
+
+\begin{defn}{Projective Scheme}{} Let $S$ be a graded ring. Define the projective scheme of $S$ to be the locally ringed space $(\text{Proj}(S),\mO_{\text{Proj}(S)})$
+\end{defn}
+
+\begin{prp}{}{} Let $S$ be a graded ring. Then the following are true. 
+\begin{itemize}
+\item For any $p\in\text{Proj}(S)$, $\mathcal{O}_{p}\cong S_{(p)}$
+\item For $f\in S_+$, $\mathcal{O}|_{D_+(f)}\cong\text{Spec}(S_{(f)})$
+\item $\text{Proj}(S)$ is indeed a scheme. 
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Projective Space over a Ring}{} Let $A$ be a ring. Define the projective $n$-space over $A$ to be the scheme $$\Prj_A^n=\text{Proj}(A[x_0,\dots,x_n])$$
+\end{defn}
+
+\subsection{Subschemes}
+\begin{defn}{Open Subschemes}{} Let $(X,\mathcal{O}_X)$ be a scheme. Let $U\subseteq X$ be an open subset. We say that $(U,\mathcal{O}_X|_U)$ an open subscheme of $X$. 
+\end{defn}
+
+\begin{prp}{}{} Let $(X,\mathcal{O}_X)$ be a scheme. Let $U\subseteq X$ be an open subset. Then the open subscheme $(U,\mathcal{O}_X|_U)$ is a scheme by it own right. 
+\end{prp}
+
+\begin{defn}{Affine Morphism}{} A morphism $\pi:X\to Y$ is affine if for every affine open set $U$ of $Y$, $\pi^{-1}(U)$ is an affine scheme. 
+\end{defn}
+
+\begin{defn}{Closed Embedding}{} A morphism $\pi:X\to Y$ is a closed embedding or closed immersion if it is an affine morphism, and that for every affine open subset $\text{Spec}(B)\subset Y$, with $\pi^{-1}(\text{Spec}(B))\cong\text{Spec}(A)$, the map $B\to A$ of rings is surjective. 
+\end{defn}
+
+\begin{defn}{Closed Subscheme}{} A closed subscheme of a scheme $X$ is an equivalence class of closed immersion, where $f:Y\to X$ and $f:Y'\to X$ are equivalent if there is an isomorphism $i:Y'\to Y$ such that $f'=f\circ i$. 
+\end{defn}
+
+
+
+\pagebreak
+\section{First Properties of Schemes}
+\subsection{Reduced, Irreducible and Integral Schemes}
+\begin{defn}{Irreducible}{} A topological space is said to be irreducible if it is nonempty, and not the union of two proper closed subsets. 
+\end{defn}
+
+Recall that thanks to functions like $f(x)=x^2$ or $f(x)=x^3$, they have indistinguishable zero sets as $f(x)=x$. Therefore functions can no longer be defined only be the values they take. These are precisly nilpotents. Naturally schemes without nilpotents behave rather well. 
+
+\begin{defn}{Reduced Schemes}{} A scheme $X$ is reduced if for every open set $U$, the ring $\mathcal{O}_X(U)$ has no nilpotent elements. 
+\end{defn}
+
+\begin{prp}{}{} A scheme $X$ is reduced if and only if $\mathcal{O}_{X,x}$ is reduced at every point $x\in X$. 
+\end{prp}
+
+\begin{defn}{Integral Schemes}{} A scheme $X$ is integral if for every open set $U\subseteq X$, the ring $\mathcal{O}_X(U)$ is an integral domain. 
+\end{defn}
+
+\begin{prp}{}{} A scheme $X$ is integral if and only if it is irreducible and reduced. \tcbline
+\begin{proof}
+Suppose that $X=(\text{Spec}(A),\mathcal{O})$ is integral. We already know that the ring cannot have nilpotent elements from groups and rings. Suppose that $X=X_1\cup X_2$ for some $X_1,X_2$ closed. We show that either $X_1=X$ or $X_2=X$. Suppose that $X_1\neq X$. Then $X_2$ is closed means that $X_1=V(S_1)$ and $X_2=V(S_2)$ for some $S_1,S_2\subset A$. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} An affine scheme $\text{Spec}(A)$ is integral if and only if $A$ is an integral domain. 
+\end{prp}
+
+\subsection{Generic Points}
+\begin{defn}{Generic Points}{} Let $X=\text{Spec}(A)$ be an affine scheme that is integral. The point $(0)$ which is the zero ideal is set to be the generic point of $X$. 
+\end{defn}
+
+Note that this notion extends to general schemes since general schemes are covered by affine schemes. 
+
+\begin{prp}{}{} If $X$ is an irreducible scheme, then $X$ has a unique generic point. \tcbline
+\begin{proof}
+Trivially, the unique generic point of an affine scheme is precisely the zero ideal. Let $X$ be a general scheme that is irreducible. Suppose that $U=\text{Spec}(A)$ is an open affine subscheme of $X$. 
+\end{proof}
+\end{prp}
+
+\begin{defn}{Function Field of a Scheme}{} Let $X$ be an integral scheme and let $\nu\in X$ be its generic point. Define the function field to be $$K(X)=\mathcal{O}_{X,\nu}$$ which is a field. 
+\end{defn}
+
+\subsection{Local Properties}
+\begin{defn}{Local Property of Rings}{} Let $P$ be a property of rings. We say that $P$ is local if the following hold. 
+\begin{itemize}
+\item For any ring $R$ and any $f\in R$, $R$ have the property $P$ implies $R_f$ having the property $P$
+\item For any ring $R$ and any $f_i\in R$ such that $(f_1,\dots,f_n)=R$, then for all $i$, $R_{f_i}$ having the property $P$ implies $R$ has the property $P$. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Local Property of Schemes}{} Let $P$ be a property of rings and $X$ be a scheme. We say that $X$ is locally $P$ if for any $x\in X$ there exists an affine open neighbourhood $U$ of $x$ in $X$ such that $\mathcal{O}_X(U)$ has property $P$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a scheme. Let $P$ be a local property of rings. Then the following are equivalent. 
+\begin{itemize}
+\item $X$ is locally $P$
+\item For every affine open $U\subset X$, $\mathcal{O}_X(U)$ has the property $P$
+\item There exists an affine open covering $X=\bigcup_{i\in I}U_i$ such that each $\mathcal{O}_X(U_i)$ has the property $P$
+\item There exists an open covering $X=\bigcup_{i\in I}X_i$ such that each open subscheme $X_i$ is locally $P$. 
+\end{itemize}
+\end{lmm}
+
+We can apply this concept to properties such as noetherian. 
+
+\subsection{Noetherian Schemes}
+\begin{defn}{Quasi-compact}{} We say that a scheme $X$ is quasicompact if every open cover of $X$ has a finite subcover. 
+\end{defn}
+
+\begin{defn}{Locally Noetherian Schemes}{} A scheme $X$ is locally noetherian if it can be covered by an open affine subsets of Spec$(A_i)$, where each $A_i$ is a noetherian ring. $X$ is noetherian if it is locally noetherian and quasi-comapct. 
+\end{defn}
+
+If $A$ is the coordinate ring of an affine variety over a field $k$, then $A$ is a finitely generated $k$-algebra. We try to do something similar with schemes. 
+
+\begin{lmm}{}{} Let $X$ be a scheme. If $X$ is Noetherian, then the underlying space of $X$ is Noetherian. 
+\end{lmm}
+
+\begin{prp}{}{} Let $X$ be a scheme. Then $X$ is Noetherian if and only if for every affine subset $U\cong\text{Spec}(A)$ of $X$, $A$ is Noetherian. 
+\end{prp}
+
+\pagebreak
+\section{Morphisms of Schemes and its Properties}
+\subsection{The Category of Schemes}
+\begin{defn}{The Category of Schemes}{} Define the category of schemes $\bold{Sch}$ to consist of the following data. 
+\begin{itemize}
+\item The objects are schemes. 
+\item Given two schemes, a morphism of schemes is a morphism of locally ringed spaces. 
+\item Composition is given by the composition of functions. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Category of $S$-Schemes}{} Let $S$ be a fixed scheme. The category $\bold{Sch}_S$ of schemes over $S$ is the category whose objects are the morphisms $X\to S$ of schemes, and whose morphisms are the morphisms $X\to Y$ of schemes such that the following diagram commute: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+X\arrow[rr]\arrow[rd]&&Y\arrow[ld]\\
+&S&
+\end{tikzcd}}\\~\\
+The scheme $S$ is also called the base scheme and the morphism $X\to S$ is called the structural morphism of the $S$-scheme $X$. 
+\end{defn}
+
+\begin{lmm}{}{} For any scheme $X$, the morphism $X\to\text{Spec}(\Z)$ is a final object in $\text{Sch}$. Also, the identity morphism $\text{id}:S\to S$ is a final object in $\text{Sch}_S$
+\end{lmm}
+
+
+\subsection{Fibered Products}
+\begin{defn}{Fibered Product}{} Let $S$ be a scheme and $X,Y$ be schemes over $S$. Define the fibered product of $X$ and $Y$ over $S$ to be a scheme $$X\times_SY$$ together with morphisms $p_1:X\times_SY\to X$ and $p_2:X\times_SY\to Y$ such that the following universal property holds. \\~\\
+
+For any scheme $Z$ with morphisms $f:Z\to X$ and $g:Z\to Y$, there exists a unique morphism $\theta:Z\to X\times_SY$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	Z \\
+	& {X\times_SY} & Y \\
+	& X & S
+	\arrow["{\exists!\theta}"', dashed, from=1-1, to=2-2]
+	\arrow["g", from=1-1, to=2-3, bend left = 20]
+	\arrow["f"', from=1-1, to=3-2, bend right = 20]
+	\arrow["{p_2}", from=2-2, to=2-3]
+	\arrow["{p_1}"', from=2-2, to=3-2]
+	\arrow[from=2-3, to=3-3]
+	\arrow[from=3-2, to=3-3]
+\end{tikzcd}} \\
+\end{defn}
+
+The definition is simply that of a fiber product in a category. Alternatively, it is the product in the category of schemes over $S$. When $X$ and $Y$ are simply schemes, we can just think of them as schemes over $\text{Spec}(\Z)$ because it is terminal in the category of schemes $\bold{Sch}$. In this case the fibered product becomes simply the product in $\bold{Sch}$. In general, when one defines a property of morphism of schemes, one is also inherently defining it for a general scheme, by considering the scheme $X$ with the unique morphism $X\to\text{Spec}(\Z)$. 
+
+\begin{thm}{}{} Let $X$ and $Y$ be two schemes over $S$. Then the fibered product $X\times_SY$ exists and is unique up to unique isomorphism. \tcbline
+\begin{proof}
+We first prove the theorem for the case of affine schemes. Let $X=\text{Spec}(A)$, $Y=\text{Spec}(B)$ and $S=\text{Spec}(C)$. I claim that $\text{Spec}(A\otimes_CB)$ is the fibered product of $X$ and $Y$ over $S$. Using the equivalence of categories, we have that 
+\begin{align*}
+\Hom_\bold{AffSch}(Z,\text{Spec}(A\otimes_CB))&\cong\Hom_\bold{Rings}(A\otimes_CB,\Gamma(Z))\\
+&\cong\Hom_\bold{Rings}(A,\Gamma(Z))\times_{\Hom_\bold{Rings}(C,\Gamma(Z))}\Hom_\bold{Rings}(B,\Gamma(Z))\\
+&\cong\Hom_\bold{AffSch}(Z,\text{Spec}(A))\times_{\Hom_\bold{AffSch}(Z,\text{Spec}(C))}\Hom_\bold{AffSch}(Z,\text{Spec}(B))
+\end{align*}
+Thus we have proved that $\text{Spec}(A\otimes_CB)$ is the fiber product of $X$ and $Y$ over $S$. 
+\end{proof}
+\end{thm}
+
+Recall that residue field of a point $x$ in a scheme $X$ is the field $$k(p)=\frac{\mO_{X,p}}{m}$$ where $m$ is the maximal ideal of the local ring $\mO_{X,p}$. 
+
+\begin{defn}{Fiber of a Morphism}{} Let $f:X\to Y$ be a morphism of schemes. Let $y\in Y$ be a point. Let $k(y)$ be the residue field of $y$. Let $\text{Spec}(k(y))\to Y$ be the natural morphism. Then we define the fibre of the morphism $f$ over the point $y$ to be the scheme $$X_y=X\times_Y\text{Spec}(k(y))$$
+\end{defn}
+
+Notice that the underlying topological space of $X_y$ is homeomorphic to the subspace $f^{-1}(y)$. 
+
+\subsection{Morphisms of Finite Type and Finite Morphisms}
+\begin{defn}{Quasi-compact Morphisms}{} We say that a scheme $f:X\to Y$ is a quasi-compact morphism if for every quasi-compact open subset $V$ of $Y$, $f^{-1}(V)$ is quasi-compact. 
+\end{defn}
+
+\begin{defn}{Locally of Finite Type}{} Let $f:X\to Y$ be a morphism of schemes. We say that $f$ is locally of finite type if for every $y\in Y$, there exists an affine open subset $U=\text{Spec}(A)$ containing $y$ such that $f^{-1}(U)$ is covered by open affine subsets $V_i=\text{Spec}(B_i)$ of $X$ such that $A_i$ is a finitely generated $B$-algebra. \\~\\
+
+$f$ is said to be of finite type if in addition each $f^{-1}(U)$ can be covered by finitely many $V_i$. 
+\end{defn}
+
+\subsection{$T$-Valued Points}
+\begin{defn}{The Functor of Points}{} Let $X$ be a scheme. Define the functor $h_X:(\text{Sch})^{\text{opp}}\to\text{Sets}$ that sends
+\begin{itemize}
+\item $T$ to $\Hom_{\text{Sch}}(T,X)$ on objects
+\item $f:T'\to T$ to $\Hom_{\text{Sch}}(T,X)\to\Hom_{\text{Sch}}(T',X)$ by $g\mapsto g\circ f$ on morphisms
+\end{itemize}
+\end{defn}
+
+As we will soon see, a scheme is determined by the morphisms mapping into the scheme. The slogan "tell me your friends and I will tell you who you are" may prove useful. \\~\\
+
+The Yoneda lemma gives the following. 
+
+\begin{prp}{}{}
+\end{prp}
+
+\begin{defn}{$T$-Valued Points}{} Let $X$ be a scheme. Define the $T$-valued points of $T$ to be $$X(T)=\Hom_{\text{Sch}}(T,X)=h_X(T)$$
+\end{defn}
+
+\subsection{Separated Morphisms}
+Separatedness is essentially the analog of the Hausdorff condition for schemes. Recall that a topological space $X$ is Hausdorff if and only if the digonal morphism to $X\times X$ is closed. 
+
+\begin{defn}{Diagonal Morphisms}{} Let $f:X\to Y$ be a morphism of schemes. The diagonal morphism is the unique morphism $\delta:X\to X\times_Y X$ whose composition with both projection maps $p_1,p_2:X\times_Y X\to X$ is the identity map of $X$. 
+\end{defn}
+
+\begin{defn}{Separated Morphisms and Schemes}{} Let $f:X\to Y$ be a morphism of schemes. We say that $f$ is separated (or $X$ is separated over $Y$) if the diagonal morphism $\delta$ is a closed immersion. A scheme $X$ is separated if it is separated over $\text{Spec}(\Z)$. 
+\end{defn}
+
+\begin{prp}{}{} If $f:X\to Y$ is a morphism of affine schemes, then $f$ is separated. 
+\end{prp}
+
+\begin{prp}{}{} Let $f:X\to Y$ be a morphism of schemes. Then $f$ is separated if and only if the image of the diagonal morphism is a closed subset of $X\times_Y X$. 
+\end{prp}
+
+\begin{thm}{Valuative Criterion of Separatedness}{} Let $f:X\to Y$ be a morphism of schemes. Let $X$ be Noetherian. Then $f$ is separated if and only if the following criterion is satisfied. \\~\\
+
+for any field $K$ and any valuation ring $R$ with quotient field $K$, let $i:\text{Spec}(K)\to\text{Spec}(R)$ be the morphism induced by the inclusion $K\subseteq R$. Given morphisms $\text{Spec}(R)\to Y$ and $\text{Spec}(K)\to X$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\text{Spec}(K) & X \\
+	\text{Spec}(R) & Y
+	\arrow[from=1-1, to=1-2]
+	\arrow["i"', from=1-1, to=2-1]
+	\arrow["f", from=1-2, to=2-2]
+	\arrow["{!}", dashed, from=2-1, to=1-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}} \\~\\
+there exists at most one morphism $\text{Spec}(R)\to X$ such that the above diagram commutes. 
+\end{thm}
+
+\begin{prp}{}{} Let $X$ and $Y$ be Noetherian schemes. Then any open or closed immersions $f:X\to Y$ are separated. 
+\end{prp}
+
+\subsection{Proper Morphisms}
+\begin{defn}{Closed Morphisms}{} Let $f:X\to Y$ be a morphism of schemes. We say that $f$ is closed if the image of any closed subset is closed. We say that $f$ is universally closed if it is closed and for any morphism $Y'\to Y$, the corresponding morphism $f':X'\to Y'$ obtained by base extension is closed. 
+\end{defn}
+
+\begin{defn}{Proper Morphism}{} Let $f:X\to Y$ be a morphism of schemes. We say that $f$ is proper if it is separated, of finite type and universally closed. 
+\end{defn}
+
+\subsection{Abstract Varieties}
+\begin{defn}{Variety}{} Let $k$ be a field. A variety is a scheme $X$ over $k$ such that $X$ is integral and the structure morphism $X\to\text{Spec}(k)$ is separated and is a morphism of finite type. 
+\end{defn}
+
+\begin{defn}{Affine Variety}{} Let $X$ be a variety over $k$. We say that $X$ is an affine variety if $X$ is an affine scheme. 
+\end{defn}
+
+\pagebreak
+\section{The Modules Structure on Sheaves}
+\subsection{Sheaves of Modules}
+\begin{defn}{Associated Sheaf}{} Let $M$ be an $A$-module. Define a sheaf $\tilde{M}$ on $\text{Spec}(A)$ as follows. 
+\begin{itemize}
+\item For each open set $U\subseteq\text{Spec}(A)$, define $$\tilde{M}(U)=\left\{s:U\to\coprod_{p\in U}M_p\;\bigg{|}\;\substack{\forall p\in U,\;s(p)\in M_p\text{ and }\exists\;U_p\subseteq U\text{ s.t. }\\q\in V\text{ implies }s(q)=\frac{m}{f}\in M_q\text{ for }f\in A,m\in M}\right\}$$
+\item For $V\subseteq U$ an inclusion, define the unique morphism $\tilde{M}(U)\to\tilde{M}(V)$ by the restriction. 
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $M$ be an $A$-module. Then the associated sheaf is a sheaf of $\mathcal{O}_{\text{Spec}(A)}$-modules. 
+\end{lmm}
+
+\begin{prp}{}{} Let $M$ be an $A$-module. Then the following are true regarding the associated sheaf $\tilde{M}$. 
+\begin{itemize}
+\item For each $p\in\text{Spec}(A)$, there is an isomorphism $\tilde{M}_p\cong M_p$
+\item For any $f\in A$, there is an isomorphism $\tilde{M}(D(f))\cong M_f$ of $A_f$-modules
+\item $\Gamma(X,\tilde{M})=M$
+\end{itemize}
+\end{prp}
+
+\begin{lmm}{}{} If $X$ is connected then the rank of a locally free sheaf on $X$ is constant. 
+\end{lmm}
+
+\begin{defn}{The Ideal Sheaf}{} Let $X$ be a scheme and let $Y$ be a closed subscheme of $X$. Let $i:Y\to X$ be the inclusion. Define the ideal sheaf of $Y$ to be $$\mI_Y=\ker(i^\#:\mO_X\to i_\ast(\mO_Y))$$ 
+\end{defn}
+
+\subsection{Quasicoherent Sheaves}
+\begin{defn}{Quasi-coherent Sheaves}{} Let $(X,\mathcal{O}_X)$ be a scheme. A sheaf of $\mathcal{O}_X$ modules $\mathcal{F}$ is quasi-coherent if $X$ can be covered by open affine subsets $U_i=\text{Spec}(A_i)$ such that for each $i$, there is an $A_i$-module $M_i$ with $\mathcal{F}|_{U_i}\cong\tilde{M}_i$. 
+\end{defn}
+
+\begin{defn}{Coherent Sheaves}{} We say that $\mathcal{F}$ is a coherent sheaf if $\mathcal{F}$ is a quasicoherent sheaf and each $M_i$ is a finitely generated $A_i$-module. 
+\end{defn}
+
+In some sense, the category of quasicoherent sheaves is the smallest abelian category for which it encompasses the category of locally free sheaves. In the case that $A$ is locally Noetherian, the category of finite rank locally free sheaves sit inside the category of coherent sheaves, which is also an abelian category. 
+
+\begin{thm}{}{} Let $A$ be a ring and let $X=\text{Spec}(A)$. The functor $M\mapsto\tilde{M}$ gives an equivalence of categories between the category of $A$-modules and the category of quasi-coherent $\mathcal{O}_X$-modules. Its inverse is the functor $\mathcal{F}\mapsto\Gamma(X,\mathcal{F})$. \\~\\
+If $A$ is noetherian, the same functor gives an equivalence of categories between the category of finitely generated $A$-modules and the category of coherent $\mathcal{O}_X$-modules. 
+\end{thm}
+
+\begin{prp}{}{} Let $X$ be a space and let $\mF,\mF',\mF''$ be sheaves on $X$ such that there is an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & \mF & \mF' & \mF'' & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+of $\mO_X$-modules. Assume that $\mF$ is quasi-coherent. Then there is an exact sequence of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & \Gamma(X,\mF) & \Gamma(X,\mF') & \Gamma(X,\mF'') & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+In other words, quasi-coherent sheaves are acyclic for affine schemes and the global section functor. 
+\end{prp}
+
+\subsection{Sheaves of Modules on Graded Rings}
+\begin{defn}{Sheaves of Modules on Graded Rings}{} Let $S$ be a graded ring. Let $M$ be a graded $S$-module. Consider the module $$M_{(p)}=T^{-1}M$$ where $T$ is the multiplicative system of homogenous elements of $S$ not in $p$. Define the sheaf associated to $M$ on $\text{Proj}(S)$, $$\tilde{M}:\bold{Open}(\text{Proj}(S))\to\bold{Rings}$$ as follows. 
+\begin{itemize}
+\item For each $U\subseteq\text{Proj}(S)$ open, define $$\mO_{\text{Proj}(S)}(U)=\left\{s:U\to\coprod_{p\in U}M_{(p)}\;\bigg{|}\;\substack{\forall p\in U,\;s(p)\in M_p\text{ and }\exists\;U_p\subseteq U\text{ s.t. }q\in V\text{ implies }\\s(q)=\frac{m}{f}\in M_q\text{ for }f\in S\text{ and }m\in M\text{ homogenous}}\right\}$$
+\item For $V\subseteq U$ an inclusion, define the unique morphism $\tilde{M}(U)\to\tilde{M}(V)$ by restriction. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $S$ be a graded ring and let $M$ be a graded module over $S$. Then the following are true regarding the sheaf of modules $\tilde{M}$. 
+\begin{itemize}
+\item For any $p\in\text{Proj}(S)$, there is an isomorphism $\tilde{M}_p\cong M_{(p)}$
+\item For any homogenous $f\in S_+$, there is an isomorphism $$\tilde{M}|_{D_+(f)}\cong\widetilde{M_{(f)}}$$ via the isomorphism of $D_+(f)$ with $\text{Spec}(S_{(f)})$
+\end{itemize}
+\end{prp}
+
+\begin{lmm}{}{} Let $S$ be a graded ring and let $M$ be a graded module over $S$. Then $\tilde{M}$ is a $\mO_{\text{Proj}(S)}$-module. Moreover, if $S$ is Noetherian, then $\tilde{M}$ is a coherent $\mO_{\text{Proj}(S)}$-module. 
+\end{lmm}
+
+\begin{defn}{The Twisting Sheaf of Serre}{} Let $S$ be a graded ring. Let $X=\text{Proj}(S)$. For any $n\in\Z$, define the sheaf $$\mO_X(n)=\widetilde{S(n)}$$ We call $\mO_X(1)$ the twisting sheaf of Serre. For any sheaf of $\mO_X$-modules $\mF$, denote $$\mF(n)=\mF\otimes_{\mO_X}\mO_X(n)$$
+\end{defn}
+
+\begin{prp}{}{} Let $S$ be a graded ring and let $X=\text{Proj}(S)$. Suppose that $S$ is generated by $S_1$ as an $S_0$-algebra. Then the following are true. 
+\begin{itemize}
+\item The sheaf $\mO_X(n)$ is invertible. 
+\item If $M$ is a graded $S$-module, then $\widetilde{M}(n)\cong\widetilde{M(n)}$
+\item There is an isomorphism $\mO_X(n)\otimes\mO_X(m)\cong\mO_X(n+m)$
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Graded Module Associated to a Sheaf of Modules}{} Let $S$ be a graded ring and let $X=\text{Proj}(S)$. Let $\mF$ be a sheaf of $mO_X$-module. Define the graded $S$-module associated to $\mF$ to be the group $$\Gamma_\ast(\mF)=\bigoplus_{n\in\Z}\Gamma(X,\mF(n))$$ together with the structure of graded $S$-module as follows. If $s\in S_d$, then $s$ determines a global section $s\in\Gamma(X,\mO_X(d))$ naturally. For any $t\in\Gamma(X,\mF(n))$, define $s\cdot t\in\Gamma(X,\mF(n+d))$ by sending $s\otimes t\in\mF(n)\otimes\mO_X(d)$ to $\mF(n+d)$ by the isomorphism $$\mF(n)\otimes\mO_X(d)\cong\mF(n+d)$$
+\end{defn}
+
+\begin{prp}{}{} Let $A$ be a ring and let $S=A[x_0,\dots,x_n]$ for $r\geq 1$. Then there is an isomorphism $$\Gamma_\ast(\mO_{\text{Proj}(S)})\cong S$$
+\end{prp}
+
+Note that this is not true if $S$ is not a polynomial ring. 
+
+\pagebreak
+\section{Geometric Property of Schemes}
+\subsection{Dimensions}
+\begin{defn}{Dimension of a Scheme}{} Let $X$ be a scheme. Define the dimension of $X$ to be the dimension of the underlying topological space. 
+\end{defn}
+
+\begin{prp}{}{} Let $A$ be a ring. Then the topological dimension of $\text{Spec}(A)$ is equal to the Krull dimension of $A$: $$\dim(\text{Spec}(A))=\dim(A)$$
+\end{prp}
+
+\begin{defn}{Codimension}{} Let $X$ be a topological space and $Y$ an irreducible subset of $X$. Define the codimension of $Y$ in $X$ to be $$\text{codim}_X(Y)=\sup_{\substack{Z_1,\dots,Z_n\subseteq X\\\text{Closed and irreducible}}}\{n\in\N|\overline{Y}\subset Z_1\subset\dots\subset Z_n\}$$
+\end{defn}
+
+\begin{thm}{Krull's Principal Ideal Theorem (Algebraic)}{} Suppose that $A$ is a Noetherian ring, and $f\in A$. Then every prime ideal $P$ minimal among those containing $f$ has codimension at most $1$. If furthremore $f$ is not a zerodivisor, then every such prime $P$ containing $f$ has codimension precisely $1$. 
+\end{thm}
+
+\begin{thm}{Krull's Principal Ideal Theorem (Geometric)}{} Let $X$ be a locally Noetherian scheme, and $f$ is a function. The irreducible components of $V(f)$ are codimension $0$ or $1$. 
+\end{thm}
+
+\subsection{Regularity}
+\begin{defn}{Zariski Cotangent Space}{} Let $X$ be a scheme and $p\in X$. Denote $m$ the maximal ideal of the local ring $\mathcal{O}_{X,p}$. Define the Zariski cotangent space at $p\in X$ to be the vector space $m/m^2$ over $\mathcal{O}_{X,p}/m$. 
+\end{defn}
+
+\begin{defn}{Regular Schemes}{} A locally Noetherian scheme $X$ is regular at a point $p$ if the local ring $\mathcal{O}_{X,p}$ is regular. A scheme is regular if it is regular at all points. It is singular otherwise. 
+\end{defn}
+
+This explains the condition that our scheme has to be Noetherian, integral and regular in every local ring with dimension $1$. Because this means that the local rings are Notherian and an integral domain. With this, the above theorem implies that local rings of dimension $1$ are also discrete valuation rings. 
+
+\begin{defn}{Order of Zeroes}{} Let $A$ be a regular local ring of dimension $1$. Let $f\in A$. Let $v$ be the valuation induced on $A$. If $v(f)=n>0$, we say that the element has a zero of order $n$. If $v(f)=-n<0$, we say that $f$ has a pole of order $n$. 
+\end{defn}
+
+\subsection{Sheaves of Differentials Forms}
+\begin{defn}{Sheaf of Relative Differentials}{} Let $f:X\to Y$ be a morphism of schemes. Define the sheaf of relative differentials to be the sheaf $$\Omega_{X/Y}^1=\Delta^\ast(\mI/\mI^2)$$ where $\Delta:X\to X\times_YX$ is the diagonal morphism and $\mI=\ker(\Delta^\#)$ is the sheaf of ideals of $\Delta(X)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $f:X\to Y$ be a morphism of schemes. Then $\Omega_{X/Y}^1$ is quasi-coherent. Moreover, there are isomorphisms $$\Omega_{X/Y}^1|_U\cong\left(\Omega_{\mO_X(U)/\mO_Y(U)}^1\right)^\sim$$ on the level of local sections and $$\left(\Omega_{X/Y}^1\right)_{X,p}\cong\Omega_{\mO_{X,p}/\mO_{Y,f(p)}}^1$$ on the level of stalks. 
+\end{prp}
+
+\begin{prp}{}{} Let $f:X\to Y$ and $g:Y\to Z$ be morphism of schemes. Then there is an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	f^\ast\Omega_{Y/Z}^1 & \Omega_{X/Z}^1 & \Omega_{X/Y}^1 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}}
+\end{prp}
+
+\begin{prp}{}{} Let $f:X\to Y$ be a morphism of schemes. Let $Z$ be a closed subscheme of $X$ with ideal sheaf $\mI$. Then there is an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\mI/\mI^2 & \Omega_{X/Y}^1\otimes\mO_Z & \Omega_{Z/Y}^1 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}}
+\end{prp}
+
+\begin{lmm}{}{} Let $X=\A_Y^n$. Then $\Omega_{X/Y}^1$ is a free $\mO_X$-module of rank $n$. 
+\end{lmm}
+
+\begin{thm}{}{} Let $X$ be an irreducible separated scheme of finite type over an algebraically closed field $k$. Then $\Omega_{X/k}^1$ is a locally free sheaf of rank $\dim(X)$ if and only if $X$ is a nonsingular variety over $k$. 
+\end{thm}
+
+\begin{defn}{The Canonical Sheaf}{} Let $X$ be a non-singular variety over a field $k$ of dimension $\dim(X)=n$. Define the canonical sheaf of $X$ to be $$\omega_X=\bigwedge_{i=1}^n\Omega_{X/k}^1$$
+\end{defn}
+
+\pagebreak
+\section{Divisors}
+\subsection{Weil Divisors}
+Hartshorne requires a scheme to be regular in every local ring of dimension one. Basically, this allows a valuation to take place so that divisors can be formalized. Moreover, the scheme should be noetherian, integral and separated. 
+
+\begin{defn}{Regular in Codimension $1$}{} Let $X$ be a scheme. We say that $X$ is regular in codimension $1$ if every local ring $O_{X,p}$ of dimension $1$ is regular. 
+\end{defn}
+
+\begin{defn}{Prime Divisors}{} Let $X$ be a noetherian integral separated scheme which is regular in codimension $1$. A prime divisor on $X$ is a closed integral subscheme $Y$ of codimension $1$. 
+\end{defn}
+
+\begin{defn}{Weil Divisors}{} Let $X$ be a noetherian integral separated scheme which is regular in codimension $1$. A Weil divisor on $X$ is an element of the free abelian group $Div(X)$, generated by the prime divisors. In other words, a Weil divisor is an element of the form $$D=\sum_{i\in I}n_iY_i$$ where $Y_i$ is a prime divisor and $n_i$ an integer and only finitely many $n_i$ are nonzero. \\~\\
+If each $n_i\geq 0$, we say that $D$ is effective. In this case, we say $D\geq 0$. To say that $D_1\geq D_2$ is to say that $D_1-D_2\geq 0$. 
+\end{defn}
+
+The theory of divisors generalizes to the theory of algebraic cycles by considering the free group of codimension $n$ subschemes. 
+
+\begin{defn}{Divisors of Functions}{} Let $X$ be a noetherian integral separated scheme which is regular in codimension $1$. Let $f\in\mathcal{O}_{X,\nu}^\setminus\{0\}$ where $\nu$ is the generic point of $X$. Define the divisor of $f$ to be $$(f)=\sum_{\substack{P\in X\\P \text{ a prime divisor of }X}}v_P(f)\cdot P$$ Any divisors which is equal to the divisor of a function is called a principal divisor. 
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a noetherian integral separated scheme which is regular in codimension $1$. Let $f\in\mathcal{O}_{X,\nu}\setminus\{0\}$ where $\nu$ is the generic point of $X$. Then $v_P(f)=0$ for all but except finitely many prine divisors $P$ of $X$. 
+\end{lmm}
+
+This means that divisors of functions are indeed weil divisors. 
+
+\pagebreak
+\section{Cohomology of Schemes}
+\subsection{Cohomology of a Noetherian Affine Scheme}
+\begin{prp}{}{} Let $I$ be an injective module over a Noetherian ring $A$. Then the sheaf $\tilde{I}$ on $\text{Spec}(A)$ is flasque. 
+\end{prp}
+
+\begin{thm}{}{} Let $A$ be a Noetherian ring. Then for all quasi-coherent sheaves $\mF$ on $X=\text{Spec}(A)$, $$H^i(X,\mF)=0$$ for all $i>0$. 
+\end{thm}
+
+Note that result is also true if we drop the requirement that $A$ is Noetherian. But the proof is more difficult. 
+
+\begin{thm}{}{} Let $X$ be a Noetherian scheme. Then the following are equivalent. 
+\begin{itemize}
+\item $X$ is an affine scheme
+\item $H^i(X,\mF)=0$ for all quasi-coherent sheaves $\mF$ and all $i>0$
+\item $H^1(X,\mI)=0$ for all coherent sheaves of ideals $\mI$
+\end{itemize}
+\end{thm}
+
+\subsection{Cohomology of Projective Space}
+\begin{thm}{}{} Let $A$ be a Noetherian ring and let $S=A[x_0,\dots,x_r]$. Let $X=\text{Proj}(S)$ be the projective space over $A$. Let $\mO_X(1)$ be the twisting sheaf of Serre. Then the following are true. 
+\begin{itemize}
+\item The natural map $$S\to\Gamma_\ast(\mO_X)=\bigoplus_{n\in\Z}H^0(X,\mO_X(n))$$ is an isomorphism
+\item For all $n\in\Z$, $H^i(X,\mO_X(n))=0$ for $0<i<r$
+\item There is an isomorphism $H^r(X,\mO_X(-r-1))\cong A$
+\item For each $n\in\Z$, the natural map $$H^0(X,\mO_X(n))\times H^r(X,\mO_X(-n-r-1))\to H^r(X,\mO_X(-r-1))\cong A$$ is a perfect pairing of finitely generated free $A$-modules
+\end{itemize}
+\end{thm}
+
+\pagebreak
+\section{Examples of Schemes}
+\subsection{Affine Schemes in Action}
+Recall some basic facts about the rings at play
+\begin{prp}{}{} Let $F$ be a field, then the ring of polynomials over $F$, $F[x]$ is a PID. 
+\end{prp}
+
+Note that however, $F[x_1,\dots,x_n]$ is in general NOT a PID even if $F$ is a field. 
+
+\begin{prp}{}{} Let $R$ be a PID. Then the ideal $I\subseteq R$ is a maximal ideal if and only if it is a prime ideal. 
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a ring and $I$ be an ideal of $R$. Then the prime (respectively maximal) ideals in $R$ are in one to one bijection with the prime (respectively maximal) ideals in $R/I$ that contains $I$. 
+\end{prp}
+
+We start with a simple example. 
+
+\begin{eg}{$\text{Spec}(\F)$}{} For a field $\F$, we can construct the scheme of $\text{Spec}(\F)$.  Let us first discuss the topology of $\text{Spec}(\F)$. Since $\F$ has only one proper ideal, namely $(0)$, the underlying space of $\text{Spec}(\F)$ is simply the discrete topology of $\F$ which consists of only one point, $(0)$. \\~\\
+Now for any sheaf, recall that $\mathcal{O}_{(\text{Spec}(\F))}(\text{Spec}(\F))\cong\F$. So the "functions" are simply the points of $\F$. 
+\end{eg}
+
+\begin{eg}{$\text{Spec}(\C[x])$}{} For $X=\text{Spec}(\C[x])$, recall that since $\C$ is a field, $\C[x]$ is a PID and thus its prime ideals are exactly the maximal ideals, which are all the monic polynomials of degree $1$. Thus the space of this scheme consists of points of the form $(x-a)$ for $a\in\C$, as well as the generic point $(0)$. Recall that open sets of a spectrum are of the form $D(S)=\{p\in\text{Spec}(\C[x])|S\not\subseteq p\}$ for $S$ some subset of $\C[x]$. So trivially, every open set must contain $(0)$, hence the name. \\~\\
+Now recall that for any element of the spectrum $(x-a)$, the stalk (direct limit of every open set that contains $p$) of a sheaf on the spectrum is isomorphic to $\C[x]_{(x-a)}$, the local ring. Furthermore, recall that the $$\C[x]_{(x-a)}=\C[x]\setminus(x-a)^{-1}\C[x]=\left\{\frac{f}{g}|f\in\C[x], g\in\C[x]\setminus(x-a)\right\}$$ This basically means that the stalk is all the rational functions except when the function has a root on $a$. Indeed, thinking in terms of direct limits, as we get close to the point $(x-a)$ on the number line, the set becomes smaller and smaller in the direct limits, which means that the set of functions that we have to exclude due to the root appearing in the set becomes less. Moreover, recall that elements of $\mathcal{O}(\text{Spec}(\C[x]))\cong\C[x]$ are called a global section. The name "global" makes a lot of sense here because in theory all the polynomials should be global: there should not be concerns of whether the function is well defined on any point, just because its a polynomial! In comparison, while the rational functions is a larger set, it can only be defined locally. \\~\\
+Now for the generic point $(0)$, the stalk $\C[x]_{(0)}$ becomes $\C(x)$, the set of all rational functions. 
+\end{eg}
+
+\begin{eg}{$\text{Spec}(\R[x])$}{} Unfortunately for $\text{Spec}(\R[x])$, $\R$ is not algebraically closed so prime ideals also consists of irreducible second degree monic polynomials instead of only those of degree $1$, still treat them as if they are on the same number line. And obviously the generic point as well. One thing to note is that although this makes $\R[x]$ look a lot like $\C[x]$ with the inclusion of those new polynomials, $\R[x]$ does not make an effort to distinguish conjugates. \\~\\
+Stalks look quite different than that of $\C[x]$. While the usual ones with the maximal ideals are still the same, notice for example that $\R[x]_{(x^2+1)}$ can contain functions such as $\frac{1}{x^2+4}$, which clearly is well defined for all $x\in\R$ but fails to behave well on the point $(x^2+4)$. 
+\end{eg}
+
+\begin{eg}{$\text{Spec}(\C[x]/(x^2-7x+12))$}{} Recall that prime ideals of this spectrum should be in one to one correpsondence with prime ideals that contain $(x^2-7x+12)$, which means that really there is only two points in the spectrum, namely $(x-3)$ and $(x-4)$. Since $\C$ is a field, these ideals are maximal. Notice that there is no generic point floating around here since the two points are discrete. \\~\\
+Each stalk $\C[x]/(x^2-7x+12)_{(x-a)}$ for $a=3,4$ is isomorphic to $\F$. Now the fact that $\mathcal{O}_X(X)=\frac{\C[x]}{(x^2-7x+12)}\cong\F\times\F$ with the isomorphism being mapping $f$ to $(f(3),f(4))$ means that this example of two points is very similar to that of $\text{Spec}(\C)$. 
+\end{eg}
+
+\begin{eg}{$\text{Spec}(\C[x]/(x^2))$}{} This scheme $X$ consists of a double point. Normally this wouldnt make a difference since $x=0$ anyways, but through schemes we see the differences. But firstly, their topologies are complete the same since they both only consists of one point $(x)$. \\~\\
+However, the stalk $\mathcal{O}_{X,(x)}\cong\frac{\C[x]}{(x^2)}$ is larger since it also contains linear functions rather than $\frac{\C[x]}{(x)}$ where it is isomorphic to $\C$. 
+\end{eg}
+
+\begin{eg}{$\text{Spec}(\C[x,y])$}{} Now things start to get interesting. Aside from points of the form $(x-z)$ for $z\in\C$ (these are dimension "$0$"), we also have irreducible curves of the form $(f(x,y))$ (dimension "$1$") and the generic point $(0)$ (dimension "$2$"). Under sufficiently nice settings, irreducible curves $(f(x,y))$ can becomes subschemes, which are of course closed in $\text{Spec}(\C[x,y])$ since it is a prime ideal of $\C[x,y]$. 
+\end{eg}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

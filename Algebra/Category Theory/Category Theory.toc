@@ -1,30 +1,31 @@
 \contentsline {section}{\numberline {1}Categories and Functors}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}The Concept of a Category}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Functoriality}{6}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Categories as Objects}{8}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Diagrams and Concrete Categories}{8}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}New Categories From Old}{9}{subsection.1.5}%
-\contentsline {subsection}{\numberline {1.6}The Big List of Categories and Functors}{11}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Important Functors}{12}{subsection.1.7}%
-\contentsline {section}{\numberline {2}Naturality}{13}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Naturality and Equivalence of Categories}{13}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}The Skeleton of a Category}{15}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}The 2-Category of Categories}{16}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Universality}{18}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Representable Functors}{18}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}The Yoneda Lemma}{20}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Universal Properties}{23}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Limits and Colimits}{24}{section.4}%
-\contentsline {subsection}{\numberline {4.1}The Category of Cones}{24}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Products and Coproducts}{28}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Inverse and Direct Limits}{30}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Equalizers and Coequalizers}{31}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Completeness and Cocompleteness of more Categories}{32}{subsection.4.5}%
-\contentsline {section}{\numberline {5}Adjunction}{35}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Adjoint Functors}{35}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}(Co)Limit Preserving Functors}{38}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}The Adjoint Functor Theorem}{39}{subsection.5.3}%
-\contentsline {section}{\numberline {6}The Category of Groupoids}{42}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Groupoids}{42}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Connected Groupoids and Groups}{42}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Transition Groupoids and Group Actions}{43}{subsection.6.3}%
+\contentsline {subsection}{\numberline {1.3}Split Morphisms}{7}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Categories as Objects}{9}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Diagrams and Concrete Categories}{9}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}New Categories From Old}{10}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}The Big List of Categories and Functors}{12}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Important Functors}{13}{subsection.1.8}%
+\contentsline {section}{\numberline {2}Naturality}{14}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Naturality and Equivalence of Categories}{14}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The Skeleton of a Category}{16}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}The 2-Category of Categories}{17}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Universality}{19}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Representable Functors}{19}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The Yoneda Lemma}{21}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Universal Properties}{24}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Limits and Colimits}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The Category of Cones}{25}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Products and Coproducts}{29}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Inverse and Direct Limits}{31}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Equalizers and Coequalizers}{32}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Completeness and Cocompleteness of more Categories}{33}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Adjunction}{36}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Adjoint Functors}{36}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}(Co)Limit Preserving Functors}{39}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The Adjoint Functor Theorem}{40}{subsection.5.3}%
+\contentsline {section}{\numberline {6}The Category of Groupoids}{43}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Groupoids}{43}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Connected Groupoids and Groups}{43}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Transition Groupoids and Group Actions}{44}{subsection.6.3}%

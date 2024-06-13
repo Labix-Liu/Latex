@@ -8,3 +8,9 @@
 \contentsline {subsection}{\numberline {2.3}Fundamental Theorem on Local Rings}{4}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Regular Local Rings}{5}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Regular Local Rings}{5}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Kähler Differentials}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Derivations}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Kähler Differentials}{8}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Transfering the System of Differentials}{14}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Characterization for Separability}{16}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Detecting Smoothness in Varieties}{17}{subsection.4.5}%

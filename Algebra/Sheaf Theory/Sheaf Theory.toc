@@ -1,14 +1,15 @@
 \contentsline {section}{\numberline {1}Sheaves}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Basic Definition of Sheaves}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Subsheaves of a Sheaf}{4}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Sheaves from a Basis}{5}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Image Sheaves}{5}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Ringed Spaces}{6}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Coherent Sheaves}{7}{section.2}%
-\contentsline {subsection}{\numberline {2.1}The Category of $\mathcal {O}_X$-Modules}{7}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Invertible Sheaves}{8}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Quasicoherent Sheaves}{8}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Sheaf Cohomology}{10}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Category of Sheaves}{10}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Cohomology of Sheaves}{11}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}\v {C}ech Cohomology}{11}{subsection.3.3}%
+\contentsline {subsection}{\numberline {1.2}Subsheaves of a Sheaf}{6}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Image Sheaves}{7}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}The Category of Sheaves}{8}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Adjunction of the Image Functors}{9}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Ringed Spaces}{10}{subsection.1.6}%
+\contentsline {section}{\numberline {2}Coherent Sheaves}{12}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The Category of $\mathcal {O}_X$-Modules}{12}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Invertible Sheaves}{12}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Quasicoherent Sheaves}{13}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Sheaf Cohomology}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The Global Section Functor}{15}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Flasque Sheaves}{16}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}\v {C}ech Cohomology}{17}{subsection.3.3}%

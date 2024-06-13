@@ -1,0 +1,229 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Algebraic Geometry 2}
+\rfoot{\thepage}
+
+\title{Algebraic Geometry 2}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{The Tangent Space}
+\subsection{Dimensions}
+\begin{defn}{Dimension (Topological)}{} Let $X$ be a topological space. Suppose that $Z_0\subset Z_1\subset\dots\subset Z_n$ is a chain irreducible varieties of $X$. Define the dimension of $X$ to be $$\dim(X)=\sup_{\substack{Z_0,\dots,Z_n\subseteq X\\\text{irreducible varieties}}}\{n\in\N|Z_0\subset Z_1\subset\dots\subset Z_n\}$$
+\end{defn}
+
+\begin{lmm}{}{} If $X\subset Y$ then $\dim(X)<\dim(Y)$. 
+\end{lmm}
+
+\begin{lmm}{}{} $\dim(\Prj^n)=\dim(A^n)=n$. 
+\end{lmm}
+
+\begin{thm}{}{} Let $X\subset\A^n$ be an affine variety. Then $$\dim(X)=\dim(k[X])$$
+\end{thm}
+
+\begin{thm}{}{} Let $A$ be a Noetherian ring. Let $f\in A$ be an element which is not a zero divisor and not a unit. Then every minimal prime ideal $p$ containing $f$ has height $1$. 
+\end{thm}
+
+\begin{prp}{}{} A variety $V$ in $\A^n$ has dimension $n-1$ if and only of it is the zero set of a single nonconstant irreducible polynomial in $k[x_1,\dots,x_n]$. 
+\end{prp}
+
+\subsection{The Tangent Space of Affine Varieties}
+We first restrict our studies to affine varieties. There are two ways to define tangent spaces, one by the usual algebraic sense, as in the derivative being $0$, the other is more geometric. The following definition comes as a result of the usual calculus we are familiar with. 
+
+\begin{defn}{Intersection Multiplicity}{} Let $L=\{ta|t\in\C\}$ for $a\in\C^n\setminus\{0\}$ be a line in $\C^n$. Let $X=V(f_1,\dots,f_m)\subseteq\C^n$ be an affine variety. We say that the intersection multiplicity of $L$ with $X$ is the multiplicity of $t=0$ as a root of the polynomial $f(t)=\gcd(F_1(ta),\dots,F_m(ta))$. 
+\end{defn}
+
+\begin{defn}{Tangent to an Affine Variety}{} Let $X$ be an affine variety. A line $L$ is tangent to $X$ at $0$ if it has intersection multiplicity $\geq 2$ with $X$ at $0$. 
+\end{defn}
+
+\begin{defn}{Tangent Space}{} Let $X$ be an affine variety and $p\in X$. Define the tangent space of $p$ in $X$ to be the set of all lines tangent to $X$ at $p$. 
+\end{defn}
+
+Recall that we have the notion of a differential in manifolds. Since all our functions we consider are polynomials, we can simply define derivatives by the formula for differentiating polynomials, that is without the notion of limits. This leads to the following equivalent definition of a tangent space. 
+
+\begin{prp}{}{} Let $V\subset\A^n$ be an affine variety. Then the tangent space of $V$ at a point $p\in V$ is exactly equal to $$T_pV=\left\{q\in\A^n\bigg{|}dF|_p(x-p)=\sum_{k=1}^n\frac{\partial F}{\partial x_k}\bigg{|}_p(q_k-p_k)=0\right\}$$
+\end{prp}
+
+In particular, the tangent space is a vector space by identifying the point $p$ as the origin and each differential $\frac{\partial F}{\partial x_1}\bigg{|}_p,\dots,\frac{\partial F}{\partial x_n}\bigg{|}_p$ as the standard basis. 
+
+\begin{prp}{}{} Let $V\subseteq\C^n$ be an affine algebraic variety. Let $x\in V$. Denote $m_x=\{f\in\C[V]|f(x)=0\}$ a maximal ideal of $\C[V]$. Then $\dim(m_x/m_x^2)=\dim(T_p(X))$
+\end{prp}
+
+\subsection{Smooth Points of a Variety}
+We continue to restrict our attention to affine varieties. 
+
+\begin{defn}{Smooth and Singular Points}{} Let $X$ be an affine variety. A point $p\in X$ is smooth if $\dim(T_p(X))=\dim(X)$. Otherwise, $p\in X$ is singular. 
+\end{defn}
+
+Note: Some authors (IR Shafarevich) define singularity by whether the tangent space at a point has dimension higher than the minimum of all the tangent spaces. This makes sense: we can show that the set of all singularities is a closed set. 
+
+\begin{prp}{}{} A point $p\in X=V(f_1,\dots,f_m)\subseteq\C^n$ of an affine algebraic variety with dimension $d$ is singular if and only the Jacobian $$\begin{pmatrix}
+\frac{\partial f_1}{\partial x_1}\bigg{|}_p & \cdots & \frac{\partial f_1}{\partial x_n}\bigg{|}_p\\
+\vdots & \ddots & \vdots\\
+\frac{\partial f_m}{\partial x_1}\bigg{|}_p & \cdots & \frac{\partial f_m}{\partial x_n}\bigg{|}_p
+\end{pmatrix}$$
+has rank $n-d$. 
+\end{prp}
+
+\begin{prp}{}{} Let $X$ be an affine variety. Let $p\in X$. Then $X$ is smooth at $p$ if and only if the local ring $\mathcal{O}_{X,p}$ is regular. 
+\end{prp}
+
+We can now motivate the definition of a smooth point using the purely algebraic characterization. 
+
+\begin{defn}{Smooth and Singular Points}{} Let $X$ be a variety. $X$ is smooth at a point $p\in X$ if the local ring $\mathcal{O}_{X,p}$ is a regular local ring, otherwise it is singular. $X$ is smooth if every point of $X$ is smooth. 
+\end{defn}
+
+\begin{thm}{}{} Let $X$ be a variety. Then the set of singular points of $X$ is a proper closed subset of $X$. 
+\end{thm}
+
+\pagebreak
+\section{Birational Geometry}
+\subsection{Birational Morphisms}
+\begin{defn}{Projective Morphism}{} A morphism of varieties $\pi:X\to V$ is called a projective morphism if $X$ is a closed subvariety of a product variety, meaning that $X\subset V\times\Prj^n$ and $\pi$ is the restriction of the projection onto the first coordinate. 
+\end{defn}
+
+Note that this is not the same as morphisms of projective varieties. 
+
+\begin{defn}{Birational Morphism}{} A morphism $\pi:X\to V$ of quasiprojective varieties is called a birational morphism if its restriction to some dense open set $U\subset X$ is an isomorphism onto some dense open subset $U'\subset V$. 
+\end{defn}
+
+\subsection{Birational Maps}
+While morphisms are meant to be defined entirely for the variety, rational maps of varieties simply rely on a definition on open subsets of the variety, which makes it more versatile. 
+
+\begin{lmm}{}{} Open subsets of a variety is dense. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $X,Y$ be varieties. Let $\phi,\psi$ be two morphisms from $X\to Y$. Suppose that there is a nonempty open subset $U\subseteq X$ such that $\phi|_U=\psi|_U$. Then $\phi=\psi$. 
+\end{lmm}
+
+\begin{defn}{Rational Maps}{} Let $X,Y$ he varieties. A rational map $\phi:X\to Y$ is an equivalence class of pairs $\langle U,\phi_U\rangle$, where $U$ is a nonempty open subset of $X$, and $\phi|_U$ is a morphism of $U$ to $Y$. \\~\\
+We say that $\langle U,\phi|_U\rangle$ and $\langle V,\phi|_V\rangle$ are equivalent if $\phi|_U$ and $\phi|_V$ agree on $U\cap V$. \\~\\
+The rational map $\phi$ is dominant if for some (and hence every) pair $\langle U,\phi|_U\rangle$, the image of $\phi|_U$ is dense in $Y$. 
+\end{defn}
+
+\begin{defn}{Birational Maps}{} A birational map $\phi:X\to Y$ is a rational map which has an inverse. In this case, we say that $X$ and $Y$ are birationally equivalent. 
+\end{defn}
+
+Varieties can form a category where morphisms are simply dominant rational maps. Isomorphisms in the category are birational maps. 
+
+\subsection{Categorical Equivalence with Finitely Generated Field Extensions}
+\begin{prp}{}{} Let $\phi:X\to Y$ be a dominant rational map represented by $\langle U,\phi_U\rangle$. Let $f\in \C[Y]$ be a rational function represented by $\langle V,f\rangle$ where $V$ is an open set in $Y$ and $f$ regular function on $V$. Then $f\circ\phi_U$ is a homomorphism of $\C$-algebras from $\C[Y]$ to $\C[X]$. \tcbline
+\begin{proof}
+Notice that since $\phi_U(U)$ is dense in $Y$, $\phi_U^{-1}(V)$ is a nonempty open subset of $X$. Thus $f\circ\phi_U$ is a regular function on $\phi_U^{-1}(V)$. Thus $f\circ\phi_U$ is rational function on $X$. This means that $f\circ\phi_U\in\C[X]$. \\~\\
+In particular, the map taking $f$ to $f\circ\phi_U$ is a $\C$-algebra homomorphism. 
+\end{proof}
+\end{prp}
+
+\begin{thm}{}{} Let $X$ and $Y$ be two varieties. The above construction gives a bijection between the set of dominant rational maps from $X\to Y$ and the set of $\C$-algebra homomorphisms from $\C[Y]$ to $\C[X]$. \\~\\
+In other words, this correspondence is a contravariant functor from the category of varieties and the category of finitely generated field extensions of $\C$. 
+\end{thm}
+
+\begin{crl}{}{} Let $X,Y$ be two varieties. The the following conditions are equivalent. 
+\begin{itemize}
+\item $X$ and $Y$ are birationally equivalent
+\item There exists open subsets $U\subseteq X$ and $V\subseteq Y$ with $U$ isomorphic to $V$
+\item $K(X)$ and $K(Y)$ are isomorphic $\C$-algebras
+\end{itemize}
+\end{crl}
+
+\subsection{Blowing Ups}
+\begin{defn}{Blowing Up at $\A^n$}{} Define the blowing up of $\A^n$ at the point $0$ to be the closed subset $X$ of $\A^n\times\Prj^{n-1}$ defined by the equations $\{x_iy_j=x_jy_i|0\leq i,j\leq n\}$. Restricting the projection $\A^n\times\Prj^{n-1}\to\A^n$ to the first factor gives a natural morphism $\phi:X\to\A^n$. 
+\end{defn}
+
+\begin{thm}{}{} The following are true with regards to blowing up at $\A^n$. 
+\begin{itemize}
+\item $X$ is a quasiprojective variety
+\item $\phi$ is an isomorphism for the sets $X\setminus\phi^{-1}(0)$ and $\A^n\setminus\{0\}$
+\item $\phi^{-1}(0)\cong\Prj^{n-1}$
+\end{itemize}
+\end{thm}
+
+\begin{defn}{Blowing Up at a Point}{} Let $Y$ be a closed subvariety of $\A^n$ passing through $0$. Define the blowing up of $Y$ at $0$ to be the the closure of $Z=\phi^{-1}(Y\setminus\{0\})$, where $\phi:X\to\A^n$ is obtained from the above blowing up at $\A^n$. Also denote $\phi:\overline{Z}\to Z$ the morphism obtained by further restricting $\phi$ to $\overline{Z}$. \\~\\
+To blow up any point other than $0$, perform a linear change in coordinates sending $P$ to $0$. 
+\end{defn}
+
+\begin{defn}{Blowup along an Ideal}{} Let $F_1,\dots,F_r$ be functions in the coordinate ring $\C[x]$ of an affine algebraic variety $X$, and let $I$ be the ideal they generate. Assume that $I$ is a proper nonzero ideal of $\C[x]$. The blowup of the variety $X$ along the ideal $I$ is the graph $B$ of the rational map $F:X\to\Prj^{r-1}$ defined by $$F(x)=[F_1(x):\dots:F_r(x)]$$ amd the natural projection $\pi:X\times\Prj^{r-1}\to X$. 
+\end{defn}
+
+\pagebreak
+\section{Theory of Divisors}
+\subsection{Divisors of a Variety}
+\begin{defn}{Divisors of a Variety}{} Let $X$ be a variety. Let $C_1,\dots,C_r$ be irreducible closed subvarieties of $X$ of codimension $1$. A divisor of $X$ is of the form $$D=\sum_{i=1}^rk_iC_i$$ for $k_i\in\Z$. $k_i$ is said to be the multiplicity of $C_i$. \\~\\
+If $k_i=0$ for all $i$ then we write $D=0$. If $k_i\geq 0$ for all $i$ then $D$ is said to be effective and we write $D>0$. An irreducible codimension $1$ subvariety $C_i$ taken with multiplicity $1$ is called a prime divisor. \\~\\
+Define the free group of all divisors of $X$ by $\text{Div}(X)$. 
+\end{defn}
+
+\begin{defn}{Divisor of a Function}{} Let $X$ be a variety such that the set of singular points of $X$ has codimension $\geq 2$. Let $f\in K(X)$. Let $C$ be a prime divisor of $X$. 
+\end{defn}
+
+\begin{defn}{Principal Divisors}{} Let $X$ be a variety. A divisor of the form $D=\text{div}(f)$ for some $f\in K(X)$ is called a principal divisor. \\~\\
+Define the set of all principal divisors by $P(X)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a variety. The set of all principal divisors $P(X)$ is a group. 
+\end{prp}
+
+\begin{defn}{Divisor Class Group}{} Let $X$ be a variety. Define the divisor class group of $X$ to be $$\text{Cl}(X)=\frac{\text{Div}(X)}{P(X)}$$
+We say that two divisors $D_1$ and $D_2$ are linearly equivalent if they lie in the same coset of $\text{Cl}(X)$, written as $D_1\sim D_2$. In other words, $D_1\sim D_2$ if and only if $D_1-D_2=\text{div}(f)$ for some $f\in K(X)$. 
+\end{defn}
+
+\begin{defn}{Degree of a Divisor}{}
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a variety. Then $D$ is a principal divisor if and only if $\deg(D)=0$. 
+\end{prp}
+
+\subsection{The Linear System of a Divisor}
+\begin{defn}{Associated Vector Space of a Divisor}{} Let $X$ be a nonsingular variety. Define the associated vector space of a divisor $D$ of $X$ to be $$\mathcal{L}(D)=\{f\in K(X)\;|\;\text{div}(f)+D\geq 0\}\cup\{0\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a nonsingular variety. Then $\mathcal{L}(D)$ is a vector space over the field $k$. 
+\end{lmm}
+
+\begin{defn}{Dimension of the Associated Vector Space}{} Let $X$ be a nonsingular variety. Denote $\ell(D)$ the dimension of $\mathcal{L}(D)$, which is also called the dimension of $D$. 
+\end{defn}
+
+\begin{thm}{}{} Linearly equivalent divisors have the same dimension. 
+\end{thm}
+
+\pagebreak
+\section{Intersection Theory}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

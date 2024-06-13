@@ -100,31 +100,6 @@ Notice that the proof is instructive. Indeed we can simply follow the steps of t
 \item Do the same for each $1\leq i\leq n$. The solution is then $r=r_1x_1+\dots+r_nx_n$. 
 \end{enumerate}
 
-\subsection{Graded Rings}
-\begin{defn}{Graded Rings}{} A graded ring $R$ is a ring such that the underlying additive group is a direct sum of abelian groups $R_i$, meaning that $$R=\bigoplus_{n\in\N}R_n$$ and such that for $r_i\in R_i$ and $r_j\in R_j$, $r_ir_j\in R_{i+j}$. A $\Z$ graded ring is a ring graded in $\Z$ instead of $\N$. 
-\end{defn}
-
-\begin{prp}{}{} The following are true for a graded ring $R=\bigoplus_{n\in\N}R_i$. 
-\begin{itemize}
-\item $R_0$ is a subring of $R$
-\item $R_n$ is an $R_0$-module for each $n$
-\item $R$ is an $R_0$-module
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item $R_0$ is an abelian group by definition. We also have that $r_0\in R_0$ and $s_0\in R_0$ implies $r_0s_0\in R_0$ which means that multiplication is closed. 
-\item We have that for $r_0\in R_0$ and $r_n\in R_n$, $r_0\cdot r_n\in R_n$
-\item Since each $R_n$ is a $R_0$-module, the direct sum $R$ is also an $R_0$ module. 
-\end{itemize}
-\end{proof}
-\end{prp}
-
-\begin{defn}{Homogenous Ideals}{} An ideal $I$ of a graded ring $R$ is said to be homogenous if for each $a\in I$, the homogenous components of $a$ is in $I$. 
-\end{defn}
-
-\begin{prp}{}{} If $I$ is an homogenous ideal of a graded ring $R$, then $R/I$ is also a graded ring. 
-\end{prp}
-
 \pagebreak
 \section{Module Theory}
 \subsection{Introduction to Modules}
@@ -484,9 +459,6 @@ If $A$ is an $F$-algebra, then it is clear that properties of a vector space hol
 \end{itemize}
 \end{defn}
 
-\begin{defn}{Graded Algebra}{} A graded algebra $A$ over $R$ is an algebra that is also a graded ring. 
-\end{defn}
-
 \subsection{Commutative Algebras}
 \begin{defn}{Commutative Algebras}{} Let $R$ be a commutative ring. A commutative $R$-algebra is an $R$-algebra $A$ that is commutative. 
 \end{defn}
@@ -541,6 +513,37 @@ Consider the set of monomials over elements of $X$. They form a basis of $R\lang
 
 \pagebreak
 \section{Tensor Products}
+\subsection{Graded Structures}
+\begin{defn}{Graded Rings}{} A graded ring $R$ is a ring such that the underlying additive group is a direct sum of abelian groups $R_i$, meaning that $$R=\bigoplus_{n\in\N}R_n$$ and such that for $r_i\in R_i$ and $r_j\in R_j$, $r_ir_j\in R_{i+j}$. A $\Z$ graded ring is a ring graded in $\Z$ instead of $\N$. 
+\end{defn}
+
+\begin{prp}{}{} The following are true for a graded ring $R=\bigoplus_{n\in\N}R_i$. 
+\begin{itemize}
+\item $R_0$ is a subring of $R$
+\item $R_n$ is an $R_0$-module for each $n$
+\item $R$ is an $R_0$-module
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $R_0$ is an abelian group by definition. We also have that $r_0\in R_0$ and $s_0\in R_0$ implies $r_0s_0\in R_0$ which means that multiplication is closed. 
+\item We have that for $r_0\in R_0$ and $r_n\in R_n$, $r_0\cdot r_n\in R_n$
+\item Since each $R_n$ is a $R_0$-module, the direct sum $R$ is also an $R_0$ module. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{defn}{Homogenous Ideals}{} An ideal $I$ of a graded ring $R$ is said to be homogenous if for each $a\in I$, the homogenous components of $a$ is in $I$. 
+\end{defn}
+
+\begin{prp}{}{} If $I$ is an homogenous ideal of a graded ring $R$, then $R/I$ is also a graded ring. 
+\end{prp}
+
+\begin{defn}{Graded Module}{} A graded $R$-module $M$ is a left $R$-module $M$ where $R$ is graded such that $$M=\bigoplus_{i\in\N}M_i$$ and $R_iM_j\subseteq M_{i+j}$. 
+\end{defn}
+
+\begin{defn}{Graded Algebra}{} A graded algebra $A$ over $R$ is an algebra that is also a graded ring. 
+\end{defn}
+
 \subsection{Tensor Products of Modules}
 \begin{defn}{Tensor Product of Modules}{} Let $R$ be a ring. Let $A,B$ be $R$-modules. The tensor product of $A$ and $B$ over $R$ is an $R$-module $$A\otimes_R B$$ together with an $R$-bilinear map $\phi:A\times B\to A\otimes_RB$ such that for any other $R$-bilinear map $\psi:A\times B\to C$, there is a unqiue $R$-linear map $\theta:A\otimes_RB\to C$ such that $\psi=\theta\circ\phi$. In other words, the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}

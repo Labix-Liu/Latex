@@ -24,13 +24,58 @@
 
 \pagebreak
 \section{The Category of Spectra}
-Recall the reduced suspension $\Sigma X$ of a space $X$. 
-
 \subsection{Spectra and $\Omega$-Spectra}
-\begin{defn}{Spectra}{} A spectrum $E$ is a collection $\{(E_n,\ast)\;|\;n\in\Z\}$ of pointed spaces together with continuous maps $e_n:\Sigma E_n\to E_{n+1}$. 
+Let $X$ be a space. We have seen in Algebraic Topology 3 that we can define the stable homotopy groups of $X$ as $$\pi_n^s(X)=\colim_{k\to\infty}\pi_{n+k}(\Sigma^kX)$$ This is well defined because of the Freudenthal suspension theorem, which states that the groups in the direct limit eventually stabilize. \\~\\
+
+Conversely, we can extract from this result the following. If $X$ is a space, we have a sequence of spaces $$X,\Sigma X,\Sigma^2X,\dots$$ For each $n$, the sequence $$\pi_n(X)\to\pi_{n+1}(\Sigma X)\to\pi_{n+2}(\Sigma^2X)\to\cdots$$ eventually stabilizes by the Freudenthal suspension theorem. This is the guiding result for the definition of a spectrum. 
+
+\begin{defn}{Spectra}{} A spectrum $E$ is a collection $\{(E_n,\ast)\;|\;n\in\Z\}$ of pointed spaces together with continuous maps $e_n:\Sigma E_n\to E_{n+1}$ or equivalently, continuous maps $e_n:E_n\to\Omega E_{n+1}$. 
 \end{defn}
 
-By the adjunction formula between $\Sigma$ and $\Omega$, we can reformulate the map $e_n$ to mean $e_n:E_n\to\Omega E_{n+1}$. 
+We relate the definition with the above as follows. A spectrum consists of a sequence of spaces (let us start index it with $\N$) $$E_0,E_1,E_2,\dots$$ For each $n$, we would like to have a sequence of maps $$\pi_n(E_0)\to\pi_{n+1}(E_1)\to\pi_{n+2}(E_2)\to\dots$$ similar to the initial digression. These maps are in fact in our hands. For each $k\in\N$, one has the maps $$\pi_{n+k}(E_k)\overset{\Sigma_\ast}{\to}\pi_{n+k+1}(\Sigma E_k)\overset{(e_k)_\ast}{\to}\pi_{n+k+1}(\Sigma E_{k+1})$$ 
+
+\begin{defn}{Subspectra}{} Let $E$ and $F$ be spectra. We say that $F$ is a subspectra of $E$ if $F_n\subseteq E_n$ for all $n\in\N$. 
+\end{defn}
+
+\begin{defn}{Cofinal Spectrum}{} Let $E$ be a spectrum and let $F$ be a subspectrum of $E$. We say that $F$ is cofinal in $E$ if for each $n$ and each finite subcomplex $K\subseteq E_n$, there exists $m\in\Z$ such that $\Sigma^m K$ maps into $F_{n+m}$ via the map \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\Sigma^m E_n} & {\Sigma ^{m-1}E_{n+1}} & \cdots & {\Sigma E_{n+m-1}} & {E_{n+m}}
+	\arrow["{\Sigma ^{m-1}e_n}", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{e_{n+m-1}}", from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{lmm}{}{} Let $E$ be a spectrum such that $E'$ and $E''$ are cofinal spectra of $E$. Then $E'\cap E''$ is also a cofinal spectrum of $E$. 
+\end{lmm}
+
+The point is that we would like all cells in $E$ to eventually map into $F$ after enough suspensions. 
+
+\begin{defn}{Functions of Spectra}{} Let $E$ and $F$ be spectra. A function of degree $r$ from $E$ to $F$ is a collection of maps $\varphi_n:E_n\to F_{n-r}$ such that the following diagrams (which are equivalent by adjunction) are commutative: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\Sigma E_n} & {E_{n+1}} && {E_n} & {\Omega E_{n+1}} \\
+	{\Sigma F_{n-r}} & {F_{n-r+1}} && {F_{n-r}} & {\Omega F_{n-r+1}}
+	\arrow["{e_n}", from=1-1, to=1-2]
+	\arrow["{\Sigma\varphi_n}"', from=1-1, to=2-1]
+	\arrow["{\varphi_{n+1}}", from=1-2, to=2-2]
+	\arrow["{e_n'}", from=1-4, to=1-5]
+	\arrow["{\varphi_n}"', from=1-4, to=2-4]
+	\arrow["{\Omega\varphi_{n+1}}", from=1-5, to=2-5]
+	\arrow["{f_n}"', from=2-1, to=2-2]
+	\arrow["{f_n'}"', from=2-4, to=2-5]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+Just the definition of a function of spectra is not enough to form the category of spectra. We will develop two more notions of of maps between spectra before we can define a workable category. 
+
+\begin{defn}{Map of Spectra}{} Let $E,F$ be spectra. Let $E',E''$ be subspectra of $E$. We say that two functions $f':E'\to F$ and $f'':E''\to F$ are equivalent if there exists a cofinal spectrum $E'''$ contained in $E'$ and $E''$ such that the restrictions $f'|_{E'''}$ and $f''|_{E'''}$ coincide. \\~\\
+
+Define a map from $E$ to $F$ to be an equivalent class of such functions. 
+\end{defn}
+
+
+A major examples of spectra comes from the initial digression. 
 
 \begin{defn}{The Suspension Spectrum}{} Let $X$ be a compactly generated space. Define the suspension spectrum of $X$ to consist of the following data. 
 \begin{itemize}
@@ -42,30 +87,75 @@ By the adjunction formula between $\Sigma$ and $\Omega$, we can reformulate the 
 \begin{defn}{The CW Spectrum}{} The CW spectrum $E$ is a collection $\{E_n\;|\;n\in\Z\}$ of CW-complexes with a chosen basepoint together with maps $e_n:\Sigma E_n\to E_{n+1}$ so that $\Sigma E_n$ is recognized as a subcomplex of $E_{n+1}$. 
 \end{defn}
 
-\begin{lmm}{}{} The suspension spectrum and the CW spectrum for the $n$-sphere $S^n$
-\end{lmm}
-
 \begin{defn}{$\Omega$-Spectra}{} Let $\{E_n\;|\;n\in\Z\}$ and $e_n:E_n\to\Omega E_{n+1}$ be a spectra. We say that it is an $\Omega$-spectra if the induced map $(e_n)_\ast$ is a weak homotopy equivalence. 
-\end{defn}
-
-\begin{prp}{}{} Let $G$ be an abelian group. Then there is an isomorphism $$\Omega K(G,n)\cong K(G,n-1)$$
-\end{prp}
-
-\begin{defn}{Eilenberg-MacLane Spectrum}{} Let $X$ be a space. Define the Elienberg-Maclane spectrum
 \end{defn}
 
 \subsection{Brown's Representability Theorem}
 Given a spectrum, we can construct a (co)homology theory. The converse is given by Brown's representability theorem. 
 
-\begin{thm}{}{} Let $\{T_n\;|\;n\in\Z\}$ be a CW spectrum such that $T_n$ is $(n-1)$-connected. Define $$\widetilde{E}_k(X)=\colim_{n\to\infty}\pi_{k+n}(X\wedge T_n)$$ Then the functors $\widetilde{E}_k$ for all $k$ defines a reduced homology theory on CW complexes with base point. 
+\begin{thm}{}{} The stable homotopy groups $\pi_n^s:\bold{CW}_\ast\to\bold{Ab}$ defines a reduced homology theory. 
 \end{thm}
 
-\begin{thm}{}{} Let $\{T_n\;|\;n\in\Z\}$ be a $\Omega$-spectrum consisting of CW complexes. For any space $X$, define $$\widetilde{E}_k(X)=[X,T_k]$$ for $k\in\Z$. Then the functors $\widetilde{E}_k$ for all $k$ defines a reduced cohomology theory on CW complexes with base point. 
+More generally, we have the following theorem. 
+
+\begin{thm}{}{} Let $\{T_n\;|\;n\in\Z\}$ be a CW spectrum such that $T_n$ is $(n-1)$-connected. Define $$\widetilde{E}_k(X)=\colim_{n\to\infty}\pi_{k+n}(X\wedge T_n)$$ Then the functors $\widetilde{E}_k$ for all $k$ defines a reduced homology theory on CW complexes with base point. (Concise J.P. May)
 \end{thm}
 
-\begin{defn}{Homology with Coefficients in a Spectrum}{} Let $\K=\{T_n\;|\;n\in\Z\}$ be a spectrum. Define a functor $H_n(-;\K):\bold{CW}^2\to\bold{Ab}$ by $$H_n(X,A;\K)=\lim_{k\to\infty}\pi_{n+k}\left(\frac{X_+}{A_+}\wedge T_k\right)$$ where $X_+$ is the space $X$ together with a chosen base point. 
+Recall that if $Z$ is a group-like $H$-space (ref Concise J.P. May), then $[X,Z]$ has a group structure. 
+
+\begin{thm}{}{} Let $\{T_n\;|\;n\in\Z\}$ be a $\Omega$-spectrum consisting of CW complexes. For any space $X$, define $$\widetilde{E}^k(X)=[X,T_k]$$ for $k\in\Z$. Then the functors $\widetilde{E}^k$ for all $k$ defines a reduced cohomology theory on CW complexes with base point. 
+\end{thm}
+
+\begin{defn}{Homology with Coefficients in a Spectrum}{} Let $\K=\{T_n\;|\;n\in\Z\}$ be a spectrum. Define a functor $H_n(-;\K):\bold{CW}^2\to\bold{Ab}$ by $$H_n(X,A;\K)=\colim_{k\to\infty}\pi_{n+k}\left(\frac{X_+}{A_+}\wedge T_k\right)$$ where $X_+$ is the space $X$ together with a chosen base point. 
 \end{defn}
 
-\begin{thm}{Brown's Representability Theorem I}{} Let $(h_n,\delta_n)$ be a generalized homology theory. Then there exists a spectrum $\K$ and a natural isomorphism $$H_n(X,A)\cong H_n(X,A;\K)$$ for all CW pairs $(X,A)$. 
+\begin{thm}{}{} Let $(h_n,\delta_n)$ be a generalized homology theory. Then there exists a spectrum $\K$ and a natural isomorphism $$h_n(X,A)\cong H_n(X,A;\K)$$ for all CW pairs $(X,A)$. 
 \end{thm}
+
+\begin{thm}{Brown's Representability Theorem}{} Let $\widetilde{h}^n:\bold{hCW}_\ast\to\bold{Ab}$ be a reduced cohomology theory with chosen base points on the CW complexes. Then there exists a CW spectrum $\K=\{K_n\;|\;n\in\N\}$ and natural isomorphisms $$\widetilde{h}^n(X)\cong[X,K_n]_\ast$$ for all CW-complexes $X$. 
+\end{thm}
+
+It is related to representability in category theory in the following sense: Since $\widetilde{h}^n$ are functors that are homotopy equivalent, we can instead consider $\widetilde{h}^n$ as a functor from the homotopy category $\bold{hCW}_\ast$ of pointed CW-complexes to $\bold{Ab}$. Then Hom sets in $\bold{hCW}$ are precisely $[X,Y]_\ast$ which are the base point preserving homotopic maps from $X$ to $Y$. Then Brown's representability states that the functor $\widetilde{h}^n:\bold{hCW}_\ast\to\bold{Ab}$ is representable via $[X,K_n]_\ast$ and more over the $K_n$ assemble into a spectrum. \\~\\
+
+We note here that every reduced cohomology theory induces a generalized cohomology theory, hence the above theorem hence a version for generalized cohomology theories and also pointed cohomology theories. 
+
+\subsection{The Eilenberg-Maclane Spectrum}
+\begin{defn}{Eilenberg-MacLane Spectrum}{} Let $G$ be an abelian group. Define the Elienberg-Maclane spectrum to be the spaces $$K(G,n)$$ together with maps $K(G,n)\to\Omega K(G,n+1)$ which are homeomorphisms. 
+\end{defn}
+
+\begin{thm}{}{} Let $X$ be a CW complex and let $G$ be an abelian group. Then there is an isomorphism $$H^n(X;G)\cong[X,K(G,n)]_\ast$$ that is natural in the following sense. If $f:X\to Y$ is a map, then there is a commutative diagram: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{H^n(Y;G)} & {H^n(X;G)} \\
+	{[Y,K(G,n)]_\ast} & {[X,K(G,n)]_\ast}
+	\arrow["{f^\ast}", from=1-1, to=1-2]
+	\arrow["\cong"', from=1-1, to=2-1]
+	\arrow["\cong", from=1-2, to=2-2]
+	\arrow["{f^\ast}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{thm}
+
+If $X$ is a connected CW complex, then instead we have the following natural isomorphism $$H^n(X;G)\cong[X,K(G;n)]$$
+
+\subsection{Homotopy Groups of a Spectrum}
+\begin{defn}{Homotopy Groups of a Spectrum}{} Let $E$ be a spectrum. Define the $n$th (stable) homotopy group of $E$ to be $$\pi_n(E)=\colim_{k\to\infty}\pi_{n+k}(E_k)$$
+\end{defn}
+
+Notice that this is a generalization of the stable homotopy groups in Algebraic Topology 3. Indeed if one considers the suspension spectrum of space, then the homotopy groups of the given suspension spectrum are the stable homotopy groups in the sense of Algebraic Topology 3. \\~\\
+
+The stability condition is more general than just to the suspension spectrum however. 
+
+\begin{lmm}{}{} Let $E$ be an $\Omega$-spectrum. Then there is an isomorphism $$(e_n)_\ast:\pi_{n+r}(E_n)\overset{\cong}{\longrightarrow}\pi_{n+r+1}(E_{n+1})$$ between the stable homotopy groups for $n+k\geq 1$. 
+\end{lmm}
+
+\subsection{Spanier-Whitehead Category}
+\begin{defn}{Spanier-Whitehead Category}{} Define the Spanier-Whitehead category $\bold{SW}$ as follows. 
+\begin{itemize}
+\item The objects consists of a pair $(X,n)$ where $X$ is a pointed CW complex and $n\in\N$. 
+\item For $(X,n)$ and $(Y,m)$ to objects, $$\Hom_{\bold{SW}}((X,n),(Y,m))=\colim_{r\to\infty}[\Sigma^{n+r}X,\Sigma^{m+r}Y]_\ast$$
+\item Composition is given by the composition of maps. 
+\end{itemize}
+\end{defn}
+
+
+
 \end{document}

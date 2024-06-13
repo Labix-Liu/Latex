@@ -559,7 +559,7 @@ Direct from the above theorem.
 \end{proof}
 \end{crl}
 
-\subsection{Maschke's Theorem}
+\subsection{Completely Reducible Modules}
 For Maschke's theorem, we would need an equivalent definition of semisimplicity of modules. 
 
 \begin{defn}{Completely Reducible Modules}{} Let $M$ be an $R$-module. $M$ is said to be completely reducible if for every submodule $N$ of $M$, there exists a submodule $L$ of $M$ such that $M=N\oplus L$. 
@@ -608,21 +608,6 @@ We proceed by induction on $n$. If $n=1$, then, $M$ is simple and we are done. \
 Suppose that it is true for $n-1$. Let $K=\bigoplus_{i=1}^{n-1}S_i$. Consider the quotient homomorphism $\psi:M\to M/K$. Clearly we have that $$\frac{M}{K}=\psi(M)=\psi\left(\sum_{j=1}^mT_j\right)=\sum_{j=1}^m\psi(T_j)$$ Then each $\psi(T_j)$ is either $0$ or simple and isomorphic to $T_j$ so that we can reduce the indexing set so that we exclude the $j\in J$ for which $\psi(T_j)=0$. Now we have that $M=K\oplus\left(\bigoplus_{j\in J}T_j\right)$. By proposition 2.2.2, we have that $S_n$ and $\left(\bigoplus_{j\in J}T_j\right)$ are isomorphic. Thus $\bigoplus_{j\in J}T_j$ is actually just a single element. Without loss of generality, take $J=\{m\}$. Both $\bigoplus_{i=1}^{n-1}S_i$ and $\bigoplus_{j=1}^{m-1}T_j$ are direct complements of $T_m$. They are isomorphic by proposition 2.2.2. By the induction hypothesis, we conclude. 
 \end{proof}
 \end{prp}
-
-\begin{thm}{Maschke's Theorem}{} Let $G$ be a group, $\F$ a field of characteristic $p$. Then the group algebra $\F G$ is semisimple if and only if $G$ is of finite order $n$ with $p$ not dividing $n$. \tcbline
-\begin{proof}
-Suppose that $\F G$ is semisimple. Consider $\F$ as the trivial $\F G$-module defined by $g\cdot x=x$ for all $x\in\F$ and $g\in G$ and extend it by linearity. Then there is a homomorphism of $\F G$-modules $\psi:\F G\to\F$ defined by $$\psi\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in G}\lambda_g$$ Since $\F G$ is semisimple, $\ker(\psi)$ has a direct complement $L$. By proposition 2.2.2, and the first isomorphism theorem for modules, we have that $L\cong\F$. Since $L\cong\F$, $hx=x$ for all $h\in G$. Thus $$\sum_{g\in G}\lambda_g(hg)=\sum_{g\in G}\lambda_gg$$ for all $h\in G$. Thus all $\lambda_g$ are equal. Hence $L=\cong\F z$ where $z=\sum_{g\in G}g$. If $G$ is infinite then $z$ is not well defined. Finally, if $n=\abs{G}$ is finite and $p\;|\;n$, then $\psi(z)=n=0_\F$ and $\psi:L\to\F$ is not surjective, contradicting proposition 2.2.2. Thus $p$ does not divide $n$. \\~\\
-
-Now suppose the contrary. Since $p$ does not divide $n$, we can choose $\lambda\in\F$ such that $n\lambda=1_\F$. Let $N$ be an $\F G$-submodule of an $\F G$-module $M$. Then $N$ is a vector subspace of $M$ and so we can choose a vector space complement $L$ such that $M=N\oplus L$ in the sense of Linear Algebra. This gives a projection map $p:M\to M$ such that $\ker(p)=L$, $\im(p)=N$ and $p^2=p$ and is linear. Define $q:M\to M$ a linear map by $$q(x)=\lambda\sum_{g\in G}g\cdot p(g^{-1}(x))$$ By definition, $N\supseteq\im(q)$. Moreover, for each $x\in N$, we have that $g^{-1}x\in N$ so that $$q(x)=\lambda_{g\in G}g\cdot(g^{-1}x)=\lambda\sum_{g\in G}x=\lambda nx=x$$ Thus $q$ is another idempotent $N=\im(q)$. Moreover, $q\in\text{End}_{\F G}(M)$ since for $x\in M$ and $h\in G$, we have that 
-\begin{align*}
-q(hx)&=\lambda\sum_{g\in G}g\cdot(g^{-1}hx)\\
-&=\lambda\sum_{g,k\in G,gk=h}g\cdot(kx)\\
-&=\lambda\sum_{g\in G}hg\cdot(g^{-1}kx)\\
-&=hq(x)
-\end{align*}
-so that $\ker(q)$ is a direct complement and so we conclude. 
-\end{proof}
-\end{thm}
 
 \subsection{The Matrix Rings}
 Recall that for a ring $R$, we can define the matrix ring over $R$ by $$M_n(R)=\left\{\begin{pmatrix}

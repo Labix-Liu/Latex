@@ -57,7 +57,6 @@ We now define different types of morphisms in a category. The idea is that a cat
 \item Monomorphism if for any pair of morphisms $h,k:B\to C$, $f\circ h=f\circ k$ implies $h=k$
 \item Epimorphism if for any pair of morphisms $h,k:D\to E$, $h\circ f=k\circ f$ implies $h=k$
 \end{itemize}
-If every morphism of $\mC$ is an isomorphism, we call $\mC$ a groupoid. 
 \end{defn}
 
 It is important to note that monomorphisms and epimorphisms in a category whose objects have underlying sets translates roughly to the notion of injections and surjections. However not every monomorphisms are an injection and vice versa. \\~\\
@@ -78,11 +77,12 @@ In particular, it is easy to see that every isomorphism is a monomorphism and an
 \item Suppose that $h\circ g\circ f=k\circ g\circ f$. Since $f$ is epic, we conclude that $h\circ g=k\circ g$. Since $g$ is epic, we conclude that $h=k$. 
 \item Suppose that $f\circ h=f\circ k$. Then $g\circ f\circ h=g\circ f\circ k$. Since $g\circ f$ is monic, we conclude that $h=k$. 
 \item Suppose that $h\circ g=k\circ g$. Then $h\circ g\circ f=k\circ g\circ f$. Since $g\circ f$ is epic, we conclude that $h=k$. 
+\item Suppose that $f$ is an isomorphism with inverse $g:D\to C$. Suppose that $f\circ h=f\circ k$. Then applying $g$ on the left gives $h=k$. Similarly if $h\circ f=k\circ f$, then applying $g$ on the right gives $h=k$. 
 \end{itemize}
 \end{proof}
 \end{prp}
 
-\begin{defn}{Opposite Categories}{} Let $\mC$ be a category. The opposite category $\mC^{text{op}}$ is another category where
+\begin{defn}{Opposite Categories}{} Let $\mC$ be a category. The opposite category $\mC^{\text{op}}$ is another category where
 \begin{itemize}
 \item $\Obj\mC^{\text{op}}=\Obj\mC$
 \item $\Hom_{\mC^{\text{op}}}(C,D)=\Hom_{\mC}(D,C)$ where for $f\in\Hom_\mC(D,C)$, write $f^{\text{op}}$ for the corresponding morphism in $\Hom_{\mC^{\text{op}}}(C,D)$
@@ -174,21 +174,59 @@ It clearly satisfies the requirements of a functor.
 \end{itemize}
 \end{defn}
 
-\begin{defn}{Image of a Functor}{} Define the images of a functor $F:\mathcal{C}\to\mathcal{D}$ to be $$F\mathcal{C}=\{FA|A\in\mathcal{C}\}$$ and $$\{Ff|f\in Hom_C(A,B)\}$$
+\subsection{Split Morphisms}
+Functors in general do not preserve monomorphisms and epimorphisms. However if there is a morphism ``witnessing'' the monomorphism or epimorphism, the functor does preserve these type of morphisms. We have also seen that while isomorphisms must be monic and epic, the converse need not be true. There is a class of morphisms (and their dual) that resolve all these issues. 
+
+\begin{defn}{Split Morphisms}{} Let $\mC$ be a category and $f:C\to D$ a morphism in $\mC$. Then $f$ is said to be a 
+\begin{itemize}
+\item split monomorphism if there exists $r:D\to C$ such that $r\circ f=\text{id}_C$. 
+\item split epimorphism if there exists $s:D\to C$ such that $f\circ s=\text{id}_D$
+\end{itemize}
+We say that $r$ is a retract of $f$ and $s$ is a section of $f$. 
 \end{defn}
 
-Notice that images of functors are generally not categories. 
+One can easily see that split monomorphisms are dual to split epimorphisms similar to how the concept of monomorphisms and epimorphisms are dual to each other. 
 
-\begin{thm}{}{} If the object part of a functor $F:\mathcal{C}\to\mathcal{D}$ is injective, then $F\mathcal{C}$ is a subcategory of $\mathcal{D}$, under the composition inherited from $\mathcal{D}$. 
-\end{thm}
+\begin{prp}{}{} Let $\mC$ be a category and $f:C\to D$ a morphism in $\mC$. Then the following are true. 
+\begin{itemize}
+\item If $f$ is a split monomorphism then $f$ is a monomorphism
+\item If $f$ is a split epimorphism then $f$ is an epimorphism
+\end{itemize} \tcbline
+\begin{proof}
+Suppose that $f$ has a retract $r$ and that $f\circ h=f\circ k$. Then $r\circ f\circ h=r\circ f\circ k$ implies that $h=k$ since $r\circ f=\text{id}_C$. \\~\\
 
-Injectivity is necessary in the theorem. Suppose that $\mathcal{C},\mathcal{D}$ are categories and $F:C\to D$ is a functor such that $F(A)=F(B)=X$ for $A,B\in\mathcal{C}$ and $X\in\mathcal{D}$. Suppose that $f:K\to A$ and $g:B\to L$ are morphisms of $\mathcal{C}$ but no morphism between $A$ and $B$ exists. Consider the following diagram: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-K\arrow[r, "f"] & A\arrow[rdd, "F"] & & B\arrow[ldd, "F"']\arrow[r, "g"] & L\\
-&&&&\\
-&F(K)\arrow[r, "Ff"]&X\arrow[r, "Fg"]&F(L)&
-\end{tikzcd}}\\~\\
-Supposedly $g\circ f$ does not exists in $\mathcal{C}$. This is fine since $A,B$ are different objects anyways, it does not makse sense for $f$ and $g$ to compose. However, the fact that $A,B$ maps to $X$ causes $Fg\circ Ff$ to exist. However since $g\circ f$ did not exist in the first place, $F(g\circ f)$ does not exists thus $F(g)\circ F(f)=F(g\circ f)$ does not lie in the image thus breaking the rule composition in the definition of categories. 
+Now suppose that $f$ has a section $s$ and that $h\circ f=k\circ f$. Then $h\circ f\circ s=k\circ f\circ s$ implies that $h=k$ since $f\circ s=\text{id}_D$. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $\mC$ be a category and $F:\mC\to\mD$ a functor. Let $f:C\to D$ be a morphism in $\mC$. Then the following are true. 
+\begin{itemize}
+\item If $f$ is a split monomorphism then $F(f)$ is a split monomorphism
+\item If $f$ is a split epimorphism then $F(f)$ is a split epimorphism
+\end{itemize} \tcbline
+\begin{proof}
+Suppose that $f$ has a retract $r$. Then by functoriality, we have that $$F(r)\circ F(f)=F(\text{id}_C)=\text{id}_{F(C)}$$ hence $F(f)$ has a retract $F(r)$. \\~\\
+
+Suppose that $f$ has a section $s$. Then by functoriality, we have that $$F(f)\circ F(s)=F(\text{id}_D)=\text{id}_{F(D)}$$ hence $F(f)$ has a section $F(s)$. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $\mC$ be a category and $f:C\to D$ a morphism in $\mC$. Then the following conditions are equivalent. 
+\begin{itemize}
+\item $f$ is an isomorphism
+\item $f$ is a monomorphism and a split epimorphism
+\item $f$ is a split monomorphism and an epimorphism
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $(1)\implies(2)$: Suppose that $f$ is an isomorphism. We have already seen that $f$ is a monomorphism by \ref{prp:1.1.4}. Now there exists a morphism $s:D\to C$ such that $f\circ s=\text{id}_D$. Hence $f$ is a split epimorphism. 
+
+\item $(2)\implies(3)$: Suppose that $f$ is a monomorphism and a split epimorphism. We have seen that $f$ is then an epimorphism. Since $f$ is a split epimorphism, there exists a section $s:D\to C$ such that $f\circ s=\text{id}_D$. We can then pre compose with $f$ on both sides to obtain $$f\circ s\circ f=f$$ Since $f$ is a monomorphism, we conclude that $s\circ f=\text{id}_C$. Thus $f$ is a split monomorphism. 
+
+\item $(3)\implies(1)$: Suppose that $f$ is a split monomorphism and an epimorphism. Then $f$ has a retract $r$ for which $r\circ f=\text{id}_C$. We can then post compose with $f$ to obtain $$f\circ r\circ f=f$$ Since $f$ is an epimorphism, we conclude that $f\circ r=\text{id}_D$. Thus $f$ has a two sided inverse $r$ and hence an isomorphism. 
+\end{itemize}
+\end{proof}
+\end{prp}
 
 \subsection{Categories as Objects}
 \begin{defn}{The Category of Locally Small Categories}{} Let $\bold{CAT}$ be the category where 
@@ -232,8 +270,8 @@ Note that functors also preserve diagrams. If $X:I\to\mC$ is a commutative diagr
 \begin{defn}{The Category of Sets}{} The category $\bold{Set}$ of sets where 
 \begin{itemize}
 \item $\Obj(\bold{Set})=\text{''all'' sets}$
-\item $\Hom(X,Y)=\{\text{All functions }f:X\to Y\}$
-\item $\circ=$ usual composition of maps
+\item For two set $X$ and $Y$, the morphisms $\Hom_\bold{Set}(X,Y)$ consists of functions $f:X\to Y$. 
+\item Composition is given by the composition of functions. 
 \end{itemize}
 \end{defn}
 
@@ -330,9 +368,9 @@ This means that a morphism from $f$ to $g$ is a pair $(h:C\to E,k:D\to F)$.
 \subsection{The Big List of Categories and Functors}
 \begin{defn}{The Category of Groups}{} The category $\bold{Grp}$ of groups where 
 \begin{itemize}
-\item $\Obj(\bold{Grp})=\text{''all'' groups}$
-\item $\Hom(X,Y)=\{\text{All group homomorphisms }\phi:X\to Y\}$
-\item $\circ=$ composition of functions
+\item The objects consists of groups $(G,\ast)$
+\item For two groups $G$ and $H$, the morphisms $\Hom_\bold{Grp}(G,H)$ consists of group homomorphisms $f:G\to H$
+\item Composition is given by composition of functions
 \end{itemize}
 \end{defn}
 
@@ -350,9 +388,9 @@ The category $\bold{Ab}$ of abelian groups is a full subcategory of $\bold{Grp}$
 
 \begin{defn}{The Category of Topological Spaces}{} The category $\bold{Top}$ of topological spaces where 
 \begin{itemize}
-\item $\Obj(\bold{Top})=\text{''all'' topological spaces}$
-\item $\Hom_{\bold{Top}}(X,Y)=\{\text{All continuous functions }f:X\to Y\}$
-\item Composition is defined by the composition of functions. 
+\item The objects consists of topological spaces $(X,\mT)$
+\item For two spaces $X$ and $Y$, the morphisms $\Hom_\bold{Top}(X,Y)$ consists of continuous maps $f:G\to H$
+\item Composition is given by composition of functions
 \end{itemize}
 \end{defn}
 
@@ -416,12 +454,12 @@ It is clear that $(-)^\text{op}$ is a functor since it respects composition of f
 \pagebreak
 \section{Naturality}
 \subsection{Naturality and Equivalence of Categories}
-\begin{defn}{Natural Transformation}{} Let $\mathcal{C},\mathcal{D}$ be categories with two functors $F,G:\mathcal{C}\to\mathcal{D}$ that are both covariant. A natural transformation $\tau$ is a family of arrows of $\mathcal{D}$, $$\tau=\{\tau_A:FA\to GA|A\in\mathcal{C}\}$$ such that for each $f\in Mor(\mathcal{C})$ with $f:A\to B$, we have 
+\begin{defn}{Natural Transformation}{} Let $\mathcal{C},\mathcal{D}$ be categories with two functors $F,G:\mathcal{C}\to\mathcal{D}$ that are both covariant. A natural transformation $\tau$ is a family of arrows of $\mathcal{D}$, $$\tau=\{\tau_A:FA\to GA|A\in\mathcal{C}\}$$ such that for each morphism $f:A\to B$ in $\mC$, we have 
 $$G(f)\circ\tau_A=\tau_B\circ F(f)$$ In other words, the square on the right side of the following diagram is required to commute: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
- & & FA\arrow[r, "Ff"]\arrow[dd, "\tau_A"] & FB\arrow[dd, "\tau_B"] \\
+ & & F(A)\arrow[rr, "Ff"]\arrow[dd, "\tau_A"] && F(B)\arrow[dd, "\tau_B"] \\
 A\arrow[r, "f"] & B\arrow[ru, "F", Mapsto]\arrow[rd, "G", Mapsto] & & \\
- & & GA\arrow[r, "Gf"] & GB
+ & & G(A)\arrow[rr, "Gf"] && G(B)
 \end{tikzcd}}
 \end{defn}
 
@@ -453,8 +491,8 @@ In other words, $F$ and $G$ are inverses in the category $\text{CAT}$.
 We relax the notion of isomorphic categories to obtain the following. 
 
 \begin{defn}{Equivalence of Categories}{} Let $\mC,\mD$ be categories and $F:\mC\to\mD$ and $G:\mD\to\mC$ be functors. We say that $\mC$ and $\mD$ is are equivalent categories if there exists natural isomorphisms $$
-\eta:\text{id}_\mC\overset{\cong}{\Rightarrow}G\circ F$$ and $$
-\tau:\text{id}_\mD\overset{\cong}{\Rightarrow}F\circ G$$
+\eta:\text{id}_\mC\overset{\cong}{\Rightarrow}G\circ F\;\;\;\;\text{ and }\;\;\;\;
+\tau:F\circ G\overset{\cong}{\Rightarrow}\text{id}_\mD$$
 In this case we say that $F$ and $G$ are an equivalence of categories. 
 \end{defn}
 
@@ -557,8 +595,8 @@ if $f:C\to D$ is a morphism in $\mC$. It is easy to see that a naturality condit
 \begin{defn}{The Functor Category}{} Let $\mC,\mD$ be categories. The category of functors from $\mC$ to $\mD$ is the category $\mD^\mC$ where
 \begin{itemize}
 \item The objects are functors $F:\mC\to\mD$
-\item The morphisms are $$\Hom_{\mD^\mC}(F,G)=\{\alpha:F\Rightarrow G\;|\;\alpha\text{ is a natural transformation}\}$$ natural transformations from $\mC$ to $\mD$. 
-\item For $\lambda:F\Rightarrow G$ and $\tau:G\Rightarrow H$ natural transformations, define their composition as $\tau\circ\lambda$. 
+\item For two functors $F,G:\mC\to\mD$, the morphisms $\Hom_{\mD^\mC}(F,G)$ are natural transformations $\lambda:F\Rightarrow G$
+\item For $\lambda:F\Rightarrow G$ and $\tau:G\Rightarrow H$ natural transformations, define their composition as $\tau\circ\lambda$
 \end{itemize}
 \end{defn}
 
@@ -684,7 +722,7 @@ In other words, an initial object in $\mC$ exists if and only if the constant fu
 \end{thm}
 
 \subsection{The Yoneda Lemma}
-\begin{thm}{Yoneda's Lemma}{} Let $F:\mC\to\text{Set}$ be a covariant functor where $\mC$ is locally small. Then for every object $C\in\Obj\mC$, the map $$\Phi:\Hom_{\text{Set}^\mC}\left(\Hom_\mC(C,-),F\right)\overset{\cong}{\rightarrow}F(C)$$ is a bijection. Moreover, this bijection is natural in $F$ on $\mC$. This means that by allowing $F$ to vary, the functor $$\Hom_{\text{Set}^\mC}\left(\Hom_\mC(-,-),-\right)\Rightarrow\text{ev}$$ is a natural isomorphism of functors from $\mC\times\text{Set}^\mC$ to $\text{Set}$, where $\text{ev}(C,F)=F(C)$. \tcbline
+\begin{thm}{Yoneda's Lemma}{} Let $F:\mC\to\text{Set}$ be a covariant functor where $\mC$ is locally small. Then for every object $C\in\Obj\mC$, the map $$\Phi:\Hom_{\text{Set}^\mC}\left(\Hom_\mC(C,-),F\right)\overset{\cong}{\rightarrow}F(C)$$ defined by $$\left(\alpha:\Hom_\mC(C,-)\Rightarrow F\right)\mapsto\left(\alpha_C(\text{id}_C)\right)$$ is a bijection. Moreover, this bijection is natural in $F$ on $\mC$. This means that by allowing $F\in\bold{Set}^\mC$ and $C\in\mC$ to vary, the functor $$\Hom_{\text{Set}^\mC}\left(\Hom_\mC(-,-),-\right)\Rightarrow\text{ev}$$ is a natural isomorphism of functors from $\mC\times\text{Set}^\mC$ to $\text{Set}$, where $\text{ev}(C,F)=F(C)$. \tcbline
 \begin{proof}
 Define a function of sets $$\Psi:F(C)\to\Hom_{\text{Set}^\mC}\left(\Hom_\mC(C,-),F\right)$$ as follows. For each $x\in F(C)$, $\Psi(x)$ is a natural transformation $$\Psi(x):\Hom_\mC(C,-)\Rightarrow F$$ This is defined as for each $D\in\mC$, $\Psi(x)_D:\Hom_\mC(C,D)\to F(D)$ is defined by sending $f:C\to D$ to $F(f)(x)$. \\~\\
 
@@ -763,14 +801,14 @@ for a natural transformation $\beta$. Let $\alpha:\Hom_\mC(C,-)\Rightarrow F$ be
 
 Note that $\Hom_{\text{Set}^\mC}\left(\Hom_\mC(C,-),F\right)$ is a priori large, but it is small as a consequence of the Yoneda lemma. 
 
-\begin{crl}{Yoneda's Embedding}{} Let $\mC$ be a locally small category. Then the functor $$y:\mC^{\text{op}}\to\text{Set}^\mC$$ that 
+\begin{crl}{Yoneda's Embedding}{} Let $\mC$ be a locally small category. Define a functor $$y:\mC^{\text{op}}\to\text{Set}^\mC$$ as follows. 
 \begin{itemize}
 \item On objects, sends $C$ to $\Hom_\mC(C,-):\mC\to\text{Set}$
-\item On morphisms, sends $f:C\to D$ to a natural transformation with components $$f_X^\ast:\Hom_\mC(D,X)\to\Hom_\mC(C,X)$$ for varying $X$. These maps are defined by $\varphi\mapsto\varphi\circ f$. 
+\item On morphisms, sends $f:C\to D$ to a natural transformation $$f^\ast:\Hom_\mC(D,-)\Rightarrow\Hom_\mC(C,-)$$ with components $$f_X^\ast:\Hom_\mC(D,X)\to\Hom_\mC(C,X)$$ for varying $X$. These maps are defined by $\varphi\mapsto\varphi\circ f$. 
 \end{itemize}
-is fully faithful. Moreover, two objects $C,D$ in $\Obj\mC$ are isomorphic if and only if the functors $\Hom_\mC(C,-)$ and $\Hom_\mC(D,-)$ are naturally isomorphic. \tcbline
+Then $y$ is fully faithful. Moreover, two objects $C,D$ in $\Obj\mC$ are isomorphic if and only if the functors $\Hom_\mC(C,-)$ and $\Hom_\mC(D,-)$ are naturally isomorphic. \tcbline
 \begin{proof}
-On the level of morphisms, fully faithful means that we want to show that $$y:\Hom_{\mC^{\text{op}}}(C,D)\to\Hom_{\mC^{\text{Set}}}\left(\Hom_\mC(C,-),\Hom_\mC(D,-))\right)$$ is bijective. Using the fact that $\Hom_{\mC^{\text{op}}}=\Hom_\mC(D,C)$ and Yoneda's lemma, we have the diagram \\~\\
+On the level of morphisms, fully faithful means that we want to show that $$y:\Hom_{\mC^{\text{op}}}(C,D)\to\Hom_{\mC^{\text{Set}}}\left(\Hom_\mC(C,-),\Hom_\mC(D,-))\right)$$ is bijective. Using the fact that $\Hom_{\mC^{\text{op}}}(C,D)=\Hom_\mC(D,C)$ and Yoneda's lemma, we have the diagram \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 \Hom_\mC(D,C)\arrow[r, "y"] & \Hom_{\mC^{\text{Set}}}\left(\Hom_\mC(C,-),\Hom_\mC(D,-))\right)\arrow[d, "\Psi"]\\
 &\Hom_\mC(D,C)\\
@@ -871,11 +909,14 @@ X(I)\arrow[rd, "\lambda_I"']\arrow[rr, "X(f)"]\arrow[bend left=-20, rddd, "\psi_
 \end{tikzcd}}
 \end{defn}
 
-\begin{thm}{Universality of (Co)Limits}{} Let $C$ and $D$ be two limits of a diagram $X:\mJ\to\mC$, then there exists a unique isomorphism $C\cong D$ defining an isomorphism of cones. \tcbline
+\begin{thm}{Uniqueness of (Co)Limits}{} Let $C$ and $D$ be two limits of a diagram $X:\mJ\to\mC$, then there exists a unique isomorphism $C\cong D$ defining an isomorphism of cones. \tcbline
 \begin{proof}
 Since limits and colimits are terminal and initial respectively, by 2.1.5 we are done. 
 \end{proof}
 \end{thm}
+
+\begin{prp}{}{} Let $\mC$ be a category and let $X:\mJ\to\mC$ be a diagram. If $\mJ$ has an initial object $0\in\mJ$, then $$\lim_\mJ X=X(0)$$ Dually, if $\mJ$ has a terminal object $1\in\mJ$, then $$\colim_\mJ X=X(1)$$
+\end{prp}
 
 Recall that initial and terminal objects has an equivalent characterization using representability. Therefore by admitting a suitable functor, we should be able to convert the definition of limits and colimits in to representability criteria. It turns out that the following functor gives the characterization. 
 
@@ -889,8 +930,8 @@ Dually, define the cones under $X$ as $$\text{Cocone}(X,C)=\Hom_{\mC^\mJ}(X,\Del
 
 Note that this is not the same as the category of cones over $X$. 
 
-\begin{thm}{}{} Let $X:\mJ\to\mC$ be a diagram. Then $\lambda:\Delta C\Rightarrow X$ is a limit of $X$ if and only if the functor $\text{Cone}(-,X):\mC^\text{op}\to\bold{Set}$ is representable by $C$. This means that there is a natural isomorphism $$\Hom_\mC(-,C)\cong\text{Cone}(-,X)$$ 
-Dually, $\lambda:X\Rightarrow\Delta C$ is a colimit of $X$ if and only if there is a natural isomorphism $$\Hom_\mC(C,-)\cong\text{Cocone}(X,-)$$ \tcbline
+\begin{thm}{}{} Let $X:\mJ\to\mC$ be a diagram. Then $\lambda:\Delta C\Rightarrow X$ is a limit of $X$ if and only if the functor $\text{Cone}(-,X):\mC^\text{op}\to\bold{Set}$ is representable by $C$. This means that there is a natural isomorphism $$\Hom_\mC(-,C)\cong\text{Cone}(-,X)=\Hom_{\mC^\mJ}(\Delta(-),X)$$ 
+Dually, $\lambda:X\Rightarrow\Delta C$ is a colimit of $X$ if and only if there is a natural isomorphism $$\Hom_\mC(C,-)\cong\text{Cocone}(X,-)=\Hom_{\mC^\mJ}(X,\Delta(-))$$ \tcbline
 \begin{proof}
 Define $\Psi:\Hom_\mC(-,C)\Rightarrow\text{Cone}(-,X)$ as follows. For each $D\in\mC$, $\Psi_D:\Hom_\mC(D,C)\to\text{Cone}(D,X)$ is defined by $$(f:D\to C)\mapsto\left(D\overset{f}{\rightarrow}C\overset{\lambda_J}{\rightarrow}X(J)\right)$$ for each $J\in\mJ$. \\~\\
 
@@ -933,9 +974,6 @@ Let us define $u(y)=\{\alpha_J(y)\}_{J\in\Obj\mJ}$. If this is well defined, it 
 \end{thm}
 
 Limits and colimits generalizes all the important concepts in category theory, beginning with initial and terminal objects. 
-
-\begin{prp}{}{} Let $\emptyset$ denoted the empty category and $X:\emptyset\to\mC$ the unique diagram. If $\lim_\emptyset X$ exists, it is a terminal object of $\mC$. Dually, if $\colim_\emptyset X$ exists, it is an initial object of $\mC$. 
-\end{prp}
 
 \subsection{Products and Coproducts}
 \begin{defn}{Discrete Categories}{} Let $K$ be a set. Define the discrete category $K^S$ to consist of the following data. 
@@ -1038,7 +1076,18 @@ The universal property of the equalizer is given as follows: For $A\in\Obj\mC$ t
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 A\arrow[rd, "a"]\arrow[d, "\exists !u"', dashed] &&\\
 \lim_\mJ X\arrow[r, "h"'] & C\arrow[r, shift left, "f"]\arrow[r, shift right, "g"'] & D
-\end{tikzcd}}
+\end{tikzcd}}\\~\\
+
+Dually, the coequalizer has the following universal property: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	&& A \\
+	C & D & {\colim_\mJ X}
+	\arrow["f", shift left, from=2-1, to=2-2]
+	\arrow["g"', shift right, from=2-1, to=2-2]
+	\arrow["a"', from=2-2, to=1-3]
+	\arrow["h"', from=2-2, to=2-3]
+	\arrow["{\exists!u}"', dashed, from=2-3, to=1-3]
+\end{tikzcd}}\\~\\
 \end{defn}
 
 \begin{defn}{Kernels and Cokernels}{} Let $f:A\to B$ be a morphism in a category $\mathcal{C}$. Then a kernel of $f$ is an equalizer of $f$ and the zero morphism from $A$ to $B$. In other words, it is the following diagram: \\~\\
@@ -1059,7 +1108,7 @@ The equalizer gives us a necessary and sufficient criterion for a category to be
 
 In particular, $\mC$ is complete if and only if it admits small products and equalizers. Dually, $\mC$ is cocomplete if and only if it admits small coproducts and coequalizers. \tcbline
 \begin{proof}
-Let $f,g:\prod_{J\in\Obj\mJ}\to\prod_{(\alpha:J\to I)\in\Hom\mJ}X_I$ be defined as follows. For $f$, $f$ is determined by the maps $$\pi_I=\pi_\alpha\circ f:\prod_{K\in\Obj\mJ}X_K\overset{\pi_I}{\rightarrow}X_I$$ Similarly, $g$ is determined by the maps $$\pi_\alpha\circ g:\prod_{K\in\Obj\mJ}X_K\overset{\alpha_\ast\circ\pi_J}{\rightarrow}X_I$$ Now define a cone over $X$ by $\pi_I^E:\text{Eq}(f,g)\to X_I$ for all $I\in\Obj\mJ$ by \\~\\
+Let $f,g:\prod_{J\in\Obj\mJ}X_J\to\prod_{(\alpha:J\to I)\in\Hom\mJ}X_I$ be defined as follows. $f$ is determined by the maps $$\pi_I=\pi_\alpha\circ f:\prod_{K\in\Obj\mJ}X_K\overset{\pi_I}{\rightarrow}X_I$$ Similarly, $g$ is determined by the maps $$\pi_\alpha\circ g:\prod_{K\in\Obj\mJ}X_K\overset{\alpha_\ast\circ\pi_J}{\rightarrow}X_I$$ Now define a cone over $X$ by $\pi_I^E:\text{Eq}(f,g)\to X_I$ for all $I\in\Obj\mJ$ by \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 \text{Eq}(f,g)\arrow[r, "\pi_0"] & \prod_{J\in\Obj\mJ}X_J\arrow[r, "\pi_I"] & X_I
 \end{tikzcd}} \\~\\
@@ -1231,12 +1280,26 @@ The data of a left adjoint of $U$ consists of isomorphisms $$\Hom_\bold{Grp}(L(X
 \end{proof}
 \end{prp}
 
+We end the section with a theorem that connects (co)limits to adjunctions. 
+
+\begin{thm}{}{} Let $\mC$ be a category. Let $\mJ$ be a small category and let $\Delta:\mC\to\mC^\mJ$ be the diagonal functor sending $C$ to $\Delta(C)$. Then the following are true. 
+\begin{itemize}
+\item If $\mC$ is complete, then $\Delta(-)$ admits a right adjoint $\lim_\mJ(-)$. 
+\item Dually, if $X$ is cocomplete, then $\Delta(-)$ admits a left adjoint $\colim_\mJ(-)$. 
+\end{itemize}
+\end{thm}
+
 \subsection{(Co)Limit Preserving Functors}
 Let $\mJ\overset{X}{\to}\mC\overset{F}{\to}\mD$ be functors where $\mJ$ is small. Notice that if $X$ has a limit cone $\pi:\Delta\left(\lim_\mJ X\right)\Rightarrow X$. Then $F(\pi_I):F\left(\lim_\mJ X\right)\to F(X_I)$ defines a cone $$F(\pi):\Delta\left(F\left(\lim_\mJ X\right)\right)\to F\circ X$$ 
 The question remains that whether this is a limit cone in $\mD$. 
 
 \begin{defn}{(Co)Limit Preserving}{} Let $\mJ\overset{X}{\to}\mC\overset{F}{\to}\mD$ be functors, where $\mJ$ is small. We say that $F$ preserves limits if for every limit cone $\pi:\Delta\left(\lim_\mJ X\right)\Rightarrow X$, the cone $$F(\pi):\Delta\left(F\left(\lim_\mJ X\right)\right)\to F\circ X$$ is a limit cone. This means that $$\lim_\mJ F\circ X=F\left(\lim_\mJ X\right)$$ Dually, $F$ preserves colimits if it preserve colimit cones. 
 \end{defn}
+
+\begin{prp}{}{} Let $F:\mC\to\mD$ be a functor. If $F$ is representable, then $F$ preserves limits. 
+\end{prp}
+
+Notice that it is not necessarily true that $F$ preserves colimits. This is true when the representability condition is provided by a contravariant functor. 
 
 \begin{lmm}{}{} Let $F:\mC\to\mD$ be a functor with a left adjoint $L$. Then for every small category $\mJ$, the functor $$F\circ(-):\mC^\mJ\to\mD^\mJ$$ has a left adjoint by $L\circ(-)$. \tcbline
 \begin{proof}
