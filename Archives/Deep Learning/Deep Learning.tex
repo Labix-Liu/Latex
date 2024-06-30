@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 
-\input{C:/Users/liula/Desktop/Latex/CodeHeaders.tex}
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
 
 
 \pagestyle{fancy}
@@ -29,7 +29,7 @@ Deep learning is now taking off mainly because of the size of data that we posse
 
 \subsection{Neural Networks}
 We begin with the notion of a node. 
-\begin{defn}{Nodes}{} A node takes a vector $x$ of $n$ inputs and outputs a single value $a$ using the follow equation $$\varphi(wx+b)$$ where $w,b,\varphi$ are called parameters of the node. $w$ is a $1\times n$ matrix and $b$ is a real number. $\varphi:\R\to\R$ is called an activation function. 
+\begin{defn}{Nodes}{} A node takes a vector $x$ of $n$ inputs and outputs a single value $a$ using the follow equation $$a=\varphi(wx+b)$$ where $w,b,\varphi$ are called parameters of the node. $w$ is a $1\times n$ matrix and $b$ is a real number. $\varphi:\R\to\R$ is called an activation function. 
 \end{defn}
 
 \begin{defn}{Layers}{} A layer is a collection of ordered nodes of the same depth. The depth is denoted $l$, which means that it takes $l$ steps to transform all the initial inputs to a node in layer $l$. \\~\\
@@ -55,7 +55,13 @@ We can concatenate these $n^{[0]}\times 1$ vectors into the training data matrix
 x^{(1)} & \cdots & x^{(m)}\\
 | & \cdots & |
 \end{pmatrix}$$ Through this, we can easily batch process an entire training data set using the matrix multiplication $$Z^{[1]}=W^{[1]}A^{[0]}+b^{[1]}$$ and further applying the activation function to get $$A^{[1]}=\varphi(Z^{[1]})$$ $A^{[1]}$ in this case is of dimension $n^{[1]}\times 1$. If we inductively apply the process, we can write the following: $$Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}$$ and $$A^{[l]}=\varphi(Z^{[l]})$$ The dimensions of the matrices are as follows: 
-\begin{thm}{}{} Denote $l$ the layer of a neural network. Then $W^{[l]}$ has dimension $n^{[l]}\times n^{[l-1]}$. $b^{[l]}$ has dimension $n^{[l]}\times m$. $Z^{[l]}$ and $A^{[l]}$ both has dimension $n^{[l]}\times m$. 
+
+\begin{thm}{}{} Let $l$ be a layer of a given neural network. Suppose that there are $n^{[l]}$ nodes in layer $l$. Let $m$ be the size of the training data. Then the following are true. 
+\begin{itemize}
+\item $W^{[l]}$ has dimension $n^{[l]}\times n^{[l-1]}$
+\item $b^{[l]}$ has dimension $n^{[l]}\times m$
+\item $Z^{[l]}$ and $A^{[l]}$ both has dimension $n^{[l]}\times m$
+\end{itemize}
 \end{thm}
 
 Deep learning involves providing a specified neural network (giving it $L$ layers and $n^{[l]}$ nodes for each layer $l$) some training data and outputs the linear regression matrix $W^{[l]}$ and bias $b^{[l]}$ on each layer $l$. Assuming we found out the best $W$ and $b$ for each layer, we use this calculation to calculate our own predicted output, and compare it with the supposed output (provided along with the training data) and find out how big the difference it with a lost function. The goal is then simple: to minimize the lost function, which means to optimize it and find its local minimum. 
@@ -84,9 +90,22 @@ def linear_forward(A, W, b):
 \end{minted}
 \end{alg}
 
+\begin{defn}{Neural Networks}{} A neural network consists of the following data. 
+\begin{itemize}
+\item The total number of layers including the input and output layers
+\item The total number of nodes $n^{[l]}$ for each layer $l$
+\item The connections between the nodes of a previous layer and the current layer
+\end{itemize}
+\end{defn}
+
 \subsection{Binary Classification}
 Binary classification refers to the fact that the outputs are binary. One example is to use deep learning to identify cats. In this case, the output consists of either $1$, which means that the picture is a cat, or $0$ if not. \\~\\
-Recall that in linear regression, we calculate our estimation of the output $\hat{y}$ using the following equation: $$\hat{y}=w\cdot x+b$$ where $w\in M_{1\times n^{[0]}}(\R)$ is some vector that we are trying to improvise, and $b$ is the bias which we are also trying to improvise. Assuming that our outputs are binary, $\hat{y}$ should be a probability $$\hat{y}=\Prj(y=1|x)$$ so that it generates an estimation between $0$ and $1$. Unfortunately this does not work using the regular equation for linear regression. Instead, we input the result $z=w\cdot x+b$ further into an activation function. So that the output can 1) be between $0$ and $1$ in this special case but also more importantly, 2) so that the neural network does not reduce to a simple case of $1$ node. \\~\\
+Recall that in linear regression, we calculate our estimation of the output $\hat{y}$ using the following equation: $$\hat{y}=w\cdot x+b$$ where $w\in M_{1\times n^{[0]}}(\R)$ is some vector that we are trying to improvise, and $b$ is the bias which we are also trying to improvise. Assuming that our outputs are binary, $\hat{y}$ should be a probability $$\hat{y}=\Prj(y=1|x)$$ so that it generates an estimation between $0$ and $1$. Unfortunately this does not work using the regular equation for linear regression. Instead, we input the result $z=w\cdot x+b$ further into an activation function so that 
+\begin{enumerate}
+\item the output is between $0$ and $1$
+\item the neural network does not reduce to a simple case of that of $1$ node. 
+\end{itemize}
+
 To elaborate, notice that if we take a linear function for the activation function, say the identity, by composing $A^{[l]}$, we get $$A^{[L]}=W^{[L]}W^{[L-1]}\cdots W^{[1]}A^{[0]}+B$$ This is clearly just the same expression as $z=w\cdot x+b$ which means that no matter how many layers we define the neural network, the network reduces to a one layer network. \\~\\
 The remainder of the codes of the section will be dedicated to how to program an $L$ layer with binary classification at the last layer. The regression model for a binary classification model is called a logistic regression. 
 
@@ -121,11 +140,13 @@ def initialize_parameters_deep(layer_dims):
 The factor of $0.01$ is there to make sure that the weights are close to $0$. As seen in the graph of sigmoid, for large weights, $z$ becomes large and thus the gradient becomes close to $0$, making gradient descent (the optimization technique slow). \\~\\
 Moreover, bias take no effect in random initialization nor are they penalized in the algorithm. 
 
-\subsection{The First Hypervariables}
-\begin{defn}{Hypervariables}{} The hypervariables of a program refers to variables that controls the output of other variables which further affects the output of the program. 
+\subsection{Forward Propagation}
+Recall that a node of a neural network consists of a weight and bias, which are variables that we would like to tune. It also consists of an activation function which is not part of the variables which is tuned but is instead fixed for every node. 
+
+\begin{defn}{Activation Function}{} An activation function of a node is a function that calculates the output of the node using the input data from the previous layer, a choice of weight and a bias. 
 \end{defn}
 
-Namely, the activation function and the lost function are both hypervariables of a neural network. They control what $W$ and $b$ will look like for each node. Common choices of activation functions include the following $$\sigma(z)=\frac{1}{1+e^{-z}}$$~$$\text{ReLU}(z)=\max\{0,z\}$$~$$\tanh(z)=\frac{e^z-e^{-z}}{e^z+e^{-z}}$$ Commonly, we will use $\text{ReLU}$ for its far from $0$ derivative (as we will see, lost functions are optimized by using gradient descent, which depends on the derivative). However, in the case of binary classification, we may want to use the sigmoid function so that its outputs are between $0$ and $1$. $\tanh$ are sometimes useful because the the function lies between $-1$ and $1$ so that the mean of the data can be closer to $0$. \\~\\
+Common choices of activation functions include the following $$\sigma(z)=\frac{1}{1+e^{-z}}$$~$$\text{ReLU}(z)=\max\{0,z\}$$~$$\tanh(z)=\frac{e^z-e^{-z}}{e^z+e^{-z}}$$ We will mostly use $\text{ReLU}$ because its derivative is $0$ for negative values (as we will see, lost functions are optimized by using gradient descent, which depends on the derivative). However, in the case of binary classification, we may want to use the sigmoid function so that its outputs are between $0$ and $1$. $\tanh$ are sometimes useful because the the function lies between $-1$ and $1$ so that the mean of the data can be closer to $0$. \\~\\
 
 The following code the function of a single node, using the linear forward module. 
 
@@ -154,6 +175,8 @@ def linear_activation_forward(A_prev, W, b, activation):
     return A, cache
 \end{minted}
 \end{alg}
+
+Forward propagation refers action of inputting training data and outputting the calculated values using the neural network. The goal is then to compare the calculated values with the expected values and to try and make sense of the difference. \\~\\
 
 We then use linear activation forward to calculate the final prediction result using the following module: 
 
@@ -186,7 +209,8 @@ def L_model_forward(X, parameters):
 \end{minted}
 \end{alg}
 
-Similarly, there is a choice for the loss function. Loss functions are calculated independently from each training set. They are combined into an average $J=\frac{1}{m}\sum_{i=1}^m\mathcal{L}$. The square error $$\mathcal{L}=\frac{1}{2}(\hat{Y}-Y)^2$$ is often not useful in linear regression due to having no vertex. It is common to use the loss function $$\mathcal{L}=-(Y\log(\hat{Y})+(1-Y)\log(1-\hat{Y}))$$ for logistic regression. \\~\\
+\subsection{Lost and Cost Function}
+Loss functions are calculated independently from each training set. They are combined into an average $J=\frac{1}{m}\sum_{i=1}^m\mathcal{L}$. The square error $$\mathcal{L}=\frac{1}{2}(\hat{Y}-Y)^2$$ is often not useful in linear regression due to having no vertex. It is common to use the loss function $$\mathcal{L}=-(Y\log(\hat{Y})+(1-Y)\log(1-\hat{Y}))$$ for logistic regression. \\~\\
 It is easy to see that if a training data $y=1$, then $\mathcal{L}=-\log(\hat{y})$ which means that our optimization should be based on $\hat{y}$ being as large as possible. Since $0\leq \hat{y}\leq 1$ we must have $\hat{y}=1$ for best optimization. Similarly, if $y=0$, $\mathcal{L}=-\log(1-\hat{y})$ will result in optimization towards $\hat{y}=0$. \\~\\
 We finally have the cost function. 
 
@@ -215,13 +239,13 @@ def compute_cost(AL, Y):
 \end{minted}
 \end{alg}
 
-\subsection{Optimization via Gradient Descent}
+\subsection{Backwards Propagation}
 Optimization of the loss function involves finding the minimum of the function. Since $J$ is a convex function, we can use the method of gradient descent. 
 
 \begin{defn}{Gradient Descent}{} For a function $J$ with partial variable $w$, we find the local optima with respect to $w$ using the formula $$w_{n+1}=w_n-\alpha\frac{\partial J(w)}{\partial w}\bigg{|}_{w=w_n}$$ where $0\leq\alpha\leq 1$ is called the learning rate. In matrix form this is written as $$W_{n+1}^{[l]}=W_n^{[l]}-\alpha\frac{\partial J(W^{[l]}}{\partial W^{[l]}}\bigg{|}_{W^{[l]}=W_n^{[l]}}$$ $n$ here indicates the $n$th iteration. 
 \end{defn}
 
-The learning rate is another hypervariable that we will come and modify later. We will repeatedly obtain new values of $W$ and $b$ for every node and run more iterations to fine tune their values, hence explaining why iteration appears in the definition. \\~\\
+We will repeatedly obtain new values of $W$ and $b$ for every node and run more iterations to fine tune their values, hence explaining why iteration appears in the definition. \\~\\
 The process of finding $A^{[l]}$ for each layer is called forward propagation for its iterative use of $A^{[l-1]}$, while finding $\frac{\partial J(w)}{\partial w}|_{w=w_n}$ is called backwards propagation for its iterative use of $\frac{\partial J(w)}{\partial w}|_{w=w_{n-1}}$ AFTER computing $A^{[L]}$. \\~\\ We establish the following notation. 
 
 \begin{defn}{}{} Suppose there is a neural network with $L$ layers. Suppose there are $n^{[l]}$ nodes on the $l$th layer. Denote $$\frac{\partial\mathcal{L}}{\partial W^{[l]}}=\begin{pmatrix}
@@ -371,6 +395,24 @@ def update_parameters(params, grads, learning_rate):
 
 Learning rate determines how big the step is per iteration as it goes down to the minima. It is a hyperparameter that may lead to divergence if the rate is too high, or taking long computational time if the rate is too low. 
 
+\subsection{Putting Everything Together}
+We have now introduced all players of a neural network, let us recap and assemble the neural network. \\~\\
+
+Recall that a neural network consists of layers and nodes, as well as the connection between nodes of the previous layer and the current layer. Each node is a function that takes in data from the previous nodes and outputs new data using the following variables: 
+\begin{itemize}
+\item The weight of previous nodes
+\item The bias of previous nodes
+\item A chosen activation function
+\end{itemize}
+To train a neural network consists of the following steps. 
+\begin{enumerate}
+\item Collect and input training data which includes the expected output of the network for each datum. 
+\item Forward Propagation: Compute the actual output of the training data using the network. 
+\item Backwards Propagation: Optimize the values of the weights and biases of each node in every layer by performing gradient descent on the chosen cost function. 
+\end{enumerate}
+
+This completes a training cycle. It is often to repeat the above with multiple batches of training data. 
+
 \pagebreak
 \section{Improving the Adaptability of the Prediction}
 Applied machine learning is highly iterative. This is to find out the best set of hyperparameters to train the parameters. In particular, it is important to find out 
@@ -381,6 +423,19 @@ Applied machine learning is highly iterative. This is to find out the best set o
 \item Activation functions
 \end{itemize}
 through the use of the idea$\to$code$\to$experiment cycle. Moreover, intuition from one application area usually does not transfer to another. In this section, we try to control the data set as well as fine tuning the change in $W^{[l]}$ and $b^{[l]}$ to improve the prediction output of the learning process. 
+
+\subsection{Hypervariables}
+\begin{defn}{Hypervariables}{} The hypervariables of a program refers to variables that controls the output of other variables which further affects the output of the program. 
+\end{defn}
+
+The following are all hypervariables of a neural network. 
+\begin{itemize}
+\item Number of layers
+\item Number of hidden units per layer
+\item Learning rates
+\item Activation functions
+\end{itemize}
+They control what $W$ and $b$ will look like for each node. For different values of hypervariables, the optimization of the cost function will be different. 
 
 \subsection{Data Sets}
 Suppose we have $n$ training data available. Traditionally, we split the training data into the training set, the dev set and the test set using either the $60\%/20\%/20\%$ split or the $70\%/30\%$ split ignoring the test set. However, as we gather more and more data, it is useful to put in more data into training since we will still have a large amount of data for testing. \\~\\
@@ -461,10 +516,122 @@ One way to lower the computation time is to process the training data in a minib
 \subsection{Optimization of the Gradient Descent}
 \subsection{Learning Rates}
 
+\pagebreak
+\section{Convolutional Neural Networks}
+\subsection{Matrix Convolutions}
+\begin{defn}{Matrix Convolutions}{}
+\end{defn}
+
+\begin{defn}{Padding}{}
+\end{defn}
+
+\begin{defn}{Strided Convolutions}{}
+\end{defn}
+
+\subsection{Convolutions in Neural Networks}
+A neural network consists of layers of nodes organized in a single file, and hence we use matrix and vectors to manipulate the data. A convolutional neural network arranges the nodes in 3D and furthermore, changes the size each layer through convolutions, hence the name. 
+
+\begin{defn}{Convolutional Layers}{} Let $A^{[l-1]}$ denote the output of the $l-1$ layer. Suppose that $A^{[l-1]}$ is of size $m\times n_H^{[l-1]}\times n_W^{[l-1]}\times n_C^{[l-1]}$, where $m$ is the size of the training data. We will consider the case $m=1$ and generalizes it accordingly. A convolutional layer consists of the following data: 
+\begin{itemize}
+\item $n_C^{[l]}$ amount of nodes with a weight and a bias and a chosen activation function. 
+\item Each weights are of size $f^{[l]}\times f^{[l]}\times n_C^{[l-1]}$, where $f^{[l]}$ is called the filter size
+\item Each biases is of size $n_H^{[l]}\times n_W^{[l]}$ where $$n_H^{[l]}=\floor*{\frac{n_H^{[l-1]}+2p^{[l]}-f^{[l]}}{s^{[l]}}}+1\;\;\;\;\text{ and }\;\;\;\; n_W^{[l]}=\floor*{\frac{n_W^{[l-1]}+2p^{[l]}-f^{[l]}}{s^{[l]}}}+1$$ ($p,s$ explained below)
+\end{itemize}
+Both of which acts as variables of the neural network, such that the output of the layer is calculated as follows. 
+\begin{enumerate}
+\item For each node with weight $W$, apply the convolution $$A^{[l-1]}\ast W$$ with stride $s^{[l]}$ and padding size $p^{[l]}$ to obtain $W^{[l]}$ amount of $n_H^{[l]}\times n_W^{[l]}$ matrices. 
+\item For each node, add in the corresponding biases to the above matrices
+\item Apply the new matrices to their respective activation functions. 
+\item Stack up the matrices to form the output which has dimension $n_H^{[l]}\times n_W^{[l]}\times n_C^{[l]}$
+\end{enumerate}
+For general training sizes $m$, all matrices have an extra dimension which is of size $m$. 
+\end{defn}
+
+\begin{defn}{Convolutional Neural Networks}{} Convolutional neural networks is a neural network that consists of convolutional layers. 
+\end{defn}
+
+\subsection{Types of Convolutions}
+
+\pagebreak
+\section{Deep Neural Networks}
+
+\pagebreak
+\section{Recurrent Neural Networks}
+
+\pagebreak
+\section{Large Language Models}
+Large language models refer to large, general purpose language models that can be pre-trained and then fine tuned for specific purposes. They are trained to solve common language problems such as text classification, questions answering, document summarization and text generation. They can then be tailored to solve problems in specific fields of interests. \\~\\
+
+Large here means that there is a large training data set and a large number of parameters. It is also general purpose in the sense that human language is crucial for a society to function. They are usually pre-trained with a smaller data set. They usually require minimal training data to tailor it to a specific situation such as retail. A recent example of such a large language model is PaLM, created by Google. \\~\\
+
+With LLM development, there is no need for machine learning expertise nor any training examples. This is because there is no need to train a model and instead people are more focused in thinking about prompt design. This is compared to traditional machine learning development in which machine learning expertise is needed and one needs to train a model and think about computational costs and thinking about minimizing the cost function. \\~\\
+
+Question answering is a subfield of natural language processing (NLP) that deals with the task of answering questions given in a language naturally. They are trained in a large number of texts and are able to answer a ride range of questions. There is no need for specific domain knowledge. \\~\\
+
+Prompt design is the process of creating a prompt tailored to the specific task that the system is being asked to perform. Prompt engineering is the process of creating a prompt that is designed to improve performance. The latter may require specific domain knowledge. \\~\\
+
+There are three main types of large language models. Generic language models predict the next word / token based on the language in the given training data. This involves completing sentences. Instruction tuned models are trained to predict a response to the instructions given in the input. This involves answering full questions. Dialogue tuned models are trained to have a dialogue predicting a response. They are a special case of instruction tuned models. They work best with paraphrasing / humane type responses. \\~\\
+
+Tuning is the process of adapting a model to a new domain or a set of custom use cases by training the model on new training data. Fine tuning is expensive and not efficient in most cases. Therefore there are more specific types of tuning such as parameter efficient tuning methods (PETM). This a method for tuning an LLM on your own custom data without duplicating the model. Another type is prompt tuning which is one of the easiest parameter-efficient tuning methods. Generative AI and vertex AI studio allows one to quickly explore and customize different AI. They come with a library of pre trained models, a tool for fine tuning models, a tool for deploying models and a community forum. Vertex AI also requires little to none coding experiences. It is useful for creating Chat-bots, digital assistants, custom search engines, knowledge bases, training applications and more. PaLM API allows one to test and customize google created AI models. They are equipped with a graphical user interface. 
+
+A transformer model consists of a encoding component and a decoding component. The encoding component takes in an input and the decoding component solves the task at hand. \\~\\
+
+
+\subsection{Data Preprocessing}
+Large language models take in sentences / paragraphs as the total input. In order to understand the meaning behind each sentence, we must first break down the sentence / paragraph in a meaningful way. Namely, we break down each paragraphs into sentences and then each sentence into words. \\~\\
+
+Given an input $P$ that is a string (eg a paragraph or a sentence), we use an array $X$ to store all the words of $P$. However we do not store the contents of $P$ as strings. Instead, we establish a dictionary, which is an array that stores some amount of vocabulary, indexed by $I\subseteq \N$. For example, one may have $$\begin{bmatrix}
+1 & 2 & \cdots & 10000\\
+\text{a} & \text{aaron} & \cdots & \text{zulu}
+\end{bmatrix}$$ Suppose that the dictionary has length $N$. Each word is looked up in the dictionary and is returned the index of the word in the vocabulary. It is then represented as a one-hot vector with position the index. This means that if word $i$ in paragraph $P$ has index $k_i$ in the dictionary, then we obtain a vector with $1$ at position $k_i$ and $0$ everywhere else. We combine the results into a single matrix $X$, of size $N\times d$. Each column in $X$ is precisely the one-hot vector for the words. 
+
+\subsection{Attention}
 
 
 
+\begin{defn}{Self Attention Layer}{} For an input $(x_1,\dots,x_n)$ of $n$ elements, the self attention layer outputs a vector $(a_1,\dots,a_n)$ of $n$ elements in the following way. 
+\begin{enumerate}
+\item Given weight matrices $W^Q$, $W^K$ and $W^V$, compute the following for each $1\leq i\leq n$. 
+\begin{itemize}
+\item Query: $q_i=x_iW^Q$
+\item Key: $k_i=x_iW^K$
+\item Value: $v_i=x_iW^V$
+\end{itemize}
+\item Compute $$\alpha_{ij}=\text{Softmax}\left(\frac{q_i\cdot k_j}{\sqrt{d_k}}\right)$$ where the division by $\sqrt{d_k}$ is a normalization process related to the dimension of the query and key vectors. 
+\item Compute $$a_i=\sum_{j\leq i}\alpha_{ij}v_j$$ which is the final output. 
+\end{defn}
 
+Since each output of a training set is independent of the of the other outputs, we can parallelize the process. In this case, we first impose that the maximum character of each input $x_i$ a value $d$. If the training set has size $m$, then the input $X\in M_{m\times d}(\R)$. \\~\\
+
+Transformers in fact are more complicated than self attention. For one, different words in a sentence can relate to each word in multiple ways instead of one. This leads to multihead attention. \\~\\
+
+In multihead attention, we first choose the number of heads $h$, and then provide with each head the weight matrices for query $W_i^Q$, for key $W_i^K$ and for value $W_i^V$. Individually, we compute the attention for each head $$\text{head}_i=\text{Selfattention}(Q,K,V)$$ and then we compute the multihead attention $A$ by projecting it down to an appropriate dimension using an orthogonal matrix $W^O$ after we put all the self attention matrices into a direct sum: $$A=\left(\bigoplus_{i=1}^h\text{head}_i\right)W^O$$
+
+\subsection{Transformer Blocks}
+We will need a few more components to assemble the transformer. 
+
+\begin{defn}{Feed Forward Layer}{}
+\end{defn}
+
+\begin{defn}{Residual Connection}{} Residual Connection inputs two sequences of the same dimensions and sum it element wise. 
+\end{defn}
+
+The point of residual connections is that we can give higher level layers direct access to lower level information, without going through the intermediate layers. 
+
+\begin{defn}{Layer Normalize}{}
+\end{defn}
+
+\begin{defn}{Transformer Blocks}{} A transformer block consists of a sequence of operations. 
+\begin{itemize}
+\item 0) The sequence of inputs are provided to the transformer. 
+\item 1) Mutihead Attention Layer
+\item 2) Residual Connection: The output of 1) with 0)
+\item 3) Layer Normalize
+\item 4) Feed Forward Layer
+\item 5) Residual Connection: The output of 4) with the output of 3)
+\item 6) Layer Normalize
+\end{itemize}
+\end{defn}
 
 
 

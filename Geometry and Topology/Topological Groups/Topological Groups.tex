@@ -36,6 +36,8 @@ In algebraic topology, we have the results of considering groups acting on space
 \begin{defn}{Continuous Group Actions}{} Let $G$ be a topological group and $X$ a space. We say that $G$ is a continuous group action if $G$ is a group acting on $X$ such that the group action map $$\cdot:G\times X\to X$$ is continuous. 
 \end{defn}
 
+Frequently a continuous group action is also called a (topological) transformation group, for example in Milnor's Topology of Fiber Bundles. 
+
 \begin{prp}{}{} Let $G$ be a continuous group action of $X$. Then for each $g\in G$, the map $\text{A}_g:X\to X$ defined by $x\mapsto g\cdot x$ is a homeomorphism. \tcbline
 \begin{proof}
 Every element of $g$ has an inverse $g^{-1}$ which are both continuous and are bijections on $X$. 
@@ -50,14 +52,23 @@ Suppose that $G$ is a continuous group action on $X$. Then for each $g\in G$, $g
 
 In particular, some authors would assume one knows this fact, so it is always nice to see it spelled out. It is also standard to denote this action just by the element $g$ instead of $A_g$. Notice that in particular, if $G$ is a continuous group action, then there is a homomorphism $G\to\text{Homeo}(X)$. If this homomorphism is injective, then $G$ includes into $\text{Homeo}(X)$ so that $G$ is a subgroup of homeomophisms. 
 
-\begin{defn}{Proper Group Actions}{} Let $G$ be a topological group acting continuously on a topological space $X$. The action is said to be proper if the map $G\times X\to X\times X$ defined by $$(g,x)\mapsto(x,g\cdot x)$$ is a proper map. 
+\begin{defn}{Group of Diffeomorphisms}{} Let $G$ be a continuous group action on a space $X$. We say that $G$ is a group of homeomorphisms of $X$ if for every $g\in G$, the map $$x\mapsto g\cdot x$$ is a homeomorphism. 
 \end{defn}
 
-\subsection{Equivariant Maps}
-\begin{defn}{Equivariant Maps}{} Let $G$ be a topological group and let $X,Y$ be $G$-spaces. A map $f:X\to Y$ is said to be $G$-equivariant if $$f(g\cdot x)=g\cdot f(x)$$ for all $g\in G$ and $x\in X$. 
+\subsection{Point Set Topology of G-Spaces}
+\begin{defn}{G-Spaces}{} Let $G$ be a topological group. A $G$-space is a topological space $X$ together with a continuous group action given by $G$. 
+\end{defn}
+
+\begin{defn}{G-Equivariant Maps}{} Let $G$ be a topological group and let $X,Y$ be $G$-spaces. A $G$-equivariant map is a continuous map $f:X\to Y$ such that $f$ is equivariant. In other words, we require that $$f(g\cdot x)=g\cdot f(x)$$ for all $x\in X$ and all $g\in G$. 
+\end{defn}
+
+\begin{defn}{G-Homotopy}{} Let $G$ be a topological group and let $X,Y$ be $G$-spaces. Let $f,g:X\to Y$ be $G$-equivariant maps. A $G$-homotopy from $f$ to $g$ is a homotopy $H:X\time I\to Y$ from $f$ to $g$ such that for each $t\in I$, the map $$H(-,t):X\to Y$$ is $G$-equivariant map. 
 \end{defn}
 
 \subsection{Properly Discontinuous Group Actions}
+\begin{defn}{Proper Group Actions}{} Let $G$ be a topological group acting continuously on a topological space $X$. The action is said to be proper if the map $G\times X\to X\times X$ defined by $$(g,x)\mapsto(x,g\cdot x)$$ is a proper map. 
+\end{defn}
+
 \begin{defn}{Properly Discontinuous Group Actions}{} Let $G$ be a group acting on a space $X$. Then we say that $G$ is a properly discontinuous group action if for every compact set $K\subseteq X$, we have $$(g\cdot K)\cap K\neq\emptyset$$ for finitely many $g\in G$. 
 \end{defn}
 
@@ -76,7 +87,7 @@ Recall the notion of a covering space action. $G$ is a covering space action on 
 
 \pagebreak
 \section{The Coset Space}
-\subsection{The Coset Space}
+\subsection{The Topology of Coset Spaces}
 \begin{defn}{Coset Space}{} Let $B$ be a topological group and $G$ a closed subgroup of $B$. The coset space of $B$ by $G$ is the set $$B/G=\{bG\;|\;b\in B\}$$ together with the topology in which $U\subseteq B/G$ is open $p^{-1}(U)$ is open, where $p:B\to B/G$ is the quotient homomorphism. 
 \end{defn}
 
@@ -88,17 +99,25 @@ Note that there is also a definition of the coset space by right cosets instead 
 \begin{prp}{}{} Let $B$ be a topological group and $G$ a closed subgroup of $B$. Then $B/G$ is a Hausdorff space. 
 \end{prp}
 
-\subsection{The Translation Map}
-\begin{defn}{The Translation Map}{} Let $B$ be a topological group and $G$ a closed subgroup of $B$. Let $b\in B$. Define the translation map $B\times B/G\to B/G$ defined by $$b\cdot x\mapsto p(bp^{-1}(x))$$
+\subsection{Coset Spaces of Transitive Actions}
+\begin{thm}{}{} Let $G$ be a topological group acting continuously on a space $X$.  Let $x_0\in X$. Then the map $$p:\frac{G}{\text{Stab}_G(x_0)}\to Gx_0\subseteq X$$ given by $g\mapsto g\cdot x_0$ is well defined, and moreover, a homeomorphism. 
+\end{thm}
+
+\begin{crl}{}{} Let $G$ be a topological group and let $X$ be a $G$-space. If $G$ is free and transitive, then $G$ is homeomorphic to $X$. 
+\end{crl}
+
+\begin{crl}{}{} Let $G$ be a topological group acting continuously on a space $X$.  Then there exists a normal subgroup $H$ of $G$ such that $$\frac{G}{H}\cong X$$
+\end{crl}
+
+\subsection{Coset Spaces with the Group Action of the Base Space}
+\begin{defn}{The Translation Map}{} Let $B$ be a topological group and $G$ a closed subgroup of $B$. Let $b\in B$ and suppose that $p:B\to B/G$ is the quotient map. Define the translation map $B\times B/G\to B/G$ defined by $$(b,x)\mapsto p(bp^{-1}(x))$$
 \end{defn}
 
-\begin{prp}{}{} $B$ is a group of transformations of $B/G$ under the above operation. Moreover, $B$ is a group of homeomorphisms of $B/G$. 
+\begin{prp}{}{} Let $B$ be a topological group and $G$ a closed subgroup of $B$. Then the translation map is a continuous group action of $B$ on $B/G$. Moreover, $B$ is a group of homeomorphisms of $B/G$. 
 \end{prp}
 
 \begin{prp}{}{} Let $B$ be a topological group and $G$ a closed subgroup of $B$. Let $$G_0=\bigcap_{b\in B}bGb^{-1}$$ Then $B/G_0$ acts faithfully on $B/G$. Moreover, $B/G_0$ is a group acting continuously on $B/G$. 
 \end{prp}
-
-
 
 
 
