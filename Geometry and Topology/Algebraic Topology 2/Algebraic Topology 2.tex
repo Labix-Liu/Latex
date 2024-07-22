@@ -16,10 +16,13 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-Algebraic Topology 2 concerns yet another algebraic invariant of topological spaces. The homology groups of a space is more powerful than the fundamental group in identifying homeomorphic spaces. However it is also harder to compute, and requires more algebraic background to power the engine. 
+Algebraic Topology 2 concerns two new algebraic invariants for topological spaces. The homology groups of a space is more powerful than the fundamental group in identifying homeomorphic spaces. However it is also harder to compute, and requires more algebraic background to power the engine. The cohomology ring on the other hand lies in between the homotopy groups and the homology groups. It has a richer structure which enables it to distinguish more spaces, and it is easier to calculate than homology in some cases. \\~\\
+
+References: 
 \begin{itemize}
 \item Notes on Algebraic Topology by Oscar Randal-Williams
 \item Notes on MA3H6 Algebraic Topology 2 by Martin Gallauer
+\item Algebraic Topology by Allen Hatcher
 \end{itemize}
 \end{abstract}
 \pagebreak
@@ -1940,9 +1943,8 @@ where $d_k=\pm2$ if $k$ is even and $d_k=0$ if $k$ is odd. It follows that $$\de
 
 \pagebreak
 \section{Variants of Singular Homology}
-\subsection{Homology with Coefficients}
 \subsection{Unification of the Homology Theories}
-We studied three different homology theories, namely the simplicial homology $H_\ast^{\Delta}$, singular homology $H_\ast$ and Cellular homology $H_\ast^{\text{CW}}$. We have seen that $H_\ast^{\text{CW}}(X)\cong H_n(X)$ for a CW-complex $X$. 
+We studied three different homology theories, namely the simplicial homology $H_\ast^{\Delta}$, singular homology $H_\ast$ and Cellular homology $H_\ast^{\text{CW}}$. We have seen that $H_\ast^{\text{CW}}(X)\cong H_n(X)$ for a CW-complex $X$. We can also show that singular homology does not give new information compared to simplicial homology. 
 
 \begin{thm}{}{} Let $X$ be a topological space endowed with a $\Delta$-complex structure $(T,\abs{T}\cong X)$. The induced map $H_n^\Delta(X)\to H_n(X)$ by the map $s:\Delta^n\to X$ for each $s\in T^n$ is an isomorphism. \tcbline
 \begin{proof}
@@ -2012,16 +2014,53 @@ Direct since singular homology coincides with simplicial homology.
 \end{proof}
 \end{crl}
 
-\pagebreak
-\section{Algebra of Cochain Complexes}
-\subsection{Hom Functor for Abelian Groups}
-\begin{defn}{The Hom Set}{} Let $H,G$ be abelian groups. Denote $\Hom(H,G)$ the set of all homomorphisms from $H$ to $G$. 
+\subsection{Homology with Coefficients}
+We would now like to generalize singular homology so that the coefficients of the chain complex does not take values in $\Z$, but instead in an arbitrary group $G$. For this, we first modify the group of $n$-chains. 
+
+\begin{defn}{Singular n-Chains with Coefficients in a Group}{} Let $X$ be a space. Let $G$ be an abelian group. Define the group of singular $n$-chains with coefficients in $G$ to be $$C_n(X;G)=C_n(X)\otimes G$$ Let $A\subseteq X$ be a subspace. Define the relative $n$-chains with coefficients in $G$ to be the group $$C_n(X,A;G)=\frac{C_n(X;G)}{C_n(A;G)}$$
 \end{defn}
 
-\begin{lmm}{}{} Let $H,G$ be abelian groups. Then $\Hom(H,G)$ is also an abelian group. 
+In particular, notice that the tensor product here just means that $C_n(X;G)$ is just copies of $G$, where the number of copies is precisely the number of singular $n$-simplexes in $X$. 
+
+\begin{defn}{Boundary Operator}{} Let $X$ be a space. Let $G$ be an abelian group. Define the boundary operator of the singular chain complex with coefficients in $G$ to be $$\partial_G=\partial_n\otimes 1_G:C_n(X;G)\to C_{n-1}(X;G)$$ defined by $\sigma\otimes g\mapsto\partial_n(\sigma)\otimes g$ and then extended linearly. 
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a space. Let $G$ be an abelian group. Then $\partial_G\circ\partial_G=0$. Moreover, the groups $C_n(X;G)$ together with the boundary operator $\partial_G$ is a chain complex. 
 \end{lmm}
 
-\begin{lmm}{}{} Let $f:A\to B$ be a homomorphism of abelian groups. Then $f$ induces a homomorphism $f^\ast:\Hom(B,G)\to\Hom(A,G)$ for any group $G$. Moreover, if $g:B\to C$ is a homomorphism of abelian groups, then $(g\circ f)^\ast=f^\ast\circ g^\ast$. 
+\begin{defn}{Singular Homology with Coefficients}{} Let $X$ be a space. Let $G$ be an abelian group. Define the singular homology groups of $X$ to be the homology groups of the chain complex $(C_\bullet(X;G),\partial_G)$. This means that $$H_n(X;G)=\frac{\ker(\partial_G:C_n(X;G)\to C_{n-1}(X;G))}{\im(\partial_G:C_{n+1}(X;G)\to C_n(X;G))}=H_n(C_\bullet(X;G))$$ for $n\in\N$. 
+\end{defn}
+
+A natural question would be to ask whether there is a relation between homology with integer coefficients $H_n(X)$ and homology with arbitrary coefficients $H_n(X;G)$. Namely, the chain complex for singular homology with coefficients simply replaces the integral coefficients of the original singular chain complex via the tensor product. Is there a natural association between $H_n(X)\otimes G$ and $H_n(X;G)$? \\~\\
+
+The answer is yes, but it is not an isomorphism. Moreover, there is a way to measure the failure of the isomorphism in a natural and functorial way. This will be delayed to later sections. 
+
+\pagebreak
+\section{Algebra of Cochain Complexes}
+\subsection{Cochain Complexes}
+\begin{defn}{Cochain Complexes}{} A cochain complex $(C^\bullet,\partial^\bullet)$ is a family of abelian groups $C^n$ for $n\in\Z$ and maps $\partial^n:C^{n-1}\to C^n$ such that $\partial^{n+1}\circ\partial^n=0$ for all $n$. In other words, we have the diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\cdots & C^{n+1}\arrow[l] & C_n\arrow[l, "\partial^{n+1}"'] & C_{n-1}\arrow[l, "\partial^n"'] & \cdots\arrow[l]
+\end{tikzcd}}
+\end{defn}
+
+Notice that algebraically, there is no difference between a chain complex and a cochain complex, other than the fact that the boundary maps run in the other direction. In particular, one can also obtain its homology groups. In the case of a cochain complex, we name them as cohomology groups instead. 
+
+\begin{defn}{Cohomology Groups}{} Let $(C^\bullet,\partial^\bullet)$ be a cochain complex. Define the $n$th cohomology group of the cochain complex to be $$H^n(C^\bullet,\partial^\bullet)=\frac{\ker(\partial^{n+1}:C^n\to C^{n+1})}{\im(\partial^n:C^{n-1}\to C^n)}$$
+\end{defn}
+
+If one does not want distinguish between chain complexes and cochain complexes, then the cohomology groups of a cochain complex can be obtained by applying $H_\bullet$ to the (co)chain complex $(C^\bullet,\partial^\bullet)$. In other words, the definition of cohomology groups becomes $$H_n(C^\bullet,\partial^\bullet)$$~\\
+
+The reason one makes a difference is because we can naturally associate to every chain complex a cochain complex, and the naming improves readibility. The following sections describe the process of creating a cochain complex from a given chain complex. 
+
+\subsection{Hom Functor for Abelian Groups}
+\begin{defn}{The Hom Set}{} Let $G,H$ be abelian groups. Denote $$\Hom(G,H)=\{\varphi:G\to H\;|\;\varphi\text{ is a group homomorphism}\}$$ the set of all homomorphisms from $G$ to $H$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $H,G$ be abelian groups. Then the operator $$+:\Hom(H,G)\times\Hom(H,G)\to\Hom(H,G)$$ defined by $(f+g)(x)=f(x)+g(x)$ gives $\Hom(H,G)$ the structure of an abelian group. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $f:A\to B$ be a homomorphism of abelian groups. Then $f$ induces a homomorphism $$f^\ast:\Hom(B,G)\to\Hom(A,G)$$ for any group $G$. Moreover, if $g:B\to C$ is a homomorphism of abelian groups, then $(g\circ f)^\ast=f^\ast\circ g^\ast$. 
 \end{lmm}
 
 \begin{prp}{}{} Let $A,B,C$ be abelian groups. Then the $\Hom$ functor has the following properties. 
@@ -2035,35 +2074,25 @@ Direct since singular homology coincides with simplicial homology.
 \end{itemize}
 \end{prp}
 
-\subsection{Cochain Complexes}
-\begin{defn}{Cochain Group}{} Let $(C,\partial)$ be a chain complex. Let $G$ be a fixed abelian group. For each abelian group $C_n$, define the dual cochain group to be $$C^n=\Hom(C_n,G)$$ which is the set of all homomorphisms from $C_n$ to $G$. 
+\subsection{Producing a Cochain Complex from a Chain Complex}
+\begin{defn}{Associated Cochain Groups}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Let $G$ be a fixed abelian group. For each abelian group $C_n$, define the associated cochain group to be $$C^n=\Hom(C_n,G)$$ Also define the coboundary map $\delta^n=\partial_n^\ast:C^{n-1}\to C^n$ by $$\delta^n(\phi)(\alpha)=\psi(\partial_{n+1}(\alpha))$$
 \end{defn}
 
-\begin{defn}{Coboundary Map}{} Let $(C,\partial)$ be a chain complex. Define the coboundary map as a function $\delta_n=\partial_n^\ast:C^{n-1}\to C^n$ by $$\delta_n(\phi)(\alpha)=\psi(\partial_{n+1}(\alpha))$$
-\end{defn}
-
-Notice that this makes sense since $\delta_n$ itself is a function between dual cochain groups so feeding an element $\phi$ of $C_{n-1}^\ast$ should also result in a function that maps $C_n$ to $G$. In other words, $\delta_n$ is a push forward map. Moreover, this $\delta_n$ arises naturally by considering the $\Hom$ functor in category theory, without explicitly defining it. The following lemma is precisely made trivial if category theory is considered. 
-
-\begin{lmm}{}{} The coboundary map satisfies $\delta_n\circ\delta_{n-1}=0$ for all $n$ such that $(C^\bullet,\delta_n)$ is a chain complex. 
+\begin{lmm}{}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex and let $C^\bullet$ and $\delta^\bullet$ be the associated cochain groups and coboundary maps respectively. Then $$\delta^n\circ\delta^{n-1}=0$$ for all $n$ such that $(C^\bullet,\delta^\bullet)$ is a cochain complex. 
 \end{lmm}
 
-\begin{defn}{Cochain Complex}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Let $G$ be a group. Define the cochain complex $(C^\bullet,\delta_n)$ to be the collection of all cochain groups $C^n=\Hom(C_n,G)$ and coboundary maps $\delta_n:C^{n-1}\to C^n$. In other words, we have the diagram: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-\cdots & C^{n+1}\arrow[l] & C^n\arrow[l, "\delta_{n+1}"'] & C^{n-1}\arrow[l, "\delta_n"'] & \cdots\arrow[l]
-\end{tikzcd}}\\~\\
-such that $\im(\delta_n)\subseteq\ker(\delta_{n+1})$. 
+\begin{defn}{Cohomology Groups of a Chain Complex}{} Let $(C_\bullet,\delta_\bullet)$ be a chain complex. Let $G$ be an abelian group. Define the $n$th cohomology group of the chain complex with coefficients in $G$ to be the group $$H^n(C_\bullet;G)=\frac{\ker(\delta_{n+1})}{\im(\delta_n)}=H_n(C^\bullet;\delta^\bullet)$$ In the other words, it is the cohomology groups of the associated cochain complex of the chain complex. 
 \end{defn}
 
-\begin{defn}{Cohomology Group}{} For a cochain complex $(C^\bullet,\delta_\bullet)$ with fixed abelian group $G$, define the $n$th cohomology group to be $$H^n(C^\bullet;G)=\frac{\ker(\delta_{n+1})}{\im(\delta_n)}=H_n(C^\bullet,\delta_n)$$
-\end{defn}
+Given a chain complex $(C_\bullet,\partial_\bullet)$, we next want to investigate the relation between $H^n(C_\bullet;G)$ and $\Hom(H_n(C),G)$ since $C_n^\ast=\Hom(C_n,G)$, it makes sense to see if they bear some sort of similarity. 
 
-We next want to investigate the relation between $H^n(C;G)$ and $\Hom(H_n(C),G)$ since $C_n^\ast=\Hom(C_n,G)$, it makes sense to see if they bear some sort of similarity. 
-
-\begin{prp}{}{} There exists a surjective homomorphism from $H^n(C;G)$ to $\Hom(H_n(C),G)$. \tcbline
+\begin{prp}{}{} Let $(C,\partial)$ be a chain complex. Let $G$ be an abelian group. Then there exists a surjective homomorphism from $H^n(C;G)$ to $\Hom(H_n(C),G)$ defined as follows. For $\phi\in H^n(C;G)$, $\phi|_{\ker(\partial)}$ descends to a map $$\overline{\phi}:\frac{\ker(\partial_n)}{\im(\partial_{n+1})}\to G$$ \tcbline
 \begin{proof}
-We describe the process of mapping an element from the domain to the codomain as below. Firstly, let $\phi\in H^n(C;G)$. This means that $\delta_{n+1}(\phi)=0$ and $\phi:C_n\to G$ by definition. But $\delta_{n+1}(\phi)=0$ implies $\phi\circ\partial_{n+1}=0$ and thus $\phi$ vanishes on $\im(\partial_{n+1})$. The restriction map $\phi_0=\phi|_{\ker(\partial_n)}$ then induces a quotient map $$\overline{\phi_0}:\frac{\ker(\partial_n)}{\im(\partial_{n+1})}$$ thus we are done. \\~\\
-To check that it is well defined, we want to show that $\phi\in\im(\partial_{n+1})$ implies $\overline{\phi_0}=0$. \\~\\
-For surjectivity, we consider the short exact sequence\\~\\
+Let $\phi\in\ker(\delta_{n+1})$. Notice that $\delta_{n+1}(\phi)=0$ and $\phi:C_n\to G$ by definition. But $\delta_{n+1}(\phi)=0$ implies $\phi\circ\partial_{n+1}=0$ and thus $\phi$ vanishes on $\im(\partial_{n+1})$. This means that the restriction map $\phi|_{\ker(\partial_n)}$ induces a quotient map $$\overline{\phi}:\frac{\ker(\partial_n)}{\im(\partial_{n+1})}\to G$$ so that it is well defined. \\~\\
+
+We still need to check that this association of maps descends into $H^n(C;G)$. This means that we want to show that if $\phi\in\im(\delta_n)$, then $\overline{\phi}=0$. \\~\\
+
+For surjectivity, we consider the short exact sequence \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & \ker(\partial_n)\arrow[r] & C_n\arrow[r, "\partial_n"] & \im(\partial_n)\arrow[r] & 0
 \end{tikzcd}}\\~\\
@@ -2081,66 +2110,27 @@ Recall that the cokernel of a group homomorphism $\phi:G\to H$ is the quoitient 
 \begin{lmm}{}{} Denote $i_n:B_n\to Z_n$ the inclusion map. Then we have $$\ker(h)=\text{coker}(i_{n-1}^\ast)$$
 \end{lmm}
 
-\subsection{Free Resolutions}
-\begin{defn}{Free Resolutions}{} An exact sequence of the form \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-\cdots\arrow[r] & F_{2}\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & H\arrow[r] & 0
-\end{tikzcd}}\\~\\
-is said to be a free resolution of $H$ if each $F_n$ is a free group. 
-\end{defn}
-
-\begin{prp}{}{} Let $F$ and $F'$ be two free resolutions of an abelian group $H$. Then every homomorphism $\alpha:H\to H'$ extends to a chain map from $F$ to $F'$. Moreover, any two such extended maps are chain homotopic. 
-\end{prp}
-
-\begin{lmm}{}{} Every abelian group has a free resolution of the form \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-0\arrow[r] & F_1\arrow[r] & F_0\arrow[r, "h"] & H\arrow[r] & 0
-\end{tikzcd}}
-\end{lmm}
-
-\subsection{Measuring the Failure of Exactness of the Hom Functor}
-\begin{defn}{Ext Group}{} Let $H$ be an abelian group. Denote the first cohomology group of the free resolution of $H$ to be $$\text{Ext}(H,G)=H^1(F,G)$$ where $F$ is the free resolution of $H$. This group is called the $\text{Ext}$ Group of $H$. 
-\end{defn}
-
-\begin{thm}{Universal Coefficient Theorem for Cohomology}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex of free abelian groups with homology group $H_n(C_\bullet)$. Then the cohomology groups $H^n(C_\bullet;G)$ of the cochain are determined by split exact sequences of the form \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & \text{Ext}(H_{n-1}(C_\bullet),G)\arrow[r] & H^n(C_\bullet;G)\arrow[r, "h"] & \Hom(H_n(C_\bullet),G)\arrow[r] & 0
-\end{tikzcd}}\\~\\
-In particular, split exactness implies that $$H^n(C_\bullet;G)\cong\text{Ext}(H_{n-1}(C_\bullet),G)\oplus\Hom(H_n(C_\bullet),G)$$
-\end{thm}
-
-\begin{prp}{}{} Let $H$ and $G$ be abelian groups. Then the following are true regarding the Ext group. 
-\begin{itemize}
-\item $\text{Ext}(H\oplus H',G)=\text{Ext}(H,G)\oplus\text{Ext}(H',G)$
-\item $\text{Ext}(H,G)=0$ if $H$ is free abelian
-\item $\text{Ext}(\Z/n\Z,G)=G/nG$
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Let $0\to A\to B\to C\to 0$ be a short exact sequence of abelian groups. Then there is a six term exact sequence: \\~\\
-\adjustbox{scale=0.85,center}{\begin{tikzcd}
-	0 & {\Hom(C,G)} & {\Hom(B,G)} & {\Hom(A,G)} & {\text{Ext}(C,G)} & {\text{Ext}(B,G)} & {\text{Ext}(A,G)} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-	\arrow[from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-	\arrow[from=1-7, to=1-8]
-\end{tikzcd}}
-\end{prp}
-
 \pagebreak
 \section{Singular Cohomology}
+Singular homology can be thought of as a two-step process in which both are functorial (meaning that continuous maps induces group homomorphisms which preserve composition and identity). For a space $X$, singular homology (in $\Z$ coefficients) associate to each space a sequence of abelian groups $H_n(X)$ for $n\in\N$. This in turn is a two step process $$X\mapsto C_\bullet(X)\overset{H_\ast}{\mapsto} H_\bullet(X)$$ Singular cohomology can instead be thought of as a three step process, in which the first and last operation is the same, but we produce a cochain complex $C^\bullet(X)$ using the old one. Explicitly, for a space $X$, the three-step functorial process is described as follows: $$X\mapsto C_\bullet(X)\mapsto C^\bullet(X)\overset{H_\ast}{\mapsto}H^\bullet(X)$$ Notice that the last step makes use of $H_\ast$ the same way as that of singular homology. This is exactly the definition of the cohomology groups of a cochain complex. 
+
 \subsection{Singular Cohomology}
-\begin{defn}{Cochain Complex}{} Let $X$ be a topological space. Let $G$ be an abelian group. Write $C^n=\Hom(C_n;G)$ and $\delta_n=\partial_n^\ast$. Define the singular cochain complex of $X$ to be the following cochain complex: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-\cdots & C^{n+1}\arrow[l] & C^n\arrow[l, "\delta_{n+1}"'] & C^{n-1}\arrow[l, "\delta_n"'] & \cdots\arrow[l]
-\end{tikzcd}}\\~\\
-It is denoted as $(C^\bullet(X),\delta_\bullet)$. In particular it is the dual of the chain complex $(C_\bullet(X),\partial_\bullet)$ with coefficients in $G$. 
+We already have all the puzzle pieces, it remains to piece them together so that the cohomology groups can be formed. 
+
+\begin{defn}{Singular Cochain Groups with Coefficients}{} Let $X$ be a topological space. Let $G$ be an abelian group. Define the singular cochain groups to be $$C^n(X;G)=\Hom(C_n(X);G)$$ the cochain complex associated to the singular chain complex of $X$. It is denoted as $C^\bullet(X;G)$. 
 \end{defn}
 
-\begin{defn}{Cohomology Group}{} Let $X$ be a topological space and $(C^\bullet(X),\delta_\bullet)$ the singular cochain complex of $X$ with coefficients in an abelian group $A$. The $n$th cohomology group of $X$ with coefficients in $A$ is defined to be $$H^n(C^\bullet;A)=\frac{\ker(\delta^n)}{\im(\delta^{n-1})}$$ where $(C_\bullet,\partial_\bullet)$ is a singular chain complex. 
+\begin{defn}{Singular Coboundary Maps}{} Let $X$ be a topological space. Let $G$ be an abelian group. Define the coboundary map $$\delta_n=\partial_n^\ast:C^{n-1}(X;G)\to C^n(X;G)$$ by the assignment $\varphi\mapsto\varphi\circ\partial_n$. 
+\end{defn}
+
+\begin{defn}{Singular Cochain Complex with Coefficients}{} Let $X$ be a topological space. Let $G$ be an abelian group. Define the singular cochain groups to be $$C^n(X;G)=\Hom(C_n(X);G)$$ Also define the coboundary map $$\delta_n=\partial_n^\ast:C^{n-1}(X;G)\to C^n(X;G)$$ by $\varphi\mapsto\varphi\circ\partial_n$. Define the singular cochain complex of $X$ to be the following cochain complex: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\cdots & C^{n+1}(X;G)\arrow[l] & C^n(X;G)\arrow[l, "\delta_{n+1}"'] & C^{n-1}(X;G)\arrow[l, "\delta_n"'] & \cdots\arrow[l]
+\end{tikzcd}}\\~\\
+It is denoted as $(C^\bullet(X;G),\delta_\bullet)$. In particular it is the dual of the chain complex $(C_\bullet(X),\partial_\bullet)$ with coefficients in $G$. 
+\end{defn}
+
+\begin{defn}{Singular Cohomology Group}{} Let $X$ be a topological space and $(C^\bullet(X;G),\delta_\bullet)$ the singular cochain complex of $X$ with coefficients in an abelian group $G$. The $n$th cohomology group of $X$ with coefficients in $G$ is defined to be $$H^n(X;G)=\frac{\ker(\delta_{n+1}:C^n(X;G)\to C^{n+1}(X;G))}{\im(\delta_n:C^{n-1}(X;G)\to C^n(X;G))}=H_\bullet(C^\bullet(X;G),\delta_\bullet)$$
 \end{defn}
 
 \begin{thm}{Reduced Cohomology Groups}{}
@@ -2165,30 +2155,29 @@ It is denoted as $(C^\bullet(X),\delta_\bullet)$. In particular it is the dual o
 in cohomology. 
 \end{thm}
 
-\subsection{Equivalence to Simplicial and Cellular Cohomology}
-\begin{defn}{Eilenberg-Steenrod Axioms}{}
-\end{defn}
-
-\begin{thm}{}{} $H^n(X,A;G)\cong H_\Delta^n(X,A;G)$. 
-\end{thm}
-
 \subsection{The Cup Product}
-\begin{defn}{Cup Product}{} Let $\phi\in C^k$ and $\psi\in C^l$ with coefficients in a ring $R$. Define the cup product to be $\phi\smile\psi:C_{k+l}\to R$ where for $\sigma=[v_0,\dots,v_{k+l}]$, we have that $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_k]})\cdot\psi(\sigma|_{[v_k,\dots,v_{k+l}]})$$
+What separates singular cohomology from singular homology is that the abelian group arising from the cohomology groups has a natural structure of a ring. This in turns makes singular cohomology an invariant that associates to every space a graded ring, instead of just a sequence of abelian groups. \\~\\
+
+For this, we define the cup product which serves as multiplication between elements of the graded abelian groups. 
+
+\begin{defn}{Cup Product}{} Let $X$ be a space. Let $R$ be a ring. Let $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Define the cup product to be $\phi\smile\psi:C^{k+l}(X;R)\to R$ where for $\sigma=[v_0,\dots,v_{k+l}]$, we have that $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_k]})\cdot\psi(\sigma|_{[v_k,\dots,v_{k+l}]})$$
 \end{defn}
 
-\begin{prp}{}{} Let $\phi\in C^k$ and $\psi\in C^l$ with coefficients in a ring $R$. Then we have that $$\delta(\phi\smile\psi)=\delta\phi\smile\psi+(-1)^k\phi\smile\delta\psi$$
+Notice that the cup product is defined in terms of the singular complexes, therefore this definition only works for chain complexes that arise from a space. Moreover, the cup product is only defined when we take singular cohomology in a ring instead of an abelian group. 
+
+\begin{prp}{}{} Let $X$ be a space. Let $R$ be a ring. Let $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Then we have that $$\delta(\phi\smile\psi)=\delta\phi\smile\psi+(-1)^k\phi\smile\delta\psi$$
 \end{prp}
 
-\begin{lmm}{}{} There is a well defined product $$\smile:H^m(X)\times H^n(X)\to H^{m+n}(X)$$
+\begin{lmm}{}{} Let $X$ be a space. Let $R$ be a ring. Then the cup product $$\smile:H^m(X;R)\times H^n(X;R)\to H^{m+n}(X;R)$$ descends to homology and is well defined. 
 \end{lmm}
 
-\begin{lmm}{}{} Let $f:X\to Y$ be a map. Then the induced map $f^\ast:H^n(Y,R)\to H^n(X,R)$ satisfies $f^\ast(\phi\smile\psi)=f^\ast(\phi)\smile f^\ast(\psi)$. 
+\begin{lmm}{}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a map. Let $R$ be a ring. Then the induced map $f^\ast:H^n(Y;R)\to H^n(X;R)$ satisfies $f^\ast(\phi\smile\psi)=f^\ast(\phi)\smile f^\ast(\psi)$. 
 \end{lmm}
 
-\begin{prp}{}{} If $\phi\in H^m(X,R)$ and $\psi\in H^n(X,R)$, then $$\phi\smile\psi=(-1)^{mn}\psi\smile\phi$$
+\begin{prp}{}{} Let $X$ be a space and let $R$ be a ring. If $\phi\in H^m(X;R)$ and $\psi\in H^n(X;R)$, then $$\phi\smile\psi=(-1)^{mn}\psi\smile\phi$$
 \end{prp}
 
-\begin{thm}{The Cohomology Ring}{} Let $X$ be a topological space and $R$ a commutative ring with identity. Then $$H^\ast(X,R)=\bigoplus_{i=1}^\infty H^i(X,R)$$ is a graded commutative ring with identity under the cup product. Moreover, $H^\ast(X,R)$ is an $R$-algebra. 
+\begin{thm}{The Cohomology Ring}{} Let $X$ be a topological space and $R$ a commutative ring with identity. Then $$H^\ast(X;R)=\bigoplus_{i=0}^\infty H^i(X;R)$$ is a graded commutative ring with identity under the cup product. Moreover, $H^\ast(X;R)$ is an $R$-algebra. 
 \end{thm}
 
 \subsection{The Kunneth Formula}
@@ -2199,6 +2188,129 @@ in cohomology.
 \end{prp}
 
 \begin{thm}{The Kunneth Formula}{} Let $X$ and $Y$ be CW-complexes and $R$ a ring. Then the cross product $$\times:H^\ast(X;R)\otimes_R H^\ast(Y;R)\to H^\ast(X\times Y;R)$$ is an isomorphism of rings if $H^k(Y;R)$ is a finitely generated free $R$-module for all $k$. 
+\end{thm}
+
+\pagebreak
+\section{The Choice of Coefficients in Singular (Co)Homology}
+\subsection{Free Resolutions}
+\begin{defn}{Free Resolutions}{} Let $H$ be a group. An exact sequence of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\cdots\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & H\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is said to be a free resolution of $H$ if $F_n$ is a free group for $n\in\N$. 
+\end{defn}
+
+\begin{prp}{}{} Let $G$ and $H$ be abelian groups. Let $f:G\to H$ be a homomorphism. Suppose that there are free resolutions \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {F_1} & {F_0} & G & 0 \\
+	\cdots & {E_1} & {E_0} & H & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["f", from=1-4, to=2-4]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}}\\~\\
+for $G$ and $H$ respectively. Let $f:G\to H$ be a group homomorphism. Then there exists a chain map extending $f$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {F_1} & {F_0} & G & 0 \\
+	\cdots & {E_1} & {E_0} & H & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["{f_2}", from=1-2, to=2-2]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{f_1}", from=1-3, to=2-3]
+	\arrow[from=1-4, to=1-5]
+	\arrow["f", from=1-4, to=2-4]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}}\\~\\
+Moreover, any two such chain maps are homotopic. 
+\end{prp}
+
+\begin{lmm}{}{} Every resolution of an abelian group $H$ is of the form \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+0\arrow[r] & F_1\arrow[r] & F_0\arrow[r, "h"] & H\arrow[r] & 0
+\end{tikzcd}}\\~\\
+where $F_0$ and $F_1$ is determined as follows. Choose a set of generators $A$ of $H$. 
+\begin{itemize}
+\item $F_0=\langle A\rangle$ and the map $f_0:F_0\to H$ is defined by sending basis elements to generators. 
+\item $F_1=\ker(f_1)$ and $f_1:F_1\to F_0$ is the inclusion. 
+\end{itemize}
+\end{lmm}
+
+\subsection{Universal Coefficient Theorem for Cohomology}
+\begin{defn}{Ext Group}{} Let $G,H$ be an abelian group. Choose a free resolution $F_\bullet$: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & H\arrow[r] & 0
+\end{tikzcd}}\\~\\
+for $H$. Define the ext group of $H$ with coefficients in $G$ to be the first cohomology group of the cochain complex with coefficients in $G$ associated to this chain complex: $$\text{Ext}(H,G)=\text{Ext}_\Z^1(H,G)=\frac{\Hom(F_1,G)}{\im(\Hom(F_0,G)\to\Hom(F_1,G))}=H^1(\Hom(F_\bullet;G))$$
+\end{defn}
+
+A kind note: This is not the most general definition of an ext group. There are a few ways to advance this definition into the general one (as in Homological Algebra). Notice that every abelian group is a $\Z$-module. So we can define Ext groups depending on the underlying ring / module structure. For instance, if $M,N$ are $R$-modules, then there is a notion $\text{Ext}_R^1(M,N)$. In this case we no longer consider only free resolutions because free here refers to every abelian group is a $\Z$-module. Moreover, not every such resolution will only consist of two elements just as lmm 11.1.3. \\~\\
+
+This leads to the second way of extending it. One can consider not using free groups for the resolution, and instead in the setting of $R$-modules, consider using projective / injective modules (again in Homological Algebra). \\~\\
+
+For us, we are only considering abelian groups which are $\Z$-modules. Be wary of this assumption throughout the entire section. 
+
+\begin{prp}{}{} Let $H$ and $G$ be abelian groups. Then the following are true regarding the Ext group. 
+\begin{itemize}
+\item $\text{Ext}(H\oplus H',G)=\text{Ext}(H,G)\oplus\text{Ext}(H',G)$
+\item $\text{Ext}(H,G)=0$ if $H$ is free abelian
+\item $\text{Ext}(\Z/n\Z,G)=G/nG$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $0\to A\to B\to C\to 0$ be a short exact sequence of abelian groups. Then there is a six term exact sequence: \\~\\
+\adjustbox{scale=0.85,center}{\begin{tikzcd}
+	0 & {\Hom(C,G)} & {\Hom(B,G)} & {\Hom(A,G)} & {\text{Ext}(C,G)} & {\text{Ext}(B,G)} & {\text{Ext}(A,G)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+	\arrow[from=1-7, to=1-8]
+\end{tikzcd}}
+\end{prp}
+
+\begin{thm}{Universal Coefficient Theorem for Cohomology}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex of free abelian groups with homology group $H_n(C_\bullet)$. Let $G$ be an abelian group. Then the cohomology groups $H^n(C_\bullet;G)$ of the cochain are determined by split exact sequences of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \text{Ext}(H_{n-1}(C_\bullet),G)\arrow[r] & H^n(C_\bullet;G)\arrow[r, "h"] & \Hom(H_n(C_\bullet),G)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+In particular, split exactness implies that $$H^n(C_\bullet;G)\cong\text{Ext}(H_{n-1}(C_\bullet),G)\oplus\Hom(H_n(C_\bullet),G)$$
+\end{thm}
+
+\subsection{Universal Coefficient Theorem for Homology}
+An analogous result remains true when we consider homology with coefficients in a fixed abelian group. For this, we need to define the notion of $\text{Tor}$ between two groups. This is analogous to $\text{Ext}$. 
+
+\begin{defn}{The Tor Group}{} Let $G,H$ be abelian groups. Choose a free resolution $F_\bullet$: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & H\arrow[r] & 0
+\end{tikzcd}}\\~\\
+for $H$. Define the Tor group of $H$ with coefficients in $G$ to be the first homology group of the cochain complex \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & F_1\otimes G\arrow[r] & F_0\otimes G\arrow[r] & H\otimes G\arrow[r] & 0
+\end{tikzcd}}\\~\\
+In other words, $$\text{Tor}(H,G)=\text{Tor}_1^\Z(H,G)=\ker(F_1\otimes G\to F_0\otimes G)=H_1(F_\bullet\otimes G)$$
+\end{defn}
+
+Similar to that of Ext, the current definition is a very specialized version of the general definition. Readers are referred to Homological Algebra for the general treatment. 
+
+\begin{thm}{Universal Coefficient Theorem for Homology}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex with coefficients in $\Z$. Let $G$ be an abelian group. Then for all $n\in\N$, there is a split exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {H_n(C_\bullet)\otimes G} & {H_n(C_\bullet;G)} & {\text{Tor}(H_{n-1}(C_\bullet);G)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+In particular, split exactness implies that $$H_n(C_\bullet;G)\cong\text{Tor}(H_{n-1}(C_\bullet);G)\oplus H_n(C_\bullet)\otimes G$$
 \end{thm}
 
 \pagebreak

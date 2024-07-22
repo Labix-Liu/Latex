@@ -71,7 +71,9 @@ Given a space $X$ and a point $p\in X$, the neighbourhoods of $p$ form a diagram
 \begin{lmm}{}{} Let $X$ be a space and let $F:\bold{Open}(X)\to\bold{Sets}$ be a presheaf on $X$. Then for any $p\in X$, the stalk at $p$ is given by $$\mathcal{F}_{X,p}=\{(U,s)\;|\;x\in U\subset X\text{ open, }s\in\mathcal{F}(U)\}/\sim$$ where we say that $(U_1,s_1)\sim(U_2,s_2)$ if there exists some $V\subseteq U_1\cap U_2$ open such that $\text{res}_{V,U_1}(s_1)=\text{res}_{V,U_2}(s_2)$. 
 \end{lmm}
 
-Think of the definition of stalks as follows: Treat $f$ and $g$ to be sections in $\mathcal{F}(U_1)$ and $\mathcal{F}(U_2)$ where $V\subseteq U_1\cap U_2$ is open and contains $x$. Then we treat $f$ and $g$ to be the same function in the stalk as long as they agree on some open set that contains $x$. Indeed, since we do not care about the entirety of the domain of $f$ and $g$, and only care about what happens locally near $x$, it makes sense for us to treat them as a function when they appear to be the same locally. 
+Think of the definition of stalks as follows: Treat $f$ and $g$ to be sections in $\mathcal{F}(U_1)$ and $\mathcal{F}(U_2)$ where $V\subseteq U_1\cap U_2$ is open and contains $x$. Then we think of $f$ and $g$ to be the same function in the stalk as long as they agree on some open set that contains $x$. \\~\\
+
+Indeed, since we do not care about the entirety of the domain of $f$ and $g$, and only care about what happens locally near $x$, it makes sense for us to treat them as a function when they appear to be the same locally. 
 
 \begin{defn}{Morphism of Presheaves}{} Let $\mathcal{F},\mathcal{G}$ be presheaves on $X$. A morphism of sheaves $\phi:\mathcal{F}\to\mathcal{G}$ consists of a collection of morphism of sets (groups, rings, etc) $$\phi(U):\mathcal{F}(U)\to\mathcal{G}(U)$$ for each open set $U$ such that if $V\subseteq U$ is an inclusion, the following digram commutes, where $\rho,\rho'$ are restriction maps. \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -269,14 +271,21 @@ Suppose that $(X,\mO_X)$ and $(Y,\mO_Y)$ are locally ringed spaces. Given a poin
 \end{defn}
 
 \pagebreak
-\section{Coherent Sheaves}
+\section{Modules over a Sheaf}
 \subsection{The Category of $\mathcal{O}_X$-Modules}
 \begin{defn}{Sheaf of $\mA$-modules}{} Let $\mA$ be a sheaf of rings over $X$. Let $U$ be an open set of $X$. A sheaf of $\mA$-modules over $X$ is a sheaf $\mF$ such that each $\mF(U)$ is an $\mA(U)$-modules. Moreover, for each inclusion of open sets $V\subseteq U$, the restriction homomorphism $\mathcal{F}(U)\to\mathcal{F}(V)$ is such that the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 \mA(U)\times\mF(U)\arrow[r, "\text{action}"]\arrow[d, "\text{res}_{U,V}\times\text{res}_{U,V}"'] &\mF(U)\arrow[d, "\text{res}_{U,V}"]\\
 \mA(V)\times\mF(V)\arrow[r, "\text{action}"] & \mF(V)
-\end{tikzcd}}\\~\\
-Denote the category of $\mA$-modules by $$\text{Mod}_X(\mA)$$
+\end{tikzcd}}
+\end{defn}
+
+\begin{defn}{The Category of $\mA$-Modules}{} Let $(X,\mA)$ be a ringed space. Define the category of $\mA_X$-modules $\text{Mod}_X(\mA)$ to consist of the following data. 
+\begin{itemize}
+\item The objects consists sheaves of $\mA_X$-modules. 
+\item The morphisms are just morphisms of sheaves between $\mA_X$-modules. 
+\item Composition is given by the composition of morphisms of sheaves. 
+\end{itemize}
 \end{defn}
 
 \begin{prp}{}{} Let $\mA$ be a sheaf of rings over $X$ and let $\mF,\mG$ be sheaves of $\mA$-modules. Then the direct sum $$\mF\oplus\mG=\mF\times\mG$$ is also a sheaf of $\mA$-modules. 
@@ -291,17 +300,32 @@ Denote the category of $\mA$-modules by $$\text{Mod}_X(\mA)$$
 \begin{prp}{}{} Let $(X,\mathcal{O}_X)$ be a ringed space and $\mathcal{F},\mathcal{G}$ be sheaves of $\mathcal{O}_X$-modules. Then the tensor product $\mathcal{F}\otimes_{\mathcal{O}_X}\mathcal{G}$ defined by $$(\mathcal{F}\otimes_{\mathcal{O}_X}\mathcal{G})(U)=(\mathcal{F}(U)\otimes_{\mathcal{O}_X(U)}\mathcal{G}(U))^+$$ is also a sheaf of $\mathcal{O}_X$-modules. 
 \end{prp}
 
-\subsection{Invertible Sheaves}
-\begin{defn}{Free Sheaf}{} Let $\mA$ be a sheaf of rings over $X$ and let $\mF$ be a sheaf of $\mA$-module. We say that $\mF$ is free if $$\mF\cong\mA^{\oplus n}$$ It is locally free if $X$ can be covered by open sets $\{U_i\;|\;i\in I\}$ for which $$\mF|_{U_i}\cong\left(\mA|_{U_i}\right)^{\oplus n}$$ for each $U$. In this case we say that the rank of $\mathcal{F}$ is $n$. Denote the category of locally free sheaves of rank $n$ by $$\text{Loc}_n(X)$$
+\subsection{Locally Free Sheaves}
+\begin{defn}{Free and Locally Free Sheaves}{} Let $(X,\mA)$ be a ringed space. Let $\mF$ be a $\mA$-module. We say that $\mF$ is free is there is an isomorphism $$\mF\cong\mA^{\oplus n}$$ of sheaves. We say that $\mF$ is locally free if $X$ has an open cover $\{U_i\;|\;i\in I\}$ such that for each $U_i$, there is an isomorphism $$\mF|_{U_i}\cong\left(\mA|_{U_i}\right)^{\oplus n}$$ of sheaves. In this case we say that the rank of $\mathcal{F}$ is $n$. 
 \end{defn}
 
 \begin{lmm}{}{} If $X$ is connected then the rank of a locally free sheaf on $X$ is constant. 
 \end{lmm}
 
-\begin{defn}{Invertible Sheaf}{} A locally free sheaf of rank $1$ is called an invertible sheaf. 
+\begin{prp}{}{} Let $(X,\mO)$ be a ringed space. Let $\mF$ be a sheaf of $\mO$-modules. Then $\mF$ is locally free of rank $r$ if and only if $$\mF_{X,p}\cong\mO_{X,p}^r$$ for all $p\in X$. 
+\end{prp}
+
+\begin{defn}{The Category of Locally Free Sheaves}{} Let $(X,\mA)$ be a ringed space. Define the category of locally free sheaves $\bold{Loc}_n$ of rank $n$ over $X$ as follows. 
+\begin{itemize}
+\item The objects are the locally free sheaves of rank $n$ over $X$
+\item The morphisms are the morphisms of sheaves of modules
+\item Composition is given by the composition of morphisms of sheaves. 
+\end{itemize}
 \end{defn}
 
-\begin{thm}{}{} Let $(X,\mathcal{O}_X)$ be a scheme. Then the following are equivalent characterization of a sheaf of $\mathcal{O}_X$-modules $\mathcal{F}$
+\begin{thm}{}{} Let $X$ be a space. Then there is an equivalence of categories $$\text{Vect}_n(X)\cong\text{Loc}_n(X)$$ between vector bundles over $X$ and sheaves of free $\mA$-modules over $X$ for any $n\in\N$. 
+\end{thm}
+
+\subsection{Invertible Sheaves}
+\begin{defn}{Invertible Sheaf}{} Let $X$ be a ringed space. We say that a sheaf $\mF$ on $X$ is invertible if it is a locally free sheaf on rank $1$. 
+\end{defn}
+
+\begin{thm}{}{} Let $(X,\mathcal{O}_X)$ be a ringed space. Then the following are equivalent characterization of a sheaf of $\mathcal{O}_X$-modules $\mathcal{F}$
 \begin{itemize}
 \item $\mathcal{F}$ is invertible
 \item There exists a sheaf $G$ such that $F\otimes_{\mathcal{O}_X}G\cong\mathcal{O}_X$
@@ -309,20 +333,67 @@ Denote the category of $\mA$-modules by $$\text{Mod}_X(\mA)$$
 \end{itemize}
 \end{thm}
 
-\begin{thm}{}{} Let $X$ be a space. Then there is an equivalence of categories $$\text{Vect}_n(X)\cong\text{Loc}_n(X)$$ between vector bundles over $X$ and sheaves of free $\mA$-modules over $X$ for any $n\in\N$. 
+\begin{prp}{}{} Let $(X,\mO_X)$ be a ringed space. Let $\mF$ and $\mG$ be invertible sheaves on $X$. Then $$\mF\otimes\mG$$ is also an invertible sheaf. 
+\end{prp}
+
+\begin{defn}{The Picard Group}{} Let $(X,\mO_X)$ be a ringed space. Define the Picard group of $X$ to be the set $$\text{Pic}(X)=\{\mL\;|\;\mL\text{ is an invertible sheaf on }X\}$$ together with the tensor product $\otimes$. 
+\end{defn}
+
+\subsection{Quasi-Coherent Sheaves}
+Quasi-coherent sheaves and coherent sheaves has extremely abstract definitions. If one is only interested in the case of Algebraic Geometry, then there is a very nice explicit way of defining it, so readers may skip this part. 
+
+\begin{defn}{Quasi-Coherent Sheaves}{} Let $(X,\mO_X)$ be a ringed space. Let $\mF$ be a sheaf of $\mO_X$-module. We say that $\mF$ is a quasi-coherent sheaf if for all $p\in X$, there exists an open neighbourhood $U\subseteq X$ such that there is an exact sequence: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\mO_X^{\otimes I}|_U} & {\mO_X^{\otimes J}|_U} & {\mF|_U} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}}\\~\\
+for some countable indexing sets $I$ and $J$. 
+\end{defn}
+
+\begin{defn}{The Category of Quasi-Coherent Sheaves}{} Let $(X,\mO_X)$ be a ringed space. Define the category of quasi-coherent sheaves $$\bold{QCoh}_{\mO_X}$$ over $(X,\mO_X)$ as follows. 
+\begin{itemize}
+\item The objects are the quasi-coherent sheaves $\mF$ over $(X,\mO_X)$
+\item The morphisms are morphisms between sheaves of modules. This means that if $\mF$ and $\mG$ are quasi-coherent $\mO_X$-modules, then a morphism $\mF\to\mG$ is a natural transformation $\lambda:\mF\to\mG$ that respects the module structure. 
+\item Composition is given by the composition of sheaves
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Let $(X,\mO_X)$ be a ringed space. Then $\bold{QCoh}_{\mO_X}$ is an abelian category. 
 \end{thm}
 
-\subsection{Quasicoherent Sheaves}
-\begin{defn}{Quasicoherent Sheaves}{} Let $(X,\mathcal{O}_X)$ be a scheme. A sheaf of $\mathcal{O}_X$ modules $\mathcal{F}$ is quasicoherent if $X$ can be covered by open affine subsets $U_i=\text{Spec}(A_i)$ such that for each $i$, there is an $A_i$-module $M_i$ with $\mathcal{F}|_{U_i}\cong\tilde{M}_i$. 
+\subsection{Coherent Sheaves}
+\begin{defn}{Sheaf of Finite Type}{}  Let $(X,\mO_X)$ be a ringed space. Let $\mF$ be a sheaf of $\mO_X$-module. We say that $\mF$ is a sheaf of finite type if for all $p\in X$, there exists an open neighbourhood $U\subseteq X$ such that there is a surjective morphism $$\mO_X^{\otimes n}|_U\to\mF|_U$$ for some $n\in\N$. 
 \end{defn}
 
-\begin{defn}{Coherent Sheaves}{} We say that $\mathcal{F}$ is a coherent sheaf if $\mathcal{F}$ is a quasicoherent sheaf and each $M_i$ is a finitely generated $A_i$-module. 
+\begin{defn}{Coherent Sheaves}{} Let $(X,\mO_X)$ be a ringed space. Let $\mF$ be a sheaf of $\mO_X$-module. We say that $\mF$ is coherent if the following are true. 
+\begin{itemize}
+\item $\mF$ is a sheaf of finite type. 
+\item For any $U\subseteq X$ and any morphism $$\varphi:\mO_X^{\otimes n}|_U\to\mF|_U$$ of $\mO_X$-modules, then kernel of $\varphi$ is a sheaf of finite type. 
+\end{itemize}
 \end{defn}
 
-In some sense, the category of quasicoherent sheaves is the smallest abelian category for which it encompasses the category of locally free sheaves. In the case that $A$ is locally Noetherian, the category of finite rank locally free sheaves sit inside the category of coherent sheaves, which is also an abelian category. 
+\begin{defn}{The Category of Quasi-Coherent Sheaves}{} Let $(X,\mO_X)$ be a ringed space. Define the category of quasi-coherent sheaves $$\bold{Coh}_{\mO_X}$$ over $(X,\mO_X)$ as follows. 
+\begin{itemize}
+\item The objects are the coherent sheaves $\mF$ over $(X,\mO_X)$
+\item The morphisms are morphisms between sheaves of modules. This means that if $\mF$ and $\mG$ are quasi-coherent $\mO_X$-modules, then a morphism $\mF\to\mG$ is a natural transformation $\lambda:\mF\to\mG$ that respects the module structure. 
+\item Composition is given by the composition of sheaves
+\end{itemize}
+\end{defn}
 
-\begin{prp}{}{} Let $A$ be a ring and let $X=\text{Spec}(A)$. The functor $M\mapsto\tilde{M}$ gives an equivalence of categories between the category of $A$-modules and the category of quasi-coherent $\mathcal{O}_X$-modules. Its inverse is the functor $\mathcal{F}\mapsto\Gamma(X,\mathcal{F})$. \\~\\
-If $A$ is noetherian, the same functor gives an equivalence of categories between the category of finitely generated $A$-modules and the category of coherent $\mathcal{O}_X$-modules. 
+\begin{thm}{}{} Let $(X,\mO_X)$ be a ringed space. Then $\bold{Coh}_{\mO_X}$ is an abelian category. 
+\end{thm}
+
+\begin{prp}{}{} Let $(X,\mO_X)$ be a ringed space. Let the following \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & \mF & {\mF'} & {\mF''} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+be an exact sequence of sheaves. If two of the three sheaves are coherent, then so is the last one. 
 \end{prp}
 
 \pagebreak

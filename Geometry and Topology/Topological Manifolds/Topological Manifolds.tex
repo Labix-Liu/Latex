@@ -21,13 +21,34 @@
 \tableofcontents
 \pagebreak
 
-\section{Topological Manifolds and Singular Homology}
+\section{Point Set Topology of Topological Manifolds}
+
+
+\pagebreak
+\section{Poincare Duality}
+\subsection{The Cap Product}
+\begin{defn}{The Cap Product}{} Let $\sigma=[v_0,\dots,v_k]\in C_k(X)$ and $\phi\in C^l(X)$ where $k\geq l$ with coefficients in a ring $R$. Define the cap product to be $$\sigma\frown\phi=\phi(\sigma|_{[v_0,\dots,v_l]})\sigma|_{[v_l,\dots,v_k]}\in C_{k-l}(X)$$
+\end{defn}
+
+\begin{lmm}{}{} The cap product $\frown: C_k(X)\times C^l(X)\to C_{k-l}(X)$ with coefficients in a ring $R$ induces a cap product in homology $\frown: H_k(X)\times H^l(X,R)\to H_{k-l}(X)$ for $k\geq l$. 
+\end{lmm}
+
+\subsection{Cohomology with Compact Support}
+
+\subsection{The Duality Theorem}
+\begin{thm}{Poincare Duality}{} Let $M$ be a compact and oriented topological $n$-manifold. Then the homomorphism $$D:H^p(M)\to H_{n-p}(M)$$ is an isomorphism. 
+\end{thm}
+
+\pagebreak
+\section{Orientability of a Topological Manifold}
 \subsection{Covering Spaces of Manifolds}
 \begin{prp}{}{} Any covering space of a manifold is also a manifold. 
 \end{prp}
 
-\subsection{Orientability}
-Recall the notion of orientation in finite dimensional vector bases. We say that two bases of a vector space have the same orientation if the change of basis matrix has determinant greater than $0$. Since topological manifolds locally look like finite-dimensional vector spaces, we expect that orientations can be generalized to manifolds. \\~\\
+\subsection{Classical Orientability}
+Recall the notion of orientation in finite dimensional vector bases. We say that two bases of a vector space have the same orientation if the change of basis matrix has determinant greater than $0$. Since topological manifolds locally look like $\R^n$ which is a finite-dimensional vector space, we expect that orientations can be generalized to manifolds. In particular, what we seek in a notion of orientability should be invariant under rotations and translations, and reflections should flip the orientation, should it depend on points of the space. \\~\\
+
+Let us start by redefining orientation on $\R^n$. We propose the following definition. Let $x\in\R^n$. Recall that $$H_n(\R^n,\R^n\setminus\{x\})\cong\Z$$ Then there are only two generators of $H_n(\R^n,\R^n\setminus\{x\})$. An orientation at $x\in\R^n$ is then a choice of generator. In order to extend this local notion into a global one, notice that a choice of orientation for any point automatically determines the orientation of every other point. Indeed if $y\in\R^n$ is another point, then there exists an open ball $B$ containing both $x$ and $y$. Then by excision, $$H_n(\R^n,\R^n\setminus\{x\})\cong H_n(\R^n,\R^n\setminus B)\cong H_n(\R^n,\R^n\setminus\{y\})$$ Hence if we have chosen a generator on the left, we would have chosen a corresponding orientation on the right. Moreover, this choice of orientation is consistent throughout all the points of $\R^n$. This suggests that the difference between orientable and not orientable is whether there is a consistent choice of orientation, but not a question of existence. \\~\\
 
 The key observation in defining orientation through homology is the following proposition, which shows that the local homology groups on a manifold are isomorphic to $\Z$ on the top dimension. 
 
@@ -51,14 +72,14 @@ when $k>1$ since $H_{k-1}(\R^k)=0$. Thus $H_k(\R^k,\R^k\setminus\ast)\cong\Z$. I
 \end{proof}
 \end{prp}
 
-\begin{defn}{Local Orientation}{} A local orientation of $M$ at $x$ is a choice of generator of $H_k(M,M\setminus\{x\})$. 
+\begin{defn}{Local Orientation}{} Let $M$ be a $k$-dimensional topological manifold and let $x\in M$. A local orientation of $M$ at $x$ is a choice of generator of $$H_k(M,M\setminus\{x\})\cong\Z$$
 \end{defn}
 
 One can think of local orientation as follows. Choose an open neighbourhood $U$ of $x$ that is homeomorphic to $\R^2$. Then the long exact sequence for relative homology gives an isomorphism $$H_2(U,U\setminus\{x\})\cong H_1(S^1)$$ since $U\setminus\{x\}$ deformation retracts onto a small circle around $x$, we can choose a local orientation $\omega_x$ for the circle which is the same as choosing in which direction to loop around the circle. It remains to patch them up into a global orientation. Of course, this does not necessarily work for every single manifold. \\~\\
 
 Let $U$ be a chart on a topological manifold $M$ and that $B\subseteq M$ is such that on the chart $U$, $B$ is an open / closed ball $B_r(z)$. For convention, we give a name to subsets of these type. 
 
-\begin{defn}{Open and Closed Ball in Manifolds}{} Let $M$ be a $k$-dimensional topological manifold and $U$ a chart of $M$. We say that $B$ is an open / closed ball if under the homeomorphism of the chart $U\cong\R^k$, the image of $B$ is a ball $B_r(x)\subseteq\R^k$ for some $r\in\R^+$ and $x\in\R^k$. 
+\begin{defn}{Open and Closed Ball in Manifolds}{} Let $M$ be a $k$-dimensional topological manifold and let $(U,\varphi)$ be a chart of $M$. We say that $B\subset U$ is an open / closed ball if $\varphi(B)\subseteq\R^k$ is an open / closed ball of $\R^k$. 
 \end{defn}
 
 The point of the definition is that we have the following sequence of isomorphisms 
@@ -155,6 +176,9 @@ By Galois theory of covering spaces, any $2$-sheeted cover of a simply connected
 \end{proof}
 \end{crl}
 
+\begin{prp}{}{} Let $M$ be a connected compact smooth manifold of dimension $n$. If $M$ is orientable then $H_n(M)\cong\Z$. Otherwise $H_n(M)=0$. 
+\end{prp}
+
 \begin{prp}{}{} Let $k\geq 1$. Then $\R\Prj^k$ is orientable if and only if $k$ is odd. \tcbline
 \begin{proof}
 The quotient map $q:S^k\to\R\Prj^k$ is the unique connected two-sheeted cover of $\R\Prj^k$ by Galois theory for covering spaces. The non-trivial deck transformation is given by the antipodal map which has degree $(-1)^{k+1}$. If $k$ is odd then this degree is $1$ so that the deck transformation is orientation preserving. Since deck transformations of the orientation bundle must be orientation reversing, we conclude that $S^k\neq\widetilde{\R\Prj^k}$. This means that the orientation bundle of $\R\Prj^k$ is disconnected. \\~\\
@@ -187,12 +211,29 @@ Now $S^k$ being compact and $\R\Prj^k$ being Hausdorff together with $\tilde{q}$
 
 One has to be careful that homotopy equivalence does not preserve orientability. For example, the Mobius strip is homotopy equivalent to $S^1$ but the former is non-orientable while the latter is. 
 
-\subsection{Fundamental Class}
-\begin{prp}{}{} Let $M$ be a connected compact smooth manifold of dimension $n$. If $M$ is orientable then $H_n(M)\cong\Z$. Otherwise $H_n(M)=0$. 
-\end{prp}
+\subsection{Orientability in Arbitrary Coefficient Ring}
+\begin{defn}{R-Orientation}{} Let $M$ be an $n$-dimensional topological manifold. Let $R$ be a ring. An $R$-orientation of $M$ is an assignment $$x\in M\mapsto\mu_x\in H_n(M,M\setminus\{x\};R)$$ where $\mu_x$ is a unit of $R$, such that the following local consistency condition holds. \\~\\
 
-\begin{defn}{Fundamental Class}{} Let $M$ be a connected compact orientable smooth manifold of dimension $n$. A fundamental class for $M$ is a generator for the top homology $$H_n(M)\cong\Z$$
+For any point $x\in M$, there exists an open ball $B\subseteq M$ and a generator $\mu_B\in H_n(M,M\setminus B)$ such that for any $y\in B$, under the canonical isomorphism $$H_n(M,M\setminus B;R)\cong H_n(M,M\setminus\{y\};R)$$ the generator $\mu_B$ is sent to $\mu_y$. 
 \end{defn}
+
+\begin{thm}{}{} Let $M$ be a closed and connected $n$-dimensional manifold. Let $R$ be a ring. Then the following are true. 
+\begin{itemize}
+\item If $M$ is $R$-orientable, then the map $$H_n(M;R)\to H_n(M,M\setminus\{x\};R)\cong R$$ is an isomorphism for all $x\in M$. 
+\item If $M$ is not $R$-orientable, then the map $$H_n(M;R)\to H_n(M,M\setminus\{x\};R)\cong R$$ is injective and has image $\{r\in R\;|\;2r=0\}$ for all $x\in M$
+\item $H_i(M;R)=0$ for all $i>n$. 
+\end{itemize}
+\end{thm}
+
+\begin{crl}{}{} Let $M$ be a topological manifold of dimension $n$. Then there is an isomorphism $$H_n(M;\Z/2\Z)\cong\Z/2\Z$$
+\end{crl}
+
+\subsection{Fundamental Class}
+\begin{defn}{Fundamental Class}{} Let $M$ be a closed and connected manifold of dimension $n$. Let $R$ be a ring. A fundamental class for $M$ with coefficients in $R$ is an element $[c]\in H_n(M;R)$ such that under the isomorphism $$H_n(M;R)\cong H_n(M,M\setminus\{x\};R)\cong R$$ the element $[c]$ is sent to the generator of $H_n(M,M\setminus\{x\};R)$ for any $x\in M$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $M$ be a closed and connected manifold of dimension $n$. Let $R$ be a ring. Then $M$ is $R$-orientable if and only if $M$ has a fundamental class for $M$ with coefficients in $R$. 
+\end{lmm}
 
 \pagebreak
 \section{The Theory of Surfaces}
@@ -202,7 +243,7 @@ Recall that a compact surface is a connected topological manifold of dimension $
 \begin{defn}{Connected Sum}{} Let $S_1$ and $S_2$ be two compact surfaces. Let $D_i\subseteq S_i$ be two small closed disks for $i=1,2$. Define the connected sum to be $$S_1\# S_2=\frac{(S_1\setminus D_1^\circ)\amalg(S_2\setminus D_2^\circ)}{\partial D_1\cong\partial D_2}$$
 \end{defn}
 
-\begin{lmm}{}{} The connected sum of two compact surfaces is again a surface. 
+\begin{lmm}{}{} The connected sum of two compact surfaces is again a compact surface. 
 \end{lmm}
 
 \begin{prp}{}{} The connected sum is invariant under the choice of homeomorphism and the location of the small discs. 
@@ -368,77 +409,6 @@ It follows directly by repeated applications of the above corollary.
 \end{crl}
 
 Recall that if $p:\tilde{X}\to X$ is a $d$-sheeted covering and $X$ is a finite CW complex, then we have the formula $$\chi(\tilde{X})=d\cdot\chi(X)$$
-
-
-\pagebreak
-\section{Cohomology on Manifolds}
-\subsection{de Rham Cohomology}
-\begin{prp}{}{} Let $M$ be a smooth manifold. Then differential forms of $M$, $\Omega^0(M),\dots,\Omega^n(M),\dots$ together with the exterior derivative $d:\Omega^n(M)\to\Omega^{n+1}(M)$ form a cochain complex. 
-\end{prp}
-
-\begin{defn}{}{} Let $M$ be a smooth manifold. Define the de Rham cohomology groups of $M$ to be the cohomology of the chain of differential forms: $$H_{\text{dR}}^n(M;\R)=H^n(\Omega^\bullet(M);\R)$$
-\end{defn}
-
-\begin{prp}{}{} Let $M$ be a smooth manifold of dimension $n$. Then the following are true for the de Rham cohomology of $M$. 
-\begin{itemize}
-\item $H_{\text{dR}}^k(M;\R)$ is a vector space over $\R$ for all $k\in\N$. 
-\item For $r>n$ we have $H_{\text{dR}}^r(M;\R)=0$
-\item If $M$ has $m$ connected components then $H_{\text{dR}}^0(M;\R)=\R^k$
-\end{itemize}
-\end{prp}
-
-\begin{thm}{}{} Let $M$ be a smooth manifold of dimension $n$. Then the direct sum $$H^\ast(M)=\bigoplus_{k=1}^nH_{\text{dR}}^k(M;\R)$$ is an $\R$-algebra where multiplication defined by $a\wedge b\in H_{\text{dR}}^{s+l}(M;\R)$ for $a\in H_{\text{dR}}^s(M;\R)$ and $b\in H_{\text{dR}}^l(M;\R)$. Moreover, this multiplication is anti-commutative, namely for $a\in H_{\text{dR}}^s(M;\R)$ and $b\in H_{\text{dR}}^l(M;\R)$, we have $$a\wedge b=(-1)^{sl}b\wedge a$$
-\end{thm}
-
-\begin{prp}{}{} Let $M,N$ be smooth manifolds and $f:M\to N$ a smooth map. Then $f$ induces an $\R$-linear map $$f^\ast:H^\ast(N)\to H^\ast(M)$$ such that $f^\ast(a\wedge b)=f^\ast(a)\wedge f^\ast(b)$. Moreover, it is functorial: 
-\begin{itemize}
-\item If $g:N\to K$ is another smooth map of manifolds, then $(g\circ f)^\ast=f^\ast\circ g^\ast$
-\item If $\text{id}:M\to M$ is the identity map on the manifold, then $\text{id}^\ast:H^\ast(M)\to H^\ast(M)$ is the trivial map on $\R$-algebras. 
-\end{itemize}
-\end{prp}
-
-\begin{thm}{Homotopy Invariance of de Rham Cohomology}{} Let $f:M\times I\to N$ be a smooth map of manifolds varying for each $t\in I=[0,1]$. Write $f_t(x)=f(x,t)$. Then the pull back maps $f_0^\ast,f_1^\ast:H^\ast(N)\to H^\ast(M)$ are equal: $$f_0^\ast=f_1^\ast$$
-\end{thm}
-
-\subsection{de Rham Cohomology of Common Manifolds}
-\begin{prp}{}{} The real space $\R^n$ has the de Rham cohomology $$H_{\text{dR}}^k(\R^n)=\begin{cases}
-\R & \text{ if }k=0\\
-0 & \text{ otherwise }
-\end{cases}$$
-\end{prp}
-
-\begin{prp}{}{} The $n$-sphere $S^n$ has the de Rham cohomology $$H_{\text{dR}}^k(S^n)=\begin{cases}
-\R & \text{ if }k=0,n\\
-0 & \text{ otherwise }
-\end{cases}$$
-\end{prp}
-
-\begin{thm}{}{} Let $p,q\geq 1$, the sphere $S^{p+q}$ is not diffeomorphic to any $M\times N$ manifolds where $\dim(M)=p$ and $\dim(N)=q$. 
-\end{thm}
-
-\begin{prp}{}{} Every smooth vector fields on $S^{2n}$ vanishes at some point of the sphere. 
-\end{prp}
-
-\begin{prp}{}{} The real projective space $\R\Prj^n$ has the de Rham cohomology $$H_{\text{dR}}^k(\R\Prj^n)=\begin{cases}
-\R & \text{ if }k=0\text{ or }k=n\text{ where }n\text{ odd }\\
-0 & \text{ otherwise }
-\end{cases}$$
-\end{prp}
-
-\pagebreak
-\section{Poincare Duality}
-\subsection{The Cap Product}
-\begin{defn}{The Cap Product}{} Let $\sigma=[v_0,\dots,v_k]\in C_k(X)$ and $\phi\in C^l(X)$ where $k\geq l$ with coefficients in a ring $R$. Define the cap product to be $$\sigma\frown\phi=\phi(\sigma|_{[v_0,\dots,v_l]})\sigma|_{[v_l,\dots,v_k]}\in C_{k-l}(X)$$
-\end{defn}
-
-\begin{lmm}{}{} The cap product $\frown: C_k(X)\times C^l(X)\to C_{k-l}(X)$ with coefficients in a ring $R$ induces a cap product in homology $\frown: H_k(X)\times H^l(X,R)\to H_{k-l}(X)$ for $k\geq l$. 
-\end{lmm}
-
-\subsection{Cohomology with Compact Support}
-
-\subsection{The Duality Theorem}
-\begin{thm}{Poincare Duality}{} Let $M$ be a compact and oriented topological $n$-manifold. Then the homomorphism $$D:H^p(M)\to H_{n-p}(M)$$ is an isomorphism. 
-\end{thm}
 
 
 

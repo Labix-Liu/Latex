@@ -1,20 +1,23 @@
 \contentsline {section}{\numberline {1}Holomorphic Functions of Several Variables}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Holomorphicity in Several Variables}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}The Inverse and Implicit Function Theorem}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Singularities}{4}{subsection.1.3}%
 \contentsline {section}{\numberline {2}Complex Manifolds}{5}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Basic Definitions}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Holomorphic Maps between Manifolds}{5}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Complex Submanifolds}{6}{subsection.2.3}%
-\contentsline {section}{\numberline {3}More on Vector Bundles}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Structure on Vector Spaces}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Structure on Vector Bundles}{7}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Tangent Spaces}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}The Complex Tangent Space}{9}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Complex Differential Forms}{11}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Differential 1-Forms}{11}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Differential k-Forms}{11}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Dobeault Cohomology}{12}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Hermitian Manifolds}{13}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Hermitian Manifold and its Metric}{13}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}The Riemannian Metric, The Hermitian Metric and the Associated Form}{13}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}}{14}{subsection.6.3}%
+\contentsline {section}{\numberline {3}Sheaves of Rings on Complex Manifolds}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The Weierstrass Theorem}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Sheaves on Complex Manifolds}{7}{subsection.3.2}%
+\contentsline {section}{\numberline {4}More on Vector Bundles}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Structure on Vector Spaces}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Structure on Vector Bundles}{9}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Tangent Spaces}{11}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The Complex Tangent Space}{11}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Complex Differential Forms}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Differential 1-Forms}{13}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Differential k-Forms}{13}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Dolbeault Cohomology}{14}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Hermitian Manifolds}{16}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Hermitian Manifold and its Metric}{16}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}The Riemannian Metric, The Hermitian Metric and the Associated Form}{16}{subsection.7.2}%

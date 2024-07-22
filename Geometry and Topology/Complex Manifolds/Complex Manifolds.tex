@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 
-\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -27,8 +27,8 @@ We have seen that analyticity and holomorphicity essentially mean the same thing
 \begin{defn}{Holomorphic Functions of Several Variables}{} Let $U$ be an open subset of $\C^n$. Let $f:U\to\C$ be a complex valued function. We say that $f$ is holomorphic if for each $w\in U$, there exists some open neighbourhood $V$ of $w$ such that $$f(z)=\sum_{k_1,\dots,k_n=0}^\infty c_{k_1,\dots,k_n}(z_1-w_1)^{k_1}\cdots(z_n-w_n)^{k_n}$$
 \end{defn}
 
-\begin{prp}{}{} Let $f$ be a complex valued function on an open subset $U$ of $\C^n$. Then $f$ is holomorphic on $U$ if and only if $f$ is holomorphic on each variable on $U$. 
-\end{prp}
+\begin{thm}{Osgood's Lemma}{} Let $U\subseteq\C^n$ be open. Let $f:U\to\C$ be a complex valued function. Then $f$ is holomorphic on $U$ if and only if $f$ is holomorphic on each variable on $U$ and $f$ is continuous on $\C$. 
+\end{thm}
 
 \begin{prp}{}{} Let $F:\C^n\to\C^n$ be a function where $F=(f_1,\dots,f_n)$ and $f_i(z)=u_i(z)+v_i(z)$ are the decomposition into its real and complex part. Then $F$ is holomorphic if and only if $u_1,v_1,\dots,u_n,v_n$ are $C^\infty$ functions that satisfy the Cauchy Riemann equations: $$\frac{\partial u_k}{\partial x_j}=\frac{\partial v_k}{\partial y_j}$$~$$\frac{\partial u_k}{\partial y_j}=-\frac{\partial v_k}{\partial x_j}$$
 \end{prp}
@@ -49,6 +49,10 @@ We have seen that analyticity and holomorphicity essentially mean the same thing
 \vdots & \ddots & \vdots\\
 \frac{\partial f_k}{\partial z_1}\bigg{|}_{0} & \cdots & \frac{\partial f_k}{\partial z_k}\bigg{|}_{0}
 \end{vmatrix}\neq 0$$ Then there exists a holomorphic function $g=(g_1,\dots,g_k):V\to\C^n$ such that for some neighbourhood $W$ of $0$ in $U$, we have $f(z)=0$ is equivalent to $z_i=g_i(z_{k+1},\dots,z_n)$ for $0\leq i\leq k$ and $z\in W$. 
+\end{thm}
+
+\subsection{Singularities}
+\begin{thm}{}{} Let $U\subseteq\C^n$ be open. Let $f:U\to\C$ be a holomorphic function. Then any isolated singularities of $f$ are removable. 
 \end{thm}
 
 \pagebreak
@@ -88,6 +92,39 @@ Let $(U,\phi=z_1,\dots,z_n))$ be a chart of a complex manifold $M$. Write $z_k=x
 
 \subsection{Complex Submanifolds}
 \begin{defn}{Complex Submanifolds}{} Let $M$ be an $n$ dimensional manifold. An $m$ dimensional submanifold is a subset $Y$ of $M$ such that for every $y\in Y$, there exists a chart $(U,\phi)$ of $M$ such that $$\phi(Y\cap U)=\phi(U)\cap\{0\}^{n-m}\times\C^m=\{(z_1,\dots,z_n)\in\phi(U)|z_{n-m+1}=\dots=z_n=0\}$$
+\end{defn}
+
+\pagebreak
+\section{Sheaves of Rings on Complex Manifolds}
+\subsection{The Weierstrass Theorem}
+\begin{thm}{The Weierstrass Preparation Theorem}{}
+\end{thm}
+
+\begin{prp}{}{} Let $p\in\C^n$. Then $\mO_{\C^n,p}$ is Noetherian and is s UFD
+\end{prp}
+
+\subsection{Sheaves on Complex Manifolds}
+\begin{defn}{Ring of Continuous Complex Functions}{} Let $U\subseteq\C^n$ be open. Define the ring of continuous complex functions to be the set $$\mC^0(U)=\{f:U\to\C\;|\;f\in C^0\}$$ together with pointwise addition and multiplication. 
+\end{defn}
+
+TBA: Topology on $\mC^0(U)$
+
+\begin{defn}{Ring of Holomorphic Functions}{} Let $U\subseteq\C^n$ be open. Define the ring of holomorphic functions to be the subring $$\mO(U)=\{f:U\to\C\;|\;f\text{ is holomorphic }\}\subseteq\mC^0(U)$$
+\end{defn}
+
+\begin{defn}{Local Ring of Differentiable Functions}{} Let $U\subseteq\C^n$ be open. Let $p\in U$. For $0\leq r\leq\infty$, define the local ring of $r$-differentiable functions at $p$ by $$\mC_{U,p}^r=\{(V,f:V\to\C)\;|\;V\text{ is open and }f\text{ is }r\text{-differentiable }\}/\sim$$ where we say that $(V,f)\sim(W,g)$ if there exists $X\subseteq V\cap W$ open such that $f|_X=g|_X$. An element of the equivalence class is called a germ. 
+\end{defn}
+
+\begin{defn}{The Local Ring of Holomorphic Functions}{} Let $U\subseteq\C^n$ be open. Let $p\in U$. Define the local ring of holomorphic functions at $p$ by $$\mO_{U,p}=\{(V,f:V\to\C)\;|\;V\text{ is open and }f\text{ is holomorphic }\}/\sim$$ where we say that $(V,f)\sim(W,g)$ if there exists $X\subseteq V\cap W$ open such that $f|_X=g|_X$. An element of the equivalence class is called a germ. 
+\end{defn}
+
+\begin{prp}{}{} Let $U\subseteq\C^n$ be open. Let $p\in U$. Then $\mO_{U,p}$ is a local ring and an integral domain. 
+\end{prp}
+
+\begin{prp}{}{} Let $p\in\C^n$. Then $\mO_{\C^n,p}$ is isomorphic to the ring of convergent power series centered at $p$. 
+\end{prp}
+
+\begin{defn}{Field of Meromorphic Germs}{} Let $U\subseteq\C^n$ be open. Let $p\in U$. Let $m_p$ be the unique maximal ideal of $\mO_{U,p}$. Define the field of meromorphic germs on $p$ by $$\mM_{U,p}=\frac{\mO_{U,p}}{m_p}$$
 \end{defn}
 
 \pagebreak
@@ -192,11 +229,13 @@ Denote the space of all $(p,q)$-forms by $\Omega^{p,q}(M)$.
 In other words, $\Omega_{\C}^\bullet$ is a cochain complex. 
 \end{prp}
 
-\subsection{Dobeault Cohomology}
-\begin{defn}{Complex de Rham Cohomology}{} Let $M$ be a complex manifold. Define the complex de Rham cohomology groups to be $$H_{\text{dR}}^k(M;\C)=\frac{\ker(d:\Omega_{\C}^k(M)\to\Omega_{\C}^{k+1}(M))}{\im(d:\Omega_{\C}^{k-1}(M)\to\Omega_{\C}^k(M))}=H_{dR}^k(\Omega_{\C}^\bullet(M))$$
+\subsection{Dolbeault Cohomology}
+\begin{defn}{Complex de Rham Cohomology}{} Let $M$ be a smooth real manifold. Define the complex de Rham cohomology groups to be $$H_{\text{dR}}^k(M;\C)=\frac{\ker(d:\Omega_{\C}^k(M)\to\Omega_{\C}^{k+1}(M))}{\im(d:\Omega_{\C}^{k-1}(M)\to\Omega_{\C}^k(M))}=H_{dR}^k(\Omega_{\C}^\bullet(M))$$
 \end{defn}
 
-\begin{prp}{}{} Let $M$ be a complex manifold. The real and complex de Rham cohomology groups of $M$ satisfy $$H_{\text{dR}}^k(X;\C)=H_{\text{dR}}(X;\R)\otimes_\R\C$$
+Recall that complex manifolds are in particular smooth real manifolds, hence complex de Rham cohomology also makes sense on complex manifolds. 
+
+\begin{prp}{}{} Let $M$ be a complex manifold. The real and complex de Rham cohomology groups of $M$ satisfy $$H_{\text{dR}}^k(M;\C)=H_{\text{dR}}^k(M;\R)\otimes_\R\C$$
 \end{prp}
 
 We can also decompose the exterior derivative into its holomorphic and antiholomorphic part. 
@@ -280,10 +319,5 @@ In local coordinates, $\omega$ is expressed as $$\omega=\frac{i}{2}\sum_{\alpha,
 
 \begin{lmm}{}{} Let $M$ be an almost complex manifold. Let $\omega$ be a non-degenerate $(1,1)$-form such that $\omega(Ju,Jv)=\omega(u,v)$ and that $\omega(u,Ju)>0$ for all tangent vectors $u$. Then $\omega$ induces a Hermitian metric. 
 \end{lmm}
-
-\subsection{}
-\begin{defn}{The Laplacian}{} Define the 
-\end{defn}
-
 
 \end{document}

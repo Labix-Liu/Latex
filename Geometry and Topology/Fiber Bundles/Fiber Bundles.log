@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  29 JUN 2024 14:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  19 JUL 2024 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -880,6 +880,23 @@ Package caption Info: New subtype `subtable' on input line 238.
 \WF@everypar=\toks50
 Package: wrapfig 2003/01/31  v 3.6
 )
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen314
+\ar@mcellbox=\box81
+\extrarowheight=\dimen315
+\NC@list=\toks51
+\extratabsurround=\skip71
+\backup@length=\skip72
+\ar@cellbox=\box82
+)
+\rotheadsize=\dimen316
+\c@nlinenum=\count337
+\TeXr@lab=\toks52
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgpagella.sty
 Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
 ) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
@@ -901,9 +918,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box81
-\tcb@totalupperbox=\box82
-\tcb@totallowerbox=\box83
+\tcb@testbox=\box83
+\tcb@totalupperbox=\box84
+\tcb@totallowerbox=\box85
 )
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskins.code
 .tex
@@ -920,14 +937,14 @@ Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzlibraryfil
 l.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box84
+\l__tikzfill_img_box=\box86
 ))
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskinsjigsa
 w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
-\c@tcb@cnt@thm=\count337
-Package hyperref Info: Option `colorlinks' set `true' on input line 224.
+\c@tcb@cnt@thm=\count338
+Package hyperref Info: Option `colorlinks' set `true' on input line 227.
 ) (Fiber Bundles.aux)
 \openout1 = `"Fiber Bundles.aux"'.
 
@@ -988,17 +1005,17 @@ LaTeX Font Info:    ... okay on input line 16.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count338
-\scratchdimen=\dimen314
-\scratchbox=\box85
-\nofMPsegments=\count339
-\nofMParguments=\count340
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count341
-\MPscratchDim=\dimen315
-\MPnumerator=\count342
-\makeMPintoPDFobject=\count343
-\everyMPtoPDFconversion=\toks52
+\scratchcounter=\count339
+\scratchdimen=\dimen317
+\scratchbox=\box87
+\nofMPsegments=\count340
+\nofMParguments=\count341
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count342
+\MPscratchDim=\dimen318
+\MPnumerator=\count343
+\makeMPintoPDFobject=\count344
+\everyMPtoPDFconversion=\toks54
 )
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -1010,7 +1027,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count344
+\c@lstlisting=\count345
 Package hyperref Info: Link coloring ON on input line 16.
  (Fiber Bundles.out) (Fiber Bundles.out)
 \@outlinefile=\write4
@@ -1073,10 +1090,10 @@ Package rerunfilecheck Info: File `"Fiber Bundles".out' has not changed.
 (rerunfilecheck)             Checksum: DED22727E7A130630C4190F9026578F0;5173.
  ) 
 Here is how much of TeX's memory you used:
- 32286 strings out of 474424
- 637701 string characters out of 5741739
+ 32515 strings out of 474424
+ 640617 string characters out of 5741739
  1957496 words of memory out of 5000000
- 53998 multiletter control sequences out of 15000+600000
+ 54221 multiletter control sequences out of 15000+600000
  602799 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,16n,120p,1012b,1474s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1097,7 +1114,7 @@ blic/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Fiber Bundles.pdf" (20 pages, 393096 bytes).
+Output written on "Fiber Bundles.pdf" (20 pages, 393694 bytes).
 PDF statistics:
  438 PDF objects out of 1000 (max. 8388607)
  124 named destinations out of 1000 (max. 500000)

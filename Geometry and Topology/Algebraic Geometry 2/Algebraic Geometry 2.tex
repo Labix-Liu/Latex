@@ -63,10 +63,10 @@ In particular, the tangent space is a vector space by identifying the point $p$ 
 \begin{prp}{}{} Let $V\subseteq\C^n$ be an affine algebraic variety. Let $x\in V$. Denote $m_x=\{f\in\C[V]|f(x)=0\}$ a maximal ideal of $\C[V]$. Then $\dim(m_x/m_x^2)=\dim(T_p(X))$
 \end{prp}
 
-\subsection{Smooth Points of a Variety}
+\subsection{Smooth Points of an Affine Variety}
 We continue to restrict our attention to affine varieties. 
 
-\begin{defn}{Smooth and Singular Points}{} Let $X$ be an affine variety. A point $p\in X$ is smooth if $\dim(T_p(X))=\dim(X)$. Otherwise, $p\in X$ is singular. 
+\begin{defn}{Smooth and Singular Points of Affine Varieties}{} Let $X$ be an affine variety. A point $p\in X$ is smooth if $\dim(T_p(X))=\dim(X)$. Otherwise, $p\in X$ is singular. 
 \end{defn}
 
 Note: Some authors (IR Shafarevich) define singularity by whether the tangent space at a point has dimension higher than the minimum of all the tangent spaces. This makes sense: we can show that the set of all singularities is a closed set. 
@@ -82,13 +82,20 @@ has rank $n-d$.
 \begin{prp}{}{} Let $X$ be an affine variety. Let $p\in X$. Then $X$ is smooth at $p$ if and only if the local ring $\mathcal{O}_{X,p}$ is regular. 
 \end{prp}
 
+\subsection{Smooth Points of a Variety in General}
 We can now motivate the definition of a smooth point using the purely algebraic characterization. 
 
-\begin{defn}{Smooth and Singular Points}{} Let $X$ be a variety. $X$ is smooth at a point $p\in X$ if the local ring $\mathcal{O}_{X,p}$ is a regular local ring, otherwise it is singular. $X$ is smooth if every point of $X$ is smooth. 
+\begin{defn}{Smooth and Singular Points of A General Variety}{} Let $X$ be a variety. We say that $X$ is smooth at a point $p\in X$ if the local ring $\mathcal{O}_{X,p}$ is a regular local ring, otherwise it is singular. $X$ is smooth if every point of $X$ is smooth. 
 \end{defn}
 
 \begin{thm}{}{} Let $X$ be a variety. Then the set of singular points of $X$ is a proper closed subset of $X$. 
 \end{thm}
+
+\begin{prp}{}{} Let $X$ be a variety. If $p\in X$ is a smooth point, then $\mO_{X,p}$ is a UFD. 
+\end{prp}
+
+\begin{prp}{}{} Let $X$ be a variety and let $Y\subseteq X$ be an irreducible subvariety of $X$. If $p\in X$ is non-singular, then there exists an affine neighbourhood $U\subseteq X$ of $x$ together with $f_1,\dots,f_k\in k[U]$
+\end{prp}
 
 \pagebreak
 \section{Birational Geometry}
@@ -162,9 +169,10 @@ To blow up any point other than $0$, perform a linear change in coordinates send
 \pagebreak
 \section{Theory of Divisors}
 \subsection{Divisors of a Variety}
-\begin{defn}{Divisors of a Variety}{} Let $X$ be a variety. Let $C_1,\dots,C_r$ be irreducible closed subvarieties of $X$ of codimension $1$. A divisor of $X$ is of the form $$D=\sum_{i=1}^rk_iC_i$$ for $k_i\in\Z$. $k_i$ is said to be the multiplicity of $C_i$. \\~\\
-If $k_i=0$ for all $i$ then we write $D=0$. If $k_i\geq 0$ for all $i$ then $D$ is said to be effective and we write $D>0$. An irreducible codimension $1$ subvariety $C_i$ taken with multiplicity $1$ is called a prime divisor. \\~\\
-Define the free group of all divisors of $X$ by $\text{Div}(X)$. 
+\begin{defn}{Divisors of a Variety}{} Let $X$ be a variety. Let $C_1,\dots,C_r$ be irreducible closed subvarieties of $X$ of codimension $1$. A divisor of $X$ is of the form $$D=\sum_{i=1}^rk_iC_i$$ for $k_i\in\Z$. We say that $k_i$ is the multiplicity of $C_i$ in $D$. Define the free group of all divisors of $X$ by $$\text{Div}(X)=\Z\left\langle C\;|\;C\substack{\text{ is an irreducible closed}\\\text{subvariety of codimension }1}\right\rangle$$ Generators of $\text{Div}(X)$ are called prime divisors. 
+\end{defn}
+
+\begin{defn}{Effective Divisor}{} Let $X$ be a variety. We say that a divisor $$D=\sum_{i=1}^rk_iC_i$$ of $X$ is effective if $k_i\geq 0$ for all $i$. In this case we write $D>0$. 
 \end{defn}
 
 \begin{defn}{Divisor of a Function}{} Let $X$ be a variety such that the set of singular points of $X$ has codimension $\geq 2$. Let $f\in K(X)$. Let $C$ be a prime divisor of $X$. 
@@ -178,7 +186,7 @@ Define the set of all principal divisors by $P(X)$.
 \end{prp}
 
 \begin{defn}{Divisor Class Group}{} Let $X$ be a variety. Define the divisor class group of $X$ to be $$\text{Cl}(X)=\frac{\text{Div}(X)}{P(X)}$$
-We say that two divisors $D_1$ and $D_2$ are linearly equivalent if they lie in the same coset of $\text{Cl}(X)$, written as $D_1\sim D_2$. In other words, $D_1\sim D_2$ if and only if $D_1-D_2=\text{div}(f)$ for some $f\in K(X)$. 
+We say that two divisors $D_1$ and $D_2$ are linearly equivalent if they lie in the same coset of $\text{Cl}(X)$, written as $D_1\sim D_2$. 
 \end{defn}
 
 \begin{defn}{Degree of a Divisor}{}

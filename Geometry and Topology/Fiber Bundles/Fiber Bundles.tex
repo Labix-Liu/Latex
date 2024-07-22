@@ -391,11 +391,11 @@ Here cohomology can be taken for example singular cohomology with coefficients i
 \end{thm}
 
 \subsection{The Stiefel-Whiteny Class}
-\begin{defn}{The Stiefel-Whitney Class}{} Consider the group $O(n)$. We say that a characteristic class $w:\text{Prin}_{O(n)}(-)\to H^\ast(-,\Z/2\Z)$ for $O(n)$ is a Stiefel-Whitney Class if the following are satisfied. 
+\begin{defn}{The Stiefel-Whitney Class}{} Consider the group $O(n)$. Let $$w_i:\text{Prin}_{O(n)}(-)\to H^i(-,\Z/2\Z)$$ be a collection of natural transformations. Define  the natural transformation $$w=\sum_{k=0}^\infty w_k:\text{Prin}_{O(n)}(-)\to H^\ast(-,\Z/2\Z)$$ We say that $w$ is a Stiefel-Whitney Class if the following are satisfied. 
 \begin{enumerate}
 \item Rank: If $E$ is a principal $O(n)$-bundle, then $w_0(E)=1$ and $w_i(E)=0$ for $i>\rank(E)$. 
 \item Naturality: Let $p:E\to X$ be a principal $O(n)$-bundle and let $f:Y\to X$ be a map. Then $$w_i(f^\ast(E))=f^\ast(w_i(E))$$
-\item Whitney Product Formula: If $E_1,E_2$ are principal $O(n)$-bundles, then $$w_k(E_1\oplus E_2)=\sum_{i=0}^kw_i(E_1)\smile w_{k-i}(E_2)$$
+\item Whitney Product Formula: If $E_1,E_2$ are principal $O(n)$-bundles, then $$w_k(E_1\oplus E_2)=\sum_{i=0}^kw_i(E_1)\smile w_{k-i}(E_2)$$ or equivalently, $w(E_1\oplus E_2)=w(E_1)w(E_2)$. 
 \item Normalization: If $\gamma$ is the tautological line bundle over $\Prj^1(\R)$, then $w_1(\gamma)$ is non-zero. 
 \end{enumerate}
 \end{defn}

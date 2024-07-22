@@ -23,8 +23,8 @@
 \tableofcontents
 
 \pagebreak
-\section{The Category of Spectra}
-\subsection{Spectra and $\Omega$-Spectra}
+\section{Introduction to Spectra}
+\subsection{Spectra, Maps and Homotopies}
 Let $X$ be a space. We have seen in Algebraic Topology 3 that we can define the stable homotopy groups of $X$ as $$\pi_n^s(X)=\colim_{k\to\infty}\pi_{n+k}(\Sigma^kX)$$ This is well defined because of the Freudenthal suspension theorem, which states that the groups in the direct limit eventually stabilize. \\~\\
 
 Conversely, we can extract from this result the following. If $X$ is a space, we have a sequence of spaces $$X,\Sigma X,\Sigma^2X,\dots$$ For each $n$, the sequence $$\pi_n(X)\to\pi_{n+1}(\Sigma X)\to\pi_{n+2}(\Sigma^2X)\to\cdots$$ eventually stabilizes by the Freudenthal suspension theorem. This is the guiding result for the definition of a spectrum. 
@@ -71,10 +71,30 @@ Just the definition of a function of spectra is not enough to form the category 
 
 \begin{defn}{Map of Spectra}{} Let $E,F$ be spectra. Let $E',E''$ be subspectra of $E$. We say that two functions $f':E'\to F$ and $f'':E''\to F$ are equivalent if there exists a cofinal spectrum $E'''$ contained in $E'$ and $E''$ such that the restrictions $f'|_{E'''}$ and $f''|_{E'''}$ coincide. \\~\\
 
-Define a map from $E$ to $F$ to be an equivalent class of such functions. 
+Define a map from $E$ to $F$ to be an equivalent class of such functions. We denote it by $\varphi:E\to F$. 
 \end{defn}
 
+\begin{defn}{Wedge of Spectra}{} Let $E$ be a spectrum and let $X$ be a pointed space. Define the wedge of $E$ and $X$ to be $$E\wedge X=\{E_n\wedge X\}\;\;\;\;\text{ and }\;\;\;\;X\wedge E=\{X\wedge E_n\}$$ depending on whether the wedge is on the left or the right. 
+\end{defn}
 
+\begin{defn}{Homotopies of Functions of Spectra}{} Let $E,F$ be spectra. Let $g_0,g_1:E\to F$ be two functions of spectra. We say that $g_0$ and $g_1$ are homotopic if there exists a function $$G:E\wedge(I,\ast)\to F$$ of spectra such that the following are true. 
+\begin{itemize}
+\item $G$ coincides with $g_0$ on $E\wedge(\{0\},\ast)\to F$
+\item $G$ coincides with $g_1$ on $E\wedge(\{1\},\ast)\to F$
+\end{itemize}
+In this case we write $g_0\simeq g_1$. 
+\end{defn}
+
+\begin{defn}{Homotopies of Maps of Spectra}{} Let $E,F$ be spectra. Let $\varphi_0,\varphi_1:E\to F$ be two maps of spectra. We say that $\varphi_0$ and $\varphi_1$ are homotopic if there exists a cofinal subspectrum $E'$ of $E$ and two functions $g_0,g_1:E'\to F$ where $g_0\in\varphi_0$ and $g_1\in\varphi_1$ such that $g_0|_{E'}\simeq g_1|_{E'}$. 
+\end{defn}
+
+\begin{lmm}{}{} The relation of homotopy on maps of spectra is an equivalent relation. 
+\end{lmm}
+
+\begin{defn}{Homotopy Classes of Maps}{} Let $E,F$ be spectra. Let $\varphi:E\to F$ be a map of spectra. Denote the homotopy class of maps of $\varphi$ by $[\varphi]$. Denote the set of all homotopy classes of maps of spectras from $E$ to $F$ by $$[E,F]=\{[\varphi]\;|\;\varphi:E\to F\text{ is a map of spectra }\}$$
+\end{defn}
+
+\subsection{Examples of Spectra}
 A major examples of spectra comes from the initial digression. 
 
 \begin{defn}{The Suspension Spectrum}{} Let $X$ be a compactly generated space. Define the suspension spectrum of $X$ to consist of the following data. 
@@ -84,7 +104,7 @@ A major examples of spectra comes from the initial digression.
 \end{itemize}
 \end{defn}
 
-\begin{defn}{The CW Spectrum}{} The CW spectrum $E$ is a collection $\{E_n\;|\;n\in\Z\}$ of CW-complexes with a chosen basepoint together with maps $e_n:\Sigma E_n\to E_{n+1}$ so that $\Sigma E_n$ is recognized as a subcomplex of $E_{n+1}$. 
+\begin{defn}{The CW Spectrum}{} A CW spectrum $E$ is a collection $\{E_n\;|\;n\in\Z\}$ of CW-complexes with a chosen basepoint together with maps $e_n:\Sigma E_n\to E_{n+1}$ so that $\Sigma E_n$ is recognized as a subcomplex of $E_{n+1}$. 
 \end{defn}
 
 \begin{defn}{$\Omega$-Spectra}{} Let $\{E_n\;|\;n\in\Z\}$ and $e_n:E_n\to\Omega E_{n+1}$ be a spectra. We say that it is an $\Omega$-spectra if the induced map $(e_n)_\ast$ is a weak homotopy equivalence. 
@@ -147,6 +167,13 @@ The stability condition is more general than just to the suspension spectrum how
 \begin{lmm}{}{} Let $E$ be an $\Omega$-spectrum. Then there is an isomorphism $$(e_n)_\ast:\pi_{n+r}(E_n)\overset{\cong}{\longrightarrow}\pi_{n+r+1}(E_{n+1})$$ between the stable homotopy groups for $n+k\geq 1$. 
 \end{lmm}
 
+Alternatively, one can simply think of the homotopy groups of a spectra just like that of ordinary topology. 
+
+\begin{prp}{}{} Let $E$ be a spectrum. Then there is an isomorphism $$\pi_k(E)\cong[\Sigma^k S,E]$$ for all $k\in\N$, where $S$ is the sphere spectrum. 
+\end{prp}
+
+Next: $\pi_k(-)$ is functorial. 
+
 \subsection{Spanier-Whitehead Category}
 \begin{defn}{Spanier-Whitehead Category}{} Define the Spanier-Whitehead category $\bold{SW}$ as follows. 
 \begin{itemize}
@@ -155,6 +182,60 @@ The stability condition is more general than just to the suspension spectrum how
 \item Composition is given by the composition of maps. 
 \end{itemize}
 \end{defn}
+
+\pagebreak
+\section{CW Spectra}
+\subsection{The Working Category of CW Spectra}
+\begin{defn}{Category of CW Spectra}{} The category of CW spectra $\mS$ is defined via the following data. 
+\begin{itemize}
+\item The objects of $\mS$ are CW Spectra
+\item For $E,F$ two CW spectra, a morphism from $E$ to $F$ is a map $\varphi:E\to F$. 
+\item Composition is defined as the composition of maps of spectra. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Homotopy Category of CW Spectra}{} The homotopy category of CW spectra $\mH\mS$ is defined via the following data. 
+\begin{itemize}
+\item The objects of $\mH\mS$ are CW Spectra
+\item For $E,F$ two CW spectra, a morphism from $E$ to $F$ is a homotopy class of maps of spectra $[\varphi]:E\to F$. 
+\item Composition is defined as the composition of maps of spectra. 
+\end{itemize}
+Isomorphisms in the category are called equivalences. If $E$ and $F$ are equivalent spectra then we denote it by $E\simeq F$. 
+\end{defn}
+
+\begin{thm}{}{} Let $E,F$ be CW spectra and let $\varphi:E\to F$ be a morphism of spectra. Then $\varphi:E\to F$ is an equivalence if and only if the induced homomorphism $$\varphi_\ast:\pi_k(E)\to\pi_k(F)$$ is an isomorphism for all $k$. 
+\end{thm}
+
+\begin{thm}{}{} Every spectrum is homotopy equivalent to a CW spectrum. Explicitly, for every spectrum $X=\{X_n,t_n\}$, there exists a CW spectrum $E=\{E_n,s_n\}$ together with pointed homotopy equivalences $f_n:E_n\to X_n$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{SE_n} & {SX_n} \\
+	{E_{n+1}} & {X_{n+1}}
+	\arrow["{Sf_n}", from=1-1, to=1-2]
+	\arrow["{s_n}"', from=1-1, to=2-1]
+	\arrow["{t_n}", from=1-2, to=2-2]
+	\arrow["{f_{n+1}}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{thm}
+
+\begin{thm}{}{} Every CW spectrum is equivalent to some $\Omega$ CW spectrum. 
+\end{thm}
+
+\pagebreak
+\section{Oriented Cobordism}
+\begin{defn}{Cobordism}{} Let $M,N$ be two smooth compact oriented $n$-manifolds. We say that $M$ and $N$ are oriented cobordant if there exists a smooth compact oriented manifold $X$ with boundary $\partial X$ such that $\partial X$ with its induced orientation is diffeomorphic to $M\coprod -N$ under an oriented diffeomorphism. 
+\end{defn}
+
+\begin{lmm}{}{} Cobordism is an equivalence relation. 
+\end{lmm}
+
+\begin{defn}{}{} For $n\in\N$, denote $$\Omega_n=\{[M]\;|\;[M]\text{ is an oriented cobordism class of }n\text{-manifolds }\}$$ the set of oriented cobordism classes of $n$-manifolds. 
+\end{defn}
+
+\begin{lmm}{}{} For any $n\in\N$, $\Omega_n$ is an abelian group together with the disjoint union as the operation. 
+\end{lmm}
+
+\begin{prp}{}{} The direct sum of abelian groups $$\Omega_\ast=\bigoplus_{i=0}^\infty\Omega_i$$ forms a ring with the cartesian product. Moreover, it is graded commutative. 
+\end{prp}
 
 
 

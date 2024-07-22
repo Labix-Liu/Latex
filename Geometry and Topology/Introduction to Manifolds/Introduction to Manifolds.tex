@@ -53,7 +53,7 @@ By convention, $C^0(U,V)$ is the set of all continuous maps from $U$ to $V$ and 
 \begin{prp}{}{} The set $\Gamma_{\mO}\{f:U\to V|f,f^{-1}\text{ is holomorphic}, U,V\subseteq\C^n\text{ open}\}$ is a pseudogroup of transformations on $\C^n$. 
 \end{prp}
 
-\subsection{Manifolds}
+\subsection{Manifolds and their Structures}
 \begin{defn}{Atlas}{} Let $M$ be a topological space. An atlas of $M$ compatible with a pseudogroup of transformations $\Gamma$ is a family of pairs $\{(U_i,\phi_i)|i\in I\}$, called charts, such that 
 \begin{itemize}
 \item Each $U_i$ is an open subset of $M$ and $M=\bigcup_{i\in I}U_i$
@@ -107,6 +107,60 @@ Notice that it is not possible for a manifold to locally look like both $\R^n$ a
 
 A chart on a real manifold $M$ of dimension $n$ is actually an open set together with $n$ coordinate functions. Indeed if $(U,\phi)$ is a chart of $M$, then $\phi:U\to\R^n$ is a map to $\R^n$. If we are interested in the particular components of $\phi$, we write $\phi=(x^1,\dots,x^n)$ where $x^i:U\to\R$ is the coordinate function sending a point on $U$ to its $i$th coordinate. All the $x^i$s combine to recover $\phi$. If we would like to talk about the actual coordinate on $\R^n$ instead of the coordinate function, we write $x_i$ instead. 
 
+\subsection{Maps that Preserve Structure}
+As usual, for every object or class of objects in mathematics, we also study maps between objects. In our case of manifolds, it turns out that the right kind of maps to consider are maps to preserve their structure, whether it be topological, $C^k$ for $k\geq 1$, smooth, or analytic. \\~\\
+
+The following definition and the entire subsection works when one replaces $C^k$ with analytic. This will be indicated by a bracketed ``analytic'' in both the definitions and theorems. 
+
+\begin{defn}{Differentiable Maps on Manifolds}{} Let $M,N$ be two $C^k$ (analytic) manifolds for $0\leq k\leq\infty$. A map $f:M\to N$ is $C^k$ (analytic) if for every $p\in M$ there exists charts $(U,\phi)$ on $M$ and $(V,\psi)$ on $N$ with $p\in U$ and $f(U)\subset V$ such that $$\psi\circ f\circ\phi^{-1}:\phi(U)\to\psi(V)$$ is $C^k$ (analytic) in the real sense. If $k=\infty$, we say that $f$ is smooth. 
+\end{defn}
+
+Notice that the choice of charts is independent of the notion of differentiability. Indeed, if $p\in M$ has two chart $(U,\phi),(U',\phi')$ and $f(p)$ has two chart $(V,\psi),(V',\psi')$ such that $\psi\circ f\circ\phi^{-1}$ is $C^k$ (analytic), then $\psi'\circ f\circ(\phi)'^{-1}$ is also $C^k$ (analytic) because $$\psi'\circ f\circ(\phi)'^{-1}=\left(\psi'\circ\psi^{-1}\right)\circ\left(\psi\circ f\circ\phi^{-1}\right)\circ\left(\phi\circ(\phi')^{-1}\right)$$ is a $C^k$ map. Also if we take $N=\R$ to be the real numbers with the standard manifold structure, then $\psi$ can be omitted in the definition and so we say that a function $f:M\to\R$ is $C^k$ (analytic) if for every chart $(U,\phi)$ of $M$ is such that $$f\circ\phi^{-1}:\phi(U)\subset\R^m\to\R$$ is $C^k$ (analytic). 
+
+\begin{prp}{}{} Let $M,N,P$ be $C^k$ (analytic) manifolds and let $f:M\to N$ and $g:N\to P$ be $C^k$ (analytic) maps for $0\leq k\leq\infty$. Then $g\circ f:M\to P$ is also a $C^k$ (analytic) map. \tcbline
+\begin{proof}
+Let $(W,\varphi)$ be a chart on $P$ and $(U,\phi)$ a chart on $M$. Then for any choice of chart $(V,\psi)$ of $N$, we have that $\varphi\circ g\circ\psi^{-1}$ and $\psi\circ f\circ\phi^{-1}$ are $C^k$ (analytic) maps in $\R^m$, $\R^n$ and $\R^p$. Thus their composition is $C^k$ (analytic) from $\R^m$ to $\R^p$ so that $\varphi\circ g\circ\phi^{-1}$ is $C^k$ (analytic). 
+\end{proof}
+\end{prp}
+
+\begin{defn}{Diffeomorphisms}{} Let $M,N$ be $C^k$ (analytic) manifolds for $0\leq k\leq\infty$. $M,N$ are $C^k$ (analytically) diffeomorphic if there exists a bijective map $f:M\to N$ such that $f$ and $f^{-1}$ is $C^k$. 
+\end{defn}
+
+\begin{prp}{}{} Let $(U,\phi)$ be a chart on a $C^k$ (analytic) manifold $M$ for $0\leq k\leq\infty$. Then the coordinate maps $\phi$ are $C^k$ (analytically) diffeomorphic. \tcbline
+\begin{proof}
+$\phi$ is a homeomorphism by definition so we just have to check smoothness. But $\phi$ is smooth because $\text{id}_\R\circ\phi\circ\phi^{-1}:\phi(U)\subseteq\R\to\R$ is the identity and $\phi^{-1}$ is smooth because $\phi\circ\phi^{-1}\circ\text{id}_\R:\R\to\R$ is also the identity. 
+\end{proof}
+\end{prp}
+
+\subsection{Comparing Different Structures on Manifolds}
+So far, we have seen no less than $4$ structures on manifolds. In other words, we have at least $4$ different classes of manifolds. 
+
+\begin{itemize}
+\item Topological manifolds with $C^0$ structure
+\item $C^k$-differentiable manifolds for $k\geq 1$ with $C^k$-structure
+\item Smooth manifolds with $C^\infty$-structure
+\item Real analytic manifolds with analytic structure
+\end{itemize}
+
+There is another important class of manifolds which are complex analytic (holomorphic) manifolds, but we will only discuss real manifolds in these notes. What are the relations between all such structures? This section will answer that. 
+
+\begin{thm}{}{} Let $M$ be a $C^k$-manifold for $k\geq 1$. Then for all $r>k$, $M$ can be endowed with the structure of a $C^r$-manifold, such that the two structures are compatible. The $C^r$-manifold structure is unique up to $C^k$ diffeomorphism. 
+\end{thm}
+
+\begin{thm}{}{} Let $M$ be a $C^k$-manifold for $k\geq 1$. Then $M$ is $C^k$-diffeomorphic to a $C^\infty$ manifold. 
+\end{thm}
+
+ref: hirsch differential geometry
+
+\begin{thm}{}{} Any connected topological manifold of dimension $1$ is either homeomorphic to $\R$ or $S^1$. 
+\end{thm}
+
+\begin{thm}{}{} Any connected topological manifold of dimension $1$ are real analytic manifolds. 
+\end{thm}
+
+\begin{thm}{}{} Any topological manifold of dimension $2$ or $3$ can be endowed with a unique real analytic structure. This means that any two such structures which are homeomorphic are analytically diffeomorphic. 
+\end{thm}
+
 \subsection{Manifolds with Boundaries}
 \begin{defn}{Upper Half Space}{} Define the upper half space of $\R^n$ to be $$H^n=\{(x_1,\dots,x_n)\in\R^n\;|\;x_n\geq 0\}$$ endowed with the subspace topology of $\R^n$. 
 \end{defn}
@@ -121,29 +175,7 @@ A chart on a real manifold $M$ of dimension $n$ is actually an open set together
 \end{prp}
 
 \pagebreak
-\section{Smooth Manifolds}
-\subsection{Maps between Smooth Manifolds}
-From now on we will only discuss $C^\infty$ manifolds, or in other words, smooth manifolds. As usual, for every object or class of objects in mathematics, we also study maps between objects. In our case of smooth manifolds, it turns out that the right kind of maps to consider are smooth maps, and the right kind of isomorphisms is diffeomorphisms. 
-\begin{defn}{Smooth Maps on Manifolds}{} Let $M,N$ be two smooth manifolds. A map $f:M\to N$ is smooth if for every $p\in M$ there exists charts $(U,\phi)$ on $M$ and $(V,\psi)$ on $N$ with $p\in U$ and $f(U)\subset V$ such that $$\psi\circ f\circ\phi^{-1}:\phi(U)\to\psi(V)$$ is $C^\infty$ in the usual sense. 
-\end{defn}
-
-Notice that the choice of charts is independent of the notion of smoothness. Indeed, if $p\in M$ has two chart $(U,\phi),(U',\phi')$ and $f(p)$ has two chart $(V,\psi),(V',\psi')$ such that $\psi\circ f\circ\phi^{-1}$ is smooth, then $\psi'\circ f\circ(\phi)'^{-1}$ is also smooth because $$\psi'\circ f\circ(\phi)'^{-1}=\left(\psi'\circ\psi^{-1}\right)\circ\left(\psi\circ f\circ\phi^{-1}\right)\circ\left(\phi\circ(\phi')^{-1}\right)$$ is a smooth map. Also if we take $N=\R$ to be the real numbers with the standard manifold structure, then $\psi$ can be omitted in the definition and so we say that a function $f:M\to\R$ is smooth if for every chart $(U,\phi)$ of $M$ is such that $$f\circ\phi^{-1}:\phi(U)\subset\R^m\to\R$$ is smooth. 
-
-\begin{prp}{}{} Let $M,N,P$ be smooth manifolds and $f:M\to N$ and $g:N\to P$ are smooth maps. Then $g\circ f:M\to P$ is also a smooth map. \tcbline
-\begin{proof}
-Let $(W,\varphi)$ be a chart on $P$ and $(U,\phi)$ a chart on $M$. Then for any choice of chart $(V,\psi)$ of $N$, we have that $\varphi\circ g\circ\psi^{-1}$ and $\psi\circ f\circ\phi^{-1}$ are smooth maps in $\R^m$, $\R^n$ and $\R^p$. Thus their composition is smooth from $\R^m$ to $\R^p$ so that $\varphi\circ g\circ\phi^{-1}$ is smooth. 
-\end{proof}
-\end{prp}
-
-\begin{defn}{Diffeomorphisms}{} Let $M,N$ be smooth manifolds. $M,N$ are diffeomorphic if there exists a bijective map $f:M\to N$ such that $f$ and $f^{-1}$ is smooth. 
-\end{defn}
-
-\begin{prp}{}{} Let $(U,\phi)$ be a chart on a smooth manifold $M$. Then the coordinate map $\phi$ is a diffeomorphism. \tcbline
-\begin{proof}
-$\phi$ is a homeomorphism by definition so we just have to check smoothness. But $\phi$ is smooth because $\text{id}_\R\circ\phi\circ\phi^{-1}:\phi(U)\subseteq\R\to\R$ is the identity and $\phi^{-1}$ is smooth because $\phi\circ\phi^{-1}\circ\text{id}_\R:\R\to\R$ is also the identity. 
-\end{proof}
-\end{prp}
-
+\section{New Manifolds from Old}
 \subsection{Submanifolds}
 There are two types of submanifolds, namely immersed submanifolds and embedded submanifolds. We will discuss mainly the notion of embedded submanifolds. 
 
@@ -981,29 +1013,41 @@ By proposition 6.2.4, the operator $d:\Omega^k(M)\to\Omega^{k+1}(M)$ for a smoot
 The complex is denoted as $(\Omega^\bullet(M),d)$, coinciding with the algebra of smooth differential forms. 
 \end{defn}
 
-\begin{defn}{de Rham Cohomology Groups}{} Let $M$ be a smooth manifold of dimension $n$. Define the de Rham cohomology groups of $M$ to be the cohomology of the chain of differential forms: $$H_{\text{dR}}^k(M;\R)=H^k(\Omega^\bullet(M);\R)$$ for $0\leq k\leq n$. 
+\begin{defn}{de Rham Cohomology Groups}{} Let $M$ be a smooth manifold of dimension $n$. Define the de Rham cohomology groups of $M$ to be the cohomology of the chain of differential forms: $$H_{\text{dR}}^k(M)=H^k(\Omega^\bullet(M);\R)$$ for $0\leq k\leq n$. 
 \end{defn}
 
 \begin{prp}{}{} Let $M$ be a smooth manifold of dimension $n$. Then the following are true for the de Rham cohomology of $M$. 
 \begin{itemize}
-\item $H_{\text{dR}}^k(M;\R)$ is a vector space over $\R$ for all $k\in\N$. 
-\item For $r>n$ we have $H_{\text{dR}}^r(M;\R)=0$
-\item If $M$ has $m$ connected components then $H_{\text{dR}}^0(M;\R)=\R^k$
+\item $H_{\text{dR}}^k(M)$ is a vector space over $\R$ for all $k\in\N$. 
+\item For $r>n$ we have $H_{\text{dR}}^r(M)=0$
+\item If $M$ has $m$ connected components then $H_{\text{dR}}^0(M)=\R^k$
 \end{itemize}
 \end{prp}
 
-\begin{thm}{}{} Let $M$ be a smooth manifold of dimension $n$. Then the direct sum $$H^\ast(M)=\bigoplus_{k=1}^nH_{\text{dR}}^k(M;\R)$$ is an $\R$-algebra where multiplication defined by $a\wedge b\in H_{\text{dR}}^{s+l}(M;\R)$ for $a\in H_{\text{dR}}^s(M;\R)$ and $b\in H_{\text{dR}}^l(M;\R)$. Moreover, this multiplication is anti-commutative, namely for $a\in H_{\text{dR}}^s(M;\R)$ and $b\in H_{\text{dR}}^l(M;\R)$, we have $$a\wedge b=(-1)^{sl}b\wedge a$$
+\begin{thm}{}{} Let $M$ be a smooth manifold of dimension $n$. Then the direct sum $$H_\text{dR}^\ast(M)=\bigoplus_{k=1}^nH_{\text{dR}}^k(M)$$ is an $\R$-algebra where multiplication defined by $a\wedge b\in H_{\text{dR}}^{s+l}(M)$ for $a\in H_{\text{dR}}^s(M;\R)$ and $b\in H_{\text{dR}}^l(M)$. Moreover, this multiplication is anti-commutative, namely for $a\in H_{\text{dR}}^s(M)$ and $b\in H_{\text{dR}}^l(M)$, we have $$a\wedge b=(-1)^{sl}b\wedge a$$
 \end{thm}
 
-\begin{prp}{}{} Let $M,N$ be smooth manifolds and $f:M\to N$ a smooth map. Then $f$ induces an $\R$-linear map $$f^\ast:H^\ast(N)\to H^\ast(M)$$ such that $f^\ast(a\wedge b)=f^\ast(a)\wedge f^\ast(b)$. Moreover, it is functorial: 
+\begin{prp}{}{} Let $M,N$ be smooth manifolds and $f:M\to N$ a smooth map. Then $f$ induces an $\R$-linear map $$f^\ast:H_\text{dR}^\ast(N)\to H_\text{dR}^\ast(M)$$ such that $f^\ast(a\wedge b)=f^\ast(a)\wedge f^\ast(b)$. Moreover, it is functorial: 
 \begin{itemize}
 \item If $g:N\to K$ is another smooth map of manifolds, then $(g\circ f)^\ast=f^\ast\circ g^\ast$
-\item If $\text{id}:M\to M$ is the identity map on the manifold, then $\text{id}^\ast:H^\ast(M)\to H^\ast(M)$ is the trivial map on $\R$-algebras. 
+\item If $\text{id}:M\to M$ is the identity map on the manifold, then $\text{id}^\ast:H_\text{dR}^\ast(M)\to H_\text{dR}^\ast(M)$ is the trivial map on $\R$-algebras. 
 \end{itemize}
 \end{prp}
 
-\begin{thm}{Homotopy Invariance}{} Let $f:M\times I\to N$ be a smooth map of manifolds varying for each $t\in I=[0,1]$. Write $f_t(x)=f(x,t)$. Then the pull back maps $f_0^\ast,f_1^\ast:H^\ast(N)\to H^\ast(M)$ are equal: $$f_0^\ast=f_1^\ast$$
+\begin{thm}{Homotopy Invariance}{} Let $f:M\times I\to N$ be a smooth map of manifolds varying for each $t\in I=[0,1]$. Write $f_t(x)=f(x,t)$. Then the pull back maps $f_0^\ast,f_1^\ast:H_\text{dR}^\ast(N)\to H_\text{dR}^\ast(M)$ are equal: $$f_0^\ast=f_1^\ast$$
 \end{thm}
+
+\begin{thm}{}{} If $M$ is a compact, orientable connected $n$-dimensional manifold with a chosen orientation, then integration $$\int_M:H_\text{dR}^n(M)\to\R$$ defines a canonical isomorphism between $H_\text{dR}^n(M)$ and $\R$. 
+\end{thm}
+
+\subsection{De Rham's Theorem}
+\begin{prp}{}{} Let $M$ be a smooth manifold. Then there is an isomorphism $$\Hom(H_k(M;\Z),\R)\cong H^k(M;\R)$$ for any $k\in\N$. 
+\end{prp}
+
+\begin{thm}{}{} Let $M$ be a smooth manifold. Define the map $$I:H_{\text{dR}}^k(M)\to H^k(M;\R)$$ as follows. For $[\omega]\in H_{\text{dR}}^k(M)$, $I(\omega)\in H^k(M;\R)\cong\Hom(H_k(M;\Z),\R)$ sends $$[c]\overset{I(\omega)}{\mapsto}\int_c\omega$$ for $[c]\in H_k(M;\Z)$. Then this map is an isomorphism so that $$H_{\text{dR}}^k(M)\cong H^k(M;\R)$$ for any $k\in\N$. 
+\end{thm}
+
+The isomorphism established is in fact even stronger. In particular, the two graded rings arising from the respective cohomology theories are isomorphic as graded rings and the exterior product corresponds to the cup product. 
 
 \subsection{Computations of the Cohomology Groups}
 \begin{prp}{}{} The real space $\R^n$ has the de Rham cohomology $$H_{\text{dR}}^k(\R^n)=\begin{cases}
@@ -1029,13 +1073,6 @@ The complex is denoted as $(\Omega^\bullet(M),d)$, coinciding with the algebra o
 0 & \text{ otherwise }
 \end{cases}$$
 \end{prp}
-
-\subsection{Cohomology Group in the Top Dimension}
-\begin{thm}{}{} If $M$ is a compact, orientable connected $n$-dimensional manifold with a chosen orientation, then integration $$\int_M:H^n(M)\to\R$$ defines a canonical isomorphism between $H^n(M)$ and $\R$. 
-\end{thm}
-
-
-
 
 
 

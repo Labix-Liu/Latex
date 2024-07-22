@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  13 MAY 2024 00:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  19 JUL 2024 17:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -880,6 +880,23 @@ Package caption Info: New subtype `subtable' on input line 238.
 \WF@everypar=\toks50
 Package: wrapfig 2003/01/31  v 3.6
 )
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen314
+\ar@mcellbox=\box81
+\extrarowheight=\dimen315
+\NC@list=\toks51
+\extratabsurround=\skip71
+\backup@length=\skip72
+\ar@cellbox=\box82
+)
+\rotheadsize=\dimen316
+\c@nlinenum=\count337
+\TeXr@lab=\toks52
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgpagella.sty
 Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
 ) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
@@ -901,9 +918,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box81
-\tcb@totalupperbox=\box82
-\tcb@totallowerbox=\box83
+\tcb@testbox=\box83
+\tcb@totalupperbox=\box84
+\tcb@totallowerbox=\box85
 )
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskins.code
 .tex
@@ -920,14 +937,14 @@ Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzlibraryfil
 l.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box84
+\l__tikzfill_img_box=\box86
 ))
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskinsjigsa
 w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
-\c@tcb@cnt@thm=\count337
-Package hyperref Info: Option `colorlinks' set `true' on input line 220.
+\c@tcb@cnt@thm=\count338
+Package hyperref Info: Option `colorlinks' set `true' on input line 227.
 ) (Topological Manifolds.aux)
 \openout1 = `"Topological Manifolds.aux"'.
 
@@ -988,17 +1005,17 @@ LaTeX Font Info:    ... okay on input line 16.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count338
-\scratchdimen=\dimen314
-\scratchbox=\box85
-\nofMPsegments=\count339
-\nofMParguments=\count340
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count341
-\MPscratchDim=\dimen315
-\MPnumerator=\count342
-\makeMPintoPDFobject=\count343
-\everyMPtoPDFconversion=\toks52
+\scratchcounter=\count339
+\scratchdimen=\dimen317
+\scratchbox=\box87
+\nofMPsegments=\count340
+\nofMParguments=\count341
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count342
+\MPscratchDim=\dimen318
+\MPnumerator=\count343
+\makeMPintoPDFobject=\count344
+\everyMPtoPDFconversion=\toks54
 )
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -1010,7 +1027,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count344
+\c@lstlisting=\count345
 Package hyperref Info: Link coloring ON on input line 16.
  (Topological Manifolds.out) (Topological Manifolds.out)
 \@outlinefile=\write4
@@ -1039,62 +1056,61 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 \tf@toc=\write5
 \openout5 = `"Topological Manifolds.toc"'.
 
- [2] [3] [4] [5]
+ [2] [3] [4] [5] [6] [7] [8]
 LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 1
-42.
+63.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
-[6{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [7] [8]
-<Image 1.png, id=161, 440.64626pt x 570.13pt>
+[9{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+enc}] [10] [11]
+<Image 1.png, id=176, 440.64626pt x 570.13pt>
 File: Image 1.png Graphic file (type png)
 <use Image 1.png>
-Package pdftex.def Info: Image 1.png  used on input line 219.
+Package pdftex.def Info: Image 1.png  used on input line 260.
 (pdftex.def)             Requested size: 352.51747pt x 456.10463pt.
- [9]
-<Image 2.png, id=171, 517.935pt x 485.815pt>
+ [12]
+<Image 2.png, id=186, 517.935pt x 485.815pt>
 File: Image 2.png Graphic file (type png)
 <use Image 2.png>
-Package pdftex.def Info: Image 2.png  used on input line 227.
+Package pdftex.def Info: Image 2.png  used on input line 268.
 (pdftex.def)             Requested size: 155.38168pt x 145.74562pt.
- [10 <./Image 1.png> <./Image 2.png>]
-<Image 3.png, id=178, 532.99126pt x 471.7625pt>
+ [13 <./Image 1.png> <./Image 2.png>]
+<Image 3.png, id=194, 532.99126pt x 471.7625pt>
 File: Image 3.png Graphic file (type png)
 <use Image 3.png>
-Package pdftex.def Info: Image 3.png  used on input line 238.
+Package pdftex.def Info: Image 3.png  used on input line 279.
 (pdftex.def)             Requested size: 159.8986pt x 141.52983pt.
-<Image 4.png, id=179, 522.95375pt x 480.79625pt>
+<Image 4.png, id=195, 522.95375pt x 480.79625pt>
 File: Image 4.png Graphic file (type png)
 <use Image 4.png>
-Package pdftex.def Info: Image 4.png  used on input line 267.
+Package pdftex.def Info: Image 4.png  used on input line 308.
 (pdftex.def)             Requested size: 156.88733pt x 144.23997pt.
- [11 <./Image 3.png>]
-[12 <./Image 4.png>]
-<Image 5.png, id=195, 519.9425pt x 483.8075pt>
+ [14 <./Image 3.png>]
+[15 <./Image 4.png>]
+<Image 5.png, id=211, 519.9425pt x 483.8075pt>
 File: Image 5.png Graphic file (type png)
 <use Image 5.png>
-Package pdftex.def Info: Image 5.png  used on input line 320.
+Package pdftex.def Info: Image 5.png  used on input line 361.
 (pdftex.def)             Requested size: 155.98395pt x 145.14337pt.
- [13 <./Image 5.png>] [14] [15] [16] [17]
-(Topological Manifolds.aux)
+ [16 <./Image 5.png>] [17] (Topological Manifolds.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Topological Manifolds".out' has not changed
 .
-(rerunfilecheck)             Checksum: 93E3112D24F44DA52CECD3314DEEBD14;2738.
+(rerunfilecheck)             Checksum: 398EFD4EE6C360F4974AE0B27D9FA627;2748.
  ) 
 Here is how much of TeX's memory you used:
- 32561 strings out of 474424
- 645444 string characters out of 5741739
- 1959496 words of memory out of 5000000
- 54322 multiletter control sequences out of 15000+600000
+ 32778 strings out of 474424
+ 648104 string characters out of 5741739
+ 1962496 words of memory out of 5000000
+ 54541 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,18n,120p,1049b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,18n,120p,1090b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1110,9 +1126,9 @@ sbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-
 gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/tex-gyre/qplri.pfb>
-Output written on "Topological Manifolds.pdf" (17 pages, 812602 bytes).
+Output written on "Topological Manifolds.pdf" (17 pages, 807229 bytes).
 PDF statistics:
- 316 PDF objects out of 1000 (max. 8388607)
- 79 named destinations out of 1000 (max. 500000)
- 158 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 300 PDF objects out of 1000 (max. 8388607)
+ 71 named destinations out of 1000 (max. 500000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
 

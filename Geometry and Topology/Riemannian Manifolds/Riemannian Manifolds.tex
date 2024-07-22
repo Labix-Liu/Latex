@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 
-\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -34,6 +34,49 @@
 \begin{defn}{Riemannian Manifold}{} A Riemannian manifold $(M,g)$ is a manifold $M$ together with a Riemannian metric $g$ on $M$. 
 \end{defn}
 
+\begin{thm}{}{} Every smooth manifold admits a Riemannian metric and hence is a Riemannian manifold. 
+\end{thm}
+
+\begin{defn}{Isometries}{} Let $(M,g)$ and $(N,h)$ be two Riemannian manifolds. We say that $(M,g)$ and $(N,h)$ are isometric if there exists a diffeomorphisms $f:M\to N$ such that $$h\circ f=g$$ In this case $f$ is said to be an isometry. 
+\end{defn}
+
+\begin{defn}{Local Isometries}{} Let $(M,g)$ and $(N,h)$ be two Riemannian manifolds. We say that they are locally isometric if for all $p\in M$, there exists an open neighbourhood $U\subseteq M$ of $p$ and $V\subseteq N$ open and an isometry $f:U\to V$. 
+\end{defn}
+
+\begin{defn}{Flat Manifolds}{} Let $(M,g)$ be a Riemannian manifold. We say that $(M,g)$ is flat if it is locally isometric to $\R^n$ with the standard metric. 
+\end{defn}
+
+In general, not every Riemannian manifold is flat. This can be shown once we discuss curvatures and torsions. However, this is true when $n=1$. 
+
+\begin{lmm}{}{} Every 1 dimensional Riemannian manifold is flat. 
+\end{lmm}
+
+\subsection{Lengths and Angles}
+\begin{defn}{Length of a Tangent Vector}{} Let $(M,g)$ be a Riemannian manifold. Let $v\in T_p(M)$ be a tangent vector for $p\in M$. Define the length of $v$ to be $$\abs{v}_g=\sqrt{g_p(v,v)}$$
+\end{defn}
+
+\begin{defn}{Angle between two Tangent Vectors}{} Let $(M,g)$ be a Riemannian manifold. Let $p\in M$. For $v,w\in T_pM$ two tangent vectors, define the angle between $v$ and $w$ to be the unique $\theta\in[0,\pi]$ such that $$\cos(\theta)=\frac{g_p(v,w)}{\abs{v}_g\abs{w}_g}$$
+\end{defn}
+
+\begin{defn}{Orthogonal Tangent Vectors}{} Let $(M,g)$ be a Riemannian manifold. Let $p\in M$. We say that two tangent vectors $v,w\in T_pM$ are orthogonal if $$g_p(v,w)=0$$
+\end{defn}
+
+\begin{defn}{Length of a Curve}{} Let $(M,g)$ be a Riemannian manifold. Let $\gamma:(a,b)\to M$ be a curve. Define the length of the curve by $$L(\gamma)=\int_a^b\sqrt{g_{\gamma(s)}(\gamma'(s),\gamma'(s))}\,ds$$
+\end{defn}
+
+\begin{defn}{Angle between two Curves}{} Let $(M,g)$ be a Riemannian manifold. Let $\gamma_1:(a,b)\to M$ and $\gamma_2:(c,d)\to M$ be two curves that intersecting at $p=\gamma_1(t_1)=\gamma_2(t_2)\in M$ and that $\gamma_1'(t_1)\neq 0$ and $\gamma_2'(t)\neq 0$. Define the angle between $\gamma_1$ and $\gamma_2$ at $p$ to be the unique $\theta\in[0,\pi]$ such that $$\cos(\theta)=\frac{g_p(X_{\gamma_1,p},X_{\gamma_2,p})}{\abs{X_{\gamma_1,p}}_g\abs{X_{\gamma_2,p}}_g}$$
+\end{defn}
+
+\subsection{Musical Isomorphism}
+\begin{defn}{The Flat Map}{} Let $(M,g)$ be a Riemannian manifold. Let $p\in M$. For each $X\in T_pM$, define the flat map $$\flat:T_pM\to T_p^\ast M$$ by sending $X\in T_pM$ to the map $X^\flat:T_pM\to\R$ by $X^\flat(Y)=g_p(X,Y)$. 
+\end{defn}
+
+\begin{thm}{The Musical Isomorphism}{} Let $(M,g)$ be a Riemannian manifold. Let $p\in M$. Then the flat map $$\flat:T_pM\to T_p^\ast M$$ is an isomorphism. 
+\end{thm}
+
+\begin{defn}{The Sharp Map}{} Let $(M,g)$ be a Riemannian manifold. Let $p\in M$. Define the sharp map $$\#:T_p^\ast M\to T_pM$$ to be the inverse of the flat map. 
+\end{defn}
+
 \subsection{Bundle Metric}
 \begin{defn}{Bundle Metric}{} Let $M$ be a topological manifold and $p:E\to M$ a vector bundle on $M$. Then a bundle metric on $E$ is a section of $E^\ast\otimes E^\ast$ such that it is nondegenerate and symmetric. 
 \end{defn}
@@ -44,14 +87,78 @@ In other words, a bundle metric is an assignment to each fibre, an inner product
 \end{prp}
 
 \pagebreak
-\section{Levi-Civita Connection}
+\section{Connections and Parallel Transports}
+\subsection{Affine Connections}
+Recall that for a smooth vector bundle $p:E\to M$, we denote the space of smooth sections on $E$ by $\Gamma(E)$. 
+
+\begin{defn}{Connections}{} Let $M$ be a smooth manifold. Let $p:E\to M$ be a smooth vector bundle. A connection on $p$ is a map $$\nabla:\mathfrak{X}(M)\times\Gamma(E)\to\Gamma(E)$$ where we denote $\nabla(V,T)$ by $\nabla_V(T)$, such that the following are true. 
+\begin{itemize}
+\item $C^\infty(M)$-linearity in first variable: For each $T\in\Gamma(E)$, the map $V\mapsto\nabla_V(T)$ is $C^\infty(M)$-linear. This means that $$\nabla_{fV+hW}(T)=f\nabla_V(T)+g\nabla_W(T)$$ for $V,W\in\mathfrak{X}(M)$, $f,g\in C^\infty(M)$. 
+\item $\R$-linearity in second variable: For each $V\in\mathfrak{X}(M)$, the map $T\mapsto\nabla_V(T)$ is $\R$-linear. This means that $$\nabla_V(\lambda T+\mu S)=\lambda\nabla_V(T)+\mu\nabla_V(S)$$
+\item Product rule: The map $\nabla$ satisfies the following product rule: $$\nabla_V(fT)=V(f)\cdot T+f\nabla_V(T)$$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Affine Connections}{} Let $M$ be a smooth manifold. An affine connection of $M$ is a connection $$\nabla:\mathfrak{X}(M)\times\mathfrak{X}(M)\to\mathfrak{X}(M)$$ on the tangent bundle $TM$. 
+\end{defn}
+
+The directional derivative is the canonical affine connection on $\R^n$. In fact, every smooth manifold has such a canonical connection that generalizes the directional derivative. 
+
+\begin{thm}{}{} Every smooth manifold admits an affine connection. 
+\end{thm}
+
+\subsection{Covariant Derivatives}
+\begin{defn}{Vector Fields Along Curves}{} Let $M$ be a smooth manifold. Let $\gamma:(a,b)\to M$ be a curve on $M$. A vector field along $\gamma$ is a map $X:(a,b)\to TM$ such that $$X(t)\in T_{\gamma(t)}(M)$$ for all $t\in(a,b)$. 
+\end{defn}
+
+\begin{defn}{Set of all Vector Fields Along Curves}{} Let $M$ be a smooth manifold. Let $\gamma:(a,b)\to M$ be a curve on $M$. Denote the set of all vector fields along $\gamma$ by $$\mathfrak{X}(\gamma)=\{X:(a,b)\to TM\;|\;X\text{ is a vector field along }\gamma\}$$
+\end{defn}
+
+\begin{defn}{Covariant Derivatives Along a Curve}{} Let $M$ be a smooth manifold. Let $\gamma:(a,b)\to M$ be a curve on $M$. Let $\nabla:\mathfrak{X}(M)\times\mathfrak{X}(M)\to\mathfrak{X}(M)$ be an affine connection on $M$. The covariant derivative of $\gamma$ is a map $$D_t:\mathfrak{X}(\gamma)\to\mathfrak{X}(\gamma)$$ such that 
+\begin{itemize}
+\item $\R$-linearity: $D_t(aV+bW)=aD_tV+bD_tW$ for $a,b\in\R$. 
+\item Product rule: $D_t(fV)=f'V+fD_tV$ for $f\in C^\infty(a,b)$. 
+\item Extendable: If $V\in\mathfrak{X}(\gamma)$ and there exists $\tilde{V}\in\mathfrak{X}(M)$ such that $\tilde{V}|_{\gamma(t)}=V(t)$ for all $t\in(a,b)$, then $D_tV=\nabla_{\gamma'(t)}\tilde{V}$. 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Let $M$ be a smooth $n$-manifold. Let $\gamma:I\to M$ be a curve. Let $\nabla$ be an affine connection on $M$. For $t\in I$, choose a chart $(U,\phi=(x^1,\dots,x^n))$ for $\gamma(t)$. For any $V\in\mathfrak{X}(\gamma)$, write $V$ locally around $\gamma(t)$ by $$V(t)=\sum_{i=1}^na_i(t)\frac{\partial}{\partial x^k}\bigg{|}_{\gamma(t)}$$ The covariant derivative defined locally by $$D_tV|_{t_0}=\sum_{i=1}^n\left(\frac{da_i}{dt}\bigg{|}_{t_0}\frac{\partial}{\partial x^i}\bigg{|}_{\gamma(t_0)}+a_i(t_0)\nabla_{\gamma'(t_0)}\frac{\partial}{\partial x^i}\bigg{|}_{\gamma(t_0)}\right)$$ is unique. 
+\end{thm}
+
+\subsection{Parallel Transports}
+\begin{defn}{Parallel Vector Fields along a Curve}{} Let $M$ be a smooth manifold. Let $\gamma:I\to M$ be a curve. Let $X:M\to TM$ be a vector field. We say that $X$ is parallel along to $\gamma$ if $D_tV=0$. 
+\end{defn}
+
+\begin{thm}{}{} Let $M$ be a smooth manifold. Let $\gamma:I\to M$ be a curve. Let $\nabla$ be an affine connection. Let $t_0\in I$ and $v_0\in T_{\gamma(t_0)}M$. Then there exists a unique parallel vector field $V(t)$ along $\gamma$ such that $V(t_0)=v_0$. 
+\end{thm}
+
+\begin{defn}{Parallel Transports}{} Let $M$ be a smooth manifold. Let $\gamma:(a,b)\to M$ be a curve on $M$. Let $t_0,t\in(a,b)$. The map $$P_{t_0,t}:T_{\gamma(t_0)}(M)\to T_{\gamma(t)}(M)$$ defined by $v\mapsto X(t)$ where $X(t)$ is the unique parallel vector field along $\gamma$ with $X(t_0)=v$. 
+\end{defn}
+
+\subsection{The Levi-Civita Connection}
 
 \pagebreak
 \section{Geodesics}
 \begin{defn}{Geodesics}{} A curve $\gamma:(a,b)\to M$ is called a geodesic if $D_t(\gamma'(t))=0$ for all $t\in(a,b)$. 
 \end{defn}
 
+\pagebreak
+\section{Curvature}
+\subsection{Gauss-Bonnet Theorem}
+\begin{thm}{The Gauss-Bonnet Formula}{} Let $(M,g)$ be an oriented smooth $2$-manifold. Let $\gamma$ be a positively oriented curved polygon in $M$ and let $\Omega$ be its interior. Then $$\int_\Omega K\,dA+\int_\gamma\kappa_N\,ds+\sum_{i=1}^k\varepsilon_i=2\pi$$ where 
+\begin{itemize}
+\item $K$ is the Gaussian curvature of $g$
+\item $dA$ is the Riemannian volume form
+\item $\varepsilon_i$ are the exterior angles of $\gamma$
+\item The second integral is taken with respect to arc length
+\end{itemize}	
+\end{thm}
 
+\begin{thm}{Gauss-Bonnet Theorem}{} Let $(M,g)$ be an smooth compact $2$-dimensional Riemannian manifold. Let $K$ be the Gaussian curvature of $M$ and let $k_g$ be the geodesic curvature of $\partial M$. Then $$\int_MK\,dA+\int_{\partial M}k_g\,ds=2\pi\chi(M)$$
+\end{thm}
+
+\begin{crl}{}{} Let $(M,g)$ be an smooth compact $2$-dimensional Riemannian manifold without boundary. Let $K$ be the Gaussian curvature of $M$. Then $$\int_MK\,dA=2\pi\chi(M)$$
+\end{crl}
 
 
 

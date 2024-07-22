@@ -1,0 +1,685 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Higher Category Theory}
+\rfoot{\thepage}
+
+\title{Higher Category Theory}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\begin{itemize}
+\end{itemize}
+\end{abstract}
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{Model Categories}
+\subsection{Basic Definitions}
+\begin{defn}{Retract of Morphisms}{} Let $\mC$ be a category. Let $f:X\to Y$ and $g:A\to B$ be morphisms in $\mC$. We say that $f$ is a retract of $g$ if the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & A & X \\
+	Y & B & Y
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\text{id}_X}", bend left = 20, from=1-1, to=1-3]
+	\arrow["f"', from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow["g"', from=1-2, to=2-2]
+	\arrow["f", from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow["{\text{id}_Y}"', bend right = 20, from=2-1, to=2-3]
+	\arrow[from=2-2, to=2-3]
+\end{tikzcd}}\\~\\
+where $X\to A$, $A\to X$, $Y\to B$ and $B\to Y$ are any morphisms such that $X\to A\to X$ and $Y\to B\to Y$ are the respective identities. 
+\end{defn}
+
+\begin{defn}{Lifting Properties}{} Let $\mC$ be a category. Let the following be a commutative square in $\mC$: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	A & X \\
+	B & Y
+	\arrow[from=1-1, to=1-2]
+	\arrow["i"', from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+We say that $i$ has the left lifting property with respect to $p$, and $p$ has the right lifting property with respect to $i$ if there exists $h:B\to Y$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	A & X \\
+	B & Y
+	\arrow[from=1-1, to=1-2]
+	\arrow["i"', from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["\exists h", dashed, from=2-1, to=1-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{defn}{Model Category}{} A model category is a category $\mC$ together with a distinguished class of morphisms
+\begin{itemize}
+\item $\mW$ called weak equivalences
+\item $\mC\text{of}$ called cofibrations
+\item $\mF\text{ib}$ called fibrations
+\end{itemize}
+such that the following axioms are true. 
+\begin{itemize}
+\item (M1) The category is complete and cocomplete. 
+\item (M2) Two out of Three (2/3): If $f:X\to Y$ and $g:Y\to Z$ are morphisms of $\mC$ and two out of three of $f,g,g\circ f$ are in $\mW$, then the last one is also in $\mW$. 
+\item (M3) Let $g$ be a morphism and let $f$ be a retract of $g$. If $g$ is a weak equivalence / cofibration / fibration, then $f$ is also an equivalence / cofibration / fibration respectively. 
+\item (M4) The lifting problem \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	A & X \\
+	B & Y
+	\arrow[from=1-1, to=1-2]
+	\arrow["i"', from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow[dashed, from=2-1, to=1-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+has a solution provided that one of the following two conditions are true: 
+\begin{itemize}
+\item $i\in\mC\text{of}\cap\mW$ and $p\in\mF\text{ib}$
+\item $i\in\mC\text{of}$ and $p\in\mF\text{ib}\cap\mW$
+\end{itemize}
+In other words, if the two morphisms $i$ and $p$ satisfy the one of the two cojoint conditions above, then $i$ has the left lifting property with respect to $p$, $p$ has the right lifting property with respect to $i$. 
+\item (M5) Any map $X\to Z$ in $\mC$ admits factorizations of the following two forms: 
+\begin{itemize}
+\item $X\overset{f}{\longrightarrow}Y\overset{g}{\longrightarrow}Z$ where $f\in\mC\text{of}\cap\mW$ and $g\in\mF\text{ib}$
+\item $X\overset{h}{\longrightarrow}Y\overset{k}{\longrightarrow}Z$ where $h\in\mC\text{of}$ and $k\in\mF\text{ib}\cap\mW$
+\end{itemize}
+\end{itemize}
+In this case, we say that $\mW$, $\mC\text{of}$ and $\mF\text{ib}$ define a model structure on $\mC$. 
+\end{defn}
+
+\begin{defn}{Trivial / Acyclic Fibrations}{} Let $\mC$ be a model category. Let $f:X\to Y$ be a morphism in $\mC$. 
+\begin{itemize}
+\item We say that $f$ is a trivial / acyclic fibration if $f$ is a fibration and a weak equivalence. 
+\item We say that $f$ is a trivial / acyclic cofibration if $f$ is a cofibration and a weak equivalence. 
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $\mC$ be a category. Then $\mC$ is a model category with the following data. 
+\begin{itemize}
+\item $\mW$ is all the isomorphisms in $\mC$
+\item $\mC\text{of}$ and $\mF\text{ib}$ are all the morphisms in $\mC$
+\end{itemize}
+\end{lmm}
+
+\begin{prp}{}{} Let $\mC$ be a model category with model $(\mW,\mC\text{of},\mF\text{ib})$. Then $\mC^\text{op}$ is also a model category with model $(\mW, \mF\text{ib},\mC\text{of})$ so that the cofibrations of $\mC$ are the fibrations of $\mC^\text{op}$, and the fibrations of $\mC$ are the cofibrations of $\mC^\text{op}$. 
+\end{prp}
+
+\begin{thm}{}{} The following categories and classes of morphisms define model categories. 
+\begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+\hline
+$\bold{Category}$ & $\bold{Weak Equivalences}$ & $\bold{Fibrations}$ & $\bold{Cofibrations}$ \\
+\hline
+Top & \thead{Classical \\ Weak Equivalences} & Serre Fibrations & \thead{Retracts of \\ Relative Cell Complexes}\\
+\hline
+Top & Homotopy Equivalences & Hurewicz Fibrations & Hurewicz Cofibrations \\
+\hline
+sSet & \thead{Weak \\ Homotopy Equivalences} & Kan Fibrations & Levelwise Injections \\
+\hline
+$\text{Ch}_R$ & Quasi-Isomorphisms & Degree-wise Surjections & \thead{Degree-wise $\text{DG}_R$ \\ with projective kernels}\\
+\hline
+\end{tabular}
+\end{center}~\\~\\
+\end{thm}
+$\text{Ch}_R=$ chain complexes over a commutative ring $R$. $\text{DG}_R=$ differential graded algebra over a commutative ring $R$. 
+
+\begin{defn}{Fibrant and Cofibrant Objects}{} Let $\mC$ be a model category. Let $X\in\mC$ be an object. 
+\begin{itemize}
+\item We say that $X$ is cofibrant if the unique map $X\to\ast$ to the terminal object is a fibration. 
+\item We say that $X$ is fibrant if the unique map $\emptyset\to X$ from the terminal object is a cofibration. 
+\item We say that $X$ is bifibrant if $X$ is both fibrant and cofibrant. 
+\end{itemize}
+\end{defn}
+
+All object of sSet are cofibrant and all object of $\text{Ch}_R$ is fibrant. 
+
+\subsection{Fibrations and Cofibrations Determine Each Other}
+\begin{defn}{Morphisms of Lifting Properties}{} Let $\mC$ be a category. Let $\mW$ be a class of morphisms in $\mC$. 
+\begin{itemize}
+\item Define $\mW_\perp$ to be all morphisms in $\mC$ that have the right lifting property with respect to all morphisms in $\mW$. 
+\item Define ${_\perp\mW}$ to be all morphisms in $\mC$ that have the left lifting property with respect to all morphisms in $\mW$. 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Let $\mC$ be a category with model structure $\mW,\mC\text{of}$ and $\mF\text{ib}$. Then the following are true. 
+\begin{itemize}
+\item $\mC\text{of}_\perp=\mF\text{ib}\cap\mW$
+\item $\mC\text{of}={_\perp(\mF\text{ib}\cap\mW)}$
+\item $(\mC\text{of}\cap\mW)_\perp=\mF\text{ib}$
+\item $\mC\text{of}\cap\mW={_\perp\mF\text{ib}}$
+\end{itemize}
+In particular, this means that the fibrations of a model category determines and is determined by the cofibrations. 
+\end{thm}
+
+\subsection{Homotopy Theory in Model Categories}
+\begin{defn}{Cylinder Objects}{} Let $\mC$ be a model category. Let $X\in\mC$ be an object. A cylinder object $X\wedge I$ of $X$ is a factorization \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X\coprod X} && X \\
+	& {X\wedge I}
+	\arrow["\nabla", from=1-1, to=1-3]
+	\arrow["i"', from=1-1, to=2-2]
+	\arrow["p"', from=2-2, to=1-3]
+\end{tikzcd}}\\~\\
+of the codiaongal morphism $\nabla:X\coprod X\to X$ such that $p$ is a weak equivalence. Such a cylinder object $X\wedge I$ is said to be 
+\begin{itemize}
+\item Good if $i$ is a cofibration
+\item Very good if $i$ is a cofibration and $p$ is a fibration
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Path Objects}{} Let $\mC$ be a model category. Let $X\in\mC$ be an object. A path object $X^I$ of $X$ is a factorization \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X && {X\times X} \\
+	& {X^I}
+	\arrow["\Delta", from=1-1, to=1-3]
+	\arrow["i"', from=1-1, to=2-2]
+	\arrow["p"', from=2-2, to=1-3]
+\end{tikzcd}}\\~\\
+of the diaongal morphism $\Delta:X\to X\coprod X$ such that $i$ is a weak equivalence. Such a path object $X^I$ is said to be 
+\begin{itemize}
+\item Good if $p$ is a fibration
+\item Very good if $i$ is a cofibration and $p$ is a fibration
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $\mC$ be a model category. Then every object $X\in\mC$ has a very good cylinder object and a very good path object. 
+\end{lmm}
+
+\begin{defn}{Left Homotopies}{} Let $\mC$ be a model category. Let $f,g:X\to Y$ be two morphisms in $\mC$. We say that $f$ and $g$ are left homotopic if there is a lift $H:X\wedge I\to Y$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X\wedge I} \\
+	{X\coprod X} & Y
+	\arrow["{\exists H}", dashed, from=1-1, to=2-2]
+	\arrow[from=2-1, to=1-1]
+	\arrow["{(f,g)}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+In this case we write $f\overset{l}{\simeq}g$. We say that $H$ is a 
+\begin{itemize}
+\item Good left homotopy if $X\wedge I$ is a good cylinder object
+\item Very good left homotopy if $X\wedge I$ is a very good cylinder object
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $\mC$ be a model category. Let $f,g:X\to Y$ be morphisms in $\mC$. If $f\overset{l}{\simeq}g$, then there exists a good left homotopy from $f$ to $g$. Moreover, if $Y$ is fibrant, then there exists a very good left homotopy from $f$ to $g$. 
+\end{prp}
+
+\begin{prp}{}{} Let $\mC$ be a model category. Let $A\in\mC$ be an cofibrant object. Then for any $X\in\mC$, left equivalent homotopies define an equivalence relation on $\Hom_\mC(A,X)$. 
+\end{prp}
+
+\begin{defn}{Right Homotopies}{} Let $\mC$ be a model category. Let $f,g:X\to Y$ be two morphisms in $\mC$. We say that $f$ and $g$ are right homotopic if there is a lift $H:X\to Y^I$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& {Y^I} \\
+	X & {Y\times Y}
+	\arrow[from=1-2, to=2-2]
+	\arrow["{\exists H}", dashed, from=2-1, to=1-2]
+	\arrow["{f\times g}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+In this case we write $f\overset{r}{\simeq}g$. We say that $H$ is a 
+\begin{itemize}
+\item Good right homotopy if $Y^I$ is a good path object
+\item Very right left homotopy if $Y^I$ is a very good path object
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $\mC$ be a model category. Let $f,g:X\to Y$ be morphisms in $\mC$. If $f\overset{r}{\simeq}g$, then there exists a good right homotopy from $f$ to $g$. Moreover, if $Y$ is fibrant, then there exists a very good right homotopy from $f$ to $g$. 
+\end{prp}
+
+\begin{prp}{}{} Let $\mC$ be a model category. Let $A\in\mC$ be an fibrant object. Then for any $X\in\mC$, right equivalent homotopies define an equivalence relation on $\Hom_\mC(X,A)$. 
+\end{prp}
+
+\begin{thm}{}{} Let $\mC$ be a model category. Let $f,g:X\to Y$ be morphisms. Then the following are true. 
+\begin{itemize}
+\item If $X$ is a cofibrant object and $f\overset{l}{\simeq}g$, then $f\overset{r}{\simeq}g$
+\item If $Y$ is a fibrant object and $f\overset{r}{\simeq}g$, then $f\overset{l}{\simeq}g$
+\item If $X$ if cofibrant and $Y$ is fibrant, then $f\overset{l}{\simeq}g$ if and only if $f\overset{r}{\simeq}g$. 
+\end{itemize}
+\end{thm}
+
+If $X$ and $Y$ are both bifibrant, then there is no longer a need to distinguish between left and right homotopies. 
+
+\begin{defn}{Homotopy Equivalence}{} Let $\mC$ be a model category. Let $X,Y$ be bifibrant. We say that $f:X\to Y$ is a homotopy equivalence if there exists $g:Y\to X$ such that $g\circ f\simeq\text{id}_X$ and $f\circ g\simeq\text{id}_Y$. In this case we say that $X$ and $Y$ are homotopy equivalent and denote it by $X\simeq Y$. 
+\end{defn}
+
+\begin{thm}{Whitehead's Theorem in Model Categories}{} Let $\mC$ be a model category. Let $X$ and $Y$ be bifibrant objects. Then $f:X\to Y$ is a weak equivalence if and only if $f$ is a homotopy equivalence. 
+\end{thm}
+
+\subsection{The Homotopy Category}
+\begin{defn}{Fibrant and Cofibrant Replacements}{} Let $\mC$ be a model category. Let $X\in\mC$ be an object. 
+\begin{itemize}
+\item Choose a factorization of the unique map $\emptyset\to X$ into \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\emptyset & FX & X
+	\arrow[from=1-1, to=1-2]
+	\arrow["p", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\ 
+where $FX$ is fibrant and $p$ is a cofibration and a weak equivalence. Define $FX$ to be the fibrant replacement of $X$. 
+\item Choose a factorization of the unique map $X\to\ast$ into \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & QX & \ast
+	\arrow["i", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+\end{tikzcd}}\\~\\ 
+where $QX$ is cofibrant and $i$ is a fibration and a weak equivalence. Define $QX$ to be the cofibrant replacement of $X$. 
+\end{itemize}
+\end{defn}
+
+Notice that alternatively, one can factorize the unique map $\emptyset\to X$ cofibration followed by a fibration + weak equivalence. Such a middle object $QX$ has also been called a cofibrant object. What is the relation???
+
+\begin{defn}{Homotopy Category}{} Let $\mC$ be a model category. Define the homotopy category $\text{Ho}(\mC)$ of $\mC$ as follows. 
+\begin{itemize}
+\item The objects of $\text{Ho}(\mC)$ are precisely the objects of $\mC$
+\item For $X,Y$ two objects in $\text{Ho}(\mC)$, define $$\Hom_{\text{Ho}(\mC)}(X,Y)=\{[f:QFX\to QFY]\;|\;f\in\mC\}$$
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Let $\mC$ be a model category with weak equivalences $\mW$. Then the functor $L:\mC\to\text{Ho}(\mC)$ defined by the identity on objects and $$(g:X\to Y)\mapsto(QFg:QFX\to QFY)$$ defines a localization of $\mC$ with respect to $\mW$. In other words, there is a natural isomorphism $$\text{Ho}(\mC)\cong\mW^{-1}\mC$$
+\end{thm}
+
+Some authors instead require the objects of the homotopy category to only consist of bifibrant objects. But since we are only considering morphisms up to homotopy equivalence, and the definition of the morphisms in $\text{Ho}(\mC)$ already involves transforming the object into the bifibrant object $QFX$ that is weakly equivalent to $X$, there is no difference in considering whether the objects are all of the objects of $\mC$ or only bifibrant objects of $\mC$, at least up to natural isomorphism. This is made concrete below. 
+
+\begin{defn}{Full Subcategories of a Model Category}{} Let $\mC$ be a model category and let $\mW$ be its weak equivalences. Define the following associated categories. 
+\begin{itemize}
+\item $\mC_f$ is the full subcategory consisting of all fibrant objects of $\mC$. 
+\item $\mC_c$ is the full subcategory consisting of all cofibrant objects of $\mC$. 
+\item $\mC_{fc}$ is the full subcategory consisting of all fibrant and cofibrant objects of $\mC$. 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Let $\mC$ be a model category. The inclusion functors from the respective full subcategories of $\mC$ to $\mC$ induces equivalence of categories: $$\mW^{-1}\mC_c,\mW^{-1}\mC_f,\mW^{-1}\mC_{fc}\cong\mW^{-1}\mC$$ Moreover, there is an equivalence of categories: $$\text{Ho}(\mC)\cong\text{Ho}(\mC_f)\cong\text{Ho}(\mC_c)\cong\text{Ho}(\mC_{fc})$$
+\end{thm}
+
+\subsection{Cofibrantly Generated Model Structures}
+
+\subsection{Quillen Adjunctions}
+\begin{thm}{}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be an adjuction. Then the following are equivalent. 
+\begin{itemize}
+\item $F$ preserves cofibrations and trivial cofibrations
+\item $G$ preserves fibrations and trivial fibrations
+\end{itemize}
+\end{thm}
+
+\begin{defn}{Quillen Adjunction}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be an adjuction. We say that $F$ and $G$ define a Quillen adjunction if either $F$ preserves cofibrations and trivial cofibrations, or $G$ preserves fibrations and trivial fibrations. 
+\end{defn}
+
+\begin{prp}{Quillen Adjunction}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be a Quillen adjuction. Then the following are true. 
+\begin{itemize}
+\item $F$ preserves weak equivalences between cofibrant objects
+\item $F$ preserves weak equivalences between fibrant objects
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Left / Right Derived Functors}{} Let $\mC,\mD$ be model categories such that $\mW$ are the weak equivalences of $\mC$ and $\mV$ are the weak equivalences of $\mD$. Let $$F:\mC\rightleftarrows\mD:G$$ be a Quillen adjuction. 
+\begin{itemize}
+\item By the above, $F$ preserves weak equivalences between cofibrant objects. Hence $F$ extends to the localization on weak equivalences: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\mW^{-1}\mC_c} & {\mV^{-1}\mD_c} & {\mV^{-1}\mD}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3, hookrightarrow]
+\end{tikzcd}}\\~\\ 
+Choose an inverse $Q$ for the equivalence of categories induced by the inclusion $\iota:\mW^{-1}\mC_c\to\mW^{-1}\mC$. Define the left derived functor of $F$ by the composite: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\text{Ho}(\mC)=\mW^{-1}\mC} & {\mW^{-1}\mC_c} & {\mV^{-1}\mD_c} & {\mV^{-1}\mD=\text{Ho}(\mD)}
+	\arrow["Q", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4, hookrightarrow]
+\end{tikzcd}}\\~\\ 
+\item Similarly, $G$ preserves weak equivalences between fibrant objects. Hence $G$ extends to the localization on weak equivalences: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\mV^{-1}\mD_c} & {\mW^{-1}\mC_c} & {\mW^{-1}\mC}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3, hookrightarrow]
+\end{tikzcd}}\\~\\ 
+Choose an inverse $P$ for the equivalence of categories induced by the inclusion $\iota:\mV^{-1}\mD_c\to\mV^{-1}\mD$. Define the right derived functor $RG$ of $G$ by the composite: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\text{Ho}(\mD)=\mV^{-1}\mD} & {\mV^{-1}\mD_c} & {\mW^{-1}\mC_c} & {\mW^{-1}\mC=\text{Ho}(\mC)}
+	\arrow["P", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4, hookrightarrow]
+\end{tikzcd}}\\~\\ 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be a Quillen adjuction. Then the functors $LF$ and $RG$ form a regular adjunction $$LF:\mW^{-1}\mC\rightleftarrows\mV^{-1}\mD:RG$$ between localized categories. 
+\end{prp}
+
+\begin{defn}{Quillen Equivalence}{} Let $\mC$ and $\mD$ be model categories. Let $F:\mC\rightleftarrows\mD:G$ be a Quillen adjuction. We say that $F$ and $G$ define a Quillen equivalence if $LF$ or $RG$ define an equivalence of localized categories between $\mW^{-1}\mC$ and $\mV^{-1}\mD$. 
+\end{defn}
+
+\pagebreak
+\section{The Simplex Category and Simplicial Objects}
+\subsection{Simplicial Sets}
+\begin{defn}{Simplex Category}{} The simplex category $\Delta$ consists of the following data. 
+\begin{itemize}
+\item The objects are $[n]=\{0,\dots,n\}$ for $n\in\N$. 
+\item The morphisms are the non-strictly order preserving functions. This means that a morphism $f:[n]\to[m]$ must satisfy $f(i)\leq f(j)$ for all $i\leq j$. 
+\item Composition is the usual composition of functions. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Simplicial Sets}{} A simplicial set is a presheaf $$S:\Delta\to\text{Sets}$$ 
+\end{defn}
+
+\begin{defn}{Category of Simplicial Sets}{} The category of simplicial sets $\text{sSet}$ is defined as follows. 
+\begin{itemize}
+\item The objects are simplicial sets $S:\Delta\to\text{Sets}$
+\item The morphisms are just morphisms of presheaves. This means that if $S,T:\Delta\to\text{Sets}$ are simplicial sets, then a morphism $\lambda:S\to T$ consists of morphisms $\lambda_n:S([n])\to T([n])$ for $n\in\N$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{S([n])} & {S([m])} \\
+	{T([n])} & {T([m])}
+	\arrow["{S(f)}", from=1-1, to=1-2]
+	\arrow["{\lambda_n}"', from=1-1, to=2-1]
+	\arrow["{\lambda_m}", from=1-2, to=2-2]
+	\arrow["{T(f)}"', from=2-1, to=2-2]
+\end{tikzcd}}
+\item Composition is defined as the usual composition of functors. 
+\end{itemize}
+\end{defn}
+
+The Yoneda lemma in this context implies that there is a bijection $$\Hom_{\text{sSet}}(\Hom_\Delta([n],-),S)\cong S([n])$$ that is natural in the variable $[n]$. We will denote $$\Delta^n=\Hom_\Delta([n],-)$$ which is the image of $[n]$ under the yoneda embedding $y:\Delta\to\text{sSet}$ defined by $[n]\mapsto\Hom_\Delta([n],-)$. 
+
+\begin{defn}{n-Simplices}{} Let $S:\Delta\to\text{Set}$ be a simplicial set. For $n\in\N$, define the $n$-simplices of $S$ to be $$S_n=S([n])=\Hom_\text{sSet}(\Delta^n,S)$$
+\end{defn}
+
+Notice that $\Delta^n$ is a simplicial set $$\Delta^n:\Delta\to\text{Set}$$ defined by $[m]\mapsto\Hom_\Delta([n],[m])$. Notice that if $n>m$, then it is impossible to have an order preserving function $[n]\to[m]$. Hence when $n>m$, $\Hom_\Delta([n],[m])$ is empty. It is also clear that the $m$-simplices of $\Delta^n$ are precisely the order preserving maps $[m]\to[n]$. 
+
+\begin{defn}{Standard n-Simplex}{} Let $n\in\N$. The standard $n$-simplex is the simplicial set $\Delta^n:\Delta\to\text{Set}$ defined by $$\Delta^n=\Hom_\Delta([n],-)$$
+\end{defn}
+
+All such simplicial sets $\Delta^n$ are useful in determining the contents of an arbitrary simplicial set. As for any presheaf, instead of focusing between the passage of data from $\Delta$ to $\text{Set}$, we should instead think of what kind of structure the presheaf brings to $\text{Set}$. Let $C$ be a simplicial set. Then this means the following. For each $n$, there is a set $C_n=\Hom_\text{sSet}(\Delta^n,C)$. For each morphism in $\Delta$, there is a corresponding morphism in $\text{Set}$, which we shall discuss now. 
+
+\begin{defn}{Maps in the Simplex Category}{} Consider the simplex category $\Delta$. Define the face maps and the degeneracy maps as follows. 
+\begin{itemize}
+\item A face map in $\Delta$ is the unique morphism $d^i:[n-1]\to[n]$ that is injective and whose image does not contain $i$. Explicitly, we have $$d^i(k)=\begin{cases}
+k & \text{ if } 0\leq k <i\\
+k+1 & \text{ if } i\leq k\leq n-1
+\end{cases}$$
+\item A degeneracy map in $\Delta$ is the unique morphism $s^i:[n+1]\to[n]$ that is surjective and hits $i$ twice. Explicitly, we have $$s^i(k)=\begin{cases}
+k & \text{ if } 0\leq k\leq i\\
+k-1 & \text{ if } i+1\leq k\leq n+1
+\end{cases}$$
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} The face maps and the degeneracy maps in the simplex category $\Delta$ satisfy the following simplicial identities: 
+\begin{itemize}
+\item $d^i\circ d^j=d^{j-1}\circ d^i$ if $i<j$
+\item $d^i\circ s^j=s^{j-1}\circ d^i$ if $i<j$
+\item $d^i\circ s^i=\text{id}$
+\item $d^{i+1}\circ s^i=\text{id}$
+\item $d^i\circ s^j=s^j\circ d^{i-1}$ if $i>j+1$
+\item $s^i\circ s^j=s^{j+1}\circ s^i$ if $i\leq j$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Every morphism in the simplex category $\Delta$ is a composition of the face maps and the degeneracy maps. 
+\end{prp}
+
+\begin{thm}{}{} Let $C:\Delta\to\text{Set}$ be a simplicial set. Then every morphism in $C(\Delta)$ is the composite of two kinds of maps: 
+\begin{itemize}
+\item The face maps: $d_i:C_n\to C_{n-1}$ for $0\leq i\leq n$ defined by $$d_i=C(d^i:[n-1]\to[n])$$
+\item The degeneracy maps: $s_i:C_{n+1}\to C_n$ for $0\leq i\leq n$ defined by $$s_i=C(s^i:[n+1]\to[n])$$
+\end{itemize}
+Moreover, these maps satisfy the above simplicial identities
+\end{thm}
+
+Recall the notion of a $\Delta$-set from Algebraic Topology 2 and one might realize they look suspiciously similar to that of a simplicial set. Let us recall. A $\Delta$-set is a collection of sets $S_n$ for $n\in\N$ together with maps $d_i^n:S_n\to S_{n-1}$ for $0\leq i\leq n$ such that $$d_i^{n-1}\circ d_j^n=d_{j-1}^{n-1}\circ d_i^n$$ for $i<j$. One can easily convince themselves that every simplicial set is a $\Delta$-set. Indeed, a simplicial set satisfies five more relations than a $\Delta$-set. Therefore we have that $$\substack{\text{Simplicial}\\\text{Sets}}\subset\Delta\text{-Sets}$$~\\
+
+The notion of geometric realization of a $\Delta$-set then transfers to one for simplicial sets. Let us redefine it here, first for standard $n$-simplexes
+
+\begin{defn}{Geometric Realization of Standard n-Simplexes}{} Let $n\in\N$. Consider the standard $n$-simplex $\Delta^n$. Define the geometric realization of $\Delta^n$ to be $$\abs{\Delta^n}=\left\{\sum_{k=0}^nt_kv_k\bigg{|}\sum_{k=0}^nt_k=1\text{ and }t_k\geq 0\text{ for all }k=0,\dots,n\right\}$$
+\end{defn}
+
+This definition is exactly the same as the definition of an $n$-simplex in Algebraic Topology 2. Now we proceed to the general case. 
+
+\begin{defn}{Geometric Realization of Simplicial Sets}{} Let $C$ be a simplicial set. Define the geometric realization of $C$ to be $$\abs{C}=\left(\coprod_{n\geq 0}C_n\times\abs{\Delta^n}\right)/\sim$$ where the equivalence relation is generated by the following. 
+\begin{itemize}
+\item The $i$th face of $\{x\}\times\abs{\Delta^n}$ is identified with $\{d_ix\}\times\abs{\Delta^{n-1}}$ by the linear homeomorphism preserving the order of the vertices. 
+\item $\{s_ix\}\times\abs{\Delta^n}$ is collapsed onto $\{x\}\times\abs{\Delta^{n-1}}$ via the linear projection parallel to the line connecting the $i$th and the $(i+1)$st vertiex. 
+\end{itemize}
+\end{defn}
+
+This construction of geometric realization is moreover functorial. Once again, we first define a map of geometric realization of simplicial sets. 
+
+\begin{defn}{Induced Map of Geometric Realization of Standard Simplicial Sets}{} Let $f:\Delta^n\to\Delta^m$ be a map of standard simplexes. Define $f_\ast:\abs{\Delta^n}\to\abs{\Delta^m}$ by $$(t_0,\dots,t_n)\mapsto(s_0,\dots,s_m)$$ where $$s_i=\begin{cases}
+0 & \text{ if } f^{-1}(i)=0\\
+\sum_{j\in f^{-1}(i)}t_j & \text{ otherwise }
+\end{cases}$$
+\end{defn}
+
+\begin{thm}{}{} The geometric realization of a simplicial set is functorial $\abs{\;\cdot\;}:\text{sSet}\to\text{Top}$ in the following way. 
+\begin{itemize}
+\item On objects, it sends any simplicial set $C$ to its geometric realization $\abs{C}$. 
+\item On morphisms, it sends any morphism $C\to D$ of simplicial sets to a continuous map defined by 
+\end{itemize}
+\end{thm}
+
+We thus have that $$\substack{\text{Geometric Relizations}\\\text{ of simplicial sets}}\subset\substack{\text{Geometric Relizations}\\\text{ of }\Delta\text{-sets}}\subset\text{CW-Complexes}$$
+
+\subsection{Simplicial Subsets}
+\begin{defn}{Faces of a Simplex}{} Let $n\in\N$ and consider the standard $n$-simplex $\Delta^n$. 
+\begin{itemize}
+\item Denote $\partial_i\Delta^n\subset\Delta^n$ the simplicial subset generated by the $i$th face $$d_i(\text{id}:[n]\to[n])=d^i:[n-1]\to[n]$$
+\item Denote $\partial\Delta^n$ the simplicial subset generated by the faces $\partial_i\Delta^n$ for $0\leq i\leq n$. Define $\partial\Delta^0=\emptyset$. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Inner and Outer Horns}{} Let $n\in\N$ and consider the standard $n$-simplex $\Delta^n$. Define the $i$th horn $\Lambda_i^n$ of $\Delta^n$ to be the the simplicial subset generated by all the faces $\partial_k\Delta^n$ except the $i$th one. It is called inner if $0<i<n$. It is called outer otherwise. 
+\end{defn}
+
+\begin{defn}{Fillers for an Inner Horn}{} Let $n\in\N$ and consider the standard $n$-simplex $\Delta^n$. Let $\Lambda_i^n$ be an inner horn. We say that $\Lambda$ admits a filler if for all maps $F:\Lambda_i^n\to C$ there exists a map $U:\Delta^n\to C$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\Lambda_i^n} & C \\
+	{\Delta^n}
+	\arrow["F", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow["\exists U"', dashed, from=2-1, to=1-2]
+\end{tikzcd}}
+\end{defn}
+
+\subsection{Simplicial Objects}
+\begin{defn}{Simplicial Objects}{} Let $\mC$ be a category. A simplicial object in $\mC$ is a presheaf $S:\Delta^\text{op}\to\mC$. 
+\end{defn}
+
+Hence a simplicial object in $\bold{Set}$ is just simplical sets. 
+
+\begin{defn}{Category of Simplicial Objects}{} Let $\mC$ be a category. Define the category of simplicial objects $\text{s}\mC$ of $\mC$ as follows. 
+\begin{itemize}
+\item The objects are simplicial objects $S:\Delta^\text{op}\to\mC$ of $\mC$ which are presheaves
+\item The morphism of simplcial objects are just morphisms of presheaves, which are natural transformations
+\item Composition is given by composition of natural transformations
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Normalized Chain Complex Functor}{} 
+\end{defn}
+
+\begin{thm}{The Dold-Kan Correspondence}{} Consider the abelian category $\bold{Ab}$ of abelian groups. The normalized chain complex functor $$N:\text{s}\bold{Ab}\overset{\cong}{\longrightarrow}\text{Ch}_{\geq 0}(\bold{Ab})$$ gives an equivalence of categories, with inverse as the simplicialization functor $$\Gamma:\text{Ch}_{\geq 0}(\bold{Ab})\to\text{s}\bold{Ab}$$
+\end{thm}
+
+\pagebreak
+\section{Introduction to Infinity Categories}
+\subsection{Infinity Categories and Some Examples}
+\begin{defn}{Infinity Categories}{} An infinity category is a simplicial set $C$ such that each inner horn admits a filler. In other words, for all $0<i<n$, the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\Lambda_i^n} & C \\
+	{\Delta^n}
+	\arrow["\forall", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow["\exists"', dashed, from=2-1, to=1-2]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{defn}{Nerve of a Category}{} Let $\mC$ be a category. Define the nerve of the category $N(C):\Delta\to\text{Set}$ as follows. 
+\begin{itemize}
+\item For $n\in\N$, $N(C)_n$ consists of paths of morphisms with $n$ compositions: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{c_0} & {c_1} & {c_2} & \cdots & {c_n}
+	\arrow["{f_1}", from=1-1, to=1-2]
+	\arrow["{f_2}", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+\item The face map $d_i:C_n\to C_{n-1}$ sends the above element to \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{c_0} & {c_1} & \cdots & {c_i} & {c_i} & \cdots & {c_n}
+	\arrow["{f_1}", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{\text{id}_{c_i}}", from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+\item The degeneracy map $s^i:C_n\to C_{n+1}$ sends the above element to 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Let $\mC$ be a category. Every inner horn of $N(C)$ admits a filler and hence is an infinity category. 
+\end{thm}
+
+\begin{defn}{Nerve Functor}{} The nerve functor $N:\text{Cat}\to\text{sSet}$ is defined as follows. 
+\begin{itemize}
+\item Each $\mC\in\text{Cat}$ is sent to the nerve $N(C)$
+\item Every functor $\mC\to\mD$ in $\text{Cat}$ is sent to the morphism of presheaves $\lambda:N(C)\to N(D)$ defined by $\lambda_n:N(C)([n])\to N(D)([n])$, of which is defined as the map \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{c_0} & {c_1} & {c_2} & \cdots & {c_n} \\
+	{F(c_0)} & {F(c_1)} & {F(c_2)} & \cdots & {F(c_n)}
+	\arrow["{f_1}", from=1-1, to=1-2]
+	\arrow["{f_2}", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{F(f_1)}", from=2-1, to=2-2]
+	\arrow["{F(f_2)}", from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}}\\~\\
+from the upper path in $\mC$ to the lower path in $\mD$, such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{N(C)[n]} & {N(C)[m]} \\
+	{N(D)[n]} & {N(D)[m]}
+	\arrow["{N(C)(f)}", from=1-1, to=1-2]
+	\arrow["{\lambda_n}"', from=1-1, to=2-1]
+	\arrow["{\lambda_m}", from=1-2, to=2-2]
+	\arrow["{N(D)(f)}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+where $f:[m]\to[n]$ is a morphism in $\Delta$. 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} The nerve functor $N:\text{Cat}\to\text{sSet}$ is fully faithful. Moreover, the nerve of a category is a complete invariant for categories. 
+\end{thm}
+
+\subsection{Homotopy Infinity Categories}
+\begin{defn}{The Homotopy Functor}{} Define the homotopy functor $h:\text{sSet}\to\text{Cat}$ as follows. 
+\begin{itemize}
+\item On objects, $h$ sends a simplicial set $S:\Delta\to\text{Set}$ to 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} The homotopy functor $h:\text{sSet}\to\text{Cat}$ preserves colimits. 
+\end{prp}
+
+\begin{thm}{}{} The homotopy functor $h:\text{sSet}\to\text{Cat}$ is left adjoint to the nerve functor $N:\text{Cat}\to\text{sSet}$. This means that there is a natural bijection $$\Hom_\text{Cat}(h(C),D)\cong\Hom_\text{sSet}(C,N(D))$$
+\end{thm}
+
+\begin{defn}{Homotopic Morphisms}{} Let $C$ be an infinity category. Two morphisms $f,g:C\to D$ are said to be homotopic if there exists a $2$-simplex $\sigma$ such that 
+\begin{itemize}
+\item $d_0(\sigma)=\text{id}_D$
+\item $d_1(\sigma)=g$
+\item $d_2(\sigma)=f$
+\end{itemize}
+In this case we write $f\simeq g$. 
+\end{defn}
+
+\begin{lmm}{}{} Homotopy is an equivalence relation in any infinity category. 
+\end{lmm}
+
+\begin{prp}{}{} Let $C$ be an infinity category. Let $f,f':C\to D$ and $g,g':D\to E$ be morphisms in $C$. If $f\simeq f'$ and $g\simeq g'$, then $$g\circ f\simeq g'\circ f'$$
+\end{prp}
+
+\begin{defn}{Homotopy Category}{} Let $C$ be an infinity category. Define the homotopy category $h(C)$ of $C$ to consist of the following. 
+\begin{itemize}
+\item The objects are the objects of $C$
+\item The morphisms are equivalent classes of morphisms $[f]$ for $f$ a morphism in $C$
+\item Composition is defined by $$[g]\circ[f]=[g\circ f]$$ which is well defined by the above. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Isomorphisms in Infinity Categories}{} Let $C$ be an infinity category. Let $f:C\to D$ be a morphism. We say that $f$ is an isomorphism if there exists $g:D\to C$ such that $g\circ f\simeq\text{id}_C$ and $f\circ g\simeq\text{id}_D$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $C$ be an infinity category. Let $f:C\to D$ be a morphism. Then $f$ is an isomorphism in $C$ if and only if $[f]$ is an isomorphism in $h(C)$. 
+\end{lmm}
+
+\pagebreak
+\section{Infinity Categories in Topology}
+\subsection{The Singular Functor}
+The geometric realization functor actually has a right adjoint, called the singular functor. 
+
+\begin{defn}{Singular Functor}{} The singular functor $S:\text{Top}\to\text{sSet}$ is defined as follows. 
+\begin{itemize}
+\item On objects, it sends a space $X$ to the simplicial set $S(X):\Delta\to\text{Set}$ called the singular set, defined by $$S(X)[n]=\Hom_{\text{Top}}(\abs{\Delta^n},X)$$
+\item On morphisms, it sends a continuous map $f:X\to Y$ to the morphism of simplicial sets $\lambda:S(X)\to S(Y)$ defined as follows. For each $n\in\N$, $\lambda_n:S(X)[n]\to S(Y)[n]$ is defined by $$\left(h:\abs{\Delta^n}\to X\right)\mapsto\left(f\circ h:\abs{\Delta^n}\to Y\right)$$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{S(X)[n]} & {S(X)[m]} \\
+	{S(Y)[n]} & {S(Y)[m]}
+	\arrow["{S(X)(f)}", from=1-1, to=1-2]
+	\arrow["{\lambda_n}"', from=1-1, to=2-1]
+	\arrow["{\lambda_m}", from=1-2, to=2-2]
+	\arrow["{S(Y)(f)}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{itemize}
+\end{defn}
+
+Notice that this is reminiscent of the definitions in Algebraic Topology 2. Indeed $S(X)[n]$  for each $n\in\N$ is in fact the basis of the abelian group $C_n(X)$. It represents all the possible ways that an $n$-simplex could fit into $X$. 
+
+\begin{thm}{}{} The singular functor $S:\text{Top}\to\text{sSet}$ is right adjoint to the geometric realization functor $\abs{\;\cdot\;}:\text{sSet}\to\text{Top}$. This means that there is a natural bijection $$\Hom_\text{Top}(\abs{X},Y)\cong\Hom_\text{sSet}(X,S(Y))$$ for any space $Y$ and any simplicial set $X$. 
+\end{thm}
+
+\begin{thm}{}{} The singular functor and geometric realization functor $$\abs{\;\cdot\;}:\text{Top}\rightleftarrows\text{sSet}:S$$ form a Quillen adjunction. Moreover, the Quillen adjunction is a Quillen equivalence. 
+\end{thm}
+
+We can do even better. For any $X$, $S(X)$ is actually an infinity category. 
+
+\begin{lmm}{}{} Let $X$ be a space. Then $S(X)$ is an infinity category. 
+\end{lmm}
+
+\begin{prp}{}{} Let $X$ be a space. Then the homotopy category of the singular set of $X$ is equal to $h(S(X))=\prod_1(X)$ the fundamental groupoid of $X$. 
+\end{prp}
+
+\subsection{Kan Complexes}
+\begin{defn}{Kan Complexes}{} A Kan complex is a simplicial set $C$ such that each horn (inner and outer) admits a filler. In other words, for all $0\leq i\leq n$, the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\Lambda_i^n} & C \\
+	{\Delta^n}
+	\arrow["\forall", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow["\exists"', dashed, from=2-1, to=1-2]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+Since infinity catregories require only inner horns to admit a filler, we have the following inclusion relation: $$\substack{\text{Infinity}\\\text{Categories}}\subset\substack{\text{Kan}\\\text{Complexes}}$$
+
+\begin{prp}{}{} Let $X$ be a space. Then $S(X)$ is a Kan complex. 
+\end{prp}
+
+\begin{thm}{}{} Let $\mC$ be a small category. Then the simplicial set $N(\mC)$ is a Kan complex if and only if $\mC$ is a groupoid. 
+\end{thm}
+
+More: Kan complexes = infinity groupoids (quillen equivalence in model category), and we should think of spaces as Kan complexes / infinity groupoids from now on. 
+
+
+
+
+\end{document}

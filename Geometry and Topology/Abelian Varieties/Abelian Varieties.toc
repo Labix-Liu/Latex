@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {1}Properties of Abelian Varieties}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Basic Definitions}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Rational Maps into Abelian Varieties}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Abelian Varieties are Projective}{3}{subsection.1.3}%

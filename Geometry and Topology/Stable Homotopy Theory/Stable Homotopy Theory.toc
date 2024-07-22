@@ -1,6 +1,10 @@
-\contentsline {section}{\numberline {1}The Category of Spectra}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Spectra and $\Omega $-Spectra}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Brown's Representability Theorem}{4}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}The Eilenberg-Maclane Spectrum}{6}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Homotopy Groups of a Spectrum}{6}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Spanier-Whitehead Category}{6}{subsection.1.5}%
+\contentsline {section}{\numberline {1}Introduction to Spectra}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Spectra, Maps and Homotopies}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Examples of Spectra}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Brown's Representability Theorem}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}The Eilenberg-Maclane Spectrum}{6}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Homotopy Groups of a Spectrum}{7}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Spanier-Whitehead Category}{7}{subsection.1.6}%
+\contentsline {section}{\numberline {2}CW Spectra}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The Working Category of CW Spectra}{9}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Oriented Cobordism}{10}{section.3}%

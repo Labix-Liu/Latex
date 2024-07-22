@@ -15,10 +15,10 @@
 \contentsline {section}{\numberline {4}The Jordan Canonical Form}{15}{section.4}%
 \contentsline {subsection}{\numberline {4.1}The Minimal Polynomial}{15}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Cayley-Hamilton Theorem}{16}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Generalized Eigenspace}{17}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Generalized Eigenspace}{18}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Jordan Canonical Form}{19}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Results of the Jordan Normal Theorem}{22}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Functions of Matrices}{24}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.5}Results of the Jordan Normal Theorem}{23}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Functions of Matrices}{25}{subsection.4.6}%
 \contentsline {section}{\numberline {5}Linear Forms and Quadratic Forms}{26}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Linear Forms}{26}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Quadratic Forms}{26}{subsection.5.2}%
@@ -35,5 +35,5 @@
 \contentsline {section}{\numberline {8}Orthgonality in $\mathbb {R}^n$}{39}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Reduction of Quadratic Forms over $\mathbb {R}$}{39}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Reduction of Inner Products}{40}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Adjoints}{41}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.3}Adjoints}{42}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}Singular Value Decomposition}{44}{subsection.8.4}%

@@ -34,8 +34,8 @@ Finally, we will end the discussion with CW-complexes which allows handy calcula
 \tableofcontents
 \pagebreak
 
-\section{Homotopy and the Fundamental Group}
-\subsection{Homotopy}
+\section{Homotopies and the Fundamental Group}
+\subsection{Homotopies and Homotopy Equivalences}
 In general, showing that two spaces are not homeomorphic is hard. Therefore we turn to a weaker statement: homotopy equivalence. It will become aparent that homeomorphic spaces are necessarily homotopic, but homotopic spaces may not be homeomorphic in general. \\~\\
 
 Notation: Map means continuous function. Moreover, $I=[0,1]$ is the interval in $\R$. 
@@ -122,7 +122,7 @@ This is a good place to mention that whenever there is a local version of a topo
 
 It is very untrue that the local topological property on every point implies the topological property globally, nor is it true that the global property implies the local version. 
 
-\subsection{Point Equivalences}
+\subsection{The 0th Homotopy Group}
 This section will officially begin with the development of $\pi_0$, the zero homotopy group down the line. This is established by equivalences between points. As we go up along the homotopy groups, we will encounter $\pi_1$, which is equivalences between paths, characterized by intervals. In general, $\pi_n$ is given from functions coming from $I^n$, the unit box. 
 
 \begin{defn}{Paths}{} Let $X$ be a space and $x,y\in X$. A path from $x$ to $y$ is a map $f:I\to X$ such that $f(0)=x$ and $f(1)=y$. If $x=y$ then we say that $f$ is a loop. Denote $e_x:I\to X$ the constant path on $x\in X$. This means that $e_x(t)=x$ for $t\in I$. 
@@ -323,12 +323,18 @@ Recall that a map of sets $g\circ f$ has the property that $g$ is surjective and
 
 The proposition is useful in the following sense. If $r:X\to A$ is a retraction that the inclusion $i_\ast$ is injective and $r_\ast$ is surjective. If there is no group homomorphism for which $r_\ast$ can be surjective or $i_\ast$ can be injective, then we have reached a contradiction so that there is no retraction from $X$ to $A$. \\~\\
 
-Finally, we show that products work well with fundamental groups. 
+Finally, we show that products and wedge sums work well with fundamental groups. 
 
 \begin{prp}{}{} Let $(X,x_0)$ and $(Y,y_0)$ be pointed topological spaces. Then $$\pi_1(X\times Y,(x_0,y_0))\cong\pi_1(X,x_0)\times\pi_1(Y,y_0)$$
 \end{prp}
 
 In particular, notice that elements of the form $([f],[e_{y_0}])$ and $([e_{x_0}],[g])$ commute. This can be established by exhibiting homotopies from $([f],[g])$ to $$([f],[e_{y_0}])\cdot([e_{x_0}],[g])\;\;\;\;\text{ and }\;\;\;\;([e_{x_0}],[g])\cdot([f],[e_{y_0}])$$ respectively. 
+
+\begin{defn}{Wedge Sum of Spaces}{} Let $\{(X_i,x_i)\;|\;i\in I\}$ be a family of pointed spaces. Define their wedge sum to be the quotient space $$\bigvee_{i\in I}(X_i,x_i)=\frac{\coprod_{i\in I}X_i}{\coprod_{i\in I}\{x_i\}}$$
+\end{defn}
+
+\begin{prp}{}{} Let $\{(X_i,x_i)\;|\;i\in I\}$ be a family of path connected pointed spaces. The wedge sum of the family of spaces has fundamental group $$\pi_1\left(\bigvee_{i\in I}(X_i,x_i),x\right)\cong\ast_{i\in I}\pi_1(X_i,x_i)$$ where the base point $x$ point at which the wedge sum is glued. 
+\end{prp}
 
 \subsection{Simply Connected Spaces}
 Simply connected, spaces, also called $1$-connected space, is a name given to when the space has trivial fundamental group. As we introduce the higher homotopy groups, there will be higher notions of connectivity that follow. 
@@ -360,7 +366,7 @@ We also have the local version of simply connectedness.
 \end{defn}
 
 \pagebreak
-\section{Covering Spaces}
+\section{Covering Space Theory}
 General topology is concerned with the problem of whether certain types of maps can be lifted. This means that whether a map defined for a base space $X$ could be extended to a larger space that contains the base space. Covering spaces arise in homotopy theory since they lift homotopies. However as it turns out, the theory of covering spaces are greatly related to the fundamental group of spaces. 
 
 \subsection{Point Set Topology of Covering Spaces}
@@ -517,21 +523,96 @@ The continuity of $f$ then follows from the continuity of $\iota$ and $f$.
 
 This theorem is rather remarkable since it shows that this topological condition can be characterized entirely with purely algebra. 
 
+\subsection{Fibers of a Covering Space}
+The lifting correspondence gives a bijection between the fundamental group and the size of the fibers of the universal covering. This will provide a useful way in calculating the order of the fundamental group. 
+
+\begin{defn}{Fibers of a Covering Space}{} Let $X$ be a space and let $p:\tilde{X}\to X$ be a covering space. Let $x_0\in X$. The fiber of $p$ at $x_0$ refers to the set $$p^{-1}(x_0)=\{\tilde{x}\in\tilde{X}\;|\;p(\tilde{x})=x_0\}$$
+\end{defn}
+
+We first prove that the fibers of a path connected space $X$ has constant cardinality throughout all of $X$. 
+
+\begin{lmm}{}{} Let $X$ be a path connected space and $p:\tilde{X}\to X$ be a covering space. Then $\abs{p^{-1}(x)}$ is constant throughout all of $x$. \tcbline
+\begin{proof}
+We will show that for any $x,y\in X$, there is a bijection from $p^{-1}(x)$ to $p^{-1}(y)$. Let $\gamma:I\to X$ be a path from $x$ to $y$. For each $\tilde{x}\in p^{-1}(x)$, let $\tilde{\gamma}_{\tilde{x}}$ be the lift of $\gamma$ starting at $\tilde{x}$. Define the function $\phi:p^{-1}(x)\to p^{-1}(y)$ by $\tilde{x}\mapsto\tilde{\gamma}_{\tilde{x}}(1)$. Similarly, the inverse path $\overline{\tilde{\gamma}}$ defines a function $\psi:p^{-1}(y)\to p^{-1}(x)$ by $\tilde{y}\mapsto\overline{\tilde{\gamma}_{\tilde{x}}}(1)$. These functions are inverses of each other since 
+\begin{align*}
+(\psi\circ\phi)(\tilde{x})&=\text{end point of lift of }\overline{\gamma}\text{ starting at }\tilde{\gamma}_{\tilde{x}}(1)\\
+&=\text{end point of lift of }\overline{\gamma}\cdot\gamma\text{ starting at }\tilde{x}\\
+&=\text{end point of lift of }e_{\tilde{x}}\text{ starting at }\tilde{x}\\
+&=\tilde{x}
+\end{align*}
+and similarly we have $\phi(\psi(\tilde{y}))=\tilde{y}$. Thus we conclude. 
+\end{proof}
+\end{lmm}
+
+Given that $p^{-1}(x_0)$ is now well defined on varying $x_0\in X$, we can now formally define the degree of a covering space. 
+
+\begin{defn}{Degree of a Covering}{} Let $X$ be a path connected space and $p:\tilde{X}\to X$ be a covering space. Define the degree of $p$ to be $$\deg(p)=\abs{p^{-1}(x)}$$ for any $x\in X$. In this case, we say that $p$ is a $\deg(p)$-sheeted cover of $X$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $p:(\tilde{X},\tilde{x}_0)\to(X,x_0)$ be a covering map. Let $[\gamma]\in\pi_1(X,x_0)$ be a loop and $\tilde{\gamma}:I\to\tilde{X}$ be its unique lift with $\tilde{\gamma}(0)=\tilde{x}_0$. Then the map of sets $\phi:\pi_1(X,x_0)\to p^{-1}(x_0)$ defined by $$\phi([\gamma])=\tilde{\gamma}(1)$$ is well defined. \tcbline
+\begin{proof}
+Suppose that $\gamma\overset{\partial}{\simeq}\gamma'$. Then the unique lift of this path homotopy is still a homotopy relative to boundaries. This means that $\tilde{\gamma}\overset{\partial}{\simeq}\tilde{\gamma'}$. This implies that $\tilde{\gamma}(1)=\tilde{\gamma'}(1)$ and thus $\phi(\gamma)=\phi(\gamma')$. 
+\end{proof}
+\end{lmm}
+
+\begin{defn}{Lifting Correspondence}{} Let $(X,x_0)$ be a path connected space. Let $p:(\tilde{X},\tilde{x}_0)\to(X,x_0)$ be a covering map. Define the lifting correspondence to be the map $$\phi:\pi_1(X,x_0)\to p^{-1}(x_0)$$ where $\phi([\gamma])=\tilde{\gamma}(1)$ for $[\gamma]\in\pi_1(X,x_0)$. 
+\end{defn}
+
+\begin{thm}{}{3.3.5} Let $(X,x_0)$ be a path connected space. Let $p:(\tilde{X},\tilde{x}_0)\to(X,x_0)$ be a covering map. Denote $$\phi:\pi_1(X,x_0)\to p^{-1}(x_0)$$ the lifting correspondence. Then the following are true. 
+\begin{itemize}
+\item If $\tilde{X}$ is path connected then $\phi$ is surjective
+\item If $\tilde{X}$ is simply connected then $\phi$ is bijective
+\end{itemize}\tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $\tilde{x}_1\in p^{-1}(x_0)$. Since $\tilde{X}$ is path connected, there is a path $\tilde{\gamma}:I\to X$ from $\tilde{x}_0$ to $\tilde{x}_1$. This implies that $\gamma=p\circ\tilde{\gamma}$ is a loop in $X$. Then $[\gamma]\in\pi_1(X,x_0)$ is such that $\phi([\gamma])=\tilde{x}_1$ and so we conclude. 
+\item Since $\tilde{X}$ is also path connected, we just have to show that $\phi$ is injective. Suppose that $[f],[g]\in\pi_1(X,x_0)$ is such that $\phi([f])=\phi([g])$. Then this means that $\tilde{f}(1)=\tilde{g}(1)$. By lemma 1.6.3, we have that $\tilde{f}\overset{\partial}{\simeq}\tilde{g}$. This homotopy descends to $[f]=[g]$ and so we conclude. 
+\end{itemize}
+\end{proof}
+\end{thm}
+
+In fact, we can do one step better and look into why injectivity of a path connected space fails for the above theorem. For this, we will need to consider how $\pi_1(X,x_0)$ acts on $p^{-1}(x_0)$ as a group action. 
+
+\begin{defn}{Right Action on $p^{-1}(x_0)$}{} Let $X$ be a space and $x_0\in X$. Define a right group action $\bullet:p^{-1}(x_0)\times\pi_1(X,x_0)\to p^{-1}(x_0)$ by the map $$\tilde{x}_0\bullet[\gamma]=\tilde{\gamma}(1)$$ where $\tilde{\gamma}$ is the lift of $\gamma$ starting at $\tilde{x}_0$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a path connected space and $x_0\in X$. Let $p:\tilde{X}\to X$ be a covering space of $X$. Then $\pi_1(X,x_0)$ acts transitively on $p^{-1}(x_0)$ if and only if $\tilde{X}$ is path connected. \\~\\
+
+In this case, the stabilizer of $\tilde{x}_0\in p^{-1}(x_0)$ is given by $$\text{Stab}_{\pi_1(X,x_0)}(\tilde{x}_0)=\im\left(p_\ast:\pi_1(\tilde{X},\tilde{x}_0)\to\pi_1(X,x_0)\right)$$ \tcbline
+\begin{proof}
+Suppose that $\tilde{X}$ is path connected. Then for $\tilde{x}_1,\tilde{x}_2\in p^{-1}(x_0)$. There exists a path $\tilde{\gamma}:I\to\tilde{X}$ from $\tilde{x}_1$ to $\tilde{x}_2$. Then $\gamma=p\circ\tilde{\gamma}$ is a loop in $\pi_1(X,x_0)$ such that $\tilde{x}_1\bullet[\gamma]=\tilde{\gamma}(1)=\tilde{x}_2$. \\~\\
+
+Now suppose that the right action is transitive. Suppose for a contradiction that $\tilde{x}$ and $\tilde{y}$ lie in different path components of $\tilde{X}$. Since $X$ is path connected, there exists a path $\gamma:I\to X$ from $x$ to $y$. Then the lift $\tilde{\gamma}:I\to\tilde{X}$ start at $\tilde{x}$ and ends at $\tilde{y}_1$ where $p(\tilde{y}_1)=p(\tilde{y})$. By assumption, $\tilde{x}$ and $\tilde{y}_1$ are in the same path component, while $\tilde{y}$ are not in the same path component as both $\tilde{x}$ and $\tilde{y}_1$. But since the right action of $\pi_1(X,x_0)$ is transitive, there exists a $\tilde{\eta}:I\to\tilde{X}$ from $\tilde{y}$ to $\tilde{y}_1$. This is a contradiction. \\~\\
+
+Let $\tilde{X}$ be path connected so that the right action is transitive. First let $[\gamma]\in\text{Stab}_{\pi_1(X,x_0)}(\tilde{x}_0)$. Then $\tilde{\gamma}(1)=\tilde{x}_0$. Then this means that $\tilde{\gamma}$ is a loop in $\tilde{X}$ based at $\tilde{x}_0$ so that $[\tilde{\gamma}]\in\im(p_\ast)$. Now suppose that $[\tilde{\gamma}]\in\pi_1(\tilde{X},\tilde{x}_0)$. Then $\tilde{\gamma}$ is a lift of $\gamma=p\circ\tilde{\gamma}$, which is a loop in $X$. Thus we have that $\tilde{x}_0\bullet\gamma=\tilde{x}_0$ so that $[\gamma]\in\text{Stab}_{\pi_1(X,x_0)}(\tilde{x}_0)$. 
+\end{proof}
+\end{prp}
+
+As one can see, the above proof is reminiscent of the proof of surjectivity of the lifting correspondence. With this proposition, our final goal can be realized easily together with the orbit stabilizer theorem. 
+
+\begin{thm}{}{2.4.8} Let $X$ be a path connected space and $x_0\in X$. Let $p:\tilde{X}\to X$ be a path connected covering space of $X$. Then there is a one to one bijection $$p^{-1}(x_0)\overset{\text{1:1}}{\longleftrightarrow}\frac{\pi_1(X,x_0)}{p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)}\text{\;\;\;\; or \;\;\;\;}\deg(p)=[\pi_1(X,x_0):p_\ast(\pi_1(\tilde{X},\tilde{x_0}))]$$ between the cosets of $p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)$ and the fibers of $x_0$. \tcbline
+\begin{proof}
+By the orbit stabilizer theorem, we have that $$[\pi_1(X,x_0):\text{Stab}_{\pi_1(X,x_0)}(x_0)]=\abs{\text{Orb}_{\pi_1(X,x_0)}(\tilde{x}_0)}$$ Since the right action is transitive, we have that $\abs{\text{Orb}_{\pi_1(X,x_0)}(\tilde{x}_0)}=\abs{p^{-1}(x_0)}=\deg(p)$. Combined with the fact that $\text{Stab}_{\pi_1(X,x_0)}(\tilde{x}_0)=p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)$, we have that $$\deg(p)=[\pi_1(X,x_0):p_\ast(\pi_1(\tilde{X},\tilde{x_0}))]$$ and so we conclude. 
+\end{proof}
+\end{thm}
+
+A typical calculation would involve only the case for when $\tilde{X}$ is the universal cover. In this case, by finding the number of fibers of the covering space, we can find out the order of the fundamental group. When the order is low, we can enumerate all possible groups. However notice that we do not yet have a way to calculate $p^{-1}(x)$. This will be done via deck transformations, as they are greatly related to both $p^{-1}(x)$ and $\pi_1(X,x)$. 
+
 \subsection{The Galois Correspondence of Covering Spaces}
 We have seen that the fundamental groups under the covering maps provide an image subgroup in the fundamental group of the base space. This gives a mapping $$\left\{\substack{\text{Covering spaces}\\\text{over }(X,x_0)}\right\}\;\;\longrightarrow\;\;\left\{\substack{\text{Subgroups of}\\ \pi(X,x_0)}\right\}$$ It is natural to ask whether there are equivalence relations on the left so that this is a bijection. 
 
-\begin{defn}{BP Equivalence}{2.4.1} Let $(\tilde{X}_1,\tilde{x}_1)$ and $(\tilde{X}_2,\tilde{x}_2)$ be covering spaces of $(X,x_0)$. We say that the two pointed covering spaces are base point equivalent if there exists a pointed homeomorphism $h:(\tilde{X}_1,\tilde{x}_1)\to(\tilde{X}_2,\tilde{x}_2)$ such that the following diagram commutes: \\~\\
+\begin{defn}{Basepoint Equivalence of Covering Spaces}{2.5.1} Let $(\tilde{X}_1,\tilde{x}_1)$ and $(\tilde{X}_2,\tilde{x}_2)$ be covering spaces of $(X,x_0)$. We say that the two pointed covering spaces are base point equivalent if there exists a pointed homeomorphism $h:(\tilde{X}_1,\tilde{x}_1)\to(\tilde{X}_2,\tilde{x}_2)$ such that the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 (\tilde{X}_1,\tilde{x}_1)\arrow[rr, "h"]\arrow[rdd, "p_1"'] && (\tilde{X}_2,\tilde{x}_2)\arrow[ldd, "p_2"] \\
 &&\\
 & (X,x_0) &
 \end{tikzcd}}\\~\\
-BP here stands for base point, not to be confused with a similar equivalence \ref{defn:2.5.1} defined on the next subsection. 
+BP here stands for base point, not to be confused with a similar equivalence \ref{defn:2.6.1} defined on the next subsection. 
 \end{defn}
 
 The following proposition shows that this definition of equivalence on pointed covering spaces works well with our map of sets from covering spaces to subgroups. 
 
-\begin{prp}{}{2.4.2} Let $(X,x_0)$ be a path connected and locally path connected space. Let $p_1:(\tilde{X}_1,\tilde{x}_1)\to(X,x_0)$ and $p_2:(\tilde{X}_2,\tilde{x}_2)\to(X,x_0)$ be path connected covering spaces of $(X,x_0)$. Then $(\tilde{X}_1,\tilde{x}_1)$ and $(\tilde{X}_2,\tilde{x}_2)$ are base point equivalent if and only if $$(p_1)_\ast\left(\pi_1(\tilde{X}_1,\tilde{x}_1)\right)=(p_2)_\ast\left(\pi_1(\tilde{X}_2,\tilde{x}_2)\right)$$ In other words, the image subgroup of the push forward of the induced map is the same. \tcbline
+\begin{prp}{}{2.5.2} Let $(X,x_0)$ be a path connected and locally path connected space. Let $p_1:(\tilde{X}_1,\tilde{x}_1)\to(X,x_0)$ and $p_2:(\tilde{X}_2,\tilde{x}_2)\to(X,x_0)$ be path connected covering spaces of $(X,x_0)$. Then $(\tilde{X}_1,\tilde{x}_1)$ and $(\tilde{X}_2,\tilde{x}_2)$ are base point equivalent if and only if $$(p_1)_\ast\left(\pi_1(\tilde{X}_1,\tilde{x}_1)\right)=(p_2)_\ast\left(\pi_1(\tilde{X}_2,\tilde{x}_2)\right)$$ In other words, the image subgroup of the push forward of the induced map is the same. \tcbline
 \begin{proof}
 Suppose first that $(\tilde{X}_1,\tilde{x}_1)$ and $(\tilde{X}_2,\tilde{x}_2)$ are equivalent covering spaces via the base point preserving homeomorphism $h:(\tilde{X}_1,\tilde{x}_1)\to(\tilde{X}_2,\tilde{x}_2)$. Then the relation $p_1=p_2\circ h$ implies that $(p_1)_\ast=(p_2)_\ast\circ h_\ast$. Since $h_\ast$ is an isomorphism, we have that $(p_1)_\ast$ and $(p_2)_\ast$ have the same image. \\~\\
 
@@ -576,7 +657,7 @@ so that for each fixed $t$, $\gamma_t(s)$ is the path in $X$ that starts by trac
 
 Using the universal cover, we can find all the other covering spaces of $X$. 
 
-\begin{thm}{}{2.4.6} If $X$ is path connected, locally path connected and locally simply connected and $H$ is a subgroup of $\pi_1(X,x_0)$, then there is a unique covering space $p:\tilde{X}\to X$ with $p_\ast(\pi_1(\tilde{X},\tilde{x}_0))=H$. 
+\begin{thm}{}{2.5.6} If $X$ is path connected, locally path connected and locally simply connected and $H$ is a subgroup of $\pi_1(X,x_0)$, then there is a unique covering space $p:\tilde{X}\to X$ with $p_\ast(\pi_1(\tilde{X},\tilde{x}_0))=H$. 
 \end{thm}
 
 We can finally state the Galois theory for covering spaces in its full form. 
@@ -585,7 +666,7 @@ We can finally state the Galois theory for covering spaces in its full form.
 
 The bijection sends $p:(\tilde{X},\tilde{x}_0)\to(X,x_0)$ to the subgroup $p_\ast(\pi(\tilde{X},\tilde{x}_0))$. \tcbline
 \begin{proof}
-By \ref{prp:2.4.2}, this map is well defined. Moreover, \ref{prp:2.4.2} also shows that this map is injective. By \ref{thm:2.4.6}, this map is surjective and so we conclude. 
+By \ref{prp:2.5.2}, this map is well defined. Moreover, \ref{prp:2.5.2} also shows that this map is injective. By \ref{thm:2.5.6}, this map is surjective and so we conclude. 
 \end{proof}
 \end{thm}
 
@@ -596,7 +677,7 @@ Inclusion reversing bijections of this type are often called Galois corresponden
 \subsection{Unpointed Equivalent Coverings and Conjugacy Classes}
 The final section will improve on the Galois corresponding by considering equivalent covering spaces without considering where the base point is sent. This will introduce a new equivalence relation on the equivalence classes of basepoint preserving isomorphisms of covering spaces. Indeed if $(Y,y_0)$ and $(Z,z_0)$ are isomorphic pointed covering spaces, $(Y,y_0)$ and $(Z,z_1)$ for $z_0,z_1$ lying in the same fiber should also be isomorphic since $(Z,z_0)$ and $(Z,z_1)$ differ by a deck transformation, which is a homeomorphism from $Z$ to itself. \\~\\
 
-\begin{defn}{Equivalent Covering Spaces}{2.5.1} Let $\tilde{X}_1$ and $\tilde{X}_2$ be covering spaces of $X$. We say that the two pointed covering spaces are equivalent if there exists a homeomorphism $h:\tilde{X}_1\to\tilde{X}_2$ such that the following diagram commutes: \\~\\
+\begin{defn}{Equivalent Covering Spaces}{2.6.1} Let $\tilde{X}_1$ and $\tilde{X}_2$ be covering spaces of $X$. We say that the two pointed covering spaces are equivalent if there exists a homeomorphism $h:\tilde{X}_1\to\tilde{X}_2$ such that the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 \tilde{X}_1\arrow[rr, "h"]\arrow[rdd, "p_1"'] && \tilde{X}_2\arrow[ldd, "p_2"] \\
 &&\\
@@ -606,7 +687,7 @@ The final section will improve on the Galois corresponding by considering equiva
 
 We first prove a mild result in within a single covering space to motivate the introduction of conjugacy classes in the Galois correspondence. 
 
-\begin{prp}{}{2.5.2} Let $p:(\tilde{X},\tilde{x}_0)\to (X,x_0)$ be a path connected covering space and $\tilde{x}_0\in p^{-1}(x_0)$. Then there is a bijection $$\left\{\substack{\text{Conjugacy Classes}\\\text{of }p_\ast(\pi_1(\tilde{X},\tilde{x}_0))}\right\}\overset{\text{1:1}}{\longleftrightarrow} p^{-1}(x_0)$$ This means that the subgroups $p_\ast(\pi_1(\tilde{X},\tilde{x}_1))$ for $\tilde{x}_1\in p^{-1}(x_0)$ are precisely a conjugacy class of the subgroup $p_\ast(\pi_1(\tilde{X},\tilde{x}_0))$. \\~\\
+\begin{prp}{}{2.6.2} Let $p:(\tilde{X},\tilde{x}_0)\to (X,x_0)$ be a path connected covering space and $\tilde{x}_0\in p^{-1}(x_0)$. Then there is a bijection $$\left\{\substack{\text{Conjugacy Classes}\\\text{of }p_\ast(\pi_1(\tilde{X},\tilde{x}_0))}\right\}\overset{\text{1:1}}{\longleftrightarrow} p^{-1}(x_0)$$ This means that the subgroups $p_\ast(\pi_1(\tilde{X},\tilde{x}_1))$ for $\tilde{x}_1\in p^{-1}(x_0)$ are precisely a conjugacy class of the subgroup $p_\ast(\pi_1(\tilde{X},\tilde{x}_0))$. \\~\\
 
 In particular, the bijection is given as follows: For $\tilde{x}_1\in p^{-1}(x_0)$, let $\overline{f}:I\to\tilde{X}$ be a path from $\tilde{x}_0$ to $\tilde{x}_1$. Write $f=p\circ\tilde{f}$. Then $$p_\ast(\pi_1(\tilde{X},\tilde{x}_0))=[f]\cdot p_\ast(\pi_1(\tilde{X},\tilde{x}_1))\cdot[\overline{f}]$$ \tcbline
 \begin{proof}
@@ -637,23 +718,23 @@ Keen readers would have realized that the first half of the proof involves showi
 \end{tikzcd}}\\~\\ 
 is commutative. \\~\\
 
-The proposition motivates the following unpointed equivalence covering characterization similar to \ref{prp:2.4.2}
+The proposition motivates the following unpointed equivalence covering characterization similar to \ref{prp:2.5.2}
 
-\begin{prp}{}{2.5.3} Let $X$ be a path connected and locally path connected space. Let $p:\tilde{X}\to X$ and $p':\tilde{X}'\to X$ be path connected covering spaces of $X$. Then $\tilde{X}$ and $\tilde{X}'$ are equivalent if and only if there exists $\tilde{x}_0\in p^{-1}(x_0)$ and $\tilde{x}_0'\in (p')^{-1}(x_0)$ such that the subgroups $$p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)\text{\;\;\;\; and \;\;\;\;}p_\ast'\left(\pi_1(\tilde{X}',\tilde{x}_0')\right)$$ are conjugate. \tcbline
+\begin{prp}{}{2.6.3} Let $X$ be a path connected and locally path connected space. Let $p:\tilde{X}\to X$ and $p':\tilde{X}'\to X$ be path connected covering spaces of $X$. Then $\tilde{X}$ and $\tilde{X}'$ are equivalent if and only if there exists $\tilde{x}_0\in p^{-1}(x_0)$ and $\tilde{x}_0'\in (p')^{-1}(x_0)$ such that the subgroups $$p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)\text{\;\;\;\; and \;\;\;\;}p_\ast'\left(\pi_1(\tilde{X}',\tilde{x}_0')\right)$$ are conjugate. \tcbline
 \begin{proof}
-Suppose that $h:\tilde{X}\to\tilde{X}'$ is an equivalence of covering spaces. Let $x_0\in X$ be arbitrary. Let $\tilde{x_0}\in p^{-1}(x_0)$. Let $\tilde{x}_1'=h(\tilde{x}_0)$. Then we can regard $h$ as a base point preserving map so that we can apply \ref{prp:2.4.2} to obtain $$p_\ast(\pi_1(\tilde{X},\tilde{x_0}))=p_\ast(\pi_1(\tilde{X}',\tilde{x}_1'))$$ By \ref{prp:2.5.2}, we have that $$p_\ast(\pi_1(\tilde{X}',\tilde{x}_1'))\;\;\;\;\text{ and }\;\;\;\;p_\ast(\pi_1(\tilde{X}',\tilde{x}_0'))$$ are conjugate so we are done. \\~\\
+Suppose that $h:\tilde{X}\to\tilde{X}'$ is an equivalence of covering spaces. Let $x_0\in X$ be arbitrary. Let $\tilde{x_0}\in p^{-1}(x_0)$. Let $\tilde{x}_1'=h(\tilde{x}_0)$. Then we can regard $h$ as a base point preserving map so that we can apply \ref{prp:2.5.2} to obtain $$p_\ast(\pi_1(\tilde{X},\tilde{x_0}))=p_\ast(\pi_1(\tilde{X}',\tilde{x}_1'))$$ By \ref{prp:2.6.2}, we have that $$p_\ast(\pi_1(\tilde{X}',\tilde{x}_1'))\;\;\;\;\text{ and }\;\;\;\;p_\ast(\pi_1(\tilde{X}',\tilde{x}_0'))$$ are conjugate so we are done. \\~\\
 
-Suppose now that we are given two conjugate subgroups $p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)$ and $p_\ast'\left(\pi_1(\tilde{X}',\tilde{x}_0')\right)$. By the above proposition, there exists a $\tilde{x_1}'$ such that $$p_\ast'\left(\pi_1(\tilde{X}',\tilde{x}_1')\right)=p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)$$ By \ref{prp:2.4.2}, we obtain a base point preserving map $h:(\tilde{X},\tilde{x}_0)\to(\tilde{X}',\tilde{x}_1')$. In particular, by forgetting the base point, we obtain an equivalence $h:\tilde{X}\to\tilde{X}'$ and so we conclude. 
+Suppose now that we are given two conjugate subgroups $p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)$ and $p_\ast'\left(\pi_1(\tilde{X}',\tilde{x}_0')\right)$. By the above proposition, there exists a $\tilde{x_1}'$ such that $$p_\ast'\left(\pi_1(\tilde{X}',\tilde{x}_1')\right)=p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)$$ By \ref{prp:2.5.2}, we obtain a base point preserving map $h:(\tilde{X},\tilde{x}_0)\to(\tilde{X}',\tilde{x}_1')$. In particular, by forgetting the base point, we obtain an equivalence $h:\tilde{X}\to\tilde{X}'$ and so we conclude. 
 \end{proof}
 \end{prp}
 
 Finally, we obtain the Galois theory for general covering spaces without the need to consider basepoints. 
 
-\begin{thm}{Galois Theory for Covering Spaces (Unpointed)}{} Let $X$ be a topological space that is path connected, locally path connected and locally simply connected. Then there is a one to one bijection between path connected covering spaces up to equivalence (\ref{defn:2.5.1}) and subgroups of $\pi(X,x_0)$ up to conjugacy classes. (Choice of $x_0$ does not matter since path connectedness) $$\frac{\left\{\substack{\text{Covering spaces}\\\text{over }X}\right\}}{\cong}\overset{\text{1:1}}{\longleftrightarrow}\frac{\left\{\substack{\text{Subgroups of}\\\pi(X,x_0)}\right\}}{\text{Conjugacy}}$$ where $Y\cong Z$ if and only if they are equivalent covering spaces over $X$ in the sense of \ref{defn:2.5.1}. \\~\\
+\begin{thm}{Galois Theory for Covering Spaces (Unpointed)}{} Let $X$ be a topological space that is path connected, locally path connected and locally simply connected. Then there is a one to one bijection between path connected covering spaces up to equivalence (\ref{defn:2.6.1}) and subgroups of $\pi(X,x_0)$ up to conjugacy classes. (Choice of $x_0$ does not matter since path connectedness) $$\frac{\left\{\substack{\text{Covering spaces}\\\text{over }X}\right\}}{\cong}\overset{\text{1:1}}{\longleftrightarrow}\frac{\left\{\substack{\text{Subgroups of}\\\pi(X,x_0)}\right\}}{\text{Conjugacy}}$$ where $Y\cong Z$ if and only if they are equivalent covering spaces over $X$ in the sense of \ref{defn:2.6.1}. \\~\\
 
 The map sends $p:\tilde{X}\to X$ to the conjugacy class $[p_\ast(\pi(\tilde{X},\tilde{x}_0))]$. \tcbline
 \begin{proof}
-By \ref{prp:2.5.3}, this map is well defined. Also by \ref{prp:2.5.3}, this map is injective. By \ref{thm:2.4.6}, this map is surjective and so we conclude. 
+By \ref{prp:2.6.3}, this map is well defined. Also by \ref{prp:2.6.3}, this map is injective. By \ref{thm:2.5.6}, this map is surjective and so we conclude. 
 \end{proof}
 \end{thm}
 
@@ -774,78 +855,6 @@ Note that $\Psi$ is induced by the inclusions $i_\alpha:U_\alpha\hookrightarrow 
 
 Reminiscing the baby Seifert-van Kampen theorem, the above general isomorphism $$\frac{\ast_\alpha\pi_1(U_\alpha,x_0)}{\ker(\Psi)}\cong\pi_1(X,x_0)$$ is precisely the amalgamated product of a collection of groups. 
 
-\subsection{The Lifting Correspondence}
-The lifting correspondence gives a bijection between the fundamental group and the size of the fibers of the universal covering. This will provide a useful way in calculating the order of the fundamental group. \\~\\
-
-We first prove that the fibers of a path connected space $X$ remains constant throughout all of $X$. 
-
-\begin{lmm}{}{} Let $X$ be a path connected space and $p:\tilde{X}\to X$ be a covering space. Then $\abs{p^{-1}(x)}$ is constant throughout all of $x$. \tcbline
-\begin{proof}
-We will show that for any $x,y\in X$, there is a bijection from $p^{-1}(x)$ to $p^{-1}(y)$. Let $\gamma:I\to X$ be a path from $x$ to $y$. For each $\tilde{x}\in p^{-1}(x)$, let $\tilde{\gamma}_{\tilde{x}}$ be the lift of $\gamma$ starting at $\tilde{x}$. Define the function $\phi:p^{-1}(x)\to p^{-1}(y)$ by $\tilde{x}\mapsto\tilde{\gamma}_{\tilde{x}}(1)$. Similarly, the inverse path $\overline{\tilde{\gamma}}$ defines a function $\psi:p^{-1}(y)\to p^{-1}(x)$ by $\tilde{y}\mapsto\overline{\tilde{\gamma}_{\tilde{x}}}(1)$. These functions are inverses of each other since 
-\begin{align*}
-(\psi\circ\phi)(\tilde{x})&=\text{end point of lift of }\overline{\gamma}\text{ starting at }\tilde{\gamma}_{\tilde{x}}(1)\\
-&=\text{end point of lift of }\overline{\gamma}\cdot\gamma\text{ starting at }\tilde{x}\\
-&=\text{end point of lift of }e_{\tilde{x}}\text{ starting at }\tilde{x}\\
-&=\tilde{x}
-\end{align*}
-and similarly we have $\phi(\psi(\tilde{y}))=\tilde{y}$. Thus we conclude. 
-\end{proof}
-\end{lmm}
-
-Given that $p^{-1}(x_0)$ is now well defined on varying $x_0\in X$, we can now formally define the degree of a covering space. 
-
-\begin{defn}{Degree of a Covering}{} Let $X$ be a path connected space and $p:\tilde{X}\to X$ be a covering space. Define the degree of $p$ to be $$\deg(p)=\abs{p^{-1}(x)}$$ for any $x\in X$. In this case, we say that $p$ is a $\deg(p)$-sheeted cover of $X$. 
-\end{defn}
-
-\begin{lmm}{}{} Let $p:(\tilde{X},\tilde{x}_0)\to(X,x_0)$ be a covering map. Let $[\gamma]\in\pi_1(X,x_0)$ be a loop and $\tilde{\gamma}:I\to\tilde{X}$ be its unique lift with $\tilde{\gamma}(0)=\tilde{x}_0$. Then the map of sets $\phi:\pi_1(X,x_0)\to p^{-1}(x_0)$ defined by $$\phi([\gamma])=\tilde{\gamma}(1)$$ is well defined. \tcbline
-\begin{proof}
-Suppose that $\gamma\overset{\partial}{\simeq}\gamma'$. Then the unique lift of this path homotopy is still a homotopy relative to boundaries. This means that $\tilde{\gamma}\overset{\partial}{\simeq}\tilde{\gamma'}$. This implies that $\tilde{\gamma}(1)=\tilde{\gamma'}(1)$ and thus $\phi(\gamma)=\phi(\gamma')$. 
-\end{proof}
-\end{lmm}
-
-\begin{defn}{Lifting Correspondence}{} Let $(X,x_0)$ be a path connected space. Let $p:(\tilde{X},\tilde{x}_0)\to(X,x_0)$ be a covering map. Define the lifting correspondence to be the map $$\phi:\pi_1(X,x_0)\to p^{-1}(x_0)$$ where $\phi([\gamma])=\tilde{\gamma}(1)$ for $[\gamma]\in\pi_1(X,x_0)$. 
-\end{defn}
-
-\begin{thm}{}{3.3.5} Let $(X,x_0)$ be a path connected space. Let $p:(\tilde{X},\tilde{x}_0)\to(X,x_0)$ be a covering map. Denote $$\phi:\pi_1(X,x_0)\to p^{-1}(x_0)$$ the lifting correspondence. Then the following are true. 
-\begin{itemize}
-\item If $\tilde{X}$ is path connected then $\phi$ is surjective
-\item If $\tilde{X}$ is simply connected then $\phi$ is bijective
-\end{itemize}\tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item Let $\tilde{x}_1\in p^{-1}(x_0)$. Since $\tilde{X}$ is path connected, there is a path $\tilde{\gamma}:I\to X$ from $\tilde{x}_0$ to $\tilde{x}_1$. This implies that $\gamma=p\circ\tilde{\gamma}$ is a loop in $X$. Then $[\gamma]\in\pi_1(X,x_0)$ is such that $\phi([\gamma])=\tilde{x}_1$ and so we conclude. 
-\item Since $\tilde{X}$ is also path connected, we just have to show that $\phi$ is injective. Suppose that $[f],[g]\in\pi_1(X,x_0)$ is such that $\phi([f])=\phi([g])$. Then this means that $\tilde{f}(1)=\tilde{g}(1)$. By lemma 1.6.3, we have that $\tilde{f}\overset{\partial}{\simeq}\tilde{g}$. This homotopy descends to $[f]=[g]$ and so we conclude. 
-\end{itemize}
-\end{proof}
-\end{thm}
-
-In fact, we can do one step better and look into why injectivity of a path connected space fails for the above theorem. For this, we will need to consider how $\pi_1(X,x_0)$ acts on $p^{-1}(x_0)$ as a group action. 
-
-\begin{defn}{Right Action on $p^{-1}(x_0)$}{} Let $X$ be a space and $x_0\in X$. Define a right group action $\bullet:p^{-1}(x_0)\times\pi_1(X,x_0)\to p^{-1}(x_0)$ by the map $$\tilde{x}_0\bullet[\gamma]=\tilde{\gamma}(1)$$ where $\tilde{\gamma}$ is the lift of $\gamma$ starting at $\tilde{x}_0$. 
-\end{defn}
-
-\begin{prp}{}{} Let $X$ be a path connected space and $x_0\in X$. Let $p:\tilde{X}\to X$ be a covering space of $X$. Then $\pi_1(X,x_0)$ acts transitively on $p^{-1}(x_0)$ if and only if $\tilde{X}$ is path connected. \\~\\
-
-In this case, the stabilizer of $\tilde{x}_0\in p^{-1}(x_0)$ is given by $$\text{Stab}_{\pi_1(X,x_0)}(\tilde{x}_0)=\im\left(p_\ast:\pi_1(\tilde{X},\tilde{x}_0)\to\pi_1(X,x_0)\right)$$ \tcbline
-\begin{proof}
-Suppose that $\tilde{X}$ is path connected. Then for $\tilde{x}_1,\tilde{x}_2\in p^{-1}(x_0)$. There exists a path $\tilde{\gamma}:I\to\tilde{X}$ from $\tilde{x}_1$ to $\tilde{x}_2$. Then $\gamma=p\circ\tilde{\gamma}$ is a loop in $\pi_1(X,x_0)$ such that $\tilde{x}_1\bullet[\gamma]=\tilde{\gamma}(1)=\tilde{x}_2$. \\~\\
-
-Now suppose that the right action is transitive. Suppose for a contradiction that $\tilde{x}$ and $\tilde{y}$ lie in different path components of $\tilde{X}$. Since $X$ is path connected, there exists a path $\gamma:I\to X$ from $x$ to $y$. Then the lift $\tilde{\gamma}:I\to\tilde{X}$ start at $\tilde{x}$ and ends at $\tilde{y}_1$ where $p(\tilde{y}_1)=p(\tilde{y})$. By assumption, $\tilde{x}$ and $\tilde{y}_1$ are in the same path component, while $\tilde{y}$ are not in the same path component as both $\tilde{x}$ and $\tilde{y}_1$. But since the right action of $\pi_1(X,x_0)$ is transitive, there exists a $\tilde{\eta}:I\to\tilde{X}$ from $\tilde{y}$ to $\tilde{y}_1$. This is a contradiction. \\~\\
-
-Let $\tilde{X}$ be path connected so that the right action is transitive. First let $[\gamma]\in\text{Stab}_{\pi_1(X,x_0)}(\tilde{x}_0)$. Then $\tilde{\gamma}(1)=\tilde{x}_0$. Then this means that $\tilde{\gamma}$ is a loop in $\tilde{X}$ based at $\tilde{x}_0$ so that $[\tilde{\gamma}]\in\im(p_\ast)$. Now suppose that $[\tilde{\gamma}]\in\pi_1(\tilde{X},\tilde{x}_0)$. Then $\tilde{\gamma}$ is a lift of $\gamma=p\circ\tilde{\gamma}$, which is a loop in $X$. Thus we have that $\tilde{x}_0\bullet\gamma=\tilde{x}_0$ so that $[\gamma]\in\text{Stab}_{\pi_1(X,x_0)}(\tilde{x}_0)$. 
-\end{proof}
-\end{prp}
-
-As one can see, the above proof is reminiscent of the proof of surjectivity of the lifting correspondence. With this proposition, our final goal can be realized easily together with the orbit stabilizer theorem. 
-
-\begin{thm}{}{3.3.8} Let $X$ be a path connected space and $x_0\in X$. Let $p:\tilde{X}\to X$ be a path connected covering space of $X$. Then there is a one to one bijection $$p^{-1}(x_0)\overset{\text{1:1}}{\longleftrightarrow}\frac{\pi_1(X,x_0)}{p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)}\text{\;\;\;\; or \;\;\;\;}\deg(p)=[\pi_1(X,x_0):p_\ast(\pi_1(\tilde{X},\tilde{x_0}))]$$ between the cosets of $p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)$ and the fibers of $x_0$. \tcbline
-\begin{proof}
-By the orbit stabilizer theorem, we have that $$[\pi_1(X,x_0):\text{Stab}_{\pi_1(X,x_0)}(x_0)]=\abs{\text{Orb}_{\pi_1(X,x_0)}(\tilde{x}_0)}$$ Since the right action is transitive, we have that $\abs{\text{Orb}_{\pi_1(X,x_0)}(\tilde{x}_0)}=\abs{p^{-1}(x_0)}=\deg(p)$. Combined with the fact that $\text{Stab}_{\pi_1(X,x_0)}(\tilde{x}_0)=p_\ast\left(\pi_1(\tilde{X},\tilde{x}_0)\right)$, we have that $$\deg(p)=[\pi_1(X,x_0):p_\ast(\pi_1(\tilde{X},\tilde{x_0}))]$$ and so we conclude. 
-\end{proof}
-\end{thm}
-
-A typical calculation would involve only the case for when $\tilde{X}$ is the universal cover. In this case, by finding the number of fibers of the covering space, we can find out the order of the fundamental group. When the order is low, we can enumerate all possible groups. However notice that we do not yet have a way to calculate $p^{-1}(x)$. This will be done via deck transformations, as they are greatly related to both $p^{-1}(x)$ and $\pi_1(X,x)$. 
-
 \subsection{Fundamental Groups of Important Spaces}
 \begin{thm}{Fundamental Group of $T^n$}{} The fundamental group of the $n$-torus is $$\pi_1(T^n,x_0)\cong\pi_1(S^1,1)\times\cdots\times\pi_1(S^1,1)$$ the product of $n$ fundamental groups of the circle for any $x_0\in T^n$. \tcbline
 \begin{proof}
@@ -867,20 +876,11 @@ Homotopic equivalent spaces should have isomorphic fundamental groups. Since the
 
 We will see how the lifting correspondence helps us deduce the fundamental group of the projective space. 
 
-\begin{thm}{}{} For $n\geq 2$, the fundamental group of $\R\Prj^n$ is $$\pi_1(\R\Prj^n,x_0)\cong\Z/2\Z$$ for any base point $x_0\in\R\Prj^n$. \tcbline
+\begin{thm}{Fundamental Group of Projective Space}{} For $n\geq 2$, the fundamental group of $\R\Prj^n$ is $$\pi_1(\R\Prj^n,x_0)\cong\Z/2\Z$$ for any base point $x_0\in\R\Prj^n$. \tcbline
 \begin{proof}
 Recall that $\R\Prj^n$ is the set of all lines passing through $0$ in $\R^{n+1}$. Each line intersects with $S^n$ in exactly two points where $\abs{x}=1$. Thus $S^n$ is a $2$-sheeted covering of $\R\Prj^n$. But $\pi_1(S^n,x)\cong\{1\}$ which means that $S^n$ is the universal covering o $\R\Prj^n$. By \ref{thm:3.3.5}, we have that $\pi_1(\R\Prj^n,x)$ is of order $2$ since $p:S^n\to\R\Prj^n$ is a $2$-sheeted cover. But there is only one unique group of order $2$ up to isomorphism and so we conclude. 
 \end{proof}
 \end{thm}
-
-\subsection{The Wedge Sum of Spaces}
-\begin{defn}{Wedge Sum of Spaces}{} Let $\{(X_i,x_i)\;|\;i\in I\}$ be a family of pointed spaces. Define their wedge sum to be the quotient space $$\bigvee_{i\in I}(X_i,x_i)=\frac{\coprod_{i\in I}X_i}{\coprod_{i\in I}\{x_i\}}$$
-\end{defn}
-
-\begin{prp}{}{} Let $\{(X_i,x_i)\;|\;i\in I\}$ be a family of path connected pointed spaces. The wedge sum of the family of spaces has fundamental group $$\pi_1\left(\bigvee_{i\in I}(X_i,x_i),x\right)\cong\ast_{i\in I}\pi_1(X_i,x_i)$$ where the base point $x$ point at which the wedge sum is glued. 
-\end{prp}
-
-Similar to the prove of the above proposition, we can compute the fundamental group of the figure 8. 
 
 \begin{thm}{Fundamental Group of the Figure 8}{} The fundamental group of the figure 8 $S^1\vee S^1$ is given by $$\pi_1(S^1\vee S^1,x)\cong\Z\ast\Z$$ where $x\in S^1\vee S^1$ is any base point. \tcbline
 \begin{proof}
@@ -990,7 +990,7 @@ In addition to being normal, the universal covering space has trivial fundamenta
 Combining results from the previous sections, we now have the equality $$\abs{\pi_1(X,x_0)}=\abs{p^{-1}(x_0)}=\deg(p)=\abs{\text{Deck}(p)}$$ when $p:(\tilde{X},\tilde{x}_0)\to(X,x_0)$ is the universal covering space. 
 
 \subsection{Regular Covering Spaces and Orbit Spaces}
-\begin{defn}{The Orbit Space}{} Let $X$ be a space and $G$ be a group acting on $X$. Define the orbit space of $X$ and $G$ to be $$\frac{X}{G}=\{\text{Orb}_G(x)\;|\l; x\in X\}$$ the set of all orbits of $G$ on $X$, inherited with the quotient topology of the equivalence relation of orbits. 
+\begin{defn}{The Orbit Space}{} Let $X$ be a space and $G$ be a group acting on $X$. Define the orbit space of $X$ and $G$ to be $$\frac{X}{G}=\{\text{Orb}_G(x)\;|\; x\in X\}$$ the set of all orbits of $G$ on $X$, inherited with the quotient topology of the equivalence relation of orbits. 
 \end{defn}
 
 This has the quotient topology because recall from groups and rings that $\text{Orb}_G(x)$ defines an equivalence relation on $X$. 
@@ -1026,8 +1026,176 @@ Suppose that $\tilde{x}\in(\tau_1\cdot U)\cap(\tau_2\cdot U)$. Then this means t
 \begin{thm}{}{} Let $X$ be a path connected space. Let $G$ be a covering space action on $X$. Then $G\cong\text{Deck}(p)$ where $p:X\to X/G$ is the regular covering space of $X/G$. 
 \end{thm}
 
-\begin{crl}{}{} Let $X$ be a path connected and locally path connected space. Let $\text{Deck}(p)$ be the unique covering space action on $X$. Then $$\text{Deck}(p)\cong\frac{\pi_1\left(\frac{X}{\text{Deck}(p)},x_0\right)}{p_\ast(\pi_1\left(X,p(x_0))\right)}$$ for any $x_0\in X$. 
+\begin{crl}{}{} Let $X$ be a path connected and locally path connected space. Then there is a group isomorphism $$\text{Deck}(p)\cong\frac{\pi_1\left(\frac{X}{\text{Deck}(p)},x_0\right)}{p_\ast(\pi_1\left(X,p(x_0))\right)}$$ for any $x_0\in X$. 
 \end{crl}
+
+\pagebreak
+\section{Topological Groups and G-Spaces}
+The above four chapters has established deep connections between three properties of a space. Namely, the fundamental group, the fibers of the covering space and the group of homeomorphisms of the covering space. Such a deep connection between algebra and topology is not unique to covering space theory, nor to fundamental groups. In this section we will take a step back and look at the big picture. 
+
+\subsection{Topological Groups, Subgroups and Homomorphisms}
+\begin{defn}{Topological Groups}{} Let $G$ be a group. We say that $G$ is a topological group if $G$ is also a topological space and that the following are true. 
+\begin{itemize}
+\item The map $l_h:G\to G$ defined by $g\mapsto hg$ is continuous for all $h\in G$
+\item The map $i:G\to G$ defined by $g\mapsto g^{-1}$ is continuous
+\end{itemize}
+\end{defn}
+
+Notice that every topological group can be given the discrete topology, and so every group is trivially a topological group. But of course there is no guarantee that anything interesting theorems will occur in this case. 
+
+\begin{defn}{Discrete Group}{} Let $G$ be a topological group. We say that $G$ is a discrete group if it has the discrete topology. 
+\end{defn}
+
+\begin{prp}{}{} Let $G$ be a topological group. Let $H$ be a subgroup of $G$. Then $H$ and $\overline{H}$ are both topological groups. Moreover, if $H$ is normal, then $\overline{H}$ is normal. 
+\end{prp}
+
+\begin{prp}{}{} Let $G$ be a topological group. Let $H$ be a subgroup of $G$. Then the normalizer $N_G(H)$ and the centralizer $C_G(H)$ are closed subgroups of $G$. 
+\end{prp}
+
+\begin{defn}{The Coset Space}{} Let $G$ be a topological group and $H$ a closed subgroup of $G$. Define the coset space of $H$ in $G$ to be the quotient space $$G/H=\{gH\;|\;g\in G\}$$ together with the (topological) quotient map $p:G\to G/H$ such that $U\subseteq G/H$ is open if and only if $p^{-1}(U)$ is open. 
+\end{defn}
+
+\begin{thm}{}{} Let $G$ be a topological group. Let $H$ be a subgroup of $G$. Then the (topological) quotient map $$p:G\to G/H$$ is an open map. Moreover, the following are true regarding the quotient. 
+\begin{itemize}
+\item $G/H$ is Hausdorff if and only if $H$ is closed in $G$
+\item $G/H$ is discrete if and only if $H$ is open in $G$. 
+\item If $H$ is normal and closed in $G$, then $G/H$ is a topological group. 
+\end{itemize}
+\end{thm}
+
+\begin{defn}{Continuous Homomorphisms}{} Let $G$ and $H$ be topological groups. A function $f:G\to H$ is said to be a continuous homomorphism if it is continuous and a group homomorphism. 
+\end{defn}
+
+\begin{prp}{}{} Let $G,H$ be topological groups. Let $\varphi:G\to H$ be a surjective continuous homomorphism. Then $\ker(\varphi)$ is a closed subgroup of $G$ and $\varphi$ is a continuous bijection. 
+\end{prp}
+
+When the topological group $G$ is compact, the first isomorphism theorem in fact gives a homeomorphism. 
+
+\begin{prp}{}{} Let $G,H$ be topological groups. Let $\varphi:G\to H$ be a surjective continuous homomorphism. If $G$ is compact, then $$\overline{\varphi}:\frac{G}{\ker(\varphi)}\to H$$ is a homeomomorphism. 
+\end{prp}
+
+\begin{prp}{}{} Let $G$ be a compact topological group. Let $g\in G$. Then $$A=\overline{\{g^n\;|\;n\in\N\}}$$ is a subgroup of $G$. 
+\end{prp}
+
+\subsection{G-Spaces and G-Equivariant Maps}
+In algebraic topology, we have the results of considering groups acting on spaces. We can in fact consider topological groups acting on spaces. 
+
+\begin{defn}{Continuous Group Actions}{} Let $G$ be a topological group and $X$ a space. We say that $G$ is a continuous group action if $G$ is a group acting on $X$ such that the group action map $$\cdot:G\times X\to X$$ is continuous. In this case we say that $X$ is a $G$-space. 
+\end{defn}
+
+Frequently a continuous group action is also called a (topological) transformation group, for example in Milnor's Topology of Fiber Bundles or Introduction to Compact Topological Groups. 
+
+\begin{prp}{}{} Let $G$ be a continuous group action of $X$. Then for each $g\in G$, the left action map $x\mapsto g\cdot x$ is a homeomorphism of $X$. \tcbline
+\begin{proof}
+Every element of $g$ has an inverse $g^{-1}$ which are both continuous and are bijections on $X$. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $G$ be a topological group and $(X,\mathcal{T})$ a topological space. Then $G$ is a continuous group action on $X$ if and only if $G$ acts on $\mathcal{T}$. \tcbline
+\begin{proof}
+Suppose that $G$ is a continuous group action on $X$. Then for each $g\in G$, $g\cdot U=\{g\cdot x\;|\; x\in U\}$ for $U\in\mathcal{T}$ is open since $A_g$ as above is a homeomorphism. Now suppose that $G$ acts on $\mathcal{T}$. Then for each open set $U$ of $X$, $g^{-1}\cdot U$ is open. Thus $G$ is a continuous group action. 
+\end{proof}
+\end{prp}
+
+In particular, some authors would assume one knows this fact, so it is always nice to see it spelled out. It is also standard to denote this action just by the element $g$ instead of $A_g$. 
+
+\begin{defn}{Group of Homeomorphisms}{} Let $X$ be a space. Define the group of homeomorphisms of $X$ to be $$\text{Homeo}(X)=\{f:X\to X\;|\;f\text{ is a homeomorphism}\}$$ together with composition of functions. We say that a group $A$ is a subgroup of homeomorphisms of $X$ if $A$ is isomorphic to a subgroup of $\text{Homeo}(X)$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $G$ be a topological group. Let $X$ be a $G$-space. Then there is a group homomorphism $\varphi:G\to\text{Homeo}(X)$ defined by $$g\mapsto\left(x\mapsto g\cdot x\right)$$ \tcbline
+\begin{proof}
+We have already seen that for any $g\in G$, the map $x\mapsto g\cdot x$ is a homeomorphism. Thus the above mapping is well defined. Now we have that 
+\begin{align*}
+\varphi(gh)(x)&=gh\cdot x\\
+&=g\cdot(h\cdot x)\\
+&=(\varphi(g)\circ\varphi(h))(x)
+\end{align*}
+and so $\varphi$ is a group homomorphism. 
+\end{proof}
+\end{lmm}
+
+Notice that if the above group homomorphism is injective, then the structure group $G$ is a subgroup of homeomorphisms of $G$. 
+
+\begin{defn}{G-Equivariant Maps}{} Let $G$ be a topological group and let $X,Y$ be $G$-spaces. A $G$-equivariant map is a continuous map $f:X\to Y$ such that $f$ is equivariant. In other words, we require that $$f(g\cdot x)=g\cdot f(x)$$ for all $x\in X$ and all $g\in G$. 
+\end{defn}
+
+\begin{defn}{Isomorphic G-Spaces}{} Let $G$ be a topological group and let $X,Y$ be $G$-space. We say that $G$ and $H$ are isomorphic $G$-spaces if there exists a $G$-equivariant map such that $f$ is a homeomorphism. 
+\end{defn}
+
+\begin{thm}{}{} Let $G$ be a topological group and let $X$ be a $G$-space. Then the map $$p:\frac{G}{\text{Stab}_G(x_0)}\to Gx_0\subseteq X$$ induced by the map $g\mapsto g\cdot x_0$ is well defined. Moreover, it is isomorphic to the left $G$-space $Gx_0$. \tcbline
+\begin{proof}
+To show that it s well defined, we want to show that if $g\in\text{Stab}_G(x_0)$, then $g\cdot x_0=x_0$. But this is true by definition of the stabilizer. By definition of the induced map, it is continuous. Also, the orbit of $x_0$ is precisely $Gx_0$ and hence $p$ is a bijection. It remains to show that $p$ is an open map. \\~\\
+
+To show isomorphism, we also need to show that $p$ is a $G$-equivariant map. We have that 
+\begin{align*}
+p(g\cdot(h\text{Stab}_G(x_0)))&=p(gh\text{Stab}_G(x_0))\\
+&=(gh)\cdot x_0\\
+&=g\cdot(h\cdot x_0)\\
+&=g\cdot p(h\text{Stab}_G(x_0))
+\end{align*}
+so that $p$ is $G$-equivariant. 
+\end{proof}
+\end{thm}
+
+To be removed:
+
+\begin{defn}{G-Homotopy}{} Let $G$ be a topological group and let $X,Y$ be $G$-spaces. Let $f,g:X\to Y$ be $G$-equivariant maps. A $G$-homotopy from $f$ to $g$ is a homotopy $H:X\times I\to Y$ from $f$ to $g$ such that for each $t\in I$, the map $$H(-,t):X\to Y$$ is $G$-equivariant map. 
+\end{defn}
+
+\subsection{Homogenous G-Spaces}
+Recall that a group action $G$ on $X$ is said to be transitive if for any $x,y\in X$, there exists $g\in G$ such that $g\cdot x=y$. 
+
+\begin{defn}{Homogenous G-Space}{} Let $G$ be a topological group and let $X$ be a $G$-space. We say that $X$ is a Homogenous $G$-space if $G$ acts transitively on $X$. 
+\end{defn}
+
+Much of the theorem we considered in covering space theory was in fact on homogenous $G$-spaces. For instance, when $\tilde{X}$ is path connected, prp2.4.7 says that the fibers $p^{-1}(x_0)$ of the covering space is a homogenous $\pi_1(X,x_0)$-space. The following corollary proves thm 2.4.9
+
+\begin{crl}{}{} Let $G$ be a topological group and let $X$ be a homogenous $G$-space. Then there is an isomorphism of $G$-spaces $$\frac{G}{\text{Stab}_G(x_0)}\cong X$$ induced by the map $g\mapsto g\cdot x_0$. \tcbline
+\begin{proof}
+Since $G$ is transitive on $X$, we have that $Gx_0=X$. Hence by the above theorem, we obtain the desired isomorphism. 
+\end{proof}
+\end{crl}
+
+Indeed, if $p:\tilde{X}\to X$ is a covering space, $p^{-1}(x_0)$ is a homogenous $\pi_1(X,x_0)$-space and it follows that $$\frac{\pi_1(X,x_0)}{p_\ast(\pi_1(\tilde{X},\tilde{x}_0))}\cong p^{-1}(x_0)$$ Notice that $\text{Stab}_{\pi_1(X,x_0)}=\im(p_\ast)$ is a non-trivial fact that was proven in prp 2.4.7. 
+
+\begin{crl}{}{} Let $G$ be a topological group and let $X$ be a homogenous $G$-space. If $G$ is more over a free action on $X$, there is an isomorphism of $G$-spaces $$G\cong X$$ given by the map $g\mapsto g\cdot x_0$. \tcbline
+\begin{proof}
+If $G$ is free, then the stabilizer is trivial. By the above corollary, we obtain the desired isomorphism. 
+\end{proof}
+\end{crl}
+
+\begin{thm}{}{} Let $G$ be a topological group and let $X$ be a homogenous $G$-space. Then the following are true. 
+\begin{itemize}
+\item For any $\varphi\in\text{Homeo}(X)$, $x\in X$ and $\varphi(x)$ has the same stabilizers
+\item If $x,y\in X$ has the same stabilizers, then there exists $\varphi\in\text{Homeo}(X)$ such that $\varphi(x)=y$. 
+\end{itemize}
+\end{thm}
+
+\begin{lmm}{}{} Let $G$ be a topological group and let $X$ be a homogenous $G$-space. Let $A$ be a subgroup of $\text{Homeo}(X)$. Then $A=\text{Homeo}(X)$ if and only if for any $x,y\in X$ such that $\text{Stab}_G(x)=\text{Stab}_G(y)$, there exists $\varphi\in A$ such that $\varphi(x)=y$. 
+\end{lmm}
+
+\begin{thm}{}{} Let $G$ be a topological group and let $X$ be a homogenous $G$-space. Then there is a isomorphism of left $G$-spaces $$\frac{N(\text{Stab}_G(x_0))}{\text{Stab}_G(x_0)}\cong\text{Homeo}(X)$$
+\end{thm}
+
+\subsection{Properly Discontinuous Group Actions}
+\begin{defn}{Proper Group Actions}{} Let $G$ be a topological group acting continuously on a topological space $X$. The action is said to be proper if the map $G\times X\to X\times X$ defined by $$(g,x)\mapsto(x,g\cdot x)$$ is a proper map. 
+\end{defn}
+
+\begin{defn}{Properly Discontinuous Group Actions}{} Let $G$ be a group acting on a space $X$. Then we say that $G$ is a properly discontinuous group action if for every compact set $K\subseteq X$, we have $$(g\cdot K)\cap K\neq\emptyset$$ for finitely many $g\in G$. 
+\end{defn}
+
+\begin{prp}{}{} Every properly discontinuous group action is a wandering action. 
+\end{prp}
+
+\begin{prp}{}{} If $G$ is a proper group action on a space $X$, then the action is properly discontinuous. 
+\end{prp}
+
+The converse is not true in general, unless we assume that $X$ is locally compact. \\~\\
+
+Recall the notion of a covering space action. $G$ is a covering space action on $X$ if $g\cdot U\cap U\neq\emptyset$ implies $g=1$. This is also related to properly discontinuous group actions. In fact, properly discontinuous group actions are in general stronger than covering space actions. 
+
+\begin{prp}{}{} Let $G$ be a covering space action on $X$. If $X$ is locally compact and Hausdorff, then $G$ is a properly discontinuous group action on $X$. 
+\end{prp}
 
 
 \pagebreak
