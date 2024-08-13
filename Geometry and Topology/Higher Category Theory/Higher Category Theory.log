@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  10 JUL 2024 16:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  2 AUG 2024 17:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -944,7 +944,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 226.
+Package hyperref Info: Option `colorlinks' set `true' on input line 228.
 ) (Higher Category Theory.aux)
 \openout1 = `"Higher Category Theory.aux"'.
 
@@ -1057,63 +1057,61 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 \openout5 = `"Higher Category Theory.toc"'.
 
  [2]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 6
-8.
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 3
+1.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}]
+enc}] [4]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 123.
+d on input line 104.
 
-[4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
-Underfull \hbox (badness 1418) in paragraph at lines 658--659
+[5] [6] [7] [8] [9] [10]
+Underfull \hbox (badness 1418) in paragraph at lines 329--330
 []\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/10 be a space. Then the h
 o-mo-topy cat-e-gory of the sin-gu-lar set of $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/
 10 is equal to 
  []
 
-[19] [20] (Higher Category Theory.aux)
+[11] [12] (Higher Category Theory.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Higher Category Theory".out' has not change
 d.
-(rerunfilecheck)             Checksum: 6BD4752563409843C64645B654D27633;3301.
+(rerunfilecheck)             Checksum: C2363CBABA084614C22CABA46EC43C4E;2264.
  ) 
 Here is how much of TeX's memory you used:
- 33369 strings out of 474424
- 662783 string characters out of 5741739
+ 32709 strings out of 474424
+ 646944 string characters out of 5741739
  1972496 words of memory out of 5000000
- 55085 multiletter control sequences out of 15000+600000
- 604211 words of font info for 81 fonts, out of 8000000 for 9000
+ 54472 multiletter control sequences out of 15000+600000
+ 597664 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,19n,120p,654b,1478s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,16n,120p,626b,1475s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/liula/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/l
-iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
-Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
+TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/li
+ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
+/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5
 .pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/symbols/msam10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Higher Category Theory.pdf" (20 pages, 386030 bytes).
+cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/tex-gyre/qplr.pfb>
+Output written on "Higher Category Theory.pdf" (12 pages, 304642 bytes).
 PDF statistics:
- 381 PDF objects out of 1000 (max. 8388607)
- 114 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 266 PDF objects out of 1000 (max. 8388607)
+ 69 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

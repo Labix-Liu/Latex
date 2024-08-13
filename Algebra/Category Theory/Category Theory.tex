@@ -249,7 +249,7 @@ Now that we have defined $\bold{Cat}$, we can talk about isomorphisms of categor
 
 In general, few categories are isomorphic. There are categories which are not isomorphic but that we want to consider ''the same''. 
 
-\subsection{Diagrams and Concrete Categories}
+\subsection{Diagram Chasing}
 \begin{defn}{Commutative Diagram}{} Let $\mJ$ be a category. A commutative diagram in a category $\mC$ of shape $\mJ$ is a functor $X:\mJ\to\mC$. A diagram is said to be small if $I$ is small. 
 \end{defn}
 
@@ -265,14 +265,19 @@ C_2\arrow[r, "\bar{f}"] & C_3
 \end{tikzcd}}\\~\\
 such that $\bar{g}\circ f=\bar{f}\circ g$. \\~\\
 
-Note that functors also preserve diagrams. If $X:I\to\mC$ is a commutative diagram ad $F:\mC\to\mD$ is a functor, then $F\circ X:I\to\mD$ is again a commutative diagram. 
+\begin{prp}{}{} Let $\mC,\mD$ be categories. If $X:I\to\mC$ is a commutative diagram ad $F:\mC\to\mD$ is a functor, then $F\circ X:I\to\mD$ is again a commutative diagram. 
+\end{prp}
 
+\subsection{The Category of Sets}
 \begin{defn}{The Category of Sets}{} The category $\bold{Set}$ of sets where 
 \begin{itemize}
 \item $\Obj(\bold{Set})=\text{''all'' sets}$
 \item For two set $X$ and $Y$, the morphisms $\Hom_\bold{Set}(X,Y)$ consists of functions $f:X\to Y$. 
 \item Composition is given by the composition of functions. 
 \end{itemize}
+\end{defn}
+
+\begin{defn}{Presheaves}{} Let $\mC$ be a category. A presheaf on $\mC$ is a contravariant functor $\mC^\text{op}\to\bold{Set}$. 
 \end{defn}
 
 \begin{defn}{Concrete Category}{} A concrete category is a category $\mC$ together with a faithful functor $\mC\to\text{Set}$. 
@@ -1491,107 +1496,6 @@ In particular, by regarding the isomorphic class of the connected groupoid as on
 
 However, the analogy no longer works for the orbits (colimits of $X:BG\to\mC$). For example, if $\mC=\bold{Ab}$, then $$X_G=\frac{X}{\langle g\cdot x-x\;|\;g\in G,x\in X\rangle}$$
 
-\pagebreak
-\section{Monoid and Group Objects}
-\subsection{Monoidal Categories}
-\begin{defn}{Strict Monoidal Categories}{} A strict monoidal category is a category $\mA$ consisting of a bifunctor $\otimes:\mA\times\mA\to\mA$ together with an object $I\in\mA$ such that the following are true. 
-\begin{itemize}
-\item Associativity: $(A\otimes B)\otimes C=A\otimes(B\otimes C)$
-\item Identity: $I\otimes A=A$ and $A\otimes I=A$
-\end{itemize}
-\end{defn}
-
-Notice that we require strict equality in the associativity and identity laws. Since we usually only consider objects up to isomorphism in a category, strict monoidal categories may seem quite rare in practise. 
-
-\begin{defn}{}{} A weak monoidal category is a category $\mA$ consisting of a bifunctor $\otimes:\mA\times\mA\to\mA$ together with an object $I\in\mA$ such that the following are true. 
-\begin{itemize}
-\item Associativity: There are isomorphisms $$(A\otimes B)\otimes C\overset{\alpha_{A,B,C}}{\cong} A\otimes(B\otimes C)$$ that is natural in $A$, $B$ and $C$
-\item Identity: There are isomorphisms $$I\otimes A\overset{\lambda_A}{\cong} A\;\;\;\;\text{ and }\;\;\;\;A\otimes I\overset{\rho_A}{\cong} A$$ that are both natural in $A$
-\end{itemize}
-Such natural isomorphisms must also satisfy the following commutative laws: 
-\begin{itemize}
-\item The pentagon identity: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	& {(A\otimes B)\otimes(C\otimes D)} \\
-	\\
-	{((A\otimes B)\otimes C)\otimes D} && {A\otimes (B\otimes(C\otimes D))} \\
-	\\
-	\\
-	{(A\otimes(B\otimes C))\otimes D} && {A\otimes((B\otimes C)\otimes D)}
-	\arrow["{\alpha_{A,B,C\otimes D}}", from=1-2, to=3-3]
-	\arrow["{\alpha_{A\otimes B,C,D}}", from=3-1, to=1-2]
-	\arrow["{\alpha_{A,B,C}\otimes 1_D}"', from=3-1, to=6-1]
-	\arrow["{\alpha_{A,B\otimes C,D}}"', from=6-1, to=6-3]
-	\arrow["{1_A\otimes\alpha_{B,C,D}}"', from=6-3, to=3-3]
-\end{tikzcd}}\\~\\
-\item The triangle identity: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{(A\otimes I)\otimes B} && {A\otimes (I\otimes B)} \\
-	\\
-	& {A\otimes B}
-	\arrow["{\alpha_{A,I,B}}", from=1-1, to=1-3]
-	\arrow["{\rho_A\otimes 1_B}"', from=1-1, to=3-2]
-	\arrow["{1_A\otimes\lambda_B}", from=1-3, to=3-2]
-\end{tikzcd}}\\~\\
-\end{itemize}
-\end{defn}
-
-It is clear that every strict monoidal category is also a weak monoidal category. 
-
-\begin{lmm}{}{} Every category $\mC$ with finite products is a monoidal category with product $\times:\mC\times\mC\to\mC$ and identity $\ast$ the terminal object. 
-\end{lmm}
-
-\begin{prp}{}{} For any commutative ring $R$, the category $\bold{Mod}_R$ of $R$-modules is a monoidal category with the tensor product $\otimes$ and the identity object $R$. 
-\end{prp}
-
-\subsection{Monoidal Object}
-
-\subsection{Group Objects}
-\begin{defn}{Group Objects}{} Let $\mC$ be a category with finite products. We say that $G\in\mC$ is a group object if there exists three morphisms 
-\begin{itemize}
-\item Multiplication: $m:G\times G\to G$
-\item Identity: $e:\ast\to G$ where $\ast$ is the terminal object
-\item Inverse: $\text{inv}:G\to G$
-\end{itemize}
-such that the following diagrams commute. 
-\begin{itemize}
-\item Associativity: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{G\times G\times G} & {G\times G} \\
-	{G\times G} & G
-	\arrow["{m\times\text{id}_G}", from=1-1, to=1-2]
-	\arrow["{\text{id}_G\times m}"', from=1-1, to=2-1]
-	\arrow["m", from=1-2, to=2-2]
-	\arrow["m"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-\item Identity: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	G & {G\times G} \\
-	{G\times G} & G
-	\arrow["{(e,\text{id}_G)}", from=1-1, to=1-2]
-	\arrow["{(\text{id}_G,e)}"', from=1-1, to=2-1]
-	\arrow["{\text{id}_G}"{description}, from=1-1, to=2-2]
-	\arrow["m", from=1-2, to=2-2]
-	\arrow["m"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-\item Inverse: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	G & {G\times G} \\
-	{G\times G} & G
-	\arrow["{(\text{inv},\text{id}_G)}", from=1-1, to=1-2]
-	\arrow["{(\text{id}_G,\text{inv})}"', from=1-1, to=2-1]
-	\arrow["e"{description}, from=1-1, to=2-2]
-	\arrow["m", from=1-2, to=2-2]
-	\arrow["m"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} A group object in the category $\bold{Set}$ of sets is a group in the usual sense. 
-\end{prp}
-
-\begin{prp}{}{} A group object in the category $\bold{Grp}$ of groups is an abelian group. 
-\end{prp}
 
 
 

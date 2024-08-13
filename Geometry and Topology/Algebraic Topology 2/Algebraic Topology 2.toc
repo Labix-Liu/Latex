@@ -5,43 +5,45 @@
 \contentsline {subsection}{\numberline {1.4}Sequences of Chain Complexes}{12}{subsection.1.4}%
 \contentsline {section}{\numberline {2}Simplicial Homology}{16}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Simplexes}{16}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Simplicial Homology}{17}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Introduction to Singular Homology}{20}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Singular n-Simplexes and Singular Homology}{20}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Relation to the Low Degree Homotopy Groups}{22}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Reduced Homology}{26}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Computing the Singular Homology Groups}{29}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Homotopy Invariance}{29}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Barycentric Subdivision}{31}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Mayer-Vietoris Sequence}{32}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Computations of the Homology Groups}{36}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Applications of Singular Homology}{41}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Brouwer Fixed Point Theorem}{41}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Jordan Curve Theorem}{41}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}The Fundamental Class of a Sphere}{43}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Relative Homology}{45}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Relative Homology Groups}{45}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Quotient Spaces and Excision}{48}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Local Homology Groups}{50}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Degree Theory and Cellular Homology}{52}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Degree of Continuous Maps}{52}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Local Degree}{54}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Cellular Homology}{57}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Variants of Singular Homology}{62}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Unification of the Homology Theories}{62}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Homology with Coefficients}{63}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Algebra of Cochain Complexes}{65}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Cochain Complexes}{65}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Hom Functor for Abelian Groups}{65}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Producing a Cochain Complex from a Chain Complex}{66}{subsection.9.3}%
-\contentsline {section}{\numberline {10}Singular Cohomology}{68}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Singular Cohomology}{68}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}The Cup Product}{69}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}The Kunneth Formula}{70}{subsection.10.3}%
-\contentsline {section}{\numberline {11}The Choice of Coefficients in Singular (Co)Homology}{72}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Free Resolutions}{72}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Universal Coefficient Theorem for Cohomology}{72}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Universal Coefficient Theorem for Homology}{73}{subsection.11.3}%
-\contentsline {section}{\numberline {12}The Euler Characteristic}{75}{section.12}%
-\contentsline {subsection}{\numberline {12.1}The Characteristic as an Invariant}{75}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}First Properties of the Euler Characteristic}{76}{subsection.12.2}%
+\contentsline {subsection}{\numberline {2.2}Simplicial Complexes}{16}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Delta Complexes}{17}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Simplicial Homology}{18}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Introduction to Singular Homology}{21}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Singular n-Simplexes and Singular Homology}{21}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Relation to the Low Degree Homotopy Groups}{23}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Reduced Homology}{27}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Computing the Singular Homology Groups}{30}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Homotopy Invariance}{30}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Barycentric Subdivision}{32}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Mayer-Vietoris Sequence}{33}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Computations of the Homology Groups}{37}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Applications of Singular Homology}{42}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Brouwer Fixed Point Theorem}{42}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Jordan Curve Theorem}{42}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The Fundamental Class of a Sphere}{44}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Relative Homology}{46}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Relative Homology Groups}{46}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Quotient Spaces and Excision}{49}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Local Homology Groups}{51}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Degree Theory and Cellular Homology}{53}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Degree of Continuous Maps}{53}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Local Degree}{55}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Cellular Homology}{58}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Variants of Singular Homology}{63}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Unification of the Homology Theories}{63}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Homology with Coefficients}{64}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Algebra of Cochain Complexes}{66}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Cochain Complexes}{66}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Hom Functor for Abelian Groups}{66}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Producing a Cochain Complex from a Chain Complex}{67}{subsection.9.3}%
+\contentsline {section}{\numberline {10}Singular Cohomology}{69}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Singular Cohomology}{69}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}The Cup Product}{70}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}The Kunneth Formula}{71}{subsection.10.3}%
+\contentsline {section}{\numberline {11}The Choice of Coefficients in Singular (Co)Homology}{73}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Free Resolutions}{73}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Universal Coefficient Theorem for Cohomology}{73}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Universal Coefficient Theorem for Homology}{74}{subsection.11.3}%
+\contentsline {section}{\numberline {12}The Euler Characteristic}{76}{section.12}%
+\contentsline {subsection}{\numberline {12.1}The Characteristic as an Invariant}{76}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}First Properties of the Euler Characteristic}{77}{subsection.12.2}%

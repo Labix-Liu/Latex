@@ -17,6 +17,11 @@
 \maketitle
 \begin{abstract}
 \end{abstract}
+
+References: 
+\begin{itemize}
+\item Fourier-Mukai Transforms in Algebraic Geometry (Derived Categories for Algebraic Geometry)
+\end{itemize}
 \pagebreak
 \tableofcontents
 \pagebreak
@@ -288,6 +293,8 @@ Then $\mO_{\text{Proj}(S)}$ is a sheaf on $S$.
 \begin{defn}{Locally Closed Embedding}{}
 \end{defn}
 
+\pagebreak
+\section{The Categorical Viewpoint of Schemes}
 \subsection{The Category of Schemes}
 \begin{defn}{The Category of Schemes}{} Define the category of schemes $\bold{Sch}$ to consist of the following data. 
 \begin{itemize}
@@ -352,6 +359,20 @@ Recall that residue field of a point $x$ in a scheme $X$ is the field $$k(p)=\fr
 
 Notice that the underlying topological space of $X_y$ is homeomorphic to the subspace $f^{-1}(y)$. 
 
+\subsection{The Functor of Points}
+\begin{defn}{The Functor of Points}{} Let $X$ be a scheme. Define the functor of points to be the functor $$\Hom_\bold{Sch}(-,X):\bold{AffSch}^\text{op}\to\bold{Set}$$ defined by sending each affine scheme $Y$ to the set of maps $Y\to X$. 
+\end{defn}
+
+One classical usage of the functor of points is the following. 
+
+\begin{lmm}{}{} Let $X$ be a scheme. Let $k$ be an algebraically closed field. Then the functor of points $$\Hom_\bold{Sch}(-,X):\bold{AffSch}^\text{op}\to\bold{Set}$$ is faithful. 
+\end{lmm}
+
+\begin{defn}{k-Points of a Scheme}{} Let $X$ be a scheme. Let $k$ be a field. Define the $k$-points of $X$ to be the set $$X(k)=\Hom_\bold{Sch}(\text{Spec}(k),X)$$
+\end{defn}
+
+Intuitively, the $k$-points of a scheme are precisely the set of points on $X$ that act like points in $k$. If $k=\C$, then $\C$-points of $X$ (complex points) behave very similar as if they were points in $\C^n$. 
+
 \pagebreak
 \section{Absolute Properties of Schemes}
 \subsection{Reduced, Irreducible and Integral Schemes}
@@ -389,7 +410,7 @@ Suppose that $X=(\text{Spec}(A),\mathcal{O})$ is integral. We already know that 
 \begin{defn}{Generic Points}{} Let $X$ be a scheme with an affine cover $\bigcup_{i\in I}U_i$ with each $U_i=\text{Spec}(R_i)$. We say that $p\in X$ is a generic point if $p$ corresponds to the $(0)$ ideal in some $U_i=\text{Spec}(R_i)$. (Equivalently, $p$ is a generic point if $\overline{p}=U_i$ for some $i$). 
 \end{defn}
 
-Note that this notion extends to general schemes since general schemes are covered by affine schemes. 
+Note that this notion extends to general schemes since general schemes are covered by affine schemes. In particular, this means that a general scheme can have multiple generic points. A priori is the generic points of a subscheme does not necessarily coincide with any of the generic points of a scheme. 
 
 \begin{prp}{}{} Let $X$ be a scheme. If $X$ is irreducible, then $X$ has a unique generic point. More generally, if $X$ has irreducible components $S_i$ for $i\in I$, then each $S_i$ has a unique generic point. 
 \end{prp}
@@ -397,7 +418,7 @@ Note that this notion extends to general schemes since general schemes are cover
 \begin{prp}{}{} Let $X$ be an integral scheme. Let $\nu$ be its unique generic point. Then $\mO_{X,\nu}$ is a field. 
 \end{prp}
 
-\begin{defn}{Function Field of a Scheme}{} Let $X$ be an integral scheme and let $\nu\in X$ be its unique generic point. Define the function field to be $$K(X)=\mathcal{O}_{X,\nu}$$ which is a field. 
+\begin{defn}{Function Field of an Integral Scheme}{} Let $X$ be an integral scheme and let $\nu\in X$ be its unique generic point. Define the function field to be $$K(X)=\mathcal{O}_{X,\nu}$$ which is a field. 
 \end{defn}
 
 \subsection{Noetherian Schemes}
@@ -463,8 +484,64 @@ A map of spaces $X\to Y$ is said to be proper if it preserves compact sets in po
 \begin{defn}{Universally Closed Morphisms}{} Let $f:X\to Y$ be a morphism of schemes. We say that $f$ is universally closed if for any morphism $g:Z\to Y$ of schemes, the morphism $$g\otimes_Yf:Z\otimes_YX\to Y$$ is closed. 
 \end{defn}
 
-\begin{defn}{Proper Morphisms}{} Let $f:X\to Y$ be a morphism of schemes. We say that $f$ is proper if it is separated, of finite type and is universally closed. 
+\begin{defn}{Proper Morphisms}{} Let $f:X\to Y$ be a morphism of schemes. We say that $f$ is proper if it is separated, of finite type and is universally closed. A scheme $X$ over a field $k$ is said to be proper if the structure morphism $X\to\text{Spec}(k)$ is proper. 
 \end{defn}
+
+\begin{thm}{}{} Let $X$ be a scheme of finite type over $\C$. Then $X$ is proper if and only if $X(\C)$ is compact and Hausdorff. 
+\end{thm}
+
+\pagebreak
+\section{Varieties Redefined}
+\subsection{Types of Varieties}
+\begin{defn}{Varieties}{} Let $k$ be a field. A variety over $k$ is a scheme $X$ such that $X$ is reduced separated scheme of finite type over $k$. 
+\end{defn}
+
+Let us think again why we need all these extra properties of a scheme for a variety to make sense. 
+\begin{itemize}
+\item We would like our scheme to be reduced because we would like functions on the variety to be determined by their points. 
+\item Separatedness is analogous to the Hausdorff property. 
+\item A scheme of finite type over $k$ means that it has a finite cover, and each cover $U_i=\text{Spec}(A_i)$ is such that $A_i$ is a finitely generated algebra (algebra of finite type) over $k$. Have a finite cover prevents any dimensional argument to blow to infinity. While finitely generated algebras has always been the main concern of Algebraic Geometry: Indeed coordinate rings and polynomial rings are finitely generated algebras. Moreover, the equivalence of categories given in section 1.1 concerns only finitely generated algebras as well. 
+\end{itemize}
+
+\begin{defn}{Subvarities}{} Let $X$ be a variety. A subvariety of $X$ is a closed subscheme of $X$ such that $X$ is also a variety. 
+\end{defn}
+
+One huge disadvantage of such definition is that the product of two varieties is in general not a variety, unless when the underlying field is algebraically closed. 
+
+\begin{prp}{}{} Let $X$ and $Y$ be varieties over an algebraically closed field $k$. Then $$X\times_{\text{Spec}(k)}Y$$ is a variety. 
+\end{prp}
+
+\begin{defn}{Complete Varieties}{} Let $k$ be a field. We say that a variety $X$ over $k$ is complete if it is proper over $k$. 
+\end{defn}
+
+\begin{defn}{Irreducible Varieties}{} Let $k$ be a field. An irreducible variety over $k$ is a scheme $X$ such that $X$ is integral, separated scheme of finite type over $k$. 
+\end{defn}
+
+\begin{defn}{The Category of Varieties}{} Define the category of varieties $\text{Var}_k$ over a field $k$ as follows. 
+\begin{itemize}
+\item The objects are varieties $X$ over $k$
+\item The morphisms are morphisms of schemes $X\to Y$ over $k$. 
+\item Composition is given by the composition of morphisms. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $X,Y$ be varieties. Then any morphism $\phi:X\to Y$ of scheme are separated and of finite type. 
+\end{prp}
+
+\subsection{The Category of Affine Varieties}
+\begin{defn}{Irreducible Affine Variety}{} Let $X$ be a irreducible variety over $k$. We say that $X$ is an irreducible affine variety if $X$ is an affine scheme. 
+\end{defn}
+
+In other words, a scheme $X$ is said to be an irreducible affine variety if the following are true. 
+\begin{itemize}
+\item $X$ is integral (reduced + irreducible)
+\item $X$ is separated
+\item $X$ is a scheme of finite type over $k$
+\item $X$ is an affine scheme
+\end{itemize}
+
+\begin{thm}{}{} There is an equivalence of categories $$\bold{AffAlgVar}_k\cong(\text{Integral Affine Varieties})$$ induced by the functor of points. 
+\end{thm}
 
 \pagebreak
 \section{The Module Structure on Sheaves}
@@ -728,10 +805,12 @@ Note that result is also true if we drop the requirement that $A$ is Noetherian.
 \pagebreak
 \section{The Theory of Divisors}
 \subsection{Weil Divisors}
-Hartshorne requires a scheme to be regular in every local ring of dimension one. Basically, this allows a valuation to take place so that divisors can be formalized. Moreover, the scheme should be noetherian, integral and separated. 
-
 \begin{defn}{Regular in Codimension $1$}{} Let $X$ be a scheme. We say that $X$ is regular in codimension $1$ if every local ring $O_{X,p}$ of dimension $1$ is regular. 
 \end{defn}
+
+A primer on Hartshorne's Weil divisors: In order to develop the theory of Weil divisors on a scheme $X$, for every codimension $1$-subscheme $Y$, we want to define a homomorphism $K(Y)\to\Z$. We want this to be analogous to the homomorphism $\text{ord}:k(x_1,\dots,x_n)\to\Z$ sending a rational function to its order. Such a homomorphism is precisely a discrete valuation. Therefore, we would like each $K(Y)$ to be a discrete valuation ring. This is possible precisely when every $K(Y)=\mO_{Y,\eta}$ is a discrete valuation ring for $\eta$ the generic point of $Y$. Therefore we would like $X$ to be regular in codimension $1$. \\~\\
+
+I have not yet found a reason for Hartshorne's requirement that $X$ be separated. 
 
 \begin{defn}{Prime Divisors}{} Let $X$ be a noetherian integral separated scheme which is regular in codimension $1$. A prime divisor on $X$ is a closed integral subscheme $Y$ of codimension $1$. 
 \end{defn}
@@ -739,7 +818,11 @@ Hartshorne requires a scheme to be regular in every local ring of dimension one.
 \begin{defn}{Weil Divisors}{} Let $X$ be a noetherian integral separated scheme which is regular in codimension $1$. A Weil divisor on $X$ is an element of the free abelian group $Div(X)$, generated by the prime divisors. In other words, a Weil divisor is an element of the form $$D=\sum_{i\in I}n_iY_i$$ where $Y_i$ is a prime divisor and $n_i$ an integer and only finitely many $n_i$ are nonzero. 
 \end{defn}
 
-The theory of divisors generalizes to the theory of algebraic cycles by considering the free group of codimension $n$ subschemes. 
+\begin{lmm}{}{} Let $X$ be an integral scheme. Let $Y$ be an integral subscheme of $X$ with generic point $\eta$. Then $$K(X)=\text{Frac}(\mO_{X,\eta})$$ \tcbline
+\begin{proof}
+https://math.stackexchange.com/questions/218767/relation-of-function-field-of-a-scheme-to-the-local-ring-of-its-prime-divisor?rq=1
+\end{proof}
+\end{lmm}
 
 \begin{defn}{Divisors of Functions}{} Let $X$ be a noetherian integral separated scheme which is regular in codimension $1$. Let $P$ be a prime divisor of $X$ and let $\nu$ be the unique generic point of $P$ in $X$. Denote $$v_P:\mO_{X,\nu}\to\frac{\mO_{X,\nu}}{m_\nu}$$ the valuation of the discrete valuation ring $\mO_{X,\nu}$. Let $f$ be a non-zero element of $\mathcal{O}_{X,\nu}$. Define the divisor of $f$ to be $$(f)=\sum_{\substack{P\in X\\P \text{ a prime divisor of }X}}v_P(f)\cdot P$$ 
 \end{defn}
@@ -822,116 +905,80 @@ When $X$ is integral, Cartier divisors and the Picard group is entirely the same
 \end{crl}
 
 \pagebreak
-\section{Varieties Redefined}
-\subsection{Abstract Varieties}
-\begin{defn}{Varieties}{} Let $k$ be a field. A variety over $k$ is a scheme $X$ such that $X$ is reduced, separated scheme of finite type over $k$. 
+\section{Derived Categories in Algebraic Geometry}
+\subsection{Derived Categories of Schemes}
+\begin{defn}{Derived Category of a Scheme}{} Let $X$ be a scheme. Define the derived category to be $$D^\ast(X)=D^\ast(\bold{Coh}(X))$$ where $\ast$ can be $b,+,-$ or null. 
 \end{defn}
 
-Let us think again why we need all these extra properties of a scheme for a variety to make sense. 
-\begin{itemize}
-\item We would like our scheme to be reduced because we would like functions on the variety to be determined by their points. 
-\item Separated in schemes is analogue to the Hausdorff property
-\item A scheme of finite type over $k$ means that it has a finite cover, and each cover $U_i=\text{Spec}(A_i)$ is such that $A_i$ is a finitely generated algebra (algebra of finite type) over $k$. Have a finite cover prevents any dimensional argument to blow to infinity. While finitely generated algebras has always been the main concern of Algebraic Geometry: Indeed coordinate rings and polynomial rings are finitely generated algebras. Moreover, the equivalence of categories given in section 1.1 concerns only finitely generated algebras as well. 
-\end{itemize}
-
-\begin{defn}{Irreducible Varieties}{} Let $k$ be a field. An irreducible variety over $k$ is a scheme $X$ such that $X$ is integral, separated scheme of finite type over $k$. 
+\begin{defn}{Derived Equivalences}{} Let $X,Y$ be a schemes over a field $k$. We say that $X$ and $Y$ are derived equivalent if there exists a $k$-linear exact equivalence $$D^b(X)\cong D^n(Y)$$
 \end{defn}
 
-\begin{defn}{Complete Varieties}{} Let $k$ be a field. We say that a variety $X$ over $k$ is complete if it is proper over $k$. 
-\end{defn}
+Let $X$ be a scheme. Then there is a natural inclusion of categories $$\bold{Coh}(X)\subset\bold{QCoh}(X)\subset\bold{Mod}_{O_X}$$
 
-\begin{defn}{The Category of Varieties}{} Define the category of varieties $\text{Var}_k$ over a field $k$ as follows. 
-\begin{itemize}
-\item The objects are varieties $X$ over $k$
-\item The morphisms are morphisms of schemes $X\to Y$ over $k$. 
-\item Composition is given by the composition of morphisms. 
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $X,Y$ be varieties. Then any morphism $\phi:X\to Y$ of scheme are separated and of finite type. 
+\begin{prp}{}{} Let $X$ be a noetherian scheme. Suppose that $\ast=b,+,-$. Then there are natural equivalences $$D^\ast(\bold{QCoh}(X))\cong D_{\bold{QCoh}(X)}^\ast(\bold{Mod}_{O_X})$$
 \end{prp}
 
-\begin{defn}{Affine Variety}{} Let $X$ be a variety over $k$. We say that $X$ is an affine variety if $X$ is an affine scheme. 
-\end{defn}
-
-\subsection{Group Schemes and Group Varieties}
-\begin{defn}{Group Schemes}{} A group scheme is a group object in the category $\bold{Sch}$ of schemes. A group scheme over a scheme $S$ is a group object in the category $\bold{Sch}_S$ of schemes over $S$. 
-\end{defn}
-
-\begin{defn}{Group Varieties}{} A group variety over a field $k$ is a group object in the category $\bold{Var}_k$ of varieties over $k$. 
-\end{defn}
-
-\begin{defn}{Algebraic Groups}{} An algebraic group over a field $k$ is a group variety over $k$ that is also smooth. 
-\end{defn}
-
-\begin{prp}{}{} Let $k$ be a field with characteristic $0$. Then every group scheme over $k$ is smooth. 
+\begin{prp}{}{} Let $X$ be a noetherian scheme. Then the inclusion functor induces $$D^b(X)\to D^b(\bold{QCoh}(X))$$ which defines an equivalence of categories between $D^b(X)$ and $D_{\bold{Coh}(X)}^b(\bold{QCoh}(X))$. 
 \end{prp}
-
-\subsection{Abelian Varieties}
-As promised, we will connect the notion of properness (completeness for varieties) and the question of whether a group variety has an abelian structure. 
-
-\begin{defn}{Abelian Varieties}{} An abelian variety over a field $k$ is a group variety that is complete and connected. 
-\end{defn}
-
-\begin{thm}{Rigidity Theorem}{}
-\end{thm}
-
-\begin{crl}{}{} The group law on any abelian variety is commutative, hence every abelian variety has a the structure of an abelian group. 
-\end{crl}
 
 \pagebreak
-\section{Examples of Schemes}
-\subsection{Affine Schemes in Action}
-Recall some basic facts about the rings at play
-\begin{prp}{}{} Let $F$ be a field, then the ring of polynomials over $F$, $F[x]$ is a PID. 
-\end{prp}
+\section{Intersection Theory}
+Scheme = scheme + morphism of finite type to $\text{Spec}(k)$
+Variety = Irreducible variety
+subvariety = closed subscheme of a variety which is a variety
+point = closed point
 
-Note that however, $F[x_1,\dots,x_n]$ is in general NOT a PID even if $F$ is a field. 
+\subsection{The Order of Zeroes and Poles}
+Recall that when we defined the notion of Weil divisors, we restricted ourselves to the case where $X$ is a Noetherian separated scheme that is regular in codimension $1$. This is because we wanted to make use of the fact that $\mO_{X,\eta}$ is a discrete valuation ring for $\eta$ a generic point of any irreducible subscheme of codimension $1$ of $X$. In general when $X$ is Noetherian, $\mO_{X,\eta}$ is only a local Noetherian ring. In order to define a notion of order for every element in $K(X)=\mO_{X,\eta}$, we need a new definition. 
 
-\begin{prp}{}{} Let $R$ be a PID. Then the ideal $I\subseteq R$ is a maximal ideal if and only if it is a prime ideal. 
-\end{prp}
+\begin{defn}{Order of Functions in the Function Field}{} Let $X$ be an irreducible variety. Let $Y$ be a subvariety of codimension $1$ and let $\eta$ be its generic point. For every $r\in\mO_{X,\eta}$, define $$\text{ord}_Y(r)=\text{length}_{\mO_{X,\eta}}\left(\frac{\mO_{X,\eta}}{(r)}\right)$$ For every $r=ab^{-1}\in\text{Frac}(\mO_{X,\eta})=K(X)$, define $$\text{ord}_Y(r)=\text{ord}_Y(a)-\text{ord}_Y(b)$$
+\end{defn}
 
-\begin{prp}{}{} Let $R$ be a ring and $I$ be an ideal of $R$. Then the prime (respectively maximal) ideals in $R$ are in one to one bijection with the prime (respectively maximal) ideals in $R/I$ that contains $I$. 
-\end{prp}
+Beware that $\mO_{X,\eta}$ is not the function field of $X$. This is because $\eta$ is the generic point of $Y$, not the generic point of $X$. And generic points do not coincide for subvarieties and varieties. 
 
-We start with a simple example. 
+\begin{lmm}{}{} Let $X$ be an irreducible variety. Let $Y$ be a subvariety of codimension $1$ and let $\eta$ be its generic point. Then the function $\text{ord}_Y:K(X)^\ast\to\Z$ is a group homomorphism. 
+\end{lmm}
 
-\begin{eg}{$\text{Spec}(\F)$}{} For a field $\F$, we can construct the scheme of $\text{Spec}(\F)$.  Let us first discuss the topology of $\text{Spec}(\F)$. Since $\F$ has only one proper ideal, namely $(0)$, the underlying space of $\text{Spec}(\F)$ is simply the discrete topology of $\F$ which consists of only one point, $(0)$. \\~\\
-Now for any sheaf, recall that $\mathcal{O}_{(\text{Spec}(\F))}(\text{Spec}(\F))\cong\F$. So the "functions" are simply the points of $\F$. 
-\end{eg}
+\begin{defn}{k-Cycles on a Variety}{} Let $X$ be an irreducible variety. Define the group of $k$-cycles to be free abelian group $$Z_k(X)=\Z\langle V\;|\;V\text{ is a }k\text{-dimensional subvariety of }X\rangle$$ generated by $k$-dimensional subvarieties of $X$. 
+\end{defn}
 
-\begin{eg}{$\text{Spec}(\C[x])$}{} For $X=\text{Spec}(\C[x])$, recall that since $\C$ is a field, $\C[x]$ is a PID and thus its prime ideals are exactly the maximal ideals, which are all the monic polynomials of degree $1$. Thus the space of this scheme consists of points of the form $(x-a)$ for $a\in\C$, as well as the generic point $(0)$. Recall that open sets of a spectrum are of the form $D(S)=\{p\in\text{Spec}(\C[x])|S\not\subseteq p\}$ for $S$ some subset of $\C[x]$. So trivially, every open set must contain $(0)$, hence the name. \\~\\
-Now recall that for any element of the spectrum $(x-a)$, the stalk (direct limit of every open set that contains $p$) of a sheaf on the spectrum is isomorphic to $\C[x]_{(x-a)}$, the local ring. Furthermore, recall that the $$\C[x]_{(x-a)}=\C[x]\setminus(x-a)^{-1}\C[x]=\left\{\frac{f}{g}|f\in\C[x], g\in\C[x]\setminus(x-a)\right\}$$ This basically means that the stalk is all the rational functions except when the function has a root on $a$. Indeed, thinking in terms of direct limits, as we get close to the point $(x-a)$ on the number line, the set becomes smaller and smaller in the direct limits, which means that the set of functions that we have to exclude due to the root appearing in the set becomes less. Moreover, recall that elements of $\mathcal{O}(\text{Spec}(\C[x]))\cong\C[x]$ are called a global section. The name "global" makes a lot of sense here because in theory all the polynomials should be global: there should not be concerns of whether the function is well defined on any point, just because its a polynomial! In comparison, while the rational functions is a larger set, it can only be defined locally. \\~\\
-Now for the generic point $(0)$, the stalk $\C[x]_{(0)}$ becomes $\C(x)$, the set of all rational functions. 
-\end{eg}
+\begin{defn}{Divisors of a Function}{} Let $X$ be an irreducible variety. Let $W$ be a $(k+1)$-dimensional subvariety of $X$. For any $r\in K(X)$, define $$\text{div}(r)=\sum_{\text{codim}_W(V)=1}\text{ord}_V(r)\cdot[V]$$ where $\text{ord}_V:K(W)^\ast\to\Z$. 
+\end{defn}
 
-\begin{eg}{$\text{Spec}(\R[x])$}{} Unfortunately for $\text{Spec}(\R[x])$, $\R$ is not algebraically closed so prime ideals also consists of irreducible second degree monic polynomials instead of only those of degree $1$, still treat them as if they are on the same number line. And obviously the generic point as well. One thing to note is that although this makes $\R[x]$ look a lot like $\C[x]$ with the inclusion of those new polynomials, $\R[x]$ does not make an effort to distinguish conjugates. \\~\\
-Stalks look quite different than that of $\C[x]$. While the usual ones with the maximal ideals are still the same, notice for example that $\R[x]_{(x^2+1)}$ can contain functions such as $\frac{1}{x^2+4}$, which clearly is well defined for all $x\in\R$ but fails to behave well on the point $(x^2+4)$. 
-\end{eg}
+\begin{defn}{Rational Equivalence}{} Let $X$ be an irreducible variety. Let $\alpha$ and $\beta$ be $k$-cycles. We say that $\alpha$ and $\beta$ are rationally equivalent, denoted by $\alpha\sim_{\text{rat}}\beta$ if there exists a finite number of $(k+1)$-dimensional subvarieties $W_i$ of $X$ and $r_i\in K(W_i)^\ast$ such that $$\alpha-\beta=\sum_i[\text{div}(r_i)]\cdot W_i$$
+\end{defn}
 
-\begin{eg}{$\text{Spec}(\C[x]/(x^2-7x+12))$}{} Recall that prime ideals of this spectrum should be in one to one correpsondence with prime ideals that contain $(x^2-7x+12)$, which means that really there is only two points in the spectrum, namely $(x-3)$ and $(x-4)$. Since $\C$ is a field, these ideals are maximal. Notice that there is no generic point floating around here since the two points are discrete. \\~\\
-Each stalk $\C[x]/(x^2-7x+12)_{(x-a)}$ for $a=3,4$ is isomorphic to $\F$. Now the fact that $\mathcal{O}_X(X)=\frac{\C[x]}{(x^2-7x+12)}\cong\F\times\F$ with the isomorphism being mapping $f$ to $(f(3),f(4))$ means that this example of two points is very similar to that of $\text{Spec}(\C)$. 
-\end{eg}
+\begin{thm}{}{} Let $X$ be an irreducible variety. Let $\alpha$ and $\beta$ be $k$-cycles. Then $\alpha$ and $\beta$ are rationally equivalent if and only if there are $(k+1)$-dimensional subvarieties $V_1,\dots,V_t$ of the Cartesian product $X\times\Prj^1$ such that the projections $f_i:V_i\to\Prj^1$ are dominant and $$\alpha-\beta=\sum_{k=1}^t[V_i(0)]-[V_i(\infty)]$$ in $Z_k(X)$. Here, $V_i(P)$ is the subscheme of $X$ where the projection $X\times\{P\}\to X$ maps the subscheme $f^{-1}(P)$ isomorphically to, for $P$ a point in $\Prj^1$. 
+\end{thm}
 
-\begin{eg}{$\text{Spec}(\C[x]/(x^2))$}{} This scheme $X$ consists of a double point. Normally this wouldnt make a difference since $x=0$ anyways, but through schemes we see the differences. But firstly, their topologies are complete the same since they both only consists of one point $(x)$. \\~\\
-However, the stalk $\mathcal{O}_{X,(x)}\cong\frac{\C[x]}{(x^2)}$ is larger since it also contains linear functions rather than $\frac{\C[x]}{(x)}$ where it is isomorphic to $\C$. 
-\end{eg}
+\begin{defn}{The Chow Group}{} Let $X$ be an irreducible variety. Define $$\text{CH}_k(X)=\frac{Z_k(X)}{\sim_\text{rat}}$$ for each $k\in\N$. Also define $$Z_\ast(X)=\bigoplus_{k=0}^{\dim(X)}Z_k(X)\;\;\;\;\text{ and }\;\;\;\;\text{CH}_\ast(X)=\bigoplus_{k=0}^{\dim(X)}A_k(X)$$
+\end{defn}
 
-\begin{eg}{$\text{Spec}(\C[x,y])$}{} Now things start to get interesting. Aside from points of the form $(x-z)$ for $z\in\C$ (these are dimension "$0$"), we also have irreducible curves of the form $(f(x,y))$ (dimension "$1$") and the generic point $(0)$ (dimension "$2$"). Under sufficiently nice settings, irreducible curves $(f(x,y))$ can becomes subschemes, which are of course closed in $\text{Spec}(\C[x,y])$ since it is a prime ideal of $\C[x,y]$. 
-\end{eg}
+\subsection{The Induced Map}
+\begin{defn}{Degree of Subvariety}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a proper morphism. Let $V$ be a subvariety of $X$ and let $W=f(V)$ be the corresponding subvariety of $Y$. Define the degree of $V$ over $W$ by $$\deg(V/W)=\begin{cases}
+[k(V):k(W)] & \text{ if } \dim(W)=\dim(V)\\
+0 & \text{ if } \dim(W)<\dim(V)
+\end{cases}$$
+\end{defn}
 
+Notice that this definition makes sense. Since $f:X\to Y$ is proper, $W=f(V)$ becomes a subvariety of $Y$. Such a map induces a map of fields $k(W)\to k(V)$ which is necessarily injective. From field theory we know that such a map is injective and in particular $k(V)$ is a vector space over $k(W)$. 
 
+\begin{defn}{The Pushfoward Map}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a proper morphism. Define the pushforward of $f$ by $f_\ast:Z_k(X)\to Z_k(Y)$ where $$f_\ast([V])=\deg(V/W)[W]$$ for $V$ a closed subvariety of $X$ and $W=f(V)$. 
+\end{defn}
 
+\begin{lmm}{Functorial Properties of the Pushforward Map}{} Let $X,Y,Z$ be irreducible varieties. Let $f:X\to Y$ and $g:Y\to Z$ be proper morphisms. Then the following are true. 
+\begin{itemize}
+\item $(g\circ f)_\ast=g_\ast\circ f_\ast$
+\item $(\text{id}_X)_\ast=\text{id}_{Z_k(X)}$
+\end{itemize}
+\end{lmm}
 
+TBA: $Z_\ast:\text{IrrVar}_k\to\bold{GrAb}$ is a covariant functor. 
 
+\begin{thm}{}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a proper morphism. Let $\alpha$ be a $k$-cycle on $X$ that is rationally equivalent to $0$. Then $f_\ast(\alpha)$ is also rationally equivalent to $0$. 
+\end{thm}
 
-
-
-
-
-
-
-
+TBA: $A_\ast:\text{IrrVar}_k\to\bold{GrAb}$ is a covariant functor. 
 
 
 

@@ -516,7 +516,7 @@ Before formally defining singular homology, we introduce the notion of simplicia
 \begin{defn}{Affinely Independent}{}{} We say that a set of points $\{v_0,\dots,v_n\}\subset\R^n$ is affinely independent if $v_1-v_0,\dots,v_n-v_0$ are linearly independent. 
 \end{defn}
 
-\begin{defn}{$n$-Simplex}{} Let $v_0,\dots,v_n$ be affinely independent. An $n$-simplex is the set of points $$\Delta^n=\left\{\sum_{k=0}^nt_kv_k\bigg{|}\sum_{k=0}^nt_k=1\text{ and }t_k\geq 0\text{ for all }k=0,\dots,n\right\}$$ We write $\Delta^n=[v_0,\dots,v_n]$ to indicate the spanning vectors. The standard $n$-simplex is just the $n$-simplex whose vertices are the standard basis vectors for $\R^{n+1}$. 
+\begin{defn}{$n$-Simplexes}{} Let $v_0,\dots,v_n$ be affinely independent. An $n$-simplex is the set of points $$\Delta^n=\left\{\sum_{k=0}^nt_kv_k\bigg{|}\sum_{k=0}^nt_k=1\text{ and }t_k\geq 0\text{ for all }k=0,\dots,n\right\}$$ We write $\Delta^n=[v_0,\dots,v_n]$ to indicate the spanning vectors. The standard $n$-simplex is just the $n$-simplex whose vertices are the standard basis vectors for $\R^{n+1}$. 
 \end{defn}
 
 Note that the vertices here are an ordered set so that an orientation is inherently defined. Realistically, the order of the vertices does not change the homology groups which we will define later. 
@@ -534,6 +534,15 @@ It is easy to see that any face of an $n$-simplex is an $n-1$ simplex in its own
 \begin{lmm}{}{} Any two $k$-simplexes where one in $\R^m$ and one in $\R^n$ are homeomorphic. 
 \end{lmm}
 
+\subsection{Simplicial Complexes}
+\begin{defn}{Simplicial Complexes}{} Let $\mK$ be a set of simplexes. We say that $\mK$ is a simplicial complex if the following are true. 
+\begin{itemize}
+\item For any $S\in\mK$, every face $\partial_k S$ of $S$ lies in $\mK$. 
+\item If $S_1$ and $S_2$ are two simplexes in $\mK$, then either $S_1\cap S_2$ is empty or $S_1\cap S_2$ is a common face of both $S_1$ and $S_2$. 
+\end{itemize}
+\end{defn}
+
+\subsection{Delta Complexes}
 \begin{defn}{$\Delta$-Set}{} A $\Delta$-set is a collection of sets $S_n$ (usually $n$-simplexes) together with maps $d_i^n:S_n\to S_{n-1}$ for $0\leq i\leq n$ such that $$d_i^{n-1}\circ d_j^n=d_{j-1}^{n-1}\circ d_i^n$$ called the face relation whenever $i<j$. 
 \end{defn}
 
@@ -548,7 +557,15 @@ In particular, $d_i$ sends an $n$-simplex to its $i$th face, which is an $n-1$ s
 We also write $X$ as $\abs{S}$ to indicate the $\Delta$-set. 
 \end{defn}
 
-$\Delta$-complexes act much nicer than CW complex because they are combinatorial. Indeed the attaching maps $d_j^n$ given by the $\Delta$-set are combinatorial in nature: we just need to define which element in $S_{n-1}$ each face of the simplex gets mapped to. In other words, $d_k^n:S_n\to S_{n-1}$ maps each $\Delta\in S_n$ to its $k$th face in $S_{n-1}$. \\~\\
+\begin{thm}{}{} Every simplicial complex is a $\Delta$-complex. 
+\end{thm}
+
+$\Delta$-complexes act much nicer than CW complex because they are combinatorial. Indeed the attaching maps $d_j^n$ given by the $\Delta$-set are combinatorial in nature: we just need to define which element in $S_{n-1}$ each face of the simplex gets mapped to. In other words, $d_k^n:S_n\to S_{n-1}$ maps each $\Delta\in S_n$ to its $k$th face in $S_{n-1}$. 
+
+\begin{thm}{}{} Every $\Delta$-complex is a CW complex. 
+\end{thm}
+
+We thus have a tower of combinatorial objects $$\text{Simplicial Complexes}\subset\Delta\text{ Complexes}\subset\text{CW Complexes}$$
 
 However, most of the topological spaces are CW complexes rather than $\Delta$-complexes. Indeed the notion of CW complexes are less restrictive on the attaching maps, while that of $\Delta$-complexes are predetermined the face maps: one has to glue them so that each face of the $n$-simplexes is identified as an $n-1$ simplex in the existing skeleton. 
 

@@ -21,15 +21,21 @@ Algebraic topology aims to classify topological spaces by associating them with 
 We will then discuss specific maps that preserve homotopies. One such type is covering spaces and covering maps. The theory of covering spaces and the fundamental group is strongly related, with a major result establishing a correspondence between subgroups of the fundamental group and covering spaces. The deck group as automorphisms of a covering space is also helpful in identifying normal subgroups in the fundamental group. These groups represents covering spaces which attain maximal symmetry in terms of base point switching. \\~\\
 
 Finally, we will end the discussion with CW-complexes which allows handy calculation of the fundamental group by constructing CW-complexes of a given space and apply Seifert-van Kampen theorem so that we find ourselves deformation retracting subspaces into known spaces such as circles and the Möbius band. \\~\\
-
-\textbf{References}
-\begin{itemize}
-\item Notes on Algebraic Topology by Oscar Randal-Williams
-\item Algebraic Topology by Allen Hatcher
-\item MA3F1 Lecture Notes in University of Warwick
-\item Algebraic Topology: An Introduction by W. S. Massey
-\end{itemize}
+~\\~\\
 \end{abstract}
+References: 
+\begin{itemize}
+\item Algebraic Topology by Allen Hatcher: \\
+Hatcher's book is recognized as the best introduction to Algebraic Topology. Indeed, Hatcher's book is mostly self-contained with a gentle introduction to common objects and operations such as CW complexes, suspensions, loop space and more. It then begins with the study of the fundamental group, one of the most intuitive algebraic invariants in Algebraic Topology. Hatcher's book is also far reaching. There is material as deep as fiber bundles, spectra and more. \\~\\
+
+For our purposes, chapter 1 of Hatcher's book will cover most of the materials in the notes, other than that on topological groups. The trade-off of the detailed explanation of each and every intuition makes the books slightly too terse for the writer. For instance, statements of the theorems and definitions are sometimes implicit in the long explanations above. Readers who want to skim through the subject may have a hard time following. 
+
+\item MA3F1 Lecture Notes in University of Warwick: \\
+The writer's first exposure towards Algebraic Topology lies in one particular module choice in Warwick. Therefore most of the material follow the plan of the lectures. However, such lectures did not go through topological groups. 
+
+\item Algebraic Topology: An Introduction by W. S. Massey: \\
+\end{itemize}
+
 \pagebreak
 \tableofcontents
 \pagebreak
@@ -375,12 +381,32 @@ We begin by studying covering spaces in a traditional manner. We investigate top
 \begin{defn}{Covering Space}{} A covering space is a map $p:\tilde{X}\to X$ such that for every point $x\in X$ there exists an open neighbourhood $x\in U\subset X$ such that $$p^{-1}(U)=\coprod_{i\in I}V_i$$ is a disjoint union of open sets and that $p|_{V_i}:V_i\to U$ is a homeomorphism for every $i\in I$. 
 \end{defn}
 
-Subspaces and products of base spaces inherit covering spaces. 
+Some authors give a different definition for covering space. They are indeed equivalent. 
 
-\begin{prp}{}{} Let $X$ be a space and $p:\tilde{X}\to X$ a covering space. Let $A\subseteq X$ be a subspace of $X$ and $\tilde{A}=p^{-1}(A)$. Then $p|_{\tilde{A}}:\tilde{A}\to A$ is a covering space of $A$. 
+\begin{prp}{}{} Let $X$ be a space and let $p:Y\to X$ be a map. Then $p$ is a covering space if and only if there exists an open cover $\{U_i\;|\;i\in I\}$ of $X$ such that for each $U$ in the open cover, $$p^{-1}(U)=\coprod_{i\in I}V_i$$ is a disjoint union of open sets and that $p|_{V_i}:V_i\to U$ is a homeomorphism for every $i\in I$. \tcbline
+\begin{proof}
+Suppose that $p$ is a covering space. Then for each $x\in X$ there exists an open neighbourhood $U_x$ of $x$ such that the condition of a covering space is satisfied. Then the collection $\{U_x\;|\;x\in X\}$ is an open cover of $X$ satisfying the required condition. \\~\\
+
+Conversely, if there exists an open cover $\{U_i\;|\;i\in I\}$ of $X$ for which the above condition is satisfied. Then for any $x\in X$, there exists $U_i$ in the cover such that the covering space condition is satisfied. 
+\end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $X,Y$ be spaces and $p_1:\tilde{X}\to X$ and $p_2:\tilde{Y}\to Y$ be covering spaces. Then $p_1\times p_2:\tilde{X}\times\tilde{Y}\to X\times Y$ is a covering space of $X\times Y$. 
+This is even true without the assumption that $p$ is a covering space. One can verify this by noticing that the proof did not involve the definition of a covering space. This will come up often in the study of local data. For example, in Manifolds or Algebraic Geometry. In general, suppose that we say a space $X$ has property $Q$ if for every $x\in X$, there exists an open neighbourhood $U$ of $x$ such that some condition $C$ is satisfied. Then $X$ has property $Q$ if and only if there exists a covering of $X$ called $\{U_i\;|\;i\in I\}$ in which condition $C$ is satisfied by each $U_i$. \\~\\
+
+In point set topology, we defined the notion of a topological space, and then discussed how subsets and Cartesian products in sets can also be given the canonical structure of a space. Such idea is often considered in topology. For instance, we see below that subspaces and products of covering spaces are also covering space. 
+
+\begin{prp}{}{} Let $X$ be a space and $p:\tilde{X}\to X$ a covering space. Let $A\subseteq X$ be a subspace of $X$ and $\tilde{A}=p^{-1}(A)$. Then $p|_{\tilde{A}}:\tilde{A}\to A$ is a covering space of $A$. \tcbline
+\begin{proof}
+Let $x\in A$. Then there exists $U\subseteq X$ such that $p^{-1}(U)=\coprod_{i\in I}V_i$ for $V_i\cong U$. Now $U\cap A\subseteq A$. I claim that $U\cap A$ gives the required neighbourhood for $x\in A$ so that $p|_{\widetilde{A}}:\widetilde{A}\to A$ is a covering map. We have that $$p^{-1}(U\cap A)=p^{-1}(U)\cap p^{-1}(A)=\left(\coprod_{i\in I}V_i\right)\cap\tilde{A}=\coprod_{i\in I}(V_i\cap\widetilde{A})$$ Moreover, since $p|_{V_i}:V_i\to U$ is a homeomorphism, there is a homeomorphism $$p|_{V_i\cap p^{-1}(A)}:V_i\cap p^{-1}(A)\to p(V_i\cap p^{-1}(A))$$ Since $p|_{V_i\cap p^{-1}(A)}$ is a bijection, we have a homeomorphism $$p(V_i\cap p^{-1}(A))\cong p(V_i)\cap p(p^{-1}(A))=U\cap A$$ Thus we conclude. 
+\end{proof}
+\end{prp}
+
+Such a proof is omitted because it is often just a boring check that one understands the definition of covering spaces. The following proposition is also such an example. 
+
+\begin{prp}{}{} Let $X,Y$ be spaces and $p_1:\tilde{X}\to X$ and $p_2:\tilde{Y}\to Y$ be covering spaces. Then $p_1\times p_2:\tilde{X}\times\tilde{Y}\to X\times Y$ is a covering space of $X\times Y$. \tcbline
+\begin{proof}
+Let $(x,y)\in X\times Y$. Then there exists an open neighbourhood $U$ of $x$ and $C$ of $y$ such that $$p_1^{-1}(U)=\coprod_{i\in I}V_i\;\;\;\;\text{ and }\;\;\;\;p_2^{-1}(C)=\coprod_{j\in J}D_j$$ such that $(p_1)|_{V_i}:V_i\overset{\cong}{\longrightarrow}U$ and $(p_2)|_{D_j}:D_j\overset{\cong}{\longrightarrow}C$. Now $$p_1^{-1}\times p_2^{-1}(U\times C)=p_1^{-1}(U)\times p_2^{-1}(C)=\coprod_{i\in I}V_i\times\coprod_{j\in J}D_j=\coprod_{i\in I,j\in J}(V_i\times D_j)$$ Since $V_i\cong U$ and $D_j\cong C$ via $p_1$ and $p_2$ respectively, we conclude that $V_i\times D_j\cong U\times C$ via the map $p_1|_{V_i}\times p_2|_{D_j}$. 
+\end{proof}
 \end{prp}
 
 Compactness and Hausdorff is also preserved provided that each fiber is finite. 
@@ -400,7 +426,7 @@ X\arrow[r, "f"]\arrow[ru, "h", dashed]&Y
 \end{tikzcd}}
 \end{defn}
 
-In particular, every lift satisfies the following properties. Some basic facts are true regarding lifts and homotopies. 
+In some sense, a lift of a map $f:X\to Y$ is a factorization of the given map through a particular choice of factor $g:Z\to Y$. In the special case of lifting through a covering space, there are some consequences that we will need as we go further down the notes. 
 
 \begin{prp}{}{} Let $p:\tilde{X}\to X$ be a covering and $\tilde{f},\tilde{g}:Y\to\tilde{X}$ maps. Then 
 \begin{itemize}
@@ -421,7 +447,7 @@ This is precisely the definition of $(p\circ u)\cdot(p\circ v)$.
 \end{proof}
 \end{prp}
 
-Since the coverings of a covering spaces are disjoint, lifts of functions to covering spaces enjoy the property of being unique so long they agree on at least one point. 
+Since the coverings of a covering spaces are disjoint, lifts of functions to covering spaces enjoy the property of being unique so long they agree on at least one point. This is called the unique lifting property. 
 
 \begin{prp}{Unique Lifting Property}{} Let $X$ be a space and $p:\tilde{X}\to X$ a covering space. Let $f:Y\to X$ be a map such that $Y$ is connected. Let $\tilde{f}_1$ and $\tilde{f}_2$ both be lifts of $f$ to $\tilde{X}$. Then the set $$\{y\in Y\;|\;\tilde{f}_1(y)=\tilde{f}_2(y)\}$$ is either empty or is all of $Y$. \tcbline
 \begin{proof}

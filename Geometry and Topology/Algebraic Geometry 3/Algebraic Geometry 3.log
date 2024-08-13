@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  16 JUL 2024 17:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  12 AUG 2024 11:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -944,7 +944,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 227.
+Package hyperref Info: Option `colorlinks' set `true' on input line 229.
 ) (Algebraic Geometry 3.aux)
 \openout1 = `"Algebraic Geometry 3.aux"'.
 
@@ -1048,49 +1048,49 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-[1
-
-{C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
-a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
-(Algebraic Geometry 3.toc)
-\tf@toc=\write5
-\openout5 = `"Algebraic Geometry 3.toc"'.
-
- [2]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 3
-0.
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
+3.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
+[1
+
+{C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
+a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}{C:/Users/liu
+la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
+(Algebraic Geometry 3.toc [2])
+\tf@toc=\write5
+\openout5 = `"Algebraic Geometry 3.toc"'.
+
+ [3]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 59.
+d on input line 64.
 
-[3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [4] [5] [6] [7] [8] [9] [10] [11] [12]
-Overfull \hbox (18.39568pt too wide) detected at line 343
+[4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+Overfull \hbox (18.39568pt too wide) detected at line 350
 []
  []
 
-[13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27]
-[28] [29] [30] [31] [32] [33] [34] [35] (Algebraic Geometry 3.aux)
+[15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29]
+[30] [31] [32] [33] [34] [35] [36] [37] [38] (Algebraic Geometry 3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Algebraic Geometry 3".out' has not changed.
 
-(rerunfilecheck)             Checksum: 37503D8D31AA1E964EF3F806EC6934CD;8580.
+(rerunfilecheck)             Checksum: F8C3F0E2D2C552F6FC7A874C3A38AE3C;9344.
  ) 
 Here is how much of TeX's memory you used:
- 33037 strings out of 474424
- 651611 string characters out of 5741739
+ 33044 strings out of 474424
+ 651678 string characters out of 5741739
  1962496 words of memory out of 5000000
  54621 multiletter control sequences out of 15000+600000
- 606164 words of font info for 80 fonts, out of 8000000 for 9000
+ 600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,17n,120p,1185b,1383s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,17n,120p,820b,1383s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1113,9 +1113,9 @@ a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users
 sers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><
 C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.
 pfb>
-Output written on "Algebraic Geometry 3.pdf" (35 pages, 568465 bytes).
+Output written on "Algebraic Geometry 3.pdf" (38 pages, 578148 bytes).
 PDF statistics:
- 744 PDF objects out of 1000 (max. 8388607)
- 247 named destinations out of 1000 (max. 500000)
- 373 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 780 PDF objects out of 1000 (max. 8388607)
+ 254 named destinations out of 1000 (max. 500000)
+ 397 words of extra memory for PDF output out of 10000 (max. 10000000)
 

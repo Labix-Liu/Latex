@@ -384,6 +384,59 @@ is a commutative diagram.
 
 \subsection{Cochain Complexes}
 
+\subsection{Double Complexes}
+\begin{defn}{Double Complexes}{} Let $\mA$ be an abelian category. A double complex $(C_{\bullet,\bullet},d^h,d^v)$ in $\mA$ is a sequence of objects $C_{p,q}\in\mA$ that is bigraded $p,q\in\Z$, together with the horizontal differentials $d^h:C_{p,q}\to C_{p+1,q}$ and vertical differentials $d^v:C_{p,q}\to C_{p,q+1}$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& \vdots & \vdots & \vdots \\
+	\cdots & {C_{p-1,q+1}} & {C_{p,q+1}} & {C_{p+1,q+1}} & \cdots \\
+	\cdots & {C_{p-1,q}} & {C_{p,q}} & {C_{p+1,q}} & \cdots \\
+	\cdots & {C_{p-1,q-1}} & {C_{p,q-1}} & {C_{p+1,q-1}} & \cdots \\
+	& \vdots & \vdots & \vdots
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=1-2]
+	\arrow["{d^h}", from=2-2, to=2-3]
+	\arrow[from=2-3, to=1-3]
+	\arrow["{d^h}", from=2-3, to=2-4]
+	\arrow[from=2-4, to=1-4]
+	\arrow[from=2-4, to=2-5]
+	\arrow[from=3-1, to=3-2]
+	\arrow["{d^v}", from=3-2, to=2-2]
+	\arrow["{d^h}", from=3-2, to=3-3]
+	\arrow["{d^v}", from=3-3, to=2-3]
+	\arrow["{d^h}", from=3-3, to=3-4]
+	\arrow["{d^v}", from=3-4, to=2-4]
+	\arrow[from=3-4, to=3-5]
+	\arrow[from=4-1, to=4-2]
+	\arrow["{d^v}", from=4-2, to=3-2]
+	\arrow["{d^h}", from=4-2, to=4-3]
+	\arrow["{d^v}", from=4-3, to=3-3]
+	\arrow["{d^h}", from=4-3, to=4-4]
+	\arrow["{d^v}", from=4-4, to=3-4]
+	\arrow[from=4-4, to=4-5]
+	\arrow[from=5-2, to=4-2]
+	\arrow[from=5-3, to=4-3]
+	\arrow[from=5-4, to=4-4]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{defn}{The Total Complex of a Double Complex}{} Let $\mA$ be an abelian category where $\oplus$ denotes the product. Let $(C_{\bullet,\bullet},d^h,d^v)$ be a double complex. Define the total complex $\text{Tot}^\oplus(C)_\bullet$ to be the chain complex in $\mA$ constructed as follows. 
+\begin{itemize}
+\item For each $n\in\Z$, define $$\text{Tot}^\oplus(C)_n=\bigoplus_{p+q=n}C_{p,q}$$
+\item For each $n\in\Z$, define $d_n:\text{Tot}^\oplus(C)_n\to\text{Tot}^\oplus(C)_{n-1}$ by $$d_n=d_n^v+(-1)^nd_n^h$$
+\end{itemize}
+In other words, the chain complex is of the form: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {\bigoplus_{p+q=n+1}C_{p,q}} && {\bigoplus_{p+q=n}C_{p,q}} && {\bigoplus_{p+q=n-1}C_{p,q}} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{d_{n+1}^v+(-1)^{n+1}d_{n+1}^h}", from=1-2, to=1-4]
+	\arrow["{d_n^v+(-1)^nd_n^h}", from=1-4, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{defn}{Total Homology of a Double Chain Complex}{} Let $\mA$ be an abelian category. Let $(C_{\bullet,\bullet},d^h,d^v)$ be a double complex in $\mA$. Define the total homology of $C$ to be the homology $$H_\bullet^\text{Tot}(C_{\bullet,\bullet},d^h,d^v)=H_\bullet(\text{Tot}^\oplus(C)_\bullet,d)$$ of the total complex $(\text{Tot}^\oplus(C)_\bullet,d)$
+\end{defn}
+
 \pagebreak
 \section{Derived Functors}
 \subsection{Exact Functors}
@@ -813,9 +866,263 @@ of $R$-modules. The above extension is called a trivial extension.
 \end{defn}
 
 \pagebreak
+\section{Spectral Sequences}
+\subsection{General Spectral Sequences}
+\begin{defn}{Homological Spectral Sequences}{} Let $\mA$ be an abelian category. A homological spectral sequence consists of the following data.  
+\begin{itemize}
+\item A collection of objects $E_{\bullet,\bullet}^r=\{E_{p,q}^r\in\mA\;|\;p,q\in\Z\}$ called pages for each $r\in\N$. So that there is a sequence $$E_{\bullet,\bullet}^1,E_{\bullet,\bullet}^2,E_{\bullet,\bullet}^3,\dots$$ of family of objects
+\item A degree $(p,q)$ map $$d_{p,q}^r:E_{p,q}^r\to E_{p-r,q+r-1}^r$$ for each $p,q\in\Z$ and $r\in\N$ such that $d^r\circ d^r=0$
+\item Isomorphisms of the form $E_{\bullet,\bullet}^{r+1}=H_\bullet(E_{\bullet,\bullet}^r,d^r)$. This means that $$E_{p,q}^{r+1}=\frac{\ker(d^r:E_{p,q}^r\to E_{p-r,q+r-1}^r)}{\im(d^r:E_{p+r,q-r+1}^r\to E_{p,q}^r)}$$
+\end{itemize}
+We say that the total degree of $E_{p,q}^r$ is $n=p+q$. 
+\end{defn}
+
+\begin{defn}{Cohomological Spectral Sequences}{} Let $\mA$ be an abelian category. A cohomological spectral sequence consists of the following data.  
+\begin{itemize}
+\item A collection of objects $E_r^{\bullet,\bullet}=\{E_r^{p,q}\in\mA\;|\;p,q\in\Z\}$ called pages for each $r\in\N$. So that there is a sequence $$E_1^{\bullet,\bullet},E_2^{\bullet,\bullet},E_3^{\bullet,\bullet},\dots$$ of family of objects
+\item A degree $(p,q)$ map $$d_r^{p,q}:E_r^{p,q}\to E_r^{p-r,q+r-1}$$ for each $p,q\in\Z$ and $r\in\N$ such that $d_r\circ d_r=0$
+\item Isomorphisms of the form $E_{r+1}^{\bullet,\bullet}=H^\bullet(E_r^{\bullet,\bullet},d_r)$. This means that $$E_{r+1}^{p,q}=\frac{\ker(d_r:E_r^{p,q}\to E_r^{p-r,q+r-1})}{\im(d_r:E_r^{p+r,q-r+1}\to E_r^{p,q})}$$
+\end{itemize}
+\end{defn}
+
+Notice that cohomological spectral sequences are really the same thing as homological spectral sequences, just reindex the objects by $E_r^{p,q}=E_{-p,-q}^r$. 
+
+\begin{defn}{Bounded Spectral Sequences}{} Let $(E_{\bullet,\bullet}^r,d^r)$ be a homological spectral sequence. We say that it is bounded if for each $n\in\N$, there are only finitely many non-zero terms of total degree $n$ in $E_{\bullet,\bullet}^r$ for each $r\in\N$. \\~\\
+
+We say that it is bounded below if there exists $s_n\in\Z$ for each $n\in\N$ such that terms $E_{\bullet,\bullet}^r$ of total degree $n$ are $0$ for all $p<s$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $(E_{\bullet,\bullet}^r,d^r)$ be a bounded homological spectral sequence. Then for each $(p,q)\in\Z^2$, there exists $r_0\in\N$ such that $E_{p,q}^{r+1}\cong E_{p,q}^r$ for all $r\geq r_0$. 
+\end{lmm}
+
+\begin{defn}{Stable Values}{} Let $(E_{\bullet,\bullet}^r,d^r)$ be a bounded homological spectral sequence. Let $(p,q)\in\Z^2$ and $r_0\in\N$ such that $E_{p,q}^{r+1}=E_{p,q}^r$ for all $r\geq r_0$. Define the stable values of the sequence to be $$E_{p,q}^\infty=E_{p,q}^{r_0}$$
+\end{defn}
+
+\subsection{The Spectral Sequence of Exact Couples}
+\begin{defn}{Exact Couple}{} An exact couple consists of bigraded abelian groups $E_{\bullet,\bullet}$ and $A_{\bullet,\bullet}$ and maps $i:A_{\bullet,\bullet}\to A_{\bullet,\bullet}$ of degree $(a,a')$, $j:A_{\bullet,\bullet}\to E_{\bullet,\bullet}$ of degree $(b,b')$ and $k:E_{\bullet,\bullet}\to A_{\bullet,\bullet}$ of degree $(c,c')$ such that the triangle \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{A_{\bullet,\bullet}} && {A_{\bullet,\bullet}} \\
+	& {E_{\bullet,\bullet}}
+	\arrow["i", from=1-1, to=1-3]
+	\arrow["j", from=1-3, to=2-2]
+	\arrow["k", from=2-2, to=1-1]
+\end{tikzcd}}\\~\\
+is exact at each vertex ($\im(i)=\ker(j)$ and so on). We write the exact couple as $(A,E,i,j,k)$. 
+\end{defn}
+
+Notice that this actually just the data of a long exact sequence. If we look at what happens nearby $E_{p,q}$, we see that we can expand out the triangle ad infinum: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {A_{p-a,q-a'}} & {E_{p,q}} & {A_{p+a,q+a'}} & {A_{p+a+b,q+a'+b'}} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+\end{tikzcd}}\\~\\
+
+\begin{defn}{Derived Couple}{} Suppose that there is an exact couple of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{A_{\bullet,\bullet}} && {A_{\bullet,\bullet}} \\
+	& {E_{\bullet,\bullet}}
+	\arrow["i", from=1-1, to=1-3]
+	\arrow["j", from=1-3, to=2-2]
+	\arrow["k", from=2-2, to=1-1]
+\end{tikzcd}}\\~\\ for some gradation of $i,j,k$. Define the derived couple with the following data. Write $d=j\circ k$. 
+\begin{itemize}
+\item For each $p,q\in\Z$, define $$E_{p,q}'=\frac{\ker(d:E_{p,q}\to E_{p+c+b,q+c'+b'})}{\im(d:E_{p-c-b,q-c'-b'}\to E_{p,q})}$$ so that $E_{\bullet,\bullet}'$ is bigraded. 
+\item For each $p,q\in\Z$, define $$A_{p,q}'=\im(i:A_{p,q}\to A_{p+a,q+a'})$$ so that $A_{\bullet,\bullet}'$ is bigraded. 
+\item For each $p,q\in\Z$, define $$i':A_{p,q}'\subseteq A_{p+a,q+a'}\to A_{p+a,q+a}'\subseteq A_{p+2a,q+2a'}$$ by $i'=i|_{A_{p,q}'}$. We simplify and write it as $i':A_{\bullet,\bullet}'\to A_{\bullet,\bullet}'$
+\item For each $p,q\in\Z$, define $$j':A'_{p-b,q-b'}\to E_{p,q}'$$ as follows. For all $i(t)\in A_{p-b,q-b'}'$ where $t\in A_{p-b,q-b'}$, $j'(i(t))=[j(t)]\in E_{p,q}'$. We simplify and write it as $j':A_{\bullet,\bullet}'\to E_{\bullet,\bullet}'$
+\item For each $p,q\in\Z$, define $$k':E_{p,q}'\to A_{p+c,q+c'}'$$ as follows. For all $[e]\in E_{p,q}'$, $k'([e])=k(e)$. We simplify and write it as $k':E_{\bullet,\bullet}'\to A_{\bullet,\bullet}'$
+\end{itemize}
+We write the derived couple as $(A^1,E^1,i^1,j^1,k^1)$
+\end{defn}
+
+\begin{thm}{}{} The derived couple of any exact couple is also an exact couple with the same grading of maps. 
+\end{thm}
+
+\begin{thm}{}{} Let $(A,E,i,j,k)$ be an exact couple. Then $E,E^1,E^2,\dots$ together with maps $d^r=j^r\circ k^r$ for $r\in\N$ defines a homological spectral sequence. 
+\end{thm}
+
+\subsection{The Spectral Sequence of Filtrations}
+\begin{defn}{Filtered Chain Complexes}{} Let $\mA$ be an abelian category. Let $C\in\text{Ch}(\mA)$ be a chain complex. A filtered chain complex is a sequence of subchain complexes of $C$ with inclusions $$\cdots\subseteq F_pC\subseteq F_{p+1}C\subseteq\cdots$$ such that the boundary map $d:C_n\to C_{n-1}$ of $C$ has the property that $$d(F_pC_n)\subseteq F_pC_{n-1}$$
+\end{defn}
+
+\begin{defn}{Exhaustive Filtered Chain Complexes}{} Let $\mA$ be an abelian category. Let $C\in\text{Ch}(\mA)$ be a chain complex. A filtered chain complex $F_pC$ is said to be exhaustive if $\bigcup_{p\in\Z}F_pC=C$. 
+\end{defn}
+
+\begin{defn}{Spectral Sequence Arising from Filtered Chain Complexes}{} Let $\mA$ be an abelian category. Let $(C_\bullet,d_\bullet)\in\text{Ch}(\mA)$ be a chain complex. Let $F_pC$ be a filtered chain complex that is exhaustive. Define the following objects and subobjects in $\mA$. 
+\begin{itemize}
+\item Define an object $E_{p,q}^0=\frac{F_pC_{p+q}}{F_{p-1}C_{p+q}}$ and a chain complex $E_p^0=\frac{F_pC}{F_{p-1}C}$. 
+\item For each $p,r\in\N$, define $$A_p^r=\{c\in F_pC\;|\;d(c)\in F_{p-r}C\}$$ called approximately cycles
+\item Write $\eta_p:F_pC\to\frac{F_pC}{F_{p-1}C}=E_p^0$ for the sujection, which is a chain map. 
+\item For each $p,r\in\N$, define $$Z_p^r=\eta_p(A_p^r)\subseteq E_p^0$$
+\item For each $p,r\in\N$, define $$B_{p-r}^{r+1}=\eta_{p-r}(d(A_p^r))\subseteq E_{p-r}^0$$
+\item For each $p\in\N$, define $$Z_p^\infty=\bigcap_{r=1}^\infty Z_p^r\;\;\;\;\text{ and }\;\;\;\; B_p^\infty=\bigcup_{r=1}^\infty B_p^r$$
+\end{itemize}
+Evidently, there is a tower of subobjects of $E_p^0$ given by $$0=B_p^0\subseteq B_p^1\subseteq\cdots B_p^\infty\subseteq Z_p^\infty\subseteq\cdots Z_p^1\subseteq Z_p^0=E_p^0$$ Thus we finally define $$E_p^r=\frac{Z_p^r}{B_p^r}\;\;\;\text{ for all }r\in R\;\;\;\;\text{ and }\;\;\;\;E_p^\infty=\frac{Z_p^\infty}{B_p^\infty}$$ together with $d:E_p^r\to E_{p-r}^r$ to be the differential induced by the differential of $C$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $\mA$ be an abelian category. Let $(C_\bullet,d_\bullet)\in\text{Ch}(\mA)$ be a chain complex. Let $F_pC$ be a filtered chain complex that is exhaustive. Then the following are true. 
+\begin{itemize}
+\item For any $p,r\in\N$, $A_p^r+F_{p-1}C=A_{p-1}^{r-1}$
+\item For any $p,r\in\N$, $Z_p^r\cong A_p^r/A_{p-1}^{r-1}$
+\item For any $p,r\in\N$, there are isomorphisms $$E_p^r=\frac{Z_p^r}{B_p^r}\cong\frac{A_p^r+F_{p-1}C}{d(A_{p+r-1}^{r-1})+F_{p-1}C}\cong\frac{A_p^r}{d(A_{p+r-1}^{r-1})+A_{p-1}^{r-1}}$$
+\end{itemize}
+\end{lmm}
+
+\begin{thm}{}{} Let $\mA$ be an abelian category. Let $(C_\bullet,d_\bullet)\in\text{Ch}(\mA)$ be a chain complex. Let $F_pC$ be a filtered chain complex that is exhaustive. Then the map $d:E_p^r\to E_{p-r}^r$ determines an isomorphism $$\frac{Z_p^r}{Z_p^{r+1}}\cong\frac{B_{p-r}^{r+1}}{B_{p-r}^r}$$ Moreover, this concludes that $(E_{p,q}^r,d)$ is a spectral sequence. 
+\end{thm}
+
+\subsection{Convergence}
+\begin{defn}{Weakly Convergent}{} Let $(E_{\bullet,\bullet}^r,d^r)$ be a spectral sequence. We say that it is weakly convergent if there is a graded object $H_\bullet$ together with a filtration $F_\bullet H_n$ for every $n\in\N$, together with isomorphisms $$\beta_{p,q}:E_{p,q}^\infty\overset{\cong}{\longrightarrow}\frac{F_pH_{p+q}}{F_{p-1}H_{p+q}}$$
+\end{defn}
+
+\begin{defn}{Convergent Spectral Sequences}{} Let $(E_{\bullet,\bullet}^r,d^r)$ be a spectral sequence. We say that it is convergent if the following are true. 
+\begin{itemize}
+\item It is weakly convergent with filtrations $F_\bullet H_n$ for each $n\in\N$
+\item $\bigcap_{k=0}^\infty F_kH_\bullet=0$
+\end{itemize}
+\end{defn}
+
+
+\subsection{The Spectral Sequence of Double Complexes}
+
+\subsection{Hyperhomology and Hypercohomology}
+\begin{defn}{Cartan-Eilenberg Resolution}{} Let $\mA$ be an abelian category with enough projectives. Let $A_\bullet\in\text{Ch}(\mA)$ be a chain complex as follows: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {A_{p-1}} & {A_p} & {A_{p+1}} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+A Cartan-Eilenberg resolution of $A_\bullet$ is an upper half double complex $P_{\bullet,\bullet}$ together with augmentation maps $\varepsilon:P_{P,\bullet}\to A_p$ as follows: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& \vdots & \vdots & \vdots \\
+	\cdots & {P_{p-1,1}} & {P_{p,1}} & {P_{p+1,1}} & \cdots \\
+	\cdots & {P_{p-1,0}} & {P_{p,0}} & {P_{p+1,0}} & \cdots \\
+	\cdots & {A_{p-1}} & {A_p} & {A_{p+1}} & \cdots
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=1-4, to=2-4]
+	\arrow[from=2-2, to=2-1]
+	\arrow[from=2-2, to=3-2]
+	\arrow[from=2-3, to=2-2]
+	\arrow[from=2-3, to=3-3]
+	\arrow[from=2-4, to=2-3]
+	\arrow[from=2-4, to=3-4]
+	\arrow[from=2-5, to=2-4]
+	\arrow[from=3-2, to=3-1]
+	\arrow["\varepsilon", from=3-2, to=4-2]
+	\arrow[from=3-3, to=3-2]
+	\arrow["\varepsilon", from=3-3, to=4-3]
+	\arrow[from=3-4, to=3-3]
+	\arrow["\varepsilon", from=3-4, to=4-4]
+	\arrow[from=3-5, to=3-4]
+	\arrow[from=4-2, to=4-1]
+	\arrow[from=4-3, to=4-2]
+	\arrow[from=4-4, to=4-3]
+	\arrow[from=4-5, to=4-4]
+\end{tikzcd}}\\~\\
+such that the following are true. 
+\begin{itemize}
+\item If $A_p=0$ then $P_{p,\bullet}=0$
+\item For each $p\in\Z$, the chain complex $(B_\bullet,d^v)$ of boundaries where $B_q=d^h(P_{p+1,q})$ form a projective resolution of $A_p$. This means that the vertical chain complexes \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\vdots \\
+	{d^h(P_{p,0})\subseteq P_{p,1}} \\
+	{d^h(P_{p+1,0})\subseteq P_{p,0}} \\
+	{A_p}
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=2-1, to=3-1]
+	\arrow["\varepsilon", from=3-1, to=4-1]
+\end{tikzcd}}\\~\\
+are projective resolutions. 
+\item For each $p\in\Z$, the chain complex $(H_\bullet,d^v)$ of the homology groups where $$H_q=H_p(P_{\bullet,q},d^h)$$ form a projective resolution of $H_p(A_\bullet)$. This means that the vertical chain complexes \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\vdots \\
+	{H_p(P_{\bullet,1},d^h)} \\
+	{H_p(P_{\bullet,0},d^h)} \\
+	{H_p(A_\bullet)}
+	\arrow[from=1-1, to=2-1]
+	\arrow["{d^v}", from=2-1, to=3-1]
+	\arrow["\varepsilon", from=3-1, to=4-1]
+\end{tikzcd}}\\~\\
+are projective resolutions. 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Let $\mA$ be an abelian category. Then every chain complex $A_\bullet\in\text{Ch}(\mA)$ has a Cartan-Eilenberg resolution $P_{\bullet,\bullet}\to A_\bullet$. 
+\end{thm}
+
+\begin{defn}{Left Hyperderived Functors}{} Let $\mA,\mB$ be abelian categories. Let $F:\mA\to\mB$ be a right exact functor. Define the left hyperderived functors $$\L_i F:\bold{Ch}(\mA)\to\mB$$ by the following. 
+\begin{itemize}
+\item For $A_\bullet$ a chain complex in $\mA$, choose a Cartan-Eilenberg resolution $P_{\bullet,\bullet}\to A_\bullet$ of $A_\bullet$. Then $$\L_i F(A_\bullet)=H_i(\text{Tot}^\oplus(F(P_{\bullet,\bullet})))$$
+\item For $f:A_\bullet\to B_\bullet$ a chain map, choose Cartan-Eilenberg resolutions for both complexes and consider the induced map $\overline{f}:P_{\bullet,\bullet}\to Q_{\bullet,\bullet}$. Define $$\L_i F(f)=H_i(\text{Tot}^\oplus(\overline{f})):\L_iF(A_\bullet)\to\L_iF(B_\bullet)$$
+\end{itemize}
+\end{defn}
+
+
+\begin{defn}{Right Hyperderived Functors}{} Let $\mA,\mB$ be abelian categories. Let $F:\mA\to\mB$ be a left exact functor. Define the right hyperderived functors $$\R^i F:\bold{CCh}(\mA)\to\mB$$ by the following. 
+\begin{itemize}
+\item For $A_\bullet$ a cochain complex in $\mA$, choose a Cartan-Eilenberg resolution $A_\bullet\to I_{\bullet,\bullet}$ of $A_\bullet$. Then $$\R^i F(A_\bullet)=H^i(\text{Tot}^\oplus(F(I_{\bullet,\bullet})))$$
+\item For $f:A_\bullet\to B_\bullet$ a chain map, choose Cartan-Eilenberg resolutions for both complexes and consider the induced map $\overline{f}:I_{\bullet,\bullet}\to J_{\bullet,\bullet}$. Define $$\R^i F(f)=H^i(\text{Tot}^\oplus(\overline{f})):\R^iF(A_\bullet)\to\R^iF(B_\bullet)$$
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $\mA$ and $\mB$ be abelian categories. Let $X\in\mA$ be an object. Then the following are true. 
+\begin{itemize}
+\item Let $F:\mA\to\mB$ be right exact. By considering $X$ as a chain complex with only non-zero term in degree $0$, the hyperderived left functor $\L_i F(X)=L_iF(X)$ is the same as the usual left derived functor. 
+\item Let $F:\mA\to\mB$ be left exact. By considering $X$ as a cochain complex with only non-zero term in degree $0$, the hyperderived right functor $\R^iF(X)=R^iF(X)$ is the same as the usual right derived functor. 
+\end{itemize}
+\end{lmm}
+
+\begin{lmm}{}{} Let $\mA$ and $\mB$ be abelian categories. Then the following are true. 
+\begin{itemize}
+\item Let $F:\mA\to\mB$ be right exact. Then the restriction of $\L_i F:\bold{Ch}(\mA)\to\mB$ to $\bold{Ch}^+(\mA)$ are precisely the left derived functor $L_i (H_0F):\bold{Ch}^+(\mA)\to\mB$ of the functor $H_0F:\bold{Ch}(\mA)^+\to\mB$. 
+\item Let $F:\mA\to\mB$ be left exact. Then the restriction of $\R^i F:\bold{CCh}(\mA)\to\mB$ to $\bold{CCh}^+(\mA)$ are precisely the left derived functor $R^i (H^0F):\bold{CCh}^+(\mA)\to\mB$ of the functor $H^0F:\bold{CCh}(\mA)^+\to\mB$. 
+\end{itemize}
+\end{lmm}
+
+\begin{lmm}{}{} Let $\mA$ and $\mB$ be abelian categories. Let the following \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & A & B & C & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+be a short exact sequence of chain complexes in $\bold{Ch}^+(\mA)$. Let $F:\mA\to\mB$ be right exact. Then there exists a long exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {\L_{i+1}F(C)} & {\L_iF(A)} & {\L_iF(B)} & {\L_iF(C)} & {\L_{i-1}F(A)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["\delta", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["\delta", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+\end{lmm}
+
+\begin{prp}{}{} There is always a convergent spectral sequence $$E_{pq}^2=(L_pF)(H_q(A))\Rightarrow\L_{p+q}F(A)$$
+\end{prp}
+
+\begin{crl}{}{} Let $\mA,\mB$ be abelian categories. Let $F:\mA\to\mB$ be a right exact functor. Then the following are true. 
+\begin{itemize}
+\item If $A$ is exact, then $\L_iF(A)=0$ for all $i$. 
+\item If $f:A\to B$ is a quasi-isomorphism, then it induces isomorphisms $\L_iF(A)\cong\L_iF(B)$
+\end{itemize}
+\end{crl}
+
+Next: dual versions of the above propositions. 
+
+\pagebreak
 \section{Triangulated Categories}
 \subsection{Axioms of a Triangulated Category}
-\begin{defn}{Triangles}{} Let $\mC$ be a category and $T:\mC\to\mC$ an automorphism functor. Let $A,B,C\in\mC$. A triangle on $(A,B,C)$ is a triple $(u,v,w)$ of morphisms in $\mC$ where $u:A\to B$, $v:B\to C$, $w:C\to T(A)$. 
+\begin{defn}{Triangles}{} Let $\mC$ be a category and $T:\mC\to\mC$ an automorphism functor. Let $A,B,C\in\mC$. A triangle on $(A,B,C)$ is a triple $(u,v,w)$ of morphisms in $\mC$ where $u:A\to B$, $v:B\to C$, $w:C\to T(A)$. \\~\\
+
+Define similarly the homotopy categories $K^+(\mA)$, $K^-(\mA)$ and $K^b(\mA)$ for $\bold{CCh}^+(\mA)$, $\bold{CCh}^-(\mA)$ and $\bold{CCh}^b(\mA)$ respectively. 
 \end{defn}
 
 \begin{defn}{Morphisms of Triangles}{} Let $\mC$ be a category and $T:\mC\to\mC$ an automorphism functor. Let $(u,v,w)$ and $(u',v',w')$ be triangles in $\mC$. A morphism of triangles is a triple $(f,g,h)$ such that the following diagram commutes: \\~\\
@@ -948,6 +1255,15 @@ Where we abused notation by drawing $k:C'\to T(A)$ as a morphism $C'\to A$ etc s
 \begin{lmm}{}{} Let $(\mC,T)$ be a triangulated category. Let $(f,g,h)$ be a morphism of exact triangles. If both $f$ and $g$ are isomorphisms, then $h$ is an isomorphism. 
 \end{lmm}
 
+\subsection{Morphisms of Triangulated Categories}
+\begin{defn}{Morphisms of Triangulated Categories}{} Let $\mC$ and $\mD$ be triangulated categories. A morphism from $\mC$ to $\mD$ is a functor $F:\mC\to\mD$ such that the following are true. 
+\begin{itemize}
+\item $F$ is an additive functor
+\item $F$ commutes with the translation functor. If $T$ is the automorphism of $\mC$ and $S$ is the automorphism of $\mD$, then $$F\circ T=S\circ F$$
+\item $F$ sends exact triangles to exact triangles
+\end{itemize}
+\end{defn}
+
 \pagebreak
 \section{Derived Categories}
 \subsection{The Homotopy Category of Cochain Complexes}
@@ -974,7 +1290,23 @@ If $F:\bold{CCh}(\mA)\to\mD$ is a functor that sends chain homotopy equivalences
 \end{tikzcd}}
 \end{prp}
 
-\begin{lmm}{}{} Let $\mA$ be an abelian category. Then $K(\mA)$ is a triangulated category. 
+\begin{defn}{Distinguished Triangles in K($\mA$)}{} Let $\mA$ be an abelian category. We say that a triangle \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	A & B & C & {T(A)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}}\\~\\
+is distinguished in $K(\mA)$ if it is isomorphic to a triangle of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & Y & C(f) & {T(X)}
+	\arrow["{f}", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}}
+\end{defn}
+
+\begin{lmm}{}{} Let $\mA$ be an abelian category. Then $K(\mA)$, $K^+(\mA)$, $K^-(\mA)$ and $K^b(\mA)$ are all triangulated categories with distinguished triangles given by the above definition. 
 \end{lmm}
 
 \subsection{Localization of Categories}
@@ -1013,57 +1345,73 @@ Not all localizations are well defined by set-theoretic issues. Morphisms that o
 \end{crl}
 
 \subsection{Derived Categories}
-\begin{defn}{Derived Categories}{} Let $\mA$ be an abelian category and let $K(\mA)$ be its category of chain complexes. Define the derived category $D(\mA)$ of $\mA$ to be the localization of $K(\mA)$ with respect to all quasi-isomorphisms. 
+\begin{defn}{Derived Categories}{} Let $\mA$ be an abelian category and let $\bold{CCh}(\mA)$ be any category of chain complexes of $\mA$. Define the derived category $$D(\mA)=\bold{CCh}(\mA)[\mW^{-1}]$$ of $\mA$ where $\mW$ is all the quasi-isomorphisms in $\bold{CCh}(\mA)$. \\~\\
+
+Respectively, for $\bold{CCh}^+(\mA)$ and $\bold{CCh}^b(\mA)$ define their derived categories to be the localization of the categories with respect to quasi-isomorphisms, denoted by $D^+(\mA)$ and $D^b(\mA)$ respectively. 
 \end{defn}
 
-\pagebreak
-\section{Spectral Sequences}
-\subsection{Spectral Sequences}
-\begin{defn}{Homological Spectral Sequences}{} Let $\mA$ be an abelian category. A homological spectral sequence consists of the following data.  
-\begin{itemize}
-\item A collection of objects $E_{\bullet,\bullet}^r=\{E_{p,q}^r\in\mA\;|\;p,q\in\Z\}$ called pages for each $r\in\N$. So that there is a sequence $$E_{\bullet,\bullet}^1,E_{\bullet,\bullet}^2,E_{\bullet,\bullet}^3,\dots$$ of family of objects
-\item A degree $(p,q)$ map $$d_{p,q}^r:E_{p,q}^r\to E_{p-r,q+r-1}^r$$ for each $p,q\in\Z$ and $r\in\N$ such that $d^r\circ d^r=0$
-\item Isomorphisms of the form $E_{\bullet,\bullet}^{r+1}=H_\bullet(E_{\bullet,\bullet}^r,d^r)$. This means that $$E_{p,q}^{r+1}=\frac{\ker(d^r:E_{p,q}^r\to E_{p-r,q+r-1}^r)}{\im(d^r:E_{p+r,q-r+1}^r\to E_{p,q}^r)}$$
-\end{itemize}
-We say that the total degree of $E_{p,q}^r$ is $n=p+q$. 
+\begin{thm}{}{} Let $\mA$ be an abelian category. Let $K(\mA)$ be the homotopy category of chain complexes of $\mA$. Let $\mW$ be all the quasi-isomorphisms in $\bold{CCh}(\mA)$. Then there is an equivalence of categories $$D(\mA)=K(\mA)[\mW^{-1}]$$
+\end{thm}
+
+\begin{defn}{Distinguished Triangles in D($\mA$)}{} Let $\mA$ be an abelian category. We say that a triangle \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	A & B & C & {T(A)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}}\\~\\
+is distinguished in $D(\mA)$ if it is isomorphic to a triangle of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & Y & C(f) & {T(X)}
+	\arrow["{f}", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}}
 \end{defn}
 
-\begin{defn}{Cohomological Spectral Sequences}{} Let $\mA$ be an abelian category. A cohomological spectral sequence consists of the following data.  
-\begin{itemize}
-\item A collection of objects $E_r^{\bullet,\bullet}=\{E_r^{p,q}\in\mA\;|\;p,q\in\Z\}$ called pages for each $r\in\N$. So that there is a sequence $$E_1^{\bullet,\bullet},E_2^{\bullet,\bullet},E_3^{\bullet,\bullet},\dots$$ of family of objects
-\item A degree $(p,q)$ map $$d_r^{p,q}:E_r^{p,q}\to E_r^{p-r,q+r-1}$$ for each $p,q\in\Z$ and $r\in\N$ such that $d_r\circ d_r=0$
-\item Isomorphisms of the form $E_{r+1}^{\bullet,\bullet}=H^\bullet(E_r^{\bullet,\bullet},d_r)$. This means that $$E_{r+1}^{p,q}=\frac{\ker(d_r:E_r^{p,q}\to E_r^{p-r,q+r-1})}{\im(d_r:E_r^{p+r,q-r+1}\to E_r^{p,q})}$$
-\end{itemize}
+\begin{thm}{}{} Let $\mA$ be an abelian category. Then $D(\mA)$ is a triangulated triangles with distinguished triangles given by the above definition. 
+\end{thm}
+
+\begin{defn}{Full Subcategory of Complexes}{} Let $\mA$ and $\mB$ be abelian categories such that $\mA$ is a subcategory of $\mB$. Define $$D_\mA^(\mB)$$ to be the full triangulated subcategory of complexes with cohomology in $\mA$. 
 \end{defn}
 
-Notice that cohomological spectral sequences are really the same thing as homological spectral sequences, just reindex the objects by $E_r^{p,q}=E_{-p,-q}^r$. 
-
-\begin{defn}{Bounded Spectral Sequences}{} Let $(E_{\bullet,\bullet}^r,d^r)$ be a homological spectral sequence. We say that it is bounded if for each $n\in\N$, there are only finitely many non-zero terms of total degree $n$ in $E_{\bullet,\bullet}^r$ for each $r\in\N$. \\~\\
-
-We say that it is bounded below if there exists $s_n\in\Z$ for each $n\in\N$ such that terms $E_{\bullet,\bullet}^r$ of total degree $n$ are $0$ for all $p<s$. 
+\subsection{Derived Functors of Derived Categories}
+\begin{defn}{Total Right Derived Functors}{} Let $\mA$ and $\mB$ be abelian categories. Let $F:K(\mA)\to K(\mB)$ be a morphism of triangulated categories. A total right derived functor of $F$ is a morphism $$RF:D(\mA)\to D(\mB)$$ together with a natural transformation $\xi:(K(\mA)\to K(\mB)\to D(\mB))\Rightarrow(K(\mA)\to D(\mA)\to D(\mB))$ using the following diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{K(\mA)} & {K(\mB)} \\
+	{D(\mA)} & {D(\mB)}
+	\arrow["F", from=1-1, to=1-2]
+	\arrow["{\exists!}"', from=1-1, to=2-1]
+	\arrow["{\exists!}", from=1-2, to=2-2]
+	\arrow["RF"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+from the top-right path to the lower-left path which is universal in the following sense. If $G:D(\mA)\to D(\mB)$ is another morphism equipped with the same natural transformation $\chi$, then there exists a unique natural transformation $$\eta:RF\Rightarrow G$$ such that $\chi=\eta\circ\xi$. 
 \end{defn}
 
-\begin{lmm}{}{} Let $(E_{\bullet,\bullet}^r,d^r)$ be a bounded homological spectral sequence. Then for each $(p,q)\in\Z^2$, there exists $r_0\in\N$ such that $E_{p,q}^{r+1}\cong E_{p,q}^r$ for all $r\geq r_0$. 
+\begin{defn}{Total Left Derived Functors}{} Let $\mA$ and $\mB$ be abelian categories. Let $F:K(\mA)\to K(\mB)$ be a morphism of triangulated categories. A total right derived functor of $F$ is a morphism $$LF:D(\mA)\to D(\mB)$$ together with a natural transformation $\xi:(K(\mA)\to D(\mA)\to D(\mB))\Rightarrow(K(\mA)\to K(\mB)\to D(\mB))$ using the following diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{K(\mA)} & {K(\mB)} \\
+	{D(\mA)} & {D(\mB)}
+	\arrow["F", from=1-1, to=1-2]
+	\arrow["{\exists!}"', from=1-1, to=2-1]
+	\arrow["{\exists!}", from=1-2, to=2-2]
+	\arrow["RF"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+from the lower-left path to the top-right path which is universal in the following sense. If $G:D(\mA)\to D(\mB)$ is another morphism equipped with the same natural transformation $\chi$, then there exists a unique natural transformation $$\eta:G\Rightarrow LF$$ such that $\chi=\eta\circ\xi$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $\mA$ and $\mB$ be abelian categories. Let $F:K(\mA)\to K(\mB)$ be a morphism of triangulated categories. If $F$ is exact, then $F$ is its own left and right total derived functor. 
 \end{lmm}
 
-\begin{defn}{Stable Values}{} Let $(E_{\bullet,\bullet}^r,d^r)$ be a bounded homological spectral sequence. Let $(p,q)\in\Z^2$ and $r_0\in\N$ such that $E_{p,q}^{r+1}=E_{p,q}^r$ for all $r\geq r_0$. Define the stable values of the sequence to be $$E_{p,q}^\infty=E_{p,q}^{r_0}$$
-\end{defn}
+\begin{thm}{}{} Let $\mA,\mB$ be abelian categories. Let $F:\mA\to\mB$ be a functor. Then the following are true. 
+\begin{itemize}
+\item If $F$ is left exact and $\mA$ has enough injectives, then $$\R^iF=H^i(RF):\bold{CCh}(\mA)\to\mB$$
+\item If $F$ is right exact and $\mA$ has enough projectives, then $$\L_iF=H_i(LF):\bold{Ch}(\mA)\to\mB$$
+\end{itemize}
+\end{thm}
 
-\subsection{Filtrations}
-\begin{defn}{Bigraded Abelian Groups}{} A bigraded abelian group $A_{\bullet,\bullet}$ is an abelian group $A$ together with a decomposition $$A=\bigoplus_{p,q\in\Z}A_{p,q}$$ 
-\end{defn}
+Notice that in particular, if $X\in\mA$ is an object considered as a chain complex in degree $0$, we have seen that $\L_iF=L_iF:\bold{\mA}\to\bold{\mB}$ hence $L_iF=H_i(LF):\bold{\mA}\to\bold{\mB}$. This is similar for the dual version. 
 
-\subsection{Exact Couples}
-\begin{defn}{Exact Couple}{} An exact couple of type $r$ consists of bigraded abelian groups $E_{\bullet,\bullet}$ and $A_{\bullet,\bullet}$ and maps $i:A_{\bullet,\bullet}\to A_{\bullet,\bullet}$ of degree $(1,-1)$, $j:A_{\bullet,\bullet}\to E_{\bullet,\bullet}$ of degree $(-r,r)$ and $k:E_{\bullet,\bullet}\to A_{\bullet,\bullet}$ of degree $(-1,0)$ such that the triangle \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{A_{\bullet,\bullet}} && {A_{\bullet,\bullet}} \\
-	& {E_{\bullet,\bullet}}
-	\arrow["i", from=1-1, to=1-3]
-	\arrow["j", from=1-3, to=2-2]
-	\arrow["k", from=2-2, to=1-1]
-\end{tikzcd}}\\~\\
-is exact at each vertex ($\im(i)=\ker(j)$ and so on). 
-\end{defn}
 
 
 

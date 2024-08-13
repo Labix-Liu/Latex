@@ -23,343 +23,9 @@
 \tableofcontents
 
 \pagebreak
-\section{Model Categories}
-\subsection{Basic Definitions}
-\begin{defn}{Retract of Morphisms}{} Let $\mC$ be a category. Let $f:X\to Y$ and $g:A\to B$ be morphisms in $\mC$. We say that $f$ is a retract of $g$ if the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	X & A & X \\
-	Y & B & Y
-	\arrow[from=1-1, to=1-2]
-	\arrow["{\text{id}_X}", bend left = 20, from=1-1, to=1-3]
-	\arrow["f"', from=1-1, to=2-1]
-	\arrow[from=1-2, to=1-3]
-	\arrow["g"', from=1-2, to=2-2]
-	\arrow["f", from=1-3, to=2-3]
-	\arrow[from=2-1, to=2-2]
-	\arrow["{\text{id}_Y}"', bend right = 20, from=2-1, to=2-3]
-	\arrow[from=2-2, to=2-3]
-\end{tikzcd}}\\~\\
-where $X\to A$, $A\to X$, $Y\to B$ and $B\to Y$ are any morphisms such that $X\to A\to X$ and $Y\to B\to Y$ are the respective identities. 
-\end{defn}
 
-\begin{defn}{Lifting Properties}{} Let $\mC$ be a category. Let the following be a commutative square in $\mC$: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	A & X \\
-	B & Y
-	\arrow[from=1-1, to=1-2]
-	\arrow["i"', from=1-1, to=2-1]
-	\arrow["p", from=1-2, to=2-2]
-	\arrow[from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-We say that $i$ has the left lifting property with respect to $p$, and $p$ has the right lifting property with respect to $i$ if there exists $h:B\to Y$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	A & X \\
-	B & Y
-	\arrow[from=1-1, to=1-2]
-	\arrow["i"', from=1-1, to=2-1]
-	\arrow["p", from=1-2, to=2-2]
-	\arrow["\exists h", dashed, from=2-1, to=1-2]
-	\arrow[from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-\end{defn}
-
-\begin{defn}{Model Category}{} A model category is a category $\mC$ together with a distinguished class of morphisms
-\begin{itemize}
-\item $\mW$ called weak equivalences
-\item $\mC\text{of}$ called cofibrations
-\item $\mF\text{ib}$ called fibrations
-\end{itemize}
-such that the following axioms are true. 
-\begin{itemize}
-\item (M1) The category is complete and cocomplete. 
-\item (M2) Two out of Three (2/3): If $f:X\to Y$ and $g:Y\to Z$ are morphisms of $\mC$ and two out of three of $f,g,g\circ f$ are in $\mW$, then the last one is also in $\mW$. 
-\item (M3) Let $g$ be a morphism and let $f$ be a retract of $g$. If $g$ is a weak equivalence / cofibration / fibration, then $f$ is also an equivalence / cofibration / fibration respectively. 
-\item (M4) The lifting problem \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	A & X \\
-	B & Y
-	\arrow[from=1-1, to=1-2]
-	\arrow["i"', from=1-1, to=2-1]
-	\arrow["p", from=1-2, to=2-2]
-	\arrow[dashed, from=2-1, to=1-2]
-	\arrow[from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-has a solution provided that one of the following two conditions are true: 
-\begin{itemize}
-\item $i\in\mC\text{of}\cap\mW$ and $p\in\mF\text{ib}$
-\item $i\in\mC\text{of}$ and $p\in\mF\text{ib}\cap\mW$
-\end{itemize}
-In other words, if the two morphisms $i$ and $p$ satisfy the one of the two cojoint conditions above, then $i$ has the left lifting property with respect to $p$, $p$ has the right lifting property with respect to $i$. 
-\item (M5) Any map $X\to Z$ in $\mC$ admits factorizations of the following two forms: 
-\begin{itemize}
-\item $X\overset{f}{\longrightarrow}Y\overset{g}{\longrightarrow}Z$ where $f\in\mC\text{of}\cap\mW$ and $g\in\mF\text{ib}$
-\item $X\overset{h}{\longrightarrow}Y\overset{k}{\longrightarrow}Z$ where $h\in\mC\text{of}$ and $k\in\mF\text{ib}\cap\mW$
-\end{itemize}
-\end{itemize}
-In this case, we say that $\mW$, $\mC\text{of}$ and $\mF\text{ib}$ define a model structure on $\mC$. 
-\end{defn}
-
-\begin{defn}{Trivial / Acyclic Fibrations}{} Let $\mC$ be a model category. Let $f:X\to Y$ be a morphism in $\mC$. 
-\begin{itemize}
-\item We say that $f$ is a trivial / acyclic fibration if $f$ is a fibration and a weak equivalence. 
-\item We say that $f$ is a trivial / acyclic cofibration if $f$ is a cofibration and a weak equivalence. 
-\end{itemize}
-\end{defn}
-
-\begin{lmm}{}{} Let $\mC$ be a category. Then $\mC$ is a model category with the following data. 
-\begin{itemize}
-\item $\mW$ is all the isomorphisms in $\mC$
-\item $\mC\text{of}$ and $\mF\text{ib}$ are all the morphisms in $\mC$
-\end{itemize}
-\end{lmm}
-
-\begin{prp}{}{} Let $\mC$ be a model category with model $(\mW,\mC\text{of},\mF\text{ib})$. Then $\mC^\text{op}$ is also a model category with model $(\mW, \mF\text{ib},\mC\text{of})$ so that the cofibrations of $\mC$ are the fibrations of $\mC^\text{op}$, and the fibrations of $\mC$ are the cofibrations of $\mC^\text{op}$. 
-\end{prp}
-
-\begin{thm}{}{} The following categories and classes of morphisms define model categories. 
-\begin{center}
-\begin{tabular}{ |c|c|c|c| } 
-\hline
-$\bold{Category}$ & $\bold{Weak Equivalences}$ & $\bold{Fibrations}$ & $\bold{Cofibrations}$ \\
-\hline
-Top & \thead{Classical \\ Weak Equivalences} & Serre Fibrations & \thead{Retracts of \\ Relative Cell Complexes}\\
-\hline
-Top & Homotopy Equivalences & Hurewicz Fibrations & Hurewicz Cofibrations \\
-\hline
-sSet & \thead{Weak \\ Homotopy Equivalences} & Kan Fibrations & Levelwise Injections \\
-\hline
-$\text{Ch}_R$ & Quasi-Isomorphisms & Degree-wise Surjections & \thead{Degree-wise $\text{DG}_R$ \\ with projective kernels}\\
-\hline
-\end{tabular}
-\end{center}~\\~\\
-\end{thm}
-$\text{Ch}_R=$ chain complexes over a commutative ring $R$. $\text{DG}_R=$ differential graded algebra over a commutative ring $R$. 
-
-\begin{defn}{Fibrant and Cofibrant Objects}{} Let $\mC$ be a model category. Let $X\in\mC$ be an object. 
-\begin{itemize}
-\item We say that $X$ is cofibrant if the unique map $X\to\ast$ to the terminal object is a fibration. 
-\item We say that $X$ is fibrant if the unique map $\emptyset\to X$ from the terminal object is a cofibration. 
-\item We say that $X$ is bifibrant if $X$ is both fibrant and cofibrant. 
-\end{itemize}
-\end{defn}
-
-All object of sSet are cofibrant and all object of $\text{Ch}_R$ is fibrant. 
-
-\subsection{Fibrations and Cofibrations Determine Each Other}
-\begin{defn}{Morphisms of Lifting Properties}{} Let $\mC$ be a category. Let $\mW$ be a class of morphisms in $\mC$. 
-\begin{itemize}
-\item Define $\mW_\perp$ to be all morphisms in $\mC$ that have the right lifting property with respect to all morphisms in $\mW$. 
-\item Define ${_\perp\mW}$ to be all morphisms in $\mC$ that have the left lifting property with respect to all morphisms in $\mW$. 
-\end{itemize}
-\end{defn}
-
-\begin{thm}{}{} Let $\mC$ be a category with model structure $\mW,\mC\text{of}$ and $\mF\text{ib}$. Then the following are true. 
-\begin{itemize}
-\item $\mC\text{of}_\perp=\mF\text{ib}\cap\mW$
-\item $\mC\text{of}={_\perp(\mF\text{ib}\cap\mW)}$
-\item $(\mC\text{of}\cap\mW)_\perp=\mF\text{ib}$
-\item $\mC\text{of}\cap\mW={_\perp\mF\text{ib}}$
-\end{itemize}
-In particular, this means that the fibrations of a model category determines and is determined by the cofibrations. 
-\end{thm}
-
-\subsection{Homotopy Theory in Model Categories}
-\begin{defn}{Cylinder Objects}{} Let $\mC$ be a model category. Let $X\in\mC$ be an object. A cylinder object $X\wedge I$ of $X$ is a factorization \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{X\coprod X} && X \\
-	& {X\wedge I}
-	\arrow["\nabla", from=1-1, to=1-3]
-	\arrow["i"', from=1-1, to=2-2]
-	\arrow["p"', from=2-2, to=1-3]
-\end{tikzcd}}\\~\\
-of the codiaongal morphism $\nabla:X\coprod X\to X$ such that $p$ is a weak equivalence. Such a cylinder object $X\wedge I$ is said to be 
-\begin{itemize}
-\item Good if $i$ is a cofibration
-\item Very good if $i$ is a cofibration and $p$ is a fibration
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Path Objects}{} Let $\mC$ be a model category. Let $X\in\mC$ be an object. A path object $X^I$ of $X$ is a factorization \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	X && {X\times X} \\
-	& {X^I}
-	\arrow["\Delta", from=1-1, to=1-3]
-	\arrow["i"', from=1-1, to=2-2]
-	\arrow["p"', from=2-2, to=1-3]
-\end{tikzcd}}\\~\\
-of the diaongal morphism $\Delta:X\to X\coprod X$ such that $i$ is a weak equivalence. Such a path object $X^I$ is said to be 
-\begin{itemize}
-\item Good if $p$ is a fibration
-\item Very good if $i$ is a cofibration and $p$ is a fibration
-\end{itemize}
-\end{defn}
-
-\begin{lmm}{}{} Let $\mC$ be a model category. Then every object $X\in\mC$ has a very good cylinder object and a very good path object. 
-\end{lmm}
-
-\begin{defn}{Left Homotopies}{} Let $\mC$ be a model category. Let $f,g:X\to Y$ be two morphisms in $\mC$. We say that $f$ and $g$ are left homotopic if there is a lift $H:X\wedge I\to Y$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{X\wedge I} \\
-	{X\coprod X} & Y
-	\arrow["{\exists H}", dashed, from=1-1, to=2-2]
-	\arrow[from=2-1, to=1-1]
-	\arrow["{(f,g)}"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-In this case we write $f\overset{l}{\simeq}g$. We say that $H$ is a 
-\begin{itemize}
-\item Good left homotopy if $X\wedge I$ is a good cylinder object
-\item Very good left homotopy if $X\wedge I$ is a very good cylinder object
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $\mC$ be a model category. Let $f,g:X\to Y$ be morphisms in $\mC$. If $f\overset{l}{\simeq}g$, then there exists a good left homotopy from $f$ to $g$. Moreover, if $Y$ is fibrant, then there exists a very good left homotopy from $f$ to $g$. 
-\end{prp}
-
-\begin{prp}{}{} Let $\mC$ be a model category. Let $A\in\mC$ be an cofibrant object. Then for any $X\in\mC$, left equivalent homotopies define an equivalence relation on $\Hom_\mC(A,X)$. 
-\end{prp}
-
-\begin{defn}{Right Homotopies}{} Let $\mC$ be a model category. Let $f,g:X\to Y$ be two morphisms in $\mC$. We say that $f$ and $g$ are right homotopic if there is a lift $H:X\to Y^I$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	& {Y^I} \\
-	X & {Y\times Y}
-	\arrow[from=1-2, to=2-2]
-	\arrow["{\exists H}", dashed, from=2-1, to=1-2]
-	\arrow["{f\times g}"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-In this case we write $f\overset{r}{\simeq}g$. We say that $H$ is a 
-\begin{itemize}
-\item Good right homotopy if $Y^I$ is a good path object
-\item Very right left homotopy if $Y^I$ is a very good path object
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $\mC$ be a model category. Let $f,g:X\to Y$ be morphisms in $\mC$. If $f\overset{r}{\simeq}g$, then there exists a good right homotopy from $f$ to $g$. Moreover, if $Y$ is fibrant, then there exists a very good right homotopy from $f$ to $g$. 
-\end{prp}
-
-\begin{prp}{}{} Let $\mC$ be a model category. Let $A\in\mC$ be an fibrant object. Then for any $X\in\mC$, right equivalent homotopies define an equivalence relation on $\Hom_\mC(X,A)$. 
-\end{prp}
-
-\begin{thm}{}{} Let $\mC$ be a model category. Let $f,g:X\to Y$ be morphisms. Then the following are true. 
-\begin{itemize}
-\item If $X$ is a cofibrant object and $f\overset{l}{\simeq}g$, then $f\overset{r}{\simeq}g$
-\item If $Y$ is a fibrant object and $f\overset{r}{\simeq}g$, then $f\overset{l}{\simeq}g$
-\item If $X$ if cofibrant and $Y$ is fibrant, then $f\overset{l}{\simeq}g$ if and only if $f\overset{r}{\simeq}g$. 
-\end{itemize}
-\end{thm}
-
-If $X$ and $Y$ are both bifibrant, then there is no longer a need to distinguish between left and right homotopies. 
-
-\begin{defn}{Homotopy Equivalence}{} Let $\mC$ be a model category. Let $X,Y$ be bifibrant. We say that $f:X\to Y$ is a homotopy equivalence if there exists $g:Y\to X$ such that $g\circ f\simeq\text{id}_X$ and $f\circ g\simeq\text{id}_Y$. In this case we say that $X$ and $Y$ are homotopy equivalent and denote it by $X\simeq Y$. 
-\end{defn}
-
-\begin{thm}{Whitehead's Theorem in Model Categories}{} Let $\mC$ be a model category. Let $X$ and $Y$ be bifibrant objects. Then $f:X\to Y$ is a weak equivalence if and only if $f$ is a homotopy equivalence. 
-\end{thm}
-
-\subsection{The Homotopy Category}
-\begin{defn}{Fibrant and Cofibrant Replacements}{} Let $\mC$ be a model category. Let $X\in\mC$ be an object. 
-\begin{itemize}
-\item Choose a factorization of the unique map $\emptyset\to X$ into \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\emptyset & FX & X
-	\arrow[from=1-1, to=1-2]
-	\arrow["p", from=1-2, to=1-3]
-\end{tikzcd}}\\~\\ 
-where $FX$ is fibrant and $p$ is a cofibration and a weak equivalence. Define $FX$ to be the fibrant replacement of $X$. 
-\item Choose a factorization of the unique map $X\to\ast$ into \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	X & QX & \ast
-	\arrow["i", from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-\end{tikzcd}}\\~\\ 
-where $QX$ is cofibrant and $i$ is a fibration and a weak equivalence. Define $QX$ to be the cofibrant replacement of $X$. 
-\end{itemize}
-\end{defn}
-
-Notice that alternatively, one can factorize the unique map $\emptyset\to X$ cofibration followed by a fibration + weak equivalence. Such a middle object $QX$ has also been called a cofibrant object. What is the relation???
-
-\begin{defn}{Homotopy Category}{} Let $\mC$ be a model category. Define the homotopy category $\text{Ho}(\mC)$ of $\mC$ as follows. 
-\begin{itemize}
-\item The objects of $\text{Ho}(\mC)$ are precisely the objects of $\mC$
-\item For $X,Y$ two objects in $\text{Ho}(\mC)$, define $$\Hom_{\text{Ho}(\mC)}(X,Y)=\{[f:QFX\to QFY]\;|\;f\in\mC\}$$
-\end{itemize}
-\end{defn}
-
-\begin{thm}{}{} Let $\mC$ be a model category with weak equivalences $\mW$. Then the functor $L:\mC\to\text{Ho}(\mC)$ defined by the identity on objects and $$(g:X\to Y)\mapsto(QFg:QFX\to QFY)$$ defines a localization of $\mC$ with respect to $\mW$. In other words, there is a natural isomorphism $$\text{Ho}(\mC)\cong\mW^{-1}\mC$$
-\end{thm}
-
-Some authors instead require the objects of the homotopy category to only consist of bifibrant objects. But since we are only considering morphisms up to homotopy equivalence, and the definition of the morphisms in $\text{Ho}(\mC)$ already involves transforming the object into the bifibrant object $QFX$ that is weakly equivalent to $X$, there is no difference in considering whether the objects are all of the objects of $\mC$ or only bifibrant objects of $\mC$, at least up to natural isomorphism. This is made concrete below. 
-
-\begin{defn}{Full Subcategories of a Model Category}{} Let $\mC$ be a model category and let $\mW$ be its weak equivalences. Define the following associated categories. 
-\begin{itemize}
-\item $\mC_f$ is the full subcategory consisting of all fibrant objects of $\mC$. 
-\item $\mC_c$ is the full subcategory consisting of all cofibrant objects of $\mC$. 
-\item $\mC_{fc}$ is the full subcategory consisting of all fibrant and cofibrant objects of $\mC$. 
-\end{itemize}
-\end{defn}
-
-\begin{thm}{}{} Let $\mC$ be a model category. The inclusion functors from the respective full subcategories of $\mC$ to $\mC$ induces equivalence of categories: $$\mW^{-1}\mC_c,\mW^{-1}\mC_f,\mW^{-1}\mC_{fc}\cong\mW^{-1}\mC$$ Moreover, there is an equivalence of categories: $$\text{Ho}(\mC)\cong\text{Ho}(\mC_f)\cong\text{Ho}(\mC_c)\cong\text{Ho}(\mC_{fc})$$
-\end{thm}
-
-\subsection{Cofibrantly Generated Model Structures}
-
-\subsection{Quillen Adjunctions}
-\begin{thm}{}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be an adjuction. Then the following are equivalent. 
-\begin{itemize}
-\item $F$ preserves cofibrations and trivial cofibrations
-\item $G$ preserves fibrations and trivial fibrations
-\end{itemize}
-\end{thm}
-
-\begin{defn}{Quillen Adjunction}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be an adjuction. We say that $F$ and $G$ define a Quillen adjunction if either $F$ preserves cofibrations and trivial cofibrations, or $G$ preserves fibrations and trivial fibrations. 
-\end{defn}
-
-\begin{prp}{Quillen Adjunction}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be a Quillen adjuction. Then the following are true. 
-\begin{itemize}
-\item $F$ preserves weak equivalences between cofibrant objects
-\item $F$ preserves weak equivalences between fibrant objects
-\end{itemize}
-\end{prp}
-
-\begin{defn}{Left / Right Derived Functors}{} Let $\mC,\mD$ be model categories such that $\mW$ are the weak equivalences of $\mC$ and $\mV$ are the weak equivalences of $\mD$. Let $$F:\mC\rightleftarrows\mD:G$$ be a Quillen adjuction. 
-\begin{itemize}
-\item By the above, $F$ preserves weak equivalences between cofibrant objects. Hence $F$ extends to the localization on weak equivalences: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\mW^{-1}\mC_c} & {\mV^{-1}\mD_c} & {\mV^{-1}\mD}
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3, hookrightarrow]
-\end{tikzcd}}\\~\\ 
-Choose an inverse $Q$ for the equivalence of categories induced by the inclusion $\iota:\mW^{-1}\mC_c\to\mW^{-1}\mC$. Define the left derived functor of $F$ by the composite: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\text{Ho}(\mC)=\mW^{-1}\mC} & {\mW^{-1}\mC_c} & {\mV^{-1}\mD_c} & {\mV^{-1}\mD=\text{Ho}(\mD)}
-	\arrow["Q", from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4, hookrightarrow]
-\end{tikzcd}}\\~\\ 
-\item Similarly, $G$ preserves weak equivalences between fibrant objects. Hence $G$ extends to the localization on weak equivalences: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\mV^{-1}\mD_c} & {\mW^{-1}\mC_c} & {\mW^{-1}\mC}
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3, hookrightarrow]
-\end{tikzcd}}\\~\\ 
-Choose an inverse $P$ for the equivalence of categories induced by the inclusion $\iota:\mV^{-1}\mD_c\to\mV^{-1}\mD$. Define the right derived functor $RG$ of $G$ by the composite: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\text{Ho}(\mD)=\mV^{-1}\mD} & {\mV^{-1}\mD_c} & {\mW^{-1}\mC_c} & {\mW^{-1}\mC=\text{Ho}(\mC)}
-	\arrow["P", from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4, hookrightarrow]
-\end{tikzcd}}\\~\\ 
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be a Quillen adjuction. Then the functors $LF$ and $RG$ form a regular adjunction $$LF:\mW^{-1}\mC\rightleftarrows\mV^{-1}\mD:RG$$ between localized categories. 
-\end{prp}
-
-\begin{defn}{Quillen Equivalence}{} Let $\mC$ and $\mD$ be model categories. Let $F:\mC\rightleftarrows\mD:G$ be a Quillen adjuction. We say that $F$ and $G$ define a Quillen equivalence if $LF$ or $RG$ define an equivalence of localized categories between $\mW^{-1}\mC$ and $\mV^{-1}\mD$. 
-\end{defn}
-
-\pagebreak
-\section{The Simplex Category and Simplicial Objects}
-\subsection{Simplicial Sets}
+\section{Simplicial Objects in a Category}
+\subsection{The Simplex Category}
 \begin{defn}{Simplex Category}{} The simplex category $\Delta$ consists of the following data. 
 \begin{itemize}
 \item The objects are $[n]=\{0,\dots,n\}$ for $n\in\N$. 
@@ -368,6 +34,34 @@ Choose an inverse $P$ for the equivalence of categories induced by the inclusion
 \end{itemize}
 \end{defn}
 
+\begin{defn}{Maps in the Simplex Category}{} Consider the simplex category $\Delta$. Define the face maps and the degeneracy maps as follows. 
+\begin{itemize}
+\item A face map in $\Delta$ is the unique morphism $d^i:[n-1]\to[n]$ that is injective and whose image does not contain $i$. Explicitly, we have $$d^i(k)=\begin{cases}
+k & \text{ if } 0\leq k <i\\
+k+1 & \text{ if } i\leq k\leq n-1
+\end{cases}$$
+\item A degeneracy map in $\Delta$ is the unique morphism $s^i:[n+1]\to[n]$ that is surjective and hits $i$ twice. Explicitly, we have $$s^i(k)=\begin{cases}
+k & \text{ if } 0\leq k\leq i\\
+k-1 & \text{ if } i+1\leq k\leq n+1
+\end{cases}$$
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} The face maps and the degeneracy maps in the simplex category $\Delta$ satisfy the following simplicial identities: 
+\begin{itemize}
+\item $d^i\circ d^j=d^{j-1}\circ d^i$ if $i<j$
+\item $d^i\circ s^j=s^{j-1}\circ d^i$ if $i<j$
+\item $d^i\circ s^i=\text{id}$
+\item $d^{i+1}\circ s^i=\text{id}$
+\item $d^i\circ s^j=s^j\circ d^{i-1}$ if $i>j+1$
+\item $s^i\circ s^j=s^{j+1}\circ s^i$ if $i\leq j$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Every morphism in the simplex category $\Delta$ is a composition of the face maps and the degeneracy maps. 
+\end{prp}
+
+\subsection{Simplicial Sets}
 \begin{defn}{Simplicial Sets}{} A simplicial set is a presheaf $$S:\Delta\to\text{Sets}$$ 
 \end{defn}
 
@@ -399,33 +93,6 @@ Notice that $\Delta^n$ is a simplicial set $$\Delta^n:\Delta\to\text{Set}$$ defi
 
 All such simplicial sets $\Delta^n$ are useful in determining the contents of an arbitrary simplicial set. As for any presheaf, instead of focusing between the passage of data from $\Delta$ to $\text{Set}$, we should instead think of what kind of structure the presheaf brings to $\text{Set}$. Let $C$ be a simplicial set. Then this means the following. For each $n$, there is a set $C_n=\Hom_\text{sSet}(\Delta^n,C)$. For each morphism in $\Delta$, there is a corresponding morphism in $\text{Set}$, which we shall discuss now. 
 
-\begin{defn}{Maps in the Simplex Category}{} Consider the simplex category $\Delta$. Define the face maps and the degeneracy maps as follows. 
-\begin{itemize}
-\item A face map in $\Delta$ is the unique morphism $d^i:[n-1]\to[n]$ that is injective and whose image does not contain $i$. Explicitly, we have $$d^i(k)=\begin{cases}
-k & \text{ if } 0\leq k <i\\
-k+1 & \text{ if } i\leq k\leq n-1
-\end{cases}$$
-\item A degeneracy map in $\Delta$ is the unique morphism $s^i:[n+1]\to[n]$ that is surjective and hits $i$ twice. Explicitly, we have $$s^i(k)=\begin{cases}
-k & \text{ if } 0\leq k\leq i\\
-k-1 & \text{ if } i+1\leq k\leq n+1
-\end{cases}$$
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} The face maps and the degeneracy maps in the simplex category $\Delta$ satisfy the following simplicial identities: 
-\begin{itemize}
-\item $d^i\circ d^j=d^{j-1}\circ d^i$ if $i<j$
-\item $d^i\circ s^j=s^{j-1}\circ d^i$ if $i<j$
-\item $d^i\circ s^i=\text{id}$
-\item $d^{i+1}\circ s^i=\text{id}$
-\item $d^i\circ s^j=s^j\circ d^{i-1}$ if $i>j+1$
-\item $s^i\circ s^j=s^{j+1}\circ s^i$ if $i\leq j$
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Every morphism in the simplex category $\Delta$ is a composition of the face maps and the degeneracy maps. 
-\end{prp}
-
 \begin{thm}{}{} Let $C:\Delta\to\text{Set}$ be a simplicial set. Then every morphism in $C(\Delta)$ is the composite of two kinds of maps: 
 \begin{itemize}
 \item The face maps: $d_i:C_n\to C_{n-1}$ for $0\leq i\leq n$ defined by $$d_i=C(d^i:[n-1]\to[n])$$
@@ -434,10 +101,17 @@ k-1 & \text{ if } i+1\leq k\leq n+1
 Moreover, these maps satisfy the above simplicial identities
 \end{thm}
 
-Recall the notion of a $\Delta$-set from Algebraic Topology 2 and one might realize they look suspiciously similar to that of a simplicial set. Let us recall. A $\Delta$-set is a collection of sets $S_n$ for $n\in\N$ together with maps $d_i^n:S_n\to S_{n-1}$ for $0\leq i\leq n$ such that $$d_i^{n-1}\circ d_j^n=d_{j-1}^{n-1}\circ d_i^n$$ for $i<j$. One can easily convince themselves that every simplicial set is a $\Delta$-set. Indeed, a simplicial set satisfies five more relations than a $\Delta$-set. Therefore we have that $$\substack{\text{Simplicial}\\\text{Sets}}\subset\Delta\text{-Sets}$$~\\
+\begin{thm}{}{} The category $\bold{sSet}$ is a symmetric monoidal category with level-wise cartesian product. 
+\end{thm}
 
-The notion of geometric realization of a $\Delta$-set then transfers to one for simplicial sets. Let us redefine it here, first for standard $n$-simplexes
+Recall the notion of a $\Delta$-set from Algebraic Topology 2 and one might realize they look suspiciously similar to that of a simplicial set. Let us recall. A $\Delta$-set is a collection of sets $S_n$ for $n\in\N$ together with maps $d_i^n:S_n\to S_{n-1}$ for $0\leq i\leq n$ such that $$d_i^{n-1}\circ d_j^n=d_{j-1}^{n-1}\circ d_i^n$$ for $i<j$. One can easily convince themselves that every simplicial set is a $\Delta$-set. Indeed, a simplicial set satisfies five more relations than a $\Delta$-set. Therefore we have that $$\bold{sSet}\subset\Delta\text{ Complexes}$$
 
+\begin{thm}{}{} Every simplicial set is a $\Delta$-set. 
+\end{thm}
+
+Combining with the previously learnt combinatorial objects in algebraic topology, we now have the following tower:  $$\text{Simplicial Complexes}\subset\bold{sSet}\subset\Delta\text{ Complexes}\subset\bold{CW}$$
+
+\subsection{Geometric Realization of Simplicial Sets}
 \begin{defn}{Geometric Realization of Standard n-Simplexes}{} Let $n\in\N$. Consider the standard $n$-simplex $\Delta^n$. Define the geometric realization of $\Delta^n$ to be $$\abs{\Delta^n}=\left\{\sum_{k=0}^nt_kv_k\bigg{|}\sum_{k=0}^nt_k=1\text{ and }t_k\geq 0\text{ for all }k=0,\dots,n\right\}$$
 \end{defn}
 
@@ -645,9 +319,6 @@ The geometric realization functor actually has a right adjoint, called the singu
 Notice that this is reminiscent of the definitions in Algebraic Topology 2. Indeed $S(X)[n]$  for each $n\in\N$ is in fact the basis of the abelian group $C_n(X)$. It represents all the possible ways that an $n$-simplex could fit into $X$. 
 
 \begin{thm}{}{} The singular functor $S:\text{Top}\to\text{sSet}$ is right adjoint to the geometric realization functor $\abs{\;\cdot\;}:\text{sSet}\to\text{Top}$. This means that there is a natural bijection $$\Hom_\text{Top}(\abs{X},Y)\cong\Hom_\text{sSet}(X,S(Y))$$ for any space $Y$ and any simplicial set $X$. 
-\end{thm}
-
-\begin{thm}{}{} The singular functor and geometric realization functor $$\abs{\;\cdot\;}:\text{Top}\rightleftarrows\text{sSet}:S$$ form a Quillen adjunction. Moreover, the Quillen adjunction is a Quillen equivalence. 
 \end{thm}
 
 We can do even better. For any $X$, $S(X)$ is actually an infinity category. 

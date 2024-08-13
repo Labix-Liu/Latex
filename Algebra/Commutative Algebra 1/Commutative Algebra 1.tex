@@ -291,14 +291,38 @@ Irredundant in this sense means that removing any one primary ideal in the inter
 \end{itemize}
 \end{prp}
 
-\begin{defn}{Integral Closure}{} Let $B$ be an $A$-algebra. Define the subring $$\tilde{A}=\{b\in B|b\text{ is integral over }A\}$$ to be the integral closure of $A$ in $B$. If $\tilde{A}=A$, then we say that $A$ is integrally closed in $B$. 
+\begin{prp}{}{} Let $B$ be a ring and let $A\subseteq B$ be a subring. Let $b_1,b_2\in B$ be integral over $A$. Then $b_1+b_2$ and $b_1b_2$ are both integral over $A$. 
+\end{prp}
+
+\begin{defn}{Integral Extensions}{} Let $B$ be a ring and let $A\subseteq B$ be a subring. We say that $B$ is integral over $A$ if all elements of $B$ are integral over $A$. 
 \end{defn}
+
+\begin{lmm}{}{} Let $A\subseteq B\subseteq C$ be rings. If $C$ is integral over $B$ and $B$ is integral over $A$, then $C$ is integral over $A$. 
+\end{lmm}
+
+\begin{defn}{Integral Closure}{} Let $B$ be an $A$-algebra. Define the subring $$\overline{A}=\{b\in B|b\text{ is integral over }A\}$$ to be the integral closure of $A$ in $B$. If $\overline{A}=A$, then we say that $A$ is integrally closed in $B$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $B$ be a ring and let $A\subseteq B$ be a subring. Then $\overline{A}$ is an integral extension of $A$. 
+\end{lmm}
 
 \begin{defn}{Normal Domains}{} Let $R$ be a domain. We say that $R$ is normal (intergrally closed) if $A$ is integrally closed in its field of fractions. \\~\\
 The integral closure of $R$ in $\text{Frac}(R)$ is called the normalization of $R$. 
 \end{defn}
 
+\subsection{The Trace and Norm}
+
 \subsection{The Going-Up and Going-Down Theorems}
+
+\subsection{Dedekind Domains}
+\begin{defn}{Dedekind Domains}{} Let $R$ be a ring. We say that $R$ is a dedekind domain if the following are true. 
+\begin{itemize}
+\item $R$ is an integral domain
+\item $R$ is an integrally closed
+\item $R$ is Noetherian
+\item Every non-zero prime ideal of $R$ is maximal
+\end{itemize}
+\end{defn}
 
 
 \pagebreak

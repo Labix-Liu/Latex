@@ -319,7 +319,7 @@ TBA: Functoriality of $B:\bold{Grp}\to\bold{Top}$.
 Explicitly, the total space is given by $$E=\frac{\bigcup_{i\in I}U_i\times\text{GL}(n,\R)}{\sim}$$ where $(x,A)\sim(x,A\phi_{j,i}(x))$ for $x\in U_i\cap U_j$. 
 \end{defn}
 
-\begin{defn}{Set of All Vector Bundles}{} Let $X$ be a space. Denote the set of all $\R$-vector bundles of dimension $n$ and $\C$-vector bundles of dimension $n$ respectively by $$\text{Vect}_n^\R(X)\;\;\;\;\text{ and }\;\;\;\;\text{Vect}_n^\C(X)$$
+\begin{defn}{Set of All Vector Bundles}{} Let $X$ be a space. Denote the isomorphism classes of all $\R$-vector bundles of dimension $n$ and $\C$-vector bundles of dimension $n$ respectively by $$\text{Vect}_n^\R(X)\;\;\;\;\text{ and }\;\;\;\;\text{Vect}_n^\C(X)$$ Denote the isomorphism classes of all $\R$ (respectively $\C$) vector bundles regardless of rank by $\text{Vect}^\R(X)$ (respectively $\text{Vect}^\C(X)$). 
 \end{defn}
 
 \begin{thm}{}{} Let $X$ be a space. Then there is a natural bijection $$\phi:\text{Prin}_{\text{GL}(n,\R)}(X)\overset{\cong}{\longrightarrow}\text{Vect}_n^\R(X)$$ given by mapping $p:E\to B$ to the frame bundle $F(E)$. Similarly, there is a natural bijection $$\phi:\text{Prin}_{\text{GL}(n,\C)}(X)\overset{\cong}{\longrightarrow}\text{Vect}_n^\C(X)$$
@@ -342,10 +342,13 @@ Explicitly, the total space is given by $$E=\frac{\bigcup_{i\in I}U_i\times\text
 \begin{defn}{Unit Sphere and Unit Disc Bundle}{} Let $p:E\to B$ be an $n$-dimensional vector bundle over $\R$. Let $\langle-,-\rangle:E\times E\to\R$ be a smoothly varying inner product on $E$. Define the disc bundle to be $$D(E)=\{e\in E\;|\;\langle e,e\rangle\leq 1\}$$ together with the map $p|_{D(E)}:D(E)\to B$. Define the sphere bundle to be $$S(E)=\{e\in E\;|\;\langle e,e\rangle=1\}$$ together with the map $p|_{S(E)}:S(E)\to B$. 
 \end{defn}
 
-\begin{defn}{Thom Space}{} Let $p:E\to B$ be an $n$-dimensional vector bundle over $\R$ such that $B$ is paracompact. Define the Thom space of $E$ to be $$\frac{D(E)}{S(E)}$$ The base point is taken as the equivalent class $S(E)$ if needed. 
+\begin{defn}{Thom Space}{} Let $p:E\to B$ be an $n$-dimensional vector bundle over $\R$ such that $B$ is paracompact. Define the Thom space of $E$ to be $$T(E)=\frac{D(E)}{S(E)}$$ The base point is taken as the equivalent class $S(E)$ if needed. 
 \end{defn}
 
-\begin{thm}{The Thom Isomorphism}{} Let $p:E\to B$ be an $n$-dimensional vector bundle over $\R$. Let $E_0$ denote the zero section of $E$. Then there exists a unique $u\in H^n(E,E\setminus E_0;\Z/2\Z)$ such that $$u|_{(F_b,F_b\setminus\{0\})}\in H^n(F_b,F_b\setminus\{0\};\Z/2\Z)$$ is non-zero for all $b\in B$. Moreover, there is an isomorphism $$\Phi:H^k(E;\Z/2\Z)\to\widetilde{H}^{k+n}(E,E\setminus E_0;\Z/2\Z)$$ given by $y\mapsto y\smile u$ for all $k\in\Z$. 
+\begin{lmm}{}{} Let $p:E\to B$ be an $n$-dimensional vector bundle over $\R$. Let $E_0$ denote the zero section of $E$. Then there is a natural isomorphism $$\widetilde{H}^n(T(E);G)=H^n(E,E\setminus E_0)$$ for any abelian group $G$. 
+\end{lmm}
+
+\begin{thm}{The Thom Isomorphism}{} Let $p:E\to B$ be an $n$-dimensional vector bundle over $\R$. Let $E_0$ denote the zero section of $E$. Then there exists a unique $u\in H^n(E,E\setminus E_0;\Z/2\Z)$ such that $$u|_{(F_b,F_b\setminus\{0\})}\in H^n(F_b,F_b\setminus\{0\};\Z/2\Z)$$ is non-zero for all $b\in B$. Moreover, there is an isomorphism $$\Phi:H^k(E;\Z/2\Z)\to\widetilde{H}^{k+n}(E,E\setminus E_0;\Z/2\Z)\cong\widetilde{H^n}(T(E);\Z/2\Z)$$ given by $y\mapsto y\smile u$ for all $k\in\Z$. 
 \end{thm}
 
 Ref: Milnor
@@ -390,17 +393,19 @@ Here cohomology can be taken for example singular cohomology with coefficients i
 \begin{thm}{}{} Let $G$ be a topological group and let $R$ be a commutative ring. Then there is an isomorphism $$\text{Char}_G(R)\cong H^\ast(BG;R)$$
 \end{thm}
 
-\subsection{The Stiefel-Whiteny Class}
-\begin{defn}{The Stiefel-Whitney Class}{} Consider the group $O(n)$. Let $$w_i:\text{Prin}_{O(n)}(-)\to H^i(-,\Z/2\Z)$$ be a collection of natural transformations. Define  the natural transformation $$w=\sum_{k=0}^\infty w_k:\text{Prin}_{O(n)}(-)\to H^\ast(-,\Z/2\Z)$$ We say that $w$ is a Stiefel-Whitney Class if the following are satisfied. 
+\subsection{The Stiefel-Whitney Class}
+\begin{defn}{The Stiefel-Whitney Class}{} Consider the group $O(n)$. Let $$w_i:\text{Prin}_{O(n)}(-)\to H^i(-,\Z/2\Z)$$ be a collection of natural transformations. We say that they form a Stiefel-Whitney class if the following are satisfied. 
 \begin{enumerate}
 \item Rank: If $E$ is a principal $O(n)$-bundle, then $w_0(E)=1$ and $w_i(E)=0$ for $i>\rank(E)$. 
 \item Naturality: Let $p:E\to X$ be a principal $O(n)$-bundle and let $f:Y\to X$ be a map. Then $$w_i(f^\ast(E))=f^\ast(w_i(E))$$
-\item Whitney Product Formula: If $E_1,E_2$ are principal $O(n)$-bundles, then $$w_k(E_1\oplus E_2)=\sum_{i=0}^kw_i(E_1)\smile w_{k-i}(E_2)$$ or equivalently, $w(E_1\oplus E_2)=w(E_1)w(E_2)$. 
+\item Whitney Product Formula: If $E_1,E_2$ are principal $O(n)$-bundles, then $$w_k(E_1\oplus E_2)=\sum_{i=0}^kw_i(E_1)\smile w_{k-i}(E_2)$$
 \item Normalization: If $\gamma$ is the tautological line bundle over $\Prj^1(\R)$, then $w_1(\gamma)$ is non-zero. 
 \end{enumerate}
+The total Stiefel-Whitney class $$w=\sum_{k=0}^\infty w_k:\text{Prin}_{O(n)}(-)\to H^\ast(-,\Z/2\Z)$$ is well defined by the rank axiom. The Whitney product formula then translates to $w(E_1\oplus E_2)=w(E_1)w(E_2)$. 
 \end{defn}
 
-TBA: Existence and uniqueness
+\begin{thm}{}{} The Stiefel-Whitney class exists and is unique. 
+\end{thm}
 
 \begin{prp}{}{} The following are true regarding the Stiefel-Whitney class. 
 \begin{itemize}
@@ -410,11 +415,28 @@ TBA: Existence and uniqueness
 \end{itemize}
 \end{prp}
 
-\begin{thm}{}{} Let $n\in\N$, then the ring of characteristic classes of $O(n)$ is isomorphic to $$\text{Char}_{O(n)}(\Z/2\Z)\cong\Z/2\Z[c_1,\dots,c_n]$$ a polynomial ring in $n$ variables for $w_i\in H^i(BO(n),\Z/2\Z)$. 
+\begin{thm}{}{} Let $n\in\N$, then the ring of characteristic classes of $O(n)$ is isomorphic to $$\text{Char}_{O(n)}(\Z/2\Z)\cong\Z/2\Z[w_1,\dots,w_n]$$ a polynomial ring in $n$ variables for $w_i\in H^i(BO(n),\Z/2\Z)$. 
 \end{thm}
 
-\subsection{The Chern Class}
+\begin{prp}{}{} Let $X$ be a space. Then the function $$w_1:\text{Vect}_1^\R(X)\to H^1(X;\Z/2\Z)$$ is a homomorphism. It is an isomorphism if $X$ is homotopy equivalent to a CW complex. 
+\end{prp}
 
+\begin{crl}{}{} Let $X$ be homotopy equivalent to a CW complex. Then any vector bundle $E\to X$ is orientable if and only if $w_1(E)=0$. 
+\end{crl}
+
+\subsection{The Chern Class}
+\begin{defn}{The Chern Class}{} Consider the group $U(n)$. Let $$c_i:\text{Prin}_{U(n)}(-)\to H^{2i}(-,\Z/2\Z)$$ be a collection of natural transformations. We say that they form a Chern class if the following are satisfied. 
+\begin{enumerate}
+\item Rank: If $E$ is a principal $U(n)$-bundle, then $c_0(E)=1$ and $c_i(E)=0$ for $i>\rank(E)$. 
+\item Naturality: Let $p:E\to X$ be a principal $O(n)$-bundle and let $f:Y\to X$ be a map. Then $$c_i(f^\ast(E))=f^\ast(c_i(E))$$
+\item Whitney Product Formula: If $E_1,E_2$ are principal $O(n)$-bundles, then $$c_k(E_1\oplus E_2)=\sum_{i=0}^kc_i(E_1)\smile c_{k-i}(E_2)$$
+\item Normalization: If $\gamma$ is the tautological line bundle over $\Prj^1(\R)$, then $c_1(\gamma)$ is non-zero. 
+\end{enumerate}
+The total Chern class $$c=\sum_{k=0}^\infty c_k:\text{Prin}_{O(n)}(-)\to H^\ast(-,\Z/2\Z)$$ is well defined by the rank axiom. The Whitney product formula then translates to $c(E_1\oplus E_2)=c(E_1)c(E_2)$. 
+\end{defn}
+
+\begin{thm}{}{} The Chern class exists and is unique. 
+\end{thm}
 
 \begin{thm}{}{} Let $E$ be an $n$-dimensional complex vector bundle over $X$. Then $c_1(E)=0$ if and only if $E$ has an $SU(n)$-structure. 
 \end{thm}
@@ -424,7 +446,12 @@ TBA: First chern class is complete invariant of complex line bundles. First Stie
 \begin{thm}{}{} Let $n\in\N$, then the ring of characteristic classes of $U(n)$ is isomorphic to $$\text{Char}_{U(n)}(\Z)\cong\Z[c_1,\dots,c_n]$$ a polynomial ring in $n$ variables for $c_i\in H^{2i}(BU(n),\Z)$. 
 \end{thm}
 
+\begin{prp}{}{} Let $X$ be a space. Then the function $$c_1:\text{Vect}_1^\C(X)\to H^2(X;\Z)$$ is a homomorphism. It is an isomorphism if $X$ is homotopy equivalent to a CW complex. 
+\end{prp}
+
 \subsection{The Euler Class}
+The Euler class can be thought of as a refinement of the Stiefel-Whitney class in the orientable case. 
+
 \begin{defn}{The Euler Class}{} Let $p:E\to B$ be an $n$-dimensional orientable vector bundle over $\R$. Let $E_0\subseteq E$ denote the zero section. Consider the inclusion $B\hookrightarrow E$ as $E_0$. Let $u\in H^n(E,E\setminus E_0;\Z)$ be the orientation class. Define the euler class of $E$ $$e(E)\in H^n(B;\Z)$$ to be the image of $u$ under the compositions \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	{H^n(E,E\setminus E_0;\Z)} & {H^n(E,\Z)} & {H^n(B;\Z)}
@@ -442,7 +469,7 @@ that is induced by the sequence of inclusions $(B,\emptyset)\hookrightarrow(E,\e
 \end{itemize}
 \end{prp}
 
-\begin{prp} Let $p:E\to B$ be an orientable vector bundle over $\R$. If the dimension of the bundle is odd, then $2e(E)=0$. 
+\begin{prp}{}{} Let $p:E\to B$ be an orientable vector bundle over $\R$. If the dimension of the bundle is odd, then $2e(E)=0$. 
 \end{prp}
 
 \begin{prp}{}{} Let $p:E\to B$ be an $n$-dimensional orientable vector bundle over $\R$. The natural homomorphism $$H^n(B;\Z)\to H^n(B;\Z/2\Z)$$ sends the Euler class $e(E)$ to the top Stiefel-Whitney class $w_n(E)$. 

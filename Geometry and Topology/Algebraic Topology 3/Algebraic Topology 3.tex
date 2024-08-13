@@ -16,17 +16,44 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-\begin{itemize}
-\item Notes on Algebraic Topology by Oscar Randal-Williams
-\end{itemize}
+Algebraic Topology 3 picks up from Algebraic Topology 2 and defines the final invariant for homotopy equivalence called the homotopy groups. We shall see that such homotopy groups is a complete invariant for CW-complexes up to homotopy equivalence. CW-complexes also benefit from the homotopy groups with the homotopy analogue of excision and a unique new theorem called the suspension theorem that implies stability of the homotopy groups. \\~\\
+
+The notes will then take a break from homotopy theory and redefine all the concepts (and some new ones) in the language of category theory. The point is that by looking into the picture, it is hoped that readers are able to understand how everything from Algebraic Topology 1-3 piece together into a coherent story. \\~\\
+
+Equipped with categorical constructions, we are then ready to tackle on the covering space analogue for higher homotopy groups called fibrations. They will provide a long exact sequence for computations of higher homotopy groups. However, fibrations are not just useful for understanding the higher homotopy groups. They serve as the fundamental object of study in general topology, as well as algebraic topology. \\~\\
+
+Finally, we will once again delve into a categorical setting and discuss a generalization of the fundamental group using category theory. Such a generalization also gives the full picture of how covering spaces interact with the fundamental group, as well as proving a more general version of Seifert-van Kampen theorem that now works when the intersection is not connected. \\~\\
+
+In the last chapter, we will put both homology and cohomology into a general framework, and define axioms that ensure that homology and cohomology as an invariant is unique up to having properties such as excision. It will also pave way to stable homotopy theory, of which one important theorem called Brown's representability theorem states that cohomology theories and spectra (object of study in stable homotopy theory) determines each other in a functorial way. 
 \end{abstract}
+~\\~\\
+References: 
+\begin{itemize}
+\item Notes on Algebraic Topology by Oscar Randal-Williams: \\
+The first chapter gives a complete treatment of the first three sections of these notes, as well as providing the importance of fibrations on the higher homotopy groups. These notes are highly recommended to understanding the first three sections. 
+
+\item Algebraic Topology by Allen Hatcher: \\
+A more or less complete dictionary on all topics of these notes. However it is prone to the same problem in the sense that Hatcher's book is rather terse and definitions and parts of some theorems are scattered throughout the paragraphs rather than having a complete statement for reference. Nevertheless it is still the standard reference of the notes, albeit organized in a slightly different way. 
+
+\item A non-visual proof that higher homotopy groups are abelian by Shintaro Fushida-Hardy: \\
+This short piece of article proves that the higher homotopy groups are abelian in a purely algebraic way. Most geometric visualization of such a proof has the same underlying idea as the algebraic method. 
+\end{itemize}
+
 \pagebreak
 \tableofcontents
 
 \pagebreak
 
-\section{Homotopy Theory}
+\section{The Higher Homotopy Groups}
+The journey of Algebraic Topology began with the fundamental group, where we assigned a group to every space functorially. The notion of fundamental group heavily involves the notion of homotopy and therefore is heavily related to the notion of homotopy. However, one realizes that even with Seifert-van Kampen theorem and the theory of covering spaces, it is not easy to compute the fundamental group of a space. This is party, but not wholly due to the fundamental group is in general not abelian. If we instead work in an abelian setting, one is able to distinguish two non-isomorphic groups simply by analysing the torsion subgroups. Therefore we refine the concept of the fundamental group and procured the notion of homology and cohomology. Both functorial invariants now produce graded abelian groups for each space, one for each dimension $n\in\N$. In the case of cohomology, there is a canonical ring structure on cohomology that interacts with the topology of the underlying space. \\~\\
+
+Now we turn to the final main invariant of topological spaces. The homotopy groups $\pi_n(X,x_0)$ serves as both a generalization of the fundamental group $\pi_1(X,x_0)$ in higher dimensions and a homotopic analogue to homology via the Hurewicz homomorphism $$h:\pi_n(X)\to H_n(X)$$ It is a strong invariant that is closely related to the notion of homotopy, all the while having mostly abelian groups as its output. The trade off is that the homotopy groups are very hard to compute. Such trade off has led to the blossoming of Algebraic Topology in its fullest. For instance, stable homotopy theory stems from a crucial fact called the Freudenthal suspension theorem, which states that such a sequence $$\pi_n(X)\to\pi_{n+1}(\Sigma X)\to\cdots$$ eventually stabilizes for large enough $n$. \\~\\
+
+In this chapter we will closely study the $n$th homotopy groups such as its properties and develop tools to compute them. 
+
 \subsection{The nth Homotopy Groups}
+We begin not with the definition of the homotopy groups, but rather a slight generalization of pointed spaces and maps between them. 
+
 \begin{defn}{Pairs of Space}{} Let $X$ be a topological space. A pair of space is a pair $(X,A)$ where $A\subseteq X$ is a subspace of $X$. A map of pairs $f:(X,A)\to(Y,B)$ is a continuous map $f:X\to Y$ such that $f(A)\subseteq B$. 
 \end{defn}
 
@@ -36,40 +63,108 @@
 \begin{defn}{The nth Homotopy Groups}{} Let $(X,x_0)$ be a pointed space. Define the $n$th homotopy group $\pi_n(X,x_0)$ to be $$\pi_n(X,x_0)=\frac{\left\{\gamma:\left(I^n,\partial I^n\right)\to\left(X,\{x_0\}\right)\;\bigg{|}\;\gamma\text{ is continuous }\right\}}{\simeq}$$ where we say that $f\simeq g$ if there exists a homotopy between $f$ and $g$. 
 \end{defn}
 
+Notice that the definition coincides with that of the fundamental group when $n=1$, and hence $\pi_n$ is indeed a generalization. 
+
 \begin{lmm}{}{} For any $n\in\N$, the two spaces $(I^n,\partial I^n)$ and $(S^n,s_0)$ are homotopy equivalent. 
 \end{lmm}
 
-\begin{defn}{Concatenation}{} For $n\geq 1$, define a composition law on $\pi_n(X,x_0)$ for a pointed space $(X,x_0)$ by the formula $$(f\cdot g)(t_1,\dots,t_n)=\begin{cases}
+Therefore an alternate viewpoint of the homotopy groups is instead the collection of maps from the pointed $n$-sphere to the space $X$ quotient homotopy. Indeed an $n$-dimensional sphere has an $n$-dimensional hole enclosed by the sphere itself. Therefore in order to detect $n$-dimensional holes in a space, we are permitted to try and fit $n$-spheres into the space. \\~\\
+
+Spheres are also advantageous for the definition of $\pi_n$ because spheres only has an $n$-dimensional hole and no other holes in any dimension. Therefore we are capturing the minimal amount of information on $n$-dimensional holes without producing excess data. \\~\\
+
+Now we have defined the set $\pi_n(X,x_0)$ for a pointed space to have the word group in its name. We will also need to procure a canonical group structure on the set $\pi_n(X,x_0)$. This will be similar with that of the fundamental group. 
+
+\begin{defn}{Concatenation}{} Let $n\geq 1$. Let $(X,x_0)$ be a pointed space. Let $f,g:(I^n,\partial I^n)\to(X,x_0)$ be maps. Define the composition of $f$ and $g$ by the formula $$(f\cdot g)(t_1,\dots,t_n)=\begin{cases}
 f(2t_1,t_2,\dots,t_n) & \text{ if } 0\leq t_1\leq\frac{1}{2}\\
 g(2t_1-1,t_2,\dots,t_n) & \text{ if } \frac{1}{2}\leq t\leq 1
 \end{cases}$$ for $f,g\in\pi_n(X,x_0)$. 
 \end{defn}
 
-\begin{thm}{}{} Let $(X,x_0)$ be a pointed space and $n\geq 1$. The operation $\cdot$ on $\pi_n(X,x_0)$ is well defined and endows it with the structure of a group. 
+Notice that concatenation is really just the same concatenation between elements of the fundamental group but instead with more coordinates. The group structure on $\pi_n(X,x_0)$ uses concatenation and such a proof also uses the same homotopies as in Algebraic Topology 1, but with more coordinates. 
+
+\begin{thm}{}{} Let $(X,x_0)$ be a pointed space and $n\geq 1$. The operation $\cdot$ on the equivalence classes in $\pi_n(X,x_0)$ is well defined and endows it with the structure of a group. \tcbline
+\begin{proof}
+We first show that the operation is well defined on $\pi_n(X,x_0)$. Suppose that $f_1\overset{\partial}{\simeq} g_1:(I^n,\partial I^n)\to(X,x_0)$ via the homotopy $H_1$ and $f_2\overset{\partial}{\simeq} g_2:(I^n,\partial I^n)\to(X,x_0)$ via the homotopy $H_2$. Consider the map $H:I^n\times[0,1]\to X$ defined by $$H(x_1,\dots,x_n,t)=\begin{cases}
+H_1(2x_1,\dots,x_n,t) & \text{if } 0\leq x_1\leq\frac{1}{2}\\
+H_2(2x_1-1,\dots,x_n,t) & \text{if }\frac{1}{2}\leq x_1\leq 1
+\end{cases}$$ 
+Now when $t=0$, we have that $H(x_1,\dots,x_n,0)=f_1\cdot f_2$. When $t=1$, we have that $H(x_1,\dots,x_n,1)=g_1\cdot g_2$. Now notice that by definition of $H_1$ and $H_2$, if one of $x_1,\dots,x_n$ is equal to $0$ or $1$, then $H_1$ and $H_2$ is constant and maps to $x_0$. This means that $H$ also has such property and hence $H$ is a homotopy $(I,\partial I^n)$ to $(X,x_0)$. \\~\\
+
+We now have an appropriate binary operation on $\pi_n(X,x_0)$. It is clearly associative since the composition of maps are associativity and one can re-parametrize homotopies with different traversal speeds. I claim that the constant map $e_{x_0}:(I,\partial I^n)\to(X,x_0)$ defined by $e_{x_0}(x)=x_0$ is the identity. Let $f:(I^n,\partial I^n)\to(X,x_0)$ be arbitrary. Define the homotopy from $e_{x_0}\cdot f$ to $f$ by $$H(x_1,\dots,x_n,t)=\begin{cases}
+e_{x_0}(x_1,\dots,x_n)=x_0 & \text{ if }0\leq x_1\leq\frac{1-t}{2}\\
+f\left(\frac{2s+t-1}{t+1}\right) & \text{ if }\frac{1-t}{2}\leq x_1\leq 1
+\end{cases}$$ A similar homotopy proves that $f\cdot e_{x_0}\simeq f$. For the inverse, I claim that $\overline{f}:(I^n,\partial I^n)\to(X,x_0)$ defined by $\overline{f}(1-x_1,\dots,x_n)$ is the inverse of $f$. Indeed, define a homotopy from $f\cdot\overline{f}$ to $e_{x_0}$ by $$H(x_1,\dots,x_n,t)=\begin{cases}
+e_{x_0}(x_1,\dots,x_n)=x_0 & \text{ if }0\leq x_1\leq\frac{t}{2}\text{ or }\frac{1-t}{2}\leq x_1\leq 1\\
+f(2x_1-t,x_2,\dots,x_n) & \text{ if }\frac{t}{2}\leq x_1\leq\frac{1}{2}\\
+\overline{f}(2s+t-1) & \text{ if }\frac{1}{2}\leq x_1\leq\frac{1-t}{2}
+\end{cases}$$
+\end{proof}
 \end{thm}
 
-\begin{prp}{}{} Let $(X,x_0)$ be a pointed space. Then $\pi_n(X,x_0)$ is abelian for $n\geq 2$. 
-\end{prp}
+However, what makes each $\pi_n(X,x_0)$ for $n\geq 2$ different from the fundamental group $\pi_1(X,x_0)$ is the abelian group structure on $\pi_n(X,x_0)$. 
 
-An exercise in Hatcher shows that the coordinate chosen in the concatenation can be arbitrary, and will also result in an abelian group structure in $\pi_n(X,x_0)$. 
+\begin{thm}{}{} Let $(X,x_0)$ be a pointed space. Then the $n$th homotopy group $$\pi_n(X,x_0)$$ together with concatenation is abelian. \tcbline
+\begin{proof}
+Define a new operation $\star:\pi_n(X,x_0)\times\pi_n(X,x_0)\to\pi_n(X,x_0)$ by $$[f]\star[g]=\begin{cases}
+f(t_1,2t_2,\dots,t_n) & \text{ if } 0\leq t_1\leq\frac{1}{2}\\
+g(t_1,2t_2-1,\dots,t_n) & \text{ if } \frac{1}{2}\leq t\leq 1
+\end{cases}$$ Such an operation clearly also defines an abelian group structure on $\pi_n(X,x_0)$ using the same argument. Now I want to prove that $$([f]\ast[g])\star([h]\ast [k])=([f]\star [h])\ast([g]\star [k])$$ This is true because $$([f]\ast[g])\star([h]\ast [k])=\begin{cases}
+f(2x_1,2x_2,x_3,\dots,x_n) & \text{ if } 0\leq x_1,x_2\leq\frac{1}{2}\\
+g(2x_1,2x_2-1,x_3,\dots,x_n) & \text{ if } 0\leq x_1\leq\frac{1}{2} \text{ and } \frac{1}{2}\leq x_2\leq 1\\
+h(2x_1-1,2x_2,x_3,\dots,x_n) & \text{ if } \frac{1}{2}\leq x_1\leq 1 \text{ and } 0\leq x_2\leq\frac{1}{2}\\
+k(2x_1,2x_2-1,x_3,\dots,x_n) & \text{ if } \frac{1}{2}\leq x_1,x_2\leq 1
+\end{cases}$$ and $$([f]\star [h])\ast([g]\star [k])=\begin{cases}
+f(2x_1,2x_2,x_3,\dots,x_n) & \text{ if } 0\leq x_1,x_2\leq\frac{1}{2}\\
+h(2x_1-1,2x_2,x_3,\dots,x_n) & \text{ if } \frac{1}{2}\leq x_1\leq 1 \text{ and } 0\leq x_2\leq\frac{1}{2}\\
+g(2x_1,2x_2-1,x_3,\dots,x_n) & \text{ if } 0\leq x_1\leq\frac{1}{2} \text{ and } \frac{1}{2}\leq x_2\leq 1\\
+k(2x_1,2x_2-1,x_3,\dots,x_n) & \text{ if } \frac{1}{2}\leq x_1,x_2\leq 1
+\end{cases}$$ which are entirely the same. Now I claim that $\ast=\star$. It is clear that both binary operations have the same identity element $e_{x_0}$. Now we have that $$f\ast g=(f\star 1)\ast (1\star g)=(f\ast 1)\star(1\ast g)=f\star g$$ Finally, I claim that $\ast$ is commutative. We have that $$f\ast g=(1\star f)\ast(g\star 1)=(1\ast g)\star(f\ast 1)=g\star f=g\ast f$$ Thus we conclude. 
+\end{proof}
+\end{thm}
+
+The above technique is actually called the Eckmann-Hilton argument. In particular, it shows that concatenation of paths need not be defined via the first coordinate. Any choice of coordinate to perform concatenation will result in the same group structure. \\~\\
+
+Geometrically speaking, 
 
 \subsection{Properties of Homotopy}
+The homotopy groups also satisfy functorial properties similar to the fundamental group and the (co)homology groups. 
+
 \begin{thm}{Functoriality}{} Let $(X,x_0)$ and $(Y,y_0)$ be pointed spaces and let $f:(X,x_0)\to(Y,y_0)$ be a pointed map. Then the induced map $$\pi_n(f):\pi_n(X,x_0)\to\pi_n(Y,y_0)$$ defined by $[\gamma]\mapsto[f\circ\gamma]$ is a group homomorphism. Moreover, it satisfies the following functorial properties. 
 \begin{itemize}
 \item If $g:(Y,y_0)\to(Z,z_0)$ is a pointed map then $$\pi_n(g\circ f)=\pi_n(g)\circ\pi_n(f)$$
 \item If $\text{id}_{(X,x_0)}:(X,x_0)\to(X,x_0)$ is the identity map then $$\pi_n(\text{id}_{(X,x_0)})=\text{id}_{\pi_n(X,x_0)}$$
+\end{itemize} \tcbline
+\begin{proof}
+Firstly, let us show that it is a group homomorphism. Let $\gamma_1,\gamma_2\in\pi_n(X,x_0)$. We have that $$\pi_n(f)([\gamma_1]\cdot[\gamma_2])=[f\circ(\gamma_1\cdot\gamma_2)]=[f\circ\gamma_1\cdot f\circ\gamma_2]=\pi_n(f)([\gamma_1])\cdot\pi_n(f)([\gamma_2])$$ where the second equality is true because homotopies are preserved under function composition. It remains to show associativity and unitality. 
+\begin{itemize}
+\item Associativity: We have that $$\pi_n(g\circ f)([\gamma])=[g\circ f\circ\gamma]=\pi_n(g)([f\circ\gamma])=(\pi_n(g)\circ\pi_n(f))([\gamma])$$
+\item Unitality: We have that $$\pi_n(\text{id}_{(X,x_0)})([\gamma])=[\text{id}_{(X,x_0)}\circ\gamma]=[\gamma]=\text{id}_{\pi_n(X,x_0)}([\gamma])$$
 \end{itemize}
+And so we conclude. 
+\end{proof}
 \end{thm}
 
-Similar to all other functorial properties we have seen throughout algebraic topology, a homeomorphism of spaces give an isomorphism on homotopy groups. 
+Similar to all other functorial properties we have seen throughout algebraic topology, a homeomorphism of spaces give an isomorphism on homotopy groups. Now that we know about category theory, we see that such a result does not depend on the definition of the homotopy groups or the (co)homology groups, but is in fact due to the functorial properties of each invariant. \\~\\
 
-\begin{thm}{Homotopy Equivalence}{} Let $(X,x_0),(Y,y_0)$ be pointed spaces and $f,g:(X,x_0)\to (Y,y_0)$ be pointed maps. If $f$ and $g$ are homotopic, then the induced maps $$\pi_n(f)=\pi_n(g):\pi_n(X,x_0)\to\pi_n(Y,y_0)$$ are equal. Moreover, if $f$ is a homotopy equivalence, then $\pi_n(f)$ is an isomorphism. 
+Similar to (co)homology and the fundamental group, the homotopy groups are defined via a quotient with homotopy. Therefore we expect the homotopy groups to not be able to distinguish between homotopy equivalent spaces but not homeomorphic spaces. 
+
+\begin{thm}{Homotopy Equivalence}{} Let $(X,x_0),(Y,y_0)$ be pointed spaces and $f,g:(X,x_0)\to (Y,y_0)$ be pointed maps. If $f$ and $g$ are homotopic, then the induced maps $$\pi_n(f)=\pi_n(g):\pi_n(X,x_0)\to\pi_n(Y,y_0)$$ are equal. Moreover, if $f$ is a homotopy equivalence, then $\pi_n(f)$ is an isomorphism. \tcbline
+\begin{proof}
+Let $[\gamma]\in\pi_n(X,x_0)$. Suppose that $f$ and $g$ are homotopic via $F:X\times I\to Y$. now define $$H(x_1,\dots,x_n,t)=F(\gamma(x_1,\dots,x_n),t)$$ Then it is clear that $H(x_1,\dots,x_n,0)=f\circ\gamma$ and $H(x_1,\dots,x_n,1)=g\circ\gamma$. Thus $[f\circ\gamma]=[g\circ\gamma]$ and so we conclude that $\pi_n(f)([\gamma])=\pi_n(g)([\gamma])$. \\~\\
+
+If $f$ is a homotopy equivalence, then there exists $g:(Y,y_0)\to(X,x_0)$ such that $g\circ f\simeq\text{id}_{(X,x_0)}$ and $f\circ g\simeq\text{id}_{(Y,y_0)}$. By funtoriality and homotopy equivalence, we have that $$\pi_n(g)\circ\pi_n(f)=\text{id}_{\pi_n(X,x_0)}\;\;\;\;\text{ and }\;\;\;\;\pi_n(f)\circ\pi_n(g)=\text{id}_{\pi_n(Y,y_0)}$$ and so we conclude. 
+\end{proof}
 \end{thm}
+
+While the theory of covering spaces provided great insight for the structure of the fundamental group as well the space itself, the theory no longer works for higher homotopy groups due to the following proposition. 
 
 \begin{prp}{}{} Let $(X,x_0)$ be a pointed space and let $p:(\tilde{X},\tilde{x}_0)\to(X,x_0)$ be a covering space. Then $p$ induces isomorphisms $$\pi_n(p):\pi_n(\tilde{X},\tilde{x}_0)\overset{\cong}{\longrightarrow}\pi_n(X,x_0)$$ for all $n\geq 2$. 
 \end{prp}
 
-\subsection{Relation to the Fundamental Group}
+While covering spaces no longer prove to be useful for insights on the homotopy groups, fibrations will be the correct analogue of covering spaces to computing the higher homotopy groups. In fact, covering spaces themselves are also fibrations. We will see fibrations in later sections. \\~\\
+
+Similar to the fundamental group, changing the base point via a path induces isomorphisms on homotopy groups with the same space but different base point. 
+
 \begin{thm}{}{} Let $(X,x_0)$ and $(X,x_1)$ be pointed spaces with the same base space. Let $u:I\to X$ be a path from $x_0$ to $x_1$. Define the induced map $$u_\#:\pi_n(X,x_0)\to\pi_n(X,x_1)$$ as follows. For $[\gamma]\in\pi_n(X,x_0)$ define $u_\#([\gamma])$ by first shrinking the domain of $\gamma$ to a smaller concentric cube in $I^n$. Then inserting the path $\gamma$ on each radical segment of the shell between the smaller cube and $\partial I^n$. \\~\\
 The construction of $u_\#$ is a group isomorphism. Moreover, it satisfies the following universal properties. 
 \begin{itemize}
@@ -81,15 +176,12 @@ The construction of $u_\#$ is a group isomorphism. Moreover, it satisfies the fo
 \begin{prp}{}{} Let $(X,x_0)$ and $(X,x_1)$ be pointed spaces with the same base space. Let $u,v:I\to X$ be paths from $x_0$ to $x_1$. If $u$ and $v$ are homotopic relative to end points then the induced maps $$u_\#=v_\#:\pi_n(X,x_0)\to\pi_n(X,x_1)$$ are equal. 
 \end{prp}
 
-\begin{crl}{}{} Let $(X,x_0)$ and $(X,x_1)$ be pointed spaces with the same base space. If $x_0$ and $x_1$ are path connected, then $$\pi_n(X,x_0)\cong\pi_n(X,x_1)$$ where the isomorphism depends on the choice of path from $x_0$ to $x_1$. 
-\end{crl}
+This shows that if $X$ is path connected, then $\pi_n(X,x_0)$ no longer depends on the choice of base point. Although there are no canonical isomorphisms between $\pi_n(X,x_0)$ and $\pi_n(X,x_1)$, we still forget about the base point in this case and write the homotopy groups as $\pi_n(X)$. 
 
-This also shows that if $X$ is path connected, then $\pi_n(X,x_0)$ no longer depends on the choice of base point. Although there are no canonical isomorphisms between $\pi_n(X,x_0)$ and $\pi_n(X,x_1)$, we still forget about the base point in this case and write the homotopy groups as $\pi_n(X)$. 
-
-\begin{prp}{}{} Let $(X,x_0)$ be a pointed space and $f\in\pi_n(X,x_0)$. Let $u:I\to X$ be a loop on $x_0$. Then $u$ induces a left action of $\pi_1(X,x_0)$ on $\pi_n(X,x_0)$ by the map $$(u,\gamma)\mapsto\left(u_\#(\gamma)\right)$$ In particular, for $n\geq 2$, $\pi_n(X,x_0)$ is a $\Z\pi_1(X,x_0)$-module. 
+\begin{prp}{}{} Let $(X,x_0)$ be a pointed space and $f\in\pi_n(X,x_0)$. Let $u:I\to X$ be a loop on $x_0$. Then $u$ induces a left action of $\pi_1(X,x_0)$ on $\pi_n(X,x_0)$ by the map $$(u,\gamma)\mapsto u_\#(\gamma)$$ In particular, for $n\geq 2$, $\pi_n(X,x_0)$ is a $\Z\pi_1(X,x_0)$-module. 
 \end{prp}
 
-\begin{prp}{}{} Let $X_i$ for $i\in I$ be a family of path connected spaces. Then there are isomorphisms $$\pi_n\left(\prod_{i\in I}\right)\cong\prod_{i\in I}\pi_n(X_i)$$
+\begin{prp}{}{} Let $X_i$ for $i\in I$ be a family of path connected spaces. Then there are isomorphisms $$\pi_n\left(\prod_{i\in I}X_i\right)\cong\prod_{i\in I}\pi_n(X_i)$$
 \end{prp}
 
 \subsection{Relative Homotopy Groups}
@@ -120,8 +212,8 @@ It is easy to see that $\pi_n(X,x_0,x_0)=\pi_n(X,x_0)$ so that homotopy groups a
 \end{itemize}
 \end{thm}
 
-\begin{prp}{}{} Let $(X,A,x_0),(Y,B,y_0)$ be pointed pairs of spaces and $f,g:(X,A,x_0)\to (Y,B,y_0)$ be pointed maps. If $f$ and $g$ are homotopic, then the induced maps $$f_\ast=g_\ast:\pi_n(X,A,x_0)\to\pi_n(Y,B,y_0)$$ are equal. Moreover, if $f$ is a homotopy equivalence, then $f_\ast$ is an isomorphism. 
-\end{prp}
+\begin{thm}{}{} Let $(X,A,x_0),(Y,B,y_0)$ be pointed pairs of spaces and $f,g:(X,A,x_0)\to (Y,B,y_0)$ be pointed maps. If $f$ and $g$ are homotopic, then the induced maps $$f_\ast=g_\ast:\pi_n(X,A,x_0)\to\pi_n(Y,B,y_0)$$ are equal. Moreover, if $f$ is a homotopy equivalence, then $f_\ast$ is an isomorphism. 
+\end{thm}
 
 TBA: change of base point isomorphisms. 
 
@@ -129,6 +221,14 @@ TBA: change of base point isomorphisms.
 \end{thm}
 
 \subsection{Long Exact Sequence in Homotopy Groups}
+\begin{lmm}{Compression Criterion}{} Let $(X,A,x_0)$ be a pair of spaces with basepoint. Let $f:(D^n,S^{n-1},\ast)\to(X,A,x_0)$ be a map. Then $[f]=[e_{x_0}]\in\pi_n(X,A,x_0)$ if and only if $$(f:D^n\to X)\overset{S^{n-1}}{\simeq}(g:D^n\to X)$$ where $g$ is any map such that $g(X)\subseteq A$. \tcbline
+\begin{proof}
+Suppose that the second criterion is satisfied. Then it clearly shows that $[f]=[g]\in\pi_n(X,A,x_0)$. Let $r:D^n\times I\to D^n$ be a deformation retract from $D^n$ to $\ast\in S^{n-1}\subset D^n$. Consider the map $g\circ r:D^n\times I\to X$. When $t=0$, this is the map $g$. When $t=1$, $g\circ r$ factors through $\ast$ and so becomes a map $\ast\to X$. In other words, it is the constant map $e_{x_0}$. Moreover, it $g\circ r$ has image in $A$ and so in particular it sends $S^{n-1}$ to $A$. Thus $g\circ r$ is a homotopy between $\text{e}_{x_0}$ and $g$. We conclude that $[f]=[g]=[e_{x_0}]$. \\~\\
+
+Now suppose that $[f]=[e_{x_0}]\in\pi_n(X,A,x_0)$ is given by the homotopy $H:D^n\times I\to X$. This means that $H(D^n\times\{1\})\subseteq\{x_0\}\subset A$ and $H(S^{n-1}\times I)\subset A$. Now $D^n\times I$ deformation retracts to the cup $D^n\times\{1\}\cup S^{n-1}\times I$ by radical projection from the center point of $D^n\times\{0\}$. Thus $H$ can be converted into a map from $D^n\times\{1\}\cup S^{n-1}\times I$ to $X$. Then $H$ is now a homotopy from $f$ to a map $H(-,1):D^n\to X$ which has image in $A$, relative to $S^{n-1}$. Thus we conclude. 
+\end{proof}
+\end{lmm}
+
 \begin{thm}{}{} Let $X$ be a space and $A,B$ be subspaces of $X$ such that $B\subseteq A\subseteq X$. Let $x_0\in B$. Then there is a long exact sequence in relative homotopy groups: \\~\\
 \adjustbox{scale=0.88,center}{\begin{tikzcd}
 	\cdots & {\pi_n(A,B,x_0)} & {\pi_n(X,B,x_0)} & {\pi_n(X,A,x_0)} & {\pi_{n-1}(A,B,x_0)} & \cdots & {\pi_1(X,A,x_0)}
@@ -139,7 +239,9 @@ TBA: change of base point isomorphisms.
 	\arrow[from=1-5, to=1-6]
 	\arrow[from=1-6, to=1-7]
 \end{tikzcd}}\\~\\
-where $i:(A,B,x_0)\to(X,B,x_0)$ and $j:(X,B,x_0)\to(X,A,x_0)$ are the inclusions and $\partial:\pi_n(X,A,x_0)\to\pi_{n-1}(A,B,x_0)$ is given by $[\gamma]\mapsto[\gamma|_{I^{n-1}}]$
+where $i:(A,B,x_0)\to(X,B,x_0)$ and $j:(X,B,x_0)\to(X,A,x_0)$ are the inclusions and $\partial:\pi_n(X,A,x_0)\to\pi_{n-1}(A,B,x_0)$ is given by $[\gamma]\mapsto[\gamma|_{I^{n-1}}]$ \tcbline
+\begin{proof}{}{}
+\end{proof}
 \end{thm}
 
 TBA: Naturality of the sequence. 
@@ -177,7 +279,7 @@ TBA: conditions in P.346 of Hatcher
 \end{defn}
 
 \pagebreak
-\section{Homotopy and CW-Complexes}
+\section{Weak Equivalences and CW-Complexes}
 \subsection{Weak Homotopy Equivalence}
 \begin{defn}{Weak Homotopy Equivalence}{} We say that a map $f:X\to Y$ is a weak homotopy equivalence if it induces isomorphisms on all homotopy groups $\pi_n$ on any choice of base point. 
 \end{defn}
@@ -187,7 +289,9 @@ TBA: compression lemma in Hatcher
 \begin{thm}{}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a weak homotopy equivalence. Then $f$ induces isomorphisms $$f_\ast:H_n(X;G)\overset{\cong}{\longrightarrow}H_n(Y;G)\;\;\;\;\text{ and }\;\;\;\;f^\ast:H^n(Y;G)\overset{\cong}{\longrightarrow}H^n(X;G)$$ for any group $G$ and all $n\in\N$. 
 \end{thm}
 
-\begin{prp}{}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a weak homotopy equivalence. Then $f$ induces bijections $$[Z,X]\cong[Z,Y]\;\;\;\;\text{ and }\;\;\;\;[Z,X]_\ast\cong[Z,Y]_\ast$$ for all $CW$-complexes $Z$. 
+This theorem shows that the higher homotopy groups is not a weaker invariant than homology and cohomology. Indeed, the theorem states that if the all homotopy groups are isomorphic, then all their (co)homology groups will be isomorphic. 
+
+\begin{prp}{}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a weak homotopy equivalence. Then $f$ induces bijections $$[Z,X]\cong[Z,Y]\;\;\;\;\text{ and }\;\;\;\;[Z,X]_\ast\cong[Z,Y]_\ast$$ for all CW-complexes $Z$. 
 \end{prp}
 
 \subsection{Whitehead's Theorem}
@@ -230,13 +334,8 @@ The goal of this section is that every space has a CW approximation. The given h
 \begin{thm}{}{} For any non-empty pair $(X,A)$ of CW-complexes, there exists an $n$-connected model $(Z,A)$. Moreover, $Z$ can be built from $A$ by attaching cells of dimension greater than $n$. 
 \end{thm}
 
-\begin{crl}{}{} Every pair of CW-complex $(X,A)$ has a CW approximation $(Z,B)$. 
-\end{crl}
-
-Thus we have shown existence of CW approximations, it remains to show uniqueness. 
-
-\begin{crl}{}{} CW-approximations are unique up to homotopy equivalence. 
-\end{crl}
+\begin{thm}{}{} Every pair of spaces $(X,A)$ has a CW approximation. Such a CW approximation is unique up to homotopy equivalence. 
+\end{thm}
 
 \pagebreak
 
@@ -262,9 +361,6 @@ We can keep on suspending the space and the maps. Indeed if $X$ is $n$-connected
 \begin{crl}{}{} There is an isomorphism $$\pi_{n+k}(S^n)\cong\pi_{n+k+1}(S^{n+1})$$ for all $n\geq k+2$. 
 \end{crl}
 
-\begin{defn}{Stable Homotopy Groups}{} Let $X$ be a space. Let $n\in\N$. Define the $n$th stable homotopy groups of $X$ to be $$\pi_n^s(X)=\colim_{k\to\infty}\pi_{n+k}(\Sigma^kX)$$
-\end{defn}
-
 \begin{prp}{}{} Let $X$ be a space. Let $k\in\N$. Then the the following sequence of suspensions $$\pi_k(X)\to\pi_{k+1}(\Sigma X)\to\pi_{k+2}(\Sigma^2X)\to\cdots$$ are eventually isomorphisms. \tcbline
 \begin{proof}
 Let $X$ be $n$-connected. There are two cases. \\~\\
@@ -274,6 +370,9 @@ Let $k\leq 2n$. By Freudenthal suspension theorem, if $k\leq 2n$ then $\pi_k(X)\
 Now if $k>2n$, then there exists $r\in\N$ such that $k+r\leq 2n+2r$. Such an $r$ is given by say $k-2n$. Then by Freudenthal suspension theorem, $$\pi_{k+r}(\Sigma^rX)\cong\pi_{k+r+1}(\Sigma^{r+1}X)$$ is an isomorphism. More generally, for $m\in\N$, $\Sigma^{r+m}X$ is $(r+m+n)$-connected hence $$\pi_{k+r+m}(\Sigma^{r+m}X)\cong\pi_{k+r+m+1}(\Sigma^{r+m+1}X)$$ is an isomorphism since $k+r+m\leq 2n+2r+2m$. 
 \end{proof}
 \end{prp}
+
+\begin{defn}{Stable Homotopy Groups}{} Let $X$ be a space. Let $n\in\N$. Define the $n$th stable homotopy groups of $X$ to be $$\pi_n^s(X)=\colim_{k\to\infty}\pi_{n+k}(\Sigma^kX)$$
+\end{defn}
 
 \subsection{Hurewicz's Theorem}
 \begin{thm}{Hurewicz's Homomorphism}{} Let $X$ be a path connected space. Then for any $n\in\N$, there is a group homomorphism $$h_n:\pi_n(X)\to H_n(X)$$ called the Hurewicz homomorphism, defined as follows. Let $[u_n]\in H_n(S^n)$ be a canonical generator. Then $h_n([f])=f_\ast(u_n)$. 
@@ -307,8 +406,13 @@ where $h$ is the Hurewicz homomorphism. Moreover, a similar diagram is also comm
 The connection between the homotopy groups and the homology groups begs the question of whether there is a relationship between the homotopy groups and cohomology groups that is not implicit by the relation between homology and cohomology. This is answered in Stable Homotopy Theory, when we introduced Brown's representability theorem. 
 
 \subsection{Eilenberg-MacLane Spaces}
-\begin{defn}{Eilenberg-MacLane Space}{} Let $G$ be a group and $n\in\N$. We say that a space $X$ is an Eilenberg-MacLane space of type $K(G,n)$ if $\pi_n(X)=G$ and $\pi_k(X)=0$ for all $k\neq n$. 
+\begin{defn}{Eilenberg-MacLane Space}{} Let $G$ be a group and $n\in\N$. We say that a space $X$ is an Eilenberg-MacLane space of type $K(G,n)$ if $$\pi_k(X)=\begin{cases}
+K(G,n) & \text{ if } k=n\\
+0 & \text{ otherwise }
+\end{cases}$$
 \end{defn}
+
+We often denote this space $X$ directly by $X=K(G,n)$. 
 
 \begin{prp}{}{} Let $G$ be a group. Then there exists a $K(G,1)$-CW complex. 
 \end{prp}
@@ -468,7 +572,22 @@ Switzer / Hatcher
 By the set bijection $[\Sigma^nX,Y]_\ast\cong[X,\Omega^nY]_\ast$, we can endow the structure of a group on $[\Sigma^nX,Y]_\ast$. 
 
 \pagebreak
-\section{The Category of Compactly Generated Spaces}
+\section{The Category of Compactly Generated Weakly Hausdorff Spaces}
+There is a huge inconvenience when working with $\bold{Top}$ and $\bold{Top}_\ast$ and that is because in general, the mapping space $X^Y$ only exists for $Y$ when $Y$ is imposed with extra condition. Such a space is important for a few reasons. \\~\\
+
+For that reason, it is better to work with a category in which the exponential object $X^Y$ exists and lies inside such a category, while not restricting a wide number of classes of spaces so that the notion of homotopies still make sense and is well defined within such a category. \\~\\
+
+The category of compactly generated spaces has the following advantages: 
+\begin{itemize}
+\item The smash product $X\wedge Y$ is associative. This means that there are natural isomorphisms $(X\wedge Y)\wedge Z\cong X\wedge(Y\wedge Z)$
+\item $X^Y$ now has a canonical topology. 
+\item There is an adjunction between the smash product $-\;\wedge\;-$ and the mapping space $\text{Map}_\ast(-,-)$
+\end{itemize}
+
+While we have not encountered such notions yet, we also like to add that geometric realization of compact generated spaces preserves products. \\~\\
+
+Due to the huge advantages given to the smash product and mapping spaces, such advantages descend to the two important functors: the suspension and loopspace functors, making such a category an ideal universe for working with fibrations and cofibrations in the next section. 
+
 \subsection{Compactly Generated Spaces}
 \begin{defn}{Compactly Generated Spaces}{} Let $X$ be a space. We say that $X$ is compactly generated ($k$-space) if for every set $A\subseteq X$, $A$ is open if and only if $A\cap K$ is open in $K$ for every compact subspace $K\subseteq X$. 
 \end{defn}
@@ -485,21 +604,24 @@ Define similarly the category of pointed compactly generated spaces $\bold{CG}_\
 \begin{defn}{New $k$-space from Old}{} Let $X$ be a space. Define $k(X)$ to be the set $X$ together with the topology defined as follows: $A\subseteq X$ is open if and only if $A\cap K$ is open in $K$ for every compact subspace $K\subseteq X$. 
 \end{defn}
 
-\begin{lmm}{}{} Let $X$ be a space. Then $k(X)$ is a compactly generated space. Moreover, $k$ defines a functor $$k:\mathcal{T}_2\to\mathcal{K}$$ from the category of Hausdorff spaces to $\mathcal{K}$. 
+\begin{lmm}{}{} Let $X$ be a space. Then $k(X)$ is a compactly generated space. 
 \end{lmm}
 
 Unfortunately $X\times Y$ may not be compactly generated even when $X$ and $Y$ are. But as it turns out, products do exists in $\mathcal{K}$ and are given by $k(X\times Y)$. 
 
-\begin{prp}{}{} Let $X,Y$ be compactly generated spaces. Then the product of $X$ and $Y$ in the category of compactly generated spaces is given by $$k(X\times Y)$$
+\begin{prp}{}{} Let $X,Y$ be compactly generated spaces. Then the categorical product of $X$ and $Y$ in the category of compactly generated spaces is given by $$k(X\times Y)$$
 \end{prp}
 
+\begin{prp}{}{} Every CW complex is compactly generated. 
+\end{prp}
+
+\subsection{Adjunctions in CG Spaces}
 \begin{defn}{The Mapping Space}{} Let $X$ and $Y$ be compactly generated. Define the mapping space of $X$ and $Y$ by $$\text{Map}(X,Y)=Y^X=k(\Hom_{\mK}(X,Y))$$
 \end{defn}
 
 \begin{thm}{}{} Let $X,Y,Z$ be compactly generated. Then the functors $k(-\times Y):\mK\to\mK$ and $\text{Map}(Y,-):\mK\to\mK$ are adjoint functors with the adjunction formula $$\Hom_{\mK}(k(X\times Y),Z)\cong\Hom_{\mK}(X,\text{Map}(Y,Z))$$ Moreover, by giving the Hom set the compact open topology and applying $k$, we obtain an isomorphism $$\text{Map}(k(X\times Y),Z)\cong\text{Map}(X,\text{Map}(Y,Z))$$
 \end{thm}
 
-\subsection{Adjunction in CG Spaces}
 Aside from the adjunction between the product space and the mapping space, another major reason one considers compactly generated spaces is that the smash product gives another adjunction. 
 
 \begin{defn}{The Smash Product}{} Let $(X,x_0)$ and $(Y,y_0)$ be pointed topological spaces. Define the smash product of the two pointed spaces to be the pointed space $$X\wedge Y=\frac{X\times Y}{X\vee Y}$$ together with the point $(x_0,y_0)$. 
@@ -512,6 +634,9 @@ Aside from the adjunction between the product space and the mapping space, anoth
 \end{itemize}
 \end{prp}
 
+\begin{thm}{}{} The category $\bold{CG}$ of compactly generated spaces is a symmetric monoidal category with operator the smash product $\wedge:\bold{CG}\times\bold{CG}\to\bold{CG}$ and the unit $S^0$. 
+\end{thm}
+
 Note that this is not true if we do not restrict the spaces to the category of compactly generated spaces. 
 
 \begin{lmm}{}{} Let $X$ be a space. Then the reduced suspension and the smash product with the circle $$\Sigma X\cong X\wedge S^1$$ are homeomorphic spaces. 
@@ -523,10 +648,29 @@ Note that this is not true if we do not restrict the spaces to the category of c
 \begin{crl}{}{} Let $X$ be a compactly generated space with a chosen basepoint. Then there is a natural homeomorphism $$\text{Map}_\ast(\Sigma X,Y)\cong\text{Map}_\ast(X,k(\Omega Y))$$ given by adjunction of the functors $-\wedge S^1:\mK_\ast\to\mK_\ast$ and $\text{Map}_\ast(S^1,-):\mK_\ast\to\mK_\ast$. 
 \end{crl}
 
+\subsection{Weakly Hausdorff Spaces}
+\begin{defn}{Weakly Hausdorff Spaces}{} A space $X$ is said to be weakly Hausdorff if for any compact space $M$ and map $f:M\to X$, the image $f(M)$ is closed in $X$. 
+\end{defn}
+
+\begin{prp}{}{} Every Hausdorff space is a weakly Hausdorff space. 
+\end{prp}
+
+\subsection{The Working Category $\bold{CGWH}$ of Spaces}
+\begin{defn}{The Category of Compactly Generated Weakly Hausdorff Spaces}{} The category $\bold{CGWH}$ of compactly generated weakly Hausdorff spaces consists of the following data. 
+\begin{itemize}
+\item The objects consists of compactly generated weakly Hausdorff spaces. 
+\item The morphisms consists of continuous map between spaces. 
+\item Composition is given by the composition of functions. 
+\end{itemize}
+Define similarly the category $\bold{CGWH}_\ast$ of pointed compactly generated weakly Hausdorff spaces. 
+\end{defn}
+
+\begin{thm}{}{} The categories $\bold{CGWH}$ and $\bold{CGWH}_\ast$ is a closed monoidal category that is complete and cocomplete. 
+\end{thm}
+
+
 \pagebreak
 \section{Fibrations and Cofibrations}
-From here onwards we assume that all spaces are compactly generated unless otherwise stated. 
-
 \subsection{Fibrations and The Homotopy Lifting Property}
 \begin{defn}{The Homotopy Lifting Property}{} Let $p:E\to B$ be a map and let $X$ be a space. We say that $p$ has the homotopy lifting property with respect to $X$ if for every homotopy $H:X\times I\to B$ and a lift $\widetilde{H(-,0)}:X\to E$ of $H(-,0)$, there exists a homotopy $\widetilde{H}:X\times I\to E$ such that the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -559,9 +703,9 @@ From here onwards we assume that all spaces are compactly generated unless other
 where the top map is given by the projection to $E$. 
 \end{prp}
 
-Recall that we defined the mapping path space to be $$P_f=f^\ast(Y^I)=\{(x,\phi)\subseteq X\times Y^I\;|\;f(x)=\pi(\phi)=\phi(1)\}$$ where $\pi:Y^I\to Y$ is defined as $\pi(\phi)=\phi(1)$. We can factorize any continuous map into a fibration and a homotopy equivalence through the mapping path space. 
+Recall that we defined the mapping path space to be $$P_f=f^\ast(Y^I)=\{(x,\phi)\subseteq X\times Y^I\;|\;f(x)=\pi(\phi)=\phi(1)\}$$ where $\pi:Y^I\to Y$ is defined as $\pi(\phi)=\phi(1)$. We can factorize any continuous map into a fibration and a homotopy equivalence through the mapping path space. Because we are working with the mapping path space here, we need to restrict our attention to compactly generated space. 
 
-\begin{thm}{}{} Let $f:X\to Y$ be a map. Then $\pi:P_f\to Y$ defined by $\pi(x,\phi)=\phi(1)$ is a fibration. Moreover, there exists a homotopy equivalence $h:X\to P_f$ such that the following diagram commutes: \\~\\
+\begin{thm}{}{} Let $f:X\to Y$ be a map with $Y$ compactly generated. Then $\pi:P_f\to Y$ defined by $\pi(x,\phi)=\phi(1)$ is a fibration. Moreover, there exists a homotopy equivalence $h:X\to P_f$ such that the following diagram commutes: \\~\\
 \adjustbox{scale=1,center}{\begin{tikzcd}
 	X && Y \\
 	& {P_f}
@@ -572,7 +716,7 @@ Recall that we defined the mapping path space to be $$P_f=f^\ast(Y^I)=\{(x,\phi)
 \end{thm}
 
 \subsection{Cofibrations and The Homotopy Extension Property}
-\begin{defn}{The Homotopy Extension Property}{} Let $i:A\to X$ be a map and let $Y$ be a space. We say that $i$ has the homotopy lifting property with respect to $Y$ if for every homotopy $H:A\times I\to Y$ such that $$H\circ i_0=f\circ i$$ for $i_0:A\times\{0\}\to A\times I$ the inclusion map, there exists a homotopy $\widetilde{H}:X\times I\to Y$ such that the following diagram commute: \\~\\
+\begin{defn}{The Homotopy Extension Property}{} Let $i:A\to X$ be a map and let $Y$ be a space. Denote $i_0$ the inclusion map $A\times\{0\}\hookrightarrow A\times I$. We say that $i$ has the homotopy extension property with respect to $Y$ if for every homotopy $H:A\times I\to Y$ and every map $f:X\to Y$ such that $$H\circ i_0=f\circ i$$ there exists a homotopy $\widetilde{H}:X\times I\to Y$ such that the following diagram commute: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	{A\times\{0\}} && {A\times I} \\
 	& Y \\
@@ -586,6 +730,20 @@ Recall that we defined the mapping path space to be $$P_f=f^\ast(Y^I)=\{(x,\phi)
 	\arrow["{\exists\widetilde{H}}"', dashed, from=3-3, to=2-2]
 \end{tikzcd}}\\~\\
 \end{defn}
+
+The reason we had the entire digression on compactly generated spaces is because cofibrations can be redefined as a Eckmann-Hilton dual in the following form. 
+
+\begin{lmm}{}{} Let $X,Y$ be compactly generated. Let $i:A\to X$ be a map and let $Y$ be a space. Denote $\pi_0:Y^I\to Y$ to be the map $(\gamma:I\to Y)\mapsto\gamma(0)$ Then $i$ has the homotopy extension property with respect to $Y$ if and only if for all maps $f:X\to Y$ and $F:A\to Y^I$, there exists a map $\widetilde{F}:X\to Y^I$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	A & {Y^I} \\
+	X & Y
+	\arrow["F", from=1-1, to=1-2]
+	\arrow["i"', from=1-1, to=2-1]
+	\arrow["{\pi_0}", from=1-2, to=2-2]
+	\arrow["{\widetilde{F}}"{description}, dashed, from=2-1, to=1-2]
+	\arrow["f"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{lmm}
 
 \begin{defn}{Cofibrations}{} We say that a map $i:A\to X$ is a cofibration if it has the homotopy extension property for all spaces $Y$. 
 \end{defn}
@@ -621,8 +779,55 @@ Dual to the factorization of the mapping path space, we can factorize a map into
 \begin{defn}{Fibers of a Fibration}{} Let $p:E\to B$ be a fibration. Define the fiber of $p$ at $b\in B$ to be $$E_b=p^{-1}(b)$$
 \end{defn}
 
-\begin{prp}{}{} Let $p:E\to B$ be a fibration. Let $b_1$ and $b_2$ lie in the same path component of $B$. Then there is a homotopy equivalence $$E_{b_1}\simeq E_{b_2}$$
-\end{prp}
+The following definition is a supporting notion for our proof that fibers of a fibration are homotopy equivalent. 
+
+\begin{defn}{Induced Map of Fibers}{} Let $p:E\to B$. Let $\gamma:I\to B$ be a path from $b_1$ to $b_2$. Define the induced map of fibers of $\gamma$ as follows: The map $H:E_{b_1}\times I\to B$ defined by $H(x,t)=\gamma(t)$ is a homotopy. Using the HLP of $p$, we obtain a lift: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{E_{b_1}\times\{0\}} & E \\
+	{E_{b_1}\times I} & B
+	\arrow["{\widetilde{H(-,0)}}", hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["{\widetilde{H}}"{description}, dashed, from=2-1, to=1-2]
+	\arrow["H"', from=2-1, to=2-2]
+\end{tikzcd}} \\~\\
+Since $p\circ\widetilde{H}(x,t)=\gamma(t)$, we have that $\widetilde{H}(x,1)\in E_{b_2}$. The induced map of fibers is then the map $$L_\gamma:E_{b_1}\to E_{b_2}$$ defined by $L_\gamma=\widetilde{H(-,1)}$
+\end{defn}
+
+\begin{lmm}{}{} Let $p:E\to B$ be a fibration. Let $\gamma:I\to B$ be a path from $b_1$ to $b_2$. Then the following are true regarding $L_\gamma$. 
+\begin{itemize}
+\item If $\gamma\simeq\gamma'$ relative to boundary, then $L_\gamma\simeq L_{\gamma'}$.
+\item If $\gamma:I\to B$ and $\gamma':I\to B$ are two composable paths, there is a homotopy equivalence $L_{\gamma\cdot\gamma'}\simeq L_{\gamma'}\circ L_\gamma$
+\end{itemize} \tcbline
+\begin{proof}
+\begin{itemize}
+\item Let $F:I\times I\to B$ be a homotopy equivalence from $\gamma$ to $\gamma'$. Now consider the map $G:E_{b_1}\times I\times I\to B$ defined by $G(x,s,t)=F(s,t)$. Notice that $G(x,s,0)=F(s,0)=\gamma(s)$ and $G(x,s,1)=F(s,1)=\gamma'(s)$. Thus, we proceed as above by lifting $G(x,s,0)$ and $G(x,s,1)$ to obtain respectively $\widetilde{G(x,s,0)}$ and $\widetilde{G(x,s,1)}$ for which $\widetilde{G(x,1,0)}=L_\gamma$ and $\widetilde{G(x,1,1)}=L_{\gamma'}$. Now define $K:E_{b_1}\times I\times\partial I\to E$ by $$K(x,s,t)=\begin{cases}
+\widetilde{G(x,s,1)} & \text{ if } t=0\\
+G(x,s,1) & \text{ if } t=1
+\end{cases}$$ We now obtain a homotopy called $\widetilde{G}:E_{b_1}\times I\times I\to E$ by the homotopy lifting property: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{X\times I\times\partial I} & E \\
+	{X\times I\times I} & B
+	\arrow["K", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["\widetilde{G}"{description}, dashed, from=2-1, to=1-2]
+	\arrow["G"', from=2-1, to=2-2]
+\end{tikzcd}} \\~\\
+Now $\tilde{G}(-,1,-):E_b\times I\to E$ is then a homotopy equivalence from $\widetilde{G}(x,1,0)=L_\gamma$ to $\widetilde{G}(x,1,1)=L_{\gamma'}$. 
+\item We can repeat the above construction for $\gamma$ and $\gamma'$ to obtain homotopies $G:E_{b_1}\times I\to E$ and $G':E_{b_1}\times I\to E$ such that when $t=1$ we recover $\tilde{\gamma}$, $\tilde{\gamma'}$ and $\tilde{\gamma\cdot\gamma'}$ respectively. Now the composition of $G$ and $G'$ by traversing along $t\in I$ with twice the speed gives precisely a lift of $\gamma\cdot\gamma'$ (one can check the boundary conditions). Thus $L_{\gamma\cdot\gamma'}$ obtained in this manner coincides up to homotopy equivalence to $L_{\gamma'}\circ L_\gamma$ by invoking part a). 
+\end{itemize}
+\end{proof}
+\end{lmm}
+
+\begin{thm}{}{} Let $p:E\to B$ be a fibration. Let $b_1$ and $b_2$ lie in the same path component of $B$. Then there is a homotopy equivalence $$E_{b_1}\simeq E_{b_2}$$ given by the lift of any path $\gamma:I\to B$ from $b_1$ to $b_2$. \tcbline
+\begin{proof}
+Let $\gamma:I\to B$ be a path from $b_1$ to $b_2$. From the above, it follows that $L_{\overline{\gamma}}\circ L_\gamma\simeq\text{id}_{E_b}$ for any loop $\gamma:I\to B$ with basepoint $b$. We conclude that $L_\gamma$ is a homotopy equivalence and so the fibers of $p:E\to B$ are homotopy equivalent. 
+\end{proof}
+\end{thm}
+
+\begin{defn}{Fiber of a Fibration}{} Let $p:E\to B$ be a fibration where $B$ is path connected. Define the fiber of $p$ to be a space $F$ such that each fiber $E_b$ for $b\in B$ is homotopy equivalent to. 
+\end{defn}
 
 \begin{defn}{Homotopy Fibers and Cofibers}{} Let $f:X\to Y$ be a map. Define the homotopy fiber of $f$ to be the mapping fiber $$F_f=\{(x,\phi)\in X\times Y^I\;|\;f(x)=\phi(1)\}$$ Define the homotopy cofiber of $f$ to be the mapping cone $$C_f=\frac{(A\times I)\amalg X}{(a,1)\sim f(a),A\setminus\{0\}}$$
 \end{defn}
@@ -635,7 +840,7 @@ We have previously seen that the mapping fiber and the mapping cone of a map are
 \end{prp}
 
 \subsection{The Fiber and Cofiber Sequences}
-\begin{defn}{Path Spaces}{} Let $(X,x_0)$ be a pointed space. Define the path space of $(X,x_0)$ to be $$PX=\{\phi:(I,0)\to(X,x_0)\;|\;\phi(0)=x_0\}=\text{Map}((I,0),(X,x_0))$$ together with the topology of the mapping space. 
+\begin{defn}{Path Spaces}{} Let $(X,x_0)$ be a pointed space. Define the path space of $(X,x_0)$ to be $$PX=\{\phi:(I,0)\to(X,x_0)\;|\;\phi(0)=x_0\}=\text{Map}_\ast((I,0),(X,x_0))$$ together with the topology of the mapping space. 
 \end{defn}
 
 \begin{thm}{}{} Let $X$ be a space. Then the following are true. 
@@ -679,7 +884,7 @@ There is then the dual notion of loop spaces and the corresponding sequence. Wri
 where any two consecutive maps form a cofibration. Moreover, $-\Sigma f:\Sigma X\to\Sigma Y$ is defined by $$(-\Sigma f)(x\wedge t)=f(x)\wedge(1-t)$$
 \end{thm}
 
-\begin{thm}{}{} Let $p:E\to B$ be a fibration over a connected space $B$ with fiber $F$. Let $\iota:F\hookrightarrow E$ be the inclusion of the fiber. Then there is a long exact sequence in homotopy groups: \\~\\
+\begin{thm}{}{} Let $p:E\to B$ be a fibration over a path connected space $B$ with fiber $F$. Let $\iota:F\hookrightarrow E$ be the inclusion of the fiber. Then there is a long exact sequence in homotopy groups: \\~\\
 \adjustbox{scale=0.75,center}{\begin{tikzcd}
 	\cdots & {\pi_{n+1}(B,b_0)} & {\pi_n(F,e_0)} & {\pi_n(E,e_0)} & {\pi_n(B,b_0)} & {\pi_{n-1}(F,e_0)} & \cdots & {\pi_1(E,e_0)} & {\pi_1(B,b_0)}
 	\arrow[from=1-1, to=1-2]
@@ -691,18 +896,27 @@ where any two consecutive maps form a cofibration. Moreover, $-\Sigma f:\Sigma X
 	\arrow[from=1-7, to=1-8]
 	\arrow["{p_\ast}", from=1-8, to=1-9]
 \end{tikzcd}}\\~\\
-for $e_0\in E$ and $b_0=p(e_0)$. 
+for $e_0\in E$ and $b_0=p(e_0)$. Moreover, $p_\ast$ is an isomorphism. 
 \end{thm}
-
-\begin{crl}{}{} Let $(X,x_0)$ be a pointed space and let $p:(\tilde{X},\tilde{x}_0)\to(X,x_0)$ be a covering space. Then $p_\ast$ gives an isomorphism $$\pi_n(\tilde{X},\tilde{x}_0)\cong\pi_n(X,x_0)$$ for all $n\geq 2$. 
-\end{crl}
 
 \subsection{Serre Fibrations}
 \begin{defn}{Serre Fibration}{} We say that a map $p:E\to B$ is a Serre fibration if it has the homotopy lifting property with respect to all CW-complexes. 
 \end{defn}
 
-\begin{prp}{}{} Every (Hurewicz) fibration is a Serre fibration. 
+\begin{lmm}{}{} Every (Hurewicz) fibration is a Serre fibration. \tcbline
+\begin{proof}
+This is true since Hurewicz fibrations satisfies the homotopy lifting property with respect to all topological spaces, including CW complexes. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $p:E\to B$ be a fibration where $B$ is path connected. Let $F$ be the fiber of $p$. Let $b\in B$. Then the map $$\cdot:\pi_1(B)\times E_b\to E_b$$ defined by $[\gamma]\cdot x=L_\gamma(x)$ induces an action of $\pi_1(B)$ on the homology groups $H_\ast(F;G)$ given by $[\gamma]\cdot[z]=(L_\gamma)_\ast([z])$ for any $g\in G$. \tcbline
+\begin{proof}
+Notice first that such a map is well defined by lemma 6.3.3. Associativity follows from the second point of lemma 6.3.3. Identity follows the unique lift of the identity loop $e_b$ that gives $L_{e_b}$ is also the identity. 
+\end{proof}
 \end{prp}
+
+\begin{thm}{Leray-Serre Spectral Sequence}{} Let $p:E\to B$ be a Serre fibration with fibre $F$ and path connected $B$. Suppose that the action of $\pi_1(B)$ on $H_\ast(F;G)$ is trivial. Then there is a first quadrant homological spectral sequence starting with $E^2$ and weakly converging to $H_\bullet(E;\Z)$. Explicitly, there is a convergence $$E_{p,q}^2=H_p(B,H_1(F))\Rightarrow H_{p+q}(E;\Z)$$
+\end{thm}
 
 \subsection{Postnikov Towers}
 \begin{defn}{Postnikov Towers}{} Let $X$ be a path connected space. A Postnikov tower is the following commutative diagram \\~\\
@@ -1161,6 +1375,48 @@ where $\iota:A\to X$ is the inclusion and $\pi:X\to X/A$ is the projection.
 
 TBA: Unreduced = reduced. 
 
+\pagebreak
+\section{Bonus?}
+\begin{thm}{}{} Let $X$ be a space. Let the following be a sequence $$\emptyset\subset X_0\subset X_1\subset\cdots\subset X$$ of subspaces. Let $G$ be an abelian group. Then the following data
+\begin{itemize}
+\item $A_{p,q}=H_{p+q}(X_p;G)$
+\item $E_{p,q}=H_{p+q}(X_p,X_{p-1};G)$
+\item $i:H_{p+q}(X_p;G)=A_{p,q}\to H_{p+q}(X_{p+1};G)=A_{p+1,q-1}$ (degree $(1,-1)$)
+\item $j:H_{p+q}(X_p;G)=A_{p,q}\to H_{p+q}(X_p,X_{p-1};G)=E_{p,q}$ (degree $(0,0)$)
+\item $k:H_{p+q}(X_p,X_{p-1};G)=A_{p,q}\to H_{p+q-1}(X_{p-1};G)=A_{p-1,q}$ (degree $(-1,0)$)
+\end{itemize}
+defines an exact couple and hence a spectral sequence with $E^1$ page given by $$E_{p,q}^1=H_{p+q}(X_p,X_{p-1};G)$$ where the differential $d:E_{p,q}^1\to E_{p-1,q}^1$ is given by the composition $$H_{p+q}(X_p,X_{p-1};G)\overset{k}{\longrightarrow}H_{p+q-1}(X_{p-1};G)\overset{j}{\longrightarrow} H_{p+q-1}(X_{p-1},X_{p-2};G)$$
+\end{thm}
+
+The $E_1$ page of such a spectral sequence is given by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & \cdots & \cdots & \cdots \\
+	{H_3(X_1,X_0;G)} & {H_4(X_2,X_1;G)} & {H_4(X_3,X_2;G)} & \cdots \\
+	{H_2(X_1,X_0;G)} & {H_3(X_2,X_1;G)} & {H_4(X_3,X_2;G)} & \cdots \\
+	{H_1(X_1,X_0;G)} & {H_2(X_2,X_1;G)} & {H_3(X_3,X_2;G)} & \cdots
+	\arrow[from=1-2, to=1-1]
+	\arrow[from=1-3, to=1-2]
+	\arrow[from=1-4, to=1-3]
+	\arrow[from=2-2, to=2-1]
+	\arrow[from=2-3, to=2-2]
+	\arrow[from=2-4, to=2-3]
+	\arrow[from=3-2, to=3-1]
+	\arrow[from=3-3, to=3-2]
+	\arrow[from=3-4, to=3-3]
+	\arrow[from=4-2, to=4-1]
+	\arrow[from=4-3, to=4-2]
+	\arrow[from=4-4, to=4-3]
+\end{tikzcd}}\\~\\
+
+Things get interesting when we choose $X$ to be a CW complex and we choose the filtration of $X$ by the skeleton of $X$. Recall that we have the formula $$H_{p+q}(X_p,X_{p-1};G)\cong\begin{cases}
+C_p^\text{CW}(X;G) & \text{ if } q=0\\
+0 & \text{otherwise}
+\end{cases}$$ Thus the $E^1$ page is only left with a chain complex at $q=0$. 
+
+Let us also compute the derived couple of this exact couple or in other words, the $E^2$ page of the spectral sequence. This is more intuitive then the one thinks about on the definition of the derived couple. The $E_{p,q}^2$ slot is simply the homology of the chain complex at the $(p,q)$th slot. The direction of the maps of the $E^2$ page depends not on the choice of spectral sequence at all (In fact, the direction only depends on the page). Now in our case, the homology can be given by a known construct: $$E_{p,q}^2=\frac{\ker(d:H_{p+q}(X_p,X_{p-1};G)\to H_{p+q-1}(X_{p-1},X_{p-2};G))}{\im(d:H_{p+q+1}(X_{p+1},X_p;G)\to H_{p+q}(X_p,X_{p-1};G))}=H_{p+q}^\text{CW}(X;G)$$ Since the direction of the maps are now diagonal and when $q\neq 0$ we have $E_{p,q}^2=0$, all maps in $E^2$ are $0$ and we are left with \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{H_0^\text{CW}(X;G)} & {H_1^\text{CW}(X;G)} & {H_2^\text{CW}(X;G)} & {H_3^\text{CW}(X;G)} & \cdots
+\end{tikzcd}}\\~\\
 
 
 

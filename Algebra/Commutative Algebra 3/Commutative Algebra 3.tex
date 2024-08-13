@@ -5,10 +5,10 @@
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{Labix}
-\lhead{Commutative Algebra 2}
+\lhead{Commutative Algebra 3}
 \rfoot{\thepage}
 
-\title{Commutative Algebra 2}
+\title{Commutative Algebra 3}
 
 \author{Labix}
 
@@ -408,5 +408,23 @@ By the first exact sequence \ref{thm:2.3.1} and apply it to $C=S^{-1}B$, we obta
 Materials referenced: \cite{Liu}
 \end{proof}
 \end{prp}
+
+\pagebreak
+\section{Second Course on Algebra}
+\subsection{Smooth Algebras}
+\begin{defn}{Smooth Algebra}{} Let $A$ be a commutative algebra over a field $k$. We say that $A$ is a smooth algebra over $k$ if $\Omega_{A/k}^1$ is a projective $A$-module. 
+\end{defn}
+
+\begin{defn}{Formal Smoothness}{} Let $A$ be a commutative algebra over a field $k$. We say that $A$ is a formally smooth if for every $k$-algebra $C$ together with a $k$-algebra homomorphism $u:A\to C/N$ where $N^2=0$, there exists a $k$-algebra map $v:A\to C$ such that the following diagram is commutative:  \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	A & C \\
+	& {\frac{C}{N}}
+	\arrow["{\exists v}", dashed, from=1-1, to=1-2]
+	\arrow["u"', from=1-1, to=2-2]
+	\arrow["p", from=1-2, to=2-2]
+\end{tikzcd}}\\~\\
+We say that $A$ is etale over $k$ if such a map $v:A\to C$ is unique. 
+\end{defn}
+
 
 \end{document}

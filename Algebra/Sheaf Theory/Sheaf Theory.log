@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  16 JUL 2024 17:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  2 AUG 2024 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -944,7 +944,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 227.
+Package hyperref Info: Option `colorlinks' set `true' on input line 228.
 ) (Sheaf Theory.aux)
 \openout1 = `"Sheaf Theory.aux"'.
 
@@ -1085,21 +1085,14 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Sheaf Theory".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Sheaf Theory".out':
-(rerunfilecheck)             Before: E3B64BF841376329EAE7E8DDC5F4A10A;2372
-(rerunfilecheck)             After:  F028C575D5869A1B79A1B3626DA2894F;2684.
+Package rerunfilecheck Info: File `"Sheaf Theory".out' has not changed.
+(rerunfilecheck)             Checksum: F028C575D5869A1B79A1B3626DA2894F;2684.
  ) 
 Here is how much of TeX's memory you used:
- 33142 strings out of 474424
- 656790 string characters out of 5741739
+ 33144 strings out of 474424
+ 656822 string characters out of 5741739
  1971496 words of memory out of 5000000
- 54862 multiletter control sequences out of 15000+600000
+ 54864 multiletter control sequences out of 15000+600000
  601492 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,16n,120p,1149b,1481s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1122,9 +1115,9 @@ s/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Sheaf Theory.pdf" (19 pages, 424492 bytes).
+Output written on "Sheaf Theory.pdf" (19 pages, 425734 bytes).
 PDF statistics:
- 365 PDF objects out of 1000 (max. 8388607)
+ 375 PDF objects out of 1000 (max. 8388607)
  108 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 149 words of extra memory for PDF output out of 10000 (max. 10000000)
 

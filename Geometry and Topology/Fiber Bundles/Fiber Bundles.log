@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  19 JUL 2024 18:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  9 AUG 2024 10:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -944,7 +944,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 227.
+Package hyperref Info: Option `colorlinks' set `true' on input line 228.
 ) (Fiber Bundles.aux)
 \openout1 = `"Fiber Bundles.aux"'.
 
@@ -1081,19 +1081,19 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 315.
 
-[14] [15] [16] [17] [18] [19] [20] (Fiber Bundles.aux)
+[14] [15] [16] [17] [18] [19] [20] [21] (Fiber Bundles.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Fiber Bundles".out' has not changed.
-(rerunfilecheck)             Checksum: DED22727E7A130630C4190F9026578F0;5173.
+(rerunfilecheck)             Checksum: CC103C9C9603F6701BBE2841591501A6;5173.
  ) 
 Here is how much of TeX's memory you used:
- 32515 strings out of 474424
- 640617 string characters out of 5741739
+ 32535 strings out of 474424
+ 640904 string characters out of 5741739
  1957496 words of memory out of 5000000
- 54221 multiletter control sequences out of 15000+600000
+ 54229 multiletter control sequences out of 15000+600000
  602799 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,16n,120p,1012b,1474s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1114,9 +1114,9 @@ blic/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Fiber Bundles.pdf" (20 pages, 393694 bytes).
+Output written on "Fiber Bundles.pdf" (21 pages, 401453 bytes).
 PDF statistics:
- 438 PDF objects out of 1000 (max. 8388607)
- 124 named destinations out of 1000 (max. 500000)
+ 455 PDF objects out of 1000 (max. 8388607)
+ 136 named destinations out of 1000 (max. 500000)
  229 words of extra memory for PDF output out of 10000 (max. 10000000)
 
