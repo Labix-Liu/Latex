@@ -454,9 +454,10 @@ In other words, the chain complex is of the form: \\~\\
 \begin{prp}{}{} Let $F:\mathcal{A}\to\mathcal{B}$ be an additive functor. Then $F$ preserves split exact sequences. 
 \end{prp}
 
-\begin{thm}{Freyd-Mitchell Embedding Theorem}{} Let $\mathcal{A}$ be a small abelian category. Then there exists a ring $R$ and an exact, fully faithful functor $F:\mathcal{A}\to R-\text{mod}$. \\~\\
-This means that $$\Hom_{\mathcal{A}}(M,N)\cong\Hom_R(F(M),F(N))$$
+\begin{thm}{Freyd-Mitchell Embedding Theorem}{} Let $\mathcal{A}$ be a small abelian category. Then there exists a ring $R$ and an exact, fully faithful functor $F:\mathcal{A}\to{_R\bold{Mod}}$. This means that there is an isomorphism of sets $$\Hom_{\mathcal{A}}(M,N)\cong\Hom_R(F(M),F(N))$$ 
 \end{thm}
+
+Such a functor allows us think about diagrams in $\mA$ as if they were diagrams in ${_R\bold{Mod}}$
 
 \begin{lmm}{}{} The Freyd-Mitchell embedding preserves kernels and cokernels. Moreover, it maps the zero object to the zero object. 
 \end{lmm}
@@ -465,6 +466,15 @@ This means that $$\Hom_{\mathcal{A}}(M,N)\cong\Hom_R(F(M),F(N))$$
 \begin{itemize}
 \item The covariant functor $\Hom(M,-):\mA\to\bold{Ab}$ is left exact. 
 \item The contravariant functor $\Hom(-,M):\mA\to\bold{Ab}$ is right exact. 
+\end{itemize}
+\end{thm}
+
+Let $\mC$ be a category and let $\mJ$ be a diagram. Recall that if $\mC$ is complete, then the limit can be thought of as a functor $\lim_\mJ:\mC^\mJ\to\mC$. Dually, if $\mC$ is cocomplete, the colimit can be thought of as a functor $\colim_\mJ:\mC^\mJ\to\mC$. If $\mC$ is an abelian category, it makes sense to ask whether these two functors preserve exact sequences. 
+
+\begin{thm}{}{} Let $\mA$ be an abelian category. Let $\mJ$ be a small category. Then the following are true. 
+\begin{itemize}
+\item If $\mA$ is complete, then the functor $\lim_\mJ:\mC^\mJ\to\mC$ is left exact
+\item If $\mA$ is cocomplete, then the functor $\colim_\mJ:\mC^\mJ\to\mC$ is right exact
 \end{itemize}
 \end{thm}
 
@@ -699,7 +709,34 @@ the following diagram commutes: \\~\\
 
 \pagebreak
 \section{A Second Course on Modules}
-\subsection{Projective and Injective Modules}
+\subsection{The Hom and Tensor Functor}
+Let $R$ be a ring. Recall from category theory that the $\Hom_{_R\bold{Mod}}(A,B)=\Hom(A,B)$ is a functorial in both variables $A,B\in{_R\bold{Mod}}$. Given that ${_R}\bold{Mod}$ is an abelian category, it is natural to ask whether $\Hom$ is an exact functor. \\~\\
+
+The answer is that in general, it is not exact. 
+
+\begin{thm}{}{} Let $R$ be a ring and let $M$ be an $R$-module. Then both $$\Hom(M,-):{_R\bold{Mod}}\to{_R\bold{Mod}}\;\;\;\;\text{ and }\;\;\;\;\Hom(-,M):{_R\bold{Mod}}\to{_R\bold{Mod}}$$ are left exact functors. 
+\end{thm}
+
+The same goes for the tensor product. 
+
+\begin{thm} Let $R$ be a ring and let $M$ be an $R$-module. Then both $$-\otimes_R M:{_R\bold{Mod}}\to{_R\bold{Mod}}\;\;\;\;\text{ and }\;\;\;\;M\otimes_R-:{_R\bold{Mod}}\to{_R\bold{Mod}}$$ are right exact functors. 
+\end{thm}
+
+These two functors are related by the famous tensor-hom adjunction. 
+
+\begin{thm}{Tensor-Hom Adjunction}{} Let $R$ be a ring and let $M$ be an $R$-module. Then there is an adjunction $-\otimes_RM:{_R\bold{Mod}}\rightleftarrows{_R\bold{Mod}}:\Hom(M,-)$. Explicitly, there is a natural isomorphism $$\Hom_{_R\bold{Mod}}(-\otimes_RM,-)\cong\Hom_{_R\bold{Mod}}(-,\Hom_{_R\bold{Mod}}(M,-))$$ 
+\end{thm}
+
+We find it important to notice the relation between all four functor here. Notice that because there is a canonical isomorphism $M\otimes_RN\cong N\otimes_RM$, we can replace $-\otimes_RM$ in the natural isomorphism $$\Hom_{_R\bold{Mod}}(-\otimes_RM,-)\cong\Hom_{_R\bold{Mod}}(-,\Hom_{_R\bold{Mod}}(M,-))$$ with $M\otimes_R-$. This leaves us with the question: What is the functor $\Hom(-,M)$ adjoint to? The answer is itself! $$\Hom_R(A,\Hom_R(B,C))\cong\Hom(B,\Hom(A,C))$$ Therefore it is more often to discuss $\Hom(M,-)$ in conjunction with $-\otimes_RM$, while $\Hom(-,M)$ is often left behind. \\~\\
+
+More generally, the tensor-hom adjunction is a phenomena that exhibits ${_R}\bold{Mod}$  as a closed monoidal category. 
+
+\begin{thm}{}{} Let $R$ be a ring. Then $({_R}\bold{Mod},\otimes_R,R)$ is a symmetric monoidal category. Moreover, it is a closed monoidal category with internal hom given by the usual hom functor $\text{HOM}_{{_R}\bold{Mod}}(-,-)=\Hom_R(-,-)$. 
+\end{thm}
+
+\subsection{Projective, Injective and Flat Modules}
+In the third chapter we discussed the notion of projective and injective objects, which are core to the definition of existence of left derived functors and right derived functors respectively. We will now define projective and injective modules with a universal property and exhibit that the two notions coincide. 
+
 \begin{defn}{Projective Modules}{} An $R$-module $M$ is said to be projective if for every surjective homomorphism $f:N\twoheadrightarrow M$ and every module homomorphism $g:P\to M$, there exists a module homomorphism $h:P\to N$ such that $f\circ h=g$. In other words, the following diagram commutes: \\~\\
 \adjustbox{scale=1.1,center}{\begin{tikzcd}
 & N\arrow[d, "f", twoheadrightarrow]\\
@@ -763,6 +800,8 @@ is exact.
 \end{prp}
 
 \subsection{Flat Modules}
+While projective modules allows the exactness of $\Hom(M,-)$. The left adjoint of this functor, $-\otimes_RM$ is exact when $M$ is flat. 
+
 \begin{defn}{Flat Modules}{} Let $R$ be a ring. An $R$-module $M$ is said to be flat if for every injective linear map $\phi:K\to L$ of $R$-modules, the map $$\phi\otimes\text{id}_M:K\otimes_RM\to L\otimes_RM$$ is also injective. 
 \end{defn}
 
@@ -780,7 +819,34 @@ is exact.
 \end{itemize}
 \end{thm}
 
-We have the following inclusion of modules $$\text{Free Modules}\subset\text{Projective Modules}\subset\text{Flat Modules}\subset\text{Torsion Free Modules}$$
+We have the following inclusion of modules $$\text{Free Modules}\subset\text{Projective Modules}\subset\text{Flat Modules}\subset\text{Torsion Free Modules}$$ It is important to note that the duality between projective and injective modules is given from the bifunctor $\Hom(-,-)$ while the sense of duality given between projective and injective modules is given by the tensor hom adjunction. 
+
+\subsection{Derived Functors in the Category of R-Modules}
+\begin{defn}{The Ext Functor}{} Let $R$ be a ring and let $A$ be an $R$-module. Define the right derived functor of the left exact functor $\Hom(A,-):{_R\bold{Mod}}\to\bold{Ab}$ to be $$\text{Ext}_R^i(A,-)=R^i(\Hom(A,-)):{_R\bold{Mod}}\to\bold{Ab}$$ 
+\end{defn}
+
+Explicitly, for $$0\to A\to I^0\to I^1\to\cdots$$ an injective resolution, form the cochain complex $$0\to\Hom_R(A,I^0)\to\Hom_R(A,I^1)\to\cdots$$ and define $\text{Ext}$ to be the cohomology group $$\text{Ext}_R^i(A,B)=\frac{\ker(\Hom_R(A,I^i)\to\Hom_R(A,I^{i+1}))}{\im(\Hom_R(A,I^{i-1})\to\Hom_R(A,I^i))}$$~\\
+
+Notice how although $A$ is viewed as a fixed $R$-module, it is written as if it was a variable for the functor $\text{Ext}$. Indeed, we can define the Ext functor in another manner. 
+
+\begin{thm}{}{} Let $R$ be a ring and let $A,B$ be $R$-modules. Then there is an isomorphism $$\text{Ext}_R^i(A,B)=R^i(\Hom(A,-))(B)\cong R^i(\Hom(-,B))(A)$$ that is natural in $A$ and $B$. 
+\end{thm}
+
+\begin{thm}{}{} Let $A,B$ be $R$-modules. Then the following are true regarding the Ext group. 
+\begin{itemize}
+\item $\text{Ext}_R^0(A,B)\cong\Hom_R(A,B)$
+\item $\text{Ext}_R^i(A,B)=0$ for all $i>0$ if $A$ is projective or $B$ is injective
+\item $\text{Ext}_R^i(A,B)=0$ for all $i\geq 2$ if $A,B$ are $\Z$-modules. 
+\end{itemize}
+\end{thm}
+
+\begin{defn}{The Tor Functor}{} Let $R$ be a ring and let $B$ be an $R$-module. Define the left derived functor of the right exact functor $-\otimes_RB:{ _R\bold{Mod}}\to{_R\bold{Mod}}$ to be $$\text{Tor}_i^R(-,B)=L_i(-\otimes_RB):{_R\bold{Mod}}\to\bold{Ab}$$ 
+\end{defn}
+
+Explicitly, for $$\cdots\to P_1\to P_0\to B\to 0$$ an injective resolution, form the chain complex $$\cdots\to P_1\otimes_RB\to P_0\otimes_RB\to 0$$ and define $\text{Tor}$ to be the homology group $$\text{Tor}_i^R(A,B)=\frac{\ker(P_i\otimes_RB\to P_{i-1}\otimes_RB)}{\im(P_{i+1}\otimes_RB\to P_i\otimes_RB)}$$
+
+\begin{thm}{}{} Let $R$ be a ring and let $A,B$ be $R$-modules. Then there is an isomorphism $$\text{Tor}_i^R(A,B)=L_i(-\otimes_RB)(A)\cong L_i(A\otimes_R-)(B)$$ that is natural in $A$ and $B$. 
+\end{thm}
 
 \subsection{Extensions and Torsions}
 \begin{defn}{Extensions}{} Let $R$ be a ring. Let $M,N$ be $R$-modules. An extension of $M$ by $N$ is a short exact sequence \\~\\
@@ -849,21 +915,6 @@ of $R$-modules. The above extension is called a trivial extension.
 
 \begin{thm}{}{} Let $R$ be a ring. Let $M,N$ be $R$-modules. There is a bijection $$\frac{\{\text{Extensions of }M\text{ by }N\}}{\cong}\;\;\;\;\overset{1:1}{\longleftrightarrow}\;\;\;\;\text{Ext}_R^1(M,N)$$ where $\cong$ means equivalence of extensions. Moreover, the trivial extension corresponds to the zero element of $\text{Ext}_R^1(M,N)$. 
 \end{thm}
-
-\subsection{Derived Functors in the Category of R-Modules}
-\begin{defn}{The Ext Functor}{} Denote $_R\bold{Mod}$ the category of $R$-modules. Let $A$ be an $R$-module. Define the right derived functor of the functor $\Hom(A,-):{_R\bold{Mod}}\to\bold{Ab}$ to be $$\text{Ext}_R^i(A,-):{_R\bold{Mod}}\to\bold{Ab}$$ Explicitly, for $$0\to A\to I^0\to I^1\to\cdots$$ an injective resolution, form the cochain complex $$0\to\Hom_R(A,I^0)\to\Hom_R(A,I^1)\to\cdots$$ and define $\text{Ext}$ to be the cohomology group $$\text{Ext}_R^i(A,B)=\frac{\ker(\Hom_R(A,I^i)\to\Hom_R(A,I^{i+1}))}{\im(\Hom_R(A,I^{i-1})\to\Hom_R(A,I^i))}$$
-\end{defn}
-
-\begin{thm}{}{} Let $A,B$ be $R$-modules. Then the following are true regarding the Ext group. 
-\begin{itemize}
-\item $\text{Ext}_R^0(A,B)\cong\Hom_R(A,B)$
-\item $\text{Ext}_R^i(A,B)=0$ for all $i>0$ if $A$ is projective or $B$ is injective
-\item $\text{Ext}_R^i(A,B)=0$ for all $i\geq 2$ if $A,B$ are $\Z$-modules. 
-\end{itemize}
-\end{thm}
-
-\begin{defn}{The Tor Functor}{} Denote $_R\bold{Mod}$ the category of $R$-modules. Let $B$ be an $R$-module. Define the right derived functor of the functor $-\otimes_RB:{ _R\bold{Mod}}\to{_R\bold{Mod}}$ to be $$\text{Tor}_i^R(-,B):{_R\bold{Mod}}\to\bold{Ab}$$ Explicitly, for $$\cdots\to P_1\to P_0\to B\to 0$$ an injective resolution, form the chain complex $$\cdots\to P_1\otimes_RB\to P_0\otimes_RB\to 0$$ and define $\text{Tor}$ to be the homology group $$\text{Tor}_i^R(A,B)=\frac{\ker(P_i\otimes_RB\to P_{i-1}\otimes_RB)}{\im(P_{i+1}\otimes_RB\to P_i\otimes_RB)}$$
-\end{defn}
 
 \pagebreak
 \section{Spectral Sequences}
@@ -975,7 +1026,7 @@ Evidently, there is a tower of subobjects of $E_p^0$ given by $$0=B_p^0\subseteq
 \end{thm}
 
 \subsection{Convergence}
-\begin{defn}{Weakly Convergent}{} Let $(E_{\bullet,\bullet}^r,d^r)$ be a spectral sequence. We say that it is weakly convergent if there is a graded object $H_\bullet$ together with a filtration $F_\bullet H_n$ for every $n\in\N$, together with isomorphisms $$\beta_{p,q}:E_{p,q}^\infty\overset{\cong}{\longrightarrow}\frac{F_pH_{p+q}}{F_{p-1}H_{p+q}}$$
+\begin{defn}{Weakly Convergent}{} Let $(E_{\bullet,\bullet}^r,d^r)$ be a spectral sequence. We say that it is weakly convergent if there is a graded object $H_\bullet$ together with an exhaustive filtration $F_\bullet H_n$ for every $n\in\N$, together with isomorphisms $$\beta_{p,q}:E_{p,q}^\infty\overset{\cong}{\longrightarrow}\frac{F_pH_{p+q}}{F_{p-1}H_{p+q}}$$
 \end{defn}
 
 \begin{defn}{Convergent Spectral Sequences}{} Let $(E_{\bullet,\bullet}^r,d^r)$ be a spectral sequence. We say that it is convergent if the following are true. 

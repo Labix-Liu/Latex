@@ -1,0 +1,73 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Cohomology of Schemes}
+\rfoot{\thepage}
+
+\title{Cohomology of Schemes}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+
+References: 
+\begin{itemize}
+
+\end{itemize}
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{Cohomology of Schemes}
+\subsection{Cohomology of a Noetherian Affine Scheme}
+\begin{prp}{}{} Let $I$ be an injective module over a Noetherian ring $A$. Then the sheaf $\tilde{I}$ on $\text{Spec}(A)$ is flasque. 
+\end{prp}
+
+\begin{thm}{}{} Let $A$ be a Noetherian ring. Then for all quasi-coherent sheaves $\mF$ on $X=\text{Spec}(A)$, $$H^i(X,\mF)=0$$ for all $i>0$. 
+\end{thm}
+
+Note that result is also true if we drop the requirement that $A$ is Noetherian. But the proof is more difficult. 
+
+\begin{thm}{}{} Let $X$ be a Noetherian scheme. Then the following are equivalent. 
+\begin{itemize}
+\item $X$ is an affine scheme
+\item $H^i(X,\mF)=0$ for all quasi-coherent sheaves $\mF$ and all $i>0$
+\item $H^1(X,\mI)=0$ for all coherent sheaves of ideals $\mI$
+\end{itemize}
+\end{thm}
+
+\subsection{Cohomology of Projective Space}
+\begin{thm}{}{} Let $A$ be a Noetherian ring and let $S=A[x_0,\dots,x_r]$. Let $X=\text{Proj}(S)$ be the projective space over $A$. Let $\mO_X(1)$ be the twisting sheaf of Serre. Then the following are true. 
+\begin{itemize}
+\item The natural map $$S\to\Gamma_\ast(\mO_X)=\bigoplus_{n\in\Z}H^0(X,\mO_X(n))$$ is an isomorphism
+\item For all $n\in\Z$, $H^i(X,\mO_X(n))=0$ for $0<i<r$
+\item There is an isomorphism $H^r(X,\mO_X(-r-1))\cong A$
+\item For each $n\in\Z$, the natural map $$H^0(X,\mO_X(n))\times H^r(X,\mO_X(-n-r-1))\to H^r(X,\mO_X(-r-1))\cong A$$ is a perfect pairing of finitely generated free $A$-modules
+\end{itemize}
+\end{thm}
+
+\pagebreak
+\section{Etale Cohomology}
+Denote the category of smooth irreducible projective varieties over a fixed algebraically closed field $k$ by $$\bold{SmIrrProj}_k$$
+
+\begin{defn}{Weil Cohomology Theories}{} Let $L$ be a field of characteristic $0$. A Weil cohomology theory with coefficients in $L$ is a collection of contravariant functors $$H^n(-;L):\bold{SmIrrProj}_k\to\bold{Vect}_L$$ such that the following conditions hold. 
+\begin{itemize}
+\item For any $X$, $H^n(X;L)$ is finite dimensional over $L$
+\item $H^i(X;L)=0$ for $i>2\dim(X)$
+\item $\dim(H^0(X;L))=\dim(H^{2\dim(X)}(X;L))=1$
+\item 
+\end{itemize}
+\end{defn}
+
+
+
+
+\end{document}

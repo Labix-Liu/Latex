@@ -1,0 +1,168 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Hopf Algebra}
+\rfoot{\thepage}
+
+\title{Hopf Algebra}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{Algebras and Coalgebras}
+\subsection{Coalgebras}
+There is a need to revisit the definition of an algebra (over a field)
+
+\begin{prp}{}{} A vector space $V$ over a field $k$ is an algebra if and only if there is a following collection of data: 
+\begin{itemize}
+\item A $k$-linear map $m:V\otimes V\to V$ called the multiplication map
+\item An $k$-linear map $u:k\to V$ called the unital map
+\end{itemize}
+such that the following two diagrams are commutative: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{V\otimes V\otimes V} & {V\otimes V} && {k\otimes V} & {V\otimes V} \\
+	{V\otimes V} & V && V & {V\otimes k}
+	\arrow["{\text{id}\otimes m}", from=1-1, to=1-2]
+	\arrow["{m\otimes\text{id}}"', from=1-1, to=2-1]
+	\arrow["m", from=1-2, to=2-2]
+	\arrow["{u\otimes\text{id}}", from=1-4, to=1-5]
+	\arrow["\cong"', from=1-4, to=2-4]
+	\arrow["m"{description}, from=1-5, to=2-4]
+	\arrow["m"', from=2-1, to=2-2]
+	\arrow["{\text{id}\otimes u}"', from=2-5, to=1-5]
+	\arrow["\cong", from=2-5, to=2-4]
+\end{tikzcd}}\\~\\
+where the unnamed maps is the canonical isomorphisms. 
+\end{prp}
+
+Evidently, the map $\mu$ gives a multiplicative structure for $V$ and $\Delta$ gives the unitary structure of an algebra. The diagram on the left then represent associativity of multiplication. Notice that such additional structure on $V$ formally lives in the category $\bold{Vect}_k$ of vector spaces over a fixed field $k$. \\~\\
+
+Therefore we can formally dualize all arrows to obtain a new object. 
+
+\begin{defn}{Coalgebra}{} Let $V$ be a vector space over a field $k$. We say that $V$ is a coalgebra over $k$ if there is a collection of data: 
+\begin{itemize}
+\item A $k$-linear map $\Delta:V\to V\otimes V$ called the comultiplication map
+\item An $k$-linear map $\varepsilon:V\to k$ called the counital map
+\end{itemize} 
+such that the following diagrams are commutative: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{V\otimes V\otimes V} & {V\otimes V} && {k\otimes V} & {V\otimes V} \\
+	{V\otimes V} & V && V & {V\otimes k}
+	\arrow["{\varepsilon\otimes\Delta}"', from=1-2, to=1-1]
+	\arrow["{\varepsilon\otimes\text{id}}"', from=1-5, to=1-4]
+	\arrow["{\text{id}\otimes\varepsilon}", from=1-5, to=2-5]
+	\arrow["{\Delta\otimes\varepsilon}", from=2-1, to=1-1]
+	\arrow["\Delta"', from=2-2, to=1-2]
+	\arrow["\Delta", from=2-2, to=2-1]
+	\arrow["\cong", from=2-4, to=1-4]
+	\arrow["\Delta"{description}, from=2-4, to=1-5]
+	\arrow["\cong"', from=2-4, to=2-5]
+\end{tikzcd}}\\~\\
+where the unnamed maps is the canonical isomorphisms. 
+\end{defn}
+
+\begin{lmm}{}{} Every vector space $V$ over a field $k$ can be given the structure of a coalgebra where 
+\begin{itemize}
+\item $\Delta:V\to V\otimes V$ is defined by $\Delta(v)=v\otimes v$
+\item $\varepsilon:V\to k$ is defined by $\varepsilon(v)=1_k$
+\end{itemize}
+
+\end{lmm}
+
+We would like to formally invert the definitions of algebra homomorphisms in order to define coalgebra homomorphisms. 
+
+\subsection{}
+Every coalgebra gives rise to an algebra, but not the other way. Such an assignment is moreover functorial. 
+
+\subsection{Bialgebras}
+\begin{defn}{Bialgebras}{} Let $V$ be a vector space over a field $k$. We say that $V$ is a bialgebra if there is a collection of data: 
+\begin{itemize}
+\item A $k$-linear map $m:V\otimes V\to V$ called the multiplication map
+\item An $k$-linear map $u:k\to V$ called the unital map
+\item A $k$-linear map $\Delta:V\to V\otimes V$ called the comultiplication map
+\item An $k$-linear map $\varepsilon:V\to k$ called the counital map
+\end{itemize}
+such that $(V,m,u)$ is an algebra over $k$ and $(V,\Delta,\varepsilon)$ is a coalgebra over $k$ and that the following diagrams are commutative: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{V\otimes V} & V & {V\otimes V} && k && k \\
+	{V\otimes V\otimes V\otimes V} && {V\otimes V\otimes V\otimes V} &&& V \\
+	\\
+	{V\otimes V} && V &&& {k\otimes k\cong k} \\
+	& {k\otimes k\cong k} &&& {V\otimes V} && V
+	\arrow["m", from=1-1, to=1-2]
+	\arrow["{\Delta\otimes\Delta}"', from=1-1, to=2-1]
+	\arrow["\Delta", from=1-2, to=1-3]
+	\arrow["{\text{id}}", from=1-5, to=1-7]
+	\arrow["u"', from=1-5, to=2-6]
+	\arrow["{\text{id}\otimes\tau\otimes\text{id}}"', from=2-1, to=2-3]
+	\arrow["{m\otimes m}"{description}, from=2-3, to=1-3]
+	\arrow["\varepsilon"', from=2-6, to=1-7]
+	\arrow["m", from=4-1, to=4-3]
+	\arrow["{\varepsilon\otimes\varepsilon}"', from=4-1, to=5-2]
+	\arrow["\varepsilon", from=4-3, to=5-2]
+	\arrow["{u\otimes u}"', from=4-6, to=5-5]
+	\arrow["u", from=4-6, to=5-7]
+	\arrow["\Delta", from=5-7, to=5-5]
+\end{tikzcd}}\\~\\
+where $\tau:V\otimes V\to V\otimes V$ is the commutativity map defined by $\tau(x\otimes y)=y\otimes x$. 
+\end{defn}
+
+\begin{thm}{}{} Let $V$ be a vector space over $k$. Suppose that $(V,m,u)$ is an algebra and $(V,\Delta,\varepsilon)$ is a coalgebra. Then the following conditions are equivalent. 
+\begin{itemize}
+\item $(V,m,u,\Delta,\varepsilon)$ is a bialgebra
+\item $m:V\otimes V\to V$ and $u:k\to V$ are coalgebra homomorphisms
+\item $\Delta:V\to V\otimes V$ and $\varepsilon:V\to k$ are algebra homomorphisms
+\end{itemize}
+\end{thm}
+
+\pagebreak
+\section{Hopf Algebras}
+\subsection{}
+\begin{defn}{Hopf Algebra}{} Let $(H,m,u,\Delta,\varepsilon)$ be a bialgebra. We say that $H$ is a Hopf algebra if there is a $k$-linear map $S:H\to H$ called the antipode such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& {H\otimes H} && {H\otimes H} \\
+	H && k && H \\
+	& {H\otimes H} && {H\otimes H}
+	\arrow["{S\otimes\text{id}}", from=1-2, to=1-4]
+	\arrow["m", from=1-4, to=2-5]
+	\arrow["\Delta", from=2-1, to=1-2]
+	\arrow["\varepsilon", from=2-1, to=2-3]
+	\arrow["\Delta"', from=2-1, to=3-2]
+	\arrow["u", from=2-3, to=2-5]
+	\arrow["{\text{id}\otimes S}"', from=3-2, to=3-4]
+	\arrow["m"', from=3-4, to=2-5]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

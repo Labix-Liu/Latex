@@ -21,7 +21,7 @@
 \tableofcontents
 
 \pagebreak
-\section{Group Cohomology}
+\section{Introduction to Group Homology and Cohomology}
 \subsection{G-Modules}
 \begin{defn}{G-Modules}{} Let $G$ be a group. A $G$-module is an abelian group $A$ together with a group action of $G$ on $A$. 
 \end{defn}
@@ -29,14 +29,11 @@
 \begin{defn}{Morphisms of G-Modules}{} Let $G$ be a group. Let $M$ and $N$ be $G$-modules. A function $f:M\to N$ is said to be a $G$-module homomorphism if it is an equivariant group homomorphism. This means that $$f(g\cdot m)=g\cdot f(m)$$ for all $m\in M$ and $g\in G$. 
 \end{defn}
 
-\subsection{The Group of Invariants}
+\subsection{Invariants and Coinvariants}
 \begin{defn}{The Group of Invariants}{} Let $G$ be a group and let $M$ be a $G$-module. Define the group of invariants of $G$ in $M$ to be the subgroup $$M^G=\{m\in M\;|\;gm=m\text{ for all }g\in G\}$$
 \end{defn}
 
 This is the largest subgroup of $M$ for which $G$ acts trivially. 
-
-\begin{thm}{}{} Let $G$ be a group and let $M$ be a $G$-module. Then there are canonical isomorphisms $$M^G\cong\Z\otimes_{\Z[G]}M\cong\Hom_{\Z[G]}(\Z,M)$$
-\end{thm}
 
 \begin{defn}{Functor of Invariants}{} Let $G$ be a group. Define the functor of invariants by $$(-)^G:{_G}\bold{Mod}\to\bold{Ab}$$ as follows. 
 \begin{itemize}
@@ -48,16 +45,27 @@ This is the largest subgroup of $M$ for which $G$ acts trivially.
 \begin{thm}{}{} Let $G$ be a group. The functor of invariants $(-)^G:{_G}\bold{Mod}\to\bold{Ab}$ is left exact. 
 \end{thm}
 
-\subsection{The Different Forms of Cohomology of Groups}
-\begin{defn}{The nth Cohomology Group}{} Let $G$ be a group. Define the $n$th cohomology group of $G$ with coefficients in a $G$-module $M$ to be $$H^n(G;M)=(R^n(-)^G)(M)$$ the $n$th right derived functor of $(-)^G$. 
+\begin{defn}{The Group of Coinvariants}{} Let $G$ be a group and let $M$ be a $G$-module. Define the group of coinvariants of $G$ in $M$ to be the quotient group $$M_G=\frac{M}{\langle gm-m\;|\;g\in G, m\in M\rangle}$$
 \end{defn}
 
-\begin{thm}{}{} Let $G$ be a group and let $M$ be a $G$-module. Then there are natural isomorphisms $$H^n(G;M)\cong\text{Ext}_{\Z[G]}^n(\Z,M)$$
+This is the largest quotient of $M$ for which $G$ acts trivially. 
+
+\subsection{Group Cohomology and its Equivalent Forms}
+\begin{defn}{The nth Cohomology Group}{} Let $G$ be a group. Define the $n$th cohomology group of $G$ with coefficients in a $G$-module $M$ to be $$H_n(G;M)=(L_n(-)_G)(M)$$ the $n$th left derived functor of $(-)_G:{_G\bold{Mod}}\to\bold{Ab}$. 
+\end{defn}
+
+\begin{thm}{}{} Let $G$ be a group and let $M$ be a $G$-module. Then there is an isomorphism $$H^n(G;M)\cong\text{Ext}^n_{\Z[G]}(\Z,M)$$ that is natural in $M$. 
 \end{thm}
 
-In the following theorem, we use the notation $(g_0,\dots,\hat{g_i},\dots,g_n)$ as a shorthand for writing the element in $G^n$ but with the $i$th term omitted. 
+Recall that there are two descriptions of $\text{Ext}$ by considering it as a functor of the first or second variable. Since the above theorem exhibits an isomorphism that is natural in the second variable, let us consider $\text{Ext}$ as the right derived functor of the functor $\Hom_{\Z[G]}(-,M)$ applied to $\Z$ as a $\Z[G]$-module. 
 
-\begin{thm}{}{} Let $G$ be a group. Then the cochain complex \\~\\
+\begin{prp}{}{} Let $G$ be a group and let $M$ be a $G$-module. Let $P_\bullet\to\Z$ be a projective resolution of $\Z$ with $\Z[G]$-modules. Then there is an isomorphism $$H^n(G;M)\cong H^n(\Hom_{\Z[G]}(P_\bullet,M))$$ that is natural in $M$. 
+\end{prp}
+
+For any group $G$, there is always the trivial choice of projective resolution. 
+In the following lemma, we use the notation $(g_0,\dots,\hat{g_i},\dots,g_n)$ as a shorthand for writing the element in $G^n$ but with the $i$th term omitted. 
+
+\begin{lmm}{}{} Let $G$ be a group. Then the cochain complex \\~\\
 \adjustbox{scale=1,center}{\begin{tikzcd}
 	\cdots & {\Z[G^{n+1}]} & {\Z[G^n]} & {\Z[G^{n-1}]} & \cdots & {\Z[G]} & \Z & 0
 	\arrow[from=1-1, to=1-2]
@@ -66,18 +74,52 @@ In the following theorem, we use the notation $(g_0,\dots,\hat{g_i},\dots,g_n)$ 
 	\arrow[from=1-4, to=1-5]
 	\arrow[from=1-5, to=1-6]
 	\arrow[from=1-6, to=1-7]
-\end{tikzcd}}\\~\\ where $f_n:\Z[G^{n+1}]\to\Z[G^n]$ is defined by $$(g_0,\dots,g_n)\mapsto\sum_{i=0}^n(-1)^i(g_0,\dots,\hat{g_i},\dots,g_n)$$ is a projective resolution of $\Z$ lying in ${_\Z[G]}\bold{Mod}$. 
+	\arrow[from=1-7, to=1-8]
+\end{tikzcd}}\\~\\ where $f_n:\Z[G^{n+1}]\to\Z[G^n]$ is defined by $$(g_0,\dots,g_n)\mapsto\sum_{i=0}^n(-1)^i(g_0,\dots,\hat{g_i},\dots,g_n)$$ is a projective resolution of $\Z$ lying in ${_{\Z[G]}}\bold{Mod}$. 
+\end{lmm}
+
+Let $A$ be an $R$-algebra and let $M$ be an $A$-module. Recall that the bar resolution is defined to be the chain complex consisting of $M\otimes A^{\otimes n}$ for each $n\in\N$ together with the boundary maps defined by multiplying the $i$the element to the $i+1$th element. Now let $G$ be a group. By considering $\Z[G]$ as a $\Z$-algebra and that and ring is a module over itself, it makes sense to talk about the bar resolution of $\Z[G]$. 
+
+\begin{thm}{}{} Let $G$ be a group. Consider the bar resolution \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {\Z[G^{n+1}]} & {\Z[G^n]} & {\Z[G^{n-1}]} & \cdots & \Z[G] & \Z & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+	\arrow[from=1-7, to=1-8]
+\end{tikzcd}}\\~\\
+of $\Z[G]$. Then it is a free resolution, and hence a projective resolution of $\Z$ with $\Z[G]$-modules. 
 \end{thm}
 
-\begin{crl}{}{} Let $G$ be a group and let $M$ be a $G$-module. Then there is a natural isomorphism $$H^n(G;M)\cong H^n(\Hom_G(\Z[G^\bullet],M))$$
-\end{crl}
+Thus, given a group $G$ and a $G$-module $M$, the group cohomology of $G$ with coefficients in $M$ can be thought of in the following way: 
+\begin{itemize}
+\item It is the right derived functor of the functor of invariants $(-)^G:{_G\bold{Mod}}\to\bold{Ab}$
+\item It is the extension group $\text{Ext}_{\Z[G]}^n(\Z,M)$ (which is computable by the obvious projective resolution $\Z[G^\bullet]$, or the bar resolution)
+\end{itemize}
 
-\pagebreak
-\section{Group Homology}
-\begin{defn}{The Group of Coinvariants}{} Let $G$ be a group and let $M$ be a $G$-module. Define the group of coinvariants of $G$ in $M$ to be the quotient group $$M_G=\frac{M}{\langle gm-m\;|\;g\in G, m\in M\rangle}$$
+\subsection{Group Homology and its Equivalent Forms}
+\begin{defn}{The nth Cohomology Group}{} Let $G$ be a group. Define the $n$th cohomology group of $G$ with coefficients in a $G$-module $M$ to be $$H^n(G;M)=(R^n(-)^G)(M)$$ the $n$th right derived functor of $(-)^G:{_G\bold{Mod}}\to\bold{Ab}$. 
 \end{defn}
 
-This is the largest quotient of $M$ for which $G$ acts trivially. 
+\begin{thm}{}{} Let $G$ be a group and let $M$ be a $G$-module. Then there is an isomorphism $$H_n(G;M)\cong\text{Tor}_n^{\Z[G]}(\Z,M)$$ that is natural in $M$. 
+\end{thm}
+
+\subsection{Low Degree Interpretations}
+\begin{thm}{}{} Let $G$ be a group and let $M$ be a $G$-module. Then there are natural isomorphisms $$H^0(G,M)=M^G\;\;\;\;\text{ and }\;\;\;H_0(G;M)=M_G$$
+\end{thm}
+
+\begin{thm}{}{} Let $G$ be a group and let $M$ be a $G$-module. Then there is an isomorphism $$H_1(G,M)\cong\frac{G}{[G,G]}=G_\text{ab}$$
+\end{thm}
+
+\begin{thm}{}{} Let $G$ be a group and let $M$ be a trivial $G$-module. Then there is a natural isomorphism $$H^1(G;M)=\frac{(\{f:G\to M\;|\;f(ab)=f(a)+af(b)\},+)}{\langle f:G\to M\;|\;f(g)=gm-m\text{ for some fixed }m\rangle}$$
+\end{thm}
+
+\begin{crl}{}{} Let $G$ be a group and let $M$ be a trivial $G$-module. Then there is a natural isomorphism $$H^1(G;M)\cong\Hom_\bold{Grp}(G,M)$$
+\end{crl}
+
 
 
 

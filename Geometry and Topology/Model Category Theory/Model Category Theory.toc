@@ -21,5 +21,9 @@
 \contentsline {subsection}{\numberline {5.1}The Suspension and Loopspace Functor}{22}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Fibre and Cofibre Sequences}{23}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Stable Model Categories}{24}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Localization Techniques}{25}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Bousfield Localization}{25}{subsection.6.1}%
+\contentsline {section}{\numberline {6}Localization Techniques in Model Categories}{25}{section.6}%
+\contentsline {subsection}{\numberline {6.1}General Localizations}{25}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Local Objects and Morphisms}{25}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Bousfield Localization}{27}{section.7}%
+\contentsline {subsection}{\numberline {7.1}General Properties of Bousfield Localizations}{27}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Existence of Bousfield Localizations}{28}{subsection.7.2}%

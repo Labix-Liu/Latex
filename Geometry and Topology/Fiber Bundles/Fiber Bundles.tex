@@ -109,6 +109,18 @@ There are two important special cases of fiber bundles that will appear time and
 \begin{defn}{Local Sections}{} Let $(F,E,B)$ be a fiber bundle. Let $U\subset B$ be an open set. A local section of the fiber bundle on $U$ is a map $s:U\to B$ such that $$p\circ s=\text{id}_U$$
 \end{defn}
 
+\subsection{Sphere Bundles}
+We now consider a special type of fibrations where the fibers are given by $S^1$. When we pick $n=1$ we obtain the classical object of study in algebraic topology called the Hopf fibration. 
+
+\begin{defn}{Sphere Bundles}{} A sphere bundle is a fiber bundle $p:E\to B$ for which its fibers are the $n$-sphere $S^n$. 
+\end{defn}
+
+\begin{thm}{}{} Let $n\in\N$. Consider $S^{2n+1}$ lying inside $\C^{n+1}$. Then canonical map $\C^n\to\C\Prj^{n}$ given by $$(z_0,\dots,z_n)\mapsto[z_0:\cdots:z_n]$$ is a fiber bundle with fiber $S^1$. 
+\end{thm}
+
+\begin{defn}{Hopf Fibration / Hopf Bundle}{} The fiber bundle $p:S^3\to S^2$ with fiber $S^1$ is called the Hopf fibration / Hopf bundle. 
+\end{defn}
+
 \subsection{Homotopy of Fiber Bundles}
 \begin{thm}{}{} Let $p:E\to B$ be a fiber bundle. Suppose that $f,g:X\to B$ are homotopic maps. Then the pull back bundles $$f^\ast(E)\cong g^\ast(E)$$ are equivalent. 
 \end{thm}
@@ -273,7 +285,7 @@ Principal bundles are easier to understand than fiber bundles with structure gro
 \begin{crl}{}{} A fiber bundle is equivalent to the trivial bundle if and only if its associated principal bundle admits a cross section. 
 \end{crl}
 
-\subsection{Classifying Space}
+\subsection{The Classifying Space}
 Recall that homotopic maps give isomorphic fiber bundles. (???: Descends to isomorphic principal $G$-bundles)
 
 \begin{defn}{Principal Bundle Functor}{} Let $G$ be a topological group and $X$ a space. Define a contravariant functor $\text{Prin}_G:\bold{hTop}\to\bold{Set}$ as follows. 
@@ -308,6 +320,11 @@ such that $f$ is a homotopy equivalence. In particular, this means that any two 
 
 \begin{defn}{Classifying Space}{} Let $G$ be a topological group. The classifying space $BG$ of $G$ is the homotopy type of the universal principal $G$-bundle. Denote the total space of $BG$ by $EG$. For a principal $G$-bundle $f:Y\to X\in\text{Prin}_G(X)$, define the classifying map to be the associated map $X\to BG$ given in 1.5.3. 
 \end{defn}
+
+For those who have the knowledge of Simplical Methods in Topology: 
+
+\begin{thm}{}{} Let $G$ be a topological group. Then classifying space $BG$ of $G$ precisely coincide with that in simplicial sets. This means that the geometric realization $|N(G)|$ of the nerve of $G$ considered as a groupoid with one object is precisely the representing object of $\text{Prin}_G$. 
+\end{thm}
 
 TBA: Functoriality of $B:\bold{Grp}\to\bold{Top}$. 
 
@@ -479,6 +496,17 @@ that is induced by the sequence of inclusions $(B,\emptyset)\hookrightarrow(E,\e
 \end{prp}
 
 \subsection{The Pontrjagin Class}
+
+\pagebreak
+\section{Cohomology of Fiber Bundles}
+
+\begin{thm}{Leray-Hirsch Theorem}{} Let $p:E\to B$ be a fiber bundle with fiber $F$. Suppose the for some ring $R$, the following are true. 
+\begin{itemize}
+\item $H^n(F;R)$ is a finitely generated free $R$-module for all $n\in\N$
+\item For each fiber $F$ and inclusion $i:F\to E$, there exists $c_j\in H^{k_j}(E;R)$ such that the collection $i^\ast(c_j)\in H^{k_j}(F;R)$ form a basis for the free $R$-module $H^\ast(F;R)$
+\end{itemize}
+Then the map $$\Phi:H^\ast(B;R)\otimes_R H^\ast(F;R)\to H^\ast(E;R)$$ defined by $\sum_{i,j}b_i\otimes_R i^\ast(c_j)\mapsto\sum_{i,j} p^\ast(b_i)\smile c_j$ is an isomorphism. 
+\end{thm}
 
 \pagebreak
 \section{Obstruction Theory}

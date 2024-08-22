@@ -21,6 +21,30 @@
 \tableofcontents
 \pagebreak
 
+\pagebreak
+
+\section{Group Completions}
+\subsection{Limits of Algebraic Structures}
+Let $\mA$ be an abelian category (for example $\bold{Ab}$, $\bold{Ring}$, ${_R\bold{Mod}}$, $\bold{Vect}_k$). Fix $\mJ$ a diagram. Recall that as long as all diagrams $\mJ\to\mC$ admits a limits, then the assignment $$\lim_\mJ:\mC^\mJ\to\mC$$ is a well defined functor. Moreover, it is left exact. 
+
+\subsection{}
+\begin{defn}{Completion of an Abelian Group}{} Let $A$ be an abelian group. Let $A=F^0A\supseteq F^1A\supseteq\cdots\supseteq F^nA\supseteq\cdots$ be a filtration. Define the completion of $A$ with respect to the filtration as the inverse limit $$\hat{A}=\lim_{n\in\N}\left(\frac{A}{F^nA}\right)$$
+\end{defn}
+
+We can express the inverse limit explicitly with the formula $$\hat{A}=\left\{(a_0+F^0A,a_1+F^1A,\dots,a_n+F^nA,\dots)\in\prod_{n\in\N}\frac{A}{F^nA}\;\bigg{|}\;a_i+F^iA=a_j+F^iA\text{ for all }i\leq j\right\}$$ By completeness of most of the algebraic categories, completion of abelian groups with extra structure will pertain such extra structure. For example, the completion of a ring with filtrations as subrings will result in a ring structure on the inverse limit. 
+
+The prototypical example of such a group completion is given by the $p$-adic group of integers. 
+
+\begin{defn}{I-adic Completion}{} Let $R$ be a ring and let $I$ be an ideal of $R$. The $I$-adic completion of the ring $R$ is the completion $$\hat{R}_I=\lim_{n\in\N}\left(\frac{R}{I^n}\right)$$
+\end{defn}
+
+
+\subsection{The Artin-Rees Lemma}
+\begin{thm}{Artin-Rees Lemma}{} Assume $A$ is Noetherian and $I$ is an ideal of $A$. Let $M$ be a finite module and $N\subset M$ a submodule. Then there exists $c>0$ such that $$I^nM\cap N=I^{n-c}(I^cM\cap N)$$ for every $n>c$. 
+\end{thm}
+
+\subsection{Hensel's Lemma}
+
 \section{Kähler Differentials}
 The goal of this section is to define the derivations and the module of Kähler differentials, as well as seeing some first consequences such as the two exact sequences. To show existence of the module of Kähler differentials, we will see two different constructions of the module. 
 
@@ -425,6 +449,61 @@ Materials referenced: \cite{Liu}
 \end{tikzcd}}\\~\\
 We say that $A$ is etale over $k$ if such a map $v:A\to C$ is unique. 
 \end{defn}
+
+\section{Geometric Properties of Ring Homomorphisms}
+\subsection{Finite and Quasi-Finite Morphisms}
+\begin{defn}{Finite Morphisms}{} Let $f:R\to S$ be a commutative ring homomorphism. We say that $f$ is a finite morphism if $S$ is a finitely generated $R$-module. 
+\end{defn}
+
+Note: An algebra $A$ over a ring $R$ is finite over $R$ if $A$ is finitely generated as an $R$-module. \\~\\
+
+Note: For $R$ a ring and $p$ a prime ideal, the residue field is defined as $$k(p)=\frac{R_p}{pR_p}$$
+
+\begin{defn}{Quasi-Finite Morphisms}{} Let $f:R\to S$ be a commutative ring homomorphism. We say that $f$ is a quasi-finite morphism if for all prime ideals $q\subset S$ and $p=f^{-1}(q)$, the algebra $$\frac{S_q}{pS_q}$$ is finitely generated as an $k(p)=\frac{R_p}{pR_p}$-module. 
+\end{defn}
+
+\subsection{Unramified Morphisms}
+Recall that a local homomorphism consists of a homomorphism of local rings $f:R\to S$ such that $m_RS\subseteq m_S$
+
+\begin{defn}{}{} Let $(R,m_R,k(R))$ and $(S,m_S,k(S))$ be local rings. Let $f:R\to S$ be a local homomorphism of local rings. We say that $f$ is unramified if the following are true. 
+\begin{itemize}
+\item $m_RS=m_S$
+\item The field extension $k(R)\to k(S)$ is finite and separable
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Every unramified morphism is quasi-finite. 
+\end{lmm}
+
+Note: Zariski's main theorem
+
+\begin{prp}{}{} Let $f:A\to B$ be a unramified local ring homomorphism such that $B$ is the localization of a finitely generated $A$-algebra. Then $B$ is the localization of an $A$-algebra $B_0$ that is a finitely generated $A$-module. 
+\end{prp}
+
+\subsection{Etale Morphisms}
+\begin{defn}{}{} Let $f:R\to S$ be a homomorphism of commutative rings. We say that $f$ is etale if the following are true. 
+\begin{itemize}
+\item $S$ is a finitely generated $R$-algebra
+\item $S$ is a flat $R$-module
+\item $f$ is unramified. 
+\end{itemize}
+In this case, we say that $S$ is etale over $R$, or we say that $S$ is an etale $R$-algebra. 
+\end{defn}
+
+\begin{crl}{}{} Let $f:R\to S$ be an etale homomorphism. Then $B$ is the localization of an $A$-algebra $B_0$ that is a finitely generated $A$-module. \tcbline
+\begin{proof}
+We have already proved this for every every unramified ring homomorphism and every etale homomorphism is also unramified. 
+\end{proof}
+\end{crl}
+
+\begin{prp}{}{} Let $A$ be a $k$-algebra for a field $k$. Then $k\to A$ is an etale morphism if and only if $A$ is isomorphic to the product of finitely many finite separable field extensions of $k$. 
+\end{prp}
+
+\begin{prp}{}{} Let $f:A\to B$ be a finitely generated flat algebra. Then $f$ is etale if and only if for every prime ideal $p\subset A$, the algebra $$B\otimes_A k(p)$$ is etale over $k(p)$. 
+\end{prp}
+
+Note: We say that a local homomorphism $f:A\to B$ is finitely generated if $B$ is the localization of a finitely generated $A$-algebra. 
+
 
 
 \end{document}

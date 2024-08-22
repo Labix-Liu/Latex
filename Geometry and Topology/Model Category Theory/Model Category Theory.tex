@@ -27,7 +27,7 @@ References:
 
 \pagebreak
 \section{Model Categories}
-The definition of a model category is an attempt to answer the following question. In what categories does the notion of homotopies make sense? Obviously we have the prototypical examples: $\bold{Top}, \bold{Top}_\ast, \bold{Top}^2$ and any of its full subcategory. Model categories extract the important properties of these categories and put it in a general context. In turns out that there are quite a number of categories in which the notion of homotopies make sense. Such algebra which was initiated by homotopy is called homotopical algebra, which is in parallel to homological algebra. 
+We have performed homotopies in no less than three categories: The classical homotopies in $\bold{Top}$, the simplicial homotopies in $\bold{sSet}$ and the chain homotopies in $\text{Ch}(\mA)$ for some abelian category $\mA$. In what categories does the notion of homotopies make sense? The definition of a model category is an attempt to answer the following question. Model categories extract the important properties of these categories and put it in a general context. In turns out that there are quite a number of categories in which the notion of homotopies make sense. Such algebra which was initiated by homotopy is called homotopical algebra, which is in parallel to homological algebra. 
 
 \subsection{Basic Definitions}
 In our royal road of algebraic topology, we have again and again weakened our notion of ``isomorphism'' for our convenience. We began with the notion of homeomorphisms, which are too strict for any algebraic invariant to classify. Therefore we turned to a weaker notion, namely that of homotopy equivalences. This has the added benefit of the direct definitions of the homotopy groups which are the main invariants in algebraic topology. While the celebrated Whitehead's theorem shows that the homotopy groups are a complete invariant for CW complexes up to homotopy equivalence, the same cannot be said for arbitrary spaces. \\~\\
@@ -622,7 +622,7 @@ by the universal property of pullbacks. The fibrations are such morphisms such t
 \pagebreak
 \section{Quillen Adjunctions and Quillen Equivalence}
 \subsection{Quillen Adjunctions}
-\begin{defn}{Quillen Adjunction}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be an adjuction. We say that $F$ and $G$ define a Quillen adjunction if $F$ preserves cofibrations and $G$ preserves fibrations. 
+\begin{defn}{Quillen Adjunction}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be an adjuction. We say that $F$ and $G$ define a Quillen adjunction if $F$ preserves cofibrations and $G$ preserves fibrations. In this case we say that $F$ is a left Quillen functor and $G$ is a right Quillen functor. 
 \end{defn}
 
 \begin{thm}{}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be an adjuction. Then the following are equivalent. 
@@ -735,7 +735,9 @@ In this subsection, we consider the model category $\bold{Top}$ where the model 
 \begin{lmm}{}{} Acyclic cofibrations in $\bold{sSet}$ are precisely the Kan fibrations. 
 \end{lmm}
 
-\begin{thm}{}{} The singular functor and geometric realization functor $$\abs{\;\cdot\;}:\text{Top}\rightleftarrows\text{sSet}:S$$ form a Quillen adjunction. Moreover, the Quillen adjunction is a Quillen equivalence and hence descends to an equivalence of categories $$\text{Ho}(\bold{sSet})\cong\text{Ho}(\bold{Top})$$
+Recall that in Simplicial Methods of Topology, we defined the singular functor $S:\bold{Top}\to\bold{sSet}$ by sending every topological space to its set of all $n$-simplices for all $n$. We also showed that $S$ and the geometric realization functor are adjoint. Here we will show that they are in fact a Quillen adjunction, and a Quillen equivalence. 
+
+\begin{thm}{}{} The singular functor and geometric realization functor $$\abs{\;\cdot\;}:\text{Top}\rightleftarrows\text{sSet}:S$$ form a Quillen adjunction. Moreover, the Quillen adjunction is a Quillen equivalence and hence descends to an model equivalence of categories $$\text{Ho}(\bold{sSet})\cong\text{Ho}(\bold{Top})$$
 \end{thm}
 
 \pagebreak
@@ -852,14 +854,31 @@ While $\bold{Top}_\ast$ is a model category, it is not a stable homotopy categor
 \end{thm}
 
 \pagebreak
-\section{Localization Techniques}
+\section{Localization Techniques in Model Categories}
+\subsection{General Localizations}
+\begin{defn}{Left Localizations}{} Let $\mC$ be a model category and let $\mW$ be a class of morphisms in $\mC$. A left localization of $\mC$ with respect to $\mW$ is a model category $$L_\mW\mC$$ together with a left Quillen functor $j:\mC\to L_\mW\mC$ such that the following are true. 
+\begin{itemize}
+\item The total left derived functor $\mL j:\text{Ho}(\mC)\to\text{Ho}(L_\mW\mC)$ of $j$ takes the images in $\text{Ho}(\mC)$ into isomorphisms in $\text{Ho}(L_\mW\mC)$. 
+\item The above property is universal in the following sense: If $\mD$ is another model category together with a left Quillen functor $k:\mC\to\mD$ such that $\mL k$ takes images in $\text{Ho}(\mC)$ into isomorphisms in $\text{Ho}(\mD)$, then there exists a functor $\delta:\text{Ho}(L_\mW\mC)\to\text{Ho}(\mD)$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\text{Ho}(\mC)} & {\text{Ho}(L_\mW\mC)} \\
+	& {\text{Ho}(\mD)}
+	\arrow["{\mL j}", from=1-1, to=1-2]
+	\arrow["{\mL k}"', from=1-1, to=2-2]
+	\arrow["{\exists!\delta}", dashed, from=1-2, to=2-2]
+\end{tikzcd}}\\~\\
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $\mC$ be a model category and let $\mW$ be a class of morphisms in $\mC$. Then the left localization of $\mC$ with respect to $\mW$ is unique up to unique isomorphism, should it exists. 
+\end{prp}
+
 \subsection{Local Objects and Morphisms}
 \begin{defn}{$\mW$-Local Objects and Morphisms}{} Let $\mC$ be a model category and let $\mW$ be a class of morphisms. 
 \begin{itemize}
 \item We say that an object $C\in\mC$ is $\mW$-local if $C$ is fibrant and $$f^\ast:\Hom_{\text{Ho}(\mC)}(B,C)\to\Hom_{\text{Ho}(\mC)}(A,C)$$ is a weak equivalence for all $f:A\to B$ in $\mC$. 
-\item We say that a morphism $f:A\to B$ is an $\mW$-equivalence if $$f^\ast:\Hom_{\text{Ho}(\mC)}(B,C)\to\Hom_{\text{Ho}(\mC)}(A,C)$$ is a weak equivalence for all $\mW$-local objects $C\in\mC$. 
+\item We say that a morphism $f:A\to B$ is an $\mW$-local equivalence if $$f^\ast:\Hom_{\text{Ho}(\mC)}(B,C)\to\Hom_{\text{Ho}(\mC)}(A,C)$$ is a weak equivalence for all $\mW$-local objects $C\in\mC$. 
 \end{itemize}
-Denote by $L_\mW\mC$ the full subcategory of $\mW$-local objects of $\mC$. 
 \end{defn}
 
 \begin{defn}{$\mW$-Localizations}{} Let $\mC$ be a model category and let $\mW$ be a class of morphisms. We say that a morphism $f:A\to B$ is an $\mW$-localization if $f$ is an $\mW$-equivalence and $B$ is $\mW$-local. In this case we say that $A$ has an $\mW$-localization. \\~\\
@@ -870,7 +889,45 @@ If all objects in $\mC$ has $\mW$-localizations, then we say that $\mC$ has $\mW
 \begin{prp}{}{} Let $\mC$ be a model category and let $\mW$ be a class of morphisms. Let $X\in\mC$ be an object. If $f_1:X\to Y_1$ and $f_2:X\to Y_2$ are two $\mW$-localizations of $X$, then they are isomorphic in $\text{Ho}(\mC)$. 
 \end{prp}
 
-\subsection{Bousfield Localization}
+\pagebreak
+\section{Bousfield Localization}
+\subsection{General Properties of Bousfield Localizations}
+\begin{defn}{Left Bousfield Localization}{} Let $\mC$ be a model category and let $\mW$ be a class of morphisms. Define the left Bousfield localization of $\mC$ with respect to $\mW$ to be the model category structure on $$L_\mW\mC$$ consisting of the following data: 
+\begin{itemize}
+\item The weak equivalences are the class of $\mW$-local equivalences in $\mC$. 
+\item The cofibrations are the cofibrations of $\mC$
+\item The fibrations are determined by the other two classes of maps. ($f$ is a fibration in $L_\mW\mC$ if and only if $f$ has the right lifting property with respect to all morphisms that are cofibrations and $\mW$-local equivalences)
+\end{itemize}
+\end{defn}
+
+We will show later that the fibrant objects of $L_\mW\mC$ are precisely the $\mW$-local objects. Let us now compare the model structure of $\mC$ and $L_\mW\mC$. 
+
+\begin{thm}{}{} Let $\mC$ be a model category and let $\mW$ be a class of morphisms. Then the following are true regarding the left Bousfield localization $L_\mW\mC$. 
+\begin{itemize}
+\item Every weak equivalence of $\mC$ is a weak equivalence of $L_\mW\mC$
+\item Every fibration of $\mC$ is a fibration of $L_\mW\mC$
+\item Every trivial cofirbation of $\mC$ is a trivial cofibration of $L_\mW\mC$
+\item Trivial fibrations of $\mC$ are exactly the trivial fibrations of $L_\mW\mC$
+\end{itemize}
+Moreover, there is a Quillen adjunction given by $$\text{id}_\mC:\mC\rightleftarrows L_\mW\mC:\text{id}_\mC$$
+\end{thm}
+
+In particular, notice that we have successfully enlarged the class of morphisms that are weak equivalences in $\mC$. We can also give a criterion for when weak equivalence in $L_\mW\mC$ are weak equivalences in $\mC$. 
+
+\begin{prp}{}{} Let $\mC$ be a model category and let $\mW$ be a class of morphisms. Let $f:X\to Z$ and $g:Y\to Z$ be fibrations in $L_\mW\mC$. If $h:X\to Y$ is weak equivalence in $L_\mW\mC$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X && Y \\
+	& Z
+	\arrow["h", from=1-1, to=1-3]
+	\arrow["f"', from=1-1, to=2-2]
+	\arrow["g", from=1-3, to=2-2]
+\end{tikzcd}}\\~\\
+then $h$ is a weak equivalence in $\mC$. 
+\end{prp}
+
+\subsection{Existence of Bousfield Localizations}
+\begin{thm}{Existence Theorem for Left Bousfield Localizations}{} Let $\mC$ be a left proper cellular model category. Let $\mW$ be a set of maps in $\mC$. Then $L_\mW\mC$ exists. 
+\end{thm}
 
 
 

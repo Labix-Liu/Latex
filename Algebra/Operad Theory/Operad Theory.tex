@@ -1,0 +1,87 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Operad Theory}
+\rfoot{\thepage}
+
+\title{Operad Theory}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\begin{itemize}
+\end{itemize}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{The Theory of Operads}
+\subsection{General Operads}
+\begin{defn}{Operads}{} Let $(\mC,\otimes,I)$ be a symmetric monoidal category. An operad in $\mC$ consists of the following data
+\begin{itemize}
+\item A sequence $P=\{P(n)\;|\;n\in\N\}$ of objects in $\mC$
+\item A composition function $$\gamma:P(n)\otimes P(k_1)\otimes\cdots\otimes P(k_n)\to P(k_1+\cdots+k_n)$$
+\item An unit $\mu:I\to P(1)$
+\end{itemize}
+such that the following compatibility conditions are satisfied. 
+\begin{itemize}
+\item Associativity in the first symmetric product: \\~\\
+\adjustbox{scale=0.8,center}{\begin{tikzcd}
+	{P(n)\otimes\left(\bigotimes_{k=1}^n\left(P(i_k)\otimes\bigotimes_{t=1}^{i_k}P(j_{k,t})\right)\right)} & {P(n)\otimes\left(\bigotimes_{k=1}^nP\left(\sum_{t=1}^{i_k}j_{k,t}\right)\right)} \\
+	&& {P\left(\sum_{k=1}^n\sum_{t=1}^{i_k}j_{k,t}\right)} \\
+	{P(n)\otimes\left(\bigotimes_{k=1}^nP(j_k)\right)\otimes\left(\bigotimes_{k=1}^n\bigotimes_{t=1}^{t_k}P(j_{k,t})\right)} & {P\left(\sum_{u=1}^ki_u\right)\otimes\left(\bigotimes_{k=1}^n\bigotimes_{t=1}^{i_k}P(j_{k,t})\right)}
+	\arrow["{\text{id}_{P(n)}\otimes\gamma}"', from=1-1, to=1-2]
+	\arrow["\cong", from=1-1, to=3-1]
+	\arrow["\gamma"', from=1-2, to=2-3]
+	\arrow["{\gamma\otimes\text{id}_{\otimes\otimes}}", from=3-1, to=3-2]
+	\arrow["\gamma", from=3-2, to=2-3]
+\end{tikzcd}}\\~\\
+\item Unitality: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{P(n)\otimes P(1)^{\otimes n}} & {P(n)\otimes I^{\otimes n}} & {I\otimes P(n)} & {P(1)\otimes P(n)} \\
+	& {P(n)} & {P(n)}
+	\arrow["\gamma"', from=1-1, to=2-2]
+	\arrow["{\text{id}_{P(n)}\otimes\mu^{\otimes n}}"', from=1-2, to=1-1]
+	\arrow["\cong", from=1-2, to=2-2]
+	\arrow["{\mu\otimes\text{id}_{P(n)}}", from=1-3, to=1-4]
+	\arrow["\cong"', from=1-3, to=2-3]
+	\arrow["\gamma", from=1-4, to=2-3]
+\end{tikzcd}}\\~\\
+\end{itemize}
+\end{defn}
+
+TBA: An operad is a monoid in the monoidal category $(\text{Func}(\bold{S},\mC),\circ,I)$
+
+\begin{defn}{Symmetric Operads}{} Let $(\mC,\otimes)$ be a symmetric monoidal category. A symmetric operad is an operad $(P,\gamma,\mu)$ on $\mC$ such that the following are true. 
+\begin{itemize}
+\item Each $P(n)$ is an $S_n$-module for each $n\in\N$. 
+\item $\gamma:P(n)\otimes P(k_1)\otimes\cdots\otimes P(k_n)\to P(k_1+\cdots+k_n)$ is equivariant in the following sense: 
+\begin{align*}
+\gamma(c\cdot\sigma,d_1,\dots,d_n)&=\gamma(c,d_{\sigma^{-1}(1)},\dots,d_{\sigma^{-1}(n)})\cdot\sigma(k_1,\dots,k_n)\\
+\gamma(c,d_1\cdot\tau_1,\dots,d_n\cdot\tau_n)&=\gamma(c,d_1,\dots,d_n)\cdot(\tau_1\oplus\cdots\oplus\tau_n)
+\end{align*}
+\end{itemize}
+\end{defn}
+
+The symmetric monoidal category one usually considers are algebraic. For instance, ${_R}\bold{Mod}$, $\bold{Ch}(R)_{\geq 0}$
+
+\subsection{Operads as a Monoid in a Monoidal Category}
+
+
+
+
+
+
+
+
+
+
+\end{document}

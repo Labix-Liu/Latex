@@ -1,0 +1,569 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Algebraic Topology 4}
+\rfoot{\thepage}
+
+\title{Algebraic Topology 4}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+~\\~\\
+References: 
+\begin{itemize}
+\item Notes on Algebraic Topology by Oscar Randal-Williams: \\
+The first chapter gives a complete treatment of the first three sections of these notes, as well as providing the importance of fibrations on the higher homotopy groups. These notes are highly recommended to understanding the first three sections. 
+
+\item Algebraic Topology by Allen Hatcher: \\
+A more or less complete dictionary on all topics of these notes. However it is prone to the same problem in the sense that Hatcher's book is rather terse and definitions and parts of some theorems are scattered throughout the paragraphs rather than having a complete statement for reference. Nevertheless it is still the standard reference of the notes, albeit organized in a slightly different way. 
+
+\item A non-visual proof that higher homotopy groups are abelian by Shintaro Fushida-Hardy: \\
+This short piece of article proves that the higher homotopy groups are abelian in a purely algebraic way. Most geometric visualization of such a proof has the same underlying idea as the algebraic method. 
+\end{itemize}
+
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{The Fundamental Groupoid and Covering Space Theory}
+\subsection{The Fundamental Groupoid}
+\begin{defn}{The Fundamental Groupoid}{} Let $X$ be a space. Define the fundamental groupoid $\Pi_1X$ of $X$ to be the category with the following data. 
+\begin{itemize}
+\item The objects are the points of $X$. 
+\item Let $x,y\in X$. The morphisms of $\Pi_1X$ are given by $$\Hom_{\Pi_1X}(x,y)=\{\gamma:I\to X\;|\;\gamma(0)=x\text{ and }\gamma(1)=y\text{ is a path }\}/\sim$$ where we say that two paths are equivalent if they are homotopic. 
+\item Composition is defined by the concatenation of paths. 
+\end{itemize}
+\end{defn}
+
+We have seen in Algebraic Topology 1 that composition of homotopy classes of paths are well defined. 
+
+\begin{lmm}{}{} Let $X$ be a space. Then $\Pi_1X$ is a groupoid. \tcbline
+\begin{proof}
+Every path in $X$ has an inverse that lies in $\Pi_1X$ given by reversing traversal of the path. 
+\end{proof}
+\end{lmm}
+
+\begin{lmm}{}{} Let $X$ be a space and $x_0\in X$. Then there is a group isomorphism $$\Hom_{\Pi_1X}(x_0,x_0)\cong\pi_1(X,x_0)$$
+\end{lmm}
+
+\begin{prp}{}{} Let $f:X\to Y$ be a continuous map. Then $f$ induces a functor $\Pi_1f:\Pi_1X\to\Pi_1Y$ defined by $$\Pi_1f([\alpha])=[f\circ\alpha]$$ on morphisms. \tcbline
+\begin{proof}
+Direct from Algebraic Topology 1 due to the above group isomorphism. We have also seen that it is functorial in Algebraic Topology 1. 
+\end{proof}
+\end{prp}
+
+\begin{thm}{}{} The fundamental groupoid defines a functor $\Pi_1:\bold{Top}\to\bold{Grps}$ from the category of spaces to the category of groupoids with the following data. 
+\begin{itemize}
+\item $\Pi_1$ sends each space $X$ to $\Pi_1X$
+\item $\Pi_1$ sends each continuous map $f:X\to Y$ to the functor $\Pi_1f$
+\end{itemize}
+\end{thm}
+
+\subsection{The Seifert-Van Kampen Theorem on Fundamental Groupoids}
+\begin{defn}{The Fundamental Groupoid of Subspaces}{} Let $X$ be a space and $A\subseteq X$ a subspace. Define $\Pi_1X[A]$ to be the full subcategory of $\Pi_1X$ where the objects are $A$. Explicitly, $\Pi_1X[A]$ consists of the following data. 
+\begin{itemize}
+\item The objects of $\Pi_1X[A]$ are the points of $A$. 
+\item The morphisms are given by $$\Hom_{\Pi_1X[A]}(x,y)=\Hom_{\Pi_1X}(x,y)$$ for any $x,y\in X$. 
+\item Composition is inherited from $\Pi_1X$. 
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a space and $A\subseteq X$ a subspace of $X$ such that every path component of $X$ contains a point of $A$. Then the inclusion $$\Pi_1X[A]\to\Pi_1X$$ of groupoids is an equivalence of categories. \tcbline
+\begin{proof}
+The inclusion is already fully faithful since $\Pi_1X[A]$ is a full subcategory. Now let $x\in X$. Let $a\in A$ lie in the same path component as $x$. Let $\alpha:I\to X$ be a path from $x$ to $a$. Then the morphism $[\alpha]:x\to a$ of $\Pi_1X$ is an isomorphism since $\Pi_1X$ is a groupoid. Thus we conclude. 
+\end{proof}
+\end{lmm}
+
+\begin{crl}{}{} Let $X$ be a space. Then there is an equivalence of categories $$\coprod_{[x_0]\in\pi_0(X)}B\pi_0(X,x_0)\cong\Pi_1X$$ \tcbline
+\begin{proof}
+This is done by choosing $A$ to contain exactly one point of each path component, and then by applying the isomorphism $$\Pi_1X[x_0]=B\text{Aut}_{\Pi_1X}(x_0)=B\pi_1(X,x_0)$$ and the above lemma. 
+\end{proof}
+\end{crl}
+
+If $X$ is path connected, then this shows that any choice of base point $x_0\in X$ gives an equivalence of categories $$B\pi_0(X,x_0)\cong\Pi_1X$$ This translates roughly to the standard fact in Algebraic Topology that the fundamental group of a path connected space for any two base points are isomorphic. Indeed in the equivalence of categories exhibited, the former depends on the base point while the latter does not. \\~\\
+
+We need a lemma. 
+
+\begin{lmm}{}{} Let $\mJ$ and $\mC$ be categories and let $\mJ$ be the following category \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & 1 \\
+	2 & 3
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["i", from=1-2, to=2-2]
+	\arrow["j"', from=2-1, to=2-2]
+\end{tikzcd}} \\~\\
+such that $Y:\mJ\to\mC$ is a pushout diagram. If $p:Y\Rightarrow X$ is a natural transformations such that $p$ is a retraction, then $X:\mJ\to\mC$ is also a pushout diagram. \tcbline
+\begin{proof}
+Consider the following diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X_0} && {X_1} \\
+	& {Y_0} && {Y_1} \\
+	{X_2} && {X_3} \\
+	& {Y_2} && {Y_3} 
+	\arrow[from=1-1, to=1-3]
+	\arrow["{s_0}"', shift right, from=1-1, to=2-2]
+	\arrow[from=1-1, to=3-1]
+	\arrow["{s_1}"', shift right, from=1-3, to=2-4]
+	\arrow["{X(i)}"'{pos=0.3}, from=1-3, to=3-3]
+	\arrow["{p_0}"', shift right, from=2-2, to=1-1]
+	\arrow["{p_1}"', shift right, from=2-4, to=1-3]
+	\arrow["{Y(i)}"', from=2-4, to=4-4]
+	\arrow["{X(j)}"{pos=0.3}, from=3-1, to=3-3]
+	\arrow["{s_2}"', shift right, from=3-1, to=4-2]
+	\arrow["{s_3}"', shift right, from=3-3, to=4-4]
+	\arrow["{p_2}"', shift right, from=4-2, to=3-1]
+	\arrow["{Y(j)}"', from=4-2, to=4-4]
+	\arrow["{p_3}"', shift right, from=4-4, to=3-3]
+	\arrow[from=2-2, to=2-4, crossing over]
+	\arrow[from=2-2, to=4-2, crossing over]
+\end{tikzcd}} \\~\\
+This diagram is commutative by the following reasons. 
+\begin{itemize}
+\item The front and back face of the square commutes since $X$ and $Y$ are functors and functors preserve commutative diagrams. 
+\item The rest of the faces of the square commutes by the natural transformations $p$ and $s$. 
+\end{itemize}
+
+Let $Z\in\mC$ such that there are maps $\lambda_1:X_1\to Z$ and $\lambda_2:X_2\to Z$ for which the maps $$X_0\to X_1\overset{\lambda_1}{\longrightarrow} Z\;\;\;\;\text{ and }\;\;\;\;X_0\to X_2\overset{\lambda_2}{\longrightarrow}Z$$ are equal. Then in particular the two maps $$Y_0\to X_0\to X_1\overset{\lambda_1}{\longrightarrow} Z\;\;\;\;\text{ and }\;\;\;\;Y_0\to X_0\to X_2\overset{\lambda_2}{\longrightarrow}Z$$ are equal. By commutativity of the cube, the two maps $$Y_0\to Y_1\overset{p_1}{\longrightarrow} X_1\overset{\lambda_1}{\longrightarrow} Z\;\;\;\;\text{ and }\;\;\;\;Y_0\to Y_2\overset{p_2}{\longrightarrow} X_2\overset{\lambda_2}{\longrightarrow}Z$$ are equal. By the universal property of $Y_3$ as a pushout diagram, there exists a unique map $Y_3\to Z$. such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X_0} && {X_1} \\
+	& {Y_0} && {Y_1} \\
+	{X_2} && {X_3} \\
+	& {Y_2} && {Y_3} \\
+	&&&& Z
+	\arrow[from=1-1, to=1-3]
+	\arrow["{s_0}"', shift right, from=1-1, to=2-2]
+	\arrow[from=1-1, to=3-1]
+	\arrow["{s_1}"', shift right, from=1-3, to=2-4]
+	\arrow["{X(i)}"'{pos=0.3}, from=1-3, to=3-3]
+	\arrow["{p_0}"', shift right, from=2-2, to=1-1]
+	\arrow["{p_1}"', shift right, from=2-4, to=1-3]
+	\arrow["{Y(i)}"', from=2-4, to=4-4]
+	\arrow["{\lambda_1}", from=1-3, to=5-5, bend left = 60]
+	\arrow["{X(j)}"{pos=0.3}, from=3-1, to=3-3]
+	\arrow["{s_2}"', shift right, from=3-1, to=4-2]
+	\arrow["{s_3}"', shift right, from=3-3, to=4-4]
+	\arrow["{p_2}"', shift right, from=4-2, to=3-1]
+	\arrow["{Y(j)}"', from=4-2, to=4-4]
+	\arrow["{\lambda_2}"', from=3-1, to=5-5, bend right = 60]
+	\arrow["{p_3}"', shift right, from=4-4, to=3-3]
+	\arrow["{\exists!}"{description}, dashed, from=4-4, to=5-5]
+	\arrow[from=2-2, to=2-4, crossing over]
+	\arrow[from=2-2, to=4-2, crossing over]
+\end{tikzcd}} \\~\\
+Since the retraction of a map is unique, $s$ is unique. Also the map $Y_3\to Z$ is unique by definition of pushout diagram. Hence there is a unique map $X_3\to Y_3\to Z$ so that $X$ is a pushout diagram. 
+\end{proof}
+\end{lmm}
+
+\begin{thm}{The Seifert-Van Kampen Theorem on Fundamental Groupoids}{} Let $X$ be a space and $U,V\subseteq X$ an open cover of $X$. Let $A\subseteq X$ be a subspace such that every path connected component of $U,V,X$ contains a point in $A$. Then the inclusions $$\Pi_1(U\cap V)[U\cap V\cap A]\to\Pi_1U[U\cap A]\;\;\;\;\text{ and }\;\;\;\Pi_1(U\cap V)[U\cap V\cap A]\to\Pi_1V[V\cap A]$$ give a pushout diagram to $\Pi_1X[A]$. This means that the following diagram is a pushout: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\Pi_1(U\cap V)[U\cap V\cap A]} & {\Pi_1U[U\cap A]} \\
+	{\Pi_1V[V\cap A]} & {\Pi_1X[A]}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}} \\~\\
+where each arrow is an inclusions. 
+\tcbline
+\begin{proof}
+First assume that $X=A$. We want to show that for any groupoid $\mG\in\bold{Grp}$ with maps $\Pi_1U,\Pi_1V\to\mG$, there exists a unique map $\Pi_1X\to\mG$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\Pi_1(U\cap V)} & {\Pi_1U} \\
+	{\Pi_1V} & {\Pi_1X} \\
+	&& \mG
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-2, to=3-3, bend left = 20, "f"]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-1, to=3-3, bend right = 20, "g"]
+	\arrow[from=2-2, to=3-3, dashed, "\exists!u"]
+\end{tikzcd}}\\~\\
+Define the functor $u:\Pi_1X\to\mG$ as follows. For each $x\in\Pi_1X$, define $$u(x)=\begin{cases}
+f(x) & \text{ if }x\in U\\
+g(x) & \text{ if }x\in V
+\end{cases}$$ This is well defined on $U\cap V$ since the outer square of the above diagram commutes. Depending on the path in $X$, there will be different constructions. Let $[\alpha]$ be a morphism in $\Pi_1X$. If $\alpha:I\to X$ has image in $U$, then define $u([\alpha])=f([\alpha])$. Similarly, define $u([\alpha])=g([\alpha])$ if $\alpha$ has image in $V$. \\~\\
+
+Otherwise, by the Lebesgue covering theorem, there is a finite sequence $0=a_0<a_1<\cdots<a_n=1$ such that $\alpha([a_i,a_{i+1}])\subseteq U$ or $V$. Define $\alpha_i=\alpha\;|\;_{a_i,a_{i+1}}$. It is easy to see that 
+\begin{align*}
+[\alpha]&=[\alpha\;|\;_{0,a_1}]\cdot[\alpha\;|\;_{a_1,a_2}]\cdots[\alpha\;|\;_{a_{n-1},1}]\tag{Viewed as paths}\\
+&=[\alpha_{n-1}]\circ\cdots[\alpha_1]\circ[\alpha_0]\tag{Viewed as morphisms in $\Pi_1X$}
+\end{align*} Then we can define $u(\alpha)$ as $$u([\alpha])=u([\alpha_{n-1}])\circ u(\cdots[\alpha_1])\circ u([\alpha_0])$$ where we have that $$u([\alpha_i])=\begin{cases}
+f([\alpha_i]) & \text{ if }\im(\alpha_i)\subseteq U\\
+g([\alpha_i]) & \text{ if }\im(\alpha_i)\subseteq V
+\end{cases}$$ If $u$ exists, then $u$ must take the above form. Thus we have shown uniqueness. \\~\\
+
+For existence, we have to show that above construction of $u$ is well defined. Let $\alpha,\beta$ be paths in $X$ from $x$ to $y$ that are homotopic via the map $H:I\times I\to X$. We want to show that $u([\alpha])=u([\beta])$. By the Lebesgue covering theorem, there is a grid in $I\times I$ where the $x$-axis is subdivided into $0=a_0<a_1<\cdots<a_n=1$ and the $y$-axis is subdivided into $0=c_0<c_1<\cdots<c_k=1$.  such that $H$ sends each rectangle with vertices $\{a_i,a_{i+1},c_j,c_{j+1}\}$ to either $U$ or $V$. Let $h^j=H(-,c_j):I\to X$ so that $h^0=\alpha$ and $h^k=\beta$. Define $$\delta_i=H(\alpha_i,-)\;|\;_{[c_j,c_{j+1}]}:I\to X$$ which are paths from $(a_i,c_j)$ to $(a_i,c_{j+1})$ in $I\times I$. Also define $h_i^j=h^j\;|\;_{[\alpha_i,\alpha_{i+1}]}$. Now we have the following which lies entirely in $X$: 
+
+\begin{center}
+\includegraphics[scale = 0.3]{Image 1}
+\end{center}
+
+Now we have that 
+\begin{align*}
+u([h^j])&=u([h_{n-1}^j])\circ\cdots\circ u([h_0^j])\\
+&=u([h_{n-1}^{j+1}\circ\delta_{n-2}])\circ u([\overline{\delta_{n-2}}\circ h_{n-2}^{j+1}\circ\delta_{n-3}])\circ\cdots\circ u([\overline{\delta_1}\circ h_0^{j+1}])\\
+&=u([h_{n-1}^{j+1}])\circ\cdots\circ u([h_0^{j+1}])\\
+&=u([h^{j+1}])
+\end{align*}
+By induction, we conclude that $$u([\alpha])=u([h^0])=u([h^1])=\dots=u([h^k])=u([\beta])$$~\\
+
+Now suppose that $A\subseteq X$. By the above lemma, it is sufficient to show that the square for $A$ is a retract of the square for $X$. Let $x\in U\cap V$ and $a_x\in A\cap U\cap V$ lying in the same path component as $x$. Choose a path $\alpha_x:I\to X$ from $a_x$ to $x$ with $\alpha_x$ being constant if $x\in A$. Do a similar choice for $x\in U\setminus(U\cap V)$ and $x\in V\setminus(U\cap V)$. Define $p_{U\cap V}:\Pi_1(U\cap V)\to\Pi_1(U\cap V)[U\cap V\cap A]$ defined by $x\mapsto a_x$ on objects and $$[x\overset{\alpha}{\to} y]\mapsto\left(a_x\overset{[\alpha_x]}{\to}x\overset{[\alpha]}{\to}y\overset{[\alpha_y]}{\to}a_y\right)$$ and similarly for $p_U$ and $p_V$. This defines the natural transformation $p$ in lemma 5.3.4. We conclude by lemma 5.3.4. 
+\end{proof}
+\end{thm}
+
+Take $A=\{x_0\}$ be a single point in $U\cap V$. Then this theorem shows that there is a pushout diagram \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\pi_1(U\cap V,x_0)} & {\pi_1(U,x_0)} \\
+	{\pi_1(V,x_0)} & {\pi_1(X,x_0)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+in $\bold{Grp}$, provided that $A$ contains every path connected component of $U,V,X$. But $A$ is just one point so the condition becomes that $U,V,X$ and $U\cap V$ being path connected. Hence we recover the usual Seifert-Van Kampen theorem in Algebraic Topology 1. 
+
+\subsection{Categorical Covering Space Theory}
+We end the section with a categorical approach of the Galois correspondence between covering spaces and the fundamental group. 
+
+\begin{defn}{Category of Covering Spaces of a Space}{} Let $X$ be a space. Define the category $\text{Cov}(X)$ of covering spaces of $X$ by the following. 
+\begin{itemize}
+\item The objects are the covering spaces $p:\tilde{X}\to X$ of $X$
+\item For two covering spaces $p_1:\tilde{X}_1\to X$ and $p_2:\tilde{X}_2\to X$ of $X$, a morphism is a map $q:\tilde{X}_1\to\tilde{X}_2$ such that following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\tilde{X}_1\arrow[rr, "q"]\arrow[rdd, "p_1"'] && \tilde{X}_2\arrow[ldd, "p_2"] \\
+&&\\
+& X &
+\end{tikzcd}}
+\item Composition is given by the composition of functions. 
+\end{itemize}
+\end{defn}
+
+Recall the category $G\text{-Set}$ of $G$-sets for a group $G$ to consist of the following data. 
+\begin{itemize}
+\item The objects are sets which have a group action $G$. 
+\item For two $G$-sets $X$ and $Y$, a morphism is a $G$-equivariant function $f:X\to Y$. This means that $$f(g\cdot x)=g\cdot f(x)$$ for all $g\in G$ and $x\in X$. 
+\item Composition is given by the composition of functions. 
+\end{itemize}
+
+\begin{thm}{}{} Let $X$ be a connected and locally simply connected space. Let $x_0\in X$. The the functor $F:\text{Cov}(X)\to\pi_1(X,x_0)\text{-Set}$ defined by $\left(p:\tilde{X}\to X\right)\mapsto p^{-1}(x_0)$ and $\left(q:\tilde{X}_1\to\tilde{X}_2\right)\mapsto q|_{p^{-1}(x_0)}$ gives an equivalence of categories $$\text{Cov}(X)\cong\pi_1(X,x_0)\text{-Set}$$
+\end{thm}
+
+\pagebreak
+\section{Homology and Cohomology Theories}
+We have seen that the homotopy groups, the homology groups and the cohomology groups all satisfy a functorial property. This means that they can be considered as functors from the category of spaces to the category of some algebraic structures. It is meaningful to study all of them at once, and to compare different versions of homology and cohomology. \\~\\
+
+In general, there are different parameters of the (co)homology theories. 
+\begin{itemize}
+\item Including ``for CW Pairs'' means that the theory is tailored for CW pairs. If we want a general theory for any topological spaces, we must add a new axiom so that weak equivalences gives isomorphism. This is true for CW complexes but not for arbitrary topological spaces. 
+\item ``Generalized'' means that that dimension axiom is dropped. This enables wilder (co)homology theories such as (co)bordism to appear. ``Ordinary'' means that the dimension axiom is included. In the case that we restrict to CW complexes, this axiom ensures that all (co)homology theories of this type are isomorphic to each other. 
+\item ``Reduced'' theories typically throw away the relative context in order to gain more concrete computations. A theorem says that determining a generalized (co)homology theory is the ``same'' determining a reduced theory and vice versa. 
+\end{itemize}
+
+\subsection{Generalized Homology Theories}
+The homotopy groups and the homology groups share many properties. The point of the axioms is to separate the notion of homotopy groups and homology groups. Indeed the homotopy groups together are a stronger invariant for spaces. Since homology is a functor, a natural question to ask is: what are the properties of singular / cellular / simplicial homology that make homology unique in the sense that only such a functor gives this unique identification of spaces through the invariant? 
+
+\begin{defn}{Generalized Homology Theory for CW Pairs}{} A Generalized Homology Theory is a collection of functors and natural transformations $$h_n:\bold{CW}^2\to\bold{Ab}\;\;\;\;\text{ and }\;\;\;\;\delta_n:h_n\to h_n\circ F$$ where $F(X,Y)=(Y,\emptyset)$, for each $n\in\N$, such that the following are true. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h_n(f)=h_n(g):h_n(X,A)\to h_n(Y,B)$$
+\item Exactness: There exists an exact sequence \\~\\
+\adjustbox{scale=0.98,center}{\begin{tikzcd}
+	\cdots & {h_{n+1}(X,A)} & {h_n(A,\emptyset)} & {h_n(X,\emptyset)} & {h_n(X,A)} & {h_{n-1}(A,\emptyset)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\delta_{n+1}}", from=1-2, to=1-3]
+	\arrow["h_n(i)", from=1-3, to=1-4]
+	\arrow["h_n(j)", from=1-4, to=1-5]
+	\arrow["{\delta_n}", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+where $i:(A,\emptyset)\to(X,\emptyset)$ and $j:(X,\emptyset)\to(X,A)$ are inclusions. 
+\item Additivity: If $(X,A)=\coprod_{i\in I}(X_i,A_i)$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}h_n(X_i,A_i)\cong h_n(X,A)$$ is an isomorphism
+\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then there is an isomorphism $$h_n(X\setminus E,A\setminus E)\cong h_n(X,A)$$ induced by the inclusion map. 
+\end{itemize}
+\end{defn}
+
+We mention for once and for all that the additivity axiom is required only when the CW complexes are non-finite. In particular, in order for the homology theory to be meaningful, we must restrict the underlying category of spaces to be finite CW complexes if one drops the additivity axiom. \\~\\
+
+Also, the homotopy invariance axiom means that homology descends to a functor $\bold{HoCW}\to\bold{Ab}$. Therefore some authors write the axiom implicit in the definition of the functors $h_n$, and then saying that a homology theory consists of functors $h_n:\bold{HoCW}\to\bold{Ab}$ instead. 
+
+\begin{lmm}{}{} The excision axiom is equivalent to saying that $X=A^\circ\cup B^\circ$ with inclusion map $\iota:(B,A\cap B)\to (X,A)$ implies $h_n(\iota):h_n(B,A\cap B)\to h_n(X,A)$ is an isomorphism. 
+\end{lmm}
+
+\begin{defn}{Generalized Homology Theory for Spaces}{} A Generalized Homology Theory is a collection of functors $$h_n:\bold{Top}^2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta_n:h_n(X,Y)\to h_{n-1}(Y,\emptyset)$$ satisfying the firs four axioms together with the following. 
+\begin{itemize}
+\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h_n(X,A)\to h_n(Y,B)$$ is an isomorphism. 
+\end{itemize}
+\end{defn}
+
+By adding on the axiom of weak equivalence and the fact that every space admits a weak equivalence to a CW complex, we can see that the two theories are the same. 
+
+\begin{thm}{}{} Any generalized homology theory on $\bold{Top}^2$ determines and is determined by a generalized homology theory on $\bold{CW}^2$.
+\end{thm}
+
+However, note that in this case some of the working homology theories are not a generalized homology theory in this sense (when we encounter the dual notion, sheaf cohomology is not a generalized cohomology theory). 
+
+\begin{defn}{Ordinary Homology Theory}{} Let $G$ be an abelian group. If a generalized homology theory $(h_n,\delta_n)$ in addition satisfies 
+\begin{itemize}
+\item Dimension: $$h_n(\ast)=\begin{cases}
+G & \text{ if } n=0\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{itemize}
+Then $h_n$ is called an ordinary homology theory. 
+\end{defn}
+
+\begin{thm}{Eilenberg-Steenrod Uniqueness Theorem}{} Let $T:(h_n,\delta_n)\to(h_n',\delta_n')$ be a natural transformation of generalized homology theories defined on $\bold{CW}^2$ such that $h_n(\ast)\cong h_n'(\ast)$, then $T$ is a natural isomorphism $$(h_n,\delta_n)\cong(h_n',\delta_n')$$
+\end{thm}
+
+\subsection{Reduced Homology Theory}
+In Algebraic Topology 2, we have also encountered the notion of reduced singular homology. This is derived directly from singular homology, where one simply defines reduced singular homology by also considering the augmented chain complex. Such a construction can easily be extended to arbitrary homology theories: Indeed there is no need for a topological argument in the definition of reduced singular homology. \\~\\
+
+In fact, this subsection will also prove a unification theorem for the following four homolog theories: 
+\begin{itemize}
+\item Generalized homology theory for CW complexes
+\item Generalized homology theory for spaces
+\item Reduced homology theory for CW complexes
+\item Reduced homology theory for spaces
+\end{itemize}
+
+and they can be unified only because of the unnatural condition posed for homology theory for spaces. The axiom of weak equivalences enables the use of CW approximations. 
+
+\begin{defn}{Reduced Homology Theory for CW Complexes}{} A reduced Homology Theory is a collection of functors $$\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$$ that satisfies the following. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:(X,x_0)\to(Y,y_0)$ then $$\widetilde{h}_n(f)=\widetilde{h}_n(g):\widetilde{h}_n(X,x_0)\to\widetilde{h}_n(Y,y_0)$$
+\item Exactness: If $X$ is a CW-complex and $A\subseteq X$ and $x_0\in A$, then there is a short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\widetilde{h}_n(A,x_0)} & {\widetilde{h}_n(X,x_0)} & {\widetilde{h}_n(X/A,\ast)}
+	\arrow["{\iota_\ast}", from=1-1, to=1-2]
+	\arrow["{p_\ast}", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+where $\iota:A\to X$ is the inclusion and $p:X\to X/A$ is the projection. 
+
+\item Suspension: There is a natural isomorphism $$\Sigma:\widetilde{h}_n(X,x_0)\overset{\cong}{\longleftrightarrow}\widetilde{h}_{n+1}(\Sigma X,\ast)$$
+
+\item Additivity: If $X=\coprod_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}_n(X_i)\cong\widetilde{h}_n(X)$$ is an isomorphism
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$ be a reduced homology theory. Then $$\widetilde{h}_n(\ast)=0$$
+\end{lmm}
+
+\begin{thm}{}{} Let $h_n:\bold{CW}^2\to\bold{Ab}$ be a generalized homology theory for CW complexes. Define a collection of functors $$\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$$ by $(X,x_0)\mapsto\widetilde{h}_n(X,x_0)=h_n(X,\{x_0\})$. Then  $\widetilde{h}_n$ defines a reduced homology theory for CW complexes. 
+\end{thm}
+
+\begin{thm}{}{} Let $\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$ be a reduced homology theory for CW complexes. Define a collection of functors $$\widetilde{h}_n:\bold{CW}^2\to\bold{Ab}$$ by $(X,A)\mapsto\widetilde{h}_n(X/A,\ast=A)$ and a collection of natural transformations $$\delta_n:h_n(X,Y)\to(Y,\emptyset)$$ by ??? Then $h_n$ and $\delta_n$ defines a generalized homology theory for CW complexes. 
+\end{thm}
+
+\begin{thm}{}{} Any generalized homology theory for CW complexes determines and is determined by a reduced homology theory for CW complexes. 
+\end{thm}
+
+We have now showed that reduced homology theory and generalized homology theory for CW complexes really are the same thing: $$\substack{\text{Reduced Homology Theory}\\\text{for CW Complexes}}\overset{1:1}{\longleftrightarrow}\substack{\text{Generalized Homology Theory}\\\text{for CW Complexes}}$$ Let us now show the same for homology theories for spaces in general and moreover, establish such a relation between spaces and CW complexes. 
+
+\begin{defn}{Reduced Homology Theory for Spaces}{} A reduced Homology Theory for spaces is a collection of functors $$\widetilde{h}_n:\bold{Top}_\ast\to\bold{Ab}$$ that the above axioms (Homotopy Invariance, Exactness, Suspension, Additivity) and the following: 
+\begin{itemize}
+\item Weak Equivalences: If $f:(X,x_0)\to(Y,y_0)$ is a weak equivalence then $$f_\ast:\widetilde{h}_n(X,x_0)\to\widetilde{h}_n(Y,y_0)$$ is an isomorphism for all $n$. 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Any reduced homology theory for spaces determines and is determined by a reduced homology theory on spaces. 
+\end{thm}
+
+\begin{thm}{}{} Any reduced homology theory for spaces determines and is determined by a generalized homology theory on spaces. 
+\end{thm}
+
+Thus we have showed that under the conditions of all the given axioms of all such homology theories, we really just have the same thing: $$\substack{\text{Generalized  Homology Theory}\\\text{for Spaces}}\overset{1:1}{\longleftrightarrow}\substack{\text{Reduced Homology Theory}\\\text{for Spaces}}\overset{1:1}{\longleftrightarrow}\substack{\text{Reduced Homology Theory}\\\text{for CW Complexes}}\overset{1:1}{\longleftrightarrow}\substack{\text{Generalized Homology Theory}\\\text{for CW Complexes}}$$ We once again note that such a bijection is only possible when we introduce the weak equivalence axiom for homology theories on spaces. Such an axiom in fact restricts the amount of valid homology theories, but it is only through this axiom that we can declare all such homology theories are essentially determined by one another. \\~\\
+
+Some authors indeed does not require the weak equivalence axiom to exist. In such cases the bijection between generalized homology theories and reduced homology theories can be constructed, but there is no passage between homology of CW complexes and homology of spaces in general. 
+
+\subsection{Cohomology Theories}
+\begin{defn}{Generalized Cohomology Theory for CW Pairs}{} A Generalized cohomology theory is a collection of contravariant functors $$h^n:\bold{CW}_2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n(A,\emptyset)\to h^{n+1}(X,A)$$ satisfying the following. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h^n(f)=h^n(g):h^n(X,A)\to h^n(Y,B)$$
+\item Exactness: If $X$ is a CW-complex and $A\subseteq X$, then there is a short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {h^n(X/A)} & {h^n(X)} & {h^n(A)} & {h^{n+1}(X/A)} & {h^{n+1}(X)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{\partial_n}", from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+\item Additivity: If $(X,A)=\coprod_{i\in I}(X_i,A_i)$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}h^n(X_i,A_i)\cong h^n(X,A)$$ is an isomorphism
+\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then $$h^n(X\setminus E,A\setminus E)\cong h^n(X,A)$$ induced by the inclusion map
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Generalized Cohomology Theory}{} A Generalized cohomology theory is a collection of contravariant functors $$h^n:\bold{Top}_2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n(A,\emptyset)\to h^{n+1}(X,A)$$ satisfying the above first four axioms and the following. 
+\begin{itemize}
+\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h^n(Y,B)\to h^n(X,A)$$ is an isomorphism. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Reduced Cohomology Theory for CW Pairs}{} A reduced cohomology theory is a collection of contravariant functors $$\widetilde{h}^n:\bold{CW}\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:\widetilde{h}^n(A,\emptyset)\to\widetilde{h}^{n+1}(X,A)$$ satisfying the following. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:X\to Y$ then $$\widetilde{h}^n(f)=\widetilde{h}^n(g):\widetilde{h}^n(X)\to\widetilde{h}^n(Y)$$
+\item Exactness: There exists a short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {\widetilde{h}^n(X,A)} & {\widetilde{h}^n(X)} & {\widetilde{h}^n(A)} & {\widetilde{h}^{n+1}(X,A)} & {\widetilde{h}^{n+1}(X)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["\widetilde{h}_n(\pi)", from=1-2, to=1-3]
+	\arrow["\widetilde{h}_n(\iota)", from=1-3, to=1-4]
+	\arrow["{\delta_n}", from=1-4, to=1-5]
+	\arrow["\widetilde{h}_{n+1}(\pi)", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+where $\iota:A\to X$ is the inclusion and $\pi:X\to X/A$ is the projection. 
+\item Additivity: If $X=\coprod_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}^n(X_i)\cong\widetilde{h}^n(X)$$ is an isomorphism
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $\widetilde{h}_n:\bold{CW}\to\bold{Ab}$ be a reduced homology theory. Then $$\widetilde{h}_n(\ast)=0$$
+\end{lmm}
+
+\begin{prp}{}{} Let $\widetilde{h}^n:\bold{CW}\to\bold{Ab}$ be a reduced cohomology theory. Then there is a natural isomorphism $$\widetilde{h}_{n+1}(\Sigma X)=\widetilde{h}_n(X)$$
+\end{prp}
+
+TBA: Unreduced = reduced. 
+
+\pagebreak
+\section{Cohomology Operations}
+
+\pagebreak
+\section{Spectral Sequences in Algebraic Topology}
+\subsection{Spectral Sequences in Topology}
+\begin{thm}{}{} Let $X$ be a space. Let the following be a sequence $$\emptyset\subset X_0\subset X_1\subset\cdots\subset X$$ of subspaces. Let $G$ be an abelian group. Then the following data
+\begin{itemize}
+\item $A_{p,q}=H_{p+q}(X_p;G)$
+\item $E_{p,q}=H_{p+q}(X_p,X_{p-1};G)$
+\item $i:H_{p+q}(X_p;G)=A_{p,q}\to H_{p+q}(X_{p+1};G)=A_{p+1,q-1}$ (degree $(1,-1)$)
+\item $j:H_{p+q}(X_p;G)=A_{p,q}\to H_{p+q}(X_p,X_{p-1};G)=E_{p,q}$ (degree $(0,0)$)
+\item $k:H_{p+q}(X_p,X_{p-1};G)=A_{p,q}\to H_{p+q-1}(X_{p-1};G)=A_{p-1,q}$ (degree $(-1,0)$)
+\end{itemize}
+defines an exact couple and hence a spectral sequence with $E^1$ page given by $$E_{p,q}^1=H_{p+q}(X_p,X_{p-1};G)$$ where the differential $d:E_{p,q}^1\to E_{p-1,q}^1$ is given by the composition $$H_{p+q}(X_p,X_{p-1};G)\overset{k}{\longrightarrow}H_{p+q-1}(X_{p-1};G)\overset{j}{\longrightarrow} H_{p+q-1}(X_{p-1},X_{p-2};G)$$
+\end{thm}
+
+The $E_1$ page of such a spectral sequence is given by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & \cdots & \cdots & \cdots \\
+	{H_3(X_1,X_0;G)} & {H_4(X_2,X_1;G)} & {H_4(X_3,X_2;G)} & \cdots \\
+	{H_2(X_1,X_0;G)} & {H_3(X_2,X_1;G)} & {H_4(X_3,X_2;G)} & \cdots \\
+	{H_1(X_1,X_0;G)} & {H_2(X_2,X_1;G)} & {H_3(X_3,X_2;G)} & \cdots
+	\arrow[from=1-2, to=1-1]
+	\arrow[from=1-3, to=1-2]
+	\arrow[from=1-4, to=1-3]
+	\arrow[from=2-2, to=2-1]
+	\arrow[from=2-3, to=2-2]
+	\arrow[from=2-4, to=2-3]
+	\arrow[from=3-2, to=3-1]
+	\arrow[from=3-3, to=3-2]
+	\arrow[from=3-4, to=3-3]
+	\arrow[from=4-2, to=4-1]
+	\arrow[from=4-3, to=4-2]
+	\arrow[from=4-4, to=4-3]
+\end{tikzcd}}\\~\\
+
+Things get interesting when we choose $X$ to be a CW complex and we choose the filtration of $X$ by the skeleton of $X$. Recall that we have the formula $$H_{p+q}(X_p,X_{p-1};G)\cong\begin{cases}
+C_p^\text{CW}(X;G) & \text{ if } q=0\\
+0 & \text{otherwise}
+\end{cases}$$ Thus the $E^1$ page is only left with a chain complex at $q=0$. 
+
+Let us also compute the derived couple of this exact couple or in other words, the $E^2$ page of the spectral sequence. This is more intuitive then the one thinks about on the definition of the derived couple. The $E_{p,q}^2$ slot is simply the homology of the chain complex at the $(p,q)$th slot. The direction of the maps of the $E^2$ page depends not on the choice of spectral sequence at all (In fact, the direction only depends on the page). Now in our case, the homology can be given by a known construct: $$E_{p,q}^2=\frac{\ker(d:H_{p+q}(X_p,X_{p-1};G)\to H_{p+q-1}(X_{p-1},X_{p-2};G))}{\im(d:H_{p+q+1}(X_{p+1},X_p;G)\to H_{p+q}(X_p,X_{p-1};G))}=H_{p+q}^\text{CW}(X;G)$$ Since the direction of the maps are now diagonal and when $q\neq 0$ we have $E_{p,q}^2=0$, all maps in $E^2$ are $0$ and we are left with \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{H_0^\text{CW}(X;G)} & {H_1^\text{CW}(X;G)} & {H_2^\text{CW}(X;G)} & {H_3^\text{CW}(X;G)} & \cdots
+\end{tikzcd}}\\~\\
+
+\begin{thm}{Leray-Serre Spectral Sequence}{} Let $p:E\to B$ be a Serre fibration with fibre $F$ and path connected $B$. Suppose that the action of $\pi_1(B)$ on $H_\ast(F;G)$ is trivial. Then there is a first quadrant homological spectral sequence starting with $E^2$ and weakly converging to $H_\bullet(E;\Z)$. Explicitly, there is a convergence $$E_{p,q}^2=H_p(B,H_1(F))\Rightarrow H_{p+q}(E;\Z)$$
+\end{thm}
+
+\subsection{Spectral Kunneth Theorem}
+
+\pagebreak
+\section{Localizations of Spaces}
+\subsection{T-Local Groups}
+\begin{defn}{T-Local Groups}{} Let $G$ be a group and let $T$ be a set of prime. We say that $G$ is $T$-local if for all prime $p$ not in $T$, The $p$th power map $G\to G$ is a bijection. 
+\end{defn}
+
+\begin{lmm}{}{} Let $G$ be a group. Then for any prime $p$, the $p$th power map $G\to G$ is a group homomorphism. 
+\end{lmm}
+
+\begin{defn}{Localization on a Set of Prime}{} Let $T$ be a set of primes. Define the localization of $\Z$ at the set $T$ by $$\Z_T=(\Z\setminus T)^{-1}\Z$$
+\end{defn}
+
+\begin{prp}{}{} Let $G$ be abelian. Let $T$ be a set of primes. Then the following are equivalent. 
+\begin{itemize}
+\item $G$ is $T$-local
+\item $G$ admits a unique structure of a $\Z_T$-module
+\item For all prime $p$ not in $T$, $G\otimes\Z/p\Z=0$. 
+\end{itemize}
+\end{prp}
+
+Recall that tensoring an abelian group $\Z/p\Z$ detects whether $G$ has torsion $\Z/p\Z$. If it is $0$ it means that $G$ contains no torsion groups of $p^n$ for all $n\in\N$. 
+
+\begin{lmm}{}{} Let $A,B,C$ be abelian groups such that there is an exact sequence of the form \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	0 & A & B & C & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+If two out of $A,B,C$ are $T$-local, then the third one is also $T$-local. 
+\end{lmm}
+
+TBA: Localization is an exact functor Ab to Mod $\Z_T$. 
+
+\subsection{T-Local Spaces}
+\begin{defn}{T-Equivalent Maps}{} Let $f:X\to Y$ be a map and let $T$ be a set of primes. We say that $f$ is $T$-equivalent if $$f_\ast:H_n(A;\Z_T)\to H_n(B;\Z_T)$$ is an isomorphism for all $n\in\N$. 
+\end{defn}
+
+\begin{defn}{T-Local Spaces}{} Let $X$ be space and let $T$ be a set of primes. We say that $X$ is a $T$-local space if for all $T$-equivalent maps $f:A\to B$, the induced map $$f^\ast:[B,X]\to[A,X]$$ is a bijection. 
+\end{defn}
+
+\begin{thm}{}{} Let $X$ be a space and let $T$ be a set of primes. Then the following conditions are equivalent for $X$. 
+\begin{itemize}
+\item $X$ is $T$-local
+\item Each homotopy group $\pi_n(X)$ is $T$-local
+\item Each homology group $H_n(X)$ is $T$-local
+\end{itemize}
+\end{thm}
+
+\begin{prp}{}{} Let $A$ be an abelian group and let $T$ be a set of prime. Then $A$ is $T$-local if and only if $K(A,1)$ is $T$-local. 
+\end{prp}
+
+\begin{defn}{Localization of a Space}{} Let $X$ be a space and let $T$ be a set of primes. A localization of $X$ at $T$ is a $T$-local space $X_T$ together with a $T$-equivalent map $f:X\to X_T$ such that the following universal property is satisfied. For any map $g:X\to Z$ where $Z$ is a $T$-local space, there exists a map $h:X_T\to Z$ unique up to homotopy such that the following diagram commutes: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X & Z \\
+	{X_T}
+	\arrow["g", from=1-1, to=1-2]
+	\arrow["f"', from=1-1, to=2-1]
+	\arrow["{\exists h}"', dashed, from=2-1, to=1-2]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+To be added: functoriality of localization
+
+\begin{thm}{}{} Every nilpotent space $X$ admits a localization at any set of primes $T$. 
+\end{thm}
+
+\pagebreak
+\section{Completion of Spaces}
+
+
+
+
+
+
+
+
+\end{document}

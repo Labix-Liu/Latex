@@ -23,13 +23,17 @@
 \usepackage{makecell}
 
 
-
-\raggedright
-
 \usetikzlibrary{arrows.meta}
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+
+%=========================================
+% Environment
+%=========================================
+\setlength\parindent{0pt}
+
 
 %=========================================
 % Fonts
@@ -134,14 +138,15 @@
 %=========================================
 \tcbuselibrary{listings, theorems, breakable, skins}
 
-\newtheorem{thm}{Theorem}[section]
-\theoremstyle{definition}
-\newtheorem{defn}{Definition}
-\newtheorem{lmm}{Lemma}
-\newtheorem{prp}{Proposition}
-\newtheorem{eg}{Examples}
-\newtheorem{crl}{Corollary}
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[subsection]
+\newtheorem{lmm}[thm]{Lemma}
+\newtheorem{prp}[thm]{Proposition}
+\newtheorem{crl}[thm]{Corollary}
 
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{eg}[thm]{Example}
 
 %=========================================
 % Hyperlinks

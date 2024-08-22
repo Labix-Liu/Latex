@@ -23,168 +23,10 @@
 \tableofcontents
 
 \pagebreak
-
-\section{Simplicial Objects in a Category}
-\subsection{The Simplex Category}
-\begin{defn}{Simplex Category}{} The simplex category $\Delta$ consists of the following data. 
-\begin{itemize}
-\item The objects are $[n]=\{0,\dots,n\}$ for $n\in\N$. 
-\item The morphisms are the non-strictly order preserving functions. This means that a morphism $f:[n]\to[m]$ must satisfy $f(i)\leq f(j)$ for all $i\leq j$. 
-\item Composition is the usual composition of functions. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Maps in the Simplex Category}{} Consider the simplex category $\Delta$. Define the face maps and the degeneracy maps as follows. 
-\begin{itemize}
-\item A face map in $\Delta$ is the unique morphism $d^i:[n-1]\to[n]$ that is injective and whose image does not contain $i$. Explicitly, we have $$d^i(k)=\begin{cases}
-k & \text{ if } 0\leq k <i\\
-k+1 & \text{ if } i\leq k\leq n-1
-\end{cases}$$
-\item A degeneracy map in $\Delta$ is the unique morphism $s^i:[n+1]\to[n]$ that is surjective and hits $i$ twice. Explicitly, we have $$s^i(k)=\begin{cases}
-k & \text{ if } 0\leq k\leq i\\
-k-1 & \text{ if } i+1\leq k\leq n+1
-\end{cases}$$
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} The face maps and the degeneracy maps in the simplex category $\Delta$ satisfy the following simplicial identities: 
-\begin{itemize}
-\item $d^i\circ d^j=d^{j-1}\circ d^i$ if $i<j$
-\item $d^i\circ s^j=s^{j-1}\circ d^i$ if $i<j$
-\item $d^i\circ s^i=\text{id}$
-\item $d^{i+1}\circ s^i=\text{id}$
-\item $d^i\circ s^j=s^j\circ d^{i-1}$ if $i>j+1$
-\item $s^i\circ s^j=s^{j+1}\circ s^i$ if $i\leq j$
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Every morphism in the simplex category $\Delta$ is a composition of the face maps and the degeneracy maps. 
-\end{prp}
-
-\subsection{Simplicial Sets}
-\begin{defn}{Simplicial Sets}{} A simplicial set is a presheaf $$S:\Delta\to\text{Sets}$$ 
-\end{defn}
-
-\begin{defn}{Category of Simplicial Sets}{} The category of simplicial sets $\text{sSet}$ is defined as follows. 
-\begin{itemize}
-\item The objects are simplicial sets $S:\Delta\to\text{Sets}$
-\item The morphisms are just morphisms of presheaves. This means that if $S,T:\Delta\to\text{Sets}$ are simplicial sets, then a morphism $\lambda:S\to T$ consists of morphisms $\lambda_n:S([n])\to T([n])$ for $n\in\N$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{S([n])} & {S([m])} \\
-	{T([n])} & {T([m])}
-	\arrow["{S(f)}", from=1-1, to=1-2]
-	\arrow["{\lambda_n}"', from=1-1, to=2-1]
-	\arrow["{\lambda_m}", from=1-2, to=2-2]
-	\arrow["{T(f)}"', from=2-1, to=2-2]
-\end{tikzcd}}
-\item Composition is defined as the usual composition of functors. 
-\end{itemize}
-\end{defn}
-
-The Yoneda lemma in this context implies that there is a bijection $$\Hom_{\text{sSet}}(\Hom_\Delta([n],-),S)\cong S([n])$$ that is natural in the variable $[n]$. We will denote $$\Delta^n=\Hom_\Delta([n],-)$$ which is the image of $[n]$ under the yoneda embedding $y:\Delta\to\text{sSet}$ defined by $[n]\mapsto\Hom_\Delta([n],-)$. 
-
-\begin{defn}{n-Simplices}{} Let $S:\Delta\to\text{Set}$ be a simplicial set. For $n\in\N$, define the $n$-simplices of $S$ to be $$S_n=S([n])=\Hom_\text{sSet}(\Delta^n,S)$$
-\end{defn}
-
-Notice that $\Delta^n$ is a simplicial set $$\Delta^n:\Delta\to\text{Set}$$ defined by $[m]\mapsto\Hom_\Delta([n],[m])$. Notice that if $n>m$, then it is impossible to have an order preserving function $[n]\to[m]$. Hence when $n>m$, $\Hom_\Delta([n],[m])$ is empty. It is also clear that the $m$-simplices of $\Delta^n$ are precisely the order preserving maps $[m]\to[n]$. 
-
-\begin{defn}{Standard n-Simplex}{} Let $n\in\N$. The standard $n$-simplex is the simplicial set $\Delta^n:\Delta\to\text{Set}$ defined by $$\Delta^n=\Hom_\Delta([n],-)$$
-\end{defn}
-
-All such simplicial sets $\Delta^n$ are useful in determining the contents of an arbitrary simplicial set. As for any presheaf, instead of focusing between the passage of data from $\Delta$ to $\text{Set}$, we should instead think of what kind of structure the presheaf brings to $\text{Set}$. Let $C$ be a simplicial set. Then this means the following. For each $n$, there is a set $C_n=\Hom_\text{sSet}(\Delta^n,C)$. For each morphism in $\Delta$, there is a corresponding morphism in $\text{Set}$, which we shall discuss now. 
-
-\begin{thm}{}{} Let $C:\Delta\to\text{Set}$ be a simplicial set. Then every morphism in $C(\Delta)$ is the composite of two kinds of maps: 
-\begin{itemize}
-\item The face maps: $d_i:C_n\to C_{n-1}$ for $0\leq i\leq n$ defined by $$d_i=C(d^i:[n-1]\to[n])$$
-\item The degeneracy maps: $s_i:C_{n+1}\to C_n$ for $0\leq i\leq n$ defined by $$s_i=C(s^i:[n+1]\to[n])$$
-\end{itemize}
-Moreover, these maps satisfy the above simplicial identities
-\end{thm}
-
-\begin{thm}{}{} The category $\bold{sSet}$ is a symmetric monoidal category with level-wise cartesian product. 
-\end{thm}
-
-Recall the notion of a $\Delta$-set from Algebraic Topology 2 and one might realize they look suspiciously similar to that of a simplicial set. Let us recall. A $\Delta$-set is a collection of sets $S_n$ for $n\in\N$ together with maps $d_i^n:S_n\to S_{n-1}$ for $0\leq i\leq n$ such that $$d_i^{n-1}\circ d_j^n=d_{j-1}^{n-1}\circ d_i^n$$ for $i<j$. One can easily convince themselves that every simplicial set is a $\Delta$-set. Indeed, a simplicial set satisfies five more relations than a $\Delta$-set. Therefore we have that $$\bold{sSet}\subset\Delta\text{ Complexes}$$
-
-\begin{thm}{}{} Every simplicial set is a $\Delta$-set. 
-\end{thm}
-
-Combining with the previously learnt combinatorial objects in algebraic topology, we now have the following tower:  $$\text{Simplicial Complexes}\subset\bold{sSet}\subset\Delta\text{ Complexes}\subset\bold{CW}$$
-
-\subsection{Geometric Realization of Simplicial Sets}
-\begin{defn}{Geometric Realization of Standard n-Simplexes}{} Let $n\in\N$. Consider the standard $n$-simplex $\Delta^n$. Define the geometric realization of $\Delta^n$ to be $$\abs{\Delta^n}=\left\{\sum_{k=0}^nt_kv_k\bigg{|}\sum_{k=0}^nt_k=1\text{ and }t_k\geq 0\text{ for all }k=0,\dots,n\right\}$$
-\end{defn}
-
-This definition is exactly the same as the definition of an $n$-simplex in Algebraic Topology 2. Now we proceed to the general case. 
-
-\begin{defn}{Geometric Realization of Simplicial Sets}{} Let $C$ be a simplicial set. Define the geometric realization of $C$ to be $$\abs{C}=\left(\coprod_{n\geq 0}C_n\times\abs{\Delta^n}\right)/\sim$$ where the equivalence relation is generated by the following. 
-\begin{itemize}
-\item The $i$th face of $\{x\}\times\abs{\Delta^n}$ is identified with $\{d_ix\}\times\abs{\Delta^{n-1}}$ by the linear homeomorphism preserving the order of the vertices. 
-\item $\{s_ix\}\times\abs{\Delta^n}$ is collapsed onto $\{x\}\times\abs{\Delta^{n-1}}$ via the linear projection parallel to the line connecting the $i$th and the $(i+1)$st vertiex. 
-\end{itemize}
-\end{defn}
-
-This construction of geometric realization is moreover functorial. Once again, we first define a map of geometric realization of simplicial sets. 
-
-\begin{defn}{Induced Map of Geometric Realization of Standard Simplicial Sets}{} Let $f:\Delta^n\to\Delta^m$ be a map of standard simplexes. Define $f_\ast:\abs{\Delta^n}\to\abs{\Delta^m}$ by $$(t_0,\dots,t_n)\mapsto(s_0,\dots,s_m)$$ where $$s_i=\begin{cases}
-0 & \text{ if } f^{-1}(i)=0\\
-\sum_{j\in f^{-1}(i)}t_j & \text{ otherwise }
-\end{cases}$$
-\end{defn}
-
-\begin{thm}{}{} The geometric realization of a simplicial set is functorial $\abs{\;\cdot\;}:\text{sSet}\to\text{Top}$ in the following way. 
-\begin{itemize}
-\item On objects, it sends any simplicial set $C$ to its geometric realization $\abs{C}$. 
-\item On morphisms, it sends any morphism $C\to D$ of simplicial sets to a continuous map defined by 
-\end{itemize}
-\end{thm}
-
-We thus have that $$\substack{\text{Geometric Relizations}\\\text{ of simplicial sets}}\subset\substack{\text{Geometric Relizations}\\\text{ of }\Delta\text{-sets}}\subset\text{CW-Complexes}$$
-
-\subsection{Simplicial Subsets}
-\begin{defn}{Faces of a Simplex}{} Let $n\in\N$ and consider the standard $n$-simplex $\Delta^n$. 
-\begin{itemize}
-\item Denote $\partial_i\Delta^n\subset\Delta^n$ the simplicial subset generated by the $i$th face $$d_i(\text{id}:[n]\to[n])=d^i:[n-1]\to[n]$$
-\item Denote $\partial\Delta^n$ the simplicial subset generated by the faces $\partial_i\Delta^n$ for $0\leq i\leq n$. Define $\partial\Delta^0=\emptyset$. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Inner and Outer Horns}{} Let $n\in\N$ and consider the standard $n$-simplex $\Delta^n$. Define the $i$th horn $\Lambda_i^n$ of $\Delta^n$ to be the the simplicial subset generated by all the faces $\partial_k\Delta^n$ except the $i$th one. It is called inner if $0<i<n$. It is called outer otherwise. 
-\end{defn}
-
-\begin{defn}{Fillers for an Inner Horn}{} Let $n\in\N$ and consider the standard $n$-simplex $\Delta^n$. Let $\Lambda_i^n$ be an inner horn. We say that $\Lambda$ admits a filler if for all maps $F:\Lambda_i^n\to C$ there exists a map $U:\Delta^n\to C$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\Lambda_i^n} & C \\
-	{\Delta^n}
-	\arrow["F", from=1-1, to=1-2]
-	\arrow[hook, from=1-1, to=2-1]
-	\arrow["\exists U"', dashed, from=2-1, to=1-2]
-\end{tikzcd}}
-\end{defn}
-
-\subsection{Simplicial Objects}
-\begin{defn}{Simplicial Objects}{} Let $\mC$ be a category. A simplicial object in $\mC$ is a presheaf $S:\Delta^\text{op}\to\mC$. 
-\end{defn}
-
-Hence a simplicial object in $\bold{Set}$ is just simplical sets. 
-
-\begin{defn}{Category of Simplicial Objects}{} Let $\mC$ be a category. Define the category of simplicial objects $\text{s}\mC$ of $\mC$ as follows. 
-\begin{itemize}
-\item The objects are simplicial objects $S:\Delta^\text{op}\to\mC$ of $\mC$ which are presheaves
-\item The morphism of simplcial objects are just morphisms of presheaves, which are natural transformations
-\item Composition is given by composition of natural transformations
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Normalized Chain Complex Functor}{} 
-\end{defn}
-
-\begin{thm}{The Dold-Kan Correspondence}{} Consider the abelian category $\bold{Ab}$ of abelian groups. The normalized chain complex functor $$N:\text{s}\bold{Ab}\overset{\cong}{\longrightarrow}\text{Ch}_{\geq 0}(\bold{Ab})$$ gives an equivalence of categories, with inverse as the simplicialization functor $$\Gamma:\text{Ch}_{\geq 0}(\bold{Ab})\to\text{s}\bold{Ab}$$
-\end{thm}
-
-\pagebreak
 \section{Introduction to Infinity Categories}
 \subsection{Infinity Categories and Some Examples}
+The foundations of infinity categories lay on the simpicial sets. Intuitively, any face $\partial_k\Delta$ of an $n$-simplex $\Delta$ captures a homotopy of the faces of $\partial_k\Delta$. 
+
 \begin{defn}{Infinity Categories}{} An infinity category is a simplicial set $C$ such that each inner horn admits a filler. In other words, for all $0<i<n$, the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	{\Lambda_i^n} & C \\
@@ -195,79 +37,13 @@ Hence a simplicial object in $\bold{Set}$ is just simplical sets.
 \end{tikzcd}}\\~\\
 \end{defn}
 
-\begin{defn}{Nerve of a Category}{} Let $\mC$ be a category. Define the nerve of the category $N(C):\Delta\to\text{Set}$ as follows. 
-\begin{itemize}
-\item For $n\in\N$, $N(C)_n$ consists of paths of morphisms with $n$ compositions: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{c_0} & {c_1} & {c_2} & \cdots & {c_n}
-	\arrow["{f_1}", from=1-1, to=1-2]
-	\arrow["{f_2}", from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-\item The face map $d_i:C_n\to C_{n-1}$ sends the above element to \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{c_0} & {c_1} & \cdots & {c_i} & {c_i} & \cdots & {c_n}
-	\arrow["{f_1}", from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow["{\text{id}_{c_i}}", from=1-4, to=1-5]
-	\arrow[from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-\end{tikzcd}}\\~\\
-\item The degeneracy map $s^i:C_n\to C_{n+1}$ sends the above element to 
-\end{itemize}
-\end{defn}
-
-\begin{thm}{}{} Let $\mC$ be a category. Every inner horn of $N(C)$ admits a filler and hence is an infinity category. 
-\end{thm}
-
-\begin{defn}{Nerve Functor}{} The nerve functor $N:\text{Cat}\to\text{sSet}$ is defined as follows. 
-\begin{itemize}
-\item Each $\mC\in\text{Cat}$ is sent to the nerve $N(C)$
-\item Every functor $\mC\to\mD$ in $\text{Cat}$ is sent to the morphism of presheaves $\lambda:N(C)\to N(D)$ defined by $\lambda_n:N(C)([n])\to N(D)([n])$, of which is defined as the map \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{c_0} & {c_1} & {c_2} & \cdots & {c_n} \\
-	{F(c_0)} & {F(c_1)} & {F(c_2)} & \cdots & {F(c_n)}
-	\arrow["{f_1}", from=1-1, to=1-2]
-	\arrow["{f_2}", from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-	\arrow["{F(f_1)}", from=2-1, to=2-2]
-	\arrow["{F(f_2)}", from=2-2, to=2-3]
-	\arrow[from=2-3, to=2-4]
-	\arrow[from=2-4, to=2-5]
-\end{tikzcd}}\\~\\
-from the upper path in $\mC$ to the lower path in $\mD$, such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{N(C)[n]} & {N(C)[m]} \\
-	{N(D)[n]} & {N(D)[m]}
-	\arrow["{N(C)(f)}", from=1-1, to=1-2]
-	\arrow["{\lambda_n}"', from=1-1, to=2-1]
-	\arrow["{\lambda_m}", from=1-2, to=2-2]
-	\arrow["{N(D)(f)}"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-where $f:[m]\to[n]$ is a morphism in $\Delta$. 
-\end{itemize}
-\end{defn}
-
-\begin{thm}{}{} The nerve functor $N:\text{Cat}\to\text{sSet}$ is fully faithful. Moreover, the nerve of a category is a complete invariant for categories. 
+\begin{thm}{}{} Let $\mC$ be a category. Every inner horn of the nerve $N(C)$ of $\mC$ admits a filler and hence is an infinity category. 
 \end{thm}
 
 \subsection{Homotopy Infinity Categories}
-\begin{defn}{The Homotopy Functor}{} Define the homotopy functor $h:\text{sSet}\to\text{Cat}$ as follows. 
-\begin{itemize}
-\item On objects, $h$ sends a simplicial set $S:\Delta\to\text{Set}$ to 
-\end{itemize}
-\end{defn}
+Recall that for a simplicial set $X$, we defined the homotopy category $h(X)$ of $X$. Such an assignment is functorial. In the case of infinity categories, we can exhibit the structure of $h(X)$ more explicitly. 
 
-\begin{prp}{}{} The homotopy functor $h:\text{sSet}\to\text{Cat}$ preserves colimits. 
-\end{prp}
-
-\begin{thm}{}{} The homotopy functor $h:\text{sSet}\to\text{Cat}$ is left adjoint to the nerve functor $N:\text{Cat}\to\text{sSet}$. This means that there is a natural bijection $$\Hom_\text{Cat}(h(C),D)\cong\Hom_\text{sSet}(C,N(D))$$
-\end{thm}
-
-\begin{defn}{Homotopic Morphisms}{} Let $C$ be an infinity category. Two morphisms $f,g:C\to D$ are said to be homotopic if there exists a $2$-simplex $\sigma$ such that 
+\begin{defn}{Homotopic Morphisms}{} Let $\mC$ be an infinity category. Two morphisms $f,g:C\to D$ are said to be homotopic if there exists a $2$-simplex $\sigma$ such that 
 \begin{itemize}
 \item $d_0(\sigma)=\text{id}_D$
 \item $d_1(\sigma)=g$
@@ -298,32 +74,7 @@ In this case we write $f\simeq g$.
 
 \pagebreak
 \section{Infinity Categories in Topology}
-\subsection{The Singular Functor}
-The geometric realization functor actually has a right adjoint, called the singular functor. 
-
-\begin{defn}{Singular Functor}{} The singular functor $S:\text{Top}\to\text{sSet}$ is defined as follows. 
-\begin{itemize}
-\item On objects, it sends a space $X$ to the simplicial set $S(X):\Delta\to\text{Set}$ called the singular set, defined by $$S(X)[n]=\Hom_{\text{Top}}(\abs{\Delta^n},X)$$
-\item On morphisms, it sends a continuous map $f:X\to Y$ to the morphism of simplicial sets $\lambda:S(X)\to S(Y)$ defined as follows. For each $n\in\N$, $\lambda_n:S(X)[n]\to S(Y)[n]$ is defined by $$\left(h:\abs{\Delta^n}\to X\right)\mapsto\left(f\circ h:\abs{\Delta^n}\to Y\right)$$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{S(X)[n]} & {S(X)[m]} \\
-	{S(Y)[n]} & {S(Y)[m]}
-	\arrow["{S(X)(f)}", from=1-1, to=1-2]
-	\arrow["{\lambda_n}"', from=1-1, to=2-1]
-	\arrow["{\lambda_m}", from=1-2, to=2-2]
-	\arrow["{S(Y)(f)}"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-\end{itemize}
-\end{defn}
-
-Notice that this is reminiscent of the definitions in Algebraic Topology 2. Indeed $S(X)[n]$  for each $n\in\N$ is in fact the basis of the abelian group $C_n(X)$. It represents all the possible ways that an $n$-simplex could fit into $X$. 
-
-\begin{thm}{}{} The singular functor $S:\text{Top}\to\text{sSet}$ is right adjoint to the geometric realization functor $\abs{\;\cdot\;}:\text{sSet}\to\text{Top}$. This means that there is a natural bijection $$\Hom_\text{Top}(\abs{X},Y)\cong\Hom_\text{sSet}(X,S(Y))$$ for any space $Y$ and any simplicial set $X$. 
-\end{thm}
-
-We can do even better. For any $X$, $S(X)$ is actually an infinity category. 
-
-\begin{lmm}{}{} Let $X$ be a space. Then $S(X)$ is an infinity category. 
+\begin{lmm}{}{} Let $X$ be a space. Then applying the singular functor $S(X)$ gives an infinity category. 
 \end{lmm}
 
 \begin{prp}{}{} Let $X$ be a space. Then the homotopy category of the singular set of $X$ is equal to $h(S(X))=\prod_1(X)$ the fundamental groupoid of $X$. 
