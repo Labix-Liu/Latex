@@ -25,7 +25,7 @@
 \pagebreak
 \section{The Stable Phenomena}
 \subsection{The Stable Homotopy Groups}
-In Algebraic Topology, we refer to a property or invariant being stable if applying the suspension functor to the space does not change the property (up to possibly a shift in index). The first such example is one we have already encountered. \\~\\
+In Algebraic Topology, we refer to a property or invariant being stable if applying the suspension functor to the space does not change the property (up to possibly a shift in index). The first such example is one we have already encountered. \\
 
 Let $X$ be a space. We have seen in Algebraic Topology 3 that we can define the stable homotopy groups of $X$ as follows. 
 
@@ -34,10 +34,33 @@ Let $X$ be a space. We have seen in Algebraic Topology 3 that we can define the 
 
 This is well defined because of the Freudenthal suspension theorem, which states that the groups in the direct limit eventually stabilize. Indeed, the same theorem shows the following. 
 
-\begin{prp}{}{} Let $X$ be a space. Then there is an isomorphism $$\pi_n^s(X)\cong\pi_{n+1}^s(\Sigma X)$$ induced by the suspension functor between stable homotopy groups for any $n\in\N$. 
+\begin{prp}{}{} Let $X$ be a space. Then there is an isomorphism $$\pi_n^s(X)\cong\pi_{n+1}^s(\Sigma X)$$ induced by the suspension functor between stable homotopy groups for any $n\in\N$. \tcbline
+\begin{proof}
+This can be seen by simply unwinding the definitions. We have that 
+\begin{align*}
+\pi_{n+1}^s(\Sigma X)&=\colim_{k\to\infty}\pi_{n+k+1}(\Sigma^{k+1}X)\\
+&=\colim_{k\to\infty}\pi_{n+k}(\Sigma^kX)\\
+&=\pi_n^s(X)
+\end{align*}
+and so we conclude. 
+\end{proof}
 \end{prp}
 
-New: Graded ring structure on $\pi_\ast^s$. When $X$ and $Y$ are pointed CW complexes, the abelian groups $[\Sigma^n X,\Sigma Y]$ also become stable under suspensions. 
+New: Graded ring structure on $\pi_\ast^s$. \\
+
+Recall that for $n\geq 2$, the set $[\Sigma^2X,Z]$ for any spaces $X$ and $Z$ are abelian. Moreover, the suspension map $\Sigma:[\Sigma^2X,Z]\to[\Sigma^3X,\Sigma Z]$ is a group homomorphism. In particular, we can choose $Z=\Sigma^2Y$. Now since the category $\bold{Ab}$ of abelian groups is cocomplete, the following inverse system \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{[\Sigma^2 X,\Sigma^2Y]} & {[\Sigma^3X,\Sigma^3Y]} & {[\Sigma^4X,\Sigma^4Y]} & \cdots
+	\arrow["\Sigma", from=1-1, to=1-2]
+	\arrow["\Sigma", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}}\\~\\
+has an inverse limit. This leads to the following definition. 
+
+\begin{defn}{Set of Stable Homotopy Classes of Maps}{} Let $X$ and $Y$ be space. The set of stable homotopy classes of maps from $X$ to $Y$ is defined to be the abelian group $$[X,Y]^s=\colim_{n\in\N\setminus\{0,1\}}[\Sigma^nX,\Sigma^nY]$$
+\end{defn}
+
+The following observation is crucial. When $X$ and $Y$ are pointed CW complexes, the abelian groups $[\Sigma^n X,\Sigma^n Y]$ also become stable under suspensions. 
 
 \begin{thm}{}{} Let $X$ and $Y$ be pointed CW complexes. Then the sequence of abelian groups, \\~\\
 \adjustbox{scale=1,center}{\begin{tikzcd}
@@ -45,15 +68,16 @@ New: Graded ring structure on $\pi_\ast^s$. When $X$ and $Y$ are pointed CW comp
 	\arrow["\Sigma", from=1-1, to=1-2]
 	\arrow[from=1-2, to=1-3]
 \end{tikzcd}}\\~\\
-are isomorphic under the suspension functor for $n>\dim(X)$. 
+are isomorphic under the suspension functor for $n>\dim(X)$ and $n\geq 2$. 
 \end{thm}
-
-\begin{defn}{Set of Stable Homotopy Classes of Maps}{} Let $X$ and $Y$ be pointed CW complexes. The set of stable homotopy classes of maps from $X$ to $Y$ is defined to be the abelian group $$[X,Y]^s=\colim_{n\in\N}[\Sigma^nX,\Sigma^nY]$$
-\end{defn}
 
 New: When $X$ is compact, $[X,QY]_\ast=[X,Y]_\ast^s$. 
 
-\begin{thm}{}{} The stable homotopy groups define a collection of functors $\pi_n^s:\bold{CW}_\ast\to\bold{Ab}$ where $X$ is sent to $\pi_n^s(X)$ and a map $f:X\to Y$ is sent to the map $\pi_n^s(X)\to\pi_n^s(Y)$ defined by the colimit of the suspensions. 
+\begin{thm}{}{} The stable homotopy groups define a collection of functors $\pi_n^s:\bold{CW}_\ast\to\bold{Ab}$ as follows. 
+\begin{itemize}
+\item For $X$ a pointed CW complex, $\pi_n^s(X)$ is the $n$th stable homotopy group of $X$
+\item For $f:X\to Y$ a map, $$\pi_n^s(f):\pi_n^s(X)\to\pi_n^s(Y)$$ is the image of $f$ under the canonical map $[X,Y]\to[X,Y]^s$
+\end{itemize}
 \end{thm}
 
 \begin{thm}{}{} The stable homotopy functors $\pi_n^s:\bold{CW}_\ast\to\bold{Ab}$ for each $n\in\N$ defines a reduced homology theory. 
@@ -64,10 +88,10 @@ This is untrue for the unstable homotopy groups. In particular, the fundamental 
 \subsection{Spectra and Functions of Spectra}
 The stable homotopy groups inputs a space and outputs a colimit of homotopy groups which stabilizes by the Freudenthal suspension theorem. Conversely, we can extract from this result the following. If $X$ is a space, we have a sequence of spaces $$X,\Sigma X,\Sigma^2X,\dots$$ For each $n$, the sequence $$\pi_n(X)\to\pi_{n+1}(\Sigma X)\to\pi_{n+2}(\Sigma^2X)\to\cdots$$ eventually stabilizes by the Freudenthal suspension theorem. This is the guiding result for the definition of a spectrum. 
 
-\begin{defn}{Spectra}{} A spectrum $E$ is a collection $\{(E_n,\ast)\;|\;n\in\Z\}$ of pointed spaces in $\bold{CG}$ together with continuous maps $e_n:\Sigma E_n\to E_{n+1}$ or equivalently, continuous maps $e_n:E_n\to\Omega E_{n+1}$. 
+\begin{defn}{(Sequential) Spectra}{} A spectrum $E$ is a collection $\{(E_n,\ast)\;|\;n\in\Z\}$ of pointed spaces in $\bold{CG}$ together with continuous maps $e_n:\Sigma E_n\to E_{n+1}$ or equivalently, continuous maps $e_n:E_n\to\Omega E_{n+1}$. 
 \end{defn}
 
-We relate the definition with the above as follows. A spectrum consists of a sequence of spaces (let us start index it with $\N$) $$E_0,E_1,E_2,\dots$$ For each $n$, we would like to have a sequence of maps $$\pi_n(E_0)\to\pi_{n+1}(E_1)\to\pi_{n+2}(E_2)\to\dots$$ similar to the initial digression. These maps are in fact in our hands. For each $k\in\N$, one has the maps $$\pi_{n+k}(E_k)\overset{\Sigma_\ast}{\to}\pi_{n+k+1}(\Sigma E_k)\overset{(e_k)_\ast}{\to}\pi_{n+k+1}(\Sigma E_{k+1})$$~\\
+We relate the definition with the above as follows. A spectrum consists of a sequence of spaces (let us start index it with $\N$) $$E_0,E_1,E_2,\dots$$ For each $n$, we would like to have a sequence of maps $$\pi_n(E_0)\to\pi_{n+1}(E_1)\to\pi_{n+2}(E_2)\to\dots$$ similar to the initial digression. These maps are in fact in our hands. For each $k\in\N$, one has the maps $$\pi_{n+k}(E_k)\overset{\Sigma_\ast}{\to}\pi_{n+k+1}(\Sigma E_k)\overset{(e_k)_\ast}{\to}\pi_{n+k+1}(E_{k+1})$$~\\
 
 Notice that we have restricted our spaces to that in $\bold{CG}$, the category of compactly generated spaces. Most of the theorems only work under such an assumption, and there is little loss forgetting the rest of the spaces. 
 
@@ -96,7 +120,11 @@ Notice that we have restricted our spaces to that in $\bold{CG}$, the category o
 \end{itemize}
 \end{defn}
 
-\begin{defn}{Eilenberg-MacLane Spectrum}{} Let $G$ be an abelian group. Define the Elienberg-Maclane spectrum to be the spaces $$K(G,n)$$ together with maps $K(G,n)\to\Omega K(G,n+1)$ which are homeomorphisms. 
+\begin{defn}{Eilenberg-MacLane Spectrum}{} Let $G$ be an abelian group. Define the Elienberg-Maclane spectrum to consist of the following data. 
+\begin{itemize}
+\item The collection $\{K(G,n)\;|\;n\in\N\}$ of spaces. 
+\item The collection $K(G,n)\to\Omega K(G,n+1)$ of maps which are homeomorphisms. 
+\end{itemize}
 \end{defn}
 
 \subsection{Brown's Representability Theorem}
@@ -164,11 +192,12 @@ We would like to define a category so that we can investigate the stable phenome
 \begin{prp}{}{} The category $\bold{SW}$ is additive and is a triangulated category. 
 \end{prp}
 
-$[-,X]_\ast^s$ almost defines a reduced cohomology theory. It fails at the wedge axiom. 
+$[-,X]_\ast^s$ almost defines a reduced cohomology theory. It fails at the wedge axiom. \\
+Suspension gives equivalence of categories. 
 
 \pagebreak
-\section{The Stable Homotopy Category}
-\subsection{The Category of Spectra}
+\section{The Stable Model Structure on Sequential Spectra}
+\subsection{The Category of Sequential Spectra}
 \begin{defn}{The Category of Spectra}{} Define the category $\mS^\N$ of spectra to consist of the following data. 
 \begin{itemize}
 \item The objects are spectra arising from sequences of spaces in $\bold{CG}_\ast$
@@ -225,10 +254,35 @@ This model structure is cofibrantly generated with the generating sets given by 
 Unfortunately, such a direct translation of model category structure from $\bold{Top}$ to $\mS^\N$ does not give the appropriate stable homotopy category. Therefore we need a new model structure. For this, we turn to the homotopy groups. 
 
 \subsection{Homotopy Groups of a Spectrum}
-\begin{defn}{Homotopy Groups of a Spectrum}{} Let $E$ be a spectrum. Define the $n$th (stable) homotopy group of $E$ to be $$\pi_n(E)=\colim_{k\to\infty}\pi_{n+k}(E_k)$$
+Recall from the digression after def1.2.1 that we have a series of maps of the form \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\pi_{n+k}(X_k)} & {\pi_{n+k+1}(\Sigma X_kn)} & {\pi_{n+k+1}(X_{k+1})}
+	\arrow["{\Sigma_\ast}", from=1-1, to=1-2]
+	\arrow["{(\sigma_n)_\ast}", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+for $n+k>1$. We will use this to define the homotopy groups of a spectrum. 
+
+\begin{defn}{Homotopy Groups of a Spectrum}{} Let $X$ be a spectrum. Define the $n$th (stable) homotopy group of $X$ to be the colimit of the inverse system \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\pi_{n+k}(X_k)} && {\pi_{n+k+1}(X_{k+1})} && {\pi_{n+k+2}(X_{k+2})} & \cdots
+	\arrow["{(\sigma_n)_\ast\circ\Sigma_\ast}", from=1-1, to=1-3]
+	\arrow["{(\sigma_{n+1})_\ast\circ\Sigma_\ast}", from=1-3, to=1-5]
+	\arrow[from=1-5, to=1-6]
+\end{tikzcd}}\\~\\
+for $n+k>1$. We write the $n$th stable homotopy group as $$\pi_n(X)=\colim_{k\to\infty}\pi_{n+k}(X_k)$$
 \end{defn}
 
-Notice that this is a generalization of the stable homotopy groups in Algebraic Topology 3. Indeed if one considers the suspension spectrum of space, then the homotopy groups of the given suspension spectrum are the stable homotopy groups in the sense of Algebraic Topology 3. 
+Notice that this is a generalization of the stable homotopy groups in Algebraic Topology 3. Indeed if one considers the suspension spectrum of space, then the homotopy groups of the given suspension spectrum are the stable homotopy groups. This is made rigorous with the following functor. 
+
+\begin{defn}{The Suspension Functor}{} Define the suspension functor $\Sigma^\infty:\bold{CG}_\ast\to\mS^\N$ to consist of the following. 
+\begin{itemize}
+\item For $X\in\bold{CG}_\ast$ a space, $\Sigma^\infty X$ is the suspension spectrum of $X$
+\item For $f:X\to Y$ a map, $\Sigma^\infty f:\Sigma^\infty X\to\Sigma^\infty Y$ is the map induced by the $n$th suspension of $f$ for all $n\in\N$. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $X\in\bold{CG}_\ast$ be a space. There is an isomorphism $$\mathbb{S}\wedge X\cong\Sigma^\infty X$$
+\end{prp}
 
 Next: $\pi_k(-)$ is functorial. 
 
@@ -238,6 +292,13 @@ Next: $\pi_k(-)$ is functorial.
 \pi_0(X_{\abs{k}}) & \text{ if } k<0
 \end{cases}$$
 \end{prp}
+
+Unwinding the proposition, we have that 
+\begin{itemize}
+\item $\pi_0(X)=\pi_0(X_0)=\pi_1(X_1)=\dots$
+\item $\pi_1(X)=\pi_1(X_0)=\pi_2(X_1)=\dots$
+\end{itemize}
+and so on. Indeed this is the effect of imposing weak equivalences on the structure maps of $X$. 
 
 \begin{defn}{$\pi_\ast$-Equivalence}{} Let $f:X\to Y$ be a map of spectra. We say that $f$ is a $\pi_\ast$-equivalence if the induced map $$\pi_n(f):\pi_n(X)\to\pi_n(Y)$$ is an isomorphism for all $n$. In this case, we say that $X$ and $Y$ are $\pi_\ast$-isomorphic. 
 \end{defn}
@@ -273,6 +334,11 @@ Moreover, the fibrant objects are precisely the $\Omega$-spectra.
 \end{itemize}
 \end{defn}
 
+\subsection{In View of Infinity Categories}
+
+\pagebreak
+\section{The First Stable Homotopy Category}
+\subsection{The Stable Homotopy Category}
 \begin{defn}{The Stable Homotopy Category}{} Define the stable homotopy category to be the homotopy category $$\mS\mH\mC=\text{Ho}(\mS^\N)$$ of the category of spectra. 
 \end{defn}
 
@@ -299,15 +365,7 @@ Recall that a pointed model category implicitly has the notion of a suspension a
 \end{thm}
 
 \subsection{Properties of the Stable Homotopy Category}
-\begin{defn}{The Suspension Functor}{} Define the suspension functor $\Sigma^\infty:\bold{CG}_\ast\to\mS^\N$ to consist of the following. 
-\begin{itemize}
-\item For $X\in\bold{CG}_\ast$ a space, $\Sigma^\infty X$ is the suspension spectrum of $X$
-\item For $f:X\to Y$ a map, $\Sigma^\infty f:\Sigma^\infty X\to\Sigma^\infty Y$ is the map induced by the $n$th suspension of $f$ for all $n\in\N$. 
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $X\in\bold{CG}_\ast$ be a space. There is an isomorphism $$\mathbb{S}\wedge X\cong\Sigma^\infty X$$
-\end{prp}
+We have seen the suspension functor for spectra when defining homotopy groups for spectra. We also define the loopspace functor for spectra. 
 
 \begin{defn}{The Loopspace Functor}{} Define the loopspace functor $\Omega^\infty:\mS^\N\to\bold{CG}_\ast$ as follows. 
 \begin{itemize}
@@ -323,72 +381,55 @@ Recall that a pointed model category implicitly has the notion of a suspension a
 \end{thm}
 
 \pagebreak
-\section{Modern Categories of Spectra}
+\section{Highly Structured Spectra}
+As quoted from nLab, there are a few ways to improve this stable homotopy category, only after we have seen some alternative categories of spectra. For instance, the smash product of spectra is not functorial nor is it commutative. This is important for discussion of higher algebra. 
+
 \subsection{The Category of Orthogonal Spectra}
-\subsection{The Category of Symmetric Spectra}
-\subsection{The Category of CW Spectra}
-\begin{defn}{Category of CW Spectra}{} The category of CW spectra $\mS$ is defined via the following data. 
+\begin{defn}{Orthogonal Spectra}{} An orthogonal spectrum $X$ consists of the following data. 
 \begin{itemize}
-\item The objects of $\mS$ are CW Spectra
-\item For $E,F$ two CW spectra, a morphism from $E$ to $F$ is a map $\varphi:E\to F$. 
-\item Composition is defined as the composition of maps of spectra. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Homotopy Category of CW Spectra}{} The homotopy category of CW spectra $\mH\mS$ is defined via the following data. 
-\begin{itemize}
-\item The objects of $\mH\mS$ are CW Spectra
-\item For $E,F$ two CW spectra, a morphism from $E$ to $F$ is a homotopy class of maps of spectra $[\varphi]:E\to F$. 
-\item Composition is defined as the composition of maps of spectra. 
-\end{itemize}
-Isomorphisms in the category are called equivalences. If $E$ and $F$ are equivalent spectra then we denote it by $E\simeq F$. 
-\end{defn}
-
-\begin{thm}{}{} Let $E,F$ be CW spectra and let $\varphi:E\to F$ be a morphism of spectra. Then $\varphi:E\to F$ is an equivalence if and only if the induced homomorphism $$\varphi_\ast:\pi_k(E)\to\pi_k(F)$$ is an isomorphism for all $k$. 
-\end{thm}
-
-\begin{thm}{}{} Every spectrum is homotopy equivalent to a CW spectrum. Explicitly, for every spectrum $X=\{X_n,t_n\}$, there exists a CW spectrum $E=\{E_n,s_n\}$ together with pointed homotopy equivalences $f_n:E_n\to X_n$ such that the following diagram commutes: \\~\\
+\item For each $n\in\N$, a pointed space $X_n$ and a continuous group action of $O(n)$ that fixes the base point. 
+\item For each $n\in\N$, there are maps of pointed spaces $\sigma_n:S^1\wedge X_n\to X_{n+1}$
+\item For each $n,k\in\N$, the composite map \\~\\
 \adjustbox{scale=1,center}{\begin{tikzcd}
-	{SE_n} & {SX_n} \\
-	{E_{n+1}} & {X_{n+1}}
-	\arrow["{Sf_n}", from=1-1, to=1-2]
-	\arrow["{s_n}"', from=1-1, to=2-1]
-	\arrow["{t_n}", from=1-2, to=2-2]
-	\arrow["{f_{n+1}}"', from=2-1, to=2-2]
+	{S^k\wedge X_n} && {S^{k-1}\wedge X_{n+1}} && {S^{k-2}\wedge X_{n+2}} & \cdots & {X_{n+k}}
+	\arrow["{\text{id}_{S^{k-1}}\wedge\sigma_n}", from=1-1, to=1-3]
+	\arrow["{\text{id}_{S^{k-2}}\wedge\sigma_{n+1}}", from=1-3, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
 \end{tikzcd}}\\~\\
-\end{thm}
+is $O(k)\times O(n)$ equivariant, where we think of $O(k)\times O(n)\leq O(n+k)$ by $O(k)$ acting on the first $k$ coordinate and $O(n)$ acting on the last $n$ coordinates. 
+\end{itemize}
+\end{defn}
+
+TBA: Morphism\\
+Examples: Trivial, Sphere, Suspension, Shifted Suspension\\
+TBA: Stable model structure\\
+TBA: Quillen adjunction with $S^\N$, Quillen adjunction with $\bold{Top}_\ast$
+
+\subsection{The Category of Symmetric Spectra}
+
+\subsection{The Symmetric Monoidal Structure}
 
 \begin{thm}{}{} Every CW spectrum is equivalent to some $\Omega$ CW spectrum. 
 \end{thm}
 
 \pagebreak
-\section{Formal Group Laws}
-\begin{defn}{Formal Group Laws}{} Let $R$ be a ring. A formal group law over $R$ is a power series $$f(x,y)\in R[[x,y]]$$ such that the following are true. 
+\section{More Category of Spectra}
+\subsection{Spectra of Simplicial Sets}
+TBA: Def of spectra of simplicial sets\\
+TBA: Quillen adjunction with $S^\N$ induced by geometric realization and nerve functor. 
+
+\subsection{Diagram Spectra}
+
+\subsection{The Category of L-Spectra}
+In previously defined highly structured spectra, we see that the smash product behaves better only when we pass it to the homotopy category. However, we will present here one category of spectra in which the smash product behaves decently well. 
+
+\begin{defn}{(Coordinate Free) Spectra}{} Let $U$ be a infinite dimensional inner product space isomorphic to $\R^\infty$. A coordinate free spectra modelled on $U$ consists of the following data. 
 \begin{itemize}
-\item $f(x,0)=f(0,x)=x$
-\item $f(x,y)=f(y,x)$
-\item $f(x,f(y,z))=f(f(x,y),z)$
+\item For each finite dimensional vector subspace $V\subset U$, a pointed topological space $E_V$. 
+\item For each inclusion of vector subspaces $V\hookrightarrow W$, a homeomorphism of pointed spaces $\sigma_{V,W}:E_V\overset{\cong}{\rightarrow}\Omega^{W-V}E_W=\text{Map}_\ast(S^{W-V},E_W)$. Here $S^{W-V}$ means the one point compactification of the space $W-V$. 
 \end{itemize}
 \end{defn}
-
-\begin{defn}{The Formal Group Law Functor}{} Define the formal group law functor $$FGL:\bold{Ring}\to\bold{Set}$$ by the following data. 
-\begin{itemize}
-\item For each ring $R$, $FGL(R)$ is the set of all formal group laws over $R$
-\item For each ring homomorphism $f:R\to S$, $FGL(f)$ sends each formal group law $\sum_{i,j=0}^\infty c_{i,j}x^iy^j$ over $R$ to the formal group law $\sum_{i,j=0}^\infty f(c_{i,j})x^iy^j$ over $S$. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{The Lazard Ring of a Formal Group Law}{} Define the lazard ring by $$L=\frac{\Z[c_{i,j}]}{Q}$$ where $Q$ is the ideal generated as follows. Write $f=\sum_{i,j=0}^\infty c_{i,j}x^iy^j$. Then $Q$ is generated by the constraints on $c_{i,j}$ for which $f$ becomes a formal group law. 
-\end{defn}
-
-\begin{lmm}{}{} The Lazard ring $L=\Z[c_{i,j}]/Q$ has the structure of a graded ring where $c_{i,j}$ has degree $2(i+j-1)$. 
-\end{lmm}
-
-\begin{thm}{}{} The formal group law functor $FGL:\bold{Ring}\to\bold{Set}$ is representable $$FGL(R)\cong\Hom_\bold{Ring}(L,R)$$ There exists a universal element $f\in L$ such that the map $\Hom_\bold{Ring}(L,R)\to FGL(R)$ given by evaluation on $f$ is a bijection for any ring $R$. 
-\end{thm}
-
-\begin{thm}{}{} There is an isomorphism of the Lazard ring $$L\cong\Z[t_1,t_2,\dots]$$ where each $t_k$ has degree $2k$. 
-\end{thm}
 
 
 

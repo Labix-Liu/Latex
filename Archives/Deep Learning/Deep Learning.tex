@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 
-\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2 Prog.tex}
 
 
 \pagestyle{fancy}
@@ -29,14 +29,25 @@ Deep learning is now taking off mainly because of the size of data that we posse
 
 \subsection{Neural Networks}
 We begin with the notion of a node. 
-\begin{defn}{Nodes}{} A node takes a vector $x$ of $n$ inputs and outputs a single value $a$ using the follow equation $$a=\varphi(wx+b)$$ where $w,b,\varphi$ are called parameters of the node. $w$ is a $1\times n$ matrix and $b$ is a real number. $\varphi:\R\to\R$ is called an activation function. 
+
+\begin{defn}{Nodes}{} A node takes a vector $x$ of $n$ inputs and outputs a single value $a$ using the follow equation $$a=\varphi(wx+b)$$ where $w,b,\varphi$ are called parameters of the node. $w$ is a $1\times n$ matrix and $b$ is a real number. $\varphi:\R\to\R$ is called an activation function. The vector $x$ is usually the output of the previous layer. 
 \end{defn}
+
+We will explain what the activation functions mean. For now, please ignore it and simply consider it to be part of the necessary data of one node. 
 
 \begin{defn}{Layers}{} A layer is a collection of ordered nodes of the same depth. The depth is denoted $l$, which means that it takes $l$ steps to transform all the initial inputs to a node in layer $l$. \\~\\
 Layer $0$, consisting of all the initial inputs are called the input layer. The final layer $L$ in which there are no further outputs for all nodes are called the output layer is called the output layer. The rest are called the hidden layer. 
 \end{defn}
 
-A neural network consists of inputs, intermediate nodes and outputs. It is also further separated into layers. The input nodes are grouped to called the input layer, similarly for the output layer. The rest of the nodes are part of the hidden layer. Nodes connected immediately from the input nodes are the first layer, nodes connected immediately from the first layer forms the second layer and so on. They are usually called hidden layer 1, hidden layer 2 and so on. \\~\\
+A neural network consists of inputs, intermediate nodes and outputs. It is also further separated into layers. The input nodes are grouped to called the input layer, similarly for the output layer. The rest of the nodes are part of the hidden layer. Nodes connected immediately from the input nodes are the first layer, nodes connected immediately from the first layer forms the second layer and so on. They are usually called hidden layer 1, hidden layer 2 and so on. 
+
+\begin{defn}{Neural Networks}{} A neural network consists of the following data. 
+\begin{itemize}
+\item The total number of layers including the input and output layers
+\item The total number of nodes $n^{[l]}$ for each layer $l$
+\item The connections between the nodes of a previous layer and the current layer
+\end{itemize}
+\end{defn}
 
 Suppose that on layer $l$, there are $n^{[l]}$ nodes. Each node has its own $w$ and $b$ labeled $w_1^{[l]},\dots,w_{n^{[l]}}^{[l]}$ and similarly for $b$, which allows us to form the matrices $$W^{[l]}=\begin{pmatrix}
 | & \cdots & |\\
@@ -64,7 +75,11 @@ x^{(1)} & \cdots & x^{(m)}\\
 \end{itemize}
 \end{thm}
 
-Deep learning involves providing a specified neural network (giving it $L$ layers and $n^{[l]}$ nodes for each layer $l$) some training data and outputs the linear regression matrix $W^{[l]}$ and bias $b^{[l]}$ on each layer $l$. Assuming we found out the best $W$ and $b$ for each layer, we use this calculation to calculate our own predicted output, and compare it with the supposed output (provided along with the training data) and find out how big the difference it with a lost function. The goal is then simple: to minimize the lost function, which means to optimize it and find its local minimum. 
+Deep learning involves providing a specified neural network (giving it $L$ layers and $n^{[l]}$ nodes for each layer $l$) some training data and outputs the linear regression matrix $W^{[l]}$ and bias $b^{[l]}$ on each layer $l$. \\
+
+In other words, the learning process is as follows. We provide with the machine a set of training data. These training data come in a pair $(x_i,y_i)$. $x_i$ refers to the input of the machine and $y_i$ refers to the expected output of the machine. The ``learning'' process involves adjusting the $w$ and $b$ values of each node, so that inputting $x_i$ will give a result very close to $y_i$ (In reality, it will be very hard for the machine to achieve the exact answer $y_i$). To do this, the ``learning'' process will be repeated many times and so the values of $w$ and $b$ will be constantly changing. \\
+
+But how should we measure whether our machine outputs accurate predictions? We need a ruler to for us to evaluate its effectiveness. This is called the loss function. 
 
 \begin{defn}{Loss Function}{} The loss function of a neural network calculates the difference between the predicted value of the network and the actual value of in the training data. It is a function which depends on $W^{[l]}$ and $b^{[l]}$ for $1\leq l\leq L$. It is denoted as $$\mathcal{L}(W^{[1]},b^{[1]},\dots,W^{[L]},b^{[L]},Y)$$
 \end{defn}
@@ -90,27 +105,31 @@ def linear_forward(A, W, b):
 \end{minted}
 \end{alg}
 
-\begin{defn}{Neural Networks}{} A neural network consists of the following data. 
-\begin{itemize}
-\item The total number of layers including the input and output layers
-\item The total number of nodes $n^{[l]}$ for each layer $l$
-\item The connections between the nodes of a previous layer and the current layer
-\end{itemize}
-\end{defn}
+The goal is simple. The loss function is a function that depends on $w$ and $b$ value of each node, measuring how different the predicted and actual value are. Therefore, for every iteration of the learning process, we want to use the results of the loss function, to adjust our values of $w$ and $b$ of each node, so that eventually the collection of $w$ and $b$ values for each node will be able to give a prediction value close to the training set for every input data in the training set. 
 
 \subsection{Binary Classification}
-Binary classification refers to the fact that the outputs are binary. One example is to use deep learning to identify cats. In this case, the output consists of either $1$, which means that the picture is a cat, or $0$ if not. \\~\\
-Recall that in linear regression, we calculate our estimation of the output $\hat{y}$ using the following equation: $$\hat{y}=w\cdot x+b$$ where $w\in M_{1\times n^{[0]}}(\R)$ is some vector that we are trying to improvise, and $b$ is the bias which we are also trying to improvise. Assuming that our outputs are binary, $\hat{y}$ should be a probability $$\hat{y}=\Prj(y=1|x)$$ so that it generates an estimation between $0$ and $1$. Unfortunately this does not work using the regular equation for linear regression. Instead, we input the result $z=w\cdot x+b$ further into an activation function so that 
+Binary classification refers to the fact that the outputs are binary. One example is to use deep learning to identify cats. In this case, the output consists of either $1$, which means that the picture is a cat, or $0$ if not. \\
+
+Linear regression is the standard way of finding the values of $w$ and $b$ in statistics. Recall that in linear regression, we calculate our estimation of the output $\hat{y}$ using the following equation: $$\hat{y}=w\cdot x+b$$ where $w\in M_{1\times n^{[0]}}(\R)$ is some vector that we are trying to improvise, and $b$ is the bias which we are also trying to improvise. Assuming that our outputs are binary, $\hat{y}$ should be a probability $$\hat{y}=\Prj(y=1|x)$$ so that it generates an estimation between $0$ and $1$.\\
+
+Unfortunately this does not work using the regular equation for linear regression. Instead, we input the result $z=w\cdot x+b$ further into an activation function so that 
 \begin{enumerate}
-\item the output is between $0$ and $1$
+\item the output is between $0$ and $1$ (It becomes a probability)
 \item the neural network does not reduce to a simple case of that of $1$ node. 
 \end{itemize}
 
-To elaborate, notice that if we take a linear function for the activation function, say the identity, by composing $A^{[l]}$, we get $$A^{[L]}=W^{[L]}W^{[L-1]}\cdots W^{[1]}A^{[0]}+B$$ This is clearly just the same expression as $z=w\cdot x+b$ which means that no matter how many layers we define the neural network, the network reduces to a one layer network. \\~\\
+To elaborate, notice that if we take a linear function for the activation function, say the identity, by composing $A^{[l]}$, we get $$A^{[L]}=W^{[L]}W^{[L-1]}\cdots W^{[1]}A^{[0]}+B$$ This is clearly just the same expression as $z=w\cdot x+b$ which means that no matter how many layers we define the neural network, the network reduces to a one layer network. Therefore, we can no longer use the standard techniques of linear regression in statistics. 
+
+\begin{defn}{Activation Function}{} An activation function of a node is a function that calculates the output of the node using the input data from the previous layer, a choice of weight and a bias. 
+\end{defn}
+
+Common choices of activation functions include the following $$\sigma(z)=\frac{1}{1+e^{-z}}$$~$$\text{ReLU}(z)=\max\{0,z\}$$~$$\tanh(z)=\frac{e^z-e^{-z}}{e^z+e^{-z}}$$ We will mostly use $\text{ReLU}$ because its derivative is $0$ for negative values (as we will see, lost functions are optimized by using gradient descent, which depends on the derivative). However, in the case of binary classification, we may want to use the sigmoid function so that its outputs are between $0$ and $1$. $\tanh$ are sometimes useful because the the function lies between $-1$ and $1$ so that the mean of the data can be closer to $0$. \\~\\
+
 The remainder of the codes of the section will be dedicated to how to program an $L$ layer with binary classification at the last layer. The regression model for a binary classification model is called a logistic regression. 
 
 \subsection{Random Initialization}
-$W$ and $b$ have to be initialized in order for the first iteration to succeed. However, if the weights are all set to $0$, the layer in which the nodes are in will reduce to just being $1$ node due to the fact that they have the same weight, and so what each node does is identical. \\~\\
+$W$ and $b$ have to be initialized in order for the first iteration to be successful. However, if the weights are all set to $0$, the layer in which the nodes are in will reduce to just being $1$ node due to the fact that they have the same weight, and so what each node does is identical. \\
+
 The code for random initialization is given below: 
 \begin{alg}{Initialize Parameters Deep}{} Program to initialize all weights and bias. \\~\\
 Arguments:\\
@@ -141,14 +160,7 @@ The factor of $0.01$ is there to make sure that the weights are close to $0$. As
 Moreover, bias take no effect in random initialization nor are they penalized in the algorithm. 
 
 \subsection{Forward Propagation}
-Recall that a node of a neural network consists of a weight and bias, which are variables that we would like to tune. It also consists of an activation function which is not part of the variables which is tuned but is instead fixed for every node. 
-
-\begin{defn}{Activation Function}{} An activation function of a node is a function that calculates the output of the node using the input data from the previous layer, a choice of weight and a bias. 
-\end{defn}
-
-Common choices of activation functions include the following $$\sigma(z)=\frac{1}{1+e^{-z}}$$~$$\text{ReLU}(z)=\max\{0,z\}$$~$$\tanh(z)=\frac{e^z-e^{-z}}{e^z+e^{-z}}$$ We will mostly use $\text{ReLU}$ because its derivative is $0$ for negative values (as we will see, lost functions are optimized by using gradient descent, which depends on the derivative). However, in the case of binary classification, we may want to use the sigmoid function so that its outputs are between $0$ and $1$. $\tanh$ are sometimes useful because the the function lies between $-1$ and $1$ so that the mean of the data can be closer to $0$. \\~\\
-
-The following code the function of a single node, using the linear forward module. 
+The following codes the function of a single node, using the linear forward module. 
 
 \begin{alg}{Linear Activation Forward}{} Implements the forward propagation for the LINEAR to ACTIVATION layer. \\
 Arguments: \\
@@ -210,14 +222,16 @@ def L_model_forward(X, parameters):
 \end{alg}
 
 \subsection{Lost and Cost Function}
-Loss functions are calculated independently from each training set. They are combined into an average $J=\frac{1}{m}\sum_{i=1}^m\mathcal{L}$. The square error $$\mathcal{L}=\frac{1}{2}(\hat{Y}-Y)^2$$ is often not useful in linear regression due to having no vertex. It is common to use the loss function $$\mathcal{L}=-(Y\log(\hat{Y})+(1-Y)\log(1-\hat{Y}))$$ for logistic regression. \\~\\
-It is easy to see that if a training data $y=1$, then $\mathcal{L}=-\log(\hat{y})$ which means that our optimization should be based on $\hat{y}$ being as large as possible. Since $0\leq \hat{y}\leq 1$ we must have $\hat{y}=1$ for best optimization. Similarly, if $y=0$, $\mathcal{L}=-\log(1-\hat{y})$ will result in optimization towards $\hat{y}=0$. \\~\\
-We finally have the cost function. 
+Loss functions are calculated independently from each training set. The square error $$\mathcal{L}=\frac{1}{2}(\hat{Y}-Y)^2$$ is often not useful in linear regression due to having no vertex. It is common to use the loss function $$\mathcal{L}=-(Y\log(\hat{Y})+(1-Y)\log(1-\hat{Y}))$$ for logistic regression. \\
 
-\begin{defn}{Cost Function}{} The most common cost function for deep learning is given by $$J(W^{[1]},b^{[1]},\dots,W^{[L]},b^{[L]},Y)=\frac{1}{m}\sum_{i=1}^m\mathcal{L}(\hat{Y},Y)$$ ($\hat{Y}$ is determined by $W^{[1]},b^{[1]},\dots,W^{[L]},b^{[L]}$ so that this notation makes sense)
+It is easy to see that if a training data $y=1$, then $\mathcal{L}=-\log(\hat{y})$ which means that our optimization should be based on $\hat{y}$ being as large as possible. Since $0\leq \hat{y}\leq 1$ we must have $\hat{y}=1$ for best optimization. Similarly, if $y=0$, $\mathcal{L}=-\log(1-\hat{y})$ will result in optimization towards $\hat{y}=0$. \\
+
+Since every training set contains multiple pairs of input and output, we cannot only consider the loss function of one particular choice of input and output pair. Instead, we need to consider all the loss of EACH input output pair all at once. This is what the cost function does. 
+
+\begin{defn}{Cost Function}{} The cost function $$J(W^{[1]},b^{[1]},\dots,W^{[L]},b^{[L]},Y)$$ of a neural network combines the loss function output for all input output pairs so that we only have to minimize one function (the cost function), instead of needing to minimize the loss function for each individual input output pair. 
 \end{defn}
 
-The cost function for a single iteration is calculated as below, given the prediction: 
+One common choice of cost function in statistics is the average square error: $$J=\frac{1}{m}\sum_{i=1}^m\mathcal{L}(\hat{Y}_i,Y_i)$$ We will use this cost function from now on, unless otherwise specified. The cost function for a single iteration is calculated as below, given the prediction: 
 
 \begin{alg}{Compute Cost}{} Implements the cost function defined as above. \\~\\
 Arguments: \\
@@ -417,12 +431,12 @@ This completes a training cycle. It is often to repeat the above with multiple b
 \section{Improving the Adaptability of the Prediction}
 Applied machine learning is highly iterative. This is to find out the best set of hyperparameters to train the parameters. In particular, it is important to find out 
 \begin{itemize}
-\item Number of layers
-\item Number of hidden units per layer
-\item Learning rates
-\item Activation functions
+\item The number of layers of the network
+\item The number of hidden units per layer
+\item The learning rate of the gradient descent
+\item The choice of activation functions for each node
 \end{itemize}
-through the use of the idea$\to$code$\to$experiment cycle. Moreover, intuition from one application area usually does not transfer to another. In this section, we try to control the data set as well as fine tuning the change in $W^{[l]}$ and $b^{[l]}$ to improve the prediction output of the learning process. 
+through the use of the idea $\to$ code $\to$ experiment cycle. Moreover, intuition from one application area usually does not transfer to another. In this section, we try to control the data set as well as fine tuning the change in $W^{[l]}$ and $b^{[l]}$ to improve the prediction output of the learning process. 
 
 \subsection{Hypervariables}
 \begin{defn}{Hypervariables}{} The hypervariables of a program refers to variables that controls the output of other variables which further affects the output of the program. 
@@ -430,10 +444,10 @@ through the use of the idea$\to$code$\to$experiment cycle. Moreover, intuition f
 
 The following are all hypervariables of a neural network. 
 \begin{itemize}
-\item Number of layers
-\item Number of hidden units per layer
-\item Learning rates
-\item Activation functions
+\item The number of layers of the network
+\item The number of hidden units per layer
+\item The learning rate of the gradient descent
+\item The choice of activation functions for each node
 \end{itemize}
 They control what $W$ and $b$ will look like for each node. For different values of hypervariables, the optimization of the cost function will be different. 
 

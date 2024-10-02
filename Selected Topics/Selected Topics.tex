@@ -1,0 +1,344 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Cohomology of Schemes}
+\rfoot{\thepage}
+
+\title{Cohomology of Schemes}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+
+References: 
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{Symmetric Polynomials}
+\subsection{Symmetric Polynomials}
+The theory of symmetric functions are important in combinatorics, representation theory, Galois theory and the theory of $\lambda$-rings. \\
+
+Requirements: Groups and Rings\\
+Books: Donald Yau: Lambda Rings
+
+\begin{defn}{Symmetric Group Action on Polynomial Rings}{} Let $R$ be a ring. Define a group action of $S_n$ on $R[x_1,\dots,x_n]$ by $$\sigma\cdot f(x_1,\dots,x_n)=f(x_{\sigma(1)},\dots,x_{\sigma(n)})$$
+\end{defn}
+
+It is easy to check that this defines a group action. 
+
+\begin{defn}{Symmetric Polynomials}{} Let $R$ be a ring. We say that a polynomial $f\in R[x_1,\dots,x_n]$ is symmetric if $$\sigma\cdot f=f$$ for all $\sigma\in S_n$. 
+\end{defn}
+
+\begin{defn}{The Ring of Symmetric Polynomials}{} Let $R$ be a ring. Define the ring of symmetric polynomials in $n$ variables over $R$ to be the set $$\Sigma=\{f\in R[x_1,\dots,x_n]\;|\;\sigma\text{ is a symmetric polynomial }\}$$
+\end{defn}
+
+\begin{defn}{Elementary Symmetric Polynomials}{} Let $R$ be a ring. Define the elementary symmetric polynomials to be the elements $s_1,\dots,s_n\in R[x_1,\dots,x_n]$ given by the formula $$s_k(x_1,\dots,x_n)=\sum_{1\leq i_1\leq\cdots\leq i_k\leq n}x_{i_1}\cdots x_{i_k}$$
+\end{defn}
+
+\begin{thm}{The Fundamental Theorem of Symmetric Polynomials}{} Let $R$ be a ring. Then $s_1,\dots,s_n$ are algebraically independent over $R$. Moreover, $$\Sigma=R[s_1,\dots,s_n]$$
+\end{thm}
+
+\pagebreak
+\section{$\lambda$-Rings}
+\subsection{$\lambda$-Rings}
+Complex representation of a group is a $\lambda$-ring. Topological $K$ theory is a $\lambda$-ring. \\
+
+Requirements: Category Theory, Groups and Rings, Symmetric Functions\\
+Books: Donald Yau: Lambda Rings\\
+
+We need the theory of symmetric polynomials before defining $\lambda$-structures. 
+
+\begin{defn}{$\lambda$-Structures}{} Let $R$ be a commutative ring. A $\lambda$-structure on $R$ consists of a sequence of maps $\lambda^n:R\to R$ for $n\geq 0$ such that the following are true. 
+\begin{itemize}
+\item $\lambda^0(r)=1$ for all $r\in R$
+\item $\lambda^1=\text{id}_R$
+\item $\lambda^n(1)=0$ for all $n\geq 2$
+\item $\lambda^n(r+s)=\sum_{k=0}^n\lambda^k(r)\lambda^{n-k}(s)$ for all $r,s\in R$
+\item $\lambda^n(rs)=P_n(\lambda^1(r),\dots,\lambda^n(r),\lambda^1(s),\dots,\lambda^n(s))$ for all $r,s\in R$
+\item $\lambda^m(\lambda^n(r))=P_{m,n}(\lambda^1(r),\dots,\lambda^{mn}(r))$ for all $r\in R$
+\end{itemize}
+Here $P_n$ and $P_{m,n}$ are defined as follows. 
+\begin{itemize}
+\item The coefficient of $t^n$ in the polynomial $$h(t)=\prod_{i,j=1}^n(1+x_iy_jt)$$ is a symmetric polynomial in $x_i$ and $y_j$ with coefficients in $\Z$. $P_n$ is precisely this polynomial written in terms of the elementary polynomials $e_1,\dots,e_n$ and $f_1,\dots,f_n$ of $x_i$ and $y_j$ respectively. 
+\item The coefficient of $t^n$ in the polynomial $$g(t)=\prod_{1\leq i_1\leq\cdots\leq i_m\leq nm}(1+x_{i_1}\cdots x_{i_m}t)$$ is a symmetric polynomial in $x_i$ with coefficients in $\Z$. $P_{m,n}$ is precisely this polynomial written in terms of the elementary polynomials $e_1,\dots,e_n$ of $x_i$. 
+\end{itemize}
+In this case, we call $R$ a $\lambda$-ring. 
+\end{defn}
+
+Note that we do not require that the $\lambda^n$ are ring homomorphisms. 
+
+\begin{defn}{Associated Formal Power Series}{} Let $R$ be a $\lambda$-ring. Define the associated formal power series to be the function $\lambda_t:R\to R[[t]]$ given by $$\lambda_t(r)=\sum_{k=0}^\infty\lambda^k(r)t^k$$ for all $r\in R$
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a $\lambda$-ring. Then the following are true regarding $\lambda_t(r)$. 
+\begin{itemize}
+\item $\lambda_t(1)=1+t$
+\item $\lambda_t(0)=1$
+\item $\lambda_t(r+s)=\lambda_t(r)\lambda_t(s)$
+\item $\lambda_t(-r)=\lambda(r)^{-1}$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} The ring $\Z$ has a unique $\lambda$-structure given by $$\lambda_t(n)=(1+t)^n$$
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a $\lambda$-ring. Then $R$ has characteristic $0$. 
+\end{prp}
+
+\begin{defn}{Dimension of an Element}{} Let $R$ be a $\lambda$-ring and let $r\in R$. We say that $r$ has dimension $n$ if $\deg(\lambda_t(r))=n$. In this case, we write $\dim(r)=n$. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a $\lambda$-ring. Then the following are true regarding the dimension of $n$. 
+\begin{itemize}
+\item $\dim(r+s)\leq\dim(r)+\dim(s)$ for all $r,s\in R$
+\item If $r$ and $s$ both has dimension $1$, then so is $rs$. 
+\end{itemize}
+\end{prp}
+
+\subsection{$\lambda$-Ring Homomorphisms and Ideals}
+\begin{defn}{$\lambda$-Ring Homomorphisms}{} Let $R$ and $S$ be $\lambda$-rings. A $\lambda$-ring homomorphism from $R$ to $S$ is a ring homomorphism $f:R\to S$ such that $$\lambda^n\circ f=f\circ\lambda^n$$ for all $n\in\N$. 
+\end{defn}
+
+\begin{defn}{$\lambda$-Ideals}{} Let $R$ be a $\lambda$-ring. A $\lambda$-ideal of $R$ is an ideal $I$ of $R$ such that $$\lambda^n(i)\in I$$ for all $i\in I$ and $n\geq 1$. 
+\end{defn}
+
+TBA:$\lambda$-ideal and subring. Ker, Im, Quotient Product, Tensor, Inverse Limit are $\lambda$-rings
+
+\begin{prp}{}{} Let $R$ be a $\lambda$-ring. Let $I=\langle z_i\;|\;i\in I\rangle$ be an ideal in $R$. Then $I$ is a $\lambda$-ideal if and only if $\lambda^n(z_i)\in I$ for all $n\geq 1$ and $i\in I$. 
+\end{prp}
+
+\begin{prp}{}{} Every $\lambda$-ring $R$ contains a $\lambda$-subring isomorphic to $\Z$. 
+\end{prp}
+
+\subsection{Augmented $\lambda$-Rings}
+\begin{defn}{Augmented $\lambda$-Rings}{} Let $R$ be a $\lambda$-ring. We say that $R$ is an augmented $\lambda$-ring if it comes with a $\lambda$-homomorphism $$\varepsilon:R\to\Z$$ called the augmentation map. 
+\end{defn}
+
+TBA: tensor of augmented is augmented
+
+\begin{prp}{}{} Let $R$ a $\lambda$-ring. Then $R$ is augmented if and only if there exists a $\lambda$-ideal $I$ such that $$R=\Z\oplus I$$ as abelian groups. 
+\end{prp}
+
+\subsection{Extending $\lambda$-Structures}
+\begin{prp}{}{} Let $R$ be a $\lambda$-ring. Then there exists a unique $\lambda$-structure on $R[x]$ such that $\lambda_t(r)=1+rt$. Moreover, if $R$ is augmented, then so is $R[x]$ and $\varepsilon(r)=0$ or $1$. 
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a $\lambda$-ring. Then there exists a unique $\lambda$-structure on $R[[x]]$ such that $\lambda_t(r)=1+rt$. Moreover, if $R$ is augmented, then so is $R[[x]]$ and $\varepsilon(r)=0$ or $1$. 
+\end{prp}
+
+\subsection{Free $\lambda$-Rings}
+
+\subsection{The Universal $\lambda$-Ring}
+
+\subsection{Adams Operations}
+
+\pagebreak
+\section{Witt Vectors}
+\subsection{Fundamentals of the Ring of Big Witt Vectors}
+Prelim: Symm Functions, Lambda Rings, Category theory, Frobenius endomorphism (Galois), Rings and Modules, Kaehler differentials (commutative algebra 2)\\
+Leads to: K theory\\
+Books: Donald Yau: Lambda Rings
+
+\begin{defn}{Truncation Sets}{} Let $S\subseteq\N$. We say that $S$ is a truncation set if for all $n\in S$ and $d|n$, then $d\in S$. For $n\in\N$ and $S$ a truncation set, define $$S/n=\{d\in\N\;|\;nd\in S\}$$
+\end{defn}
+
+For instance, $\N\setminus\{0\}$ is a truncation set. We will also use $\{1,\dots,n\}$. 
+
+\begin{thm}{Dwork's Theorem}{} Let $R$ be a ring and let $S$ be a truncation set. Suppose that for all primes $p$, there exists a ring endomorphism $\sigma_p:R\to R$ such that $\sigma_p(r)\equiv r^p\;(\bmod\;pR)$ for some $s\in R$. Then the following are equivalent. 
+\begin{itemize}
+\item Every element $(b_i)_{i\in S}\in\prod_{i\in S} R$ has the form $$(b_i)_{i\in S}=(w_i(a))_{i\in S}$$ for some $a\in R$
+\item For all primes $p$ and all $n\in S$ such that $p|n$, we have $$b_n\equiv\sigma_p(b_{n/p})\;(\bmod\;p^nR)$$ 
+\end{itemize}
+In this case, $a$ is unique, and $a_n$ depends solely on all the $b_k$ for $1\leq k\leq n$ and $k\in S$. 
+\end{thm}
+
+We wish to equip $\prod_{i\in S}R$ with a non-standard addition and multiplication to make it into a ring. 
+
+\begin{prp}{}{} Consider the ring $R=\Z[x_i,y_i\;|\;i\in S]$. There exists unique polynomials $$\xi_n(x_1,\dots,x_n,y_1,\dots,y_n), \pi_n(x_1,\dots,x_n,y_1,\dots,y_n),\iota_n(x_1,\dots,x_n)$$ for $n\in S$ such that 
+\begin{itemize}
+\item $w_n(\xi_1,\dots,\xi_n)=w_n((x_i)_{i\in S})+w_n((y_i)_{i\in S})$
+\item $w_n(\pi_1,\dots,\pi_n)=w_n((x_i)_{i\in S})\cdot w_n((y_i)_{i\in S})$
+\item $w_n(\iota_1,\dots,\iota_n)=-w_n((x_i)_{i\in S})$
+\end{itemize}
+for all $n\in S$. 
+\end{prp}
+
+Note that the polynomials $\xi_n$, $\pi_n$ have variables $x_k$ and $y_k$ for $k\leq n$ and $k\in S$. This is similar for the variables of $\iota$. From now on, this will be the convention: For $S$ a truncation set, the sequence $a_1,\dots,a_n$ actually refers to the sequence $a_1,a_{d_1},\dots,a_{d_k},a_n$ where $1\leq d_1\leq\cdots\leq d_k\leq n$ and $d_1,\dots,d_k$ are all divisors of $n$. The result of this is that sequences in $\N$ are now restricted to $S$. 
+
+\begin{defn}{The Ring of Truncated Witt Vector}{} Let $R$ be a ring. Let $S$ be a truncation set. Define the ring of big Witt vectors $W_S(R)$ of $R$ to consist of the following. 
+\begin{itemize}
+\item The underlying set $\prod_{i\in S}R$
+\item Addition defined by $(a_n)_{n\in S}+(b_n)_{n\in S}=(\xi_n(a_1,\dots,a_n,b_1,\dots,b_n))_{n\in\N}$
+\item Multiplication defined by $(a_n)_{n\in S}\times(b_n)_{n\in S}=(\pi_n(a_1,\dots,a_n,b_1,\dots,b_n))_{n\in\N}$
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Let $R$ be a ring. Let $S$ be a truncation set. Then the ring of big Witt vectors $W_S(R)$ of $R$ is a ring with additive identity $(0,0,\dots)$ and multiplicative identity $(1,0,0,\dots)$. Moreover, for $(a_n)_{n\in S}\in W(R)$, its additive inverse is given by $(\iota_n(a_1,\dots,a_n))_{n\in\N}$.
+\end{thm}
+
+\begin{prp}{}{} Let $\phi:R\to R'$ be a ring homomorphism. Then the induced map $W_S(\phi):W_S(R)\to W_S(R')$ defined by $$W(\phi)((a_n)_{n\in S})=(\phi(a_n))_{n\in S}$$ is a ring homomorphism. 
+\end{prp}
+
+\begin{defn}{The Witt Functor}{} Define the Witt functor $W_S:\bold{Ring}\to\bold{Ring}$ to consist of the following data. 
+\begin{itemize}
+\item For each ring $R$, $W_S(R)$ is the ring of big Witt vectors
+\item For a ring homomorphism $\phi:R\to R'$, $W_S(\phi):W_S(R)\to W_S(R')$ is the induced ring homomorphism defined by $$W_S(\phi)((a_n)_{n\in S})=(\phi(a_n))_{n\in S}$$
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $S$ be a truncation set. The Witt functor is indeed a functor. 
+\end{prp}
+
+\begin{defn}{The Ghost Map}{} Let $R$ be a ring. Let $S$ be a truncation set. Define the ghost map to be the map $$w:W_S(R)\to\prod_{k\in S}R$$ by the formula $$w((a_n)_{n\in S})=(w_n(a_1,\dots,a_n))_{n\in S}$$
+\end{defn}
+
+Remember, by the sequence $a_1,\dots,a_n$ we mean the sequence $a_1,a_{d_1},\dots,a_{d_k},a_n$ where $1\leq d_1\leq\cdots\leq d_k\leq n$ and $d_1,\dots,d_k$ the complete collection of divisors of $n$. 
+
+\begin{prp}{}{} Let $S$ be a truncation set. Then the following are true. 
+\begin{itemize}
+\item For each $n\in S$, the collection of maps $w_n:W_S(R)\to R$ for a ring $R$ defines a natural transformation $w_n:W_S\rightarrow\text{id}$. 
+\item The collection of ghost maps $w_R:W_S(R)\to\prod_{k\in S}R$ for $R$ a ring defines a natural transformation $w:W_S\rightarrow (-)^S$. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $S$ be a truncation set. The truncated Witt functor $W_S:\bold{Ring}\to\bold{Ring}$ is uniquely characterized by the following conditions. 
+\begin{itemize}
+\item The underlying set of $W_S(R)$ is given by $\prod_{k\in S}R$
+\item For a ring homomorphism $\phi:R\to S$, $W(\phi):W(R)\to W(S)$ is the induced ring homomorphism defined by $$W(\phi)((a_n)_{n\in\N})=(\phi(a_n))_{n\in\N}$$
+\item For each $n\in S$, $w_n:W_S(R)\to R$ defines a natural transformation $w_n:W\rightarrow\text{id}$
+\end{itemize}
+This means that if there is another functor $V$ satisfying the above, then $W$ and $V$ are naturally isomorphic. 
+\end{prp}
+
+Note that the above theorem implies that the ring structure on $\prod_{k\in S}R$ is unique under the above conditions. 
+
+\subsection{Important Maps of Witt Vectors}
+\begin{defn}{The Forgetful Map}{} Let $R$ be a ring. Let $T\subseteq S$ be truncation sets. Define the forgetful map $R_T^S:W_S(R)\to W_T(R)$ to be the ring homomorphism given by forgetting all elements $s\in S$ but $s\notin T$. 
+\end{defn}
+
+\begin{defn}{The $n$th Verschiebung Map}{} Let $R$ be a ring. Let $S$ be a truncation set. For $n\in\N$, define the $n$th Verschiebung map $V_n:W_{S/n}(R)\to W_S(R)$ by $$V_n((a_d)_{d\in S/n})_m=\begin{cases}
+a_d & \text{ if } m=nd\\
+0 & \text{otherwise}
+\end{cases}$$
+\end{defn}
+
+Note that this is not a ring homomorphism. However, it is additive. 
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $S$ be a truncation set. Then for all $a,b\in W_{S/n}(R)$, we have that $$V_n(a+b)=V_n(a)+V_n(b)$$
+\end{lmm}
+
+\begin{defn}{Frobenius Map}{} Let $S$ be a truncation set. Let $R$ be a ring. Define the Frobenius map to be a natural ring homomorphism $F_n:W_S(R)\to W_{S/n}(R)$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{W_S(R)} & {\prod_{k\in S}R} \\
+	{W_{S/n}(R)} & {\prod_{k\in S/n}R}
+	\arrow["w", from=1-1, to=1-2]
+	\arrow["{F_n}"', from=1-1, to=2-1]
+	\arrow["{F_n^w}", from=1-2, to=2-2]
+	\arrow["w"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+if it exists. 
+\end{defn}
+
+\begin{lmm}{}{} Let $S$ be a truncation set. Let $R$ be a ring. Then the Frobenius map exists and is unique. 
+\end{lmm}
+
+The following lemma relates this notion of Frobenius map to that in ring theory. 
+
+\begin{lmm}{}{} Let $A$ be an $F_p$ algebra. Let $S$ be a truncation set. Let $\varphi_p:A\to A$ denote the Frobenius homomorphism given by $a\mapsto a^p$. Then $$F_p=R_{S/p}^S\circ W_S(\varphi):W_S(A)\to W_{S/p}(A)$$
+\end{lmm}
+
+\begin{defn}{The Teichmuller Representative}{} Let $R$ be a ring. Let $S$ be a truncation set. Define the Teichmuller representative to be the map $[-]_S:R\to W_S(R)$ defined by $$([a]_S)_n=\begin{cases}
+a & \text{ if } n=1\\
+0 &b \text{ otherwise }
+\end{cases}$$
+\end{defn}
+
+The Teichmuller representative is in general not a ring homomorphism, but it is still multiplicative. 
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $S$ be a truncation set. The for all $a,b\in R$, we have that $$[ab]_S=[a]_S\cdot [b]_S$$
+\end{lmm}
+
+The three maps introduced are related as follows. 
+
+\begin{prp}{}{} Let $R$ be a ring. Let $S$ be a truncated set. Then the following are true. 
+\begin{itemize}
+\item $r=\sum_{n\in S}V_n([r_n]_{S/n})$ for all $r\in W_S(R)$
+\item $F_n(V_n(a))=na$ for all $a\in W_{S/n}(R)$
+\item $r\cdot V_n(a)=V_n(F_n(r)\cdot a)$ for all $r\in W_S(R)$ and all $a\in W_{S/n}(R)$
+\item $F_m\circ V_n=V_n\circ F_m$ if $\gcd(m,n)=1$
+\end{itemize}
+\end{prp}
+
+The remaining section is dedicated to the example of $R=\Z$. 
+
+\begin{prp}{}{} Let $S$ be a truncation set. Then the ring of big Witt vectors of $\Z$ is given by $$W_S(\Z)=\prod_{n\in S}\Z\cdot V_n([1]_{S/n})$$ with multiplication given by $$V_m([1]_{S/m})\cdot V_n([1]_{S/n})=\gcd(m,n)\cdot V_d([1]_{S/d})$$ and $d=\lcm(m,n)$. 
+\end{prp}
+
+\subsection{The Ring of p-Typical Witt Vectors}
+For the ring of $p$-typical Witt vectors, we consider the truncation set $P=\{1,p,p^2,\dots\}\subseteq\N$ for a prime $p$. 
+
+\begin{defn}{The Ring of p-Typical Witt Vectors}{} Let $R$ be a ring. Let $p$ be a prime. Let $P=\{1,p,p^2,\dots\}\subseteq\N$. Define the ring of $p$-typical Witt vectors to be $$W_p(R)=W_P(R)$$ Define the ring of $p$-typical Witt vectors of length $n$ to be $$W_n(R)=W_{\{1,p,\dots,p^{n-1}\}}(R)$$ when the prime $p$ is understood. 
+\end{defn}
+
+\begin{thm}{}{} Let $R$ be a ring. Let $p$ be a prime number. Let $S$ be a truncation set. Write $I(S)=\{k\in S\;|\;k\text{ does not divide }p\}$. Suppose that all $k\in I(S)$ are invertible in $R$. Then there is a decomposition $$W_S(R)=\prod_{k\in I(S)}W_S(R)\cdot e_k$$ where $$e_k=\prod_{t\in I(S)\setminus\{1\}}\left(\frac{1}{k}V_k([1]_{S/k})-\frac{1}{kt}V-{kt}([1]_{S/kt})\right)$$ Moreover, the composite map given by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{W_S(R)\cdot e_k} & {W_S(R)} & {W_{S/k}R} & {W_{S/k\cap P}(R)}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow["{F_k}", from=1-2, to=1-3]
+	\arrow["{R_{S/k\cap P}^{S/k}}", from=1-3, to=1-4]
+\end{tikzcd}}\\~\\
+is an isomorphism. 
+\end{thm}
+
+\subsection{The $\lambda$-structure on W(R)}
+\begin{lmm}{}{} Let $R$ be a ring. Then every $f\in\Lambda(R)$ can be written uniquely as $$f=\prod_{k=1}^\infty(1-(-1)^na_nt^n)$$
+\end{lmm}
+
+\begin{thm}{The Artin-Hasse Exponential}{} There is a natural isomorphism $E:\Lambda\rightarrow W$ given as follows. For a ring $R$, $E_R:\Lambda(R)\to W(R)$ is defined by $$E_R\left(\prod_{k=1}^\infty(1-(-1)^na_nt^n)\right)=(a_n)_{n\in\N}$$
+\end{thm}
+
+\begin{crl}{}{} Let $R$ be a ring. Then $W(R)$ has a canonical $\lambda$-structure inherited from $\Lambda(R)$. 
+\end{crl}
+
+TBA: The forgetful functor $U:\Lambda\bold{Ring}\to\bold{CRing}$ has a left adjoint $\text{Symm}$ and has a right adjoint $W$. 
+
+
+\pagebreak
+\section{Formal Group Laws}
+\begin{defn}{Formal Group Laws}{} Let $R$ be a ring. A formal group law over $R$ is a power series $$f(x,y)\in R[[x,y]]$$ such that the following are true. 
+\begin{itemize}
+\item $f(x,0)=f(0,x)=x$
+\item $f(x,y)=f(y,x)$
+\item $f(x,f(y,z))=f(f(x,y),z)$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{The Formal Group Law Functor}{} Define the formal group law functor $$FGL:\bold{Ring}\to\bold{Set}$$ by the following data. 
+\begin{itemize}
+\item For each ring $R$, $FGL(R)$ is the set of all formal group laws over $R$
+\item For each ring homomorphism $f:R\to S$, $FGL(f)$ sends each formal group law $\sum_{i,j=0}^\infty c_{i,j}x^iy^j$ over $R$ to the formal group law $\sum_{i,j=0}^\infty f(c_{i,j})x^iy^j$ over $S$. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{The Lazard Ring of a Formal Group Law}{} Define the lazard ring by $$L=\frac{\Z[c_{i,j}]}{Q}$$ where $Q$ is the ideal generated as follows. Write $f=\sum_{i,j=0}^\infty c_{i,j}x^iy^j$. Then $Q$ is generated by the constraints on $c_{i,j}$ for which $f$ becomes a formal group law. 
+\end{defn}
+
+\begin{lmm}{}{} The Lazard ring $L=\Z[c_{i,j}]/Q$ has the structure of a graded ring where $c_{i,j}$ has degree $2(i+j-1)$. 
+\end{lmm}
+
+\begin{thm}{}{} The formal group law functor $FGL:\bold{Ring}\to\bold{Set}$ is representable $$FGL(R)\cong\Hom_\bold{Ring}(L,R)$$ There exists a universal element $f\in L$ such that the map $\Hom_\bold{Ring}(L,R)\to FGL(R)$ given by evaluation on $f$ is a bijection for any ring $R$. 
+\end{thm}
+
+\begin{thm}{}{} There is an isomorphism of the Lazard ring $$L\cong\Z[t_1,t_2,\dots]$$ where each $t_k$ has degree $2k$. 
+\end{thm}
+
+\end{document}

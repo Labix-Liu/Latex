@@ -11,7 +11,7 @@
 \contentsline {subsection}{\numberline {2.3}Lifting Properties and its Consequences}{17}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Fibers of a Covering Space}{20}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}The Galois Correspondence of Covering Spaces}{23}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Unpointed Equivalent Coverings and Conjugacy Classes}{27}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.6}Unpointed Equivalent Coverings and Conjugacy Classes}{26}{subsection.2.6}%
 \contentsline {section}{\numberline {3}Computing the Fundamental Group}{30}{section.3}%
 \contentsline {subsection}{\numberline {3.1}The Fundamental Group of the Circle}{30}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Seifert-van Kampen Theorem}{32}{subsection.3.2}%

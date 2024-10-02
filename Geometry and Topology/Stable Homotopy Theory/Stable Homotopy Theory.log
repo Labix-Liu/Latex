@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  7 AUG 2024 15:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  22 SEP 2024 00:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -907,6 +907,9 @@ LaTeX Font Info:    Trying to load font information for T1+qpl on input line 11
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qpl.fd
 File: t1qpl.fd 2009/09/25 v1.2 font definition file for T1/qpl
 ))
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbtheorems.c
 ode.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.2.0'
@@ -944,7 +947,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 228.
+Package hyperref Info: Option `colorlinks' set `true' on input line 232.
 ) (Stable Homotopy Theory.aux)
 \openout1 = `"Stable Homotopy Theory.aux"'.
 
@@ -1036,8 +1039,9 @@ Package hyperref Info: Link coloring ON on input line 16.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
+Couldn't patch \deferred@thm@head!
+LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1057,54 +1061,84 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 \openout5 = `"Stable Homotopy Theory.toc"'.
 
  [2]
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+
+ []
+
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 56.
+d on input line 51.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--59
+
+ []
 
 [3]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 9
-4.
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 7
+8.
  (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
-) [4{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts
-1.enc}] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+)
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
-! LaTeX Error: \begin{document} ended by \end{thm}.
+ []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.409 \end{thm}
-               
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+[4{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+enc}] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.409 \end{thm}
-               
-Things are pretty mixed up, but I think the worst is over.
+ []
 
-[15] (Stable Homotopy Theory.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+[6] [7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 257--264
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--264
+
+ []
+
+[9] [10] [11] [12] [13] [14] [15] [16] (Stable Homotopy Theory.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-Package rerunfilecheck Info: File `"Stable Homotopy Theory".out' has not change
-d.
-(rerunfilecheck)             Checksum: 29078A8B148B67C3008E960BCC736B4B;3733.
+
+
+Package rerunfilecheck Warning: File `"Stable Homotopy Theory".out' has changed
+.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Stable Homotopy Theory".out':
+(rerunfilecheck)             Before: 69CE5E4B0887512F8CEF453C3A76C400;4391
+(rerunfilecheck)             After:  EC391AF554FDDF81B4880CCE01A06C94;4931.
  ) 
 Here is how much of TeX's memory you used:
- 32441 strings out of 474424
- 639729 string characters out of 5741739
- 1956496 words of memory out of 5000000
- 54176 multiletter control sequences out of 15000+600000
- 597664 words of font info for 77 fonts, out of 8000000 for 9000
+ 32625 strings out of 474424
+ 644294 string characters out of 5741739
+ 1965496 words of memory out of 5000000
+ 54358 multiletter control sequences out of 15000+600000
+ 600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,16n,120p,646b,1381s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,16n,120p,646b,1467s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1125,10 +1159,11 @@ Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm5.pfb><C:/Users/liula/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/
 Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb>
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.
-pfb>
-Output written on "Stable Homotopy Theory.pdf" (15 pages, 361294 bytes).
+pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/q
+plri.pfb>
+Output written on "Stable Homotopy Theory.pdf" (16 pages, 406629 bytes).
 PDF statistics:
- 355 PDF objects out of 1000 (max. 8388607)
- 97 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 370 PDF objects out of 1000 (max. 8388607)
+ 95 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

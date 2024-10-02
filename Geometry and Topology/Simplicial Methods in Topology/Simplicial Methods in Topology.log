@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  20 AUG 2024 09:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  16 SEP 2024 16:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -907,6 +907,9 @@ LaTeX Font Info:    Trying to load font information for T1+qpl on input line 11
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qpl.fd
 File: t1qpl.fd 2009/09/25 v1.2 font definition file for T1/qpl
 ))
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbtheorems.c
 ode.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.2.0'
@@ -944,7 +947,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 229.
+Package hyperref Info: Option `colorlinks' set `true' on input line 232.
 ) (Simplicial Methods in Topology.aux)
 \openout1 = `"Simplicial Methods in Topology.aux"'.
 
@@ -1036,8 +1039,9 @@ Package hyperref Info: Link coloring ON on input line 16.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
+Couldn't patch \deferred@thm@head!
+LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1058,19 +1062,37 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 
  [2]
 LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 3
-2.
+4.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [4]
+enc}]
+Overfull \hbox (6.43738pt too wide) in paragraph at lines 87--88
+\T1/qpl/m/n/10 which is the im-age of $\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/
+cmr/m/n/10 ]$ \T1/qpl/m/n/10 un-der the yoneda em-bed-ding $\OML/cmm/m/it/10 y 
+\OT1/cmr/m/n/10 : ^^A \OMS/cmsy/m/n/10 ! []$ \T1/qpl/m/n/10 de-fined by $\OT1/c
+mr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 7! [][]\OT1/cmr
+/m/n/10 ([\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/1
+0 ^^@\OT1/cmr/m/n/10 )$\T1/qpl/m/n/10 . 
+ []
+
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 105.
+d on input line 107.
 
-[5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
-(Simplicial Methods in Topology.aux)
+[4] [5] [6] [7] [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
+
+ []
+
+[10] [11] [12] [13] [14] [15] (Simplicial Methods in Topology.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
@@ -1080,13 +1102,13 @@ t changed.
 (rerunfilecheck)             Checksum: 7743145D87DFDF894FE607A14C086C2E;3775.
  ) 
 Here is how much of TeX's memory you used:
- 33071 strings out of 474424
- 655986 string characters out of 5741739
- 1970496 words of memory out of 5000000
- 54806 multiletter control sequences out of 15000+600000
+ 33104 strings out of 474424
+ 656880 string characters out of 5741739
+ 1972496 words of memory out of 5000000
+ 54838 multiletter control sequences out of 15000+600000
  597664 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,16n,120p,784b,1475s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,16n,120p,784b,1467s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1104,10 +1126,10 @@ msfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Simplicial Methods in Topology.pdf" (17 pages, 357510 bytes)
+Output written on "Simplicial Methods in Topology.pdf" (15 pages, 355374 bytes)
 .
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 97 named destinations out of 1000 (max. 500000)
+ 347 PDF objects out of 1000 (max. 8388607)
+ 95 named destinations out of 1000 (max. 500000)
  165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

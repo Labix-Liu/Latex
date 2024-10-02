@@ -371,102 +371,6 @@ This means that a morphism from $f$ to $g$ is a pair $(h:C\to E,k:D\to F)$.
 \end{defn}
 
 \pagebreak
-\section{Examples of Categories and Functors}
-\subsection{The Big List of Categories}
-\begin{defn}{The Category of Groups}{} The category $\bold{Grp}$ of groups where 
-\begin{itemize}
-\item The objects consists of groups $(G,\ast)$
-\item For two groups $G$ and $H$, the morphisms $\Hom_\bold{Grp}(G,H)$ consists of group homomorphisms $f:G\to H$
-\item Composition is given by composition of functions
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Category of Algebraic Objects}{} Most of the algebraic objects can be made into a category. 
-\begin{itemize}
-\item $\bold{Ab}$ is the category of Abelian groups and group homomorphisms
-\item $\bold{Mon}$ is the category of monoids and monoid homomorphisms
-\item $\bold{Rings}$ is the category of rings and ring homomorphisms
-\item ${_R}\bold{Mod}$ is the category of (left) $R$-modules and $R$-module homomorphisms for a ring $R$
-\item $\bold{Vect}_k$ is the category of vector spaces over a field $k$ and linear maps
-\end{itemize}
-\end{defn}
-
-The category $\bold{Ab}$ of abelian groups is a full subcategory of $\bold{Grp}$. 
-
-\begin{defn}{The Category of Topological Spaces}{} The category $\bold{Top}$ of topological spaces where 
-\begin{itemize}
-\item The objects consists of topological spaces $(X,\mT)$
-\item For two spaces $X$ and $Y$, the morphisms $\Hom_\bold{Top}(X,Y)$ consists of continuous maps $f:G\to H$
-\item Composition is given by composition of functions
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Category of G-Sets}{} Let $G$ be a group. Define the category $G\text{-Set}$ to consist of the following data. 
-\begin{itemize}
-\item The objects are sets which have a group action $G$. 
-\item For two $G$-sets $X$ and $Y$, a morphism is a $G$-equivariant function $f:X\to Y$. This means that $$f(g\cdot x)=g\cdot f(x)$$ for all $g\in G$ and $x\in X$. 
-\item Composition is given by the composition of functions. 
-\end{itemize}
-\end{defn}
-
-These examples are of the same type. They are sets with additional structures and morphisms are functions which preserve the additional structure. They are in particular, concrete categories. What follows is that the categories no longer follow the same way we construct the ones above. 
-
-\begin{defn}{The Category of Matrices $\bold{Mat}_k$}{} The category $\bold{Mat}_k$ of manifolds where 
-\begin{itemize}
-\item $\Obj(\bold{Mat}_k)=\N$
-\item $\Hom(n,k)=M_{k\times n}(k)$
-\item Given $n\overset{A}{\rightarrow}k\overset{B}{\rightarrow}l$, define $$B\circ A=B\cdot A\in M_{l\times n}(k)$$ Associativity and unitality follows from matrix multiplications. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{The Category of a Preorder}{} Let $(P,\leq)$ be a preorder. Define a category associated with a preorder as follows. 
-\begin{itemize}
-\item The objects are the elements of $P$
-\item For $x,y\in P$, define the morphisms to be $$\Hom(x,y)=\begin{cases}
-\ast & \text{ if } x\leq y\\
-\emptyset & \text{ otherwise }
-\end{cases}$$
-\item For two morphisms $x\to y$ and $y\to z$, define their composition to be the unique morphism $x\to z$ which exists by transitivity. 
-\end{itemize}
-\end{defn}
-
-\subsection{Important Functors}
-\begin{defn}{The Forgetful Functor}{} Given a category whose objects are sets ($\bold{Grp},\bold{Ab},{_R}\bold{Mod},\bold{Top},\dots$), define the forgetful functor $u:\bold{Grp}\to\bold{Set}$ as follows. 
-\begin{itemize}
-\item $u$ sends the object to the underlying set
-\item Each morphism is sent to itself $u(f)=f$ since every morphism in these categories are also functions of sets. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{The Free Group Functor}{} The free group functor $F:\bold{Set}\to\bold{Grp}$ is defined as follows. 
-\begin{itemize}
-\item On objects, define $F(X)=\langle X\rangle$ the free group on $X$
-\item If $f:X\to Y$ is a morphism in $\bold{Set}$, define $F(f):\langle X\rangle\to\langle Y\rangle$ by $$F(f)(x_1^{\pm1}\cdots x_m^{\pm1})=f(x_1)^{\pm1}\cdots f(x_m)^{\pm1}$$
-\end{itemize}
-\end{defn}
-
-It is easy to check that $F(f)$ is a well defined group homomorphism. Indeed we have that 
-\begin{align*}
-&\;\;F(f)(x_1^{\pm1}\cdots x_m^{\pm1})\cdot F(f)(y_1^{\pm1}\cdots y_n^{\pm1})\\
-&=f(x_1)^{\pm1}\cdots f(x_m)^{\pm1}\cdot f(y_1)^{\pm1}\cdots f(y_n)^{\pm1}\\
-&=F(f)(x_1^{\pm1}\cdots x_m^{\pm1}\cdot y_1^{\pm1}\cdots y_n^{\pm1})
-\end{align*}
-Moreover, it is also to see that composition of functions are respective by the free functor $F$. 
-
-\begin{defn}{The Opposite Functor}{} There is a opposite functor $(-)^\text{op}:\text{CAT}\to\text{CAT}$ defined as follows. 
-\begin{itemize}
-\item $(-)^\text{op}(\mC)=\mC^\text{op}$
-\item For a morphism $F:\mC\to\mD$ in $\text{CAT}$, $(-)^\text{op}$ sends the morphism to $$F^\text{op}:\mC^\text{op}\to\mD^\text{op}$$ defined as follows. 
-\begin{itemize}
-\item $F^\text{op}$ sends $C\in\mC^\text{op}$ to $F(C)\in\mD^\text{op}$
-\item A morphism $f^\text{op}:C\to D$ in $\mC^\text{op}$ to $$F(f)^\text{op}:F(C)\to F(D)$$ in $\mD^\text{op}$
-\end{itemize}
-\end{itemize}
-\end{defn}
-
-It is clear that $(-)^\text{op}$ is a functor since it respects composition of functors by definition. 
-
-\pagebreak
 \section{Naturality}
 \subsection{Naturality and Equivalence of Categories}
 \begin{defn}{Natural Transformation}{} Let $\mathcal{C},\mathcal{D}$ be categories with two functors $F,G:\mathcal{C}\to\mathcal{D}$ that are both covariant. A natural transformation $\tau$ is a family of arrows of $\mathcal{D}$, $$\tau=\{\tau_A:FA\to GA|A\in\mathcal{C}\}$$ such that for each morphism $f:A\to B$ in $\mC$, we have 
@@ -667,6 +571,116 @@ The bottom square commutes since $\tau$ is a natural transformation. The top squ
 \begin{prp}{Middle Four Interchange}{} Let $\mC,\mD,\mE$ be categories and let $F_1,F_2,F_3:\mC\to\mD$ and $G_1,G_2,G_3:\mD\to\mE$ be functors. 
 \end{prp}
 
+
+\pagebreak
+\section{Examples of Categories and Functors}
+\subsection{The Big List of Categories}
+\begin{defn}{The Category of Groups}{} The category $\bold{Grp}$ of groups where 
+\begin{itemize}
+\item The objects consists of groups $(G,\ast)$
+\item For two groups $G$ and $H$, the morphisms $\Hom_\bold{Grp}(G,H)$ consists of group homomorphisms $f:G\to H$
+\item Composition is given by composition of functions
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Category of Algebraic Objects}{} Most of the algebraic objects can be made into a category. 
+\begin{itemize}
+\item $\bold{Ab}$ is the category of Abelian groups and group homomorphisms
+\item $\bold{Mon}$ is the category of monoids and monoid homomorphisms
+\item $\bold{Rings}$ is the category of rings and ring homomorphisms
+\item ${_R}\bold{Mod}$ is the category of (left) $R$-modules and $R$-module homomorphisms for a ring $R$
+\item $\bold{Vect}_k$ is the category of vector spaces over a field $k$ and linear maps
+\end{itemize}
+\end{defn}
+
+The category $\bold{Ab}$ of abelian groups is a full subcategory of $\bold{Grp}$. 
+
+\begin{defn}{The Category of Topological Spaces}{} The category $\bold{Top}$ of topological spaces where 
+\begin{itemize}
+\item The objects consists of topological spaces $(X,\mT)$
+\item For two spaces $X$ and $Y$, the morphisms $\Hom_\bold{Top}(X,Y)$ consists of continuous maps $f:G\to H$
+\item Composition is given by composition of functions
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Category of G-Sets}{} Let $G$ be a group. Define the category $G\text{-Set}$ to consist of the following data. 
+\begin{itemize}
+\item The objects are sets which have a group action $G$. 
+\item For two $G$-sets $X$ and $Y$, a morphism is a $G$-equivariant function $f:X\to Y$. This means that $$f(g\cdot x)=g\cdot f(x)$$ for all $g\in G$ and $x\in X$. 
+\item Composition is given by the composition of functions. 
+\end{itemize}
+\end{defn}
+
+These examples are of the same type. They are sets with additional structures and morphisms are functions which preserve the additional structure. They are in particular, concrete categories. What follows is that the categories no longer follow the same way we construct the ones above. 
+
+\begin{defn}{The Category of Matrices $\bold{Mat}_k$}{} The category $\bold{Mat}_k$ of manifolds where 
+\begin{itemize}
+\item $\Obj(\bold{Mat}_k)=\N$
+\item $\Hom(n,k)=M_{k\times n}(k)$
+\item Given $n\overset{A}{\rightarrow}k\overset{B}{\rightarrow}l$, define $$B\circ A=B\cdot A\in M_{l\times n}(k)$$ Associativity and unitality follows from matrix multiplications. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{The Category of a Preorder}{} Let $(P,\leq)$ be a preorder. Define a category associated with a preorder as follows. 
+\begin{itemize}
+\item The objects are the elements of $P$
+\item For $x,y\in P$, define the morphisms to be $$\Hom(x,y)=\begin{cases}
+\ast & \text{ if } x\leq y\\
+\emptyset & \text{ otherwise }
+\end{cases}$$
+\item For two morphisms $x\to y$ and $y\to z$, define their composition to be the unique morphism $x\to z$ which exists by transitivity. 
+\end{itemize}
+\end{defn}
+
+\subsection{Categories with Finite Sets}
+\begin{defn}{Category of Finite Sets}{} Define the category of finite sets $\bold{Fin}$ to be the full subcategory of $\bold{Set}$ consisting of finite sets. 
+\end{defn}
+
+To simplify constructions, we often use the skeleton of this category. This consists of objects of the form $[n]=\{0,\dots,n\}$ for each $n\in\N$. 
+
+\begin{defn}{Simplex Category}{} The simplex category $\Delta$ consists of the following data. 
+\begin{itemize}
+\item The objects are $[n]=\{0,\dots,n\}$ for $n\in\N$. 
+\item The morphisms are the non-strictly order preserving functions. This means that a morphism $f:[n]\to[m]$ must satisfy $f(i)\leq f(j)$ for all $i\leq j$. 
+\item Composition is the usual composition of functions. 
+\end{itemize}
+\end{defn}
+
+\subsection{Important Functors}
+\begin{defn}{The Forgetful Functor}{} Given a category whose objects are sets ($\bold{Grp},\bold{Ab},{_R}\bold{Mod},\bold{Top},\dots$), define the forgetful functor $u:\bold{Grp}\to\bold{Set}$ as follows. 
+\begin{itemize}
+\item $u$ sends the object to the underlying set
+\item Each morphism is sent to itself $u(f)=f$ since every morphism in these categories are also functions of sets. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{The Free Group Functor}{} The free group functor $F:\bold{Set}\to\bold{Grp}$ is defined as follows. 
+\begin{itemize}
+\item On objects, define $F(X)=\langle X\rangle$ the free group on $X$
+\item If $f:X\to Y$ is a morphism in $\bold{Set}$, define $F(f):\langle X\rangle\to\langle Y\rangle$ by $$F(f)(x_1^{\pm1}\cdots x_m^{\pm1})=f(x_1)^{\pm1}\cdots f(x_m)^{\pm1}$$
+\end{itemize}
+\end{defn}
+
+It is easy to check that $F(f)$ is a well defined group homomorphism. Indeed we have that 
+\begin{align*}
+&\;\;F(f)(x_1^{\pm1}\cdots x_m^{\pm1})\cdot F(f)(y_1^{\pm1}\cdots y_n^{\pm1})\\
+&=f(x_1)^{\pm1}\cdots f(x_m)^{\pm1}\cdot f(y_1)^{\pm1}\cdots f(y_n)^{\pm1}\\
+&=F(f)(x_1^{\pm1}\cdots x_m^{\pm1}\cdot y_1^{\pm1}\cdots y_n^{\pm1})
+\end{align*}
+Moreover, it is also to see that composition of functions are respective by the free functor $F$. 
+
+\begin{defn}{The Opposite Functor}{} There is a opposite functor $(-)^\text{op}:\text{CAT}\to\text{CAT}$ defined as follows. 
+\begin{itemize}
+\item $(-)^\text{op}(\mC)=\mC^\text{op}$
+\item For a morphism $F:\mC\to\mD$ in $\text{CAT}$, $(-)^\text{op}$ sends the morphism to $$F^\text{op}:\mC^\text{op}\to\mD^\text{op}$$ defined as follows. 
+\begin{itemize}
+\item $F^\text{op}$ sends $C\in\mC^\text{op}$ to $F(C)\in\mD^\text{op}$
+\item A morphism $f^\text{op}:C\to D$ in $\mC^\text{op}$ to $$F(f)^\text{op}:F(C)\to F(D)$$ in $\mD^\text{op}$
+\end{itemize}
+\end{itemize}
+\end{defn}
+
+It is clear that $(-)^\text{op}$ is a functor since it respects composition of functors by definition. 
 
 \pagebreak
 \section{Universality}
@@ -1439,6 +1453,68 @@ is commutative. This implies that $h_C\circ\pi_J=f\circ h_l\circ\pi_{J'}$. Since
 \end{thm}
 
 \pagebreak
+\section{Groups and Categories}
+\subsection{Groupoids and Groups}
+\begin{defn}{Groupoids}{} A groupoid is a category $\mG$ such that every morphism has an inverse. 
+\end{defn}
+
+\begin{defn}{BG of a Group}{} Let $G$ be a group. Then define the category $BG$ as follows. 
+\begin{itemize}
+\item $BG$ consists of one object $\{\ast\}$
+\item The morphisms of $BG$ are precisely $$\Hom_{BG}(\ast,\ast)=G$$
+\item Composition is defined as the group operation of $G$. 
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $G$ be a group. Then $BG$ is a groupoid. 
+\end{lmm}
+
+\begin{prp}{}{} Let $G$ and $H$ be groups and $f:G\to H$ a group homomorphism. Then there is a functor $Bf:BG\to BH$ defined by sending the unique object to the unique object, and sending each morphism $g\in G$ to $f(g)\in H$. 
+\end{prp}
+
+\begin{prp}{}{} The construction $BG$ for a group $G$ defines a functor $B:\bold{Grp}\to\bold{Cat}$ defined by $B(G)=BG$ and for a group homomorphism $f:G\to H$, the functor $B$ sends $f$ to $Bf:BG\to BH$. 
+\end{prp}
+
+\begin{defn}{Connected Groupoids}{} Let $\mG$ be a groupoid. We say that $\mG$ is connected if any two objects of $\mG$ are isomorphic. 
+\end{defn}
+
+\begin{prp}{}{} Let $\mG$ be a connected groupoid. Let $c_0\in\mG$ be an object. Then there is an equivalence of categories $$B\text{Aut}_\mG(c_0)\cong\mG$$
+\end{prp}
+
+In particular, by regarding the isomorphic class of the connected groupoid as one object this means that the groupoids with one objects are in one-to-one correspondence with groups. 
+
+\begin{thm}{}{} There is a one to one correspondence between the functors $F:BG\to\bold{Set}$ and the left $G$-sets for a group $G$. 
+\end{thm}
+
+\subsection{Transition Groupoids and Group Actions}
+\begin{defn}{Transition Groupoid}{} Let $G$ be a group and $X$ a $G$-set. Define the transition groupoid $T_G(X)$ of $X$ to consist of the following data. 
+\begin{itemize}
+\item The objects of $T_G(X)$ are the elements of $X$. 
+\item For $x,y\in X$, define the morphisms of $T_G(X)$ to be $$\Hom_{T_G(X)}(x,y)=\{g\in G\;|\;g\cdot x=y\}$$
+\item Composition is defined by the group operation of $G$. 
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $G$ be a group and let $X$ be a $G$-set. Let $T_G(X)$ be the transition groupoid of $X$. Then $$\text{Aut}_{T_G(X)}(x)=\{g\in G\;|\;g\cdot x=x\}=\text{Stab}_G(x)$$ for any $x\in X$. Moreover, $T_G(x)$ is a connected groupoid if and only if the action of $G$ is transitive. 
+\end{lmm}
+
+\begin{defn}{Fixed Points and Orbits}{} Let $G$ be a group and $\mC$ be a category such that there is a diagram $X:BG\to\mC$. Define the fixed points of $X$ to be the limit $$X^G=\lim_{BG}X$$ Define the orbits of $X$ to be the colimit $$X_G=\colim_{BG}X$$
+\end{defn}
+
+\begin{thm}{}{} Let $G$ be a group. Then there is a natural group action on the functor $X:BG\to\bold{Set}$. Moreover, the following are true regarding the diagram $X$. 
+\begin{itemize}
+\item The fixed points (in the categorical sense) are $$X^G=\{x\in X\;|\;g\cdot x=x\text{ for all }g\in G\}$$ which is the same as the usual sense in group theory. 
+\item The orbits (in the categorical sense) are $$X_G=\{\text{Orb}_G(x)\;|\;x\in X\}$$ which is the usual orbits in group theory. 
+\end{itemize}
+\end{thm}
+
+\begin{prp}{}{} Let $G$ be a group and $X:BG\to\mC$ be a diagram to an arbitrary category $\mC$. Then $$\lim_{BG}X=\{x\in X\;|\;g\cdot x=x\text{ for all }g\in G\}$$
+\end{prp}
+
+However, the analogy no longer works for the orbits (colimits of $X:BG\to\mC$). For example, if $\mC=\bold{Ab}$, then $$X_G=\frac{X}{\langle g\cdot x-x\;|\;g\in G,x\in X\rangle}$$
+
+
+\pagebreak
 \section{Monoidal Categories}
 \subsection{Strict and Weak Monoidal Categories}
 \begin{defn}{Strict Monoidal Categories}{} A strict monoidal category is a category $\mA$ consisting of a bifunctor $\otimes:\mA\times\mA\to\mA$ together with an object $I\in\mA$ such that the following are true. 
@@ -1533,71 +1609,26 @@ Thus most of the classical categories one considers are symmetric monoidal categ
 \begin{prp}{}{} For any commutative ring $R$, the category $\bold{Mod}_R$ of $R$-modules is a symmetric monoidal category with the tensor product $\otimes$ and the identity object $R$. 
 \end{prp}
 
-\subsection{Closed Monoidal Categories}
-\begin{defn}{Interal Hom}{} Let $(\mC,\otimes,I)$ be a symmetric monoidal category. An internal hom is a bifunctor $$\text{HOM}(-,-):\mC^\text{op}\times\mC\to\mC$$ such that for every object $X\in\mC$, there is an adjunction $-\otimes X:\mC\rightleftarrows\mC:\text{HOM}(X,-)$. Explicitly, there is an isomorphism $$\Hom_\mC(A\otimes X,B)\cong\Hom_\mC(A,\text{HOM}(X,B))$$ that is natural in $A$ and $B$. 
-\end{defn}
+\subsection{Braided Monoidal Categories}
+
+\subsection{Cartesian Monoidal Categories}
 
 \pagebreak
-\section{Groups and Categories}
-\subsection{Groupoids and Groups}
-\begin{defn}{Groupoids}{} A groupoid is a category $\mG$ such that every morphism has an inverse. 
+\section{Closed Categories}
+\subsection{The Structure of Closed Categories}
+
+\subsection{Closed Monoidal Categories}
+\begin{defn}{Interal Hom}{} Let $(\mC,\otimes,I)$ be a monoidal category. An internal hom is a bifunctor $$\text{HOM}(-,-):\mC^\text{op}\times\mC\to\mC$$ such that for every object $X\in\mC$, there is an adjunction $-\otimes X:\mC\rightleftarrows\mC:\text{HOM}(X,-)$. Explicitly, there is an isomorphism $$\Hom_\mC(A\otimes X,B)\cong\Hom_\mC(A,\text{HOM}(X,B))$$ that is natural in $A$ and $B$. 
 \end{defn}
 
-\begin{defn}{BG of a Group}{} Let $G$ be a group. Then define the category $BG$ as follows. 
-\begin{itemize}
-\item $BG$ consists of one object $\{\ast\}$
-\item The morphisms of $BG$ are precisely $$\Hom_{BG}(\ast,\ast)=G$$
-\item Composition is defined as the group operation of $G$. 
-\end{itemize}
+\begin{defn}{Closed Monoidal Categories}{} Let $(\mC,\otimes,I)$ be a monoidal category. We say that $\mC$ is closed if there exists an internal hom bifunctor $\text{HOM}(-,-):\mC^\text{op}\times\mC\to\mC$ such that there is an adjunction $$-\otimes X:\mC\rightleftarrows\mC:\text{HOM}(X,-)$$ for any $X\in\mC$. Explicitly, this means that there is a isomorphism $$\Hom_\mC(A\otimes X,B)\cong\Hom_\mC(A,\text{HOM}(X,B))$$ that is natural in $A,B\in\mC$. 
 \end{defn}
 
-\begin{lmm}{}{} Let $G$ be a group. Then $BG$ is a groupoid. 
-\end{lmm}
-
-\begin{prp}{}{} Let $G$ and $H$ be groups and $f:G\to H$ a group homomorphism. Then there is a functor $Bf:BG\to BH$ defined by sending the unique object to the unique object, and sending each morphism $g\in G$ to $f(g)\in H$. 
+\begin{prp}{}{} Every closed monoidal category is closed and monoidal. 
 \end{prp}
 
-\begin{prp}{}{} The construction $BG$ for a group $G$ defines a functor $B:\bold{Grp}\to\bold{Cat}$ defined by $B(G)=BG$ and for a group homomorphism $f:G\to H$, the functor $B$ sends $f$ to $Bf:BG\to BH$. 
+\begin{prp}{}{} Let $(\mC,\otimes,I,\text{HOM})$ be a closed symmetric monoidal category. Then for any $X\in\mC$, there is an adjunction $$\text{HOM}(-,X):\mC\rightleftarrows\mC^\text{op}:\text{HOM}(-,X)$$ Explicitly, there is an isomorphism $$\Hom_\mC(\text{HOM}(A,X),B)\cong\Hom_\mC(A,\text{HOM}(X,B))$$ that are natural in $A$ and $B$. 
 \end{prp}
-
-\begin{defn}{Connected Groupoids}{} Let $\mG$ be a groupoid. We say that $\mG$ is connected if any two objects of $\mG$ are isomorphic. 
-\end{defn}
-
-\begin{prp}{}{} Let $\mG$ be a connected groupoid. Let $c_0\in\mG$ be an object. Then there is an equivalence of categories $$B\text{Aut}_\mG(c_0)\cong\mG$$
-\end{prp}
-
-In particular, by regarding the isomorphic class of the connected groupoid as one object this means that the groupoids with one objects are in one-to-one correspondence with groups. 
-
-\begin{thm}{}{} There is a one to one correspondence between the functors $F:BG\to\bold{Set}$ and the left $G$-sets for a group $G$. 
-\end{thm}
-
-\subsection{Transition Groupoids and Group Actions}
-\begin{defn}{Transition Groupoid}{} Let $G$ be a group and $X$ a $G$-set. Define the transition groupoid $T_G(X)$ of $X$ to consist of the following data. 
-\begin{itemize}
-\item The objects of $T_G(X)$ are the elements of $X$. 
-\item For $x,y\in X$, define the morphisms of $T_G(X)$ to be $$\Hom_{T_G(X)}(x,y)=\{g\in G\;|\;g\cdot x=y\}$$
-\item Composition is defined by the group operation of $G$. 
-\end{itemize}
-\end{defn}
-
-\begin{lmm}{}{} Let $G$ be a group and let $X$ be a $G$-set. Let $T_G(X)$ be the transition groupoid of $X$. Then $$\text{Aut}_{T_G(X)}(x)=\{g\in G\;|\;g\cdot x=x\}=\text{Stab}_G(x)$$ for any $x\in X$. Moreover, $T_G(x)$ is a connected groupoid if and only if the action of $G$ is transitive. 
-\end{lmm}
-
-\begin{defn}{Fixed Points and Orbits}{} Let $G$ be a group and $\mC$ be a category such that there is a diagram $X:BG\to\mC$. Define the fixed points of $X$ to be the limit $$X^G=\lim_{BG}X$$ Define the orbits of $X$ to be the colimit $$X_G=\colim_{BG}X$$
-\end{defn}
-
-\begin{thm}{}{} Let $G$ be a group. Then there is a natural group action on the functor $X:BG\to\bold{Set}$. Moreover, the following are true regarding the diagram $X$. 
-\begin{itemize}
-\item The fixed points (in the categorical sense) are $$X^G=\{x\in X\;|\;g\cdot x=x\text{ for all }g\in G\}$$ which is the same as the usual sense in group theory. 
-\item The orbits (in the categorical sense) are $$X_G=\{\text{Orb}_G(x)\;|\;x\in X\}$$ which is the usual orbits in group theory. 
-\end{itemize}
-\end{thm}
-
-\begin{prp}{}{} Let $G$ be a group and $X:BG\to\mC$ be a diagram to an arbitrary category $\mC$. Then $$\lim_{BG}X=\{x\in X\;|\;g\cdot x=x\text{ for all }g\in G\}$$
-\end{prp}
-
-However, the analogy no longer works for the orbits (colimits of $X:BG\to\mC$). For example, if $\mC=\bold{Ab}$, then $$X_G=\frac{X}{\langle g\cdot x-x\;|\;g\in G,x\in X\rangle}$$
-
 
 
 

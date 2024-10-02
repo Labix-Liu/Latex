@@ -16,6 +16,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
+Potentially good books: Humphreys, Erdmann and Wildson
 \end{abstract}
 \pagebreak
 \tableofcontents
@@ -23,16 +24,42 @@
 
 \section{Introduction to Lie Algebras}
 \subsection{Lie Algebras}
-\begin{defn}{Lie Algebras}{} A Lie algebra is a vector space $V$ over a field $K$ together with a bilinear map $[-,-]:V\times V\to V$ such that for all $X,Y,Z\in V$, we have the following. 
+\begin{defn}{Lie Brackets}{} Let $V$ be a vector space over a field $k$. Let $[-,-]:V\times V\to V$ be a bilinear map. We say that $[-,-]$ is a Lie bracket if the following are true. 
 \begin{itemize}
-\item Anti-commutativity: $[X,Y]=-[Y,X]$
+\item The Alternating Property: $[X,X]=0$
 \item Jacobi identity: $[[X,Y],Z]+[[Y,Z],X]+[[Z,X],Y]=0$
 \end{itemize}
-The bilinear map $[-,-]$ is called a Lie bracket. 
 \end{defn}
 
-Lie Algebras are not algebras because the Lie bracket fails associativity. Therefore we have to redefine all the standard notions one has in algebra. 
+Consider the cross product $\times:\R^3\times\R^3\to\R^3$ in $\R^3$. It is easy to see that it is a Lie bracket. 
 
+\begin{defn}{Lie Algebras}{} A Lie algebra is a vector space $V$ over a field $K$ together with a Lie bracket $[-,-]:V\times V\to V$. 
+\end{defn}
+
+For $k$ a field, $M_n(k)$ for any $n\geq 1$ is a Lie algebra with Lie bracket defined as $[A,B]=AB-BA$ for $A,B\in M_n(k)$. 
+
+\begin{lmm}{}{} Let $L$ be a Lie Algebra. Then for all $x,y\in L$, we have that $$[x,y]=-[y,x]$$ In other words, the Lie bracket is anti-commutative. 
+\begin{proof}
+We have that 
+\begin{align*}
+[x,y]+[y,x]&=[x,x]+[x,y-x]+[y,y]+[y,x-y]\tag{Bilinearity}\\
+&=[x,x]+[y,y]-[x-y,x-y]\tag{Bilinearity}\\
+&=0\tag{Alternating}
+\end{align*}
+and so we conclude. 
+\end{proof}
+\end{lmm}
+
+Lie Algebras are not algebras (in the sense of Rings and Modules) because the Lie bracket fails associativity. Therefore we have to redefine all the standard notions one has in algebra. 
+
+While Lie Algebras are not in general algebras, every associative algebra can be equipped with a Lie algebra. For $A$ an associative algebra over a field, we can define a bilinear map on $A$ by $$[a,b]=ab-ba$$ for all $a,b\in A$. There may also be more than one way to equip an algebra with a Lie algebra structure. One should not think that Lie Algebras encompasses associative algebras because of the different Lie algebras one can equip. Instead, we think of the Lie bracket as an extra structure on associative algebras such that they become Lie algebras. 
+
+\begin{defn}{Structure Constants}{} Let $L$ be a Lie algebra such that its underlying vector space has basis $e_1,\dots,e_n$. Define the structure constants of $L$ to be the elements $c_{ij}^k\in\F$ such that $$[e_i,e_j]=\sum_{k=1}^nc_{ij}^ke_k$$ for all $1\leq i,j\leq n$. 
+\end{defn}
+
+The structure constants are useful in the following sense. Let $L$ be a Lie algebra and let $a=\sum_{k=1}^na_ke_k$ and $b=\sum_{k=1}^nb_ke_k$ be elements of $L$. Then there Lie bracket can be written as $$[a,b]=\sum_{1\leq i<j\leq n}(a_ib_j-a_jb_i)[e_i,e_j]$$ by bilinearity. Plugging in the structure constants, we obtain $$[a,b]=\sum_{1\leq i<j\leq n}(a_ib_j-a_jb_i)\sum_{k=1}^nc_{ij}^ke_k$$ Thus we can write $[a,b]$ in terms of the basis $e_1,\dots,e_n$ using structure constants. 
+
+\subsection{Homomorphisms and Ideals}
 \begin{defn}{Homomorphism of Lie algebra}{} Let $V$ and $W$ be Lie algebras over $K$. A homomorphism from $V$ to $W$ is an $K$-linear map $F:V\to W$ such that $$[F(a),F(b)]=[a,b]$$ for all $a,b\in V$. 
 \end{defn}
 
@@ -43,7 +70,7 @@ Lie Algebras are not algebras because the Lie bracket fails associativity. There
 \end{itemize}
 \end{defn}
 
-It is clear that a Lie subalgebra is also a Lie algebra in its own right. Moreover, the inclusion $W\to V$ is a Lie algebra homomorphism. 
+It is clear that a Lie subalgebra is also a Lie algebra in its own right. Moreover, the inclusion $map W\to V$ is a Lie algebra homomorphism. 
 
 \begin{defn}{Ideal}{} Let $V$ be a Lie algebra over $K$. Let $I$ be a subset of $V$. Then $I$ is an ideal of $V$ if the following are true. 
 \begin{itemize}
@@ -51,6 +78,8 @@ It is clear that a Lie subalgebra is also a Lie algebra in its own right. Moreov
 \item $[v,i]\in I$ for all $v\in V$ and $i\in I$. 
 \end{itemize}
 \end{defn}
+
+It is clear from definitions that every ideal of a Lie algebra is a Lie subalgebra. However, the converse is not always true. 
 
 \begin{prp}{}{} Let $V$ be a Lie algebra and $I,J$ ideals of $V$. Then the following are also ideals of $V$. 
 \begin{itemize}
@@ -105,6 +134,21 @@ Moreover, we have an isomorphism $$\frac{I+J}{J}\cong\frac{I}{I\cap J}$$
 \end{thm}
 
 \pagebreak
+\section{Types of Lie Algebras}
+\subsection{Nilpotent Lie Algebras}
+
+\subsection{Soluble Lie Algebras}
+Let $L$ be a Lie algebra. We have seen that $\text{rad}(L)$ is soluble and $L/\text{rad}(L)$ is semisimple. Therefore to study a general Lie algebra, we need to understand soluble Lie algebras and semisimple Lie algebras. If we restrict the case to Lie algebras over $\C$, Lie's theorem will solve the first part of the problem, while the study of semisimple Lie algebras is postponed until section 5. 
+
+\begin{thm}{Lie's Theorem}{} Let $V$ be a vector space over $\C$. Let $L$ be a soluble Lie subalgebra of $GL(V)$. Then there exists a basis $B$ of $V$ such that for all $M\in L$, $M$ is upper triangular. 
+\end{thm}
+
+\subsection{Simple and Semisimple Lie Algebras}
+
+\pagebreak
+\section{The Killing Form and Cartan's Criteria}
+
+\pagebreak
 \section{Introduction to Lie Groups}
 \subsection{Lie Groups}
 \begin{defn}{Lie Groups}{} A Lie group $G$ is a smooth manifold which is also a group such that the multiplication map $G\times G\to G$ given by $(g,h)\mapsto gh$ and the inverse map $i:G\to G$ given by $g\mapsto g^{-1}$ are smooth maps. 
@@ -129,6 +173,15 @@ Recall that given a homomorphism of Lie groups $\phi:G\to H$, it induces a diffe
 
 \begin{prp}{}{} Let $\phi:G\to H$ be a homomorphism of Lie groups with Lie algebras $V$ and $W$ respectively. Then the induced map from the differential $\phi_\ast:V\to W$ is a Lie algebra homomorphism. 
 \end{prp}
+
+\pagebreak
+\section{Root Systems}
+
+\pagebreak
+\section{Representation of Lie Algebras}
+
+\pagebreak
+\section{Classification of Semisimple Lie Algebras over $\C$}
 
 
 

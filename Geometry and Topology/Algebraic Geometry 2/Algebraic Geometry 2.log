@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  12 JUL 2024 18:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  26 AUG 2024 17:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -907,6 +907,9 @@ LaTeX Font Info:    Trying to load font information for T1+qpl on input line 11
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qpl.fd
 File: t1qpl.fd 2009/09/25 v1.2 font definition file for T1/qpl
 ))
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbtheorems.c
 ode.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.2.0'
@@ -944,7 +947,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 226.
+Package hyperref Info: Option `colorlinks' set `true' on input line 232.
 ) (Algebraic Geometry 2.aux)
 \openout1 = `"Algebraic Geometry 2.aux"'.
 
@@ -1036,8 +1039,9 @@ Package hyperref Info: Link coloring ON on input line 16.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
+Couldn't patch \deferred@thm@head!
+LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1048,63 +1052,163 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-[1
-
-{C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
-a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
-(Algebraic Geometry 2.toc)
-\tf@toc=\write5
-\openout5 = `"Algebraic Geometry 2.toc"'.
-
- [2] [3] [4] [5] [6]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 1
-44.
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
+3.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
-[7{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [8] [9] [10] [11] (Algebraic Geometry 2.aux)
+[1
+
+{C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
+a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}{C:/Users/liu
+la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
+(Algebraic Geometry 2.toc [2])
+\tf@toc=\write5
+\openout5 = `"Algebraic Geometry 2.toc"'.
+
+ [3]
+
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 64.
+
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
+
+ []
+
+[6] [7] [8] [9] [10] [11] [12] [13] [14]
+Overfull \hbox (18.39568pt too wide) detected at line 350
+[]
+ []
+
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 394--396
+
+ []
+
+[17] [18] [19] [20] [21] [22]
+Underfull \hbox (badness 10000) in paragraph at lines 551--556
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 551--556
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 551--556
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 557--558
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 557--558
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 592--600
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 592--600
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 609--610
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 609--610
+
+ []
+
+[24] [25] [26] [27] [28] [29] [30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 811--812
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 811--812
+
+ []
+
+[32] [33] [34] [35] [36] [37] [38] [39] (Algebraic Geometry 2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
+Package rerunfilecheck Info: File `"Algebraic Geometry 2".out' has not changed.
 
-
-Package rerunfilecheck Warning: File `"Algebraic Geometry 2".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Algebraic Geometry 2".out':
-(rerunfilecheck)             Before: 1C969FE431841EC4FFC17413D09E19FD;2320
-(rerunfilecheck)             After:  EB4F2B365E6C5579D92D496E2C612C58;2624.
+(rerunfilecheck)             Checksum: 42C4958FC64D40069703B131B8BA2CB7;9485.
  ) 
 Here is how much of TeX's memory you used:
- 32196 strings out of 474424
- 634267 string characters out of 5741739
- 1956496 words of memory out of 5000000
- 53960 multiletter control sequences out of 15000+600000
- 599637 words of font info for 75 fonts, out of 8000000 for 9000
+ 33095 strings out of 474424
+ 652868 string characters out of 5741739
+ 1962496 words of memory out of 5000000
+ 54662 multiletter control sequences out of 15000+600000
+ 600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,12n,120p,603b,1184s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,17n,120p,820b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/li
-ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/
-Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/m
-sbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-
-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/tex-gyre/qplri.pfb>
-Output written on "Algebraic Geometry 2.pdf" (11 pages, 317121 bytes).
+cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/
+liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:
+/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.
+pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liula/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users
+/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/U
+sers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><
+C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.
+pfb>
+Output written on "Algebraic Geometry 2.pdf" (39 pages, 586206 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 70 named destinations out of 1000 (max. 500000)
- 117 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 796 PDF objects out of 1000 (max. 8388607)
+ 261 named destinations out of 1000 (max. 500000)
+ 405 words of extra memory for PDF output out of 10000 (max. 10000000)
 

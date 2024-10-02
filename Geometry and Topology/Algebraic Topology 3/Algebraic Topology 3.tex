@@ -351,7 +351,7 @@ The goal of this section is that every space has a CW approximation. The given h
 \begin{defn}{Reduced Suspension}{} Let $(X,x_0)$ be a pointed space. Define the reduced suspension of $X$ to be the space $$\Sigma X=\frac{X\times I}{(X\times\{0\}\cup X\times\{1\}\cup\{x_0\}\times I)}$$
 \end{defn}
 
-The reduced suspension defines a continuous map sending a space $X$ to its reduced suspension $\Sigma X$. 
+By definition of quotients, the reduced suspension defines a canonical continuous map sending a space $X$ to its reduced suspension $\Sigma X$. 
 
 \begin{thm}{Freudenthal Suspension Theorem}{} Let $X$ be an $n$-connected CW complex. Then for $0\leq k\leq 2n$, the induced map $$\Sigma_\ast:\pi_k(X)\to\pi_{k+1}(\Sigma X)$$ is an isomorphism. For $k=2n+1$, $\Sigma_\ast$ is a surjection. 
 \end{thm}
@@ -485,18 +485,18 @@ Define similar the homotopy category $\bold{hTop}_\ast$ of pointed topological s
 \begin{prp}{}{} Let $X,Y$ be spaces with chosen base point $x_0$ and $y_0$ respectively. Then the wedge product $$X\vee Y=X\amalg_fY$$ is an adjunction space with $Z=\{x_0\}$ and map $f:Z\to Y$ defined by $f(x_0)=y_0$. 
 \end{prp}
 
-\subsection{Reduced Suspension and Loop Space Adjunction}
+\subsection{The Suspension-Loop Space Adjunction}
 \begin{defn}{Loop Spaces}{} Let $X$ be a space with a chosen basepoint. Define the loop space of $(X,x_0)$ to be $$\Omega X=\Hom_\bold{Top}(S^1,X)$$ together with the compact open topology. If $X$ is pointed with $x_0\in X$ then we choose the constant loop $c_{x_0}$ to be the base point of $\Omega X$. 
 \end{defn}
 
 \begin{lmm}{}{} Let $G$ be an abelian group and let $n\in\N$. Then there is a homeomorphism $$\Omega K(G,n)\cong K(G,n-1)$$
 \end{lmm}
 
-\begin{thm}{}{} The operations $\Sigma$ and $\Omega$ define functors on $\bold{Top}$, $\bold{Top}_\ast$, $\bold{hTop}$ and $\bold{hTop}_\ast$ as follows. 
+\begin{thm}{}{} The operations $\Sigma$ and $\Omega$ define functors on $\bold{Top}_\ast$ and $\bold{hTop}_\ast$ as follows. 
 \begin{itemize}
 \item $\Sigma$ and $\Omega$ sends a pointed space $(X,x_0)$ to $$(\Sigma X,(x_0,0))\;\;\;\;\text{ and }\;\;\;\;(\Omega X,c_{x_0})$$ respectively. The non-basepoint version is obtained by forgetting the base point. 
-\item For the non homotopy categories, $\Sigma$ and $\Omega$ sends a map $f:X\to Y$ to $$\Sigma f:\Sigma X\to\Sigma Y\;\;\;\;\text{ and }\;\;\;\;\Omega f:\Omega X\to\Omega Y$$ respectively defined by $\Sigma f([x,t])=[f(x),t]$ and $\Omega f(\gamma)=f\circ\gamma$. It is in particular base point preserving. 
-\item For the homotopy categories, $\Sigma$ and $\Omega$ sends a homotopy class of maps $[X,Y]$ to $$[\Sigma X,\Sigma Y]\;\;\;\;\text{ and }\;\;\;\;[\Omega X,\Omega Y]$$ respectively given by the same formula as above. It is in particular also base point preserving. 
+\item For the non homotopy category, $\Sigma$ and $\Omega$ sends a map $f:X\to Y$ to $$\Sigma f:\Sigma X\to\Sigma Y\;\;\;\;\text{ and }\;\;\;\;\Omega f:\Omega X\to\Omega Y$$ respectively defined by $\Sigma f([x,t])=[f(x),t]$ and $\Omega f(\gamma)=f\circ\gamma$. It is in particular base point preserving. 
+\item For the homotopy category, $\Sigma$ and $\Omega$ sends a homotopy class of maps $[X,Y]$ to $$[\Sigma X,\Sigma Y]\;\;\;\;\text{ and }\;\;\;\;[\Omega X,\Omega Y]$$ respectively given by the same formula as above. It is in particular also base point preserving. 
 \end{itemize}
 \end{thm}
 
@@ -537,6 +537,7 @@ The following theorem is also said to be the Freudenthal suspension theorem.
 
 Switzer / Hatcher
 
+\subsection{Group Structure on Loop Spaces and Homotopy Classes of Maps}
 \begin{defn}{Group Structure on Loop Spaces}{} Let $X$ be a space. Define a group structure on $\Omega X$ as follows. Let $\cdot:\Omega X\times\Omega X\to\Omega X$ be defined as the concatenation: $(f,g)\mapsto f\cdot g$. 
 \end{defn}
 
@@ -616,7 +617,7 @@ Aside from the adjunction between the product space and the mapping space, anoth
 
 Note that this is not true if we do not restrict the spaces to the category of compactly generated spaces. 
 
-\begin{lmm}{}{} Let $X$ be a space. Then the reduced suspension and the smash product with the circle $$\Sigma X\cong X\wedge S^1$$ are homeomorphic spaces. 
+\begin{lmm}{}{} Let $X$ be a pointed space. Then the reduced suspension and the smash product with the circle $$\Sigma X\cong X\wedge S^1$$ are homeomorphic spaces. 
 \end{lmm}
 
 \begin{thm}{}{} Let $X,Y,Z$ be compactly generated with a chosen basepoint. Then the functors $-\wedge Y:\mK_\ast\to\mK_\ast$ and $\text{Map}_\ast(Y,-):\mK_\ast\to\mK_\ast$ are adjoint functors with the adjunction formula $$\Hom_{\mK_\ast}(X\wedge Y,Z)\cong\Hom_{\mK_\ast}(X,\text{Map}_\ast(Y,Z))$$ Moreover, by giving the Hom set the compact open topology and applying $k$, we obtain an isomorphism $$\text{Map}_\ast(X\wedge Y,Z)\cong\text{Map}_\ast(X,\text{Map}_\ast(Y,Z))$$

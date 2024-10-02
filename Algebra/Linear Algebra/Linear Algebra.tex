@@ -679,41 +679,7 @@ f(\lambda) & f'(\lambda) & \dots & \frac{1}{(k-2)!}f^{(k-2)}(\lambda) & \frac{1}
 Note that taking $f(x)=x^n$, this coincides with the power of a Jordan block, which is presumably what motivated the this definition of matrix functions. 
 
 \pagebreak
-\section{Linear Forms and Quadratic Forms}
-\subsection{Linear Forms}
-\begin{defn}{Linear Forms}{} A linear form on $V$ is a linear map from $V$ to $\F$. 
-\end{defn}
-
-\begin{prp}{Dual Space}{} The set of all linear forms on $V$ forms a vector space called the dual space $V'$. \tcbline
-\begin{proof}
-Simply a check on the axioms of vector space. 
-\end{proof}
-\end{prp}
-
-\begin{lmm}{}{} Let $V$ be a finite dimensional vector space. Then $V'$ is also finite dimensional and $\dim(V')=\dim(V)$. 
-\end{lmm}
-
-\begin{defn}{Dual Basis}{} Let $v_1,\dots,v_n$ be a basis of $V$, then the dual basis of $v_1,\dots,v_n$ is the list $\phi_1\dots,\phi_n$ of elements of $V'$, where $\phi_k$ is a linear functional such that $$\phi_k(v_i)=
-\begin{cases}
-1 & \text{if }k=i\\
-0 & \text{if }k\neq i
-\end{cases}$$
-\end{defn}
-
-\begin{prp}{}{} The dual basis of a basis of $V$ is a basis of $V'$
-\end{prp}
-
-\begin{defn}{Dual Map}{} Let $T\in\mathcal{L}(V,W)$. The dual map of $T$ is the linear map $T'\in\mathcal{L}(W',V')$ defined by $T'(\phi)=\phi\circ T$ for $\phi\in W'$. 
-\end{defn}
-
-\begin{prp}{}{} Let $S,T\in\mathcal{L}(V,W)$ and $\lambda\in\F$. 
-\begin{itemize}
-\item $(S+T)'=S'+T'$
-\item $(\lambda T)'=\lambda T'$
-\item $(ST)'=T'S'$. 
-\end{itemize}
-\end{prp}
-
+\section{Linearity in Two Variables}
 \subsection{Quadratic Forms}
 \begin{defn}{Quadratic Forms}{} A quadratic form in $n$ variables $x_1,\dots,x_n$ over a field $K$ is a polynomial $$q(x_1,\dots,x_n)=\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j$$
 \end{defn}
@@ -875,9 +841,73 @@ Let $q:V\to K$ be a function.
 \subsection{Sesquilinear Forms}
 
 \pagebreak
+\section{The Dual Space}
+\subsection{Dual of a Vector Space}
+Recall that for $V$ and $W$ two vector spaces over a field $\F$, the set of all linear maps $\Hom(V,W)$ can be equipped with a vector space structure. We consider the case where $W=\F$. 
+
+\begin{defn}{Linear Forms}{} Let $V$ be a vector space over a field $\F$. A linear form on $V$ is a linear map from $V$ to $\F$. 
+\end{defn}
+
+\begin{defn}{Dual Space}{} Let $V$ be a vector space over a field $\F$. Define the dual space $V^\ast$ of $V$ to be the vector space $$V^\ast=\Hom(V,\F)$$ of all linear forms on $V$
+\end{defn}
+
+Explicitly, the vector space operations are defined as follows. 
+\begin{itemize}
+\item For two linear forms $f,g:V\to\F$, define $f+g:V\to\F$ by $(f+g)(v)=f(v)+g(v)$ for all $v\in V$
+\item For a linear form $f:V\to\F$ and a scalar $\lambda\in\F$, define $\lambda f:V\to\F$ by $(\lambda f)(v)=\lambda\cdot f(v)$ for all $v\in V$
+\end{itemize}
+
+\begin{lmm}{}{} Let $V$ be a finite dimensional vector space. Then $V^\ast$ is also finite dimensional and $\dim(V^\ast)=\dim(V)$. 
+\end{lmm}
+
+\begin{defn}{Dual Basis}{} Let $V$ be a vector space. Let $v_1,\dots,v_n$ be a basis of $V$, then the dual basis of $v_1,\dots,v_n$ is the list $\phi_1\dots,\phi_n$ of elements of $V^\ast$, where $\phi_k$ is a linear functional such that $$\phi_k(v_i)=
+\begin{cases}
+1 & \text{if }k=i\\
+0 & \text{if }k\neq i
+\end{cases}$$
+\end{defn}
+
+\begin{prp}{}{} Let $V$ be a vector space. Then the dual basis of a basis of $V$ is a basis of $V^\ast$
+\end{prp}
+
+\begin{defn}{Dual Map}{} Let $V,W$ be vector spaces over a field. Let $T\in\Hom(V,W)$. The dual map of $T$ is the linear map $T^\ast\in\Hom(W^\ast,V^\ast)$ defined by $T^\ast(\phi)=\phi\circ T$ for $\phi\in W^\ast$. 
+\end{defn}
+
+\begin{prp}{}{} Let $V,W$ be vector spaces over a field $\F$. Let $T\in\Hom(V,W)$ and $\lambda\in\F$. Then the following are true. 
+\begin{itemize}
+\item $(S+T)^\ast=S^\ast+T^\ast$
+\item $(\lambda T)^\ast=\lambda T^\ast$
+\item $(ST)^\ast=T^\ast S^\ast$. 
+\end{itemize}
+\end{prp}
+
+\begin{thm}{}{} Let $V,W$ be vector spaces over a field $\F$. Let $T:V\to W$ be a linear transformation and let $A$ be a matrix representing $T$ under some choice of bases. Then $A^T$ represents the map $T^\ast$ under the same bases. 
+\end{thm}
+
+\subsection{The Double Dual}
+\begin{defn}{The Double Dual}{} Let $V$ be a vector space over a field $\F$. Define the double dual of $V$ to be the vector space $$V^{\ast\ast}=\Hom(\Hom(V,\F),\F)$$
+\end{defn}
+
+\begin{thm}{}{} Let $V$ be a vector space over a field $k$. Define the function $\text{ev}_V:V\to V^{\ast\ast}$ by $$\text{ev}(v)=\left(\substack{E_v:V^\ast\to\R\\f\mapsto f(v)}\right)$$ Then $\text{ev}$ is an injective linear transformation. Moreover $\text{ev}_V$ is natural in the following sense. If $W$ is another vector space over $k$ and $\phi:V\to W$ is a linear map, then the following diagram commutes: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	V & W \\
+	{V^{\ast\ast}} & {W^{\ast\ast}}
+	\arrow["\phi", from=1-1, to=1-2]
+	\arrow["{\text{ev}_V}"', from=1-1, to=2-1]
+	\arrow["{\text{ev}_W}", from=1-2, to=2-2]
+	\arrow["{\phi^{\ast\ast}}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{thm}
+
+\begin{lmm}{}{} Let $V$ be a vector space over a field. Then the map $$\text{ev}:V\to V^{\ast\ast}$$ is an isomorphism. 
+\end{lmm}
+
+\subsection{Perfect Pairings}
+
+\pagebreak
 \section{Inner Product Spaces}
-\subsection{Norms}
-Throught this section, $\F$ means either $\R$ or $\C$. In general normed vector spaces only perform well in these two fields. 
+\subsection{The Norm of a Space}
+Throughout this section, $\F$ means either $\R$ or $\C$. In general normed vector spaces only perform well in these two fields. 
 \begin{defn}{Norm}{} Let $V$ be a vector space. A norm on $V$ is a function $\|\cdot\|:V\to\F$ such that
 \begin{itemize}
 \item $\|x\|\geq 0$ for all $x\in V$ with equality if and only if $x=0$

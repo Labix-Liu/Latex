@@ -74,7 +74,18 @@ Recall the notion of the Jacobson radical from Rings and Modules.
 \subsection{Exact Sequences}
 
 \subsection{Change of Rings}
+\begin{defn}{Extension of Scalars}{} Let $R,S$ be commutative rings. Let $\varphi:R\to S$ be a ring homomorphism. Let $M$ be an $R$-module. Define the extension of $M$ to the ring $S$ to be the $S$-module $$S\otimes_R M$$
+\end{defn}
 
+\begin{defn}{Restriction of Scalars}{} Let $R,S$ be commutative rings. Let $\varphi:R\to S$ be a ring homomorphism. Let $M$ be an $S$-module. Define the restriction of $M$ to the ring $R$ to be the $R$-module $M$ equipped with the action $$r\cdot_R m=\varphi(r)\cdot_S m$$ for all $r\in R$. 
+\end{defn}
+
+\begin{thm}{}{} Let $R,S$ be commutative rings. Let $\varphi:R\to S$ be a ring homomorphism. Then there is an isomorphism $$\Hom_S(S\otimes_R M,N)\cong\Hom_R(M,N)$$ for any $R$-module $M$ and $S$-module $N$ given as follows. 
+\begin{itemize}
+\item For $f\in\Hom_S(S\otimes_R M,N)$, define the map $f^+\in\Hom_R(M,N)$ by $$f^+(m)=f(1\otimes m)$$
+\item For $g\in\Hom_R(M,N)$, define the map $g^-\in\Hom_S(S\otimes_RM,N)$ by $$g^-(s\otimes m)=s\cdot g(m)$$
+\end{itemize}
+\end{thm}
 
 \pagebreak
 \section{Localization}
@@ -125,6 +136,8 @@ By definition, $xy\in P$ implies $x\in P$ or $y\in P$, since $R\setminus P$ remo
 \begin{prp}{}{} Localization commutes with direct sum of modules and quotient modules. 
 \end{prp}
 
+\pagebreak
+\section{Local Rings}
 \subsection{Local Rings}
 \begin{defn}{Local Rings}{} A ring $R$ is said to be a local ring if it has a unique maximal ideal $m$. In this case, we say that $R/m$ is the residue field of $R$. 
 \end{defn}
@@ -136,7 +149,7 @@ Suppose that $I$ contains all non-units of $R$. Let $r\notin I$. Then there exis
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Every localization $R_p$ is a local ring. \tcbline
+\begin{prp}{}{} Let $R$ be a ring and let $p$ be a prime ideal of $R$. Then $R_p$ is a local ring. \tcbline
 \begin{proof}
 Let $I$ be the set of all non-units of $R_p$. It is sufficient to show that $I$ is an ideal by the above lemma. Clearly if $i\in I$ then $r\cdot i$ is also not invertible. Explicitly, we have $$I=\left\{\frac{r}{s}\in R_p\bigg{|}r\in p\right\}$$ Let $\frac{r_1}{s_1},\frac{r_2}{s_2}\in I$, then $\frac{r_1}{s_1}+\frac{r_2}{s_2}=\frac{r_1s_2+r_2s_1}{s_1s_2}$ is in $I$ since $r_1,r_2\in P$ and $P$ being an ideal implies $r_1s_2+r_2s_1\in P$. 
 \end{proof}
@@ -154,10 +167,6 @@ If $S=\{1,f,f^2,\dots\}$ then we write $S^{-1}M=M_f=M[1/f]$.
 
 \begin{prp}{}{} Let $M$ be an $A$-module. Then the $S^{-1}A$ modules $S^{-1}M$ is isomorphic to $S^{-1}A\otimes_AM$. More precisely, there exists a unique isomorphism $f:S^{-1}A\otimes_AM\to S^{-1}M$ such that $$f((a/s)\otimes m)=am/s$$
 \end{prp}
-
-\subsection{Local Properties}
-\begin{defn}{Local Properties}{} A property $P$ of a ring $A$ or of an $A$-module $M$ is said to be a local property if the following is true. $A$ ($M$) has the property $P$ if and only if $A_p$ ($M_p$) has the property $P$ for every prime ideal $p$.
-\end{defn}
 
 \pagebreak
 \section{Noetherian Rings}
@@ -231,6 +240,9 @@ In practise we value lower powers of the last variable $x_n$.
 
 \begin{prp}{}{} Let $R$ be a Noetherian ring and $I$ be an ideal in $R$. Then $R/I$ is Noetherian. 
 \end{prp}
+
+\begin{thm}{}{} Let $R=\bigoplus_{i=1}^nR_i$ be a graded ring. Then $R$ is Noetherian if and only if $R_0$ is Noetherian and $R$ is finitely generated as an $R_0$-module. 
+\end{thm}
 
 \pagebreak
 \section{Primary Decomposition}
@@ -381,6 +393,67 @@ We have seen that every ideal is of the form $(t^n)$ for some $n>0$. Thus every 
 \end{proof}
 \end{prp}
 
+
+\pagebreak
+\section{Dimension Theory for Rings}
+\subsection{Dimension and Height}
+\begin{defn}{Krull Dimension}{} Let $R$ be a commutative ring. Define the Krull dimension of $R$ to be $$\dim(R)=\sup\{t\in\N|p_0\subset\dots\subset p_t\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
+\end{defn}
+
+\begin{defn}{Height of a Prime Ideal}{} Let $p$ be a prime ideal in a ring $R$. Define the height of $p$ to be $$\text{ht}(p)=\sup\{t\in\N|p_0\subset\dots\subset p_t=p\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $p$ be a prime ideal in a ring $R$. Then $$\text{ht}(p)=\dim(R_p)$$ 
+\end{lmm}
+
+\begin{thm}{Krull's Principal Ideal Theorem}{} Let $R$ be a Noetherian ring. Let $I$ be a proper and principal ideal of $R$. Let $p$ be the smallest prime ideal containing $I$. Then $$\text{ht}_R(p)\leq 1$$
+\end{thm}
+
+\subsection{Length of a Module}
+\begin{defn}{Length of a Module}{} Let $R$ be a ring and let $M$ be an $R$-module. Define the length of $M$ to be $$l_R(M)=\text{sup}\{n\in\N\;|\;0=M_0\subset M_1\subset\cdots\subset M_n=M\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $0\to M'\to M\to M''\to 0$ be a short exact sequence of $R$-modules. Then $$l_R(M)=l_R(M')+l_R(M'')$$
+\end{lmm}
+
+\begin{lmm}{}{} Let $(A,m)$ be a local ring and let $M$ be an $A$-module. If $mM=0$, then $$l_A(M)=\dim_{A/m}(M)$$
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a ring and let $M$ be an $R$-module. Then the following are equivalent. 
+\begin{itemize}
+\item $M$ is simple
+\item $l_R(M)=1$
+\item $M\cong A/m$ for some maximal ideal $m$ of $A$
+\end{itemize}
+\end{prp}
+
+\subsection{The Hilbert Polynomial}
+\begin{defn}{The Hilbert Polynomial}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a Noetherian graded ring. Let $M=\bigoplus_{k=0}^\infty M_k$ be a graded $R$-module. Define the Hilbert function $H_M:\N\to\N$ of $R$ to be the function defined by $$H_M(n)=l_{R_0}(M_n)$$
+\end{defn}
+
+\begin{defn}{The Hilbert Series}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a Noetherian graded ring. Let $M=\bigoplus_{k=0}^\infty M_k$ be a graded $R$-module. Define the Hilbert series $HS_M\in\Z[[t]]$ of $M$ to be the formal series $$HS_M(t)=\sum_{k=0}^\infty H_M(k)t^k=\sum_{k=0}^\infty l_{R_0}(M_k)t^k$$
+\end{defn}
+
+\begin{thm}{}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a Noetherian graded ring such that $R_0$ is Artinian. Let $M=\bigoplus_{k=0}^\infty M_k$ be a graded $R$-module. Let $\lambda:\{M_i\;|\;i\in I\}\to\Z$ be an additive function Then the function $$g(t)=\sum_{k=0}^\infty\lambda(M_k)t^k$$ is a rational function and can be written in the form $$g(t)=\frac{f(t)}{\prod_{i=1}^r(1-t^{d_i})}$$ for some $f(t)\in\Z[t]$ and $d_i\in\N$. 
+\end{thm}
+
+\begin{thm}{The Fundamental Theorem of Dimension Theory}{} Let $(R,m)$ be a local Noetherian ring. Let $I$ be an $m$-primary ideal. Then the following numbers are equal. 
+\begin{itemize}
+\item Let $J=\bigoplus_{k=0}^\infty\frac{I^k}{I^{k+1}}$. The order of the pole at $1$ of the rational function $HS_J$. 
+\item The minimum number of elements of $R$ that can generate an $m$-primary ideal of $R$
+\item The dimension $\dim_{R/m}(R)$
+\end{itemize}
+\end{thm}
+
+The following is a generalization of Krull's principal ideal theorem. Both of the theorems can actually be deduced directly from the fundamental theorem. 
+
+\begin{thm}{Krull's Height Theorem}{} Let $R$ be a Noetherian ring. Let $I$ be a proper ideal generated by $n$ elements. Let $p$ be the smallest prime ideal containing $I$. Then $$\text{ht}_R(p)\leq n$$
+\end{thm}
+
+\begin{thm}{}{} Let $(R,m)$ be a Noetherian local ring and let $k=R/m$ be the residue field. Then $$\dim(R)\leq\dim_k(m/m^2)$$
+\end{thm}
+
+\subsection{Global Dimension of a Ring}
 
 
 
