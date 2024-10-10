@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  9 OCT 2024 03:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  11 OCT 2024 07:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1334,7 +1334,7 @@ Overfull \hbox (17.71152pt too wide) in paragraph at lines 1225--1226
 he sin-gu-lar ho-mol-ogy groups of the two. 
  []
 
-<Image 1.png, id=613, 498.86375pt x 503.8825pt>
+<Image 1.png, id=643, 498.86375pt x 503.8825pt>
 File: Image 1.png Graphic file (type png)
 <use Image 1.png>
 Package pdftex.def Info: Image 1.png  used on input line 1236.
@@ -1397,12 +1397,12 @@ Overfull \hbox (5.71089pt too wide) in paragraph at lines 1792--1793
 phism which makes the def-i-ni-tion clearer. 
  []
 
-<Image 3.png, id=728, 810.02625pt x 310.15875pt>
+<Image 3.png, id=758, 810.02625pt x 310.15875pt>
 File: Image 3.png Graphic file (type png)
 <use Image 3.png>
 Package pdftex.def Info: Image 3.png  used on input line 1816.
 (pdftex.def)             Requested size: 405.01213pt x 155.079pt.
-<Image 4.png, id=729, 849.1725pt x 296.10625pt>
+<Image 4.png, id=759, 849.1725pt x 296.10625pt>
 File: Image 4.png Graphic file (type png)
 <use Image 4.png>
 Package pdftex.def Info: Image 4.png  used on input line 1841.
@@ -1470,167 +1470,142 @@ Underfull \hbox (badness 10000) in paragraph at lines 2077--2078
 
  []
 
-[65]
-Underfull \hbox (badness 10000) in paragraph at lines 2095--2096
+[65] [66] [67]
+Underfull \hbox (badness 10000) in paragraph at lines 2167--2172
 
  []
 
-[66]
-Underfull \hbox (badness 10000) in paragraph at lines 2135--2140
-
- []
-
-[67] [68]
-Overfull \hbox (29.53223pt too wide) in paragraph at lines 2176--2177
-[]\T1/qpl/m/n/10 Given a chain com-plex $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C[];
- @[]\OT1/cmr/m/n/10 )$\T1/qpl/m/n/10 , we next want to in-ves-ti-gate the re-la
--tion be-tween $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C[]\OT1/c
-mr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 )$ \T1/qpl/m/n/10 and $[]\OT1/cmr
-/m/n/10 (\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C\OT1/cmr/m/n/10
- )\OML/cmm/m/it/10 ; G\OT1/cmr/m/n/10 )$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2192--2196
+[68] [69] [70] [71] [72]
+Underfull \hbox (badness 10000) in paragraph at lines 2312--2313
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2192--2196
+Underfull \hbox (badness 10000) in paragraph at lines 2314--2315
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2192--2196
-
- []
-
-[69] [70] [71]
-Underfull \hbox (badness 10000) in paragraph at lines 2248--2249
+Underfull \hbox (badness 10000) in paragraph at lines 2314--2315
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2248--2249
-
- []
-
-[72] [73] [74] [75] [76]
-Underfull \hbox (badness 10000) in paragraph at lines 2378--2379
+Underfull \hbox (badness 10000) in paragraph at lines 2316--2317
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2378--2379
+Underfull \hbox (badness 10000) in paragraph at lines 2316--2317
+
+ []
+
+[73] [74] [75] [76] [77] [78] [79] [80]
+Underfull \hbox (badness 10000) in paragraph at lines 2685--2686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2380--2381
+Underfull \hbox (badness 10000) in paragraph at lines 2685--2686
+
+ []
+
+[81] [82] [83] [84] [85]
+Underfull \hbox (badness 10000) in paragraph at lines 2786--2805
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2380--2381
+Underfull \hbox (badness 10000) in paragraph at lines 2786--2805
 
  []
 
-[77] [78] [79]
-Overfull \hbox (24.79155pt too wide) in paragraph at lines 2508--2509
+
+Underfull \hbox (badness 10000) in paragraph at lines 2786--2805
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2786--2805
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2786--2805
+
+ []
+
+[86] [87] [88]
+Underfull \hbox (badness 10000) in paragraph at lines 2830--2831
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2861--2862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2861--2862
+
+ []
+
+[89]
+Underfull \hbox (badness 10000) in paragraph at lines 2895--2896
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2895--2896
+
+ []
+
+[90]
+Overfull \hbox (7.22758pt too wide) in paragraph at lines 2897--2899
+[]\T1/qpl/m/n/10 In fact, this sub-sec-tion will also prove a uni-fi-ca-tion th
+e-o-rem for the fol-low-ing four ho-molog the-o-ries: 
+ []
+
+[91]
+Underfull \hbox (badness 10000) in paragraph at lines 2950--2951
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2950--2951
+
+ []
+
+[92] [93] [94] [95]
+Overfull \hbox (24.79155pt too wide) in paragraph at lines 3066--3067
 []\T1/qpl/m/n/10 The above propo-si-tion al-lows the fol-low-ing def-i-ni-tion 
 to be well de-fined un-der dif-fer-ent CW-complexes. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2513--2514
+Underfull \hbox (badness 10000) in paragraph at lines 3071--3072
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2513--2514
+Underfull \hbox (badness 10000) in paragraph at lines 3071--3072
 
  []
 
-[80] [81] [82]
-Underfull \hbox (badness 10000) in paragraph at lines 2615--2634
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2615--2634
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2615--2634
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2615--2634
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2615--2634
-
- []
-
-[83] [84]
-Underfull \hbox (badness 10000) in paragraph at lines 2645--2646
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2676--2677
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2676--2677
-
- []
-
-[85]
-Underfull \hbox (badness 10000) in paragraph at lines 2710--2711
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2710--2711
-
- []
-
-[86]
-Overfull \hbox (7.22758pt too wide) in paragraph at lines 2712--2714
-[]\T1/qpl/m/n/10 In fact, this sub-sec-tion will also prove a uni-fi-ca-tion th
-e-o-rem for the fol-low-ing four ho-molog the-o-ries: 
- []
-
-[87]
-Underfull \hbox (badness 10000) in paragraph at lines 2765--2766
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2765--2766
-
- []
-
-[88] [89] [90] (Algebraic Topology 2.aux)
+[96] [97] (Algebraic Topology 2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Algebraic Topology 2".out' has not changed.
 
-(rerunfilecheck)             Checksum: AC9D86F8B41B4A5EE81D011841F52753;10959.
+(rerunfilecheck)             Checksum: B634FBAF5FA50E453DA289409C6BE82A;11859.
  ) 
 Here is how much of TeX's memory you used:
- 39253 strings out of 474424
- 809712 string characters out of 5741739
+ 40268 strings out of 474424
+ 836339 string characters out of 5741739
  2018496 words of memory out of 5000000
- 60707 multiletter control sequences out of 15000+600000
+ 61699 multiletter control sequences out of 15000+600000
  600947 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,22n,120p,1319b,1541s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1654,9 +1629,9 @@ rograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/
 liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Topology 2.pdf" (90 pages, 1281379 bytes).
+Output written on "Algebraic Topology 2.pdf" (97 pages, 1320030 bytes).
 PDF statistics:
- 1130 PDF objects out of 1200 (max. 8388607)
- 374 named destinations out of 1000 (max. 500000)
- 476 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1206 PDF objects out of 1440 (max. 8388607)
+ 397 named destinations out of 1000 (max. 500000)
+ 516 words of extra memory for PDF output out of 10000 (max. 10000000)
 

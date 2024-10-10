@@ -348,15 +348,15 @@ The goal of this section is that every space has a CW approximation. The given h
 \end{prp}
 
 \subsection{Freudenthal Suspension Theorem}
-\begin{defn}{Reduced Suspension}{} Let $(X,x_0)$ be a pointed space. Define the reduced suspension of $X$ to be the space $$\Sigma X=\frac{X\times I}{(X\times\{0\}\cup X\times\{1\}\cup\{x_0\}\times I)}$$ together with the base point as the equivalence class in the quotient. 
-\end{defn}
-
-By definition of quotients, the reduced suspension defines a canonical continuous map sending a space $X$ to its reduced suspension $\Sigma X$. 
-
 \begin{thm}{Freudenthal Suspension Theorem}{} Let $X$ be an $n$-connected CW complex. Then for $0\leq k\leq 2n$, the induced map $$\Sigma_\ast:\pi_k(X)\to\pi_{k+1}(\Sigma X)$$ is an isomorphism. For $k=2n+1$, $\Sigma_\ast$ is a surjection. 
 \end{thm}
 
-We can keep on suspending the space and the maps. Indeed if $X$ is $n$-connected then, by Freudenthal suspension theorem $\Sigma X$ is $(n+1)$-connected. We can then apply the suspension theorem again on $\Sigma X$ and we see that $\Sigma^2X$ is $(n+2)$-connected. 
+We can keep on suspending the space and the maps. Indeed if $X$ is $n$-connected then, by Freudenthal suspension theorem $\Sigma X$ is $(n+1)$-connected. We can then apply the suspension theorem again on $\Sigma X$ and we see that $\Sigma^2X$ is $(n+2)$-connected. \\
+
+The following theorem is also said to be the Freudenthal suspension theorem. 
+
+\begin{thm}{}{} Let $Y$ be $(n-1)$-connected. Consider the reduced suspension functor $\Sigma:\bold{hTop}_\ast\to\bold{hTop}_\ast$. Then $\Sigma:[X,Y]\to[\Sigma X,\Sigma Y]$ is bijective if $\dim(X)<2n-1$. Moreover, it is a surjection if $\dim(X)=2n-1$. 
+\end{thm}
 
 \begin{crl}{}{} There is an isomorphism $$\pi_{n+k}(S^n)\cong\pi_{n+k+1}(S^{n+1})$$ for all $n\geq k+2$. 
 \end{crl}
@@ -434,20 +434,6 @@ We will not prove this here, but we will give the theorem: If $G$ is an abelian 
 
 \pagebreak
 \section{Suspension and Loop Spaces}
-\subsection{Reduced Suspension as a Functor}
-\begin{thm}{}{} The reduced suspension $\Sigma$ define functors on $\bold{Top}_\ast$ and $\bold{hTop}_\ast$ as follows. 
-\begin{itemize}
-\item $\Sigma$ sends a pointed space $(X,x_0)$ to $$(\Sigma X,(x_0,0))$$
-\item For the non homotopy category, $\Sigma$ sends a map $f:X\to Y$ to $$\Sigma f:\Sigma X\to\Sigma Y$$ defined by $\Sigma f([x,t])=[f(x),t]$
-\item For the homotopy category, $\Sigma$ sends a homotopy class of maps $[X,Y]$ to $$[\Sigma X,\Sigma Y]$$ respectively given by the same formula as above
-\end{itemize}
-\end{thm}
-
-The following theorem is also said to be the Freudenthal suspension theorem. 
-
-\begin{thm}{}{} Let $Y$ be $(n-1)$-connected. Consider the reduced suspension functor $\Sigma:\bold{hTop}_\ast\to\bold{hTop}_\ast$. Then $\Sigma:[X,Y]\to[\Sigma X,\Sigma Y]$ is bijective if $\dim(X)<2n-1$. Moreover, it is a surjection if $\dim(X)=2n-1$. 
-\end{thm}
-
 \subsection{The Construction of the Loop Space}
 \begin{defn}{Compact Open Topology}{} Let $X,Y$ be spaces. Define the compact open topology on the set $$\Hom_\bold{Top}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}$$ as follows. For $K\subseteq X$ compact and $U\subseteq Y$ open, consider the fiber product $$V(K,U)=\Hom_\bold{Top}(K,U)\times_{\Hom_\bold{Top}(K,Y)}\Hom_\bold{Top}(X,Y)$$ The collection of all $V(K,U)$ running through $K$ and $U$ forms the subbase for the compact open topology on $\Hom_\bold{Top}(X,Y)$. 
 \end{defn}

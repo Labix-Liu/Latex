@@ -265,9 +265,9 @@ We can relate short exact sequences with chain complexes. In particular, one can
 	\arrow["{\partial_n}", from=1-3, to=1-4]
 	\arrow[from=1-4, to=1-5]
 \end{tikzcd}}\\~\\
-is a short exact sequence. \tcbline
+is a short exact sequence. Moreover, if the terms of the chain complex is free abelian, then the sequence is split exact. \tcbline
 \begin{proof}
-The inclusion map is injective. $\partial_n$ is also surjective on its image. Finally, $\ker(\partial_n)$ is by definition $Z_n(C_\bullet)\cong\im(\iota)$. 
+The inclusion map is injective. $\partial_n$ is also surjective on its image. Finally, $\ker(\partial_n)$ is by definition $Z_n(C_\bullet)\cong\im(\iota)$. Now since subgroups of a free abelian group are free, we conclude that $B_{n-1}\leq C_n$ is free. Hence by 1.2.7 we have that the sequence is split. 
 \end{proof}
 \end{lmm}
 
@@ -2081,20 +2081,37 @@ The answer is yes, but it is not an isomorphism. Moreover, there is a way to mea
 \pagebreak
 \section{Algebra of Cochain Complexes}
 \subsection{Cochain Complexes}
-\begin{defn}{Cochain Complexes}{} A cochain complex $(C^\bullet,\partial^\bullet)$ is a family of abelian groups $C^n$ for $n\in\Z$ and maps $\partial^n:C^{n-1}\to C^n$ such that $\partial^{n+1}\circ\partial^n=0$ for all $n$. In other words, we have the diagram: \\~\\
+\begin{defn}{Cochain Complexes}{} A cochain complex $(C^\bullet,\partial^\bullet)$ is a family of abelian groups $C^n$ for $n\in\Z$ and maps $\delta^n:C^{n-1}\to C^n$ such that $\delta^{n+1}\circ\delta^n=0$ for all $n$. In other words, we have the diagram: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-\cdots & C^{n+1}\arrow[l] & C_n\arrow[l, "\partial^{n+1}"'] & C_{n-1}\arrow[l, "\partial^n"'] & \cdots\arrow[l]
+\cdots & C^{n+1}\arrow[l] & C^n\arrow[l, "\delta^{n+1}"'] & C^{n-1}\arrow[l, "\delta^n"'] & \cdots\arrow[l]
 \end{tikzcd}}
 \end{defn}
 
-Notice that algebraically, there is no difference between a chain complex and a cochain complex, other than the fact that the boundary maps run in the other direction. In particular, one can also obtain its homology groups. In the case of a cochain complex, we name them as cohomology groups instead. 
+Notice that algebraically, there is no difference between a chain complex and a cochain complex, other than the fact that the boundary maps run in the other direction. For $(C_\bullet,\partial_\bullet)$ a chain complex, we can form a cochain complex by setting $C^n=C_{-n}$ and then using the same boundary maps. 
 
-\begin{defn}{Cohomology Groups}{} Let $(C^\bullet,\partial^\bullet)$ be a cochain complex. Define the $n$th cohomology group of the cochain complex to be $$H^n(C^\bullet,\partial^\bullet)=\frac{\ker(\partial^{n+1}:C^n\to C^{n+1})}{\im(\partial^n:C^{n-1}\to C^n)}$$
+\begin{defn}{Category of Cochain Complexes}{} Define the category of cochain complexes $$\bold{CCh}(\Z)$$ to consist of the following data. 
+\begin{itemize}
+\item The objects are the cochain complexes
+\item The morphisms are the chain maps
+\item Composition is given by the composition of maps on all levels of the chain map. 
+\end{itemize}
 \end{defn}
 
-If one does not want distinguish between chain complexes and cochain complexes, then the cohomology groups of a cochain complex can be obtained by applying $H_\bullet$ to the (co)chain complex $(C^\bullet,\partial^\bullet)$. In other words, the definition of cohomology groups becomes $$H_n(C^\bullet,\partial^\bullet)$$~\\
+Because cochain complexes is the same data as a chain complex, we can also define homology groups for cochain complexes. We call them the cohomology groups of the cochain complex. 
 
-The reason one makes a difference is because we can naturally associate to every chain complex a cochain complex, and the naming improves readibility. The following sections describe the process of creating a cochain complex from a given chain complex. 
+\begin{defn}{Cohomology Groups}{} Let $(C^\bullet,\partial^\bullet)$ be a cochain complex. Define the $n$th cohomology group of the cochain complex to be $$H^n(C^\bullet,\partial^\bullet)=\frac{\ker(\partial^{n+1}:C^n\to C^{n+1})}{\im(\partial^n:C^{n-1}\to C^n)}=H_n(C^\bullet,\partial^\bullet)$$ for $n\in\N$. 
+\end{defn}
+
+The construction of cohomology groups are functorial because the homology groups of a chain complex also are. 
+
+\begin{defn}{The Cohomology Functor}{} Let $n\in\N$. Define the $n$th cohomology functor to be the functor $$H^n:\bold{CCh}(\Z)\to\bold{Ab}$$ to consist of the following data. 
+\begin{itemize}
+\item For each cochain complex $(C^\bullet,\delta^\bullet)$, define $H^n(C^\bullet,\delta^\bullet)$ to be the $n$th cohomology group of the cochain complex. 
+\item For each chain map $f^\bullet:(C^\bullet,\delta^\bullet)\to(D^\bullet,\delta^\bullet)$, the induced map $$f^\ast:H^n(C^\bullet,\delta^\bullet)\to H^n(C^\bullet,\delta^\bullet)$$ is defined by $[z]\mapsto[f^n(z)]$. 
+\end{itemize}
+\end{defn}
+
+Notice that obtaining cohomology from chain complexes is covariant. 
 
 \subsection{Hom Functor for Abelian Groups}
 \begin{defn}{The Hom Set}{} Let $G,H$ be abelian groups. Denote $$\Hom(G,H)=\{\varphi:G\to H\;|\;\varphi\text{ is a group homomorphism}\}$$ the set of all homomorphisms from $G$ to $H$. 
@@ -2103,8 +2120,23 @@ The reason one makes a difference is because we can naturally associate to every
 \begin{lmm}{}{} Let $H,G$ be abelian groups. Then the operator $$+:\Hom(H,G)\times\Hom(H,G)\to\Hom(H,G)$$ defined by $(f+g)(x)=f(x)+g(x)$ gives $\Hom(H,G)$ the structure of an abelian group. 
 \end{lmm}
 
-\begin{lmm}{}{} Let $f:A\to B$ be a homomorphism of abelian groups. Then $f$ induces a homomorphism $$f^\ast:\Hom(B,G)\to\Hom(A,G)$$ for any group $G$. Moreover, if $g:B\to C$ is a homomorphism of abelian groups, then $(g\circ f)^\ast=f^\ast\circ g^\ast$. 
+Recall that $\Hom(-;G):\bold{Ab}\to\bold{Set}$ for any abelian group $G$ defines a contravariant functor with the following data. 
+\begin{itemize}
+\item For each abelian group $H$, the set $\Hom(H,G)$ of all group homomorphisms $H\to G$
+\item For each group homomorphism $A\to B$, a map of sets $f^\ast:\Hom(B,G)\to\Hom(A,G)$ defined by $\varphi\mapsto\varphi\circ f$. 
+\end{itemize}
+
+By the above lemma, $\Hom(H,G)$ for any abelian group $H$ is also an abelian group. Now we can also show that $f^\ast$ is a group homomorphism, so that $\Hom(-;G)$ is actually a functor with target in $\bold{Ab}$. 
+
+\begin{lmm}{}{} Let $A,B,G$ be abelian groups. Let $f:A\to B$ be a group homomorphism. Then the induced map $$f^\ast:\Hom(B,G)\to\Hom(A,G)$$ defined by $\varphi\mapsto\varphi\circ f$ is a group homomorphism. 
 \end{lmm}
+
+\begin{defn}{The Hom Functor with Target in $\bold{Ab}$}{} Define the Hom functor for any abelian group $G$ $$\Hom(-;G):\bold{Ab}\to\bold{Ab}$$ to consist of the following. 
+\begin{itemize}
+\item For each abelian group $H$ the functor assigns the abelian group $\Hom(H,G)$
+\item For each group homomorphism $f:A\to B$, $\Hom(f;G):\Hom(B,G)\to\Hom(A;G)$ is the group homomorphism defined by $$\varphi\mapsto\varphi\circ f$$
+\end{itemize}
+\end{defn}
 
 \begin{prp}{}{} Let $A,B,C$ be abelian groups. Then the $\Hom$ functor has the following properties. 
 \begin{itemize}
@@ -2145,10 +2177,7 @@ is split exact.
 0\arrow[r] & \Hom(C,G)\arrow[r, "g^\ast"] & \Hom(B,G)\arrow[r, "f^\ast"] & \Hom(A,G)
 \end{tikzcd}}\\~\\
 is also exact for any abelian group $G$. 
-\item If $0\to A\overset{f}{\to} B\overset{g}{\to} C$ is an exact sequence, then the sequence \\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-\Hom(C,G)\arrow[r, "g^\ast"] & \Hom(B,G)\arrow[r, "f^\ast"] & \Hom(A,G)\arrow[r] & 0
-\end{tikzcd}}\\~\\
+\item If $0\to A\overset{f}{\to} B\overset{g}{\to} C$ is an exact sequence, then the sequence ???
 is also exact for any abelian group $G$. 
 \end{itemize} \tcbline
 \begin{proof}~\\
@@ -2164,120 +2193,25 @@ Since $\phi(k)=0$ for all $k\in\im(f)$, $\phi$ descends to a map $\overline{\phi
 \end{prp}
 
 \subsection{Producing a Cochain Complex from a Chain Complex}
-\begin{defn}{Associated Cochain Groups}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Let $G$ be a fixed abelian group. For each abelian group $C_n$, define the associated cochain group to be $$C^n=\Hom(C_n,G)$$ Also define the coboundary map $\delta^n=\partial_n^\ast:C^{n-1}\to C^n$ by $$\delta^n(\phi)(\alpha)=\psi(\partial_{n+1}(\alpha))$$
+\begin{defn}{Dualization of a Chain Complex}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Let $G$ be a fixed abelian group. For each abelian group $C_n$, define the associated cochain group to be $$C^n=\Hom(C_n,G)$$ Also define the coboundary map $\delta^n=\partial_n^\ast:C^{n-1}\to C^n$ by $$\delta^n(\phi)(\alpha)=\psi(\partial_{n+1}(\alpha))$$
 \end{defn}
 
 \begin{lmm}{}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex and let $C^\bullet$ and $\delta^\bullet$ be the associated cochain groups and coboundary maps respectively. Then $$\delta^n\circ\delta^{n-1}=0$$ for all $n$ such that $(C^\bullet,\delta^\bullet)$ is a cochain complex. 
 \end{lmm}
 
-\begin{defn}{Cohomology Groups of a Chain Complex}{} Let $(C_\bullet,\delta_\bullet)$ be a chain complex. Let $G$ be an abelian group. Define the $n$th cohomology group of the chain complex with coefficients in $G$ to be the group $$H^n(C_\bullet;G)=\frac{\ker(\delta_{n+1})}{\im(\delta_n)}=H_n(C^\bullet;\delta^\bullet)$$ In the other words, it is the cohomology groups of the associated cochain complex of the chain complex. 
+\begin{defn}{The Hom Functor on Chain Complexes}{} Define the (contravariant) Hom functor on chain complexes for any abelian group $G$ to be the functor $$\Hom(-;G):\bold{Ch}(\Z)\to\bold{CCh}(\Z)$$ consisting of the following data. 
+\begin{itemize}
+\item For $(C_\bullet,\partial_\bullet)$ a chain complex, define a cochain complex by $C^n=\Hom(C_n;G)$ and coboundary map by $\delta_n=\partial_n^\ast$
+\item For a chain map $f_\bullet:(C_\bullet,\delta_\bullet)\to(D_\bullet,\delta_\bullet)$, define a chain map $f^\ast:D^n\to C^n$ by $\varphi\mapsto\varphi\circ f$. 
+\end{itemize}
 \end{defn}
 
-Given a chain complex $(C_\bullet,\partial_\bullet)$, we next want to investigate the relation between $H^n(C_\bullet;G)$ and $\Hom(H_n(C),G)$ since $C_n^\ast=\Hom(C_n,G)$, it makes sense to see if they bear some sort of similarity. 
-
-\begin{prp}{}{} Let $(C,\partial)$ be a chain complex. Let $G$ be an abelian group. Then there exists a surjective homomorphism from $H^n(C;G)$ to $\Hom(H_n(C),G)$ defined as follows. For $\phi\in H^n(C;G)$, $\phi|_{\ker(\partial)}$ descends to a map $$\overline{\phi}:\frac{\ker(\partial_n)}{\im(\partial_{n+1})}\to G$$ \tcbline
-\begin{proof}
-Let $\phi\in\ker(\delta_{n+1})$. Notice that $\delta_{n+1}(\phi)=0$ and $\phi:C_n\to G$ by definition. But $\delta_{n+1}(\phi)=0$ implies $\phi\circ\partial_{n+1}=0$ and thus $\phi$ vanishes on $\im(\partial_{n+1})$. This means that the restriction map $\phi|_{\ker(\partial_n)}$ induces a quotient map $$\overline{\phi}:\frac{\ker(\partial_n)}{\im(\partial_{n+1})}\to G$$ so that it is well defined. \\~\\
-
-We still need to check that this association of maps descends into $H^n(C;G)$. This means that we want to show that if $\phi\in\im(\delta_n)$, then $\overline{\phi}=0$. \\~\\
-
-For surjectivity, we consider the short exact sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & \ker(\partial_n)\arrow[r] & C_n\arrow[r, "\partial_n"] & \im(\partial_n)\arrow[r] & 0
-\end{tikzcd}}\\~\\
-This is in fact a split exact sequence since $\im(\partial_n)\leq C_n$ is a free group. This means that $C_n\cong\ker(\partial_n)\oplus\im(\partial_n)$ and thus we obtain a projection map $\rho:C_n\to\ker(\partial_n)$. This map gives us a way to map elements in $\Hom(H_n(C),G)$ to $\ker(\partial_n)$. Say $\phi\in\Hom(H_n(C),G)$. We can extend this function so that its domain is $C_n$ by defining $\phi_0=\phi\circ\rho$. If $\phi$ originally was a function that vanishes in $\im(\partial_{n+1})$, then $\phi_0$ is also a function that vanishes in $\im(\partial_{n+1})$. Moreover, using the fact that $\delta_{n+1}(\phi)=\phi\circ\partial_{n+1}$, which is equal to $0$ since $\phi$ vanishes in $\im(\partial_{n+1})$, we see that $\delta_{n+1}(\phi_0)=0$ which means that $\phi_0\in\ker(\delta)$. Finally, recalling that $\ker(\delta)\to\H^n(C;G)$ is a natural quotient map, we have a map from $\Hom(H_n(C),G)$ to $H^n(C;G)$, which means that the original map from $H^n(C;G)$ to $\Hom(H_n(C),G)$ is surjective. 
-\end{proof}
-\end{prp}
-
-By introducing $ker(h)$ and the inclusion map, we in fact get a split short exact sequence: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & \ker(h)\arrow[r] & H^n(C;G)\arrow[r, "h"] & \Hom(H_n(C),G)\arrow[r] & 0
-\end{tikzcd}}\\~\\
-
-Recall that the cokernel of a group homomorphism $\phi:G\to H$ is the quoitient group $\frac{H}{\phi(G)}$. 
-
-\begin{lmm}{}{} Denote $i_n:B_n\to Z_n$ the inclusion map. Then we have $$\ker(h)=\text{coker}(i_{n-1}^\ast)$$
-\end{lmm}
-
-\pagebreak
-\section{Singular Cohomology}
-Singular homology can be thought of as a two-step process in which both are functorial (meaning that continuous maps induces group homomorphisms which preserve composition and identity). For a space $X$, singular homology (in $\Z$ coefficients) associate to each space a sequence of abelian groups $H_n(X)$ for $n\in\N$. This in turn is a two step process $$X\mapsto C_\bullet(X)\overset{H_\ast}{\mapsto} H_\bullet(X)$$ Singular cohomology can instead be thought of as a three step process, in which the first and last operation is the same, but we produce a cochain complex $C^\bullet(X)$ using the old one. Explicitly, for a space $X$, the three-step functorial process is described as follows: $$X\mapsto C_\bullet(X)\mapsto C^\bullet(X)\overset{H_\ast}{\mapsto}H^\bullet(X)$$ Notice that the last step makes use of $H_\ast$ the same way as that of singular homology. This is exactly the definition of the cohomology groups of a cochain complex. 
-
-\subsection{Singular Cohomology}
-We already have all the puzzle pieces, it remains to piece them together so that the cohomology groups can be formed. 
-
-\begin{defn}{Singular Cochain Groups with Coefficients}{} Let $X$ be a topological space. Let $G$ be an abelian group. Define the singular cochain groups to be $$C^n(X;G)=\Hom(C_n(X);G)$$ the cochain complex associated to the singular chain complex of $X$. It is denoted as $C^\bullet(X;G)$. 
-\end{defn}
-
-\begin{defn}{Singular Coboundary Maps}{} Let $X$ be a topological space. Let $G$ be an abelian group. Define the coboundary map $$\delta_n=\partial_n^\ast:C^{n-1}(X;G)\to C^n(X;G)$$ by the assignment $\varphi\mapsto\varphi\circ\partial_n$. 
-\end{defn}
-
-\begin{defn}{Singular Cochain Complex with Coefficients}{} Let $X$ be a topological space. Let $G$ be an abelian group. Define the singular cochain groups to be $$C^n(X;G)=\Hom(C_n(X);G)$$ Also define the coboundary map $$\delta_n=\partial_n^\ast:C^{n-1}(X;G)\to C^n(X;G)$$ by $\varphi\mapsto\varphi\circ\partial_n$. Define the singular cochain complex of $X$ to be the following cochain complex: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-\cdots & C^{n+1}(X;G)\arrow[l] & C^n(X;G)\arrow[l, "\delta_{n+1}"'] & C^{n-1}(X;G)\arrow[l, "\delta_n"'] & \cdots\arrow[l]
-\end{tikzcd}}\\~\\
-It is denoted as $(C^\bullet(X;G),\delta_\bullet)$. In particular it is the dual of the chain complex $(C_\bullet(X),\partial_\bullet)$ with coefficients in $G$. 
-\end{defn}
-
-\begin{defn}{Singular Cohomology Group}{} Let $X$ be a topological space and $(C^\bullet(X;G),\delta_\bullet)$ the singular cochain complex of $X$ with coefficients in an abelian group $G$. The $n$th cohomology group of $X$ with coefficients in $G$ is defined to be $$H^n(X;G)=\frac{\ker(\delta_{n+1}:C^n(X;G)\to C^{n+1}(X;G))}{\im(\delta_n:C^{n-1}(X;G)\to C^n(X;G))}=H_\bullet(C^\bullet(X;G),\delta_\bullet)$$
-\end{defn}
-
-\begin{thm}{Reduced Cohomology Groups}{}
-\end{thm}
-
-\begin{thm}{Relative Cohomology Groups}{}
-\end{thm}
-
-\begin{thm}{Induced Homomorphisms}{} Let $f:X\to Y$ be a continuous map. Then $f$ induces a pullback map $$f^\ast:H^n(Y)\to H^n(X)$$ on singular cohomology. 
-\end{thm}
-
-\begin{thm}{Homotopy Invariance}{} Let $f,g:X\to Y$ be continuous such that $f\simeq g$. Then $f$ and $g$ induces the same map $$f^\ast=g^\ast:H^n(Y)\to H^n(X)$$ on singular cohomology. 
-\end{thm}
-
-\begin{thm}{Excision}{}
-\end{thm}
-
-\begin{thm}{Mayer-Vietoris Sequence}{} Let $X$ be a topological space and $U_1,U_2$ be open sets of $X$ such that $X=U_1\cup U_2$ and that $U_1\cap U_2\neq\emptyset$. Write $i_1:U_1\cap U_2\to U_1$, $i_2:U_1\cap U_2\to U_2$, $j_1:U_1\to X$ and $j_2:U_2\to X$ the inclusion maps. Let $G$ be an abelian group. Then there is a long exact sequence \\~\\
-\adjustbox{scale=0.7,center}{\begin{tikzcd}
-\cdots\arrow[r] & H^{n-1}(X;G)\arrow[r, "\partial"] & H^n(U_1\cap U_2;G)\arrow[rr, "(i_1)^\ast-(i_2)^\ast"] && H^n(U_1;G)\oplus H^n(U_2;G)\arrow[rr, "(j_1)^\ast+(j_2)^\ast"] && H^n(X;G)\arrow[r, "\partial"] & H^{n+1}(U_1\cap U_2;G)\arrow[r] & \cdots
-\end{tikzcd}}\\~\\
-in cohomology. 
-\end{thm}
-
-\subsection{The Cup Product}
-What separates singular cohomology from singular homology is that the abelian group arising from the cohomology groups has a natural structure of a ring. This in turns makes singular cohomology an invariant that associates to every space a graded ring, instead of just a sequence of abelian groups. \\~\\
-
-For this, we define the cup product which serves as multiplication between elements of the graded abelian groups. 
-
-\begin{defn}{Cup Product}{} Let $X$ be a space. Let $R$ be a ring. Let $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Define the cup product to be $\phi\smile\psi:C^{k+l}(X;R)\to R$ where for $\sigma=[v_0,\dots,v_{k+l}]$, we have that $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_k]})\cdot\psi(\sigma|_{[v_k,\dots,v_{k+l}]})$$
-\end{defn}
-
-Notice that the cup product is defined in terms of the singular complexes, therefore this definition only works for chain complexes that arise from a space. Moreover, the cup product is only defined when we take singular cohomology in a ring instead of an abelian group. 
-
-\begin{prp}{}{} Let $X$ be a space. Let $R$ be a ring. Let $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Then we have that $$\delta(\phi\smile\psi)=\delta\phi\smile\psi+(-1)^k\phi\smile\delta\psi$$
-\end{prp}
-
-\begin{lmm}{}{} Let $X$ be a space. Let $R$ be a ring. Then the cup product $$\smile:H^m(X;R)\times H^n(X;R)\to H^{m+n}(X;R)$$ descends to homology and is well defined. 
-\end{lmm}
-
-\begin{lmm}{}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a map. Let $R$ be a ring. Then the induced map $f^\ast:H^n(Y;R)\to H^n(X;R)$ satisfies $f^\ast(\phi\smile\psi)=f^\ast(\phi)\smile f^\ast(\psi)$. 
-\end{lmm}
-
-\begin{prp}{}{} Let $X$ be a space and let $R$ be a ring. If $\phi\in H^m(X;R)$ and $\psi\in H^n(X;R)$, then $$\phi\smile\psi=(-1)^{mn}\psi\smile\phi$$
-\end{prp}
-
-\begin{thm}{The Cohomology Ring}{} Let $X$ be a topological space and $R$ a commutative ring with identity. Then $$H^\ast(X;R)=\bigoplus_{i=0}^\infty H^i(X;R)$$ is a graded commutative ring with identity under the cup product. Moreover, $H^\ast(X;R)$ is an $R$-algebra. 
-\end{thm}
-
-\subsection{The Kunneth Formula}
-\begin{defn}{The Cross Product}{} Let $X,Y$ be topological spaces. Denote $p_1:X\times Y\to X$ and $p_2:X\times Y\to Y$ the projection maps. Define the cross product of $x\in H^m(X;R)$ and $y\in H^m(Y;R)$ for a ring $R$ to be $$x\times y=p_1^\ast(x)\smile p_2^\ast(y)$$ where $x\times y\in H^{m+n}(X\times Y;R)$. 
-\end{defn}
-
-\begin{prp}{}{} Let $a,c\in H^\ast(X;R)$ and $b,d\in H^\ast(Y;R)$ with $c\in H^m(X;R)$ and $d\in H^n(Y;R)$ we have $$(a\times b)\smile(c\times d)=(-1)^{mn}(a\smile c)\times(b\smile d)$$
-\end{prp}
-
-\begin{thm}{The Kunneth Formula}{} Let $X$ and $Y$ be CW-complexes and $R$ a ring. Then the cross product $$\times:H^\ast(X;R)\otimes_R H^\ast(Y;R)\to H^\ast(X\times Y;R)$$ is an isomorphism of rings if $H^k(Y;R)$ is a finitely generated free $R$-module for all $k$. 
-\end{thm}
+We have now defined a series of functors. We also recap on the material in section 1. 
+\begin{itemize}
+\item We have defined the homology functor of chain complexes $$H_n:\bold{Ch}(\Z)\to\bold{Ab}$$ for each $n\in\N$. 
+\item Using the very same functor, but thinking about cochain complexes as chain complexes in the wrong direction, we have also defined the cohomology functor of cochain complexes $$H^n:\bold{CCh}(\Z)\to\bold{Ab}$$ for each $n\in\N$. 
+\item We have a functorial method of dualizing chain complexes into cochain complexes by the functor $$\Hom(-;G):\bold{Ch}(\Z)\to\bold{CCh}(\Z)$$ for any abelian group $G$. 
+\end{itemize}
 
 \pagebreak
 \section{The Choice of Coefficients in Singular (Co)Homology}
@@ -2368,12 +2302,14 @@ We want to show that using the above data to construct the free resolution gives
 \end{lmm}
 
 \subsection{Universal Coefficient Theorem for Cohomology}
-\begin{defn}{Ext Group}{} Let $G,H$ be an abelian group. Choose a free resolution $F_\bullet$: \\~\\
+\begin{defn}{Ext Group}{} Let $G,H$ be an abelian group. Choose a free resolution $F_\bullet$ of $H$: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & H\arrow[r] & 0
 \end{tikzcd}}\\~\\
-for $H$. Define the ext group of $H$ with coefficients in $G$ to be the first cohomology group of the cochain complex with coefficients in $G$ associated to this chain complex: $$\text{Ext}(H,G)=\text{Ext}_\Z^1(H,G)=\frac{\Hom(F_1,G)}{\im(\Hom(F_0,G)\to\Hom(F_1,G))}=H^1(\Hom(F_\bullet;G))$$
+Define the ext group of $H$ with coefficients in $G$ to be the first cohomology group of the cochain complex with coefficients in $G$ associated to this chain complex: $$\text{Ext}(H,G)=\text{Ext}_\Z^1(H,G)=\frac{\Hom(F_1,G)}{\im(\Hom(F_0,G)\to\Hom(F_1,G))}=H^1(\Hom(F_\bullet;G))$$
 \end{defn}
+
+The Ext group is well defined because of any choice of free resolution are chain chomotopic by a unique chain map. Moreover, chain homotopic maps induce isomorphisms on homology. This isomorphism is moreover canonical because the chain homotopy is given by a unique chain map. \\
 
 A kind note: This is not the most general definition of an ext group. There are a few ways to advance this definition into the general one (as in Homological Algebra). Notice that every abelian group is a $\Z$-module. So we can define Ext groups depending on the underlying ring / module structure. For instance, if $M,N$ are $R$-modules, then there is a notion $\text{Ext}_R^1(M,N)$. In this case we no longer consider only free resolutions because free here refers to every abelian group is a $\Z$-module. Moreover, not every such resolution will only consist of two elements just as lmm 11.1.3. \\~\\
 
@@ -2386,6 +2322,7 @@ For us, we are only considering abelian groups which are $\Z$-modules. Be wary o
 \item $\text{Ext}(H\oplus K,G)\cong\text{Ext}(H,G)\oplus\text{Ext}(K,G)$
 \item $\text{Ext}(H,G)=0$ if $H$ is a free group. 
 \item $\text{Ext}(\Z/n\Z,G)\cong G/nG$
+\item $\text{Ext}(G,\Q)=0$
 \end{itemize} \tcbline
 \begin{proof}~\\
 \begin{itemize}
@@ -2409,6 +2346,23 @@ with the direct sum of the obvious maps is a free resolution of $H\oplus K$. But
 \end{proof}
 \end{prp}
 
+\begin{eg}{}{} The following are some computations of the Ext group. 
+\begin{itemize}
+\item $\text{Ext}(\Z/2\Z,\Z/3\Z)\cong\Z/6\Z$
+\item $\text{Ext}(\Z/6\Z,\Z/2\Z)$
+\item $\text{Ext}(\Z/4\Z,\Z/8\Z)$
+\end{itemize}
+\end{eg}
+
+\begin{prp}{}{} Let $A,B,G$ be abelian groups. Let $f:A\to B$ be a group homomorphism. Define the induced map $$f^\ast:\text{Ext}(B,G)\to\text{Ext}(A,G)$$ as follows. Then $f^\ast$ is a group homomorphism. Moreover, the following are true. 
+\begin{itemize}
+\item Let $C$ be an abelian group and let $g:B\to C$ be a homomorphism. Then $$(g\circ f)^\ast=f^\ast\circ g^\ast$$ 
+\item We have that $$\text{id}^\ast=\text{id}_{\text{Ext}(A,G)}:\text{Ext}(A,G)\to\text{Ext}(A,G)$$
+\end{itemize}
+\end{prp}
+
+We conclude that $\text{Ext}$ is a functor of the first variable. It is also a functor of the second variable but we will not prove it. 
+
 \begin{prp}{}{} Let $0\to A\to B\to C\to 0$ be a short exact sequence of abelian groups. Then there is a six term exact sequence: \\~\\
 \adjustbox{scale=0.85,center}{\begin{tikzcd}
 	0 & {\Hom(C,G)} & {\Hom(B,G)} & {\Hom(A,G)} & {\text{Ext}(C,G)} & {\text{Ext}(B,G)} & {\text{Ext}(A,G)} & 0
@@ -2422,12 +2376,184 @@ with the direct sum of the obvious maps is a free resolution of $H\oplus K$. But
 \end{tikzcd}}
 \end{prp}
 
-\begin{thm}{Universal Coefficient Theorem for Cohomology}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex of free abelian groups with homology group $H_n(C_\bullet)$. Let $G$ be an abelian group. Then the cohomology groups $H^n(C_\bullet;G)$ of the cochain are determined by split exact sequences of the form \\~\\
+The point of the Ext group is that it forms an error term to measure how far away is the cohomology of the dualized chain complex from the homology of the chain complex. 
+
+\begin{thm}{Universal Coefficient Theorem for Cohomology}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex of free abelian groups. Let $G$ be an abelian group. Then there exists a map $h$ such that $\text{Ext}(H_{n-1}(C_\bullet),G)\cong\ker(h)$ and a split exact sequence (that is not natural) of the form \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & \text{Ext}(H_{n-1}(C_\bullet),G)\arrow[r] & H^n(C_\bullet;G)\arrow[r, "h"] & \Hom(H_n(C_\bullet),G)\arrow[r] & 0
 \end{tikzcd}}\\~\\
-In particular, split exactness implies that $$H^n(C_\bullet;G)\cong\text{Ext}(H_{n-1}(C_\bullet),G)\oplus\Hom(H_n(C_\bullet),G)$$
+for any $n\in\N$. In particular, split exactness implies that there is an isomorphism $$H^n(C_\bullet;G)\cong\text{Ext}(H_{n-1}(C_\bullet),G)\oplus\Hom(H_n(C_\bullet),G)$$ for any $n\in\N$. \tcbline
+\begin{proof}
+Define $h$ as follows. Let $[\alpha]\in H^n(C_\bullet,G)$. Then $\alpha\in\ker(\delta:C^n\to C^{n+1})\leq C^n$. Rephrasing shows that $\alpha$ is a homomorphism $C_n\to G$. We can then restrict $\alpha$ to the subgroup $Z_n\leq C_n$. I claim that $\alpha|_{Z_n}$ descends to a map in homology. This means that there exists a unique map $\overline{\alpha|_{Z_n}}:H_n(C_\bullet)\to G$ such that the following diagram commutes \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{Z_n} & {\frac{Z_n}{B_n}=H_n(C_\bullet)} \\
+	& G
+	\arrow["p", from=1-1, to=1-2]
+	\arrow["{\alpha|_{Z_n}}"', from=1-1, to=2-2]
+	\arrow["{\exists!\overline{\alpha|_{Z_n}}}", dashed, from=1-2, to=2-2]
+\end{tikzcd}}\\~\\
+where $p$ is the projection map. But this is true since for any $x\in C_{n+1}$ such that $\partial x\in B_n$, we have that $$\alpha(\partial(x))=\delta(\alpha(x))=0$$ where the last equality comes from the fact that $\alpha\in\ker(\delta:C^n\to C^{n+1})$. By the universal property of quotients, $\overline{\alpha|_{Z_n}}$ exists and is unique. We finally define $h$ by $$h([\alpha])=\left[\overline{\alpha|_{Z_n}}\right]$$~\\
+
+I claim that this is well defined. This means to show that if $[\alpha]=[\beta]$ then $h([\alpha])=h([\beta])$. So suppose that $[\alpha]=[\beta]$, then $\alpha+y=\beta$ for some $y\in B^n=\im(\delta:C^{n-1}\to C^n)$. This means that there exists $\overline{y}\in C^{n-1}$ such that $\delta(\overline{y})=y$. Now we have that 
+\begin{align*}
+h([\beta])&=\left[\overline{\beta|_{Z_n}}\right]\\
+&=\left[\overline{(\alpha+y)|_{Z_n}}\right]\\
+&=\left[\overline{(\alpha+\delta(\overline{y}))|_{Z_n}}\right]\\
+&=\left[\overline{(\alpha+\overline{y}\circ\partial)|_{Z_n}}\right]\\
+&=\left[\overline{(\alpha)|_{Z_n}}\right]\tag{$\partial$ restricted to $Z_n$ is just $0$}\\
+&=h([\alpha])
+\end{align*}
+Thus $h$ is well defined. \\~\\
+
+We now show that $h$ is split surjective. Define a map $v:\Hom(H_n(C_\bullet,G))\to H^n(C_\bullet,G)$ as follows. Let $\theta\in\Hom(H_n(C_\bullet),G)$. Precompose with the projection map $p:Z_n(C_\bullet)\to H_n(C_\bullet)$ to obtain a map $\theta\circ p:Z_n\to G$.
+Now $C_n$ being free implies that $B_{n-1}$ is free. It follows that there is a split exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {Z_n} & {C_n} & {B_{n-1}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["\partial", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+by lmm 1.2.10. By the characterization of split exactness we conclude that there is a map $q:C_n\to Z_n$ such that the map $Z_n\hookrightarrow C_n\overset{q}{\longrightarrow}Z_n$ is the identity (so $q$ is the identity on $Z_n$). Now $\theta\circ p\circ q:C_n\to G$ vanishes on $B_n$ because $\theta\circ p$ does. This means that for all $x\in C_{n+1}$, we have that $(\theta\circ p\circ q)(\partial x)=0$ for $\partial x\in B_n$. This means that $\delta(\theta\circ p\circ q)=0$ and $\theta\circ p\circ q\in\ker(\delta)$. Now define $v:\Hom(H_n(C_\bullet,G))\to H^n(C_\bullet,G)$ by $$v(\theta)=[\theta\circ p\circ q]$$ Now we have that 
+\begin{align*}
+h(v(\theta))&=h([\theta\circ p\circ q])\\
+&=[\overline{\theta\circ p\circ q}|_{Z_n}]\\
+&=[\overline{\theta\circ p}]\tag{$q$ is the identity on $Z_n$}
+\end{align*}
+Recall that $\overline{\theta\circ p}$ is the unique map such that $\overline{\theta\circ p}\circ p=\theta\circ p$ (first diagram of this proof). Since $\theta$ satisfies the description we have that $\overline{\theta\circ p}=\theta$. We conclude that $h(v(\theta))$. From this, we have that for any $\theta\in\Hom(H_n(C_\bullet),G)$ we have $v(\theta)\in H^n(C_\bullet)$ such that $h(v(\theta))=\theta$. This proves that $h$ is surjective. Moreover, the existence of the map $v$ proves that the sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\ker(h)} & {H^n(C_\bullet)} & {\Hom(H_n(C_\bullet),G)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["h", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is split exact. \\~\\
+
+We finally need to show the involvement of the Ext group. \\
+We begin with a short exact sequence of chain complexes of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {Z_\bullet} & {C_\bullet} & {B_{\bullet-1}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["\partial", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+where its expanded form is given by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& \vdots & \vdots & \vdots \\
+	0 & {Z_n} & {C_n} & {B_{n-1}} & 0 \\
+	0 & {Z_{n-1}} & {C_{n-1}} & {B_{n-2}} & 0 \\
+	& \vdots & \vdots & \vdots
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=1-4, to=2-4]
+	\arrow[from=2-1, to=2-2]
+	\arrow[hook, from=2-2, to=2-3]
+	\arrow["0"', from=2-2, to=3-2]
+	\arrow["\partial", from=2-3, to=2-4]
+	\arrow["\partial", from=2-3, to=3-3]
+	\arrow[from=2-4, to=2-5]
+	\arrow["0", from=2-4, to=3-4]
+	\arrow[from=3-1, to=3-2]
+	\arrow[hook, from=3-2, to=3-3]
+	\arrow[from=3-2, to=4-2]
+	\arrow["\partial"', from=3-3, to=3-4]
+	\arrow[from=3-3, to=4-3]
+	\arrow[from=3-4, to=3-5]
+	\arrow[from=3-4, to=4-4]
+\end{tikzcd}}\\~\\
+Dualizing the entire diagram gives \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& \vdots & \vdots & \vdots \\
+	0 & {\Hom(Z_n,G)} & {\Hom(C_n,G)} & {\Hom(B_{n-1},G)} & 0 \\
+	0 & {\Hom(Z_{n-1},G)} & {\Hom(C_{n-1},G)} & {\Hom(B_{n-2},G)} & 0 \\
+	& \vdots & \vdots & \vdots
+	\arrow[from=2-2, to=1-2]
+	\arrow[from=2-2, to=2-1]
+	\arrow[from=2-3, to=1-3]
+	\arrow[hook', from=2-3, to=2-2]
+	\arrow[from=2-4, to=1-4]
+	\arrow["{\partial^\ast}"', from=2-4, to=2-3]
+	\arrow[from=2-5, to=2-4]
+	\arrow["0", from=3-2, to=2-2]
+	\arrow[from=3-2, to=3-1]
+	\arrow["{\partial^\ast}"', from=3-3, to=2-3]
+	\arrow[hook', from=3-3, to=3-2]
+	\arrow["0"', from=3-4, to=2-4]
+	\arrow["{\partial^\ast}", from=3-4, to=3-3]
+	\arrow[from=3-5, to=3-4]
+	\arrow[from=4-2, to=3-2]
+	\arrow[from=4-3, to=3-3]
+	\arrow[from=4-4, to=3-4]
+\end{tikzcd}}\\~\\
+Now each row is split exact because it is split exact before dualizing and the Hom functor preserves split exact sequences. We think of the above as a short exact sequence of chain complexes. This induces a long exact sequence in homology given by \\~\\
+\adjustbox{scale=0.7,center}{\begin{tikzcd}
+	\cdots & {H_{n-1}(\Hom(Z_{n-1},G))} & {H_n(\Hom(B_{n+1},G))} & {H^n(C_\bullet,G)} & {H_n(\Hom(Z_n,G))} & {H_{n-1}(\Hom(B_n,G))} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+Since $\Hom(Z_\bullet,G)$ and $\Hom(B_\bullet,G)$ have $0$ as the boundary map, the above long exact sequence reduces to \\~\\
+\adjustbox{scale=0.85,center}{\begin{tikzcd}
+	\cdots & {\Hom(Z_{n-1},G)} & {\Hom(B_{n-1},G)} & {H^n(C_\bullet,G)} & {\Hom(Z_n,G)} & {\Hom(B_n,G)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+Let us work out the connecting homomorphism $\Hom(Z_n,G)\to\Hom(B_{n-1},G)$. For $\alpha\in\Hom(Z_n,G)$, the connecting homomorphism sends $\alpha:Z_n\to G$ to $\gamma:B_{n-1}\to G$ where $\partial(\beta)=\alpha$ and $i_n(\gamma)=\partial(\beta)$. Now notice that $$i_n(\gamma)=\partial(\beta)=\alpha$$ for $i_n:B_{n-1}\to C_n$ the inclusion. Thus the connecting homomorphism is precisely the dual of $i_n$, denoted $i_n^\ast$. \\~\\
+
+I claim that there is an isomorphism $$\ker(i_n^\ast:\Hom(Z_n,G)\to\Hom(B_n,G))\cong\Hom(H_n(C_\bullet),G)$$ Let $\alpha\in\ker(i_n^\ast)$. Then $\alpha:Z_n\to G$ is such that $\alpha\circ i_n:B_n\hookrightarrow Z_n\to G$ is the zero map. Or in other words, $\alpha|_{B_n}=0$. But then $\alpha$ is clearly an element of $\Hom(H_n(C_\bullet),G)$ by definition. The converse is also true. \\~\\
+
+Now by definition of $H^n(C_\bullet)$, we get an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\ker(h)} & {H^n(C_\bullet)} & {\Hom(H_n(C_\bullet),G)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["h", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+
+Going back to the long exact sequence \\~\\
+\adjustbox{scale=0.85,center}{\begin{tikzcd}
+	\cdots & {\Hom(Z_{n-1},G)} & {\Hom(B_{n-1},G)} & {H^n(C_\bullet,G)} & {\Hom(Z_n,G)} & {\Hom(B_n,G)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{i_{n+1}^\ast}", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{i_n^\ast}", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+We can restrict the $\Hom(B_{n-1},G)$ term to $\text{coker}(i_{n-1}^\ast)$ and the $\Hom(Z_n,G)$ term to $\ker(i_n^\ast)$ to obtain a short exact sequence \\~\\
+\adjustbox{scale=0.85,center}{\begin{tikzcd}
+	0 & {\text{coker}(i_{n-1}^\ast)} & {H^n(C_\bullet,G)} & {\ker(i_n^\ast)} & 0
+	\arrow["{i_{n+1}^\ast}", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{i_n^\ast}", from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Now using the isomorphism $\ker(i_n^\ast)\cong\Hom(H_n(C_\bullet),G)$ it is also easy to see that the map $H^n(C_\bullet,G)\to\ker(i_n^\ast)$ is actually just the map $h$. We conclude that the above long exact sequence is precisely the long exact sequence we wanted to analyse, and in particular $\text{coker}(i_{n-1}^\ast)\cong\ker(h)$. \\~\\
+
+Now consider the following exact sequence: \\~\\
+\adjustbox{scale=0.85,center}{\begin{tikzcd}
+	0 & {B_{n-1}} & {Z_{n-1}} & {H_{n-1}(C_\bullet)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{i_{n-1}}", hook, from=1-2, to=1-3]
+	\arrow[two heads, from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Since $C_n$ is free abelian we conclude that $B_{n-1}$ and $Z_{n-1}$ are free. This means that this exact sequence is actually a free resolution of $H_{n-1}(C_\bullet)$. Using this free resolution, we obtain an isomorphism $$\text{Ext}(H_{n-1}(C_\bullet),G)\cong\text{coker}(i_{n-1}^\ast)$$ Thus we conclude the proof. 
+\end{proof}
 \end{thm}
+
+\begin{crl}{}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex of free abelian groups. Let $k$ be a field. Then there is an isomorphism $$H^n(C_\bullet,k)\cong\Hom(H_n(C_\bullet),k)$$ given by the universal coefficient theorem. 
+\end{crl}
 
 \subsection{Universal Coefficient Theorem for Homology}
 An analogous result remains true when we consider homology with coefficients in a fixed abelian group. For this, we need to define the notion of $\text{Tor}$ between two groups. This is analogous to $\text{Ext}$. 
@@ -2455,6 +2581,438 @@ Similar to that of Ext, the current definition is a very specialized version of 
 \end{tikzcd}}\\~\\
 In particular, split exactness implies that $$H_n(C_\bullet;G)\cong\text{Tor}(H_{n-1}(C_\bullet);G)\oplus H_n(C_\bullet)\otimes G$$
 \end{thm}
+
+\pagebreak
+\section{Singular Cohomology}
+\subsection{Singular Cohomology}
+We now have all the pieces to define singular cohomology. This is a three step functorial process so that the end result is also functorial. 
+
+\begin{defn}{Singular Cochain Complex with Coefficients}{} Let $X$ be a space. Let $G$ be an abelian group. Define the singular cochain complex $$(C^\bullet(X;G),\partial^\ast)$$ with coefficients in $G$ to be the dual of the singular chain complex $(C_\bullet(X),\partial)$. Each term $C^n(X;G)$ is called the $n$th singular cochain group. The maps $\partial^\ast$ are called the coboundary maps. 
+\end{defn}
+
+\begin{defn}{Singular Cohomology Groups of a Space}{} Let $X$ be a topological space and $(C^\bullet(X;G),\delta_\bullet)$ the singular cochain complex of $X$ with coefficients in an abelian group $G$. The $n$th cohomology group of $X$ with coefficients in $G$ is defined to be $$H^n(X;G)=\frac{\ker(\delta_{n+1}:C^n(X;G)\to C^{n+1}(X;G))}{\im(\delta_n:C^{n-1}(X;G)\to C^n(X;G))}=H_\bullet(C^\bullet(X;G),\delta_\bullet)$$
+\end{defn}
+
+We can describe the construction of singular cohomology groups as a three step functorial process $$H^n(-;G):\bold{Top}\overset{C_\bullet(-)}{\longrightarrow}\bold{Ch}(\Z)\overset{\Hom(-,G)}{\longrightarrow}\bold{CCh}(\Z)\overset{H_n(-)}{\longrightarrow}\bold{Ab}$$ Therefore the construction of singular cohomology groups are also functorial. 
+
+\begin{defn}{Induced Homomorphisms}{} Let $f:X\to Y$ be a continuous map. Let $G$ be an abelian group. Define the induced map on cohomology $$f^\ast:H^n(Y;G)\to H^n(X;G)$$ by the formula $[\alpha]\mapsto[\alpha\circ f]$. 
+\end{defn}
+
+\begin{thm}{Induced Homomorphisms}{} Let $f:X\to Y$ be a continuous map. Let $G$ be an abelian group. Then the induced homomorphism $$f^\ast:H^n(Y;G)\to H^n(X;G)$$ is well defined and is a group homomorphism. Moreover, the following are true. 
+\begin{itemize}
+\item If $Z$ is a space and $g:Y\to Z$ is another map, then $$(g\circ f)^\ast=f^\ast\circ g^\ast$$
+\item We have that $$(\text{id}_X)^\ast=\text{id}_{H^n(X;G)}$$
+\end{itemize}
+\end{thm}
+
+\begin{thm}{Reduced Cohomology Groups}{}
+\end{thm}
+
+\begin{defn}{Relative Cohomology Groups}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Define the relative cochain complex $$(C^\bullet(X,A;G),\partial^\ast)$$ with coefficients in $G$ to be the dual of the relative chain complex $(C_\bullet(X,A),\partial)$. Define the $n$th relative cohomology group of $X$ to be the quotient group $$H_n(X,A;G)=\frac{\ker(\partial^\ast:C^n(X,A;G)\to C^{n+1}(X,A;G))}{\im(\partial^\ast:C^{n-1}(X,A;G)\to C^n(X,A;G))}=H_n(C^\bullet(X,A;G))$$
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Then the $n$th term of the relative cochain complex is given by $$C^n(X,A;G)=\{\alpha:C_n(X)\to G\;|\;\alpha(\sigma)=0\text{ for all }\sigma\in C_n(X,A)\text{ such that }\im(\sigma)\subseteq A\}$$
+\end{lmm}
+
+\begin{lmm}{}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Then the dual of the short exact sequence of chain complex \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & C_\bullet(A)\arrow[r, "\iota"] & C_\bullet(X)\arrow[r, "j"] & C_\bullet(X,A)\arrow[r] & 0
+\end{tikzcd}}\\~\\ given explicitly by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {C^\bullet(X,A;G)} & {C^\bullet(X)} & {C^\bullet(A)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{j^\ast}", from=1-2, to=1-3]
+	\arrow["{i^\ast}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is also a short exact sequence of chain complexes. \tcbline
+\begin{proof}
+Notice that in the original short exact sequence, the sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {C_n(A)} & {C_n(X)} & {C_n(X,A)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is split exact. Since the Hom functor preserves split exact sequence, we have that the following sequence given by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {C^n(X,A;G)} & {C^n(X)} & {C^n(A)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{j^\ast}", from=1-2, to=1-3]
+	\arrow["{i^\ast}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is also split exact. Therefore in particular the short exact sequence of chain complexes is short exact. 
+\end{proof}
+\end{lmm}
+
+\begin{thm}{Long Exact Sequence of Relative Cohomology Groups}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Then there is an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\cdots\arrow[r] & H^{n-1}(A)\arrow[r, "\partial"] & H^n(X,A)\arrow[r, "j^\ast"] & H^n(X)\arrow[r, "i^\ast"] & H^n(A)\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+where $\iota:A\to X$ is the inclusion map and $j:X\to X\setminus A$ is the quotient map. Moreover, the connecting homomorphism $\partial:H_{n-1}(A)\to H_n(X,A)$ is defined by ?????. \tcbline
+\begin{proof}
+Notice that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {C^\bullet(X,A;G)} & {C^\bullet(X)} & {C^\bullet(A)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{j^\ast}", from=1-2, to=1-3]
+	\arrow["{i^\ast}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is a short exact sequence by the above lemma. Thus it induces a long exact sequence in cohomology groups. \\~\\
+
+Consider $[z]=z+C_n(A)\in C_n(X,A)$ a cycle in $C_n(X,A)$. The surjective map $j$ is the projection map so $j(z)=[z]$. Now $d(z)\in\ker(j)$ because $$j(d(z))=d(j(z))=d([z])=0$$ by assumption So $d(z)\in\ker(j)=\im(i)$. Since $i$ is the inclusion, $[d(z)]\in C_{n-1}(A)$ is precisely the element that $\partial$ maps $[z]$ to. 
+\end{proof}
+\end{thm}
+
+\subsection{Properties of Singular Cohomology}
+\begin{thm}{Homotopy Invariance}{} Let $f,g:X\to Y$ be continuous such that $f\simeq g$. Then $f$ and $g$ induces the same map $$f^\ast=g^\ast:H^n(Y)\to H^n(X)$$ on singular cohomology. 
+\end{thm}
+
+\begin{thm}{Excision}{}
+\end{thm}
+
+\begin{thm}{Mayer-Vietoris Sequence}{} Let $X$ be a topological space and $U_1,U_2$ be open sets of $X$ such that $X=U_1\cup U_2$ and that $U_1\cap U_2\neq\emptyset$. Write $i_1:U_1\cap U_2\to U_1$, $i_2:U_1\cap U_2\to U_2$, $j_1:U_1\to X$ and $j_2:U_2\to X$ the inclusion maps. Let $G$ be an abelian group. Then there is a long exact sequence \\~\\
+\adjustbox{scale=0.7,center}{\begin{tikzcd}
+\cdots\arrow[r] & H^{n-1}(X;G)\arrow[r, "\partial"] & H^n(U_1\cap U_2;G)\arrow[rr, "(i_1)^\ast-(i_2)^\ast"] && H^n(U_1;G)\oplus H^n(U_2;G)\arrow[rr, "(j_1)^\ast+(j_2)^\ast"] && H^n(X;G)\arrow[r, "\partial"] & H^{n+1}(U_1\cap U_2;G)\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+in cohomology. 
+\end{thm}
+
+\subsection{The Cup Product}
+What separates singular cohomology from singular homology is that the abelian group arising from the cohomology groups has a natural structure of a ring. This in turns makes singular cohomology an invariant that associates to every space a graded ring, instead of just a sequence of abelian groups. \\~\\
+
+For this, we define the cup product which serves as multiplication between elements of the graded abelian groups. 
+
+\begin{defn}{Cup Product}{} Let $X$ be a space. Let $R$ be a ring. Let $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Define the cup product to be $\phi\smile\psi:C^{k+l}(X;R)\to R$ where for $\sigma=[v_0,\dots,v_{k+l}]$, we have that $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_k]})\cdot\psi(\sigma|_{[v_k,\dots,v_{k+l}]})$$
+\end{defn}
+
+Notice that the cup product is defined in terms of the singular complexes, therefore this definition only works for chain complexes that arise from a space. Moreover, the cup product is only defined when we take singular cohomology in a ring instead of an abelian group. 
+
+\begin{prp}{}{} Let $X$ be a space. Let $R$ be a ring. Let $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Then we have that $$\delta(\phi\smile\psi)=\delta\phi\smile\psi+(-1)^k\phi\smile\delta\psi$$
+\end{prp}
+
+\begin{lmm}{}{} Let $X$ be a space. Let $R$ be a ring. Then the cup product $$\smile:H^m(X;R)\times H^n(X;R)\to H^{m+n}(X;R)$$ descends to homology and is well defined. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a map. Let $R$ be a ring. Then the induced map $f^\ast:H^n(Y;R)\to H^n(X;R)$ satisfies $f^\ast(\phi\smile\psi)=f^\ast(\phi)\smile f^\ast(\psi)$. 
+\end{lmm}
+
+\begin{prp}{}{} Let $X$ be a space and let $R$ be a ring. If $\phi\in H^m(X;R)$ and $\psi\in H^n(X;R)$, then $$\phi\smile\psi=(-1)^{mn}\psi\smile\phi$$
+\end{prp}
+
+\begin{thm}{The Cohomology Ring}{} Let $X$ be a topological space and $R$ a commutative ring with identity. Then $$H^\ast(X;R)=\bigoplus_{i=0}^\infty H^i(X;R)$$ is a graded commutative ring with identity under the cup product. Moreover, $H^\ast(X;R)$ is an $R$-algebra. 
+\end{thm}
+
+\subsection{The Kunneth Formula}
+\begin{defn}{The Cross Product}{} Let $X,Y$ be topological spaces. Denote $p_1:X\times Y\to X$ and $p_2:X\times Y\to Y$ the projection maps. Define the cross product of $x\in H^m(X;R)$ and $y\in H^m(Y;R)$ for a ring $R$ to be $$x\times y=p_1^\ast(x)\smile p_2^\ast(y)$$ where $x\times y\in H^{m+n}(X\times Y;R)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $a,c\in H^\ast(X;R)$ and $b,d\in H^\ast(Y;R)$ with $c\in H^m(X;R)$ and $d\in H^n(Y;R)$ we have $$(a\times b)\smile(c\times d)=(-1)^{mn}(a\smile c)\times(b\smile d)$$
+\end{prp}
+
+\begin{thm}{The Kunneth Formula}{} Let $X$ and $Y$ be CW-complexes and $R$ a ring. Then the cross product $$\times:H^\ast(X;R)\otimes_R H^\ast(Y;R)\to H^\ast(X\times Y;R)$$ is an isomorphism of rings if $H^k(Y;R)$ is a finitely generated free $R$-module for all $k$. 
+\end{thm}
+
+\pagebreak
+\section{Variants of Cohomology}
+\subsection{Simplicial Cohomology}
+
+\subsection{Cellular Cohomology}
+
+\pagebreak
+\section{The Categorical Viewpoint}
+Recall that the category of topological spaces $\bold{Top}$ is complete and cocomplete. This means that all kinds of limits and colimits exists in $\bold{Top}$. We have already seen the product space and disjoint union with their universal property as a limit / colimit. There are also more constructs that can be recognized / defined in terms of the universal property. 
+
+\subsection{Different Categories of Spaces}
+\begin{defn}{The Category of Pointed Topological Spaces}{} Define the category of pointed topological spaces $\bold{Top}_\ast$ to consist of the following data. 
+\begin{itemize}
+\item The objects are a pair $(X,x_0)$ where $X$ is a topological space and $x_0\in X$ is a chosen base point. 
+\item For $(X,x_0)$ and $(Y,y_0)$ two pointed spaces, the morphisms $$\Hom_{\bold{Top}_\ast}((X,x_0),(Y,y_0))=\{f:X\to Y\;|\;f\text{ is continuous and }f(x_0)=y_0\}$$ are the continuous maps from $X$ to $Y$ such that base points are preserved. 
+\item Composition is defined as the composition of functions such that base point is preserved. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $(X,x_0)$ and $(Y,y_0)$ be pointed spaces. Then the product and coproduct of the two spaces in $\bold{Top}_\ast$ are $$(X\times Y,(x_0,y_0))\;\;\;\;\text{ and }\;\;\;\;(X\vee Y,x_0=y_0)$$ respectively. 
+\end{prp}
+
+\begin{defn}{The Category of CW Complexes}{} Define the category of CW complexes $\bold{CW}$ to consist of the following data. 
+\begin{itemize}
+\item The objects are CW complexes. 
+\item For $X$ and $Y$ two CW complexes, the morphisms $$\Hom_{\bold{CW}}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}$$ are the continuous maps from $X$ to $Y$. 
+\item Composition is defined as the composition of functions. 
+\end{itemize}
+Define similarly the category $\bold{CW}_\ast$ of pointed topological spaces. 
+\end{defn}
+
+\begin{defn}{The Category of Pairs of Spaces}{} Define the category of pairs of topological spaces $\bold{Top}^2$ to consist of the following data. 
+\begin{itemize}
+\item The objects are a pair $(X,A)$ where $X$ is a topological space $A\subseteq X$ is a subspace of $X$. 
+\item For $(X,A)$ and $(Y,B)$ two pointed spaces, the morphisms $$\Hom_{\bold{Top}^2}((X,A),(Y,B))=\{f:X\to Y\;|\;f\text{ is continuous and }f(A)\subseteq B\}$$ are the continuous maps from $X$ to $Y$ such that subspaces are mapped to subspaces. 
+\item Composition is defined as the composition of functions such that subspaces are mapped to subspaces. 
+\end{itemize}
+Define similarly the category $\bold{CW}^2$ of pairs of CW complexes. 
+\end{defn}
+
+\begin{defn}{Homotopy Category of Spaces}{} Define the homotopy category of topological spaces $\bold{hTop}$ to consist of the following data. 
+\begin{itemize}
+\item The objects are topological spaces. 
+\item For $X$ and $Y$ two spaces, the morphisms $$\Hom_{\bold{CW}}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}/\sim$$ are the homotopy classes of continuous maps from $X$ to $Y$. 
+\item Composition is defined as the composition of functions. 
+\end{itemize}
+Define similar the homotopy category $\bold{hTop}_\ast$ of pointed topological spaces and pointed homotopy classes of maps. 
+\end{defn}
+
+\subsection{Categorical Constructs in the Category of Spaces}
+We have seen pushouts and pullbacks in Category Theory 1. Let us first recall them. 
+
+\begin{defn}{Pullbacks and Pushouts}{} A pullback space is the limit of a diagram $X:\mJ\to\bold{Top}$ where $\mJ=\left(\cdot\rightarrow\cdot\leftarrow\cdot\right)$. We denote the limit in this case as $$\lim_\mJ X=C\times_DB$$ Dually, a pushout is the colimit of a diagram $X:\mJ^{\text{op}}\to\bold{Top}$, where $\mJ=\left(\cdot\leftarrow\cdot\rightarrow\cdot\right)$. We denote the colimit in this case as $$\colim_\mJ X=C\amalg_DB$$~\\
+
+In particular, the universal product of limits means that for any space $X$ together with maps $\lambda_C:X\to C$ and $\lambda_B:X\to B$ such that $f\circ\lambda_C=g\circ\lambda_D$, there exists a unique $u:X\to C\times_DB$ such that the following diagram commutes (Dually, the diagram on the right): \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+X\arrow[rrdd, "\lambda_C", bend left=25]\arrow[ddddr, "\lambda_B"', bend right=25]\arrow[rdd, "\exists!u", dashed] & & & & & & X & & \\
+ &&&&&&&&\\
+ & C\times_DB\arrow[dd, "\pi_B"]\arrow[r, "\pi_C"] & C\arrow[dd, "f"] & & & & & C\amalg_DB\arrow[luu, "\exists!u"', dashed] & C\arrow[l, "\iota_C"']\arrow[lluu, "\lambda_C"', bend right=25]\\
+ &&&&&&&&\\
+ & B\arrow[r, "g"] & D & & & & & B\arrow[uu, "\iota_B"']\arrow[uuuul, "\lambda_B", bend left=25] & D\arrow[l, "g"']\arrow[uu, "f"']
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{defn}{Adjunction Spaces}{} Let $X,Y$ be spaces and $A\subseteq X$ a subspace. Let $f:A\to Y$ be a map. Define the adjunction space of $X$ and $Y$ to be  the space $$X\amalg_fY=\frac{X\amalg Y}{a\sim f(a)}$$ together with the quotient topology. 
+\end{defn}
+
+The prototypical example of adjunction spaces come from CW complexes. It is easy to notice that the data of obtaining the $(n+1)$-skeleton inductively is the same content of a pushout diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{S_\alpha^{n-1}} & {X^n} \\
+	{D_\alpha^n} & {X^{n+1}}
+	\arrow["{\varphi_\alpha}", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["{\Phi_\alpha}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+Indeed $\Phi_\alpha$ is determined by $\varphi_\alpha$ as a property of the pushout. Collectively, we identify the attaching of all $n$-cells as the following pushout: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\coprod_{\alpha\in I_n}S_\alpha^{n-1}} && {X^n} \\
+	\\
+	{\coprod_{\alpha\in I_n}D_\alpha^n} && {X^{n+1}}
+	\arrow["{\coprod_{\alpha\in I_n}\varphi_\alpha}", from=1-1, to=1-3]
+	\arrow[hook, from=1-1, to=3-1]
+	\arrow[from=1-3, to=3-3]
+	\arrow["{\coprod_{\alpha\in I_n}\Phi_\alpha}"', from=3-1, to=3-3]
+\end{tikzcd}}\\~\\
+
+The final CW complex $X$ is then obtained by the union with the weak topology. But this is just the explicit description of the colimit of the $n$-skeletons. 
+
+\begin{prp}{}{} Let $X,Y$ be spaces and $A\subseteq X$ a subspace of $X$. Let $f:A\to Y$ be a map. Then the adjunction space $X\amalg_f Y$ is a pushout of $f$ and $i:A\to X$ in $\bold{Top}$. 
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y$ be spaces with chosen base point $x_0$ and $y_0$ respectively. Then the wedge product $$X\vee Y=X\amalg_fY$$ is an adjunction space with $Z=\{x_0\}$ and map $f:Z\to Y$ defined by $f(x_0)=y_0$. 
+\end{prp}
+
+\subsection{Suspensions of a Space}
+\begin{defn}{Reduced Suspension}{} Let $(X,x_0)$ be a pointed space. Define the reduced suspension of $X$ to be the space $$\Sigma X=\frac{X\times I}{(X\times\{0\}\cup X\times\{1\}\cup\{x_0\}\times I)}$$ together with the base point as the equivalence class in the quotient. 
+\end{defn}
+
+By definition of quotients, the reduced suspension defines a canonical continuous map sending a space $X$ to its reduced suspension $\Sigma X$. 
+
+\begin{thm}{}{} The reduced suspension $\Sigma$ define functors on $\bold{Top}_\ast$ and $\bold{hTop}_\ast$ as follows. 
+\begin{itemize}
+\item $\Sigma$ sends a pointed space $(X,x_0)$ to $$(\Sigma X,(x_0,0))$$
+\item For the non homotopy category, $\Sigma$ sends a map $f:X\to Y$ to $$\Sigma f:\Sigma X\to\Sigma Y$$ defined by $\Sigma f([x,t])=[f(x),t]$
+\item For the homotopy category, $\Sigma$ sends a homotopy class of maps $[X,Y]$ to $$[\Sigma X,\Sigma Y]$$ respectively given by the same formula as above
+\end{itemize}
+\end{thm}
+
+\pagebreak
+\section{Homology and Cohomology Theories}
+We have seen that the homotopy groups, the homology groups and the cohomology groups all satisfy a functorial property. This means that they can be considered as functors from the category of spaces to the category of some algebraic structures. It is meaningful to study all of them at once, and to compare different versions of homology and cohomology. \\
+
+In general, there are different parameters of the (co)homology theories. 
+\begin{itemize}
+\item Including ``for CW Pairs'' means that the theory is tailored for CW pairs. If we want a general theory for any topological spaces, we must add a new axiom so that weak equivalences (isomorphisms in homotopy groups) gives isomorphisms (in homology groups). This is true for CW complexes but not for arbitrary topological spaces. 
+\item ``Generalized'' means that that dimension axiom is dropped. This enables wilder (co)homology theories such as (co)bordism to appear. ``Ordinary'' means that the dimension axiom is included. In the case that we restrict to CW complexes, this axiom ensures that all (co)homology theories of this type are isomorphic to each other. 
+\item ``Reduced'' theories typically throw away the relative context in order to gain more concrete computations. There is a theorem that says that determining a generalized (co)homology theory is the ``same'' determining a reduced theory and vice versa. 
+\end{itemize}
+
+\subsection{Generalized Homology Theories}
+The homotopy groups and the homology groups share many properties. The point of the axioms is to separate the notion of homotopy groups and homology groups. Indeed the homotopy groups together are a stronger invariant for spaces. Since homology is a functor, a natural question to ask is: what are the properties of singular / cellular / simplicial homology that make homology unique in the sense that only such a functor gives this unique identification of spaces through the invariant? 
+
+\begin{defn}{Generalized Homology Theory for CW Pairs}{} A Generalized Homology Theory is a collection of functors and natural transformations $$h_n:\bold{CW}^2\to\bold{Ab}\;\;\;\;\text{ and }\;\;\;\;\delta_n:h_n\Rightarrow h_n\circ F$$ where $F(X,Y)=(Y,\emptyset)$, for each $n\in\N$, such that the following are true. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h_n(f)=h_n(g):h_n(X,A)\to h_n(Y,B)$$
+\item Exactness: There exists an exact sequence \\~\\
+\adjustbox{scale=0.98,center}{\begin{tikzcd}
+	\cdots & {h_{n+1}(X,A)} & {h_n(A,\emptyset)} & {h_n(X,\emptyset)} & {h_n(X,A)} & {h_{n-1}(A,\emptyset)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\delta_{n+1}}", from=1-2, to=1-3]
+	\arrow["h_n(i)", from=1-3, to=1-4]
+	\arrow["h_n(j)", from=1-4, to=1-5]
+	\arrow["{\delta_n}", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+where $i:(A,\emptyset)\to(X,\emptyset)$ and $j:(X,\emptyset)\to(X,A)$ are inclusions. 
+\item Additivity: If $(X,A)=\coprod_{i\in I}(X_i,A_i)$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}h_n(X_i,A_i)\cong h_n(X,A)$$ is an isomorphism
+\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then there is an isomorphism $$h_n(X\setminus E,A\setminus E)\cong h_n(X,A)$$ induced by the inclusion map. 
+\end{itemize}
+\end{defn}
+
+We mention for once and for all that the additivity axiom is required only when the CW complexes are non-finite. In particular, in order for the homology theory to be meaningful, we must restrict the underlying category of spaces to be finite CW complexes if one drops the additivity axiom. \\~\\
+
+Also, the homotopy invariance axiom means that homology descends to a functor $\bold{HoCW}^2\to\bold{Ab}$. Therefore some authors write the axiom implicit in the definition of the functors $h_n$, and then saying that a homology theory consists of functors $h_n:\bold{HoCW}\to\bold{Ab}$ instead. 
+
+\begin{lmm}{}{} The excision axiom is equivalent to saying that $X=A^\circ\cup B^\circ$ with inclusion map $\iota:(B,A\cap B)\to (X,A)$ implies $h_n(\iota):h_n(B,A\cap B)\to h_n(X,A)$ is an isomorphism. 
+\end{lmm}
+
+\begin{defn}{Generalized Homology Theory for Spaces}{} A Generalized Homology Theory is a collection of functors $$h_n:\bold{Top}^2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta_n:h_n\circ F\Rightarrow h_{n-1}$$ where $F(X,Y)=(Y,\emptyset)$, for each $n\in\N$, satisfying the first four axioms together with the following. 
+\begin{itemize}
+\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h_n(X,A)\to h_n(Y,B)$$ is an isomorphism. 
+\end{itemize}
+\end{defn}
+
+By adding on the axiom of weak equivalence and the fact that every space admits a weak equivalence to a CW complex, we can see that the two theories are the same. 
+
+\begin{thm}{}{} Any generalized homology theory on $\bold{Top}^2$ determines and is determined by a generalized homology theory on $\bold{CW}^2$.
+\end{thm}
+
+However, note that in this case some of the working homology theories are not a generalized homology theory in this sense (when we encounter the dual notion, sheaf cohomology is not a generalized cohomology theory). 
+
+\begin{defn}{Ordinary Homology Theory}{} Let $G$ be an abelian group. If a generalized homology theory $(h_n,\delta_n)$ in addition satisfies 
+\begin{itemize}
+\item Dimension: $$h_n(\ast)=\begin{cases}
+G & \text{ if } n=0\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{itemize}
+Then $h_n$ is called an ordinary homology theory. 
+\end{defn}
+
+\begin{thm}{Eilenberg-Steenrod Uniqueness Theorem}{} Let $T:(h_n,\delta_n)\to(h_n',\delta_n')$ be a natural transformation of generalized homology theories defined on $\bold{CW}^2$ such that $h_n(\ast)\cong h_n'(\ast)$, then $T$ is a natural isomorphism $$(h_n,\delta_n)\cong(h_n',\delta_n')$$
+\end{thm}
+
+\subsection{Reduced Homology Theory}
+In Algebraic Topology 2, we have also encountered the notion of reduced singular homology. This is derived directly from singular homology, where one simply defines reduced singular homology by also considering the augmented chain complex. Such a construction can easily be extended to arbitrary homology theories: Indeed there is no need for a topological argument in the definition of reduced singular homology. \\~\\
+
+In fact, this subsection will also prove a unification theorem for the following four homolog theories: 
+\begin{itemize}
+\item Generalized homology theory for CW complexes
+\item Generalized homology theory for spaces
+\item Reduced homology theory for CW complexes
+\item Reduced homology theory for spaces
+\end{itemize}
+
+and they can be unified only because of the unnatural condition posed for homology theory for spaces. The axiom of weak equivalences enables the use of CW approximations. 
+
+\begin{defn}{Reduced Homology Theory for CW Complexes}{} A reduced Homology Theory is a collection of functors $$\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$$ that satisfies the following. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:(X,x_0)\to(Y,y_0)$ then $$\widetilde{h}_n(f)=\widetilde{h}_n(g):\widetilde{h}_n(X,x_0)\to\widetilde{h}_n(Y,y_0)$$
+\item Exactness: If $X$ is a CW-complex and $A\subseteq X$ and $x_0\in A$, then there is a short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\widetilde{h}_n(A,x_0)} & {\widetilde{h}_n(X,x_0)} & {\widetilde{h}_n(X/A,\ast)}
+	\arrow["{\iota_\ast}", from=1-1, to=1-2]
+	\arrow["{p_\ast}", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+where $\iota:A\to X$ is the inclusion and $p:X\to X/A$ is the projection. 
+
+\item Suspension: There is a natural isomorphism $$\Sigma:\widetilde{h}_n(X,x_0)\overset{\cong}{\longleftrightarrow}\widetilde{h}_{n+1}(\Sigma X,\ast)$$
+
+\item Additivity: If $X=\coprod_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}_n(X_i)\cong\widetilde{h}_n(X)$$ is an isomorphism
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$ be a reduced homology theory. Then $$\widetilde{h}_n(\ast)=0$$
+\end{lmm}
+
+\begin{thm}{}{} Let $h_n:\bold{CW}^2\to\bold{Ab}$ be a generalized homology theory for CW complexes. Define a collection of functors $$\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$$ by $(X,x_0)\mapsto\widetilde{h}_n(X,x_0)=h_n(X,\{x_0\})$. Then  $\widetilde{h}_n$ defines a reduced homology theory for CW complexes. 
+\end{thm}
+
+\begin{thm}{}{} Let $\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$ be a reduced homology theory for CW complexes. Define a collection of functors $$\widetilde{h}_n:\bold{CW}^2\to\bold{Ab}$$ by $(X,A)\mapsto\widetilde{h}_n(X/A,\ast=A)$ and a collection of natural transformations $$\delta_n:h_n(X,Y)\to(Y,\emptyset)$$ by ??? Then $h_n$ and $\delta_n$ defines a generalized homology theory for CW complexes. 
+\end{thm}
+
+\begin{thm}{}{} Any generalized homology theory for CW complexes determines and is determined by a reduced homology theory for CW complexes. 
+\end{thm}
+
+We have now showed that reduced homology theory and generalized homology theory for CW complexes really are the same thing: $$\substack{\text{Reduced Homology Theory}\\\text{for CW Complexes}}\overset{1:1}{\longleftrightarrow}\substack{\text{Generalized Homology Theory}\\\text{for CW Complexes}}$$ Let us now show the same for homology theories for spaces in general and moreover, establish such a relation between spaces and CW complexes. 
+
+\begin{defn}{Reduced Homology Theory for Spaces}{} A reduced Homology Theory for spaces is a collection of functors $$\widetilde{h}_n:\bold{Top}_\ast\to\bold{Ab}$$ that the above axioms (Homotopy Invariance, Exactness, Suspension, Additivity) and the following: 
+\begin{itemize}
+\item Weak Equivalences: If $f:(X,x_0)\to(Y,y_0)$ is a weak equivalence then $$f_\ast:\widetilde{h}_n(X,x_0)\to\widetilde{h}_n(Y,y_0)$$ is an isomorphism for all $n$. 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Any reduced homology theory for spaces determines and is determined by a reduced homology theory on spaces. 
+\end{thm}
+
+\begin{thm}{}{} Any reduced homology theory for spaces determines and is determined by a generalized homology theory on spaces. 
+\end{thm}
+
+Thus we have showed that under the conditions of all the given axioms of all such homology theories, we really just have the same thing: $$\substack{\text{Generalized  Homology Theory}\\\text{for Spaces}}\overset{1:1}{\longleftrightarrow}\substack{\text{Reduced Homology Theory}\\\text{for Spaces}}\overset{1:1}{\longleftrightarrow}\substack{\text{Reduced Homology Theory}\\\text{for CW Complexes}}\overset{1:1}{\longleftrightarrow}\substack{\text{Generalized Homology Theory}\\\text{for CW Complexes}}$$ We once again note that such a bijection is only possible when we introduce the weak equivalence axiom for homology theories on spaces. Such an axiom in fact restricts the amount of valid homology theories, but it is only through this axiom that we can declare all such homology theories are essentially determined by one another. \\~\\
+
+Some authors indeed does not require the weak equivalence axiom to exist. In such cases the bijection between generalized homology theories and reduced homology theories can be constructed, but there is no passage between homology of CW complexes and homology of spaces in general. 
+
+\subsection{Cohomology Theories}
+\begin{defn}{Generalized Cohomology Theory for CW Pairs}{} A Generalized cohomology theory is a collection of contravariant functors and natural transformations $$h^n:\bold{CW}_2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n\circ F\Rightarrow h^{n+1}(X,A)$$ where $F(X,A)=(A,\emptyset)$, for each $n\in\N$ such that the following are true. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h^n(f)=h^n(g):h^n(X,A)\to h^n(Y,B)$$
+\item Exactness: If $X$ is a CW-complex and $A\subseteq X$, then there is a short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {h^n(X/A)} & {h^n(X)} & {h^n(A)} & {h^{n+1}(X/A)} & {h^{n+1}(X)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{\partial_n}", from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+\item Additivity: If $(X,A)=\coprod_{i\in I}(X_i,A_i)$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}h^n(X_i,A_i)\cong h^n(X,A)$$ is an isomorphism
+\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then $$h^n(X\setminus E,A\setminus E)\cong h^n(X,A)$$ induced by the inclusion map
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Generalized Cohomology Theory for Spaces}{} A Generalized cohomology theory is a collection of contravariant functors and natural transformations $$h^n:\bold{Top}_2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n\circ F\Rightarrow h^{n+1}(X,A)$$ where $F(X,A)=(A,\emptyset)$, for each $n\in\N$, satisfying the above first four axioms and the following. 
+\begin{itemize}
+\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h^n(Y,B)\to h^n(X,A)$$ is an isomorphism. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Ordinary Cohomology Theory}{} Let $G$ be an abelian group. If a generalized cohomology theory $(h^n,\delta^n)$ in addition satisfies 
+\begin{itemize}
+\item Dimension: $$h^n(\ast)=\begin{cases}
+G & \text{ if } n=0\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{itemize}
+Then $h_n$ is called an ordinary homology theory. 
+\end{defn}
+
+\begin{defn}{Reduced Cohomology Theory for CW Complexes}{} A reduced cohomology theory is a collection of contravariant functors $$\widetilde{h}^n:\bold{CW}\to\bold{Ab}$$ satisfying the following. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:X\to Y$ then $$\widetilde{h}^n(f)=\widetilde{h}^n(g):\widetilde{h}^n(X)\to\widetilde{h}^n(Y)$$
+\item Exactness: There exists a short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {\widetilde{h}^n(X,A)} & {\widetilde{h}^n(X)} & {\widetilde{h}^n(A)} & {\widetilde{h}^{n+1}(X,A)} & {\widetilde{h}^{n+1}(X)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["\widetilde{h}_n(\pi)", from=1-2, to=1-3]
+	\arrow["\widetilde{h}_n(\iota)", from=1-3, to=1-4]
+	\arrow["{\delta_n}", from=1-4, to=1-5]
+	\arrow["\widetilde{h}_{n+1}(\pi)", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+where $\iota:A\to X$ is the inclusion and $\pi:X\to X/A$ is the projection. 
+\item Additivity: If $X=\coprod_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}^n(X_i)\cong\widetilde{h}^n(X)$$ is an isomorphism
+\item Suspension: There is an isomorphism $$\widetilde{h}^n(\Sigma):\widetilde{h}^n(X)\overset{\cong}{\longrightarrow}\widetilde{h}^{n+1}(\Sigma X)$$
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $\widetilde{h}_n:\bold{CW}\to\bold{Ab}$ be a reduced homology theory. Then $$\widetilde{h}_n(\ast)=0$$
+\end{lmm}
+
+\begin{prp}{}{} Let $\widetilde{h}^n:\bold{CW}\to\bold{Ab}$ be a reduced cohomology theory. Then there is a natural isomorphism $$\widetilde{h}_{n+1}(\Sigma X)=\widetilde{h}_n(X)$$
+\end{prp}
+
+TBA: Unreduced = reduced. 
+
 
 \pagebreak
 \section{The Euler Characteristic}
@@ -2549,273 +3107,6 @@ We can relate the Euler characteristic with covering spaces by the following for
 In the proof that $\tilde{X}$ is also a CW complex, we have seen that if $X$ has $k$ amount of $n$-cells, then $\tilde{X}$ has $d\cdot k$ amount. This applies to all $n$ and so we obtain the formula. 
 \end{proof}
 \end{prp}
-
-
-\pagebreak
-\section{The Categorical Viewpoint}
-Recall that the category of topological spaces $\bold{Top}$ is complete and cocomplete. This means that all kinds of limits and colimits exists in $\bold{Top}$. We have already seen the product space and disjoint union with their universal property as a limit / colimit. There are also more constructs that can be recognized / defined in terms of the universal property. 
-
-\subsection{Different Categories of Spaces}
-\begin{defn}{The Category of Pointed Topological Spaces}{} Define the category of pointed topological spaces $\bold{Top}_\ast$ to consist of the following data. 
-\begin{itemize}
-\item The objects are a pair $(X,x_0)$ where $X$ is a topological space and $x_0\in X$ is a chosen base point. 
-\item For $(X,x_0)$ and $(Y,y_0)$ two pointed spaces, the morphisms $$\Hom_{\bold{Top}_\ast}((X,x_0),(Y,y_0))=\{f:X\to Y\;|\;f\text{ is continuous and }f(x_0)=y_0\}$$ are the continuous maps from $X$ to $Y$ such that base points are preserved. 
-\item Composition is defined as the composition of functions such that base point is preserved. 
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $(X,x_0)$ and $(Y,y_0)$ be pointed spaces. Then the product and coproduct of the two spaces in $\bold{Top}_\ast$ are $$(X\times Y,(x_0,y_0))\;\;\;\;\text{ and }\;\;\;\;(X\vee Y,x_0=y_0)$$ respectively. 
-\end{prp}
-
-\begin{defn}{The Category of CW Complexes}{} Define the category of CW complexes $\bold{CW}$ to consist of the following data. 
-\begin{itemize}
-\item The objects are CW complexes. 
-\item For $X$ and $Y$ two CW complexes, the morphisms $$\Hom_{\bold{CW}}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}$$ are the continuous maps from $X$ to $Y$. 
-\item Composition is defined as the composition of functions. 
-\end{itemize}
-Define similarly the category $\bold{CW}_\ast$ of pointed topological spaces. 
-\end{defn}
-
-\begin{defn}{The Category of Pairs of Spaces}{} Define the category of pairs of topological spaces $\bold{Top}^2$ to consist of the following data. 
-\begin{itemize}
-\item The objects are a pair $(X,A)$ where $X$ is a topological space $A\subseteq X$ is a subspace of $X$. 
-\item For $(X,A)$ and $(Y,B)$ two pointed spaces, the morphisms $$\Hom_{\bold{Top}^2}((X,A),(Y,B))=\{f:X\to Y\;|\;f\text{ is continuous and }f(A)\subseteq B\}$$ are the continuous maps from $X$ to $Y$ such that subspaces are mapped to subspaces. 
-\item Composition is defined as the composition of functions such that subspaces are mapped to subspaces. 
-\end{itemize}
-Define similarly the category $\bold{CW}^2$ of pairs of CW complexes. 
-\end{defn}
-
-\begin{defn}{Homotopy Category of Spaces}{} Define the homotopy category of topological spaces $\bold{hTop}$ to consist of the following data. 
-\begin{itemize}
-\item The objects are topological spaces. 
-\item For $X$ and $Y$ two spaces, the morphisms $$\Hom_{\bold{CW}}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}/\sim$$ are the homotopy classes of continuous maps from $X$ to $Y$. 
-\item Composition is defined as the composition of functions. 
-\end{itemize}
-Define similar the homotopy category $\bold{hTop}_\ast$ of pointed topological spaces and pointed homotopy classes of maps. 
-\end{defn}
-
-\subsection{Categorical Constructs in the Category of Spaces}
-We have seen pushouts and pullbacks in Category Theory 1. Let us first recall them. 
-
-\begin{defn}{Pullbacks and Pushouts}{} A pullback space is the limit of a diagram $X:\mJ\to\bold{Top}$ where $\mJ=\left(\cdot\rightarrow\cdot\leftarrow\cdot\right)$. We denote the limit in this case as $$\lim_\mJ X=C\times_DB$$ Dually, a pushout is the colimit of a diagram $X:\mJ^{\text{op}}\to\bold{Top}$, where $\mJ=\left(\cdot\leftarrow\cdot\rightarrow\cdot\right)$. We denote the colimit in this case as $$\colim_\mJ X=C\amalg_DB$$~\\
-
-In particular, the universal product of limits means that for any space $X$ together with maps $\lambda_C:X\to C$ and $\lambda_B:X\to B$ such that $f\circ\lambda_C=g\circ\lambda_D$, there exists a unique $u:X\to C\times_DB$ such that the following diagram commutes (Dually, the diagram on the right): \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-X\arrow[rrdd, "\lambda_C", bend left=25]\arrow[ddddr, "\lambda_B"', bend right=25]\arrow[rdd, "\exists!u", dashed] & & & & & & X & & \\
- &&&&&&&&\\
- & C\times_DB\arrow[dd, "\pi_B"]\arrow[r, "\pi_C"] & C\arrow[dd, "f"] & & & & & C\amalg_DB\arrow[luu, "\exists!u"', dashed] & C\arrow[l, "\iota_C"']\arrow[lluu, "\lambda_C"', bend right=25]\\
- &&&&&&&&\\
- & B\arrow[r, "g"] & D & & & & & B\arrow[uu, "\iota_B"']\arrow[uuuul, "\lambda_B", bend left=25] & D\arrow[l, "g"']\arrow[uu, "f"']
-\end{tikzcd}}\\~\\
-\end{defn}
-
-\begin{defn}{Adjunction Spaces}{} Let $X,Y$ be spaces and $A\subseteq X$ a subspace. Let $f:A\to Y$ be a map. Define the adjunction space of $X$ and $Y$ to be  the space $$X\amalg_fY=\frac{X\amalg Y}{a\sim f(a)}$$ together with the quotient topology. 
-\end{defn}
-
-The prototypical example of adjunction spaces come from CW complexes. It is easy to notice that the data of obtaining the $(n+1)$-skeleton inductively is the same content of a pushout diagram: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{S_\alpha^{n-1}} & {X^n} \\
-	{D_\alpha^n} & {X^{n+1}}
-	\arrow["{\varphi_\alpha}", from=1-1, to=1-2]
-	\arrow[hook, from=1-1, to=2-1]
-	\arrow[from=1-2, to=2-2]
-	\arrow["{\Phi_\alpha}"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-Indeed $\Phi_\alpha$ is determined by $\varphi_\alpha$ as a property of the pushout. Collectively, we identify the attaching of all $n$-cells as the following pushout: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\coprod_{\alpha\in I_n}S_\alpha^{n-1}} && {X^n} \\
-	\\
-	{\coprod_{\alpha\in I_n}D_\alpha^n} && {X^{n+1}}
-	\arrow["{\coprod_{\alpha\in I_n}\varphi_\alpha}", from=1-1, to=1-3]
-	\arrow[hook, from=1-1, to=3-1]
-	\arrow[from=1-3, to=3-3]
-	\arrow["{\coprod_{\alpha\in I_n}\Phi_\alpha}"', from=3-1, to=3-3]
-\end{tikzcd}}\\~\\
-
-The final CW complex $X$ is then obtained by the union with the weak topology. But this is just the explicit description of the colimit of the $n$-skeletons. 
-
-\begin{prp}{}{} Let $X,Y$ be spaces and $A\subseteq X$ a subspace of $X$. Let $f:A\to Y$ be a map. Then the adjunction space $X\amalg_f Y$ is a pushout of $f$ and $i:A\to X$ in $\bold{Top}$. 
-\end{prp}
-
-\begin{prp}{}{} Let $X,Y$ be spaces with chosen base point $x_0$ and $y_0$ respectively. Then the wedge product $$X\vee Y=X\amalg_fY$$ is an adjunction space with $Z=\{x_0\}$ and map $f:Z\to Y$ defined by $f(x_0)=y_0$. 
-\end{prp}
-
-\pagebreak
-\section{Homology and Cohomology Theories}
-We have seen that the homotopy groups, the homology groups and the cohomology groups all satisfy a functorial property. This means that they can be considered as functors from the category of spaces to the category of some algebraic structures. It is meaningful to study all of them at once, and to compare different versions of homology and cohomology. \\
-
-In general, there are different parameters of the (co)homology theories. 
-\begin{itemize}
-\item Including ``for CW Pairs'' means that the theory is tailored for CW pairs. If we want a general theory for any topological spaces, we must add a new axiom so that weak equivalences (isomorphisms in homotopy groups) gives isomorphisms (in homology groups). This is true for CW complexes but not for arbitrary topological spaces. 
-\item ``Generalized'' means that that dimension axiom is dropped. This enables wilder (co)homology theories such as (co)bordism to appear. ``Ordinary'' means that the dimension axiom is included. In the case that we restrict to CW complexes, this axiom ensures that all (co)homology theories of this type are isomorphic to each other. 
-\item ``Reduced'' theories typically throw away the relative context in order to gain more concrete computations. There is a theorem that says that determining a generalized (co)homology theory is the ``same'' determining a reduced theory and vice versa. 
-\end{itemize}
-
-\subsection{Generalized Homology Theories}
-The homotopy groups and the homology groups share many properties. The point of the axioms is to separate the notion of homotopy groups and homology groups. Indeed the homotopy groups together are a stronger invariant for spaces. Since homology is a functor, a natural question to ask is: what are the properties of singular / cellular / simplicial homology that make homology unique in the sense that only such a functor gives this unique identification of spaces through the invariant? 
-
-\begin{defn}{Generalized Homology Theory for CW Pairs}{} A Generalized Homology Theory is a collection of functors and natural transformations $$h_n:\bold{CW}^2\to\bold{Ab}\;\;\;\;\text{ and }\;\;\;\;\delta_n:h_n\to h_n\circ F$$ where $F(X,Y)=(Y,\emptyset)$, for each $n\in\N$, such that the following are true. 
-\begin{itemize}
-\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h_n(f)=h_n(g):h_n(X,A)\to h_n(Y,B)$$
-\item Exactness: There exists an exact sequence \\~\\
-\adjustbox{scale=0.98,center}{\begin{tikzcd}
-	\cdots & {h_{n+1}(X,A)} & {h_n(A,\emptyset)} & {h_n(X,\emptyset)} & {h_n(X,A)} & {h_{n-1}(A,\emptyset)} & \cdots
-	\arrow[from=1-1, to=1-2]
-	\arrow["{\delta_{n+1}}", from=1-2, to=1-3]
-	\arrow["h_n(i)", from=1-3, to=1-4]
-	\arrow["h_n(j)", from=1-4, to=1-5]
-	\arrow["{\delta_n}", from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-\end{tikzcd}}\\~\\
-where $i:(A,\emptyset)\to(X,\emptyset)$ and $j:(X,\emptyset)\to(X,A)$ are inclusions. 
-\item Additivity: If $(X,A)=\coprod_{i\in I}(X_i,A_i)$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}h_n(X_i,A_i)\cong h_n(X,A)$$ is an isomorphism
-\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then there is an isomorphism $$h_n(X\setminus E,A\setminus E)\cong h_n(X,A)$$ induced by the inclusion map. 
-\end{itemize}
-\end{defn}
-
-We mention for once and for all that the additivity axiom is required only when the CW complexes are non-finite. In particular, in order for the homology theory to be meaningful, we must restrict the underlying category of spaces to be finite CW complexes if one drops the additivity axiom. \\~\\
-
-Also, the homotopy invariance axiom means that homology descends to a functor $\bold{HoCW}\to\bold{Ab}$. Therefore some authors write the axiom implicit in the definition of the functors $h_n$, and then saying that a homology theory consists of functors $h_n:\bold{HoCW}\to\bold{Ab}$ instead. 
-
-\begin{lmm}{}{} The excision axiom is equivalent to saying that $X=A^\circ\cup B^\circ$ with inclusion map $\iota:(B,A\cap B)\to (X,A)$ implies $h_n(\iota):h_n(B,A\cap B)\to h_n(X,A)$ is an isomorphism. 
-\end{lmm}
-
-\begin{defn}{Generalized Homology Theory for Spaces}{} A Generalized Homology Theory is a collection of functors $$h_n:\bold{Top}^2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta_n:h_n(X,Y)\to h_{n-1}(Y,\emptyset)$$ satisfying the firs four axioms together with the following. 
-\begin{itemize}
-\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h_n(X,A)\to h_n(Y,B)$$ is an isomorphism. 
-\end{itemize}
-\end{defn}
-
-By adding on the axiom of weak equivalence and the fact that every space admits a weak equivalence to a CW complex, we can see that the two theories are the same. 
-
-\begin{thm}{}{} Any generalized homology theory on $\bold{Top}^2$ determines and is determined by a generalized homology theory on $\bold{CW}^2$.
-\end{thm}
-
-However, note that in this case some of the working homology theories are not a generalized homology theory in this sense (when we encounter the dual notion, sheaf cohomology is not a generalized cohomology theory). 
-
-\begin{defn}{Ordinary Homology Theory}{} Let $G$ be an abelian group. If a generalized homology theory $(h_n,\delta_n)$ in addition satisfies 
-\begin{itemize}
-\item Dimension: $$h_n(\ast)=\begin{cases}
-G & \text{ if } n=0\\
-0 & \text{ otherwise }
-\end{cases}$$
-\end{itemize}
-Then $h_n$ is called an ordinary homology theory. 
-\end{defn}
-
-\begin{thm}{Eilenberg-Steenrod Uniqueness Theorem}{} Let $T:(h_n,\delta_n)\to(h_n',\delta_n')$ be a natural transformation of generalized homology theories defined on $\bold{CW}^2$ such that $h_n(\ast)\cong h_n'(\ast)$, then $T$ is a natural isomorphism $$(h_n,\delta_n)\cong(h_n',\delta_n')$$
-\end{thm}
-
-\subsection{Reduced Homology Theory}
-In Algebraic Topology 2, we have also encountered the notion of reduced singular homology. This is derived directly from singular homology, where one simply defines reduced singular homology by also considering the augmented chain complex. Such a construction can easily be extended to arbitrary homology theories: Indeed there is no need for a topological argument in the definition of reduced singular homology. \\~\\
-
-In fact, this subsection will also prove a unification theorem for the following four homolog theories: 
-\begin{itemize}
-\item Generalized homology theory for CW complexes
-\item Generalized homology theory for spaces
-\item Reduced homology theory for CW complexes
-\item Reduced homology theory for spaces
-\end{itemize}
-
-and they can be unified only because of the unnatural condition posed for homology theory for spaces. The axiom of weak equivalences enables the use of CW approximations. 
-
-\begin{defn}{Reduced Homology Theory for CW Complexes}{} A reduced Homology Theory is a collection of functors $$\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$$ that satisfies the following. 
-\begin{itemize}
-\item Homotopy Invariance: If $f\simeq g:(X,x_0)\to(Y,y_0)$ then $$\widetilde{h}_n(f)=\widetilde{h}_n(g):\widetilde{h}_n(X,x_0)\to\widetilde{h}_n(Y,y_0)$$
-\item Exactness: If $X$ is a CW-complex and $A\subseteq X$ and $x_0\in A$, then there is a short exact sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\widetilde{h}_n(A,x_0)} & {\widetilde{h}_n(X,x_0)} & {\widetilde{h}_n(X/A,\ast)}
-	\arrow["{\iota_\ast}", from=1-1, to=1-2]
-	\arrow["{p_\ast}", from=1-2, to=1-3]
-\end{tikzcd}}\\~\\
-where $\iota:A\to X$ is the inclusion and $p:X\to X/A$ is the projection. 
-
-\item Suspension: There is a natural isomorphism $$\Sigma:\widetilde{h}_n(X,x_0)\overset{\cong}{\longleftrightarrow}\widetilde{h}_{n+1}(\Sigma X,\ast)$$
-
-\item Additivity: If $X=\coprod_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}_n(X_i)\cong\widetilde{h}_n(X)$$ is an isomorphism
-\end{itemize}
-\end{defn}
-
-\begin{lmm}{}{} Let $\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$ be a reduced homology theory. Then $$\widetilde{h}_n(\ast)=0$$
-\end{lmm}
-
-\begin{thm}{}{} Let $h_n:\bold{CW}^2\to\bold{Ab}$ be a generalized homology theory for CW complexes. Define a collection of functors $$\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$$ by $(X,x_0)\mapsto\widetilde{h}_n(X,x_0)=h_n(X,\{x_0\})$. Then  $\widetilde{h}_n$ defines a reduced homology theory for CW complexes. 
-\end{thm}
-
-\begin{thm}{}{} Let $\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$ be a reduced homology theory for CW complexes. Define a collection of functors $$\widetilde{h}_n:\bold{CW}^2\to\bold{Ab}$$ by $(X,A)\mapsto\widetilde{h}_n(X/A,\ast=A)$ and a collection of natural transformations $$\delta_n:h_n(X,Y)\to(Y,\emptyset)$$ by ??? Then $h_n$ and $\delta_n$ defines a generalized homology theory for CW complexes. 
-\end{thm}
-
-\begin{thm}{}{} Any generalized homology theory for CW complexes determines and is determined by a reduced homology theory for CW complexes. 
-\end{thm}
-
-We have now showed that reduced homology theory and generalized homology theory for CW complexes really are the same thing: $$\substack{\text{Reduced Homology Theory}\\\text{for CW Complexes}}\overset{1:1}{\longleftrightarrow}\substack{\text{Generalized Homology Theory}\\\text{for CW Complexes}}$$ Let us now show the same for homology theories for spaces in general and moreover, establish such a relation between spaces and CW complexes. 
-
-\begin{defn}{Reduced Homology Theory for Spaces}{} A reduced Homology Theory for spaces is a collection of functors $$\widetilde{h}_n:\bold{Top}_\ast\to\bold{Ab}$$ that the above axioms (Homotopy Invariance, Exactness, Suspension, Additivity) and the following: 
-\begin{itemize}
-\item Weak Equivalences: If $f:(X,x_0)\to(Y,y_0)$ is a weak equivalence then $$f_\ast:\widetilde{h}_n(X,x_0)\to\widetilde{h}_n(Y,y_0)$$ is an isomorphism for all $n$. 
-\end{itemize}
-\end{defn}
-
-\begin{thm}{}{} Any reduced homology theory for spaces determines and is determined by a reduced homology theory on spaces. 
-\end{thm}
-
-\begin{thm}{}{} Any reduced homology theory for spaces determines and is determined by a generalized homology theory on spaces. 
-\end{thm}
-
-Thus we have showed that under the conditions of all the given axioms of all such homology theories, we really just have the same thing: $$\substack{\text{Generalized  Homology Theory}\\\text{for Spaces}}\overset{1:1}{\longleftrightarrow}\substack{\text{Reduced Homology Theory}\\\text{for Spaces}}\overset{1:1}{\longleftrightarrow}\substack{\text{Reduced Homology Theory}\\\text{for CW Complexes}}\overset{1:1}{\longleftrightarrow}\substack{\text{Generalized Homology Theory}\\\text{for CW Complexes}}$$ We once again note that such a bijection is only possible when we introduce the weak equivalence axiom for homology theories on spaces. Such an axiom in fact restricts the amount of valid homology theories, but it is only through this axiom that we can declare all such homology theories are essentially determined by one another. \\~\\
-
-Some authors indeed does not require the weak equivalence axiom to exist. In such cases the bijection between generalized homology theories and reduced homology theories can be constructed, but there is no passage between homology of CW complexes and homology of spaces in general. 
-
-\subsection{Cohomology Theories}
-\begin{defn}{Generalized Cohomology Theory for CW Pairs}{} A Generalized cohomology theory is a collection of contravariant functors $$h^n:\bold{CW}_2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n(A,\emptyset)\to h^{n+1}(X,A)$$ satisfying the following. 
-\begin{itemize}
-\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h^n(f)=h^n(g):h^n(X,A)\to h^n(Y,B)$$
-\item Exactness: If $X$ is a CW-complex and $A\subseteq X$, then there is a short exact sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {h^n(X/A)} & {h^n(X)} & {h^n(A)} & {h^{n+1}(X/A)} & {h^{n+1}(X)} & \cdots
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow["{\partial_n}", from=1-4, to=1-5]
-	\arrow[from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-\end{tikzcd}}\\~\\
-\item Additivity: If $(X,A)=\coprod_{i\in I}(X_i,A_i)$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}h^n(X_i,A_i)\cong h^n(X,A)$$ is an isomorphism
-\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then $$h^n(X\setminus E,A\setminus E)\cong h^n(X,A)$$ induced by the inclusion map
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Generalized Cohomology Theory}{} A Generalized cohomology theory is a collection of contravariant functors $$h^n:\bold{Top}_2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n(A,\emptyset)\to h^{n+1}(X,A)$$ satisfying the above first four axioms and the following. 
-\begin{itemize}
-\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h^n(Y,B)\to h^n(X,A)$$ is an isomorphism. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Reduced Cohomology Theory for CW Pairs}{} A reduced cohomology theory is a collection of contravariant functors $$\widetilde{h}^n:\bold{CW}\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:\widetilde{h}^n(A,\emptyset)\to\widetilde{h}^{n+1}(X,A)$$ satisfying the following. 
-\begin{itemize}
-\item Homotopy Invariance: If $f\simeq g:X\to Y$ then $$\widetilde{h}^n(f)=\widetilde{h}^n(g):\widetilde{h}^n(X)\to\widetilde{h}^n(Y)$$
-\item Exactness: There exists a short exact sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {\widetilde{h}^n(X,A)} & {\widetilde{h}^n(X)} & {\widetilde{h}^n(A)} & {\widetilde{h}^{n+1}(X,A)} & {\widetilde{h}^{n+1}(X)} & \cdots
-	\arrow[from=1-1, to=1-2]
-	\arrow["\widetilde{h}_n(\pi)", from=1-2, to=1-3]
-	\arrow["\widetilde{h}_n(\iota)", from=1-3, to=1-4]
-	\arrow["{\delta_n}", from=1-4, to=1-5]
-	\arrow["\widetilde{h}_{n+1}(\pi)", from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-\end{tikzcd}}\\~\\
-where $\iota:A\to X$ is the inclusion and $\pi:X\to X/A$ is the projection. 
-\item Additivity: If $X=\coprod_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}^n(X_i)\cong\widetilde{h}^n(X)$$ is an isomorphism
-\end{itemize}
-\end{defn}
-
-\begin{lmm}{}{} Let $\widetilde{h}_n:\bold{CW}\to\bold{Ab}$ be a reduced homology theory. Then $$\widetilde{h}_n(\ast)=0$$
-\end{lmm}
-
-\begin{prp}{}{} Let $\widetilde{h}^n:\bold{CW}\to\bold{Ab}$ be a reduced cohomology theory. Then there is a natural isomorphism $$\widetilde{h}_{n+1}(\Sigma X)=\widetilde{h}_n(X)$$
-\end{prp}
-
-TBA: Unreduced = reduced. 
 
 
 
