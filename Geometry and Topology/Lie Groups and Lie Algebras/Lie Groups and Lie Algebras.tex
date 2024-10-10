@@ -85,30 +85,48 @@ It is clear from definitions that every ideal of a Lie algebra is a Lie subalgeb
 \begin{itemize}
 \item The intersection $I\cap J$
 \item The sum $I+J=\{i+j\;|\;i\in I\text{ and }j\in J\}$
-\item The Lie bracket $[I,J]=\langle[i,j]\;|\;i\in I\text{ and }j\in J\rangle$
 \end{itemize}
 \end{prp}
 
-\begin{prp}{}{} Let $V$ be a Lie algebra over $K$ and $U$ an ideal of $V$. Then $V/U$ has a unique Lie algebra structure such that the quotient map $V\to V/U$ is a Lie algebra homomorphism. 
-\end{prp}
-
-\begin{defn}{Center}{} Let $L$ be a Lie algebra. Define the center of $L$ by $$Z(L)=\{z\in L\;|\;[z,x]=0\text{ for all }x\in L\}$$
+\begin{defn}{The Lie Bracket}{} Let $V$ be a Lie algebra. Let $I,J$ be ideals of $V$. Define the Lie bracket of $I$ and $J$ to be $$[I,J]=\langle[i,j]\;|\;i\in I\text{ and }j\in J\rangle$$
 \end{defn}
 
-\begin{lmm}{}{} Let $L$ be a Lie algebra. Then $Z(L)$ is an ideal of $L$. 
+\begin{lmm}{}{} Let $V$ be a Lie algebra. Let $I,J$ be ideals of $V$. Then the Lie bracket $[I,J]$ is an ideal of $V$. 
 \end{lmm}
 
+\subsection{Products and Quotients of Lie Algebras}
 \begin{defn}{Direct Sum of Lie Algebras}{} Let $L_1$ and $L_2$ be Lie algebras. Define the direct sum of $L_1$ and $L_2$ by $$L_1\oplus L_2=\{(a_1,a_2)\;|\;a_1\in L_1,a_2\in L_2\}$$ together with component wise addition and scalar multiplication and Lie bracket operation $$[(a_1,a_2),(b_1,b_2)]=([a_1,b_1],[a_2,b_2])$$ which is component wise application of the Lie bracket for $(a_1,a_2),(b_1,b_2)\in L_1\oplus L_2$. 
 \end{defn}
 
 \begin{prp}{}{} Let $L_1$ and $L_2$ be Lie algebras. Then the following are true. 
 \begin{itemize}
 \item $[L_1\oplus L_2,L_1\oplus L_2]=[L_1,L_1]\oplus[L_2,L_2]$
-\item $Z(L_1\oplus L_2)=Z(L_1)\oplus Z(L_2)$
 \item $\{(x,0)\;|\;x\in L_1\}\cong L_1$ is an ideal of $L_1\oplus L_2$
 \item $\{(0,y)\;|\;y\in L_2\}\cong L_2$ is an ideal of $L_1\oplus L_2$
 \end{itemize}
 \end{prp}
+
+\begin{prp}{}{} Let $V$ be a Lie algebra over $K$ and $U$ an ideal of $V$. Then $V/U$ has a unique Lie algebra structure such that the quotient map $V\to V/U$ is a Lie algebra homomorphism. 
+\end{prp}
+
+\subsection{The Center of a Lie Algebra}
+\begin{defn}{Center of a Lie Algebra}{} Let $L$ be a Lie algebra. Define the center of $L$ by $$Z(L)=\{z\in L\;|\;[z,x]=0\text{ for all }x\in L\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Then $Z(L)$ is an ideal of $L$. 
+\end{lmm}
+
+\begin{prp}{}{} Let $L_1,L_2$ be Lie algebras over the same field $K$. Then $$Z(L_1\oplus L_2)=Z(L_1)\oplus Z(L_2)$$
+\end{prp}
+
+\begin{defn}{The Adjoint Homomorphism}{} Let $V$ be a Lie algebra. Define the adjoint homomorphism $\text{ad}:V\to GL(V)$ to be the map given by $$\text{ad}(x)(y)=[x,y]$$
+\end{defn}
+
+\begin{lmm}{}{} Let $V$ be a Lie algebra. Then then the adjoint homomorphism $\text{ad}:V\to GL(V)$ is a Lie algebra homomorphism. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $V$ be a Lie algebra. Then the kernel of the adjoint homomorphism is equal to $$\ker(\text{ad})=Z(V)$$ the center of $V$. 
+\end{lmm}
 
 \subsection{The Isomorphism Theorems}
 \begin{thm}{First Isomorphism Theorem}{} Let $\phi:L_1\to L_2$ be a homomorphism of Lie algebras. Then the following are true. 
@@ -139,6 +157,22 @@ Moreover, we have an isomorphism $$\frac{I+J}{J}\cong\frac{I}{I\cap J}$$
 
 \subsection{Soluble Lie Algebras}
 Let $L$ be a Lie algebra. We have seen that $\text{rad}(L)$ is soluble and $L/\text{rad}(L)$ is semisimple. Therefore to study a general Lie algebra, we need to understand soluble Lie algebras and semisimple Lie algebras. If we restrict the case to Lie algebras over $\C$, Lie's theorem will solve the first part of the problem, while the study of semisimple Lie algebras is postponed until section 5. 
+
+\begin{defn}{Abelian Lie Algebras}{} Let $(L,[-,-])$ be a Lie algebra. We say that $L$ is abelian if $$[x,y]=0$$ for all $x,y\in L$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Let $I$ be an ideal of $L$. Then $L/I$ is abelian if and only if $[L,L]\subseteq I$
+\end{lmm}
+
+\begin{crl}{}{} Let $L$ be a Lie algebra. Then the smallest ideal $I$ such that $L/I$ is abelian is given by $$I=[L,L]$$
+\end{crl}
+
+\begin{defn}{Derived Series}{} Let $L$ be a Lie algebra. Define the derived series $L^{(n)}$ of $L$ to be the sequence recursively defined as follows. 
+\begin{itemize}
+\item For $n=0$, define $L^{(0)}=L$
+\item When $n\in\N\setminus\{0\}$, define $$L^{(n)}=[L^{(n-1)},L^{(n-1)}]$$
+\end{itemize}
+\end{defn}
 
 \begin{thm}{Lie's Theorem}{} Let $V$ be a vector space over $\C$. Let $L$ be a soluble Lie subalgebra of $GL(V)$. Then there exists a basis $B$ of $V$ such that for all $M\in L$, $M$ is upper triangular. 
 \end{thm}
@@ -178,7 +212,12 @@ Recall that given a homomorphism of Lie groups $\phi:G\to H$, it induces a diffe
 \section{Root Systems}
 
 \pagebreak
-\section{Representation of Lie Algebras}
+\section{Representation Theory of Lie Algebras}
+\begin{defn}{Representations of a Lie Algebra}{} Let $L$ be a Lie algebra. Let $V$ be a vector space. A representation of $L$ is a Lie algebra homomorphism $$\rho:L\to GL(V)$$
+\end{defn}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Then the adjoint homomorphism $$\text{ad}:L\to GL(L)$$ is a representation of $L$. 
+\end{lmm}
 
 \pagebreak
 \section{Classification of Semisimple Lie Algebras over $\C$}

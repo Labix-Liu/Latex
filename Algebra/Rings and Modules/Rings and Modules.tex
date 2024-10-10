@@ -57,7 +57,7 @@ Moreover, we have an isomorphism $$\frac{A+B}{B}\cong\frac{A}{A\cap B}$$ in ring
 \begin{thm}{The Third Isomorphism Theorem for Rings}{} Let $I,J$ be ideals of $R$ with $I\subset J$. Then $J/I$ is an ideal of $R/I$ and $(R/I)/(J/I)\cong R/J$
 \end{thm}
 
-\begin{thm}{The Fourth Isomorphism Theorem for Rings}{} Let $I$ be an ideal of $R$. The correspondence between $A$ and $A/I$ is an inclusion preserving bijection between the set of subrings $A$ of $R$ that contain $I$ and the set of subrings of $R/I$. Furthermore, $A$ is an ideal of $R$ if and only if $A/I$ is an ideal of $R/I$. 
+\begin{thm}{The Correspondence Theorem}{} Let $R$ be a ring. Let $I$ be a left ideal of $R$. Then there is an inclusion preserving one-to-one bijection $$\left\{\substack{\text{Subrings of }R\\\text{containing }I}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\text{Subrings of }R/I\right\}$$ induced by the surjective ring homomorphism $\varphi:R\to R/I$. Moreover, there is an inclusion preserving one-to-one bijection $$\left\{\substack{\text{Ideals of }R\\\text{containing }I}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\text{Ideals of }R/I\right\}$$ given by the map $A\mapsto A/I$ for $A$ an ideal of $R$ containing $I$. 
 \end{thm}
 
 \subsection{Chinese Remainder Theorem}
@@ -383,6 +383,15 @@ Suppose that this is false. Then there exists $q\in Q$ such that $q$ is not a li
 This concludes the proof. 
 \end{proof}
 \end{thm}
+
+While free modules mimic the notion of a vector space, finitely generated modules mirror the notion of finite dimensional vector spaces. 
+
+\begin{defn}{Finitely Generated Modules}{} Let $R$ be a ring. Let $M$ be a left $R$-module. We say that $M$ is finitely generated if there is an isomorphism $$M=\bigoplus_{k=1}^nR$$ for some $n\in\N$. In other words, $M$ is a free module with finite basis. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Then $M$ is finitely generated if and only if there is an isomorphism $$M=\frac{R^n}{I}$$ for some ideal $I$ of $R^n$. 
+\end{prp}
+
 \subsection{Tensor Products of Modules}
 \begin{defn}{Tensor Product of Modules}{} Let $R$ be a ring. Let $A,B$ be $R$-modules. The tensor product of $A$ and $B$ over $R$ is an $R$-module $$A\otimes_R B$$ together with an $R$-bilinear map $\phi:A\times B\to A\otimes_RB$ such that for any other $R$-bilinear map $\psi:A\times B\to C$, there is a unique $R$-linear map $\theta:A\otimes_RB\to C$ such that $\psi=\theta\circ\phi$. In other words, the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -523,9 +532,6 @@ If $R$ is a division ring, then every left $R$-module has basis by theorem 2.6.5
 Consider the homomorphism $\pi:R\to M$ defined by $\pi(r)=rx$. Then $\ker(\pi)=0$ otherwise there would be a linear dependency on the basis element $x$. Since $\im(\pi)$ is a non-zero submodule of $M$, a simple module, $\im(\pi)=M$. By the first isomorphism theorem, $M\cong R$ as left $R$-modules. By lemma 2.4.3, we have an isomorphism $$\text{End}_R(M)\cong\text{End}_R(R)\cong R$$ of rings. By Schur's lemma II, we have that $\text{End}_R(M)\cong R$ is a division ring. 
 \end{proof}
 \end{thm}
-
-\pagebreak
-\section{Changing the Base Ring of a Module}
 
 \pagebreak
 \section{Algebras over a Ring}
@@ -760,7 +766,7 @@ If $N$ is cosimple then $M/N$ has no non-trivial submodules. By the corresponden
 \begin{defn}{Radical}{} Let $M$ be an $R$-module. Define the radical of $M$ to be the intersection $$\text{rad}(M)=\bigcap_{\substack{S\leq M\\S\text{ is cosimple }}}S$$ of all cosimple submodules of $M$. 
 \end{defn}
 
-\subsection{The Nilradical Ideal}
+\subsection{Nilpotent Elements}
 \begin{defn}{Nilpotents}{} Let $R$ be a ring. An element $x\in R$ is said to be nilpotent if $x^n=0$ for some $n\in\N$. 
 \end{defn}
 
@@ -791,7 +797,7 @@ Suppose that $I^n=0$ and $J^m=0$. For any $x_i\in I$ and $y_j\in J$, we have tha
 \end{proof}
 \end{prp}
 
-\subsection{Annihilator}
+\subsection{The Annihilator of an Element}
 \begin{defn}{Annihilators}{} Let $R$ be a ring and $M$ an $R$-module. Let $m\in M$. Define the annihilator of $m$ to be $$\text{Ann}_R(m)=\{r\in R\;|\;rm=0\}$$ Define the annihilator of $M$ to be $$\text{Ann}_R(M)=\{r\in R\;|\;rm=0\text{ for all }m\in M\}$$ Right annihilators are defined similarly. 
 \end{defn}
 

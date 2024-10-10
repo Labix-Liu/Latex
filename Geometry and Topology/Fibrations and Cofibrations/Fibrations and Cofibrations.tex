@@ -1,0 +1,473 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Fiber Bundles}
+\rfoot{\thepage}
+
+\title{Fiber Bundles}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\begin{itemize}
+\item Notes on Algebraic Topology by Oscar Randal-Williams
+\end{itemize}
+\end{abstract}
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{A Convenient Category of Spaces}
+Reason: 
+\begin{itemize}
+\item Want $-\wedge-$ associative and unital and commutative (so that the category is symmetric monoidal)
+\item Want adjunction $-\times X$ and $\Hom_{\mC}(X,-)$ (non pointed)
+\item Want adjunction $-\wedge X$ and $\text{Map}_\ast(X,-)$ (pointed) (Intuitively, $X\wedge Y$ represents maps from $X\times Y$ that are base point preserving separately in each variable)
+\end{itemize}
+
+
+\subsection{Compactly Generated Spaces}
+\begin{defn}{Compactly Generated Spaces}{} Let $X$ be a space. We say that $X$ is compactly generated ($k$-space) if for every set $A\subseteq X$, $A$ is open if and only if $A\cap K$ is open in $K$ for every compact subspace $K\subseteq X$. 
+\end{defn}
+
+\begin{defn}{Category of Compactly Generated Spaces}{} Define the category of compactly generated spaces $\bold{CG}$ to be the full subcategory of $\bold{Top}$ consisting of spaces that are compactly generated. In other words, $\bold{CG}$ consists of the following data: 
+\begin{itemize}
+\item $\text{Obj}(\bold{CG})$ consists of all spaces that are compactly generated. 
+\item For $X,Y\in\text{Obj}(\bold{CG})$, the morphisms are $$\Hom_{\bold{CG}}(X,Y)=\Hom_{\bold{Top}}(X,Y)$$
+\item Association is given by composition of functions. 
+\end{itemize}
+Define similarly the category of pointed compactly generated spaces $\bold{CG}_\ast$. 
+\end{defn}
+
+\begin{defn}{New $k$-space from Old}{} Let $X$ be a space. Define $k(X)$ to be the set $X$ together with the topology defined as follows: $A\subseteq X$ is open if and only if $A\cap K$ is open in $K$ for every compact subspace $K\subseteq X$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a space. Then $k(X)$ is a compactly generated space. 
+\end{lmm}
+
+Unfortunately $X\times Y$ may not be compactly generated even when $X$ and $Y$ are. But as it turns out, products do exists in $\bold{CG}$ and are given by $X\times_{\bold{CG}}Y=k(X\times_{\bold{Top}} Y)$. 
+
+\begin{prp}{}{} Let $X,Y$ be compactly generated spaces. Then the categorical product of $X$ and $Y$ in the category of compactly generated spaces is given by $$X\times_{\bold{CG}}Y=k(X\times_{\bold{Top}} Y)$$
+\end{prp}
+
+\begin{prp}{}{} Every CW complex is compactly generated. 
+\end{prp}
+
+\begin{defn}{Category of Compactly Generated and Weakly Hausdorff Spaces}{} Define the category of compactly generated and weakly Hausdorff spaces $\bold{CGWH}$ to be the full subcategory of $\bold{Top}$ consisting of spaces that are compactly generated and weakly Hausdorff. In other words, $\bold{CGWH}$ consists of the following data: 
+\begin{itemize}
+\item $\text{Obj}(\bold{CGWH})$ consists of all spaces that are compactly generated and weakly Hausdorff. 
+\item For $X,Y\in\text{Obj}(\bold{CGWH})$, the morphisms are $$\Hom_{\bold{CGWH}}(X,Y)=\Hom_{\bold{Top}}(X,Y)$$
+\item Association is given by composition of functions. 
+\end{itemize}
+Define similarly the category of pointed compactly generated spaces $\bold{CGWH}_\ast$. 
+\end{defn}
+
+\begin{prp}{}{} A compactly generated space $X$ is weakly Hausdorff if and only if the diagonal subspace $\Delta=\{(x,x)\;|\;x\in X\}$ is closed in $X\times X$. 
+\end{prp}
+
+\begin{prp}{}{} Product of CGWH is CGWH
+\end{prp}
+
+CGWH is complete and cocomplete
+
+\subsection{The Cartesian Product and the Mapping Space}
+\begin{defn}{The Mapping Space}{} Let $X,Y\in\bold{CG}$. Define the mapping space of $X$ and $Y$ by $$\text{Map}(X,Y)=k(\Hom_{\bold{CG}}(X,Y))$$ where $\Hom_{\bold{CG}}(X,Y)$ is equipped with the compact open topology. If $(X,x_0)$ and $(Y,y_0)$ are pointed spaces, define the mapping space to be $$\text{Map}_\ast((X,x_0),(Y,y_0))=k(\Hom_{\bold{CG}}((X,x_0),(Y,y_0)))$$
+\end{defn}
+
+By restricting to also weakly Hausdorff spaces, we obtain an adjunction. 
+
+\begin{thm}{}{} Let $X,Y,Z\in\bold{CGWH}$. Then the functors $-\times_{\bold{CGWH}}Y:\bold{CGWH}\to\bold{CGWH}$ and $\text{Map}(Y,-):\bold{CGWH}\to\bold{CGWH}$ are adjoint functors with the adjunction formula $$\Hom_{\bold{CGWH}}(X\times_{\bold{CGWH}}Y,Z)\cong\Hom_{\bold{CGWH}}(X,\text{Map}(Y,Z))$$ Moreover, by giving the Hom set the compact open topology and applying $k$, we obtain an isomorphism $$\text{Map}(X\times_{\bold{CGWH}}Y,Z)\cong\text{Map}(X,\text{Map}(Y,Z))$$
+\end{thm}
+
+\subsection{The Smash Product and the Pointed Mapping Space}
+Aside from the adjunction between the product space and the mapping space, another major reason one considers compactly generated spaces is that the smash product gives another adjunction. 
+
+\begin{defn}{The Smash Product}{} Let $(X,x_0)$ and $(Y,y_0)$ be pointed topological spaces. Define the smash product of the two pointed spaces to be the pointed space $$X\wedge Y=\frac{X\times Y}{X\vee Y}$$ together with the point $(x_0,y_0)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X,Y,Z$ be compactly generated spaces with a chosen base point. Then the following are true. 
+\begin{itemize}
+\item $(X\wedge Y)\wedge Z\cong X\wedge(Y\wedge Z)$
+\item $X\wedge Y\cong Y\wedge X$
+\end{itemize}
+\end{prp}
+
+\begin{thm}{}{} The category $\bold{CG}$ of compactly generated spaces is a symmetric monoidal category with operator the smash product $\wedge:\bold{CG}\times\bold{CG}\to\bold{CG}$ and the unit $S^0$. 
+\end{thm}
+
+Note that this is not true if we do not restrict the spaces to the category of compactly generated spaces. 
+
+\begin{lmm}{}{} Let $X$ be a pointed space. Then the reduced suspension and the smash product with the circle $$\Sigma X\cong X\wedge S^1$$ are homeomorphic spaces. 
+\end{lmm}
+
+\begin{thm}{}{} Let $X,Y,Z$ be compactly generated with a chosen basepoint. Then the functors $-\wedge Y:\mK_\ast\to\mK_\ast$ and $\text{Map}_\ast(Y,-):\mK_\ast\to\mK_\ast$ are adjoint functors with the adjunction formula $$\Hom_{\mK_\ast}(X\wedge Y,Z)\cong\Hom_{\mK_\ast}(X,\text{Map}_\ast(Y,Z))$$ Moreover, by giving the Hom set the compact open topology and applying $k$, we obtain an isomorphism $$\text{Map}_\ast(X\wedge Y,Z)\cong\text{Map}_\ast(X,\text{Map}_\ast(Y,Z))$$
+\end{thm}
+
+\begin{crl}{}{} Let $X$ be a compactly generated space with a chosen basepoint. Then there is a natural homeomorphism $$\text{Map}_\ast(\Sigma X,Y)\cong\text{Map}_\ast(X,k(\Omega Y))$$ given by adjunction of the functors $-\wedge S^1:\mK_\ast\to\mK_\ast$ and $\text{Map}_\ast(S^1,-):\mK_\ast\to\mK_\ast$. 
+\end{crl}
+
+\subsection{The Mapping Cylinder and the Mapping Path Space}
+Equipped with the Cartesian closed structure in $\bold{CG}$ together with a canonical topology on the mapping space $Y^X$, we can now talk about the duality between the mapping cylinder and the mapping path space. 
+
+\begin{defn}{Mapping Cylinder}{} Let $X,Y$ be spaces and let $f:X\to Y$ a map. Define the mapping cylinder of $f$ to be $$M_f=\frac{(X\times I)\amalg Y}{(x,0)\sim f(x)}=(X\times I)\amalg_fY$$ for $f:X\times\{1\}\cong X\to Y$ together with the quotient topology. It is the push forward of $f$ and the inclusion map $i_0:X\cong X\times\{0\}\hookrightarrow X\times I$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a map. Then $Y$ is a deformation retract of $M_f$. 
+\end{lmm}
+
+\begin{defn}{The Mapping Path Space}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a map. Define the map $\pi_0:\text{Map}(I,Y)\to Y$ by $\pi_0(\phi)=\phi(0)$. Define the mapping path space to be $$P_f=f^\ast(\text{Map}(I,Y))=\{(x,\phi)\subseteq X\times\text{Map}(I,Y)\;|\;f(x)=\pi_0(\phi)=\phi(0)\}$$ It is the pull back of $f$ and $\pi_0$ in $\bold{CG}$. 
+\end{defn}
+
+\pagebreak
+\section{Fibrations and Cofibrations}
+\subsection{Fibers and Cofibers of a Map}
+\begin{defn}{Fibers of a Map}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. Define the fiber of $f$ at $y\in Y$ to be $$\text{Fib}_y(f)=f^{-1}(y)$$
+\end{defn}
+
+\begin{defn}{Cofiber of a Map}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. Define the cofiber of $f$ to be $$\text{Cofib}(f)=\frac{Y}{f(X)}$$
+\end{defn}
+
+Unfortunately for most maps, there fibers are not homeomorphic, and not even homotopy equivalent. There are two ways to proceed from here. We first try to find a set of maps in which all fibers are homotopy equivalent. This is the content of this section. Otherwise, we try and define a new notion of fiber so that we obtain homotopy equivalence. This is the content of the next section. 
+
+\subsection{Fibrations and The Homotopy Lifting Property}
+\begin{defn}{The Homotopy Lifting Property}{} Let $p:E\to B$ be a map and let $X$ be a space. We say that $p$ has the homotopy lifting property with respect to $X$ if for every homotopy $H:X\times I\to B$ and a lift $\widetilde{H(-,0)}:X\to E$ of $H(-,0)$, there exists a homotopy $\widetilde{H}:X\times I\to E$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X\times\{0\}} && E \\
+	\\
+	{X\times I} && B
+	\arrow["H"', from=3-1, to=3-3]
+	\arrow["{\exists\widetilde{H}}"{description}, dashed, from=3-1, to=1-3]
+	\arrow["p", from=1-3, to=3-3]
+	\arrow["\iota"', hook, from=1-1, to=3-1]
+	\arrow["{\widetilde{H(-,0)}}", from=1-1, to=1-3]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{defn}{Fibrations}{} We say that a map $p:E\to B$ is a fibration if it has the homotopy lifting property with respect to all topological spaces $X$. We call $B$ the base space and $E$ the total space. 
+\end{defn}
+
+Recall that we defined the mapping path space to be $$P_f=f^\ast(Y^I)=\{(x,\phi)\subseteq X\times Y^I\;|\;f(x)=\pi(\phi)=\phi(1)\}$$ where $\pi:Y^I\to Y$ is defined as $\pi(\phi)=\phi(1)$. We can factorize any continuous map into a fibration and a homotopy equivalence through the mapping path space. Because we are working with the mapping path space here, we need to restrict our attention to compactly generated space. 
+
+\begin{thm}{}{} Let $f:X\to Y$ be a map with $Y$ compactly generated. Then $\pi:P_f\to Y$ defined by $\pi(x,\phi)=\phi(1)$ is a fibration. Moreover, there exists a homotopy equivalence $h:X\to P_f$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X && Y \\
+	& {P_f}
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["{\exists h}"', dashed, from=1-1, to=2-2]
+	\arrow["\pi"', from=2-2, to=1-3]
+\end{tikzcd}}
+\end{thm}
+
+\subsection{Cofibrations and The Homotopy Extension Property}
+\begin{defn}{The Homotopy Extension Property}{} Let $i:A\to X$ be a map and let $Y$ be a space. Denote $i_0$ the inclusion map $A\times\{0\}\hookrightarrow A\times I$. We say that $i$ has the homotopy extension property with respect to $Y$ if for every homotopy $H:A\times I\to Y$ and every map $f:X\to Y$ such that $$H\circ i_0=f\circ i$$ there exists a homotopy $\widetilde{H}:X\times I\to Y$ such that the following diagram commute: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{A\times\{0\}} && {A\times I} \\
+	& Y \\
+	{X\times\{0\}} && {X\times I}
+	\arrow["{i_0}", hook, from=1-1, to=1-3]
+	\arrow["i"', from=1-1, to=3-1]
+	\arrow["H"', from=1-3, to=2-2]
+	\arrow["{i\times\text{id}}", from=1-3, to=3-3]
+	\arrow["f", from=3-1, to=2-2]
+	\arrow[hook, from=3-1, to=3-3]
+	\arrow["{\exists\widetilde{H}}"', dashed, from=3-3, to=2-2]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+The reason we had the entire digression on compactly generated spaces is because cofibrations can be redefined as a Eckmann-Hilton dual in the following form. 
+
+\begin{lmm}{}{} Let $X,Y$ be compactly generated. Let $i:A\to X$ be a map and let $Y$ be a space. Denote $\pi_0:Y^I\to Y$ to be the map $(\gamma:I\to Y)\mapsto\gamma(0)$ Then $i$ has the homotopy extension property with respect to $Y$ if and only if for all maps $f:X\to Y$ and $F:A\to Y^I$, there exists a map $\widetilde{F}:X\to Y^I$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	A & {Y^I} \\
+	X & Y
+	\arrow["F", from=1-1, to=1-2]
+	\arrow["i"', from=1-1, to=2-1]
+	\arrow["{\pi_0}", from=1-2, to=2-2]
+	\arrow["{\widetilde{F}}"{description}, dashed, from=2-1, to=1-2]
+	\arrow["f"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{lmm}
+
+\begin{defn}{Cofibrations}{} We say that a map $i:A\to X$ is a cofibration if it has the homotopy extension property for all spaces $Y$. 
+\end{defn}
+
+\begin{defn}{Pullbacks of a Cofibration}{} Let $i:A\to X$ be a cofibration and let $g:A\to C$ be a map. Define the pullback of $i$ by $g$ to be $$f_\ast(X)=\frac{X\amalg C}{i(a)\sim g(a)}$$ together with the inclusion map $i_f:X\to f_\ast(X)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $i:A\to X$ be a cofibration and let $g:A\to C$ be a map. Then the map $C\to f^\ast(X)$ is a cofibration. Moreover, the following diagram commutes: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	A & C \\
+	X & {f_\ast(X)}
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["i"', from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["{i_f}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+where the map $C\to f_\ast(X)$ is the inclusion map. 
+\end{prp}
+
+Dual to the factorization of the mapping path space, we can factorize a map into a homotopy equivalence and a cofibration through the mapping cylinder $$M_f=\frac{(X\times I)\amalg Y}{(x,0)\sim f(x)}=(X\times I)\amalg_fY$$
+
+\begin{thm}{}{} Let $f:A\to X$ be a map. Then the inclusion map $i:A\to M_f$ defined by $i(a)=[a,0]$ is a cofibration. Moreover, there exists a homotopy equivalence $h:M_f\to X$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	A && X \\
+	& {M_f}
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["i"', from=1-1, to=2-2]
+	\arrow["{\exists h}"', dashed, from=2-2, to=1-3]
+\end{tikzcd}}
+\end{thm}
+
+\subsection{Basic Properties of Fibrations and Cofibrations}
+\begin{prp}{}{} Let $X_1,X_2,Y,_1,Y_2\in\bold{CGWH}$. Let $p_1:X_1\to Y_1$ and $p_2:X_2\to Y_2$ be maps. Then the following are true. 
+\begin{itemize}
+\item If $p_1$ and $p_2$ are fibrations then $p_1\times p_2:X_1\times X_2\to Y_1\times Y_2$ is a fibration. 
+\item If $p_1$ and $p_2$ are cofibrations then $p_1\coprod p_2:X_1\coprod X_2\to Y_1\coprod Y_2$ is a cofibration. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y\in\bold{CGWH}$. For any $x_0\in X$, the map $$\text{ev}_{x_0}:\text{Map}(X,Y)\to Y$$ defined by $\text{ev}_{x_0}(f)=f(x_0)$ is a fibration. 
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$. Let $f:X\to Y$ be a map. 
+\begin{itemize}
+\item Let $f$ be a fibration. Consider the following lifting problem: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{Z\times\{0\}} & X \\
+	{Z\times I} & Y
+	\arrow["g", from=1-1, to=1-2]
+	\arrow["{i_0}"', hook, from=1-1, to=2-1]
+	\arrow["f", from=1-2, to=2-2]
+	\arrow[dashed, from=2-1, to=1-2]
+	\arrow["h"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+If $h_0$ and $h_1$ are both solutions to the lifting problem, then $h_0$ and $h_1$ are homotopic relative to $Z\times\{0\}$. 
+\item Let $f$ be a cofibration. Consider the following extension problem: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X & {Z\times\{0\}} \\
+	Y & {Z\times I}
+	\arrow["g", from=1-1, to=1-2]
+	\arrow["f"', from=1-1, to=2-1]
+	\arrow["{\text{ev}_0}", hook, from=1-2, to=2-2]
+	\arrow[dashed, from=2-1, to=1-2]
+	\arrow["h"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+If $h_0$ and $h_1$ are both solutions to the extension problem, then $h_0$ and $h_1$ are homotopic relative to $Z$. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$. Let $f:X\to Y$ be a map. Then the following are true. 
+\begin{itemize}
+\item If $f$ is a fibration, then the induced map $$f_\ast:\text{Map}(Z,X)\to\text{Map}(Z,Y)$$ is a fibration. 
+\item If $f$ is a cofibration, then the map $$f\times\text{id}_Z:X\times Z\to Y\times Z$$ is a cofibration. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$. Let $p:X\to Y$ be a map. 
+\begin{itemize}
+\item If $p$ is a fibration and $f:Z\to Y$ is a map, then the pullback $f^\ast(Y)\to Z$ of $p$ and $f$ is a fibration \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{f^\ast(Y)} & X \\
+	Z & Y
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\text{fibration}}"', dashed, from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["f"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\item If $p$ is a cofibration and $g:X\to Z$ is a map, then the push forward $Z\to Z\coprod_XY$ of $p$ and $g$ is a cofibration \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X & Z \\
+	Y & {Z\coprod_XY}
+	\arrow["g", from=1-1, to=1-2]
+	\arrow["p"', from=1-1, to=2-1]
+	\arrow["{\text{cofibration}}", dashed, from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$. Let $p:X\to Y$ be a map. 
+\begin{itemize}
+\item If $p$ is a fibration and $f:Z\to Y$ is a (homotopy) weak equivalence, then the pullback $f^\ast(Y)\to X$ of $p$ and $f$ is a (homotopy) weak equivalence \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{f^\ast(Y)} & X \\
+	Z & Y
+	\arrow["\simeq", dashed, from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["{f,\simeq}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\item If $p$ is a cofibration and $g:X\to Z$ is a (homotopy) weak equivalence, then the push forward $Y\to Z\coprod_XY$ of $p$ and $g$ is a (homotopy) weak equivalence \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X & Z \\
+	Y & {Z\coprod_XY}
+	\arrow["{g, \simeq}", from=1-1, to=1-2]
+	\arrow["p"', from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["\simeq"', dashed, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{itemize}
+\end{prp}
+
+\subsection{Long Exact Sequences from (Co)Fibrations}
+\begin{thm}{Homotopy Long Exact Sequence in Fibration}{} Let $p:E\to B$ be a fibration over a path connected space $B$ with fiber $F$. Let $\iota:F\hookrightarrow E$ be the inclusion of the fiber. Then there is a long exact sequence in homotopy groups: \\~\\
+\adjustbox{scale=0.75,center}{\begin{tikzcd}
+	\cdots & {\pi_{n+1}(B,b_0)} & {\pi_n(F,e_0)} & {\pi_n(E,e_0)} & {\pi_n(B,b_0)} & {\pi_{n-1}(F,e_0)} & \cdots & {\pi_1(E,e_0)} & {\pi_1(B,b_0)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\partial", from=1-2, to=1-3]
+	\arrow["{\iota_\ast}", from=1-3, to=1-4]
+	\arrow["{p_\ast}", from=1-4, to=1-5]
+	\arrow["\partial", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+	\arrow[from=1-7, to=1-8]
+	\arrow["{p_\ast}", from=1-8, to=1-9]
+\end{tikzcd}}\\~\\
+for $e_0\in E$ and $b_0=p(e_0)$. Moreover, $p_\ast$ is an isomorphism. 
+\end{thm}
+
+\begin{thm}{Homology Long Exact Sequence in Cofibration}{} Let $p:X\to Y$ be a cofibration with cofiber $C=\frac{Y}{p(X)}$. Let $\text{proj}:Y\to C$ be the projection map. Then there is a long exact sequence in homology groups: \\~\\
+\adjustbox{scale=0.85,center}{\begin{tikzcd}
+	\cdots & {\widetilde{H}_{n+1}(C)} & {\widetilde{H}_n(X)} & {\widetilde{H}_n(Y)} & {\widetilde{H}_n(C)} & {\widetilde{H}_{n-1}(X} & \cdots & {\widetilde{H}_0(Y)} & {\widetilde{H}_0(B,b_0)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\partial", from=1-2, to=1-3]
+	\arrow["{f_\ast}", from=1-3, to=1-4]
+	\arrow["{\text{proj}_\ast}", from=1-4, to=1-5]
+	\arrow["\partial", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+	\arrow[from=1-7, to=1-8]
+	\arrow["{\text{proj}_\ast}", from=1-8, to=1-9]
+\end{tikzcd}}\\~\\
+\end{thm}
+
+\subsection{(Co)Fibers of a (Co)Fibration are Homotopic}
+The following definition is a supporting notion for our proof that fibers of a fibration are homotopy equivalent. 
+
+\begin{defn}{Induced Map of Fibers}{} Let $p:E\to B$. Let $\gamma:I\to B$ be a path from $b_1$ to $b_2$. Define the induced map of fibers of $\gamma$ as follows: The map $H:E_{b_1}\times I\to B$ defined by $H(x,t)=\gamma(t)$ is a homotopy. Using the HLP of $p$, we obtain a lift: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{E_{b_1}\times\{0\}} & E \\
+	{E_{b_1}\times I} & B
+	\arrow["{\widetilde{H(-,0)}}", hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["{\widetilde{H}}"{description}, dashed, from=2-1, to=1-2]
+	\arrow["H"', from=2-1, to=2-2]
+\end{tikzcd}} \\~\\
+Since $p\circ\widetilde{H}(x,t)=\gamma(t)$, we have that $\widetilde{H}(x,1)\in E_{b_2}$. The induced map of fibers is then the map $$L_\gamma:E_{b_1}\to E_{b_2}$$ defined by $L_\gamma=\widetilde{H(-,1)}$
+\end{defn}
+
+\begin{lmm}{}{} Let $p:E\to B$ be a fibration. Let $\gamma:I\to B$ be a path from $b_1$ to $b_2$. Then the following are true regarding $L_\gamma$. 
+\begin{itemize}
+\item If $\gamma\simeq\gamma'$ relative to boundary, then $L_\gamma\simeq L_{\gamma'}$.
+\item If $\gamma:I\to B$ and $\gamma':I\to B$ are two composable paths, there is a homotopy equivalence $L_{\gamma\cdot\gamma'}\simeq L_{\gamma'}\circ L_\gamma$
+\end{itemize} \tcbline
+\begin{proof}
+\begin{itemize}
+\item Let $F:I\times I\to B$ be a homotopy equivalence from $\gamma$ to $\gamma'$. Now consider the map $G:E_{b_1}\times I\times I\to B$ defined by $G(x,s,t)=F(s,t)$. Notice that $G(x,s,0)=F(s,0)=\gamma(s)$ and $G(x,s,1)=F(s,1)=\gamma'(s)$. Thus, we proceed as above by lifting $G(x,s,0)$ and $G(x,s,1)$ to obtain respectively $\widetilde{G(x,s,0)}$ and $\widetilde{G(x,s,1)}$ for which $\widetilde{G(x,1,0)}=L_\gamma$ and $\widetilde{G(x,1,1)}=L_{\gamma'}$. Now define $K:E_{b_1}\times I\times\partial I\to E$ by $$K(x,s,t)=\begin{cases}
+\widetilde{G(x,s,1)} & \text{ if } t=0\\
+G(x,s,1) & \text{ if } t=1
+\end{cases}$$ We now obtain a homotopy called $\widetilde{G}:E_{b_1}\times I\times I\to E$ by the homotopy lifting property: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{X\times I\times\partial I} & E \\
+	{X\times I\times I} & B
+	\arrow["K", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["\widetilde{G}"{description}, dashed, from=2-1, to=1-2]
+	\arrow["G"', from=2-1, to=2-2]
+\end{tikzcd}} \\~\\
+Now $\tilde{G}(-,1,-):E_b\times I\to E$ is then a homotopy equivalence from $\widetilde{G}(x,1,0)=L_\gamma$ to $\widetilde{G}(x,1,1)=L_{\gamma'}$. 
+\item We can repeat the above construction for $\gamma$ and $\gamma'$ to obtain homotopies $G:E_{b_1}\times I\to E$ and $G':E_{b_1}\times I\to E$ such that when $t=1$ we recover $\tilde{\gamma}$, $\tilde{\gamma'}$ and $\tilde{\gamma\cdot\gamma'}$ respectively. Now the composition of $G$ and $G'$ by traversing along $t\in I$ with twice the speed gives precisely a lift of $\gamma\cdot\gamma'$ (one can check the boundary conditions). Thus $L_{\gamma\cdot\gamma'}$ obtained in this manner coincides up to homotopy equivalence to $L_{\gamma'}\circ L_\gamma$ by invoking part a). 
+\end{itemize}
+\end{proof}
+\end{lmm}
+
+\begin{thm}{}{} Let $p:E\to B$ be a fibration. Let $b_1$ and $b_2$ lie in the same path component of $B$. Then there is a homotopy equivalence $$E_{b_1}\simeq E_{b_2}$$ given by the lift of any path $\gamma:I\to B$ from $b_1$ to $b_2$. \tcbline
+\begin{proof}
+Let $\gamma:I\to B$ be a path from $b_1$ to $b_2$. From the above, it follows that $L_{\overline{\gamma}}\circ L_\gamma\simeq\text{id}_{E_b}$ for any loop $\gamma:I\to B$ with basepoint $b$. We conclude that $L_\gamma$ is a homotopy equivalence and so the fibers of $p:E\to B$ are homotopy equivalent. 
+\end{proof}
+\end{thm}
+
+\subsection{Serre Fibrations}
+\begin{defn}{Serre Fibration}{} We say that a map $p:E\to B$ is a Serre fibration if it has the homotopy lifting property with respect to all CW-complexes. 
+\end{defn}
+
+\begin{lmm}{}{} Every (Hurewicz) fibration is a Serre fibration. \tcbline
+\begin{proof}
+This is true since Hurewicz fibrations satisfies the homotopy lifting property with respect to all topological spaces, including CW complexes. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $p:E\to B$ be a fibration where $B$ is path connected. Let $F$ be the fiber of $p$. Let $b\in B$. Then the map $$\cdot:\pi_1(B)\times E_b\to E_b$$ defined by $[\gamma]\cdot x=L_\gamma(x)$ induces an action of $\pi_1(B)$ on the homology groups $H_\ast(F;G)$ given by $[\gamma]\cdot[z]=(L_\gamma)_\ast([z])$ for any $g\in G$. \tcbline
+\begin{proof}
+Notice first that such a map is well defined by lemma 6.3.3. Associativity follows from the second point of lemma 6.3.3. Identity follows the unique lift of the identity loop $e_b$ that gives $L_{e_b}$ is also the identity. 
+\end{proof}
+\end{prp}
+
+\pagebreak
+\section{Homotopy Fibers and Homotopy Cofibers}
+\subsection{Basic Definitions}
+\begin{defn}{Homotopy Fibers and Cofibers}{} Let $f:X\to Y$ be a map. Define the homotopy fiber of $f$ at $y\in Y$ to be $$\text{hofiber}_y(f)=\{(x,\phi)\in X\times\text{Map}(I,Y)\;|\;f(x)=\phi(0), \phi(1)=y\}$$ Define the homotopy cofiber of $f$ to be $$\text{hocofiber}=\frac{(X\times I)\amalg Y}{(x,1)\sim f(x),(x,0)\sim(x',0)}$$
+\end{defn}
+
+Homotopy fibers are often called the mapping fiber, while homotopy cofibers are often called the mapping cone. \\
+
+TBA: hofiber = pullback $P_f\to Y\leftarrow\ast$ (time $t=1$ and $\ast\mapsto y$). 
+
+\begin{prp}{}{} Let $p:E\to B$ be a fibration. Then the homotopy fibers of $p$ are homotopy equivalent to the fibers of $p$. 
+\end{prp}
+
+Claim: hofiber is fiber of $P_f\to Y$, hocofiber is cofiber of $X\to M_f$. 
+
+\subsection{The Fiber and Cofiber Sequences}
+\begin{defn}{Path Spaces}{} Let $(X,x_0)$ be a pointed space. Define the path space of $(X,x_0)$ to be $$PX=\{\phi:(I,0)\to(X,x_0)\;|\;\phi(0)=x_0\}=\text{Map}_\ast((I,0),(X,x_0))$$ together with the topology of the mapping space. 
+\end{defn}
+
+\begin{thm}{}{} Let $X$ be a space. Then the following are true. 
+\begin{itemize}
+\item The map $\pi:PX\to X$ defined by $\pi(\phi)=\phi(1)$ is a fibration with fiber $\Omega X$
+\item The map $\pi:X^I\to X$ defined by $\pi(\phi)=\phi(1)$ is a fibration with fiber homeomorphic to $PX$. 
+\end{itemize}
+\end{thm}
+
+We now write a fibration as a sequence $F\to E\to B$ for $F$ the fiber of the fibration $p:E\to B$. This compact notation allows the following theorem to be formulated nicely. 
+
+\begin{thm}{}{} Let $f:X\to Y$ be a fibration with homotopy fiber $F_f$. Let $\iota:\Omega Y\to F_f$ be the inclusion map and $\pi:F_f\to X$ the projection map. Then up to homotopy equivalence of spaces, there is a sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {\Omega^2 X} & {\Omega^2Y} & {\Omega F_f} & {\Omega X} & {\Omega_Y} & {F_f} & X & Y
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\Omega^2 f}", from=1-2, to=1-3]
+	\arrow["{-\Omega\iota}", from=1-3, to=1-4]
+	\arrow["{-\Omega\pi}", from=1-4, to=1-5]
+	\arrow["{-\Omega f}", from=1-5, to=1-6]
+	\arrow["\iota", from=1-6, to=1-7]
+	\arrow["\pi", from=1-7, to=1-8]
+	\arrow["f", from=1-8, to=1-9]
+\end{tikzcd}}\\~\\
+where any two consecutive maps form a fibration. Moreover, $-\Omega f:\Omega X\to\Omega Y$ is defined as $$(-\Omega f)(\zeta)(t)=(f\circ\zeta)(1-t)$$ for $\zeta\in\Omega X$. 
+\end{thm}
+
+There is then the dual notion of loop spaces and the corresponding sequence. Write a cofibration $f:A\to X$ with homotopy cofiber $B$ as $B\to A\to X$. 
+
+\begin{thm}{}{} Let $f:X\to Y$ be a cofibration with homotopy cofiber $C_f$. Let $i:Y\to C_f$ be the inclusion map and $\pi:C_f\to C_f/Y\cong\Sigma X$ be the projection map. Then up to homotopy equivalence of spaces, there is a sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & Y & {C_f} & {\Sigma X} & {\Sigma Y} & {\Sigma C_f} & {\Sigma^2X} & {\Sigma^2Y} & \cdots
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["i", from=1-2, to=1-3]
+	\arrow["\pi", from=1-3, to=1-4]
+	\arrow["{-\Sigma f}", from=1-4, to=1-5]
+	\arrow["{-\Sigma i}", from=1-5, to=1-6]
+	\arrow["{-\Sigma\pi}", from=1-6, to=1-7]
+	\arrow["{\Sigma^2 f}", from=1-7, to=1-8]
+	\arrow[from=1-8, to=1-9]
+\end{tikzcd}}\\~\\
+where any two consecutive maps form a cofibration. Moreover, $-\Sigma f:\Sigma X\to\Sigma Y$ is defined by $$(-\Sigma f)(x\wedge t)=f(x)\wedge(1-t)$$
+\end{thm}
+
+\end{document}

@@ -61,7 +61,13 @@ In other words, we have the following commutative diagram: \\
 \end{tikzcd}}
 \end{defn}
 
-Commutative diagram will appear a lot in Algebraic Topology. This is due to the fact that underlying theory of Algebraic Topology is exercised with Category Theory and Homological Algebra. In fact, Category Theory is motivated precisely due to Algebraic Topology. 
+\begin{defn}{The Category of Chain Complexes}{} Define the category of chain complexes $$\bold{Ch}(\Z)$$ to consist of the following data. 
+\begin{itemize}
+\item The objects are the chain complexes
+\item The morphisms are the chain maps
+\item Composition is given by the composition of maps on all levels of the chain map. 
+\end{itemize}
+\end{defn}
 
 \begin{lmm}{}{1.1.4} A chain map $f_\bullet:C_\bullet\to C_\bullet'$ induces group homomorphisms $$f_\ast:H_n(C_\bullet)\to H_n(C_\bullet')$$ between homology groups defined by $f_\ast([z])=[f(z)]$. \tcbline
 \begin{proof}
@@ -91,6 +97,13 @@ Firstly, we have that $$\partial\circ g_n\circ f_n=g_{n-1}\circ\partial\circ f_n
 We have that $g_\ast(f_\ast([z]))=g_\ast([f(z)])=[g(f(z))]=(g_\ast\circ f_\ast)([z])$. Also, we have that $$\text{id}_\ast([z])=[\text{id}(z)]=[z]=\text{id}_{H^n}([z])$$ and so we conclude. 
 \end{proof}
 \end{prp}
+
+\begin{defn}{The Homology Functor}{} Define the homology functors $$H_n(-):\bold{Ch}(\Z)\to\bold{Ab}$$ for each $n$ as follows. 
+\begin{itemize}
+\item For each chain complex $C_\bullet$ over $R$, $H_n(C_\bullet)$ is the $n$th homology group of $C_\bullet$. 
+\item For each chain map $f:C_\bullet\to C_\bullet'$, $$H_n(f):H_n(C_\bullet)\to H_n(C_\bullet')$$ is the induced map on homology. 
+\end{itemize}
+\end{defn}
 
 \subsection{Exact Sequences}
 Exact sequences occur naturally from sequences of chain complexes. In particular, exact sequences with $3$ consecutive non-zero terms is a compact way of saying that certain maps in the chain complex hold the property of being injective and surjective. 
@@ -196,7 +209,14 @@ The following two lemmas are very intuitive and straight forward to remember.
 A\arrow[r, "f"]\arrow[d, "l"] & B\arrow[r, "g"]\arrow[d, "m"] & C\arrow[r, "h"]\arrow[d, "n"] & D\arrow[r, "j"]\arrow[d, "p"] & E\arrow[d, "q"]\\
 A'\arrow[r, "r"] & B'\arrow[r, "s"] & C'\arrow[r, "t"] & D'\arrow[r, "u"] & E'
 \end{tikzcd}}\\~\\
-where all the objects are abelian groups. If the two rows are exact, $m:B\to B',p:D\to D'$ are isomorphisms, $l:A\to A'$ is surjective and $q:E\to E'$ is injective, then $n$ is an isomorphism. \tcbline
+where all the objects are abelian groups. Suppose that the following are true. 
+\begin{itemize}
+\item The two rows are exact
+\item $m:B\to B'$ and $p:D\to D'$ are isomorphisms
+\item $l:A\to A'$ is surjective
+\item $q:E\to E'$ is injective
+\end{itemize}
+Then $n$ is an isomorphism. \tcbline
 \begin{proof}
 For injectivity, \\
 Let $c\in\ker(n)$. Then $n(c)=0$. By commutativity, we have that $$p(h(c))=t(n(c))=t(0)=0$$ Since $p$ is an isomorphism, then $h(c)=0$ and $c\in\ker(h)$. By exactness, we have that $c\in\ker(h)=\im(g)$. Thus there exists $b\in B$ such that $g(b)=c$. Now by commutativity, we have that $$s(m(b))=n(g(b))=n(c)=0$$ so that $m(b)\in\ker(s)$. By exactness, we have that $m(b)\in\ker(s)=\im(r)$. Thus there exists $a'\in A'$ such that $r(a')=m(b)$. By surjectivity of $l$, there exists $a\in A$ such that $l(a)=a'$. By commutativity, we have that $$m(f(a))=r(l(a))=r(a')=m(b)$$ Since $m$ is an isomorphism, $f(a)=b$. Then by exactness, $\ker(g)=\im(f)$ implies $$0=g(f(a))g(b)=c$$ Thus $c=0$ and so $n$ is injective. \\~\\
@@ -219,9 +239,15 @@ where all the objects are abelian groups. If the two rows are exact, then there 
 \end{tikzcd}}\\~\\
 where $d$ is called the connecting homomorphism. \tcbline
 \begin{proof}
-Let $k\in\ker(c)$. By exactness, $g$ is surjective. Thus there exists $l\in B$ such that $g(l)=k$. Then $$g'(b(l))=c(g(l))=c(k)=0$$ which means that $b(l)\in\ker(g')$. By exactness, there exists $m\in A'$ such that $f'(m)=b(l)$ since $\im(f')=\ker(g')$. This $m$ is unique since $f'$ is injective. In particular, $[m]\in\text{coker}(a)$. \\~\\
+We construct the function $d$ as follows. 
+\begin{itemize}
+\item Let $k\in\ker(c)$. 
+\item By exactness, $g$ is surjective. Thus there exists $l\in B$ such that $g(l)=k$. 
+\item But $g'(b(l))=c(g(l))=c(k)=0$ which means that $b(l)\in\ker(g')$. By exactness, there exists $m\in A'$ such that $f'(m)=b(l)$ since $\im(f')=\ker(g')$. This $m$ is unique since $f'$ is injective. In particular, $[m]\in\text{coker}(a)$. 
+\end{itemize}
+We then define $d:\ker(c)\to\coker(a)$ by $d(k)=m$. \\~\\
 
-For uniqueness, suppose that $l'$ is another element in $B$ such that $g(l')=k$. Then $g(l-l')=0$ so that $l-l'\in\ker(g)$. By exactness, $\im(f)=\ker(g)$ so there is some $n\in A$ such that $f(n)=l-l'$. By a similar argument as the first paragraph, one can find $m'\in A'$ such that $f'(m')=b(l')$. Then $$f'(a(n))=b(f(n))=b(l-l')=b(l)-b(l')=f'(m)-f'(m')$$ Since $f'$ is injective by exactness, we have that $a(n)=m-m'$ so that $m-m'\in\im(a)$ and hence $[m]=[m']$. Thus $d$ is a well defined map. \\~\\
+We need to show that $d$ is well defined. Suppose that $l'$ is another element in $B$ such that $g(l')=k$. Then $g(l-l')=0$ so that $l-l'\in\ker(g)$. By exactness, $\im(f)=\ker(g)$ so there is some $n\in A$ such that $f(n)=l-l'$. By a similar argument as the first paragraph, one can find $m'\in A'$ such that $f'(m')=b(l')$. Then $$f'(a(n))=b(f(n))=b(l-l')=b(l)-b(l')=f'(m)-f'(m')$$ Since $f'$ is injective by exactness, we have that $a(n)=m-m'$ so that $m-m'\in\im(a)$ and hence $[m]=[m']$. Thus $d$ is a well defined map. \\~\\
 
 Since all operations above are group homomorphisms, $d$ is also a group homomorphism. \\~\\
 
@@ -427,9 +453,9 @@ be two short exact sequence of chain complexes. Let the following diagram be a m
 	\arrow[from=1-6, to=3-6]
 	\arrow[from=1-8, to=3-8]
 	\arrow[from=3-2, to=3-4]
-	\arrow["\partial"{pos=0.3}, from=3-4, to=3-6]
+	\arrow["d"{pos=0.3}, from=3-4, to=3-6]
 	\arrow["{i'}"{pos=0.7}, from=3-4, to=5-4]
-	\arrow["\partial"{pos=0.3}, from=3-6, to=3-8]
+	\arrow["d"{pos=0.3}, from=3-6, to=3-8]
 	\arrow["{i'}"{pos=0.7}, from=3-6, to=5-6]
 	\arrow[from=3-8, to=3-10]
 	\arrow["{i'}"{pos=0.7}, from=3-8, to=5-8]
@@ -438,9 +464,9 @@ be two short exact sequence of chain complexes. Let the following diagram be a m
 	\arrow["\alpha"{description}, from=4-5, to=3-6]
 	\arrow["\alpha"{description}, from=4-7, to=3-8]
 	\arrow[from=5-2, to=5-4]
-	\arrow["\partial"{pos=0.3}, from=5-4, to=5-6]
+	\arrow["d"{pos=0.3}, from=5-4, to=5-6]
 	\arrow["{j'}"{pos=0.7}, from=5-4, to=7-4]
-	\arrow["\partial"{pos=0.3}, from=5-6, to=5-8]
+	\arrow["d"{pos=0.3}, from=5-6, to=5-8]
 	\arrow["{j'}"{pos=0.7}, from=5-6, to=7-6]
 	\arrow[from=5-8, to=5-10]
 	\arrow["{j'}"{pos=0.7}, from=5-8, to=7-8]
@@ -449,9 +475,9 @@ be two short exact sequence of chain complexes. Let the following diagram be a m
 	\arrow["\beta"{description}, from=6-5, to=5-6]
 	\arrow["\beta"{description}, from=6-7, to=5-8]
 	\arrow[from=7-2, to=7-4]
-	\arrow["\partial"{pos=0.3}, from=7-4, to=7-6]
+	\arrow["d"{pos=0.3}, from=7-4, to=7-6]
 	\arrow[from=7-4, to=9-4]
-	\arrow["\partial"{pos=0.3}, from=7-6, to=7-8]
+	\arrow["d"{pos=0.3}, from=7-6, to=7-8]
 	\arrow[from=7-6, to=9-6]
 	\arrow[from=7-8, to=7-10]
 	\arrow[from=7-8, to=9-8]
@@ -465,14 +491,14 @@ be two short exact sequence of chain complexes. Let the following diagram be a m
 	\arrow[from=2-3, to=4-3, crossing over]
 	\arrow[from=2-5, to=4-5, crossing over]
 	\arrow[from=2-7, to=4-7, crossing over]
-	\arrow["\partial"{pos=0.7}, from=4-3, to=4-5, crossing over]
-	\arrow["\partial"{pos=0.7}, from=4-5, to=4-7, crossing over]
+	\arrow["d"{pos=0.7}, from=4-3, to=4-5, crossing over]
+	\arrow["d"{pos=0.7}, from=4-5, to=4-7, crossing over]
 	\arrow[from=4-7, to=4-9, crossing over]
-	\arrow["\partial"{pos=0.7}, from=6-3, to=6-5, crossing over]
-	\arrow["\partial"{pos=0.7}, from=6-5, to=6-7, crossing over]
+	\arrow["d"{pos=0.7}, from=6-3, to=6-5, crossing over]
+	\arrow["d"{pos=0.7}, from=6-5, to=6-7, crossing over]
 	\arrow[from=6-7, to=6-9, crossing over]
-	\arrow["\partial"{pos=0.7}, from=8-3, to=8-5, crossing over]
-	\arrow["\partial"{pos=0.7}, from=8-5, to=8-7, crossing over]
+	\arrow["d"{pos=0.7}, from=8-3, to=8-5, crossing over]
+	\arrow["d"{pos=0.7}, from=8-5, to=8-7, crossing over]
 	\arrow[from=8-7, to=8-9, crossing over]
 	\arrow["i"{pos=0.3}, from=4-3, to=6-3, crossing over]
 	\arrow["i"{pos=0.3}, from=4-5, to=6-5, crossing over]
@@ -502,7 +528,7 @@ Then the induced diagram \\~\\
 \end{tikzcd}}\\~\\
 is a commutative diagram. \tcbline
 \begin{proof}
-The first square is commutative since $\beta\circ i=i'\circ\alpha$ and $i,i',\alpha,\beta$ are all chain maps so that $\beta_\ast\circ i_\ast=i_\ast'\circ\alpha_\ast$ by proposition 1.1.5. Similarly, the second square is also commutative since $\gamma\circ j=j'\circ\beta$ implies $\gamma_\ast\circ j_\ast=j_\ast'\circ\beta_\ast$. Now recall that the connecting homomorphism is defined by $\partial([c])=[a]$ where $j(b)=c$ and $i(a)=\partial(b)$. Since $$\gamma(c)=\gamma(j(b))=j'(\beta(b))$$ and $$i'(\alpha(a))=\beta(i(a))=\beta(\partial(b))=\partial(\beta(b))$$ we have that $\partial[\gamma(c)]=[\alpha(a)]$. Thus we have that $$\partial(\gamma_\ast([c]))=\alpha_\ast([a])=\alpha_\ast(\partial([c]))$$ and so we conclude. 
+The first square is commutative since $\beta\circ i=i'\circ\alpha$ and $i,i',\alpha,\beta$ are all chain maps so that $\beta_\ast\circ i_\ast=i_\ast'\circ\alpha_\ast$ by proposition 1.1.5. Similarly, the second square is also commutative since $\gamma\circ j=j'\circ\beta$ implies $\gamma_\ast\circ j_\ast=j_\ast'\circ\beta_\ast$. Now recall that the connecting homomorphism is defined by $\partial([c])=[a]$ where $j(b)=c$ and $i(a)=d(b)$. Since $$\gamma(c)=\gamma(j(b))=j'(\beta(b))$$ and $$i'(\alpha(a))=\beta(i(a))=\beta(d(b))=d(\beta(b))$$ we have that $\partial[\gamma(c)]=[\alpha(a)]$. Thus we have that $$\partial(\gamma_\ast([c]))=\alpha_\ast([a])=\alpha_\ast(\partial([c]))$$ and so we conclude. 
 \end{proof}
 \end{thm}
 
@@ -1432,7 +1458,7 @@ Moreover, the connecting homomorphism $\partial:H_n(X,A)\to H_{n-1}(A)$ is defin
 \begin{proof}
 Notice that \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & C_\bullet(A)\arrow[r, "\iota_\ast"] & C_\bullet(X)\arrow[r, "j"] & C_\bullet(X,A)\arrow[r] & 0
+0\arrow[r] & C_\bullet(A)\arrow[r, "\iota"] & C_\bullet(X)\arrow[r, "j"] & C_\bullet(X,A)\arrow[r] & 0
 \end{tikzcd}}\\~\\
 is a short exact sequence by construction. Thus it induces a long exact sequence in homology groups. \\~\\
 
@@ -1895,7 +1921,7 @@ The composition $d_n\circ d_{n+1}$ factors through the two blue arrows in the di
 \end{proof}
 \end{lmm}
 
-\begin{defn}{Cellular Chain Complex}{} Let $X$ be a CW-complex. Define the cellular chain complex $C_\bullet^\text{CW}(X)$ where $C_{n+1}^{\text{CW}}(X)=H_n(X^{n+1},X^n)$ together with differentials $d_n$ as defined above. Define the cellular homology groups of this chain complex to be $$H_n^\text{CW}(X)=H_n(C_\bullet^\text{CW}(X))$$
+\begin{defn}{Cellular Chain Complex}{} Let $X$ be a CW-complex. Define the cellular chain complex $C_\bullet^\text{CW}(X)$ where $$C_n^{\text{CW}}(X)=H_n(X^n,X^{n-1})$$ together with differentials $d_n$ as defined above. Define the cellular homology groups of this chain complex to be $$H_n^\text{CW}(X)=H_n(C_\bullet^\text{CW}(X))$$
 \end{defn}
 
 \begin{lmm}{}{} For any CW-complex $X$, there are canonical isomorphisms $$H_n^\text{CW}(X)\cong H_n(X)$$ \tcbline
@@ -2082,13 +2108,59 @@ The reason one makes a difference is because we can naturally associate to every
 
 \begin{prp}{}{} Let $A,B,C$ be abelian groups. Then the $\Hom$ functor has the following properties. 
 \begin{itemize}
-\item $\Hom(A\oplus B,G)=\Hom(A,G)\oplus\Hom(B,G)$
-\item $\Hom(A\times B,G)=\Hom(A,G)\times\Hom(B,G)$
-\item If $A\overset{f}{\to} B\overset{g}{\to} C\to 0$ is an exact sequences, then \\
+\item $\Hom(A\oplus B,G)\cong\Hom(A,G)\oplus\Hom(B,G)$
+\item $\Hom(A\times B,G)\cong\Hom(A,G)\times\Hom(B,G)$
+\end{itemize} \tcbline
+\begin{proof}
+Let $\phi:A\oplus B\to G$ be a homomorphism. Define $\phi_1:A\to G$ and $\phi_2:
+B\to G$ by $\phi_1(a)=\phi(a,0)$ and $\phi_2(b)=\phi(0,b)$. I claim that the map $\phi\mapsto\phi_1\oplus\phi_2$ defines the required isomorphism. Firstly, this map is a group homomorphism. Indeed if $\phi,\rho\in\Hom(A\oplus B,G)$, then $(\phi+\rho)_1(a)=(\phi+\rho)(a,0)=\phi(a)+\rho(a)=\phi_1(a)+\rho_1(a)$ and vice versa for $(\phi+\rho)_2=\phi_2+\rho_2$. Thus $$\phi+\rho\mapsto(\phi+\rho)_1\oplus(\phi+\rho)_2=\phi_1\oplus\phi_2+\rho_1\oplus\rho_2$$ I claim that this map is injective. Let $\phi_1\oplus\phi_2=\rho_1\oplus\rho_2$. Notice that $$\rho_1(a)=\rho_1(a)+\rho_2(0)=(\rho_1\oplus\rho_2)(a\oplus 0)=(\phi_1\oplus\phi_2)(a\oplus 0)=\phi_1(a)+\phi_2(0)=\phi_1(a)$$ and vice versa for $\rho_2(b)=\phi_2(b)$. Then we have that 
+\begin{align*}
+\phi(a,b)&=\phi(a,0)+\phi(0,b)\\
+&=\phi_1(a)+\phi_2(b)\\
+&=\rho_1(a)+\rho_2(b)\\
+&=\rho(a,b)
+\end{align*}
+Thus this map is injective. Finally, for any $\phi\oplus\rho\in\Hom(A,G)\oplus\Hom(B,G)$, define $\theta:A\oplus B\to G$ by $\theta(a,b)=\phi(a)+\rho(b)$. This is a group homomorphism since 
+\begin{align*}
+\theta((a_1,b_1)+(a_2+b_2))&=\theta(a_1+a_2,b_1+b_2)\\
+&=\phi(a_1+a_2)+\rho(b_1+b_2)\\
+&=\phi(a_1)+\phi(a_2)+\rho(b_1)+\rho(b_2)\\
+&=(\phi(a_1)+\rho(b_1))+(\phi(a_2)+\rho(b_2))\\
+&=\theta(a_1,b_1)+\theta(a_2,b_2)
+\end{align*}
+Moreover, we can see that $\theta_1=\phi$ and $\theta_2=\rho$. Thus this map is surjective. Combining the above results show that the map $\phi\mapsto\phi_1\oplus\phi_2$ is a bijection, and hence gives the desired isomorphism. 
+\end{proof}
+\end{prp}
+
+Notice that the first condition can be phrased in terms of exact sequences. Namely, the proposition says that if $0\to A\to B\to C\to 0$ is split exact, then \\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \Hom(C,G)\arrow[r, "g^\ast"] & \Hom(B,G)\arrow[r, "f^\ast"] & \Hom(A,G)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is split exact. 
+
+\begin{prp}{}{} Let $A,B,C$ be abelian groups. Let $f:A\to B$ and $g:B\to C$ be homomorphisms. Then the following are true.  
+\begin{itemize}
+\item If $A\overset{f}{\to} B\overset{g}{\to} C\to 0$ is an exact sequence, then the sequence \\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & \Hom(C,G)\arrow[r, "g^\ast"] & \Hom(B,G)\arrow[r, "f^\ast"] & \Hom(A,G)
-\end{tikzcd}}
+\end{tikzcd}}\\~\\
+is also exact for any abelian group $G$. 
+\item If $0\to A\overset{f}{\to} B\overset{g}{\to} C$ is an exact sequence, then the sequence \\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\Hom(C,G)\arrow[r, "g^\ast"] & \Hom(B,G)\arrow[r, "f^\ast"] & \Hom(A,G)\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is also exact for any abelian group $G$. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item We first show that $g^\ast$ is injective. Let $\phi,\rho\in\Hom(C,G)$ such that $g^\ast(\phi)=g^\ast(\rho)$. This means that $\phi\circ g=\rho\circ g$. Let $c\in C$. Since $g$ is surjective, there exists $b\in B$ such that $g(b)=c$. Then $$\phi(c)=\phi(g(b))=\rho(g(b))=\rho(c)$$ Hence $\phi=\rho$. \\~\\
+
+Now we show that $\im(g^\ast)\subseteq\ker(f^\ast)$. Let $g^\ast(\phi)\in\Hom(B,G)$ for $\phi\in\Hom(C,G)$. We want to show that $f^\ast(g^\ast(\phi))=0$. But we have that $$(\phi\circ g\circ f)(a)=\phi(g(f(a))=\phi(0)=0$$ since $\im(f)=\ker(g)$. Thus we conclude. \\~\\
+
+Finally we show that $\ker(f^\ast)\subseteq\im(g^\ast)$. Let $f^\ast(\phi)=0$ for $\phi\in\Hom(B,G)$. This means that $\phi\circ f=0$ or in other words, $\im(f)\subseteq\ker(\phi)$.
+Since $\phi(k)=0$ for all $k\in\im(f)$, $\phi$ descends to a map $\overline{\phi}:\frac{B}{\im(f)}\to G$. But $\im(f)=\ker(g)$ hence this is equivalent to a map $\overline{\phi}:\frac{B}{\ker(g)}\to G$. But by the first isomorphism theorem and the fact that $g$ is surjective, we conclude that $\overline{g}:\frac{B}{\ker(g)}\overset{g}{\cong} C$, where $b+\ker(g)\mapsto g(b)$. Thus we have constructed a map $\overline{\phi}\circ\overline{g}^{-1}:C\to G$ given by $g(b)\mapsto b+\ker(g)\mapsto\phi(b)$. But now $g^\ast(\overline{\phi}\circ\overline{g}^{-1})$ is the map defined by $$b\mapsto g(b)\mapsto b+\ker(g)\mapsto\phi(b)$$ and so this map is exactly $\phi$. Thus $\phi\in\im(g^\ast)$. 
 \end{itemize}
+\end{proof}
 \end{prp}
 
 \subsection{Producing a Cochain Complex from a Chain Complex}
@@ -2222,13 +2294,13 @@ is said to be a free resolution of $H$ if $F_n$ is a free group for $n\in\N$.
 	\cdots & {F_1} & {F_0} & G & 0 \\
 	\cdots & {E_1} & {E_0} & H & 0
 	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
+	\arrow["p_1", from=1-2, to=1-3]
+	\arrow["p_0", from=1-3, to=1-4]
 	\arrow[from=1-4, to=1-5]
 	\arrow["f", from=1-4, to=2-4]
 	\arrow[from=2-1, to=2-2]
-	\arrow[from=2-2, to=2-3]
-	\arrow[from=2-3, to=2-4]
+	\arrow["q_1", from=2-2, to=2-3]
+	\arrow["q_0", from=2-3, to=2-4]
 	\arrow[from=2-4, to=2-5]
 \end{tikzcd}}\\~\\
 for $G$ and $H$ respectively. Let $f:G\to H$ be a group homomorphism. Then there exists a chain map extending $f$ such that the following diagram commutes: \\~\\
@@ -2236,29 +2308,63 @@ for $G$ and $H$ respectively. Let $f:G\to H$ be a group homomorphism. Then there
 	\cdots & {F_1} & {F_0} & G & 0 \\
 	\cdots & {E_1} & {E_0} & H & 0
 	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow["{f_2}", from=1-2, to=2-2]
-	\arrow[from=1-3, to=1-4]
-	\arrow["{f_1}", from=1-3, to=2-3]
+	\arrow["p_1", from=1-2, to=1-3]
+	\arrow["p_0", from=1-3, to=1-4]
+	\arrow["{f_1}", from=1-2, to=2-2]
+	\arrow["{f_0}", from=1-3, to=2-3]
 	\arrow[from=1-4, to=1-5]
 	\arrow["f", from=1-4, to=2-4]
 	\arrow[from=2-1, to=2-2]
-	\arrow[from=2-2, to=2-3]
-	\arrow[from=2-3, to=2-4]
+	\arrow["q_1", from=2-2, to=2-3]
+	\arrow["q_0", from=2-3, to=2-4]
 	\arrow[from=2-4, to=2-5]
 \end{tikzcd}}\\~\\
-Moreover, any two such chain maps are homotopic. 
+Moreover, any two such chain maps are homotopic. \tcbline
+\begin{proof}
+We will define the maps $f_n:F_n\to E_n$ for $n\in\N$ inductively. Since each $F_i$ is free, we only need to define the map on the basis elements of $F_i$. Consider the base case $n=0$. Since $E_0\to H$ is surjective, for any $x\in F_0$, there exists $x'\in E_0$ such that $q_0(x')=f(p_0(x))$. Define the map $f_0:F_0\to E_0$ by sending any basis element $x$ of $F_0$ to such an $x'$. (The $x'$ here may not be unique but we will show that any choice here leads to homotopic maps). \\~\\
+
+Now suppose that $f_{k-1}:F_{k-1}\to E_{k-1}$ is defined such that $q_{k-1}\circ f_{k-1}=f_{k-2}\circ p_{k-1}$. Let $y\in F_k$. Then $f_{k-1}(p_k(y))\in E_{k-1}$. Now we have $$q_{k-1}((f_{k-1}\circ p_k)(y))=(f_{k-2}\circ p_{k-1}\circ p_k)(y)=f_{k-2}(0)=0$$ which shows that $(f_{k-1}\circ p_{k-1})(y)\in\ker(q_{k-1})=\im(q_k)$. But this means that there exists $y'\in E_k$ such that $q_k(y')=(f_{k-1}\circ p_k)(y)$. Therefore we define $f_k:F_k\to E_k$ by sending any basis element $y$ of $F_k$ to the defined $y'$. (Again the choice does not matter because any two choices of maps are homotopic). \\~\\
+
+For uniqueness up to homotopy, suppose that $(g_k)_{k\in\N}$ is another such extension. Now consider the map $\alpha_k=f_k-g_k:F_k\to E_k$. The proof will be complete if the new chain map $\alpha$ is homotopic to the $0$ map. Because then $\alpha\simeq 0$ implies $f-g\simeq 0$ which implies $f\simeq g$. To show the null-homotopy, we need to define chain homotopies $\lambda_k:F_k\to E_{k+1}$ such that $\alpha_k=q_{k+1}\circ\lambda_k+\lambda_{k-1}\circ p_k$. We proceed by induction. \\~\\
+
+For the map $\lambda_{-1}:G\to E_0$ we define it to be the $0$ map. When $k=0$, define $\lambda_0:F_0\to E_1$ as follows. Let $x\in F_0$ be a basis element. Then $f(p_0(x))=0$ and $g(p_0(x))=0$. Now we have that $$q_0(\alpha_0(x))=q_0((f_0-g_0)(x))=q_0(f_0(x))-q_0(g_0(x))=f(p_0(x))-g(p_0(x))=(f-g)(p_0(x))=0$$ because $f$ and $g$ are the same map. This means that $\alpha_0(x)\in\ker(q_0)=\im(q_1)$. Thus there exists $x'\in E_1$ such that $q_1(x')=\alpha_0(x)$. Therefore we define $\lambda_0:F_0\to E_1$ by sending any basis element $x\in F_0$ to the constructed $x'\in E_1$. But this is exactly what we want because it satisfies the chain condition: $$q_1(\lambda_0(x))+\lambda_{-1}(p_0(x))=q_0(\lambda_0(x))=q_1(x')=\alpha_0(x)$$~\\
+
+Inductively, suppose that $\lambda_{k-1}:F_{k-1}\to E_k$ is already defined such that the chain homotopy condition is satisfied. Let $x\in F_k$ be a basis element. Then notice that 
+\begin{align*}
+q_k((\alpha_k-\lambda_{k-1}\circ p_k)(x))&=(q_k\circ\alpha_k)(x)-(q_k\circ\lambda_k\circ p_k)(x)\\
+&=(q_k\circ f_k-q_k\circ g_k)(x)-(q_k\circ\lambda_k\circ p_k)(x)\\
+&=(f_{k-1}\circ p_k-g_{k-1}\circ p_k)(x)-(q_k\circ\lambda_k\circ p_k)(x)\\
+&=(f_{k-1}-g_{k-1})(p_k(x))-(q_k\circ\lambda_k\circ p_k)(x)\\
+&=(\alpha_{k-1}\circ p_k)(x)-(q_k\circ\lambda_k\circ p_k)(x)\\
+&=(\alpha_{k-1}-q_k\circ\lambda_k)(p_k(x))\\
+&=(\lambda_{k-2}\circ p_{k-1}\circ p_k)(x)\tag{Chain Homotopy Condition}\\
+&=\lambda_{k-2}(0)\\
+&=0
+\end{align*}
+This shows that $(\alpha_k-\lambda_{k-1}\circ p_k)(x)\in\ker(q_k)=\im(q_{k+1})$, and hence there exists $x'\in E_{k+1}$ such that $q_{k+1}(x')=(\alpha_k-\lambda_{k-1}\circ p_k)(x)$. So we define $\lambda_k:F_k\to E_{k+1}$ by sending any basis element $x\in F_k$ to the constructed $x'\in E_{k+1}$. But this is exactly what we want because it satisfies the chain condition: 
+\begin{align*}
+(q_{k+1}\circ\lambda_k)(x)+(\lambda_{k-1}\circ p_k)(x)&=q_{k+1}(x')+(\lambda_{k-1}\circ p_k)(x)\\
+&=(\alpha_k-\lambda_{k-1}\circ p_k)(x)+(\lambda_{k-1}\circ p_k)(x)\\
+&=\alpha_k(x)
+\end{align*}
+And so we conclude. 
+\end{proof}
 \end{prp}
 
-\begin{lmm}{}{} Every resolution of an abelian group $H$ is of the form \\~\\
+It follows from the algebra of chain complexes that any two such homotopic chain maps of free resolutions induce isomorphic cohomology groups. 
+
+\begin{lmm}{}{} Every free resolution of an abelian group $H$ is of the form \\~\\
 \adjustbox{scale=1.1,center}{\begin{tikzcd}
 0\arrow[r] & F_1\arrow[r] & F_0\arrow[r, "h"] & H\arrow[r] & 0
 \end{tikzcd}}\\~\\
-where $F_0$ and $F_1$ is determined as follows. Choose a set of generators $A$ of $H$. 
+where $F_0$ and $F_1$ is determined as follows. 
 \begin{itemize}
-\item $F_0=\langle A\rangle$ and the map $f_0:F_0\to H$ is defined by sending basis elements to generators. 
-\item $F_1=\ker(f_1)$ and $f_1:F_1\to F_0$ is the inclusion. 
-\end{itemize}
+\item Choose a set of generators $A$ of $H$. Define $F_0=\langle A\rangle$ and define the map $f_0:F_0\to H$ by sending basis elements to generators. 
+\item $F_1=\ker(f_0)$ and $f_1:F_1\to F_0$ is the inclusion. 
+\end{itemize} \tcbline
+\begin{proof}
+We want to show that using the above data to construct the free resolution gives an exact sequence. Clearly since $f_1:F_1\to F_0$ is the inclusion, it is injective. Also, $h$ is defined to be surjective. It remains to show that $\im(f_1)=\ker(f_0)$. But by definition, $f_1$ is the inclusion map of $\ker(f_0)$ to $F_1$ hence $\im(f_1)=\ker(f_0)$. 
+\end{proof}
 \end{lmm}
 
 \subsection{Universal Coefficient Theorem for Cohomology}
@@ -2275,12 +2381,32 @@ This leads to the second way of extending it. One can consider not using free gr
 
 For us, we are only considering abelian groups which are $\Z$-modules. Be wary of this assumption throughout the entire section. 
 
-\begin{prp}{}{} Let $H$ and $G$ be abelian groups. Then the following are true regarding the Ext group. 
+\begin{prp}{}{} Let $G,H,K$ be abelian groups. Then the following are true regarding the Ext group. 
 \begin{itemize}
-\item $\text{Ext}(H\oplus H',G)=\text{Ext}(H,G)\oplus\text{Ext}(H',G)$
-\item $\text{Ext}(H,G)=0$ if $H$ is free abelian
-\item $\text{Ext}(\Z/n\Z,G)=G/nG$
+\item $\text{Ext}(H\oplus K,G)\cong\text{Ext}(H,G)\oplus\text{Ext}(K,G)$
+\item $\text{Ext}(H,G)=0$ if $H$ is a free group. 
+\item $\text{Ext}(\Z/n\Z,G)\cong G/nG$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $A_\bullet$ be a free resolution of $H$. Let $B_\bullet$ be a free resolution of $K$. I claim that \\~\\
+\adjustbox{scale=0.85,center}{\begin{tikzcd}
+	0 & {A_1\oplus B_1} & {A_0\oplus B_0} & {H\oplus K} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+with the direct sum of the obvious maps is a free resolution of $H\oplus K$. But this is obvious because the direct sum of free groups is again a free group. Now we have that 
+\begin{align*}
+\text{Ext}(H\oplus K)&=\frac{\Hom(H\oplus K,G)}{\im(A_0\oplus B_0\to H\oplus K)}\\
+&\cong\frac{\Hom(H,G)\oplus\Hom(K,G)}{\im(A_0\to H_0)\oplus\im(B_0\to K_0)}\\
+&\cong\frac{\Hom(H,G)}{\im(A_0\to H_0)}\oplus\frac{\Hom(K,G)}{\im(B_0\to K_0)}\\
+&=\text{Ext}(H,G)\oplus\text{Ext}(K,G)
+\end{align*}
+\item If $H$ is already a free group, then $0\to H\to H\to 0$ with the identity map is a free resolution of $H$. Then by the definition of $\text{Ext}$ groups we conclude that $\text{Ext}(H,G)=0$
 \end{itemize}
+\end{proof}
 \end{prp}
 
 \begin{prp}{}{} Let $0\to A\to B\to C\to 0$ be a short exact sequence of abelian groups. Then there is a six term exact sequence: \\~\\
@@ -2310,7 +2436,7 @@ An analogous result remains true when we consider homology with coefficients in 
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & H\arrow[r] & 0
 \end{tikzcd}}\\~\\
-for $H$. Define the Tor group of $H$ with coefficients in $G$ to be the first homology group of the cochain complex \\~\\
+for $H$. Define the Tor group of $H$ with coefficients in $G$ to be the first homology group of the chain complex \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & F_1\otimes G\arrow[r] & F_0\otimes G\arrow[r] & H\otimes G\arrow[r] & 0
 \end{tikzcd}}\\~\\
@@ -2424,6 +2550,272 @@ In the proof that $\tilde{X}$ is also a CW complex, we have seen that if $X$ has
 \end{proof}
 \end{prp}
 
+
+\pagebreak
+\section{The Categorical Viewpoint}
+Recall that the category of topological spaces $\bold{Top}$ is complete and cocomplete. This means that all kinds of limits and colimits exists in $\bold{Top}$. We have already seen the product space and disjoint union with their universal property as a limit / colimit. There are also more constructs that can be recognized / defined in terms of the universal property. 
+
+\subsection{Different Categories of Spaces}
+\begin{defn}{The Category of Pointed Topological Spaces}{} Define the category of pointed topological spaces $\bold{Top}_\ast$ to consist of the following data. 
+\begin{itemize}
+\item The objects are a pair $(X,x_0)$ where $X$ is a topological space and $x_0\in X$ is a chosen base point. 
+\item For $(X,x_0)$ and $(Y,y_0)$ two pointed spaces, the morphisms $$\Hom_{\bold{Top}_\ast}((X,x_0),(Y,y_0))=\{f:X\to Y\;|\;f\text{ is continuous and }f(x_0)=y_0\}$$ are the continuous maps from $X$ to $Y$ such that base points are preserved. 
+\item Composition is defined as the composition of functions such that base point is preserved. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $(X,x_0)$ and $(Y,y_0)$ be pointed spaces. Then the product and coproduct of the two spaces in $\bold{Top}_\ast$ are $$(X\times Y,(x_0,y_0))\;\;\;\;\text{ and }\;\;\;\;(X\vee Y,x_0=y_0)$$ respectively. 
+\end{prp}
+
+\begin{defn}{The Category of CW Complexes}{} Define the category of CW complexes $\bold{CW}$ to consist of the following data. 
+\begin{itemize}
+\item The objects are CW complexes. 
+\item For $X$ and $Y$ two CW complexes, the morphisms $$\Hom_{\bold{CW}}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}$$ are the continuous maps from $X$ to $Y$. 
+\item Composition is defined as the composition of functions. 
+\end{itemize}
+Define similarly the category $\bold{CW}_\ast$ of pointed topological spaces. 
+\end{defn}
+
+\begin{defn}{The Category of Pairs of Spaces}{} Define the category of pairs of topological spaces $\bold{Top}^2$ to consist of the following data. 
+\begin{itemize}
+\item The objects are a pair $(X,A)$ where $X$ is a topological space $A\subseteq X$ is a subspace of $X$. 
+\item For $(X,A)$ and $(Y,B)$ two pointed spaces, the morphisms $$\Hom_{\bold{Top}^2}((X,A),(Y,B))=\{f:X\to Y\;|\;f\text{ is continuous and }f(A)\subseteq B\}$$ are the continuous maps from $X$ to $Y$ such that subspaces are mapped to subspaces. 
+\item Composition is defined as the composition of functions such that subspaces are mapped to subspaces. 
+\end{itemize}
+Define similarly the category $\bold{CW}^2$ of pairs of CW complexes. 
+\end{defn}
+
+\begin{defn}{Homotopy Category of Spaces}{} Define the homotopy category of topological spaces $\bold{hTop}$ to consist of the following data. 
+\begin{itemize}
+\item The objects are topological spaces. 
+\item For $X$ and $Y$ two spaces, the morphisms $$\Hom_{\bold{CW}}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}/\sim$$ are the homotopy classes of continuous maps from $X$ to $Y$. 
+\item Composition is defined as the composition of functions. 
+\end{itemize}
+Define similar the homotopy category $\bold{hTop}_\ast$ of pointed topological spaces and pointed homotopy classes of maps. 
+\end{defn}
+
+\subsection{Categorical Constructs in the Category of Spaces}
+We have seen pushouts and pullbacks in Category Theory 1. Let us first recall them. 
+
+\begin{defn}{Pullbacks and Pushouts}{} A pullback space is the limit of a diagram $X:\mJ\to\bold{Top}$ where $\mJ=\left(\cdot\rightarrow\cdot\leftarrow\cdot\right)$. We denote the limit in this case as $$\lim_\mJ X=C\times_DB$$ Dually, a pushout is the colimit of a diagram $X:\mJ^{\text{op}}\to\bold{Top}$, where $\mJ=\left(\cdot\leftarrow\cdot\rightarrow\cdot\right)$. We denote the colimit in this case as $$\colim_\mJ X=C\amalg_DB$$~\\
+
+In particular, the universal product of limits means that for any space $X$ together with maps $\lambda_C:X\to C$ and $\lambda_B:X\to B$ such that $f\circ\lambda_C=g\circ\lambda_D$, there exists a unique $u:X\to C\times_DB$ such that the following diagram commutes (Dually, the diagram on the right): \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+X\arrow[rrdd, "\lambda_C", bend left=25]\arrow[ddddr, "\lambda_B"', bend right=25]\arrow[rdd, "\exists!u", dashed] & & & & & & X & & \\
+ &&&&&&&&\\
+ & C\times_DB\arrow[dd, "\pi_B"]\arrow[r, "\pi_C"] & C\arrow[dd, "f"] & & & & & C\amalg_DB\arrow[luu, "\exists!u"', dashed] & C\arrow[l, "\iota_C"']\arrow[lluu, "\lambda_C"', bend right=25]\\
+ &&&&&&&&\\
+ & B\arrow[r, "g"] & D & & & & & B\arrow[uu, "\iota_B"']\arrow[uuuul, "\lambda_B", bend left=25] & D\arrow[l, "g"']\arrow[uu, "f"']
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{defn}{Adjunction Spaces}{} Let $X,Y$ be spaces and $A\subseteq X$ a subspace. Let $f:A\to Y$ be a map. Define the adjunction space of $X$ and $Y$ to be  the space $$X\amalg_fY=\frac{X\amalg Y}{a\sim f(a)}$$ together with the quotient topology. 
+\end{defn}
+
+The prototypical example of adjunction spaces come from CW complexes. It is easy to notice that the data of obtaining the $(n+1)$-skeleton inductively is the same content of a pushout diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{S_\alpha^{n-1}} & {X^n} \\
+	{D_\alpha^n} & {X^{n+1}}
+	\arrow["{\varphi_\alpha}", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["{\Phi_\alpha}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+Indeed $\Phi_\alpha$ is determined by $\varphi_\alpha$ as a property of the pushout. Collectively, we identify the attaching of all $n$-cells as the following pushout: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\coprod_{\alpha\in I_n}S_\alpha^{n-1}} && {X^n} \\
+	\\
+	{\coprod_{\alpha\in I_n}D_\alpha^n} && {X^{n+1}}
+	\arrow["{\coprod_{\alpha\in I_n}\varphi_\alpha}", from=1-1, to=1-3]
+	\arrow[hook, from=1-1, to=3-1]
+	\arrow[from=1-3, to=3-3]
+	\arrow["{\coprod_{\alpha\in I_n}\Phi_\alpha}"', from=3-1, to=3-3]
+\end{tikzcd}}\\~\\
+
+The final CW complex $X$ is then obtained by the union with the weak topology. But this is just the explicit description of the colimit of the $n$-skeletons. 
+
+\begin{prp}{}{} Let $X,Y$ be spaces and $A\subseteq X$ a subspace of $X$. Let $f:A\to Y$ be a map. Then the adjunction space $X\amalg_f Y$ is a pushout of $f$ and $i:A\to X$ in $\bold{Top}$. 
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y$ be spaces with chosen base point $x_0$ and $y_0$ respectively. Then the wedge product $$X\vee Y=X\amalg_fY$$ is an adjunction space with $Z=\{x_0\}$ and map $f:Z\to Y$ defined by $f(x_0)=y_0$. 
+\end{prp}
+
+\pagebreak
+\section{Homology and Cohomology Theories}
+We have seen that the homotopy groups, the homology groups and the cohomology groups all satisfy a functorial property. This means that they can be considered as functors from the category of spaces to the category of some algebraic structures. It is meaningful to study all of them at once, and to compare different versions of homology and cohomology. \\
+
+In general, there are different parameters of the (co)homology theories. 
+\begin{itemize}
+\item Including ``for CW Pairs'' means that the theory is tailored for CW pairs. If we want a general theory for any topological spaces, we must add a new axiom so that weak equivalences (isomorphisms in homotopy groups) gives isomorphisms (in homology groups). This is true for CW complexes but not for arbitrary topological spaces. 
+\item ``Generalized'' means that that dimension axiom is dropped. This enables wilder (co)homology theories such as (co)bordism to appear. ``Ordinary'' means that the dimension axiom is included. In the case that we restrict to CW complexes, this axiom ensures that all (co)homology theories of this type are isomorphic to each other. 
+\item ``Reduced'' theories typically throw away the relative context in order to gain more concrete computations. There is a theorem that says that determining a generalized (co)homology theory is the ``same'' determining a reduced theory and vice versa. 
+\end{itemize}
+
+\subsection{Generalized Homology Theories}
+The homotopy groups and the homology groups share many properties. The point of the axioms is to separate the notion of homotopy groups and homology groups. Indeed the homotopy groups together are a stronger invariant for spaces. Since homology is a functor, a natural question to ask is: what are the properties of singular / cellular / simplicial homology that make homology unique in the sense that only such a functor gives this unique identification of spaces through the invariant? 
+
+\begin{defn}{Generalized Homology Theory for CW Pairs}{} A Generalized Homology Theory is a collection of functors and natural transformations $$h_n:\bold{CW}^2\to\bold{Ab}\;\;\;\;\text{ and }\;\;\;\;\delta_n:h_n\to h_n\circ F$$ where $F(X,Y)=(Y,\emptyset)$, for each $n\in\N$, such that the following are true. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h_n(f)=h_n(g):h_n(X,A)\to h_n(Y,B)$$
+\item Exactness: There exists an exact sequence \\~\\
+\adjustbox{scale=0.98,center}{\begin{tikzcd}
+	\cdots & {h_{n+1}(X,A)} & {h_n(A,\emptyset)} & {h_n(X,\emptyset)} & {h_n(X,A)} & {h_{n-1}(A,\emptyset)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\delta_{n+1}}", from=1-2, to=1-3]
+	\arrow["h_n(i)", from=1-3, to=1-4]
+	\arrow["h_n(j)", from=1-4, to=1-5]
+	\arrow["{\delta_n}", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+where $i:(A,\emptyset)\to(X,\emptyset)$ and $j:(X,\emptyset)\to(X,A)$ are inclusions. 
+\item Additivity: If $(X,A)=\coprod_{i\in I}(X_i,A_i)$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}h_n(X_i,A_i)\cong h_n(X,A)$$ is an isomorphism
+\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then there is an isomorphism $$h_n(X\setminus E,A\setminus E)\cong h_n(X,A)$$ induced by the inclusion map. 
+\end{itemize}
+\end{defn}
+
+We mention for once and for all that the additivity axiom is required only when the CW complexes are non-finite. In particular, in order for the homology theory to be meaningful, we must restrict the underlying category of spaces to be finite CW complexes if one drops the additivity axiom. \\~\\
+
+Also, the homotopy invariance axiom means that homology descends to a functor $\bold{HoCW}\to\bold{Ab}$. Therefore some authors write the axiom implicit in the definition of the functors $h_n$, and then saying that a homology theory consists of functors $h_n:\bold{HoCW}\to\bold{Ab}$ instead. 
+
+\begin{lmm}{}{} The excision axiom is equivalent to saying that $X=A^\circ\cup B^\circ$ with inclusion map $\iota:(B,A\cap B)\to (X,A)$ implies $h_n(\iota):h_n(B,A\cap B)\to h_n(X,A)$ is an isomorphism. 
+\end{lmm}
+
+\begin{defn}{Generalized Homology Theory for Spaces}{} A Generalized Homology Theory is a collection of functors $$h_n:\bold{Top}^2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta_n:h_n(X,Y)\to h_{n-1}(Y,\emptyset)$$ satisfying the firs four axioms together with the following. 
+\begin{itemize}
+\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h_n(X,A)\to h_n(Y,B)$$ is an isomorphism. 
+\end{itemize}
+\end{defn}
+
+By adding on the axiom of weak equivalence and the fact that every space admits a weak equivalence to a CW complex, we can see that the two theories are the same. 
+
+\begin{thm}{}{} Any generalized homology theory on $\bold{Top}^2$ determines and is determined by a generalized homology theory on $\bold{CW}^2$.
+\end{thm}
+
+However, note that in this case some of the working homology theories are not a generalized homology theory in this sense (when we encounter the dual notion, sheaf cohomology is not a generalized cohomology theory). 
+
+\begin{defn}{Ordinary Homology Theory}{} Let $G$ be an abelian group. If a generalized homology theory $(h_n,\delta_n)$ in addition satisfies 
+\begin{itemize}
+\item Dimension: $$h_n(\ast)=\begin{cases}
+G & \text{ if } n=0\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{itemize}
+Then $h_n$ is called an ordinary homology theory. 
+\end{defn}
+
+\begin{thm}{Eilenberg-Steenrod Uniqueness Theorem}{} Let $T:(h_n,\delta_n)\to(h_n',\delta_n')$ be a natural transformation of generalized homology theories defined on $\bold{CW}^2$ such that $h_n(\ast)\cong h_n'(\ast)$, then $T$ is a natural isomorphism $$(h_n,\delta_n)\cong(h_n',\delta_n')$$
+\end{thm}
+
+\subsection{Reduced Homology Theory}
+In Algebraic Topology 2, we have also encountered the notion of reduced singular homology. This is derived directly from singular homology, where one simply defines reduced singular homology by also considering the augmented chain complex. Such a construction can easily be extended to arbitrary homology theories: Indeed there is no need for a topological argument in the definition of reduced singular homology. \\~\\
+
+In fact, this subsection will also prove a unification theorem for the following four homolog theories: 
+\begin{itemize}
+\item Generalized homology theory for CW complexes
+\item Generalized homology theory for spaces
+\item Reduced homology theory for CW complexes
+\item Reduced homology theory for spaces
+\end{itemize}
+
+and they can be unified only because of the unnatural condition posed for homology theory for spaces. The axiom of weak equivalences enables the use of CW approximations. 
+
+\begin{defn}{Reduced Homology Theory for CW Complexes}{} A reduced Homology Theory is a collection of functors $$\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$$ that satisfies the following. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:(X,x_0)\to(Y,y_0)$ then $$\widetilde{h}_n(f)=\widetilde{h}_n(g):\widetilde{h}_n(X,x_0)\to\widetilde{h}_n(Y,y_0)$$
+\item Exactness: If $X$ is a CW-complex and $A\subseteq X$ and $x_0\in A$, then there is a short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\widetilde{h}_n(A,x_0)} & {\widetilde{h}_n(X,x_0)} & {\widetilde{h}_n(X/A,\ast)}
+	\arrow["{\iota_\ast}", from=1-1, to=1-2]
+	\arrow["{p_\ast}", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+where $\iota:A\to X$ is the inclusion and $p:X\to X/A$ is the projection. 
+
+\item Suspension: There is a natural isomorphism $$\Sigma:\widetilde{h}_n(X,x_0)\overset{\cong}{\longleftrightarrow}\widetilde{h}_{n+1}(\Sigma X,\ast)$$
+
+\item Additivity: If $X=\coprod_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}_n(X_i)\cong\widetilde{h}_n(X)$$ is an isomorphism
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$ be a reduced homology theory. Then $$\widetilde{h}_n(\ast)=0$$
+\end{lmm}
+
+\begin{thm}{}{} Let $h_n:\bold{CW}^2\to\bold{Ab}$ be a generalized homology theory for CW complexes. Define a collection of functors $$\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$$ by $(X,x_0)\mapsto\widetilde{h}_n(X,x_0)=h_n(X,\{x_0\})$. Then  $\widetilde{h}_n$ defines a reduced homology theory for CW complexes. 
+\end{thm}
+
+\begin{thm}{}{} Let $\widetilde{h}_n:\bold{CW}_\ast\to\bold{Ab}$ be a reduced homology theory for CW complexes. Define a collection of functors $$\widetilde{h}_n:\bold{CW}^2\to\bold{Ab}$$ by $(X,A)\mapsto\widetilde{h}_n(X/A,\ast=A)$ and a collection of natural transformations $$\delta_n:h_n(X,Y)\to(Y,\emptyset)$$ by ??? Then $h_n$ and $\delta_n$ defines a generalized homology theory for CW complexes. 
+\end{thm}
+
+\begin{thm}{}{} Any generalized homology theory for CW complexes determines and is determined by a reduced homology theory for CW complexes. 
+\end{thm}
+
+We have now showed that reduced homology theory and generalized homology theory for CW complexes really are the same thing: $$\substack{\text{Reduced Homology Theory}\\\text{for CW Complexes}}\overset{1:1}{\longleftrightarrow}\substack{\text{Generalized Homology Theory}\\\text{for CW Complexes}}$$ Let us now show the same for homology theories for spaces in general and moreover, establish such a relation between spaces and CW complexes. 
+
+\begin{defn}{Reduced Homology Theory for Spaces}{} A reduced Homology Theory for spaces is a collection of functors $$\widetilde{h}_n:\bold{Top}_\ast\to\bold{Ab}$$ that the above axioms (Homotopy Invariance, Exactness, Suspension, Additivity) and the following: 
+\begin{itemize}
+\item Weak Equivalences: If $f:(X,x_0)\to(Y,y_0)$ is a weak equivalence then $$f_\ast:\widetilde{h}_n(X,x_0)\to\widetilde{h}_n(Y,y_0)$$ is an isomorphism for all $n$. 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Any reduced homology theory for spaces determines and is determined by a reduced homology theory on spaces. 
+\end{thm}
+
+\begin{thm}{}{} Any reduced homology theory for spaces determines and is determined by a generalized homology theory on spaces. 
+\end{thm}
+
+Thus we have showed that under the conditions of all the given axioms of all such homology theories, we really just have the same thing: $$\substack{\text{Generalized  Homology Theory}\\\text{for Spaces}}\overset{1:1}{\longleftrightarrow}\substack{\text{Reduced Homology Theory}\\\text{for Spaces}}\overset{1:1}{\longleftrightarrow}\substack{\text{Reduced Homology Theory}\\\text{for CW Complexes}}\overset{1:1}{\longleftrightarrow}\substack{\text{Generalized Homology Theory}\\\text{for CW Complexes}}$$ We once again note that such a bijection is only possible when we introduce the weak equivalence axiom for homology theories on spaces. Such an axiom in fact restricts the amount of valid homology theories, but it is only through this axiom that we can declare all such homology theories are essentially determined by one another. \\~\\
+
+Some authors indeed does not require the weak equivalence axiom to exist. In such cases the bijection between generalized homology theories and reduced homology theories can be constructed, but there is no passage between homology of CW complexes and homology of spaces in general. 
+
+\subsection{Cohomology Theories}
+\begin{defn}{Generalized Cohomology Theory for CW Pairs}{} A Generalized cohomology theory is a collection of contravariant functors $$h^n:\bold{CW}_2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n(A,\emptyset)\to h^{n+1}(X,A)$$ satisfying the following. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h^n(f)=h^n(g):h^n(X,A)\to h^n(Y,B)$$
+\item Exactness: If $X$ is a CW-complex and $A\subseteq X$, then there is a short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {h^n(X/A)} & {h^n(X)} & {h^n(A)} & {h^{n+1}(X/A)} & {h^{n+1}(X)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{\partial_n}", from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+\item Additivity: If $(X,A)=\coprod_{i\in I}(X_i,A_i)$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}h^n(X_i,A_i)\cong h^n(X,A)$$ is an isomorphism
+\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then $$h^n(X\setminus E,A\setminus E)\cong h^n(X,A)$$ induced by the inclusion map
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Generalized Cohomology Theory}{} A Generalized cohomology theory is a collection of contravariant functors $$h^n:\bold{Top}_2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n(A,\emptyset)\to h^{n+1}(X,A)$$ satisfying the above first four axioms and the following. 
+\begin{itemize}
+\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h^n(Y,B)\to h^n(X,A)$$ is an isomorphism. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Reduced Cohomology Theory for CW Pairs}{} A reduced cohomology theory is a collection of contravariant functors $$\widetilde{h}^n:\bold{CW}\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:\widetilde{h}^n(A,\emptyset)\to\widetilde{h}^{n+1}(X,A)$$ satisfying the following. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:X\to Y$ then $$\widetilde{h}^n(f)=\widetilde{h}^n(g):\widetilde{h}^n(X)\to\widetilde{h}^n(Y)$$
+\item Exactness: There exists a short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {\widetilde{h}^n(X,A)} & {\widetilde{h}^n(X)} & {\widetilde{h}^n(A)} & {\widetilde{h}^{n+1}(X,A)} & {\widetilde{h}^{n+1}(X)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["\widetilde{h}_n(\pi)", from=1-2, to=1-3]
+	\arrow["\widetilde{h}_n(\iota)", from=1-3, to=1-4]
+	\arrow["{\delta_n}", from=1-4, to=1-5]
+	\arrow["\widetilde{h}_{n+1}(\pi)", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+where $\iota:A\to X$ is the inclusion and $\pi:X\to X/A$ is the projection. 
+\item Additivity: If $X=\coprod_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}^n(X_i)\cong\widetilde{h}^n(X)$$ is an isomorphism
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $\widetilde{h}_n:\bold{CW}\to\bold{Ab}$ be a reduced homology theory. Then $$\widetilde{h}_n(\ast)=0$$
+\end{lmm}
+
+\begin{prp}{}{} Let $\widetilde{h}^n:\bold{CW}\to\bold{Ab}$ be a reduced cohomology theory. Then there is a natural isomorphism $$\widetilde{h}_{n+1}(\Sigma X)=\widetilde{h}_n(X)$$
+\end{prp}
+
+TBA: Unreduced = reduced. 
 
 
 

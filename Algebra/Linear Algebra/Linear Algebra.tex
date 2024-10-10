@@ -158,10 +158,10 @@ Each basis of $W_k$ are not contained in any other linear combination of all the
 
 \subsection{Row and Column Ranks}
 The final section is devoted to matrices as we will soon see that matrices are particularly useful in a lot of things. 
-\begin{defn}{Row Space}{} Let $A_{m\times n}$ be a matrix. The row space of $A$ is the subspace of $\mathbb{F}^m$, $$\Span\{r_1,\dots,r_m\}$$ where $r_i$ are the rows of $A$. The row rank of $A$ is defined to be the dimension of the row space of $A$. 
+\begin{defn}{Row Space}{} Let $\F$ be a field and let $A\in M_{m\times n}(\F)$ be a matrix. The row space of $A$ is the subspace of $\mathbb{F}^m$, $$\Span\{r_1,\dots,r_m\}$$ where $r_i$ are the rows of $A$. The row rank of $A$ is defined to be the dimension of the row space of $A$. 
 \end{defn}
 
-\begin{defn}{Column Space}{} Let $A_{m\times n}$ be a matrix. The column space of $A$ is the subspace of $\mathbb{F}^n$, $$\Span\{c_1,\dots,c_m\}$$ where $c_i$ are the columns of $A$. The column rank of $A$ is defined to be the dimension of the column space of $A$. 
+\begin{defn}{Column Space}{} Let $\F$ be a field and let $A\in M_{m\times n}(\F)$ be a matrix. The column space of $A$ is the subspace of $\mathbb{F}^n$, $$\Span\{c_1,\dots,c_m\}$$ where $c_i$ are the columns of $A$. The column rank of $A$ is defined to be the dimension of the column space of $A$. 
 \end{defn}
 
 \begin{lmm}{}{} Applying row operations does not change the row space, row rank of a matrix and column rank of a matrix. 
@@ -175,7 +175,7 @@ We can now define the rank of a matrix without problem.
 \begin{defn}{Rank of a Matrix}{} Define the rank of a matrix to be its row rank or column rank. 
 \end{defn}
 
-\begin{prp}{}{} Let $A$ be a $n\times n$ matrix. Then the following are equivalent. 
+\begin{prp}{}{} Let $\F$ be a field and let $A\in M_{n\times n}(\F)$ be a matrix. Then the following are equivalent. 
 \begin{itemize}
 \item The rank of $A$ is $n$
 \item $A$ is invertible
@@ -185,16 +185,16 @@ We can now define the rank of a matrix without problem.
 \end{prp}
 
 \pagebreak
-\section{Linear Maps}
-\subsection{Properties of Linear Maps}
-\begin{defn}{Linear Transformation}{} Let $V,W$ be vector spaces over $\F$. A linear transformation or linear map $T$ from $V$ to $W$ is a function $T:V\to W$ such that 
+\section{Preserving the Vector Space Structure}
+\subsection{Linear Transformations}
+\begin{defn}{Linear Transformation}{} Let $V,W$ be vector spaces over a field $\F$. A linear transformation or linear map $T$ from $V$ to $W$ is a function $$T:V\to W$$ such that 
 \begin{itemize}
 \item $T(v_1+v_2)=T(v_1)+T(v_2)$ for all $v_1,v_2\in V$
 \item $T(kv)=kT(v)$ for all $k\in\mathbb{F}$, $v\in V$
 \end{itemize}
 \end{defn}
 
-\begin{lmm}{}{} Let $T:V\to W$ be a linear map. 
+\begin{lmm}{}{} Let $V,W$ be vector spaces over a field $\F$. Let $T:V\to W$ be a linear map. Then the following are true. 
 \begin{itemize}
 \item $T(0_v)=0_w$
 \item $T(-v)=-T(v)$ for all $v\in V$
@@ -203,7 +203,7 @@ We can now define the rank of a matrix without problem.
 \end{proof}
 \end{lmm}
 
-\begin{prp}{}{} If $T:U\to V$ and $S:V\to W$ are linear then $S\circ T:U\to W$ is also linear. \tcbline
+\begin{prp}{}{} Let $U,V,W$ be vector spaces over a field $\F$. If $T:U\to V$ and $S:V\to W$ are linear then $$S\circ T:U\to W$$ is also linear. \tcbline
 \begin{proof} Let $au+bv\in U$. 
 \begin{align*}
 S\circ T(au+bv)&=S(aT(u)+bT(v))\\
@@ -213,10 +213,10 @@ S\circ T(au+bv)&=S(aT(u)+bT(v))\\
 \end{prp}
 
 \subsection{Isomorphisms}
-\begin{defn}{Isomorphic Linear Maps}{} A linear map $T:V\to W$ is said to be an isomorphism if $T$ is bijective. In this case we also say that $V$ and $W$ are isomorphic. 
+\begin{defn}{Isomorphic Linear Maps}{} Let $V,W$ be vector spaces over a field $\F$. A linear map $T:V\to W$ is said to be an isomorphism if $T$ is bijective. In this case we also say that $V$ and $W$ are isomorphic. 
 \end{defn}
 
-\begin{thm}{}{} Let $T:V\to W$ be an isomorphism of vector spaces $V,W$ over $F$. Then its inverse map $T^{-1}:W\to V$ is a linear map. 
+\begin{thm}{}{} Let $V,W$ be vector spaces over a field $\F$. Let $T:V\to W$ be an isomorphism of vector spaces $V,W$ over $F$. Then its inverse map $$T^{-1}:W\to V$$ is a linear map. 
 \end{thm}
 
 \begin{thm}{}{} Let $T:V\to W$ be a linear map. Then the following are equivalent. 
@@ -226,15 +226,22 @@ S\circ T(au+bv)&=S(aT(u)+bT(v))\\
 \end{itemize}
 \end{thm}
 
-\begin{crl}{}{} Every finite dimensional vector space is isomorphic to $\R^n$ for some $n\in\N\setminus\{0\}$. \tcbline
+\begin{crl}{}{} Every finite dimensional vector space over $\R$ is isomorphic to $\R^n$ for some $n\in\N\setminus\{0\}$. \tcbline
 \begin{proof} Direct consequence from the above. 
 \end{proof}
 \end{crl}
 
 This corollary is especially important since it tells use that we only really need to study all of $\R^n$ to study all of finite dimensional spaces. Once we have our results on $\R^n$, we can translate it via an isomorphism. 
 
-\begin{prp}{}{} Let $V,W$ be vetor spaces. The set of all linear maps from $V$ to $W$ forms a vector space. Denote it as $\mathcal{L}(V,W)$
-\end{prp}
+\begin{defn}{The Space of all Linear Maps}{} Let $V,W$ be vector spaces over a field $\F$. Define the space of all linear maps to be the set $$\Hom_\F(V,W)=\{T:V\to W\;|\;T\text{ is a linear map}\}$$ together with the following operations. 
+\begin{itemize}
+\item For two linear maps $T,S:V\to W$, define its sum to be $T+S:V\to W$ defined by $(T+S)(v)=T(v)+S(v)$ for all $v\in V$
+\item For a linear map $T:V\to W$ and a scalar $\lambda\in\F$, define its product to be $\lambda T:V\to W$ defined by $(\lambda T)(v)=\lambda T(v)$ for all $v\in V$. 
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $V,W$ be vector spaces over a field $\F$. Then $\Hom_\F(V,W)$ is a vector space over $\F$. 
+\end{lmm}
 
 \subsection{Kernels and Images}
 \begin{defn}{Images and Kernels}{} Let $T:U\to V$ be a linear map. The image of $T$ is defined as $$\im(T)=\{\vb{v}\in V|T(\vb{u})=\vb{v}, \forall\vb{u}\in U\}$$ The kernel of $T$ is defined as $$\ker(T)=\{\vb{u}\in U|T(\vb{u})=\vb{0}_V\}$$
@@ -267,15 +274,15 @@ This corollary is especially important since it tells use that we only really ne
 \end{thm}
 
 \subsection{Role of Matrices}
-\begin{defn}{Matrix of a Linear Map}{} Let $T:U\to V$ be a linear map where $\dim(U)=n$ and $\dim(V)=m$. Let $\vb{e}_1,\dots,\vb{e}_n$ be the standard basis of $U$ and $\{\vb{f}_1,\dots,\vb{f}_m\}$ the standard basis of $V$. Let $$T(\vb{e}_i)=\sum_{k=1}^m\alpha_{ki}\vb{f}_k$$ for $i\in\{1,\dots,n\}$ Define the matrix of this linear map to be $$\begin{pmatrix}
+\begin{defn}{Matrix of a Linear Map}{} Let $U,V$ be vector spaces over a field $\F$. Let $T:U\to V$ be a linear map where $\dim(U)=n$ and $\dim(V)=m$. Let $\vb{e}_1,\dots,\vb{e}_n$ be a basis of $U$ and $\{\vb{f}_1,\dots,\vb{f}_m\}$ a basis of $V$. Let $$T(\vb{e}_i)=\sum_{k=1}^m\alpha_{ki}\vb{f}_k$$ for $i\in\{1,\dots,n\}$. We then say that the matrix $$\begin{pmatrix}
 \alpha_{11} & \alpha_{12} & \cdots & \alpha_{1n}\\
 \alpha_{21} & \alpha_{22} & \cdots & \alpha_{2n}\\
 \vdots & \vdots & \ddots & \vdots\\
 \alpha_{m1} & \alpha_{m2} & \cdots & \alpha_{mn}\\
-\end{pmatrix}$$
+\end{pmatrix}$$ represents the linear map $T$ under the given bases. 
 \end{defn}
 
-\begin{thm}{}{} Let $T:U\to V$ be a linear map. Let $A$ be the matrix of a linear map. Let $\vb{v}\in U$. Then the coordinates of $T(\vb{v})$ are given by $$T(\vb{v})=A\vb{v}$$
+\begin{thm}{}{} Let $U,V$ be vector spaces over a field $\F$. Let $T:U\to V$ be a linear map. Choose a basis for $U$ and $V$ and let $A$ represent $T$ under these bases. Then $$T(v)=Av$$
 \end{thm}
 
 \begin{thm}{}{} The rank of a matrix equals the rank of any map that it represents. 
@@ -287,21 +294,82 @@ This corollary is especially important since it tells use that we only really ne
 \begin{thm}{}{} Let $T:V\to W$ be a linear map. Then $T$ is a vector space isomorphism if and only if its matrix is nonsingular. 
 \end{thm}
 
+\subsection{Change of Bases}
+We have seen that matrices represent a linear map after choosing bases for the domain and codomain vector spaces. However, when does two matrices represent the same linear map but in different bases?
+
+\begin{defn}{Change of Basis}{} Let $V$ be a vector space over a field $\F$. Let $E=\{e_1,\dots,e_n\}$ and $F=\{f_1,\dots,f_n\}$ be two bases of $V$. We say that a linear map $T:V\to V$ is a change of bases from $E$ to $F$ if $T(e_k)=f_k$ for $1\leq k\leq n$. 
+\end{defn}
+
+\begin{prp}{}{} Let $V$ be a vector space over a field $\F$. Let $E=\{e_1,\dots,e_n\}$ and $F=\{f_1,\dots,f_n\}$ be two bases of $V$. Write $$e_k=p_{k1}v_1'+\dots+p_{kn}f_n$$ for all $1\leq k\leq n$. Then the matrix $$P=\begin{pmatrix}
+p_{11}&\cdots&p_{1n}\\
+\vdots&\ddots&\vdots\\
+p_{n1}&\cdots&p_{nn}
+\end{pmatrix}$$ represents the change of bases linear map from $E$ to $F$. In particular, this means that if $v\in V$ is given in the basis $E$, then $Pv\in V$ represents the same vector in the basis $F$. 
+\end{prp}
+
+\begin{lmm}{}{} Let $V$ be a vector space over a field $\F$. Then any change of bases matrix $P$ is invertible. 
+\end{lmm}
+
+\begin{thm}{}{} Let $V,W$ be vector spaces over a field $\F$. Let $V,W$ be vector spaces. Let $T:V\to W$ be a linear map. Moreover, choose bases $B$ and $B'$ for $V$ and choose bases $C$ and $C'$ for $W$ respectively. 
+\begin{itemize}
+\item Let the matrix $A$ represent $T$ under the bases $B$ and $C$. 
+\item Let the matrix $A'$ represent $T$ under the bases $B'$ and $C'$. 
+\item Let $P$ be the change of bases matrix of $V$ from $B$ to $B'$. 
+\item Let $Q$ be the change of bases matrix of $W$ from $C$ to $C'$. 
+\end{itemize}
+Then we have that $$A'=QAP^{-1}$$
+\end{thm}
+
+It is often easier to depict this as a diagram. Recall that we write $V_B$ to indicate the vector space $V$ is given the basis $B$. Using this notation we obtain the following commutative diagram as a result of the above theorem. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{V_B} & {W_C} \\
+	{V_{B'}} & {W_{C'}}
+	\arrow["A", from=1-1, to=1-2]
+	\arrow["P"', from=1-1, to=2-1]
+	\arrow["Q", from=1-2, to=2-2]
+	\arrow["{A'}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+Even better, we could have equivalently stated in the theorem that this commutative diagram is the result. 
+
+\begin{defn}{Similar Matrices}{} Let $\F$ be a field. We say that two matrices $A,B\in M_{n\times n}(\F)$ are similar if there exists an invertible matrix $P\in M_{n\times n}(\F)$ such that $B=PAP^{-1}$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $\F$ be a field. The relation of similarity in matrices is an equivalent relation in $M_{n\times n}(\F)$. 
+\end{lmm}
+
+Using the equivalence relation, we can express a one-to-one correspondence as follows. 
+
+\begin{thm}{}{} Let $V$ be a vector space over a field $\F$. Then there is a one-to-one correspondence $$\Hom_\F(V,V)\;\;\overset{1:1}{\longleftrightarrow}\;\;\frac{M_{n\times n}(\F)}{\cong}$$ where $\cong$ is the equivalence relation of similar matrices, given as follows. 
+\begin{itemize}
+\item For $T:V\to V$ a linear map, choose a basis for $V$ and let $A\in M_{n\times n}$ represent the matrix $T$. Then the forward map sends $T$ to $[A]$
+\item For $[A]$ an equivalence class of similar matrices, it is mapped to the linear map $T:V\to V$ given by $T(v)=Av$. 
+\end{itemize}
+\end{thm}
+
 \pagebreak
 \section{Eigenspaces}
 Eigenspaces are invariants of a linear map. Every vector in the eigenspace will only be scaled while maintaining its direction. 
+
 \subsection{Eigenvalues and Eigenvectors}
-\begin{defn}{Eigenvalues and Eigenvectors}{} Let $T:V\to V$ be a linear map, where $V$ is a vector space over $\mathbb{F}$. Suppose that for some non-zero vector $v\in V$, and some scalar $\lambda\in\mathbb{F}$, we have $T(v)=\lambda v$. Then $v$ is called an eigenvector of $T$, and $\lambda$ is called the eigenvalue of $T$. 
+\begin{defn}{Eigenvalues and Eigenvectors}{} Let $V$ be a vector space over a field $\F$. Let $T:V\to V$ be a linear map. An eigenvector of $T$ is a vector $v\in  V$ such that $$T(v)=\lambda v$$ for some scalar $\lambda\in\F$. In this case we say that $\lambda$ is an eigenvalue of $T$. 
 \end{defn}
 
-Notice that $\lambda$ can in fact be $0$. If this is the case, then the eigenvectors are just the vectors in the kernel. 
+By choosing a basis for $V$ an representing the linear map $T$ by a matrix $A$, we notice that the concept of eigenvalues and eigenvectors can be translated to matrices. \\
 
-\begin{defn}{Eigenspace}{} Let $\lambda$ be an eigenvalue of a linear map $T$. The set of all eigenvectors belonging to $\lambda$ is called an eigenspace of $T$ with respect to $\lambda$, denoted $E_\lambda$. 
+Notice that two eigenvectors can have the same eigenvalue. For instance, if $v$ is an eigenvector of $\lambda$ and $a$ is a scalar, then $av$ is also an eigenvector of $\lambda$ because $$T(av)=aT(v)=a(\lambda v)=\lambda(av)$$ In particular, the collection of all eigenvectors of an eigenvalue forms a vector subspace of $V$. 
+
+\begin{defn}{Eigenspace}{} Let $V$ be a vector space over a field $\F$. Let $T:V\to V$ be a linear map. Let $\lambda\in\F$ be an eigenvalue of $T$. Define the eigenspace of $\lambda$ to be the vector subspace $$E_\lambda=\{v\in V\;|\;T(v)=\lambda v\}$$
 \end{defn}
 
-\begin{lmm}{}{} Let $\lambda$ be an eigenvalue of $A$. Then $$E_\lambda=\ker(A-\lambda I)$$ \tcbline
+\begin{lmm}{}{} Let $V$ be a vector space over a field $\F$. Let $T:V\to V$ be a linear map. Let $\lambda\in\F$ be an eigenvalue of $T$. Then $$E_\lambda=\ker(T-\lambda I)$$ \tcbline
 \begin{proof}
-Clearly since $Av=\lambda v$ for any eigenvector $v$ of $\lambda$, we also have that $(A-\lambda I)v=0$ which means that $v\in\ker(A-\lambda I)$. 
+Let $v\in V$. We have that 
+\begin{align*}
+T(v)=\lambda v&\iff T(v)-\lambda v=0\\
+&\iff (T-\lambda I)(v)=0\\
+&\iff v\in\ker(T-\lambda I)
+\end{align*}
+and so we conclude. 
 \end{proof}
 \end{lmm}
 
@@ -330,46 +398,33 @@ Clear from the fact that the basis of eigenspaces of different eigenvalues are l
 
 The main result of this subsection, stated that eigenspaces remain invariant under the linear transformation. Clearly this depends on the linear transformation. We will also show that this fact is also unchanged when considering different basis for the linear transformation. 
 
-\subsection{Change of Basis}
-\begin{defn}{Change of Basis Matrix}{} Let $V$ be a vector space and $B,B'$ are two basis of $V$. A change of basis linear map is a linear map $T:V\to V$ such that $T:V_B\to V_{B'}$, meaning the old basis is mapped to the new basis. 
-\end{defn}
-
-\begin{prp}{}{} Let $V$ be a vector space and $v_1,\dots,v_n$, $v_1',\dots,v_n'$ two distinct basis of $V$. Then $$v_k=p_{k1}v_1'+\dots+p_{kn}v_n'$$ for all $k\in\{1,\dots,n\}$ and for any vector $x$ in the basis $v_1,\dots,v_n$, the vector in the other basis $x'$ is given by $x'=Px$ with the invertible matrix $P$ $$\begin{pmatrix}
-p_{11}&\cdots&p_{1n}\\
-\vdots&\ddots&\vdots\\
-p_{n1}&\cdots&p_{nn}
-\end{pmatrix}$$
-\end{prp}
-
-\begin{thm}{}{} Let $V,W$ be vector spaces. Let $V$ consists of two different basis $B$ and $B'$ with a map $P:V_B\to V_{B'}$. Similarly for $W$ we have $C$ and $C'$ and $Q:W_C\to W_{C'}$. Suppose $A:V_B\to W_C$ is a linear map. Then $A':V_{B'}\to W_{C'}$ is given by $$A'=QAP^{-1}$$
-\end{thm}
-
-\begin{defn}{Similar Matrices}{} We say that two matrices $A,B\in M_{n\times n}(\R)$ are similar if there exists an invertible matrix $P\in M_{n\times n}(\R)$ such that $B=PAP^{-1}$. 
-\end{defn}
-
-\begin{lmm}{}{} The relation of similarity in matrices is an equivalent relation in $M_{n\times n}(\R)$. 
-\end{lmm}
-
-Similar matrices will play an important role. We will soon see that every matrix will be similar to relatively nice matrix so that their properties can be investigated, as well as making computations significantly easier. 
-
 \subsection{Diagonalization}
 We now show a very nice kind of matrices, diagonal matrices that will come into play with linear maps. Our goal is to attempt to classify, by similarity, of every matrix into a diagonal one. We will soon see that this is not possible, and thus giving the last section of these notes meaning. 
 
-\begin{defn}{Diagonalizable Linear Maps}{} An linear map $T$ is diagonalizable if there exists a basis the matrix representation of $T$ is linear. 
+\begin{defn}{Diagonalizable Linear Maps}{} Let $V$ be a vector space over a field $\F$. Let $T:V\to V$ be a linear map. We say that $T$ is diagonalizable if there exists a basis of $V$ such that the matrix representing $T$ under the chosen basis is diagonal. 
 \end{defn}
 
-\begin{prp}{Diagonalizable Matrices}{} A linear map $T$ represented by $A$ is diagonalizable if there exists an invertible $P$ and a diagonal matrix $D$ such that $P^{-1}AP=D$. In that case, $P$ consists of eigenvectors of $T$ and the diagonals of $D$ are the eigenvalues of $A$. 
-\end{prp}
+We can transfer this concept to matrices as well. 
+
+\begin{defn}{Diagonalizable Matrices}{} Let $\F$ be a field. Let $A\in M_{n\times n}(\F)$ be a matrix. We say that $A$ is diagonalizable if there exists invertible matrices $P\in GL(n,\F)$ such that $$P^{-1}AP$$ is a diagonal matrix. 
+\end{defn}
+
+\begin{lmm}{}{} Let $V$ be a vector space over a field $\F$. Let $T:V\to V$ be a linear map. Then $T$ is diagonalizable if and only if any matrix $A\in M_{n\times n}(\F)$ representing $T$ under some basis is diagonalizable. 
+\end{lmm}
+
+The compact way of saying this is that $T$ is diagonalizable if and only if its equivalence class of similar matrices contain a diagonal matrix. \\
+
+Ideally, we would like to study linear maps using the diagonal matrices because they appear to be very simple in nature. However, not every equivalence class of similar matrices contain a diagonal matrix and so this method is not feasible for every linear map. However, we can still find conditions for linear maps that are diagonalizable. This is highly related to eigenvalues and eigenspaces. 
 
 \begin{thm}{}{} If the linear map $T:V\to V$ has $n$ distinct eigenvalues where $\dim(V)=n$, then $T$ is diagonalizable. 
 \end{thm}
 
 Although not stated in the theorem, this does not mean that linear maps without $n$ distinct eigenvalues are not diagonalizable. However by taking the contrapositive, we see that not every linear map is diagonalizable because clearly, not every linear map has $n$ distinct eigenvalues. 
 
-\begin{thm}{}{} Let $T\in\mathcal{L}(V)$. Let $\lambda_1,\dots,\lambda_m$ be the distinct eigenvalues of $T$. Then following are equivalent. 
+\begin{thm}{}{} Let $V$ be a vector space over a field $\F$. Let $T:V\to V$ be a linear map. Let $\lambda_1,\dots,\lambda_m$ be the distinct eigenvalues of $T$. Then following are equivalent. 
 \begin{itemize}
 \item $T$ is diagonalizable
-\item $V$ has a basis consisting of eigenvalues of $T$
+\item $V$ has a basis consisting of eigenvectors of $T$
 \item $V=E_{\lambda_1}+\dots+E_{\lambda_m}$
 \item $\dim(V)=\dim(E_{\lambda_1})+\dots+\dim(E_{\lambda_m})$
 \end{itemize}
@@ -697,13 +752,13 @@ Multiplying out the entries of the matrix multiplication gives the original quad
 \begin{prp}{}{} A change of basis via the change of basis matrix $P$ also changes the symmetric matrix of the quadratic form by $P^TAP$
 \end{prp}
 
-\begin{defn}{Congruent Matrices}{} Two matrices $A,B$ are said to be congruent if there exists some invertible matrix $P$ such that $B=P^TAP$
+\begin{defn}{Congruent Matrices}{} Let $A,B\in M_{n\times n}(\F)$ be two square matrices. We say that $A$ and $B$ are congruent if there exists some invertible matrix $P\in GL(n,\F)$ such that $$B=P^TAP$$
 \end{defn}
-
-Beware that congruences does not apply to only symmetric matrices. We will see more of it in action in bilinear forms. 
 
 \begin{prp}{}{} Two symmetric matrices are congruent if and only if they represent the same quadratic form with respect to different bases. 
 \end{prp}
+
+Using this we can establish a one-to-one correspondence $$\left\{q:\F^n\to\F\;|\;q\text{ is a quadratic form}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\frac{\left\{M\in M_{n\times n}(\F)\;|\;M\text{ is symmetric}\right\}}{\cong}$$ where $\cong$ denotes the congruence relation. Moreover, within each congruence class of a quadratic form $q$ contains all possible symmetric matrices that represent $q$ in all possible bases. 
 
 \begin{thm}{}{} Let $q(x_1,\dots,x_n)$ be a quadratic form in $n$ variables over a field $K$ whose characteristic is not $2$. Then there exists a basis such that $q(y_1,\dots,y_n)=c_1y_1^2+\dots+c_ny_n^2$ for some $c_1,\dots,c_n\in K$. \tcbline
 \begin{proof}
@@ -741,7 +796,8 @@ We can induct on $n$ by repeating the process of step 1 with the entry $a_{22}$ 
 \end{proof}
 \end{thm}
 
-This main theorem of quadratic forms shows that every quadratic form is congruent to a diagonal matrix. To illustrate the process of reduction, we look an example. 
+
+This main theorem of quadratic forms shows that every quadratic form is congruent to a diagonal matrix. It also proves that within every equivalence class of congruent matrices, there must be at least one diagonal matrix. To illustrate the process of reduction, we look an example. 
 
 \begin{eg}{}{} Find a nice basis for the quadratic form $q\left(\begin{pmatrix}x\\y\\z\end{pmatrix}\right)=xy+3yz-5xz$. \tcbline
 \begin{proof}
@@ -804,15 +860,18 @@ Simple to see by expanding the matrix multiplication.
 \end{proof}
 \end{thm}
 
-\begin{prp}{}{} Let $A$ be the matrix of the bilinear map $\tau V\times W\to\F$ with respect to the basis $e_1,\dots,e_n$ and $f_1,\dots,f_m$ of $V$ and $W$. Let $B$ be the matrix with respect to the basis of $e_1',\dots,e_n'$ and $f_1',\dots,f_m'$ of $V$ and $W$. Let $P$ and $Q$ be the change of basis matrix where $Pv'=v$ and $Qw'=w$ for $v\in V$ and $w\in W$. Then $$B=P^TAQ$$
+\begin{prp}{}{} Let $V,W$ be vector spaces over $\F$. Let $\tau:V\times W\to\F$ be a bilinear map. Consider the following data. 
+\begin{itemize}
+\item Let $A\in M_n(\F)$ represent $\tau$ with the bases $e_1,\dots,e_n$ of $V$ and $f_1,\dots,f_m$ of $W$ respectively. 
+\item Let $B\in M_n(\F)$ represent $\tau$ with the bases $e_1',\dots,e_n'$ of $W$ and $f_1',\dots,f_m'$ of $W$ respectively
+\item Let $P\in GL(n,\F)$ be the change of basis matrix from $e_1,\dots,e_n$ to $e_1',\dots,e_n'$
+\item Let $Q\in GL(m,\F)$ be the change of basis matrix from $f_1,\dots,f_,m$ to $f_1',\dots,f_m'$
+\end{itemize}
+Then we have that $$B=P^TAQ$$
 \end{prp}
 
-\begin{defn}{Bilinear Forms}{} A bilinear form is a bilinear map that maps $V\times V$ to $\F$. 
+\begin{defn}{Bilinear Forms}{} Let $V$ be a vector space over a field $\F$. A bilinear form on $V$ is a bilinear map $$\tau:V\times V\to\F$$
 \end{defn}
-
-\begin{defn}{Congruent Matrices}{} Two matrices are congruent if there exists an invertible matrix $P$ such that $B=P^TAP$. 
-\end{defn}
-Note that this definition of congruence in matrices coincides with the definition given with symmetric matrices. 
 
 \begin{defn}{Types of Bilinear Forms}{} A bilinear form is said to be
 \begin{itemize}

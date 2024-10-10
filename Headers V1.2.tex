@@ -133,6 +133,12 @@
 \definecolor{UltraViolet}{HTML}{52489C}
 
 
+\definecolor{Munsell}{HTML}{3891A6}
+\definecolor{OxfordBlue}{HTML}{031D44}
+\definecolor{PrussianBlue}{HTML}{04395E}
+\definecolor{PolynesianBlue}{HTML}{1F487E}
+\definecolor{Cerulean}{HTML}{247BA0}
+
 
 %=========================================
 % Theorem Environment
@@ -213,6 +219,15 @@
 \newtcbtheorem[number within=subsection, use counter from=thm]{alg}{Algorithm}%
 {	colback=UltraViolet!5, 
 	colframe=UltraViolet, 
+	fonttitle=\bfseries, 
+	breakable, 
+	enhanced jigsaw, 
+	halign=left
+}{alg}
+
+\newtcbtheorem[number within=subsection, use counter from=thm]{cjt}{Conjecture}%
+{	colback=ForestGreen!5, 
+	colframe=ForestGreen!80!black, 
 	fonttitle=\bfseries, 
 	breakable, 
 	enhanced jigsaw, 

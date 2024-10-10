@@ -16,9 +16,9 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-Algebraic Geometry is such a messy subject in a sense that a different books and lecture notes introduce different materials in a different orders, as well as having different prerequisites. After understanding a bit more in the subject, I believe that there is the need to give a clear distinction between traditional algebraic geometry and contemporary algebraic geometry. Although there are undoubtedly many overlappings between the two, I attempt to separate them to make clear their motivations as well as their results. Ultimately, it is simply a crucial tool in understanding different polynomials including planar curves, and surfaces and more. \\~\\
+Algebraic Geometry is such a messy subject in a sense that a different books and lecture notes introduce different materials in a different orders, as well as having different prerequisites. After understanding a bit more in the subject, I believe that there is the need to give a clear distinction between traditional algebraic geometry and contemporary algebraic geometry. Although there are undoubtedly many overlapping between the two, I attempt to separate them to make clear their motivations as well as their results. \\~\\
 
-This book will mainly cover traditional algebraic geometry in the sense that the construction of affine and projective varieties will be covered, as well as the Hilbert Nullstellensatz theorems, a tad bit of morphisms, and perhaps tangent maps and smoothness as well as classical constructions of morphisms. Affine schemes and sheaf theory are left for another time where they attempt to reinvent the fundamentals of algebraic geometry. \\~\\
+This book will mainly cover traditional algebraic geometry in the sense that the construction of affine and projective varieties will be covered, as well as the Hilbert Nullstellensatz theorems, morphisms, tangent maps and smoothness as well as classical constructions of some varieties. Affine schemes and sheaf theory are left for another time where they attempt to reinvent the fundamentals of algebraic geometry. \\~\\
 
 Knowledge on commutative algebra is required as a prerequisite. These set of notes make use of
 \begin{itemize}
@@ -31,19 +31,49 @@ Knowledge on commutative algebra is required as a prerequisite. These set of not
 \tableofcontents
 \pagebreak
 
+\section{Some Topological Concepts}
+\subsection{Irreducible Spaces}
+\begin{defn}{Irreducible Spaces}{} Let $X$ be a space. We say that $X$ is irreducible if the following are true. For any closed sets $U,W\subseteq X$ such that $X=U\cup W$, we have that either $U=X$ or $W=X$. Otherwise, we say that $X$ is reducible. 
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a space. Let $f:X\to Y$ be continuous. If $X$ is irreducible, then $f(X)$ is irreducible. \tcbline
+\begin{proof}
+Suppose that $f(X)=Y_1\cup Y_2$ for some closed sets $Y_1,Y_2\subseteq Y$. Then we have that $X=f^{-1}(Y_1)\cup f^{-1}(Y_2)$ and both $f^{-1}(Y_1)$ and $f^{-1}(Y_2)$ are closed by continuity. Since $X$ is irreducible, we have that either $X=f^{-1}(Y_1)$ or $X=f^{-1}(Y_2)$. Without loss of generality, assume that $X=f^{-1}(Y_1)$. By surjectivity of $f$ onto $f(X)$, we conclude that $f(X)=Y_1$. Thus $Y$ is irreducible. 
+\end{proof}
+\end{prp}
+
+\begin{lmm}{}{} Let $X$ be a space. Let $W\subseteq X$ be a subspace of $X$. Then $W$ is irreducible if and only if $\overline{W}$ is irreducible. 
+\end{lmm}
+
+\subsection{Noetherian Spaces}
+\begin{defn}{Noetherian Spaces}{} Let $X$ be a space. We say that $X$ is Noetherian if for every sequence $Y_1,Y_2,\dots$ of closed sets such that $$Y_1\supset Y_2\supset\cdots$$ there exists $n\in\N$ such that $Y_n=Y_{n+1}=\cdots$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a space. Then $X$ is Noetherian if and only if every subspace of $X$ is compact. 
+\end{prp}
+
+\begin{prp}{}{} Every subspace of a Noetherian space is Noetherian. 
+\end{prp}
+
+\begin{thm}{}{} Let $X$ be a Noetherian space. Then there exists a finite collection $X_1,\dots,X_n\subseteq X$ of irreducible closed sets such that $$X=X_1\cup\cdots\cup X_n$$ and that $X_i$ is not contained in $X_j$ for $i\neq j$. Moreover, such a decomposition is unique up to reordering of the components. 
+\end{thm}
+
+\pagebreak
 \section{Introduction to Affine Varieties}
-\subsection{Affine Varieties}
-\begin{defn}{Affine Space}{} For a field $k$, define the affine space over $k$ to be the set $$\A^n(k)=\{(a_1,\dots,a_n)|a_i\in k\text{ for }i=1,\dots,n\}$$
+\subsection{The Zero Set of Polynomials}
+Algebraic geometry is all about the study of polynomials. By collecting all the polynomials and studying them all at once, we obtain surprising structure on the ambient space. Therefore we for once and for all, forget about all additional structures of $k^n$ for $k$ a field. We use the following definition. 
+
+\begin{defn}{Affine Space}{} For a field $k$, define the affine space over $k$ to be the set $$\A^n(k)=\{(a_1,\dots,a_n)\;|\;a_i\in k\text{ for }i=1,\dots,n\}$$
 \end{defn}
 
-In particular, there is no additional sturcture on $\A^n$ compared to $k^n$ being a vector space equipped with addition and scalar multiplication. 
+Notice that point wise this is exactly the same as $k^n$. The whole point of this is that $k^n$ has the structure of a vector space, as well as having the standard topology. We do not want both of these because we will define a different topology on these same set of points. Therefore we may as well give it another name. 
 
-\begin{defn}{Affine Algebraic Sets}{} Let $F=\{f_i\}$ be a collection of polynomials in $k[x_1,\dots,x_n]$. The zero locus of $F$ is defined to be $$V(F)=\{x\in\A^n|f(x)=0\text{ for all }f\in F\}\subseteq\A^n$$ Subsets of $\A^n$ of this form is called affine algebraic sets. 
+\begin{defn}{Affine Varieties}{} Let $k$ be a field. Let $F=\{f_i\}$ be a collection of polynomials in $k[x_1,\dots,x_n]$. The zero locus of $F$ is defined to be $$V(F)=\{x\in\A^n|f(x)=0\text{ for all }f\in F\}\subseteq\A^n$$ Subsets of $\A^n$ of this form is called affine varieties. 
 \end{defn}
 
-Some authors use the name algebraic sets, reserving the name algebraic variety to refer to irreducible algebraic sets. 
+Some authors use the name algebraic varieties, but we would have another use for this name. 
 
-\begin{prp}{}{} If $I$ is the ideal of $F=\{f_i\}$ in $k[x_1,\dots,x_n]$ then $V(F)=V(I)$. \tcbline
+\begin{prp}{}{} Let $k$ be a field. If $I$ is the ideal of $F=\{f_i\}$ in $k[x_1,\dots,x_n]$ then $V(F)=V(I)$. \tcbline
 \begin{proof}
 Basic properties of ideals proves the theorem. This is because every $f\in F$ is a finite sum and product of polynomials in the generating set. 
 \end{proof}
@@ -51,25 +81,156 @@ Basic properties of ideals proves the theorem. This is because every $f\in F$ is
 
 Thus from now on we need not consider ourselves with the affine variety of a countable collection of polynomials since we know that the ring of polynomials of $n$ variables is finitely generated. 
 
-\begin{prp}{}{} Let $\{F_i\;|\;i\in I\}$ be a collection of subsets of $k[x_1,\dots,x_n]$. Then the following are true regarding the zero loci. 
+\begin{prp}{}{} Let $k$ be a field. Then the following are true regarding the zero loci. 
 \begin{itemize}
-\item Closed under countable intersections: $\bigcap_{i\in I}V(F_i)=V\left(\bigcup_{i\in I}F_i\right)$
-\item Closed under finite unions: $\bigcup_{i=1}^nV(F_i)=V\left(\bigcap_{i=1}^nF_i\right)$
+\item Closed under countable intersections: Let $\{F_i\;|\;i\in I\}$ be a collection of subsets of $k[x_1,\dots,x_n]$. Then $$\bigcap_{i\in I}V(F_i)=V\left(\bigcup_{i\in I}F_i\right)$$
+\item Closed under finite unions: Let $\{f_i\;|\;i\in I\},\{g_j\;|\;j\in J\}\subset k[x_1,\dots,x_n]$. Then $$V(\{f_i\;|\;i\in I\})\cup V(\{g_j\;|\;j\in J\})=V(\{f_ig_j\;|\;i\in I, j\in J\})$$
+\item $V(\emptyset)=\A_k^n$
+\item $V(1)=\emptyset$
 \end{itemize}\tcbline
-\begin{proof}
+\begin{proof}~\\
+\begin{itemize}
+\item Let $p$ lie in the union. Then for all $f_i$ and $g_j$ we have that $f_i(p)=g_j(p)=0$. Then in particular $(f_ig_j)(p)=0$ and so we proved ``$\subseteq$''. Now let $p\in V(\{f_ig_j\;|\;i\in I, j\in J\})$. Then there are two cases. If $p\in V(\{f_i\;|\;i\in I\})$, we are done. If $p\notin V(\{f_i\;|\;i\in I\})$, then there exists $f_k\in\{f_i\;|\;i\in I\}$ such that $f_k(p)\neq 0$. But we know that $(f_kg_j)(p)=0$ for all $j\in J$. By cancellation law we conclude that $g_j(p)=0$ for all $j\in J$. We conclude that $p\in V(\{g_j\;|\;j\in J\})$ and we are done. 
+\item Since the contents of $V$ are null there are no checks. All points of $\A_k^n$ lie in $V(\emptyset)$. 
+\item For all $p\in\A_k^n$, $p\notin V(1)$ and so we are done. 
+\end{itemize}
 \end{proof}
 \end{prp}
 
-\begin{prp}{Zariski Topology}{} The complements of the set of all affine algebraic subsets of $X\subseteq\A^n$ forms a topology over $X$ called the Zariski Topology
-\end{prp}
+We now proceed with the relative view of all the above, in the sense that we have defined particular subsets of $\A_k^n$ to be affine varieties. But we can also define particular subsets of an affine algebraic set $X$ to be an affine algebraic subset. 
 
-\begin{defn}{Affine Algebraic Varieties}{} An affine set is said to be irreducible if $$V=V_1\cup V_2$$ implies $V_1=V$ or $V_2=V$. In this case $V$ is also said to be an affine algebraic variety. 
+\begin{defn}{Affine Algebraic Subsets}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. An affine algebraic subset $Y$ of $X$ is a subset of $X$ that is also an affine algebraic set of $\A_k^n$. 
 \end{defn}
 
-\begin{prp}{}{} Every affine algebraic set is a finite union of affine algebraic variety. This decomposition is also unique up to reordering. 
+In particular, the affine algebraic subsets of $\A_k^n$ are precisely the affine varieties of $\A_k^n$. 
+
+\subsection{Irreducible Varieties}
+\begin{defn}{Affine Algebraic Varieties}{} Let $k$ be a field. An affine algebraic set $V\subseteq\A_k^n$ is said to be irreducible if the following are true. For any affine varieties $V_1,V_2\subseteq\A_k^n$ such that $$V=V_1\cup V_2$$ we have that either $V_1=V$ or $V_2=V$. In this case $V$ is also said to be an affine algebraic variety. Otherwise, we say that $V$ is reducible. 
+\end{defn}
+
+\begin{eg}{}{} Consider $V=V(xy)\subseteq\A_\C^2$ the union of the axes and $W=V(xy,xz)$. Then both $V$ and $W$ are reducible. \tcbline
+\begin{proof}
+It is easy to decompose $V(xy)=V(x)\cup V(y)$ and $V(xy,xz)=V(x)\cup V(y,z)$. 
+\end{proof}
+\end{eg}
+
+The notion of irreducibility is more useful in an algebraically closed field because often the set-theoretic picture describes the algebraic-geometric properties of the variety. 
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an affine algebraic variety. Then $V$ is connected. \tcbline
+\begin{proof}
+Suppose that $V=U\cup W$ for some closed sets $U$ or $W$. Then $U$ and $W$ are also affine varieties. Since $V$ is irreducible, either $V=U$ or $V=W$. Thus $V$ is connected. 
+\end{proof}
 \end{prp}
 
+While the image of an affine irreducible subvariety under a regular map may not be an affine irreducible subvariety, its closure still is. 
+
+\begin{lmm}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $f:V\to W$ be a regular map. If $U\subseteq V$ is an irreducible subvariety of $V$, then $\overline{f(U)}\subseteq W$ is an irreducible subvariety of $W$. 
+\end{lmm}
+
+\subsection{The Zariski Topology}
+\begin{defn}{Zariski Topology}{} Let $k$ be a field. Define the Zariski topology on $\A_k^n$ to be the topology where the closed sets are precisely all the affine varieties of $\A_k^n$. 
+\end{defn}
+
+The Zariski topology is coarser than the standard topology of $k^n$ in the following sense. In general, the Zariski topology is not even Hausdorff. This means, the intersection of open sets in the Zariski topology are always non-empty. From this point onwards, unless otherwise specified, topology on $\A_k^n$ means the Zariski topology. 
+
+\begin{lmm}{}{} The following are true regarding the Zariski topology on $\A_\C^n$. 
+\begin{itemize}
+\item Every closed set in the Zariski topology on $\A_\C^n$ is a closed set in the standard topology of $\A_\C^n$. 
+\item Every open set in the Zariski topology on $\A_\C^n$ is an open set in the standard topology of $\A_\C^n$. 
+\end{itemize} \tcbline
+\begin{proof}
+Let $V=V(\{f_i\;|\;i\in I\})$ be a closed set of the Zariski topology. Then we have that $$V=\bigcap_{i\in I}V(f_i)$$ But each $V(f_i)$ is set theoretically equal to $f_i^{-1}(0)$. This set is open in the standard topology because $0$ is a closed set in $\C$ and $f_i$ is a continuous function. Since the countable intersection of closed sets are closed, we conclude that $V$ is closed. \\~\\
+
+Let $U$ be an open set in the Zariski topology. By the above argument we conclude that $\A^n\setminus U$ is a closed set in the standard topology. Hence $U$ is an open set in the standard topology. 
+\end{proof}
+\end{lmm}
+
+Using the Zariski topology on $\A_k^n$, we can now endow a subspace topology on any affine algebraic set of $\A_k^n$. By definition, closed sets of an affine algebraic set $X$ can be characterized in the following way: $$\left\{\text{Closed subsets of }X\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{Y\cap X\;|\; Y\text{ is an affine algebraic set of }\A_k^n\right\}$$ Some funky things happen with the Zariski topology. 
+
+\begin{lmm}{}{} Let $k$ be a field. Then every closed set of $\A_k^1$ is a finite set. \tcbline
+\begin{proof}
+Let $V$ be a closed set of $\A_k^1$. Then $V$ is the common zero set of some collection of polynomials. Since each polynomial has at most a finite number of zeroes, $V$ can at most contain finitely many points. 
+\end{proof}
+\end{lmm}
+
+\begin{eg}{}{} Let $k=\R$ or $\C$. The Zariski topology on $\A_k^2$ is not homeomorphic to the product topology of the Zariski topology of $\A_k^1\times\A_k^1$. \tcbline
+\begin{proof}
+Consider the diagonal $\{(x,x)\;|\;x\in\A^1\}\subseteq\A^2$. This set is closed in the Zariski topology of $\A^2$ because it is the zero set of $y=x$. However, the closed sets of $\A_k^1$ are finite sets. By the product topology, the closed sets of $\A_k^1\times\A_k^1$ is an arbitrary intersection of a finite union of products of closed sets. Hence the closed sets of $\A_k^1\times\A_k^1$ are also finite. But the diagonal is not a finite set and hence is not a closed set in $\A_k^1\times\A_k^1$. 
+\end{proof}
+\end{eg}
+
+Recall that given a space and a subspace $A\subseteq B$, $P\subseteq A$ is closed in $A$ if $A$ is closed in $B$ and $P$ is closed in $B$. 
+
+\begin{lmm}{}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Then $Y\subseteq X$ is an affine algebraic subset of $X$ if and only if $Y$ is closed in $X$. \tcbline
+\begin{proof}
+Let $Y$ be an affine algebraic subset of $X$. Then we deduce from definitions that $Y\subseteq X$ and $Y$ is an affine algebraic set of $\A_k^n$. Hence $Y$ is closed in $\A_k^n$. Moreover, $X$ is a closed set of $X$. Thus $Y$ is closed in $X$. \\~\\
+
+Now suppose that $Y\subseteq X$ is closed. By definition of closed sets, there exists some closed set $P\subseteq\A_k^n$ such that $Y=P\cap X$. Since $X$ and $P$ are affine varieties of $\A_k^n$, by prp1.1.4 the intersection $Y=P\cap X$ is also an affine algebraic set of $\A_k^n$. Thus we conclude. 
+\end{proof}
+\end{lmm}
+
+This lemma showed that there is a one-to-one correspondence in the following way: $$\left\{\text{Closed subsets of }X\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\text{Affine algebraic subsets of }X\right\}$$ for any affine algebraic set $X$ of $\A_k^n$. In fact, this simplifies quite a lot topologically. Recall that because closed and open sets are relative, we often need to state whether a set is closed relative to the subspace or closed in the underlying space. However, we see in the Zariski topology that they both really mean the same thing, namely it is the zero set of some collection of polynomials. 
+
+\subsection{Morphisms of Affine Varieties}
+As with any other field of maths, we need a correct notion of morphism between varieties to work with so that we can transfer structure to a potentially easier object to study. However, depending on what subfield of algebraic geometry one is interested in, there may be different notions of morphisms. In this introductory notes, we will define the most generic and widely used morphism. 
+
+\begin{defn}{Polynomial Maps}{} Let $k$ be a field. We say that a map of sets $f:\A_k^n\to\A_k^m$ is polynomial if there exists $f_1,\dots,f_m\in k[x_1,\dots,x_n]$ such that $$f(p)=(f_1(p),\dots,f_m(p))$$ for all $p\in\A_k^n$. 
+\end{defn}
+
+\begin{defn}{Regular Maps}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. A regular map from $V$ to $W$ is a map $$\phi:V\to W$$ such that $\phi$ is the restriction of a polynomial map $\A_k^n\to\A_k^m$. 
+\end{defn}
+
+Such a regular map may not be given by a unique set of polynomials. 
+
+\begin{eg}{}{} Let $V=V(y-x^2)\subseteq\A_\C^2$ be the parabola. Let $W=V(y^2-x^3)\subseteq\A_\C^2$ be the cuspidal cubic. Consider $F_1,F_2:\A_\C^2\to\A_\C^2$ defined by $F_1(x,y)=(x^2,x^3)$ and $F_2(x,y)=((y-x^2+1)x^2,x^3)$ respectively. Then $F_1$ and $F_2$ define the same regular map $(F_1)|_V=(F_2)|_V:V\to W$. \tcbline
+\begin{proof}
+Indeed, when restricted to $V=V(y-x^2)$, we conclude that $y-x^2=0$ and hence $F_2$ simplifies to the map $F_1$. 
+\end{proof}
+\end{eg}
+
+\begin{prp}{}{} Let $k$ be a field. Let $\phi:\A_k^n\to\A_k^m$ be a polynomial map. Let $W=V(\{f_i\;|\;i\in I\})\subseteq\A_k^m$ be an affine algebraic set of $\A_k^m$. Then $$\phi^{-1}(W)=V(\{f_i\circ\phi\;|\;i\in I\})$$ \tcbline
+\begin{proof}
+Let us first consider the case of the zero set $V(g)$ of one polynomial. Suppose that $x\in\phi^{-1}(V(g))$. Then $\phi(x)\in V(g)$ which means that $g(\phi(x))=0$. The converse is entirely true. Hence we proved that $\phi^{-1}(V(g))=V(g\circ\phi)$. \\~\\
+
+Now let $W=V(\{f_i\;|\;i\in I\})\subseteq\A_k^m$. Then $W=\bigcap_{i\in I}V(f_i)$ It follows that 
+\begin{align*}
+\phi^{-1}(W)&=\phi^{-1}\left(\bigcap_{i\in I}V(f_i)\right)\\
+&=\bigcap_{i\in I}\phi^{-1}\left(V(f_i)\right)\\
+&=\bigcap_{i\in I}V(f_i\circ\phi)\\
+&=V(\{f_i\circ\phi\;|\;i\in I\})
+\end{align*}
+and so we conclude. 
+\end{proof}
+\end{prp}
+
+While the preimage of a subvariety is a subvariety, the image of a subvariety may not be a variety in general. 
+
+\begin{thm}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a regular map. Then $\phi$ is continuous with respective to the Zariski topology. \tcbline
+\begin{proof}
+Let $U$ be an affine algebraic subset of $W$. Then $U$ is also an affine algebraic set in its own right. This means that $U=V(\{f_i\;|\;i\in I\})$ for some collection of polynomials. By the above proposition, we have that $\phi^{-1}(U)=V(\{f_i\circ\phi\;|\;i\in I\})$ and hence is a closed set of $V$. Thus $\phi$ is continuous. 
+\end{proof}
+\end{thm}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V,W,U$ be affine varieties over $k$. If $f:V\to W$ and $g:W\to U$ are regular maps, then $g\circ f:V\to U$ is also a regular map. 
+\end{prp}
+
+\begin{defn}{Isomorphic Varieties}{} Let $k$ be an algebraically closed field. Let $X,Y$ be affine varieties over $k$. A regular map $\phi:X\to Y$ between two varieties is an isomorphism if it has an inverse that is a regular map. $X$ and $Y$ are said to be isomorphic in this case. 
+\end{defn}
+
+Note that even $\phi$ is a homeomorphism, $\phi$ may not necessarily be a regular map. This is because of the added condition that the inverse of $\phi$ also has to be a polynomial map. 
+
+\begin{eg}{}{} Let $h:\A_\C^1\to\A_\C^2$ be the regular map defined by $t\mapsto(t^2,t^3)$. Then $h$ is a homeomorphism and not an isomorphism of varieties. \tcbline
+\begin{proof}
+It is clear that the inverse of $h$ is given by $$(x,y)\mapsto\begin{cases}
+\frac{y}{x} & \text{ if }x\neq 0\\
+0 & \text{ otherwise }
+\end{cases}$$ This map is more over continuous and hence $\phi$ is a homeomorphism. However, $\phi^{-1}$ is not induced by a polynomial map and $\phi$ is not an isomorphism of varieties. 
+\end{proof}
+\end{eg}
+
 \subsection{Hilbert's Nullstellensatz}
+Recall that these sets of notes are for algebraic geometry, not purely geometry. We would like to employ algebraic methods to the study of these zero sets. In particular, the goal of the chapter is to establish some sort of one-to-one correspondence with some algebraic objects $$\left\{\substack{\text{Affine algebraic}\\\text{sets of }\A_k^n}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\text{Something Algebraic}$$ Hilbert's Nullstellensatz will provide the link. 
+
 \begin{defn}{Ideals of an Affine Variety}{} Let $V$ be an affine algebraic set. Define the ideal of $V$ to be $$I(V)=\{f\in k[x_1,\dots,x_n]\;|\;f(x)=0\text{ for all }x\in V\}$$ 
 \end{defn}
 
@@ -90,12 +251,12 @@ Recall that the radical ideal is defined as $$\sqrt{I}=\{f\in k[x_1,\dots,x_n]\;
 \begin{thm}{Hilbert's Nullstellensatz}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. Then $$I(V(I))=\sqrt{I}$$
 \end{thm}
 
-\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{sets of }\A_k^n}\right\}$$ between the radical ideals of $k[x_1,\dots,x_n]$ and affine algebraic sets of $\A_k^n$ given by $V(-)$ and $I(-)$. 
+\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{sets of }\A_k^n}\right\}$$ between the radical ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $V(-)$ and $I(-)$. 
 \end{crl}
 
 Note that this bijection is compatible with subset inclusion in the sense of proposition 1.2.3. Bijections of this form that induce a relation on subsets are called Galois connections or Galois correspondence, mimicking his work in Galois theory. 
 
-\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Prime ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{varieties of }\A_k^n}\right\}$$ between the prime ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $V(-)$ and $I(-)$. 
+\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Prime ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine varieties}\\\text{of }\A_k^n}\right\}$$ between the prime ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $V(-)$ and $I(-)$. 
 \end{crl}
 
 \begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Maximal ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ between the maximal ideals of $k[x_1,\dots,x_n]$ and points in $\A_k^n$ given by $V(-)$ and $I(-)$. 
@@ -107,7 +268,19 @@ Given a radical ideal $I$, translate it over to its corresponding affine variety
 \end{proof}
 \end{prp}
 
-\subsection{Polynomial Functions on a Variety}
+Up until this point, we constructed a small dictionary between algebra and geometry: \\
+\begin{center}\begin{tabular}{c|c}
+Algebra & Geometry\\
+\hline
+The Polynomial Ring $k[x_1,\dots,x_n]$ & The Space $\A_k^n$\\
+Radical Ideals of $k[x_1,\dots,x_n]$ & Affine Varieties in $\A_k^n$\\
+Prime Ideals of $k[x_1,\dots,x_n]$ & Affine Algebraic Varieties in $\A_k^n$\\
+Maximal Ideals of $k[x_1,\dots,x_n]$ & Points in $\A_k^n$
+\end{tabular}\end{center}
+
+This is the absolute point of view in the sense we are considering every object in geometry under the setting of $\A_k^n$. However we see that it is easy to replace $\A_k^n$ with an affine variety. However we do need a corresponding notion in the algebra side. This is called the coordinate ring. 
+
+\subsection{The Coordinate Ring}
 \begin{defn}{Coordinate Ring}{} Let $k$ be a field and let $V\subseteq\A_k^n$ be an affine variety. Define the coordinate ring of $V$ to be $$k[V]=\frac{k[x_1,\dots,x_n]}{I(V)}$$ to be the ring of polynomial functions on $V$. 
 \end{defn}
 
@@ -125,16 +298,7 @@ Suppose now that $\C[V]$ is an integral domain but $V$ is reducible. Then there 
 \end{proof}
 \end{prp}
 
-\subsection{Morphisms of Affine Varieties}
-\begin{defn}{Regular Maps}{} Let $V\subseteq\A^n$ and $W\subseteq\A^m$ be affine varieties. A regular map from $V$ to $W$ is a map $$\phi:V\to W$$ such that for every $p\in V$, $\phi(p)=(f_1(p),\dots,f_m(p))$ for some polynomial in $f_1,\dots,f_m\in k[V]$. 
-\end{defn}
-
-The name regular maps has exactly the same meaning as morphisms of affine varieties. 
-
-\begin{defn}{Isomorphic Varieties}{} A regular map $\phi:X\to Y$ between two varieties is an isomorphism if it has an inverse that is a regular map. $X$ and $Y$ are said to be isomorphic in this case. 
-\end{defn}
-
-\begin{prp}{}{} Let $V,W,U$ be affine varieties. If $f:V\to W$ and $g:W\to U$ are regular maps, then $g\circ f:V\to U$ is also a regular map. 
+\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a regular map. Then $\phi$ is given by $$\phi=(\phi_1,\dots,\phi_m)$$ for some $\phi_1,\dots,\phi_m\in k[V]$. 
 \end{prp}
 
 \begin{defn}{Pullback of a Regular Map}{} Let $\phi:V\to W$ be a morphism of varieties. Then define the pull back of $\phi$ by $$\phi^\ast:k[W]\to k[V]$$ where $\phi^\ast(p)=p\circ\phi$ for each $p\in k[W]$. 
@@ -148,6 +312,47 @@ The name regular maps has exactly the same meaning as morphisms of affine variet
 
 \begin{crl}{}{} Let $V$ and $W$ be affine varieties over a field $k$. Then $V$ and $W$ are isomorphic if and only if $k[V]\cong k[W]$. 
 \end{crl}
+
+\subsection{The Relative Nullstellensatz}
+We also have the relative version of Hilbert's Nullstellensatz. We begin with the relative version of the vanishing loci and ideal. 
+
+\begin{defn}{Relative Vanishing Loci and Ideal}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. 
+\begin{itemize}
+\item Let $F\subset k[X]$. Define the vanishing loci of $F$ in $X$ to be $$V_X(F)=\{p\in X\;|;f(p)=0\text{ for all }f\in F\}$$
+\item Let $S\subset X$. Define the ideal of $S$ in $X$ to be $$I_X(S)=\{f\in k[X]\;|\;f(s)=0\text{ for all }s\in S\}$$
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Let $Y$ be an affine algebraic subset of $X$. Then $$k[Y]=\frac{k[X]}{I_X(Y)}$$
+\end{lmm}
+
+\begin{thm}{Relative Nullstellensatz}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[X]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{subsets of }X}\right\}$$ given by $V_X(-)$ and $I_X(-)$. 
+\end{thm}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an affine variety. Then $V$ is Noetherian. 
+\end{prp}
+
+\begin{thm}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an affine algebraic set. Then there exists $V_1,\dots,V_n$ affine algebraic varieties such that $$V=V_1\cup\cdots\cup V_n$$ and $V_i$ does not contain $V_j$ for $i\neq j$. Moreover, such a decomposition is unique up to reordering of the varieties. 
+\end{thm}
+
+\begin{defn}{Irreducible Components}{} Let $V$ be an affine algebraic set. Define the irreducible components of $V$ to be the full collection of affine algebraic varieties $V_1,\dots,V_n$ in the decomposition of $V$ into irreducible varieties. 
+\end{defn}
+
+\begin{lmm}{}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Then there is a bijection $$\left\{\substack{\text{Irreducible}\\\text{Components of } X}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Minimal prime}\\\text{ideals of }k[X]}\right\}$$ given by $V_X(-)$ and $I_X(-)$. 
+\end{lmm}
+
+We can now expand our dictionary into: \\
+\begin{center}\begin{tabular}{c|c}
+Algebra & Geometry\\
+\hline
+The Coordinate Ring $k[X]$ & The Affine Variety $X$\\
+Radical Ideals of $k[X]$ & Affine Sub-varieties in $X$\\
+Prime Ideals of $k[X]$ & Affine Algebraic Varieties in $X$\\
+Maximal Ideals of $k[X]$ & Points in $X$\\
+Minimal Prime Ideals of $k[X]$ & Irreducible Components of $X$
+\end{tabular}\end{center}
+
+All such bijections are moreover given by the construction of $V_X(-)$ and $I_X(-)$. 
 
 \subsection{Rational Functions on a Variety}
 While polynomial rings are more than sufficient to classify varieties up to isomorphism, we would still like to enlarge the set of functions on a variety. We will do this by introducing rational functions on a variety. 
@@ -172,32 +377,8 @@ It is natural to ask that given a regular map between two varieties. How does al
 
 \pagebreak
 \section{Introduction to Projective Varieties}
-\subsection{Projective Space}
-\begin{lmm}{}{} Let $\A$ be a field. The relation $\sim$ in $\A^{n+1}$ where $(x_0,\dots,x_n)\sim(y_0,\dots,y_n)$ if and only if $y_i=\lambda x_i$ for all $i\{1,\dots,n\}$ with $\lambda\in\A$ is an equivalence relation. 
-\end{lmm}
-
-\begin{defn}{Projective Space}{} The equivalence relation $\sim$ on $\A^{n+1}$ induces the projective space with elements in it being $1$ dimensional subspaces of $\A^n$, written as $$\Prj^n(\A)=\frac{\A^{n+1}\setminus\{0\}}{\sim}$$
-\end{defn}
-
-\begin{prp}{}{} There is a bijection between $\mathbb{P}^n$ and the set of lines through the origin in $\A^{n+1}$. 
-\end{prp}
-
-\begin{prp}{}{} We have the following identification of projective space: $$\Prj^n\cong\A^n\cup\Prj^{n-1}$$ where the union is disjoint and  $$[x_0:\dots:x_n]\to\begin{cases}
-\left(\frac{x_1}{x_0},\dots,\frac{x_n}{x_0}\right)\in\A^n & \text{ for } x_0\neq0\\
-[x_1,\dots,x_n]\in\Prj^{n-1} & \text{ for } x_0=0
-\end{cases}$$
-\end{prp}
-
-This is an identification of points in $\Prj^n$. They are either affine coordinates or coordinates at infinity. Recursively, we can deduce that $$\Prj^n\cong\A^n\cup\dots\cup\A\cup\{\infty\}$$ All of the above unions are disjoint. 
-
-\begin{prp}{}{} Let $U_k=\{[x_0:\dots x_n]\in\Prj^n|x_k\neq0\}=\{[x_0:\dots x_n]\in\Prj^n|x_k=1\}$. Then $$\Prj^n=\bigcup_{k=0}^nU_k$$
-\end{prp}
-
-\begin{prp}{}{} The projective space is an $n$ dimensional manifold. 
-\end{prp}
-
 \subsection{Homogenous Functions}
-\begin{defn}{Homogenous Functions}{} A polynomial $f$ is said to be homogenous of degree $d$ if all its terms has total degree $d$. Denote $\C_d[x_1,\dots,x_n]$ the set of all homogenous polynomials of degree $d$ over $\C$. 
+\begin{defn}{Homogenous Functions}{} Let $k$ be a field. Let $f\in k[x_1,\dots,x_n]$ be a polynomial. We say that $f$ is homogenous of degree $d\in\N$ if each term of $f$ has total degree $d$. Denote $$k_d[x_1,\dots,x_n]=\{f\in k[x_1,\dots,x_n]\;|\;f\text{ is homogenous}\}$$ the subring of all homogenous polynomials of degree $d$ over $k$. 
 \end{defn}
 
 \begin{lmm}{}{} If $f$ is homogenous of degree $d$ then $f(\lambda x_0,\dots,\lambda x_n)=\lambda^df(x_0,\dots,x_n)$
@@ -206,7 +387,7 @@ This is an identification of points in $\Prj^n$. They are either affine coordina
 \begin{lmm}{}{} For all $f\in\A[x_0,\dots,x_n]$, $$f=f_0+f_1+\dots+f_d$$ where $f_i$ is homogenous of degree $i$. 
 \end{lmm}
 
-\subsection{Projective Varities}
+\subsection{Projective Varieties}
 Recall that an ideal is homogenous if it is generated by homogenous elements. 
 
 \begin{defn}{Projective Variety}{} Let $I$ be an homogenous ideal. A projective variety in $\Prj^n$ is the common vanishing locus $$V(I)=\{x\in\Prj^n|F(x)=0\text{ for all }F\in I\}$$ 

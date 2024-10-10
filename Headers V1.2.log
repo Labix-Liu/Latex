@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  29 JUN 2024 14:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  9 OCT 2024 00:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -267,12 +267,24 @@ l.22 \usepackage{
 between \documentclass and \begin{document}.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 9--23
+! LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.23 \usepackage{
+                 makecell}
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 9--24
 []
  []
 
 ! Undefined control sequence.
-l.29 \usetikzlibrary
+l.26 \usetikzlibrary
                     {arrows.meta}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -287,7 +299,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.29 \usetikzlibrary{a
+l.26 \usetikzlibrary{a
                       rrows.meta}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -303,8 +315,13 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no a in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 26--27
+[] 
+ []
+
 ! Undefined control sequence.
-l.31 \DeclarePairedDelimiter
+l.28 \DeclarePairedDelimiter
                             \ceil{\lceil}{\rceil}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -313,7 +330,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.31 \DeclarePairedDelimiter\ceil
+l.28 \DeclarePairedDelimiter\ceil
                                  {\lceil}{\rceil}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -324,7 +341,7 @@ and I'll forget about whatever was undefined.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.31 \DeclarePairedDelimiter\ceil{\lceil
+l.28 \DeclarePairedDelimiter\ceil{\lceil
                                         }{\rceil}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -336,17 +353,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.31 \DeclarePairedDelimiter\ceil{\lceil
+l.28 \DeclarePairedDelimiter\ceil{\lceil
                                         }{\rceil}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 31.
+(Font)              <7> on input line 28.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 31.
+(Font)              <5> on input line 28.
 ! Extra }, or forgotten $.
-l.31 \DeclarePairedDelimiter\ceil{\lceil}
+l.28 \DeclarePairedDelimiter\ceil{\lceil}
                                          {\rceil}
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -355,7 +372,7 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Undefined control sequence.
-l.32 \DeclarePairedDelimiter
+l.29 \DeclarePairedDelimiter
                             \floor{\lfloor}{\rfloor}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -364,7 +381,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.32 \DeclarePairedDelimiter\floor
+l.29 \DeclarePairedDelimiter\floor
                                   {\lfloor}{\rfloor}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -375,14 +392,14 @@ and I'll forget about whatever was undefined.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.33 
+l.30 
      
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (17.77777pt too wide) in paragraph at lines 31--33
-[]$\OMS/cmsy/m/n/10 d[][][]$  
+Overfull \hbox (37.77777pt too wide) in paragraph at lines 28--30
+[]$\OMS/cmsy/m/n/10 d[][][]$ 
  []
 
 
@@ -392,7 +409,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.37 \usepackage{
+l.34 \usepackage{
                  tgpagella}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
@@ -404,13 +421,25 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.38 \usepackage[T1]{
+l.35 \usepackage[T1]{
                      fontenc}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
+
+! LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.42 \usepackage[parfill]{
+                          parskip}
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
 ! Undefined control sequence.
-l.44 \DeclareMathOperator
+l.47 \DeclareMathOperator
                          {\adj}{adj}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -419,7 +448,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.44 \DeclareMathOperator{\adj
+l.47 \DeclareMathOperator{\adj
                               }{adj}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -434,7 +463,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.44 \DeclareMathOperator{\adj}{a
+l.47 \DeclareMathOperator{\adj}{a
                                  dj}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -443,7 +472,7 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no j in font nullfont!
 ! Undefined control sequence.
-l.45 \DeclareMathOperator
+l.48 \DeclareMathOperator
                          {\im}{im}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -452,7 +481,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.45 \DeclareMathOperator{\im
+l.48 \DeclareMathOperator{\im
                              }{im}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -463,7 +492,7 @@ and I'll forget about whatever was undefined.
 Missing character: There is no i in font nullfont!
 Missing character: There is no m in font nullfont!
 ! Undefined control sequence.
-l.46 \DeclareMathOperator
+l.49 \DeclareMathOperator
                          {\nullity}{nullity}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -472,7 +501,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.46 \DeclareMathOperator{\nullity
+l.49 \DeclareMathOperator{\nullity
                                   }{nullity}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -488,7 +517,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no y in font nullfont!
 ! Undefined control sequence.
-l.47 \DeclareMathOperator
+l.50 \DeclareMathOperator
                          {\sign}{sign}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -497,7 +526,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.47 \DeclareMathOperator{\sign
+l.50 \DeclareMathOperator{\sign
                                }{sign}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -510,7 +539,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no g in font nullfont!
 Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
-l.48 \DeclareMathOperator
+l.51 \DeclareMathOperator
                          {\dom}{dom}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -519,7 +548,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.48 \DeclareMathOperator{\dom
+l.51 \DeclareMathOperator{\dom
                               }{dom}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -531,7 +560,7 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no m in font nullfont!
 ! Undefined control sequence.
-l.49 \DeclareMathOperator
+l.52 \DeclareMathOperator
                          {\lcm}{lcm}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -540,7 +569,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.49 \DeclareMathOperator{\lcm
+l.52 \DeclareMathOperator{\lcm
                               }{lcm}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -552,7 +581,7 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no c in font nullfont!
 Missing character: There is no m in font nullfont!
 ! Undefined control sequence.
-l.50 \DeclareMathOperator
+l.53 \DeclareMathOperator
                          {\ran}{ran}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -561,7 +590,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.50 \DeclareMathOperator{\ran
+l.53 \DeclareMathOperator{\ran
                               }{ran}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -573,7 +602,7 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
-l.51 \DeclareMathOperator
+l.54 \DeclareMathOperator
                          {\ext}{Ext}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -582,7 +611,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.51 \DeclareMathOperator{\ext
+l.54 \DeclareMathOperator{\ext
                               }{Ext}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -594,7 +623,7 @@ Missing character: There is no E in font nullfont!
 Missing character: There is no x in font nullfont!
 Missing character: There is no t in font nullfont!
 ! Undefined control sequence.
-l.52 \DeclareMathOperator
+l.55 \DeclareMathOperator
                          {\dist}{dist}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -603,7 +632,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.52 \DeclareMathOperator{\dist
+l.55 \DeclareMathOperator{\dist
                                }{dist}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -616,7 +645,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no t in font nullfont!
 ! Undefined control sequence.
-l.53 \DeclareMathOperator
+l.56 \DeclareMathOperator
                          {\diam}{diam}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -625,7 +654,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.53 \DeclareMathOperator{\diam
+l.56 \DeclareMathOperator{\diam
                                }{diam}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -638,7 +667,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no m in font nullfont!
 ! Undefined control sequence.
-l.54 \DeclareMathOperator
+l.57 \DeclareMathOperator
                          {\aut}{Aut}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -647,7 +676,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.54 \DeclareMathOperator{\aut
+l.57 \DeclareMathOperator{\aut
                               }{Aut}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -659,7 +688,7 @@ Missing character: There is no A in font nullfont!
 Missing character: There is no u in font nullfont!
 Missing character: There is no t in font nullfont!
 ! Undefined control sequence.
-l.55 \DeclareMathOperator
+l.58 \DeclareMathOperator
                          {\inn}{Inn}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -668,7 +697,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.55 \DeclareMathOperator{\inn
+l.58 \DeclareMathOperator{\inn
                               }{Inn}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -680,7 +709,7 @@ Missing character: There is no I in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
-l.56 \DeclareMathOperator
+l.59 \DeclareMathOperator
                          {\syl}{Syl}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -689,7 +718,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.56 \DeclareMathOperator{\syl
+l.59 \DeclareMathOperator{\syl
                               }{Syl}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -701,7 +730,7 @@ Missing character: There is no S in font nullfont!
 Missing character: There is no y in font nullfont!
 Missing character: There is no l in font nullfont!
 ! Undefined control sequence.
-l.57 \DeclareMathOperator
+l.60 \DeclareMathOperator
                          {\edo}{End}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -710,7 +739,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.57 \DeclareMathOperator{\edo
+l.60 \DeclareMathOperator{\edo
                               }{End}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -722,7 +751,7 @@ Missing character: There is no E in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no d in font nullfont!
 ! Undefined control sequence.
-l.58 \DeclareMathOperator
+l.61 \DeclareMathOperator
                          {\cov}{Cov}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -731,7 +760,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.58 \DeclareMathOperator{\cov
+l.61 \DeclareMathOperator{\cov
                               }{Cov}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -743,7 +772,7 @@ Missing character: There is no C in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no v in font nullfont!
 ! Undefined control sequence.
-l.59 \DeclareMathOperator
+l.62 \DeclareMathOperator
                          {\vari}{Var}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -752,7 +781,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.59 \DeclareMathOperator{\vari
+l.62 \DeclareMathOperator{\vari
                                }{Var}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -764,7 +793,7 @@ Missing character: There is no V in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no r in font nullfont!
 ! Undefined control sequence.
-l.60 \DeclareMathOperator
+l.63 \DeclareMathOperator
                          {\cha}{char}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -773,7 +802,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.60 \DeclareMathOperator{\cha
+l.63 \DeclareMathOperator{\cha
                               }{char}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -786,7 +815,7 @@ Missing character: There is no h in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no r in font nullfont!
 ! Undefined control sequence.
-l.61 \DeclareMathOperator
+l.64 \DeclareMathOperator
                          {\Span}{span}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -795,7 +824,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.61 \DeclareMathOperator{\Span
+l.64 \DeclareMathOperator{\Span
                                }{span}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -808,7 +837,7 @@ Missing character: There is no p in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
-l.62 \DeclareMathOperator
+l.65 \DeclareMathOperator
                          {\ord}{ord}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -817,7 +846,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.62 \DeclareMathOperator{\ord
+l.65 \DeclareMathOperator{\ord
                               }{ord}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -829,7 +858,7 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no d in font nullfont!
 ! Undefined control sequence.
-l.63 \DeclareMathOperator
+l.66 \DeclareMathOperator
                          {\res}{res}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -838,7 +867,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.63 \DeclareMathOperator{\res
+l.66 \DeclareMathOperator{\res
                               }{res}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -850,7 +879,7 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 ! Undefined control sequence.
-l.64 \DeclareMathOperator
+l.67 \DeclareMathOperator
                          {\Hom}{Hom}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -859,7 +888,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.64 \DeclareMathOperator{\Hom
+l.67 \DeclareMathOperator{\Hom
                               }{Hom}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -871,7 +900,7 @@ Missing character: There is no H in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no m in font nullfont!
 ! Undefined control sequence.
-l.65 \DeclareMathOperator
+l.68 \DeclareMathOperator
                          {\Mor}{Mor}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -880,7 +909,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.65 \DeclareMathOperator{\Mor
+l.68 \DeclareMathOperator{\Mor
                               }{Mor}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -892,7 +921,7 @@ Missing character: There is no M in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no r in font nullfont!
 ! Undefined control sequence.
-l.66 \DeclareMathOperator
+l.69 \DeclareMathOperator
                          {\coker}{coker}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -901,7 +930,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.66 \DeclareMathOperator{\coker
+l.69 \DeclareMathOperator{\coker
                                 }{coker}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -915,7 +944,7 @@ Missing character: There is no k in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 ! Undefined control sequence.
-l.67 \DeclareMathOperator
+l.70 \DeclareMathOperator
                          {\Obj}{Obj}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -924,7 +953,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.67 \DeclareMathOperator{\Obj
+l.70 \DeclareMathOperator{\Obj
                               }{Obj}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -936,7 +965,7 @@ Missing character: There is no O in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no j in font nullfont!
 ! Undefined control sequence.
-l.68 \DeclareMathOperator
+l.71 \DeclareMathOperator
                          {\id}{id}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -945,7 +974,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.68 \DeclareMathOperator{\id
+l.71 \DeclareMathOperator{\id
                              }{id}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -956,7 +985,7 @@ and I'll forget about whatever was undefined.
 Missing character: There is no i in font nullfont!
 Missing character: There is no d in font nullfont!
 ! Undefined control sequence.
-l.69 \DeclareMathOperator
+l.72 \DeclareMathOperator
                          {\GL}{GL}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -965,7 +994,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.69 \DeclareMathOperator{\GL
+l.72 \DeclareMathOperator{\GL
                              }{GL}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -976,7 +1005,7 @@ and I'll forget about whatever was undefined.
 Missing character: There is no G in font nullfont!
 Missing character: There is no L in font nullfont!
 ! Undefined control sequence.
-l.70 \DeclareMathOperator
+l.73 \DeclareMathOperator
                          *{\colim}{colim}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -986,7 +1015,7 @@ and I'll forget about whatever was undefined.
 
 Missing character: There is no * in font nullfont!
 ! Undefined control sequence.
-l.70 \DeclareMathOperator*{\colim
+l.73 \DeclareMathOperator*{\colim
                                  }{colim}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -999,8 +1028,13 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no m in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 47--74
+[]
+ []
+
 ! Undefined control sequence.
-l.111 \definecolor
+l.119 \definecolor
                   {LightBlue}{HTML}{2D64A6}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1015,7 +1049,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.111 \definecolor{L
+l.119 \definecolor{L
                     ightBlue}{HTML}{2D64A6}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1040,7 +1074,7 @@ Missing character: There is no 4 in font nullfont!
 Missing character: There is no A in font nullfont!
 Missing character: There is no 6 in font nullfont!
 ! Undefined control sequence.
-l.112 \definecolor
+l.120 \definecolor
                   {ForestGreen}{HTML}{4BA150}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1070,7 +1104,7 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no 5 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 ! Undefined control sequence.
-l.113 \definecolor
+l.121 \definecolor
                   {DarkBlue}{HTML}{000080}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1097,7 +1131,7 @@ Missing character: There is no 0 in font nullfont!
 Missing character: There is no 8 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 ! Undefined control sequence.
-l.114 \definecolor
+l.122 \definecolor
                   {LightPurple}{HTML}{cc99ff}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1127,7 +1161,7 @@ Missing character: There is no 9 in font nullfont!
 Missing character: There is no f in font nullfont!
 Missing character: There is no f in font nullfont!
 ! Undefined control sequence.
-l.115 \definecolor
+l.123 \definecolor
                   {LightOrange}{HTML}{ffc34d}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1157,7 +1191,7 @@ Missing character: There is no 3 in font nullfont!
 Missing character: There is no 4 in font nullfont!
 Missing character: There is no d in font nullfont!
 ! Undefined control sequence.
-l.116 \definecolor
+l.124 \definecolor
                   {Buff}{HTML}{DDAE7E}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1180,7 +1214,7 @@ Missing character: There is no E in font nullfont!
 Missing character: There is no 7 in font nullfont!
 Missing character: There is no E in font nullfont!
 ! Undefined control sequence.
-l.117 \definecolor
+l.125 \definecolor
                   {Sunset}{HTML}{F2C57C}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1205,7 +1239,7 @@ Missing character: There is no 5 in font nullfont!
 Missing character: There is no 7 in font nullfont!
 Missing character: There is no C in font nullfont!
 ! Undefined control sequence.
-l.118 \definecolor
+l.126 \definecolor
                   {Wenge}{HTML}{584B53}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1229,7 +1263,7 @@ Missing character: There is no B in font nullfont!
 Missing character: There is no 5 in font nullfont!
 Missing character: There is no 3 in font nullfont!
 ! Undefined control sequence.
-l.119 \definecolor
+l.127 \definecolor
                   {Coolgray}{HTML}{9098CB}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1256,7 +1290,7 @@ Missing character: There is no 8 in font nullfont!
 Missing character: There is no C in font nullfont!
 Missing character: There is no B in font nullfont!
 ! Undefined control sequence.
-l.120 \definecolor
+l.128 \definecolor
                   {Lavender}{HTML}{D6E3F8}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1283,7 +1317,7 @@ Missing character: There is no 3 in font nullfont!
 Missing character: There is no F in font nullfont!
 Missing character: There is no 8 in font nullfont!
 ! Undefined control sequence.
-l.121 \definecolor
+l.129 \definecolor
                   {Glaucous}{HTML}{828BC4}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1310,7 +1344,7 @@ Missing character: There is no B in font nullfont!
 Missing character: There is no C in font nullfont!
 Missing character: There is no 4 in font nullfont!
 ! Undefined control sequence.
-l.122 \definecolor
+l.130 \definecolor
                   {Mauve}{HTML}{C7A8F0}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1334,7 +1368,7 @@ Missing character: There is no 8 in font nullfont!
 Missing character: There is no F in font nullfont!
 Missing character: There is no 0 in font nullfont!
 ! Undefined control sequence.
-l.123 \definecolor
+l.131 \definecolor
                   {Darkred}{HTML}{880808}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1360,7 +1394,7 @@ Missing character: There is no 8 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no 8 in font nullfont!
 ! Undefined control sequence.
-l.124 \definecolor
+l.132 \definecolor
                   {Beaver}{HTML}{9A8873}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1385,7 +1419,7 @@ Missing character: There is no 8 in font nullfont!
 Missing character: There is no 7 in font nullfont!
 Missing character: There is no 3 in font nullfont!
 ! Undefined control sequence.
-l.125 \definecolor
+l.133 \definecolor
                   {UltraViolet}{HTML}{52489C}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1415,7 +1449,67 @@ Missing character: There is no 8 in font nullfont!
 Missing character: There is no 9 in font nullfont!
 Missing character: There is no C in font nullfont!
 ! Undefined control sequence.
-l.132 \tcbuselibrary
+l.134 \definecolor
+                  {Munsell}{HTML}{3891A6}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no M in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no H in font nullfont!
+Missing character: There is no T in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no 8 in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no 6 in font nullfont!
+! Undefined control sequence.
+l.135 \definecolor
+                  {OxfordBlue}{HTML}{031D44}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no O in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no H in font nullfont!
+Missing character: There is no T in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no D in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 119--136
+[]
+ []
+
+! Undefined control sequence.
+l.140 \tcbuselibrary
                     {listings, theorems, breakable, skins}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1430,7 +1524,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.132 \tcbuselibrary{l
+l.140 \tcbuselibrary{l
                       istings, theorems, breakable, skins}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1468,8 +1562,13 @@ Missing character: There is no k in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no s in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 140--141
+[]
+ []
+
 ! Undefined control sequence.
-l.134 \newtcbtheorem
+l.142 \newtcbtheorem
                     [number within = subsection]{thm}{Theorem}%
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1484,7 +1583,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.134 \newtcbtheorem[
+l.142 \newtcbtheorem[
                      number within = subsection]{thm}{Theorem}%
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1567,47 +1666,52 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no h in font nullfont!
 Missing character: There is no m in font nullfont!
 
-Overfull \hbox (3.19443pt too wide) in paragraph at lines 134--142
-\OT1/cmr/bx/n/10 , 
+Overfull \hbox (20.0pt too wide) in paragraph at lines 142--150
+[]
  []
 
 
-Overfull \hbox (31.88872pt too wide) in paragraph at lines 134--142
-\OT1/cmr/bx/n/10 break- 
+Overfull \hbox (3.19443pt too wide) in paragraph at lines 142--150
+\OT1/cmr/bx/n/10 ,
  []
 
 
-Overfull \hbox (23.63875pt too wide) in paragraph at lines 134--142
-\OT1/cmr/bx/n/10 able, 
+Overfull \hbox (31.88872pt too wide) in paragraph at lines 142--150
+\OT1/cmr/bx/n/10 break-
  []
 
 
-Overfull \hbox (15.49298pt too wide) in paragraph at lines 134--142
-\OT1/cmr/bx/n/10 en- 
+Overfull \hbox (23.63875pt too wide) in paragraph at lines 142--150
+\OT1/cmr/bx/n/10 able,
  []
 
 
-Overfull \hbox (35.13869pt too wide) in paragraph at lines 134--142
-\OT1/cmr/bx/n/10 hanced 
+Overfull \hbox (15.49298pt too wide) in paragraph at lines 142--150
+\OT1/cmr/bx/n/10 en-
  []
 
 
-Overfull \hbox (16.29158pt too wide) in paragraph at lines 134--142
-\OT1/cmr/bx/n/10 jig- 
+Overfull \hbox (35.13869pt too wide) in paragraph at lines 142--150
+\OT1/cmr/bx/n/10 hanced
  []
 
 
-Overfull \hbox (21.3068pt too wide) in paragraph at lines 134--142
-\OT1/cmr/bx/n/10 saw, 
+Overfull \hbox (16.29158pt too wide) in paragraph at lines 142--150
+\OT1/cmr/bx/n/10 jig-
  []
 
 
-Overfull \hbox (55.90247pt too wide) in paragraph at lines 134--142
-\OT1/cmr/bx/n/10 halign=left 
+Overfull \hbox (21.3068pt too wide) in paragraph at lines 142--150
+\OT1/cmr/bx/n/10 saw,
+ []
+
+
+Overfull \hbox (55.90247pt too wide) in paragraph at lines 142--150
+\OT1/cmr/bx/n/10 halign=left
  []
 
 ! Undefined control sequence.
-l.143 \newtcbtheorem
+l.151 \newtcbtheorem
                     [number within=subsection, use counter from=thm]{defn}{D...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1622,7 +1726,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.143 \newtcbtheorem[
+l.151 \newtcbtheorem[
                      number within=subsection, use counter from=thm]{defn}{D...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -1715,8 +1819,8 @@ Missing character: There is no y in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no ! in font nullfont!
+Missing character: There is no 4 in font nullfont!
 Missing character: There is no 5 in font nullfont!
-Missing character: There is no 0 in font nullfont!
 Missing character: There is no ! in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -1739,47 +1843,52 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no f in font nullfont!
 Missing character: There is no n in font nullfont!
 
-Overfull \hbox (3.19443pt too wide) in paragraph at lines 143--150
-\OT1/cmr/bx/n/10 , 
+Overfull \hbox (20.0pt too wide) in paragraph at lines 151--158
+[]
  []
 
 
-Overfull \hbox (31.88872pt too wide) in paragraph at lines 143--150
-\OT1/cmr/bx/n/10 break- 
+Overfull \hbox (3.19443pt too wide) in paragraph at lines 151--158
+\OT1/cmr/bx/n/10 ,
  []
 
 
-Overfull \hbox (23.63875pt too wide) in paragraph at lines 143--150
-\OT1/cmr/bx/n/10 able, 
+Overfull \hbox (31.88872pt too wide) in paragraph at lines 151--158
+\OT1/cmr/bx/n/10 break-
  []
 
 
-Overfull \hbox (15.49298pt too wide) in paragraph at lines 143--150
-\OT1/cmr/bx/n/10 en- 
+Overfull \hbox (23.63875pt too wide) in paragraph at lines 151--158
+\OT1/cmr/bx/n/10 able,
  []
 
 
-Overfull \hbox (35.13869pt too wide) in paragraph at lines 143--150
-\OT1/cmr/bx/n/10 hanced 
+Overfull \hbox (15.49298pt too wide) in paragraph at lines 151--158
+\OT1/cmr/bx/n/10 en-
  []
 
 
-Overfull \hbox (16.29158pt too wide) in paragraph at lines 143--150
-\OT1/cmr/bx/n/10 jig- 
+Overfull \hbox (35.13869pt too wide) in paragraph at lines 151--158
+\OT1/cmr/bx/n/10 hanced
  []
 
 
-Overfull \hbox (21.3068pt too wide) in paragraph at lines 143--150
-\OT1/cmr/bx/n/10 saw, 
+Overfull \hbox (16.29158pt too wide) in paragraph at lines 151--158
+\OT1/cmr/bx/n/10 jig-
  []
 
 
-Overfull \hbox (55.90247pt too wide) in paragraph at lines 143--150
-\OT1/cmr/bx/n/10 halign=left 
+Overfull \hbox (21.3068pt too wide) in paragraph at lines 151--158
+\OT1/cmr/bx/n/10 saw,
+ []
+
+
+Overfull \hbox (55.90247pt too wide) in paragraph at lines 151--158
+\OT1/cmr/bx/n/10 halign=left
  []
 
 ! Undefined control sequence.
-l.151 \newtcbtheorem
+l.159 \newtcbtheorem
                     [number within=subsection, use counter from=thm]{axm}{Ax...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1794,7 +1903,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.151 \newtcbtheorem[
+l.159 \newtcbtheorem[
                      number within=subsection, use counter from=thm]{axm}{Ax...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -1897,47 +2006,52 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no x in font nullfont!
 Missing character: There is no m in font nullfont!
 
-Overfull \hbox (3.19443pt too wide) in paragraph at lines 151--159
-\OT1/cmr/bx/n/10 , 
+Overfull \hbox (20.0pt too wide) in paragraph at lines 159--167
+[]
  []
 
 
-Overfull \hbox (31.88872pt too wide) in paragraph at lines 151--159
-\OT1/cmr/bx/n/10 break- 
+Overfull \hbox (3.19443pt too wide) in paragraph at lines 159--167
+\OT1/cmr/bx/n/10 ,
  []
 
 
-Overfull \hbox (23.63875pt too wide) in paragraph at lines 151--159
-\OT1/cmr/bx/n/10 able, 
+Overfull \hbox (31.88872pt too wide) in paragraph at lines 159--167
+\OT1/cmr/bx/n/10 break-
  []
 
 
-Overfull \hbox (15.49298pt too wide) in paragraph at lines 151--159
-\OT1/cmr/bx/n/10 en- 
+Overfull \hbox (23.63875pt too wide) in paragraph at lines 159--167
+\OT1/cmr/bx/n/10 able,
  []
 
 
-Overfull \hbox (35.13869pt too wide) in paragraph at lines 151--159
-\OT1/cmr/bx/n/10 hanced 
+Overfull \hbox (15.49298pt too wide) in paragraph at lines 159--167
+\OT1/cmr/bx/n/10 en-
  []
 
 
-Overfull \hbox (16.29158pt too wide) in paragraph at lines 151--159
-\OT1/cmr/bx/n/10 jig- 
+Overfull \hbox (35.13869pt too wide) in paragraph at lines 159--167
+\OT1/cmr/bx/n/10 hanced
  []
 
 
-Overfull \hbox (21.3068pt too wide) in paragraph at lines 151--159
-\OT1/cmr/bx/n/10 saw, 
+Overfull \hbox (16.29158pt too wide) in paragraph at lines 159--167
+\OT1/cmr/bx/n/10 jig-
  []
 
 
-Overfull \hbox (55.90247pt too wide) in paragraph at lines 151--159
-\OT1/cmr/bx/n/10 halign=left 
+Overfull \hbox (21.3068pt too wide) in paragraph at lines 159--167
+\OT1/cmr/bx/n/10 saw,
+ []
+
+
+Overfull \hbox (55.90247pt too wide) in paragraph at lines 159--167
+\OT1/cmr/bx/n/10 halign=left
  []
 
 ! Undefined control sequence.
-l.160 \newtcbtheorem
+l.168 \newtcbtheorem
                     [number within=subsection, use counter from=thm]{prp}{Pr...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1952,7 +2066,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.160 \newtcbtheorem[
+l.168 \newtcbtheorem[
                      number within=subsection, use counter from=thm]{prp}{Pr...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -2068,47 +2182,52 @@ Missing character: There is no p in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no p in font nullfont!
 
-Overfull \hbox (3.19443pt too wide) in paragraph at lines 160--168
-\OT1/cmr/bx/n/10 , 
+Overfull \hbox (20.0pt too wide) in paragraph at lines 168--176
+[]
  []
 
 
-Overfull \hbox (31.88872pt too wide) in paragraph at lines 160--168
-\OT1/cmr/bx/n/10 break- 
+Overfull \hbox (3.19443pt too wide) in paragraph at lines 168--176
+\OT1/cmr/bx/n/10 ,
  []
 
 
-Overfull \hbox (23.63875pt too wide) in paragraph at lines 160--168
-\OT1/cmr/bx/n/10 able, 
+Overfull \hbox (31.88872pt too wide) in paragraph at lines 168--176
+\OT1/cmr/bx/n/10 break-
  []
 
 
-Overfull \hbox (15.49298pt too wide) in paragraph at lines 160--168
-\OT1/cmr/bx/n/10 en- 
+Overfull \hbox (23.63875pt too wide) in paragraph at lines 168--176
+\OT1/cmr/bx/n/10 able,
  []
 
 
-Overfull \hbox (35.13869pt too wide) in paragraph at lines 160--168
-\OT1/cmr/bx/n/10 hanced 
+Overfull \hbox (15.49298pt too wide) in paragraph at lines 168--176
+\OT1/cmr/bx/n/10 en-
  []
 
 
-Overfull \hbox (16.29158pt too wide) in paragraph at lines 160--168
-\OT1/cmr/bx/n/10 jig- 
+Overfull \hbox (35.13869pt too wide) in paragraph at lines 168--176
+\OT1/cmr/bx/n/10 hanced
  []
 
 
-Overfull \hbox (21.3068pt too wide) in paragraph at lines 160--168
-\OT1/cmr/bx/n/10 saw, 
+Overfull \hbox (16.29158pt too wide) in paragraph at lines 168--176
+\OT1/cmr/bx/n/10 jig-
  []
 
 
-Overfull \hbox (55.90247pt too wide) in paragraph at lines 160--168
-\OT1/cmr/bx/n/10 halign=left 
+Overfull \hbox (21.3068pt too wide) in paragraph at lines 168--176
+\OT1/cmr/bx/n/10 saw,
+ []
+
+
+Overfull \hbox (55.90247pt too wide) in paragraph at lines 168--176
+\OT1/cmr/bx/n/10 halign=left
  []
 
 ! Undefined control sequence.
-l.169 \newtcbtheorem
+l.177 \newtcbtheorem
                     [number within=subsection, use counter from=thm]{lmm}{Le...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2123,7 +2242,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.169 \newtcbtheorem[
+l.177 \newtcbtheorem[
                      number within=subsection, use counter from=thm]{lmm}{Le...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -2189,11 +2308,12 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no c in font nullfont!
 Missing character: There is no k in font nullfont!
 Missing character: There is no = in font nullfont!
-Missing character: There is no L in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no t in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no d in font nullfont!
 Missing character: There is no B in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no u in font nullfont!
@@ -2210,17 +2330,18 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no = in font nullfont!
-Missing character: There is no L in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no t in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no d in font nullfont!
 Missing character: There is no B in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no u in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no ! in font nullfont!
-Missing character: There is no 6 in font nullfont!
+Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no f in font nullfont!
@@ -2237,47 +2358,52 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no m in font nullfont!
 
-Overfull \hbox (3.19443pt too wide) in paragraph at lines 169--177
-\OT1/cmr/bx/n/10 , 
+Overfull \hbox (20.0pt too wide) in paragraph at lines 177--185
+[]
  []
 
 
-Overfull \hbox (31.88872pt too wide) in paragraph at lines 169--177
-\OT1/cmr/bx/n/10 break- 
+Overfull \hbox (3.19443pt too wide) in paragraph at lines 177--185
+\OT1/cmr/bx/n/10 ,
  []
 
 
-Overfull \hbox (23.63875pt too wide) in paragraph at lines 169--177
-\OT1/cmr/bx/n/10 able, 
+Overfull \hbox (31.88872pt too wide) in paragraph at lines 177--185
+\OT1/cmr/bx/n/10 break-
  []
 
 
-Overfull \hbox (15.49298pt too wide) in paragraph at lines 169--177
-\OT1/cmr/bx/n/10 en- 
+Overfull \hbox (23.63875pt too wide) in paragraph at lines 177--185
+\OT1/cmr/bx/n/10 able,
  []
 
 
-Overfull \hbox (35.13869pt too wide) in paragraph at lines 169--177
-\OT1/cmr/bx/n/10 hanced 
+Overfull \hbox (15.49298pt too wide) in paragraph at lines 177--185
+\OT1/cmr/bx/n/10 en-
  []
 
 
-Overfull \hbox (16.29158pt too wide) in paragraph at lines 169--177
-\OT1/cmr/bx/n/10 jig- 
+Overfull \hbox (35.13869pt too wide) in paragraph at lines 177--185
+\OT1/cmr/bx/n/10 hanced
  []
 
 
-Overfull \hbox (21.3068pt too wide) in paragraph at lines 169--177
-\OT1/cmr/bx/n/10 saw, 
+Overfull \hbox (16.29158pt too wide) in paragraph at lines 177--185
+\OT1/cmr/bx/n/10 jig-
  []
 
 
-Overfull \hbox (55.90247pt too wide) in paragraph at lines 169--177
-\OT1/cmr/bx/n/10 halign=left 
+Overfull \hbox (21.3068pt too wide) in paragraph at lines 177--185
+\OT1/cmr/bx/n/10 saw,
+ []
+
+
+Overfull \hbox (55.90247pt too wide) in paragraph at lines 177--185
+\OT1/cmr/bx/n/10 halign=left
  []
 
 ! Undefined control sequence.
-l.178 \newtcbtheorem
+l.186 \newtcbtheorem
                     [number within=subsection, use counter from=thm]{crl}{Co...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2292,7 +2418,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.178 \newtcbtheorem[
+l.186 \newtcbtheorem[
                      number within=subsection, use counter from=thm]{crl}{Co...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -2410,47 +2536,52 @@ Missing character: There is no c in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no l in font nullfont!
 
-Overfull \hbox (3.19443pt too wide) in paragraph at lines 178--186
-\OT1/cmr/bx/n/10 , 
+Overfull \hbox (20.0pt too wide) in paragraph at lines 186--194
+[]
  []
 
 
-Overfull \hbox (31.88872pt too wide) in paragraph at lines 178--186
-\OT1/cmr/bx/n/10 break- 
+Overfull \hbox (3.19443pt too wide) in paragraph at lines 186--194
+\OT1/cmr/bx/n/10 ,
  []
 
 
-Overfull \hbox (23.63875pt too wide) in paragraph at lines 178--186
-\OT1/cmr/bx/n/10 able, 
+Overfull \hbox (31.88872pt too wide) in paragraph at lines 186--194
+\OT1/cmr/bx/n/10 break-
  []
 
 
-Overfull \hbox (15.49298pt too wide) in paragraph at lines 178--186
-\OT1/cmr/bx/n/10 en- 
+Overfull \hbox (23.63875pt too wide) in paragraph at lines 186--194
+\OT1/cmr/bx/n/10 able,
  []
 
 
-Overfull \hbox (35.13869pt too wide) in paragraph at lines 178--186
-\OT1/cmr/bx/n/10 hanced 
+Overfull \hbox (15.49298pt too wide) in paragraph at lines 186--194
+\OT1/cmr/bx/n/10 en-
  []
 
 
-Overfull \hbox (16.29158pt too wide) in paragraph at lines 178--186
-\OT1/cmr/bx/n/10 jig- 
+Overfull \hbox (35.13869pt too wide) in paragraph at lines 186--194
+\OT1/cmr/bx/n/10 hanced
  []
 
 
-Overfull \hbox (21.3068pt too wide) in paragraph at lines 178--186
-\OT1/cmr/bx/n/10 saw, 
+Overfull \hbox (16.29158pt too wide) in paragraph at lines 186--194
+\OT1/cmr/bx/n/10 jig-
  []
 
 
-Overfull \hbox (55.90247pt too wide) in paragraph at lines 178--186
-\OT1/cmr/bx/n/10 halign=left 
+Overfull \hbox (21.3068pt too wide) in paragraph at lines 186--194
+\OT1/cmr/bx/n/10 saw,
+ []
+
+
+Overfull \hbox (55.90247pt too wide) in paragraph at lines 186--194
+\OT1/cmr/bx/n/10 halign=left
  []
 
 ! Undefined control sequence.
-l.187 \newtcbtheorem
+l.195 \newtcbtheorem
                     [number within=subsection, use counter from=thm]{eg}{Exa...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2465,7 +2596,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.187 \newtcbtheorem[
+l.195 \newtcbtheorem[
                      number within=subsection, use counter from=thm]{eg}{Exa...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -2570,47 +2701,52 @@ Missing character: There is no = in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no g in font nullfont!
 
-Overfull \hbox (3.19443pt too wide) in paragraph at lines 187--195
-\OT1/cmr/bx/n/10 , 
+Overfull \hbox (20.0pt too wide) in paragraph at lines 195--203
+[]
  []
 
 
-Overfull \hbox (31.88872pt too wide) in paragraph at lines 187--195
-\OT1/cmr/bx/n/10 break- 
+Overfull \hbox (3.19443pt too wide) in paragraph at lines 195--203
+\OT1/cmr/bx/n/10 ,
  []
 
 
-Overfull \hbox (23.63875pt too wide) in paragraph at lines 187--195
-\OT1/cmr/bx/n/10 able, 
+Overfull \hbox (31.88872pt too wide) in paragraph at lines 195--203
+\OT1/cmr/bx/n/10 break-
  []
 
 
-Overfull \hbox (15.49298pt too wide) in paragraph at lines 187--195
-\OT1/cmr/bx/n/10 en- 
+Overfull \hbox (23.63875pt too wide) in paragraph at lines 195--203
+\OT1/cmr/bx/n/10 able,
  []
 
 
-Overfull \hbox (35.13869pt too wide) in paragraph at lines 187--195
-\OT1/cmr/bx/n/10 hanced 
+Overfull \hbox (15.49298pt too wide) in paragraph at lines 195--203
+\OT1/cmr/bx/n/10 en-
  []
 
 
-Overfull \hbox (16.29158pt too wide) in paragraph at lines 187--195
-\OT1/cmr/bx/n/10 jig- 
+Overfull \hbox (35.13869pt too wide) in paragraph at lines 195--203
+\OT1/cmr/bx/n/10 hanced
  []
 
 
-Overfull \hbox (21.3068pt too wide) in paragraph at lines 187--195
-\OT1/cmr/bx/n/10 saw, 
+Overfull \hbox (16.29158pt too wide) in paragraph at lines 195--203
+\OT1/cmr/bx/n/10 jig-
  []
 
 
-Overfull \hbox (55.90247pt too wide) in paragraph at lines 187--195
-\OT1/cmr/bx/n/10 halign=left 
+Overfull \hbox (21.3068pt too wide) in paragraph at lines 195--203
+\OT1/cmr/bx/n/10 saw,
+ []
+
+
+Overfull \hbox (55.90247pt too wide) in paragraph at lines 195--203
+\OT1/cmr/bx/n/10 halign=left
  []
 
 ! Undefined control sequence.
-l.196 \newtcbtheorem
+l.204 \newtcbtheorem
                     [number within=subsection, use counter from=thm]{ex}{Exe...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2625,7 +2761,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.196 \newtcbtheorem[
+l.204 \newtcbtheorem[
                      number within=subsection, use counter from=thm]{ex}{Exe...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -2731,47 +2867,52 @@ Missing character: There is no = in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no x in font nullfont!
 
-Overfull \hbox (3.19443pt too wide) in paragraph at lines 196--204
-\OT1/cmr/bx/n/10 , 
+Overfull \hbox (20.0pt too wide) in paragraph at lines 204--212
+[]
  []
 
 
-Overfull \hbox (31.88872pt too wide) in paragraph at lines 196--204
-\OT1/cmr/bx/n/10 break- 
+Overfull \hbox (3.19443pt too wide) in paragraph at lines 204--212
+\OT1/cmr/bx/n/10 ,
  []
 
 
-Overfull \hbox (23.63875pt too wide) in paragraph at lines 196--204
-\OT1/cmr/bx/n/10 able, 
+Overfull \hbox (31.88872pt too wide) in paragraph at lines 204--212
+\OT1/cmr/bx/n/10 break-
  []
 
 
-Overfull \hbox (15.49298pt too wide) in paragraph at lines 196--204
-\OT1/cmr/bx/n/10 en- 
+Overfull \hbox (23.63875pt too wide) in paragraph at lines 204--212
+\OT1/cmr/bx/n/10 able,
  []
 
 
-Overfull \hbox (35.13869pt too wide) in paragraph at lines 196--204
-\OT1/cmr/bx/n/10 hanced 
+Overfull \hbox (15.49298pt too wide) in paragraph at lines 204--212
+\OT1/cmr/bx/n/10 en-
  []
 
 
-Overfull \hbox (16.29158pt too wide) in paragraph at lines 196--204
-\OT1/cmr/bx/n/10 jig- 
+Overfull \hbox (35.13869pt too wide) in paragraph at lines 204--212
+\OT1/cmr/bx/n/10 hanced
  []
 
 
-Overfull \hbox (21.3068pt too wide) in paragraph at lines 196--204
-\OT1/cmr/bx/n/10 saw, 
+Overfull \hbox (16.29158pt too wide) in paragraph at lines 204--212
+\OT1/cmr/bx/n/10 jig-
  []
 
 
-Overfull \hbox (55.90247pt too wide) in paragraph at lines 196--204
-\OT1/cmr/bx/n/10 halign=left 
+Overfull \hbox (21.3068pt too wide) in paragraph at lines 204--212
+\OT1/cmr/bx/n/10 saw,
+ []
+
+
+Overfull \hbox (55.90247pt too wide) in paragraph at lines 204--212
+\OT1/cmr/bx/n/10 halign=left
  []
 
 ! Undefined control sequence.
-l.205 \newtcbtheorem
+l.213 \newtcbtheorem
                     [number within=subsection, use counter from=thm]{alg}{Al...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2786,7 +2927,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.205 \newtcbtheorem[
+l.213 \newtcbtheorem[
                      number within=subsection, use counter from=thm]{alg}{Al...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -2905,47 +3046,52 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no g in font nullfont!
 
-Overfull \hbox (3.19443pt too wide) in paragraph at lines 205--213
-\OT1/cmr/bx/n/10 , 
+Overfull \hbox (20.0pt too wide) in paragraph at lines 213--221
+[]
  []
 
 
-Overfull \hbox (31.88872pt too wide) in paragraph at lines 205--213
-\OT1/cmr/bx/n/10 break- 
+Overfull \hbox (3.19443pt too wide) in paragraph at lines 213--221
+\OT1/cmr/bx/n/10 ,
  []
 
 
-Overfull \hbox (23.63875pt too wide) in paragraph at lines 205--213
-\OT1/cmr/bx/n/10 able, 
+Overfull \hbox (31.88872pt too wide) in paragraph at lines 213--221
+\OT1/cmr/bx/n/10 break-
  []
 
 
-Overfull \hbox (15.49298pt too wide) in paragraph at lines 205--213
-\OT1/cmr/bx/n/10 en- 
+Overfull \hbox (23.63875pt too wide) in paragraph at lines 213--221
+\OT1/cmr/bx/n/10 able,
  []
 
 
-Overfull \hbox (35.13869pt too wide) in paragraph at lines 205--213
-\OT1/cmr/bx/n/10 hanced 
+Overfull \hbox (15.49298pt too wide) in paragraph at lines 213--221
+\OT1/cmr/bx/n/10 en-
  []
 
 
-Overfull \hbox (16.29158pt too wide) in paragraph at lines 205--213
-\OT1/cmr/bx/n/10 jig- 
+Overfull \hbox (35.13869pt too wide) in paragraph at lines 213--221
+\OT1/cmr/bx/n/10 hanced
  []
 
 
-Overfull \hbox (21.3068pt too wide) in paragraph at lines 205--213
-\OT1/cmr/bx/n/10 saw, 
+Overfull \hbox (16.29158pt too wide) in paragraph at lines 213--221
+\OT1/cmr/bx/n/10 jig-
  []
 
 
-Overfull \hbox (55.90247pt too wide) in paragraph at lines 205--213
-\OT1/cmr/bx/n/10 halign=left 
+Overfull \hbox (21.3068pt too wide) in paragraph at lines 213--221
+\OT1/cmr/bx/n/10 saw,
+ []
+
+
+Overfull \hbox (55.90247pt too wide) in paragraph at lines 213--221
+\OT1/cmr/bx/n/10 halign=left
  []
 
 ! Undefined control sequence.
-l.220 \hypersetup
+l.228 \hypersetup
                  {
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2960,7 +3106,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.221     c
+l.229     c
            olorlinks=true, %set true if you want colored links
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3020,11 +3166,11 @@ Missing character: There is no , in font nullfont!
 
  
 Here is how much of TeX's memory you used:
- 42 strings out of 474424
- 488 string characters out of 5741739
- 1928496 words of memory out of 5000000
- 22489 multiletter control sequences out of 15000+600000
+ 46 strings out of 474424
+ 496 string characters out of 5741739
+ 1927496 words of memory out of 5000000
+ 22493 multiletter control sequences out of 15000+600000
  558377 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 19i,2n,20p,137b,104s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 19i,2n,20p,137b,110s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

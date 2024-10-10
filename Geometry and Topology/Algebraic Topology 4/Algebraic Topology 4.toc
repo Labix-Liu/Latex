@@ -1,16 +1,12 @@
 \contentsline {section}{\numberline {1}The Fundamental Groupoid and Covering Space Theory}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}The Fundamental Groupoid}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}The Seifert-Van Kampen Theorem on Fundamental Groupoids}{4}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Categorical Covering Space Theory}{8}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Homology and Cohomology Theories}{9}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Generalized Homology Theories}{9}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Reduced Homology Theory}{11}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Cohomology Theories}{13}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Cohomology Operations}{15}{section.3}%
-\contentsline {section}{\numberline {4}Spectral Sequences in Algebraic Topology}{16}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Spectral Sequences in Topology}{16}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Spectral Kunneth Theorem}{17}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Localizations of Spaces}{18}{section.5}%
-\contentsline {subsection}{\numberline {5.1}T-Local Groups}{18}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}T-Local Spaces}{18}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Completion of Spaces}{20}{section.6}%
+\contentsline {subsection}{\numberline {1.3}Categorical Covering Space Theory}{7}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Cohomology Operations}{9}{section.2}%
+\contentsline {section}{\numberline {3}Spectral Sequences in Algebraic Topology}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Spectral Sequences in Topology}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Spectral Kunneth Theorem}{11}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Localizations of Spaces}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}T-Local Groups}{12}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}T-Local Spaces}{12}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Completion of Spaces}{14}{section.5}%

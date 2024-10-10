@@ -28,7 +28,7 @@
 \tableofcontents
 \pagebreak
 
-\section{Maps Between Fields}
+\section{More on Fields}
 \subsection{F-Homomorphisms}
 Recall that $K/F$ is a field extension if $K$ contains $F$ as a subfield. Since every field homomorphism is necessarily injective, this amounts to saying that there is a field homomorphism from $F$ to $K$. We now have notion of a particular homomorphism that fixes the subfield. 
 
@@ -131,6 +131,38 @@ Thus every $K^G$-linearly independent set of elements of $K$ has size less than 
 By theorem 1.1.6, we have that $$\abs{G}\leq\abs{\text{Aut}_{K^G}(K)}=\abs{\text{Emb}_{K^G}(K,K)}\leq[K:K^G]$$ and so we conclude. 
 \end{proof}
 \end{thm}
+
+\subsection{The Norm and Trace Map}
+\begin{defn}{The Multiplication Map}{} Let $K$ be a field. Let $\alpha\in K$. Define the multiplication map by $\alpha$ to be the map $M_\alpha:K\to K$ where $\beta\mapsto\alpha\beta$ for all $\beta\in K$. 
+\end{defn}
+
+\begin{prp}{}{} Let $K/F$ be a field extension. Then the characteristic polynomial $\chi_{M_\alpha}$ of the multiplication map $M_\alpha:K\to K$ is equal to the minimal polynomial $\min_{K,\alpha}$. \tcbline
+\begin{proof}
+Let $\chi_{M_\alpha}=\sum_{k=0}^na_nx^n$ be the characteristic polynomial of $M_\alpha$. In particular we must have $a_n=1$ because characteristic polynomials are monic. By the Cayley-Hamilton theorem, $\chi_{M_\alpha}(M_\alpha)=0$, where both sides of the equation is considered as functions $K\to K$. Now evaluate the function at $1_K$ to obtain $\sum_{k=0}^na_n\alpha^n=0$. Thus $\min_{K,\alpha}$ divides $\chi_{M_\alpha}$. Now $\min_{K,\alpha}$ is monic and has degree $\deg(\min_{K,\alpha})=[K:F]$. But also $\deg(\chi_{M_\alpha})=[K:F]$. Thus we conclude that $\min_{K,\alpha}=\chi_{M_\alpha}$. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $L/K$ be an extension of number fields. Let $\alpha\in K$. Then $$\chi_{L,M_\alpha}=\chi_{K,M_\alpha}^{[L:K]}$$
+\end{prp}
+
+\begin{defn}{The Trace Map}{} Let $L/K$ be a field extension. Define the trace map $\text{Tr}_{L/K}:L\to K$ to be the map $$\text{Tr}_{L/K}(\alpha)=\text{tr}(M_\alpha)$$ where $M_\alpha:L\to L$ is the multiplication map defined by $\beta\mapsto\alpha\beta$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $L/K$ be a field extension. Then the trace map $\text{Tr}_{L/K}$ is $K$-linear. 
+\end{lmm}
+
+\begin{defn}{The Norm Map}{} Let $L/K$ be a field extension. Define the trace map $N_{L/K}:L\to K$ to be the map $$N_{L/K}(\alpha)=\det(M_\alpha)$$ where $M_\alpha:L\to L$ is the multiplication map defined by $\beta\mapsto\alpha\beta$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $L/K$ be a field extension. Then for all $\alpha,\beta\in L$, we have that $$N_{L/K}(\alpha\beta)=N_{L/K}(\alpha)N_{L/K}(\beta)$$ Moreover, we have that $N_{L/K}(L)\subseteq K^\times$. 
+\end{lmm}
+
+\begin{crl}{}{} Let $L/K/F$ be an extension of number fields. Then the following are true. 
+\begin{itemize}
+\item $\text{Tr}_{L/F}=[L:K]\text{Tr}_{K/F}$
+\item $N_{L/F}=N_{K/F}^{[L:K]}$
+\end{itemize}
+\end{crl}
 
 \pagebreak
 \section{Splitting Fields, Normal Fields and Separating Fields}
@@ -492,28 +524,6 @@ Since $K$ is finite, there is no field homomorphism $\Z\to K$ since such a homom
 \begin{prp}{}{} Every finite field is isomorphic to $\frac{\F_p[x]}{(f)}$ where $p$ is a prime number and $f\in F_p[x]$ is an irreducible polynomial. 
 \end{prp}
 
-\subsection{Cyclotomic Polynomials}
-\begin{lmm}{}{} Let $d,n\in\N\setminus\{0\}$ where $d|n$. Then $x^d-1$ divides $x^n-1$ as elements of the polynomial ring $\Z[x]$. 
-\end{lmm}
-
-\begin{lmm}{}{} Let $n>0$ be an integer and for $0\leq i<n$, define $d_i=\gcd(n,i)$. Then the following are true regarding the $n$-th roots of unity $\left\{\zeta_n^0,\zeta_n^1,\dots,\zeta_n^{n-1}\right\}$. 
-\begin{itemize}
-\item $\zeta_n^i$ has order $n/d_i$
-\item $\zeta_n^i$ is a primitive $(n/d_i)$th root of unity
-\item $\zeta_n^i$ is a primitive $n$th root of unity if and only if $d_i=1$
-\end{itemize}
-\end{lmm}
-
-\begin{defn}{Cyclotomic Polynomials}{} Let $n\in\N\setminus\{0\}$. Define the $n$th cyclotomic polynomial as $$\Phi_n(x)=\prod_{\substack{0\leq i<n\\\gcd(n,i)=1}}\left(x-\zeta_n^i\right)$$
-In other words the polynomial is the product over all linear factors of primitive $n$th roots of unity. 
-\end{defn}
-
-\begin{prp}{}{} The cyclotomic polynomials factorizes in $\C[x]$ into $$x^n-1=\prod_{d|n}\Phi_d(x)$$
-\end{prp}
-
-\begin{prp}{}{} For each $n\in\N$, $\Phi_n(x)$ is monic and has coefficients in $\Z$. 
-\end{prp}
-
 \subsection{Galois Theory for Finite Fields}
 \begin{thm}{}{} Let $p$ be a prime number and $n\geq 1$. Let $q=p^n$. Then the splitting field $L$ of $$f(x)=x^q-x\in \F_p[x]$$ is a field with $p^n$ elements. Moreover, $L/\F_p$ is a Galois extension. \tcbline
 \begin{proof}
@@ -564,6 +574,39 @@ The extension $\F_{p^n}/\F_p$ is Galois by theorem 4.1.2, so $$\text{Gal}(\F_{p^
 \end{thm}
 
 Notice that it follows that $\F_{p^m}$ is a subfield of $\F_{p^n}$ if and only if $m$ divides $n$. 
+
+\pagebreak
+\section{Cyclotomic Fields and Polynomials}
+\subsection{Cyclotomic Polynomials}
+\begin{lmm}{}{} Let $d,n\in\N\setminus\{0\}$ where $d|n$. Then $x^d-1$ divides $x^n-1$ as elements of the polynomial ring $\Z[x]$. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $n>0$ be an integer and for $0\leq i<n$, define $d_i=\gcd(n,i)$. Then the following are true regarding the $n$-th roots of unity $\left\{\zeta_n^0,\zeta_n^1,\dots,\zeta_n^{n-1}\right\}$. 
+\begin{itemize}
+\item $\zeta_n^i$ has order $n/d_i$
+\item $\zeta_n^i$ is a primitive $(n/d_i)$th root of unity
+\item $\zeta_n^i$ is a primitive $n$th root of unity if and only if $d_i=1$
+\end{itemize}
+\end{lmm}
+
+\begin{defn}{Cyclotomic Polynomials}{} Let $n\in\N\setminus\{0\}$. Define the $n$th cyclotomic polynomial as $$\Phi_n(x)=\prod_{\substack{0\leq i<n\\\gcd(n,i)=1}}\left(x-\zeta_n^i\right)$$
+In other words the polynomial is the product over all linear factors of primitive $n$th roots of unity. 
+\end{defn}
+
+\begin{prp}{}{} The cyclotomic polynomials factorizes in $\C[x]$ into $$x^n-1=\prod_{d|n}\Phi_d(x)$$
+\end{prp}
+
+\begin{prp}{}{} For each $n\in\N$, $\Phi_n(x)$ is monic and has coefficients in $\Z$. 
+\end{prp}
+
+\subsection{Cyclotomic Fields}
+\begin{defn}{n-th Cyclotomic Field}{} Let $n\in\N$ and let $\zeta_n=e^{2\pi i/n}$ denote the $n$th root of unity. Define the n-th cyclotomic field to be $\Q(\zeta_n)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $p$ be a prime number. Then the minimal polynomial of $\zeta_p$ is the $n$th cyclotomic polynomial $\Phi_n$. In particular, we have that $$[\Q(\zeta_n):\Q]=n\prod_{p|n}\left(1-\frac{1}{p}\right)$$
+\end{prp}
+
+This is exactly the Euler totient function $\phi(n)$ in number theory. 
 
 \pagebreak
 \section{Radial and Soluble Extensions}

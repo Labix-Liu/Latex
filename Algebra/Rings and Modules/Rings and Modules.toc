@@ -10,26 +10,25 @@
 \contentsline {subsection}{\numberline {3.1}Direct Sum of Modules}{11}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Free Modules}{12}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Tensor Products of Modules}{14}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Tensor Products of Vector Spaces}{15}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Tensor Products of Vector Spaces}{16}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Some Properties of Modules}{17}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Invariant Basis Number Property}{17}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Simple Modules}{17}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Changing the Base Ring of a Module}{19}{section.5}%
-\contentsline {section}{\numberline {6}Algebras over a Ring}{20}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Associative Algebras}{20}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Commutative Algebras}{21}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Free Algebras}{21}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Graded Structures}{22}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Tensor Algebras}{24}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Multilinear Maps of R-Modules}{24}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Tensor Algebra}{24}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Exterior Algebra}{25}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Symmetric Algebra}{26}{subsection.7.4}%
-\contentsline {section}{\numberline {8}Radicals}{28}{section.8}%
-\contentsline {subsection}{\numberline {8.1}The Radical of a Module}{28}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}The Nilradical Ideal}{28}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Annihilator}{29}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}The Jacobson Radical}{30}{subsection.8.4}%
-\contentsline {section}{\numberline {9}Chain Conditions}{32}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Noetherian Rings and Modules}{32}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Artinian Rings and Modules}{32}{subsection.9.2}%
+\contentsline {section}{\numberline {5}Algebras over a Ring}{19}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Associative Algebras}{19}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Commutative Algebras}{20}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Free Algebras}{20}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Graded Structures}{21}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Tensor Algebras}{23}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Multilinear Maps of R-Modules}{23}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Tensor Algebra}{23}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Exterior Algebra}{24}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Symmetric Algebra}{25}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Radicals}{27}{section.7}%
+\contentsline {subsection}{\numberline {7.1}The Radical of a Module}{27}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Nilpotent Elements}{27}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}The Annihilator of an Element}{28}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}The Jacobson Radical}{29}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Chain Conditions}{31}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Noetherian Rings and Modules}{31}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Artinian Rings and Modules}{31}{subsection.8.2}%

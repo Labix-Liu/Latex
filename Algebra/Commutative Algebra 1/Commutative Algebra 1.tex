@@ -23,16 +23,71 @@
 
 \pagebreak
 \section{Basic Notions of Rings}
-\subsection{Radical Ideals}
-\begin{defn}{Radical of an Ideal}{} Let $I$ be an ideal of a ring $R$. Define the radical of $I$ to be $$\sqrt{I}=\{r\in R|r^n\in I\text{ for some }n\in\N\}$$
-We say that an ideal is radical if $\sqrt{I}=I$. 
+\subsection{Local Rings}
+\begin{defn}{Local Rings}{} A ring $R$ is said to be a local ring if it has a unique maximal ideal $m$. In this case, we say that $R/m$ is the residue field of $R$. 
 \end{defn}
 
+We will discuss more of local rings in the topic of localizations. For now, here is one example. Let $k$ be a field. It is easy to see that $(x)$ is the unique maximal ideal of $R=k[[x]]$. The residue field in this case is simply $k$. 
+
+\begin{prp}{}{} Let $R$ be a ring and $I$ an ideal of $R$. Then $I$ is the unique maximal ideal of $R$ if and only if $I$ is the set containing all non-units of $R$. \tcbline
+\begin{proof}
+Let $I$ be the unique maximal ideal of $R$. Clearly $I$ does not contain any unit else $I=R$. Now suppose that $r$ is a non-unit. Suppose that $r\notin I$. Define $J=\{sr|s\in R\}$ Clearly $J$ is an ideal. It must be contained in some maximal ideal. Since $I$ is the unique maximal ideal, $J\subseteq I$. But this means that $r\in I$, a contradiction. Thus every non-unit is in $I$. \\~\\
+Suppose that $I$ contains all non-units of $R$. Let $r\notin I$. Then there exists $s\notin I$ such that $rs=1$. Then $(r+I)(s+I)=1+I$ in $R/I$. This means that every element of $R/I$ has a multiplicative inverse which means that $R/I$ is a field and thus $I$ is a maximal ideal. Now let $J\neq I$ be another maximal ideal. Then $J$ contains some unit $r$. This implies that $J=R$ and thus $I$ is the unique maximal ideal. 
+\end{proof}
+\end{prp}
+
+\subsection{Radical Ideals}
+The radical of an ideal is a very different notion from the radical of module. 
+
+\begin{defn}{Radical of an Ideal}{} Let $I$ be an ideal of a ring $R$. Define the radical of $I$ to be $$\sqrt{I}=\{r\in R|r^n\in I\text{ for some }n\in\N\}$$
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then $$\sqrt{I}=\bigcap_{\substack{p\text{ a prime ideal}\\I\subseteq p\subseteq R}}p$$
+\end{prp}
+
+\begin{crl}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then we have that $$I\subseteq\sqrt{I}$$ \tcbline
+\begin{proof}
+By the above proposition, $\sqrt{I}$ is the intersection of all prime ideals $P$ that contain $I$. Since each $P$ is such that $I\subseteq P$, we have that $$I=\bigcap_{\substack{p\text{ a prime ideal}\\I\subseteq p\subseteq R}}I\subseteq\bigcap_{\substack{p\text{ a prime ideal}\\I\subseteq p\subseteq R}}p=\sqrt{I}$$ and so we conclude. 
+\end{proof}
+\end{crl}
+
+\begin{crl}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then we have that $$\sqrt{\sqrt{I}}=\sqrt{I}$$ \tcbline
+\begin{proof}
+By the above, we already know that $\sqrt{I}\subseteq\sqrt{\sqrt{I}}$. So let $r\in\sqrt{\sqrt{I}}$. Then there exists some $n\in\N$ such that $r^n\in\sqrt{I}$. But $r^n\in\sqrt{I}$ means that there exists some $m\in\N$ such that $(r^n)^m\in I$. But $nm\in\N$ is a natural number such that $r^{nm}\in I$. Hence $r\in\sqrt{I}$ and so we conclude. 
+\end{proof}
+\end{crl}
+
+\begin{defn}{Radical Ideals}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. We say that $I$ is radical if $$\sqrt{I}=I$$
+\end{defn}
+
+In particular, by the above lemma it follows that the radical of an ideal is a radical ideal. 
+
+\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Denote $\varphi$ to be the inclusion preserving one-to-one bijection $$\left\{\substack{\text{Ideals of }R\\\text{containing }I}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\text{Ideals of }R/I\right\}$$ from the correspondence theorem for rings. In other words, $\varphi(A)=A/I$. Let $J\subseteq R$ be an ideal containing $I$. Then the following are true. 
+\begin{itemize}
+\item $J$ is a radical ideal if and only if $\varphi(J)=J/I$ is a radical ideal. 
+\item $J$ is a prime ideal if and only if $\varphi(J)=J/I$ is a prime ideal. 
+\item $J$ is a maximal ideal if and only if $\varphi(J)=J/I$ is a maximal ideal. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $J$ be a radical ideal. Suppose that $r+I\in\sqrt{J/I}$. This means that $(r+I)^n=r^n+I\in J/I$ for some $n\in\N$. But this means that $r^n\in J$. This implies that $r\in\sqrt{J}=J$. Thus $r+I\in J/I$ and we conclude that $\sqrt{J/I}\subseteq J/I$. Since we also have $J/I\subseteq\sqrt{J/I}$, we conclude. \\~\\
+
+Now suppose that $J/I$ is a radical ideal. Let $r\in\sqrt{J}$. This means that $r^n\in J$ for some $n\in\N$. Now $r^n+I=(r+I)^n\in J/I$ implies that $r+I\in\sqrt{J/I}=J/I$. Hence $r\in J$ and so $\sqrt{J}\subseteq J$. Since we also have that $J\subseteq\sqrt{J}$, we conclude. 
+
+\item Let $J$ be a prime ideal. Then $R/J$ is an integral domain. By the second isomorphism theorem, we have that $R/J\cong(R/I)/(J/I)$ and hence $(R/I)/(J/I)$ is also an integral domain. Hence $J/I$ is a prime ideal. The converse is also true. 
+
+\item Let $J$ be a maximal ideal. Then $R/J$ is a field. By the second isomorphism theorem, we have that $R/J\cong(R/I)/(J/I)$ and hence $(R/I)/(J/I)$ is also a field. Hence $J/I$ is a maximal ideal. The converse is also true. 
+\end{itemize}
+\end{proof}
+\end{thm}
+
 \subsection{Nilradical and Jacobson Ideals}
+Let $R$ be a ring. Recall that an element $r\in R$ is nilpotent if $r^n=0_R$ for some $n\in\N$. When $R$ is commutative, we can form an ideal out of nilpotent elements. 
+
 \begin{defn}{Nilradicals}{} Let $R$ be a ring. Define the nilradical of $R$ to be $$N(R)=\{r\in R\;|\;r\text{ is nilpotent}\}$$
 \end{defn}
 
-Note that this is different from nilpotent ideals. However the Nilradical ideal is a nil ideal and every subideal of the nilradical is a nil ideal. 
+Note that this is different from nilpotent ideals, as nilpotency is a property of an ideal. However the Nilradical ideal is a nil ideal and every sub-ideal of the nilradical is a nil ideal. 
 
 \begin{prp}{}{} Let $R$ be a ring and $N(R)$ its nilradical. Then the following are true. 
 \begin{itemize}
@@ -54,22 +109,88 @@ Trivially $N(R)$ is a prime ideal. Now suppose that $r\in R$ is in the intersect
 \end{proof}
 \end{prp}
 
+\begin{eg}{}{} Consider the ring $$R=\frac{\C[x,y]}{(x^2-y,xy)}$$ Then its nilradical is given by $N(R)=(x,y)$. \tcbline
+\begin{proof}
+Notice that in the ring $R$, $x^3=x(x^2)=xy=0$ and $y^3=x^6=(x^3)^2=0$ and hence $x$ and $y$ are both nilpotent elements of $R$. By definition of the nilradical, we conclude that $(x,y)\subseteq N(R)$. Now $(x,y)$ is a maximal ideal of $\C[x,y]$ because $\C[x,y]/(x,y)\cong\C$. Also notice that $(x,y)\supseteq(x^2-y,xy)$ because for any element $f(x)(x^2-y)+g(x)(xy)\in(x^2-y,xy)$, we have that 
+\begin{align*}
+f(x)(x^2-y)+g(x)(xy)\in(x^2-y,xy)&=(xf(x))x-f(x)y+(g(x)x)y\\
+&=(xf(x))x+(xg(x)-f(x))y\in (x,y)
+\end{align*}
+By the correspondence theorem, $(x,y)/(x^2-y)$ is an maximal ideal of $R$. In particular, $(x,y)$ is also a prime ideal. But the $N(R)$ is the intersection of all prime ideals and hence $N(R)\subseteq(x,y)$. We conclude that $N(R)=(x,y)$. 
+\end{proof}
+\end{eg}
+
 Recall the notion of the Jacobson radical from Rings and Modules. 
 
-\begin{defn}{Jacobson Radical of a Ring}{} Let $R$ be a ring. Define the Jacobson radical of $R$ to be $$J(R)=\bigcap_{\substack{M\text{ is a}\\\text{maximal ideal}\\\text{of }R}}M$$
+\begin{prp}{}{} Let $R$ be a commutative ring. Then $$J(R)=\bigcap_{\substack{m\text{ is a}\\\text{maximal ideal}}}m$$
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Then $x\in J(R)$ if and only if $1-xy\neq 0$ for all $y\in R$. \tcbline
+\begin{proof}
+\end{proof}
+\end{prp}
+
+\subsection{Extensions and Contractions of Ideals}
+\begin{defn}{Extension of Ideals}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $I$ be an ideal of $R$. Define the extension $I^e$ of $I$ to $S$ to be the ideal $$I^e\langle f(i)\;|\;i\in I\rangle$$
 \end{defn}
+
+\begin{prp}{}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $I,I_1,I_2$ be an ideal of $R$. Then the following are true regarding the extension of ideals. 
+\begin{itemize}
+\item Closed under sum: $(I_1+I_2)^e=I_1^e+I_2^e$
+\item $(I_1\cap I_2)^e\subseteq I_1^e\cap I_2^e$
+\item Closed under products: $(I_1I_2)^e=I_1^eI_2^e$
+\item $(I_1/I_2)^e\subseteq I_1^e/I_2^e$
+\item $\text{rad}(I)^e\subseteq\text{rad}(I^e)$
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Contraction of Ideals}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $J$ be an ideal of $S$. Define the contraction $J^c$ of $J$ to $R$ to be the ideal $$J^c=f^{-1}(J)$$
+\end{defn}
+
+\begin{prp}{}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $J,J_1,J_2$ be an ideal of $S$. Then the following are true regarding the extension of ideals. 
+\begin{itemize}
+\item $(J_1+J_2)^e\supseteq J_1^e+J_2^e$
+\item Closed under intersections: $(J_1\cap J_2)^e=J_1^e\cap J_2^e$
+\item $(J_1J_2)^e\supseteq J_1^eJ_2^e$
+\item $(J_1/J_2)^e\subseteq J_1^e/J_2^e$
+\item Closed under taking radicals: $\text{rad}(J)^e=\text{rad}(J^e)$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $I$ be an ideal of $R$ and let $J$ be an ideal of $S$. Then the following are true. 
+\begin{itemize}
+\item $I\subseteq I^{ec}$
+\item $J^{ce}\subseteq J$
+\item $I^e=I^{ece}$
+\item $J^c=J^{cec}$
+\end{itemize}
+\end{prp}
 
 \pagebreak
 \section{Basic Notions of Modules}
+\subsection{Cayley-Hamilton Theorem}
+\begin{defn}{Characteristic Polynomial}{} Let $R$ be a commutative ring. Let $A\in M_{n\times n}(R)$ be a matrix. Define the characteristic polynomial of $A$ to be the polynomial $$c_A(x)=\det(A-xI)$$
+\end{defn}
+
+\begin{thm}{Cayley-Hamilton Theorem}{} Let $R$ be a commutative ring. Let $A\in M_{n\times n}(R)$ be a matrix. Then $c_A(A)=0$. 
+\end{thm}
+
+\begin{crl}{}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. Let $\varphi\in\text{End}_R(M)$. If $\varphi(M)\subseteq IM$, then there exists $a_1,\dots,a_n\in I$ such that $$\varphi^n+a_1\varphi^{n-1}+\dots+a_{n-1}\varphi+\text{id}_M=0:M\to M$$
+\end{crl}
+
 \subsection{Nakayama's Lemma}
-\begin{lmm}{Nakayama's Lemma}{} Let $R$ be a ring and $I$ an ideal of $R$. Let $M$ be a finitely generated $R$-module. If $IM=M$ then there exists $r\in R$ with $r\equiv 1\;(\bmod\;I)$ such that $rM=0$. 
+\begin{lmm}{Nakayama's Lemma I}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. If $IM=M$, then there exists $r\in R$ such that $rM=0$ and $r-1\in I$. 
 \end{lmm}
 
-\begin{lmm}{}{} Let $R$ be a local ring with maximal ideal $m$. Let $M$ be a finitely generated $R$-module. If $M=mM$, then $M=0$. 
+\begin{lmm}{Nakayama's Lemma II}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$ such that $I\subseteq J(R)$ and $IM=M$. Then $M=0$. 
 \end{lmm}
 
-\begin{lmm}{}{} Let $R$ be a local ring with maximal ideal $m$. Let $M$ be a finitely generated $R$-module. Let $a_1,\dots,a_n\in M$ such that $a_1+mM,\dots,a_n+mM$ spans $M/mM$ as a vector space over $R/m$. Then $a_1,\dots,a_n$ generate $M$. 
-\end{lmm}
+\begin{crl}{}{} Let $(R,m)$ be a local ring. Let $M$ be a finitely generated $R$-module. Then the following are true. 
+\begin{itemize}
+\item $M/mM$ is a finite dimensional vector space over $R/m$. 
+\item $a_1,\dots,a_n\in M$ generates $M$ as an $R$-module if and only if $a_1+mM,\dots,a_n+mM$ generates $M/mM$ as a $R/m$ vector space. 
+\end{itemize}
+\end{crl}
 
 \subsection{Exact Sequences}
 
@@ -132,23 +253,6 @@ By definition, $xy\in P$ implies $x\in P$ or $y\in P$, since $R\setminus P$ remo
 \begin{lmm}{}{} Let $R$ be an integral domain. Then the localization $$(R\setminus(0))^{-1}R$$ is exactly the field of fractions of $R$. 
 \end{lmm}
 
-\subsection{Properties of Localization}
-\begin{prp}{}{} Localization commutes with direct sum of modules and quotient modules. 
-\end{prp}
-
-\pagebreak
-\section{Local Rings}
-\subsection{Local Rings}
-\begin{defn}{Local Rings}{} A ring $R$ is said to be a local ring if it has a unique maximal ideal $m$. In this case, we say that $R/m$ is the residue field of $R$. 
-\end{defn}
-
-\begin{prp}{}{} Let $R$ be a ring and $I$ an ideal of $R$. Then $I$ is the unique maximal ideal of $R$ if and only if $I$ is the set containing all non-units of $R$. \tcbline
-\begin{proof}
-Let $I$ be the unique maximal ideal of $R$. Clearly $I$ does not contain any unit else $I=R$. Now suppose that $r$ is a non-unit. Suppose that $r\notin I$. Define $J=\{sr|s\in R\}$ Clearly $J$ is an ideal. It must be contained in some maximal ideal. Since $I$ is the unique maximal ideal, $J\subseteq I$. But this means that $r\in I$, a contradiction. Thus every non-unit is in $I$. \\~\\
-Suppose that $I$ contains all non-units of $R$. Let $r\notin I$. Then there exists $s\notin I$ such that $rs=1$. Then $(r+I)(s+I)=1+I$ in $R/I$. This means that every element of $R/I$ has a multiplicative inverse which means that $R/I$ is a field and thus $I$ is a maximal ideal. Now let $J\neq I$ be another maximal ideal. Then $J$ contains some unit $r$. This implies that $J=R$ and thus $I$ is the unique maximal ideal. 
-\end{proof}
-\end{prp}
-
 \begin{prp}{}{} Let $R$ be a ring and let $p$ be a prime ideal of $R$. Then $R_p$ is a local ring. \tcbline
 \begin{proof}
 Let $I$ be the set of all non-units of $R_p$. It is sufficient to show that $I$ is an ideal by the above lemma. Clearly if $i\in I$ then $r\cdot i$ is also not invertible. Explicitly, we have $$I=\left\{\frac{r}{s}\in R_p\bigg{|}r\in p\right\}$$ Let $\frac{r_1}{s_1},\frac{r_2}{s_2}\in I$, then $\frac{r_1}{s_1}+\frac{r_2}{s_2}=\frac{r_1s_2+r_2s_1}{s_1s_2}$ is in $I$ since $r_1,r_2\in P$ and $P$ being an ideal implies $r_1s_2+r_2s_1\in P$. 
@@ -156,6 +260,10 @@ Let $I$ be the set of all non-units of $R_p$. It is sufficient to show that $I$ 
 \end{prp}
 
 Be wary that in general localizations does not result in a local ring. This happens only when we are localizing with respect to a prime ideal. The importance of prime ideals is not explicit in the above because only using prime ideals $P$ can $R\setminus P$ be a multiplicative set which ultimately allows localization to make sense. 
+
+\subsection{Properties of Localization}
+\begin{prp}{}{} Localization commutes with direct sum of modules and quotient modules. 
+\end{prp}
 
 \subsection{Localization of a Module}
 \begin{defn}{Localization of a Module}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set Let $M$ be a $R$-module. Define the ring of fractions of $M$ with respect to $S$ by $$S^{-1}M=\left\{\frac{m}{s}|m\in M,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{m}{s}\sim\frac{m'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(mu'-m'u)=0$$

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  26 AUG 2024 10:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  8 OCT 2024 01:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1381,22 +1381,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 1219--1220
  []
 
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 1243--1246
+Underfull \hbox (badness 10000) in paragraph at lines 1243--1245
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1243--1246
+Underfull \hbox (badness 10000) in paragraph at lines 1243--1245
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1243--1246
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1243--1246
+Underfull \hbox (badness 10000) in paragraph at lines 1243--1245
 
  []
 
@@ -1420,33 +1415,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 1310--1311
 
  []
 
-[50]
-Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
+[50] [51] [52]
+Underfull \hbox (badness 10000) in paragraph at lines 1402--1403
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
+Underfull \hbox (badness 10000) in paragraph at lines 1402--1403
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1339--1341
+Underfull \hbox (badness 10000) in paragraph at lines 1404--1406
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1339--1341
+Underfull \hbox (badness 10000) in paragraph at lines 1404--1406
 
  []
 
-[51]
-<Image 1.png, id=607, 508.90125pt x 493.845pt>
+[53]
+<Image 1.png, id=617, 508.90125pt x 493.845pt>
 File: Image 1.png Graphic file (type png)
 <use Image 1.png>
-Package pdftex.def Info: Image 1.png  used on input line 1356.
+Package pdftex.def Info: Image 1.png  used on input line 1421.
 (pdftex.def)             Requested size: 152.67155pt x 148.15463pt.
- [52 <./Image 1.png>] [53] (Algebraic Topology 1.aux)
+ [54 <./Image 1.png>] [55] (Algebraic Topology 1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
@@ -1455,18 +1450,15 @@ L3 programming layer <2024-03-14>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `"Algebraic Topology 1".out' has not changed.
 
-(rerunfilecheck)             Checksum: 126285B767F569C1C0CDCADC12A2DAB1;7237.
+(rerunfilecheck)             Checksum: 18888B69C6187D686F25667248969447;7237.
  ) 
 Here is how much of TeX's memory you used:
- 33113 strings out of 474424
- 653389 string characters out of 5741739
- 1968496 words of memory out of 5000000
- 54702 multiletter control sequences out of 15000+600000
+ 33245 strings out of 474424
+ 656674 string characters out of 5741739
+ 1969496 words of memory out of 5000000
+ 54831 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,18n,120p,1385b,1470s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1487,9 +1479,9 @@ ic/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Topology 1.pdf" (53 pages, 776124 bytes).
+Output written on "Algebraic Topology 1.pdf" (55 pages, 785342 bytes).
 PDF statistics:
- 742 PDF objects out of 1000 (max. 8388607)
- 242 named destinations out of 1000 (max. 500000)
+ 752 PDF objects out of 1000 (max. 8388607)
+ 245 named destinations out of 1000 (max. 500000)
  282 words of extra memory for PDF output out of 10000 (max. 10000000)
 

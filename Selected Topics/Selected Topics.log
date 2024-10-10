@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  22 SEP 2024 20:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  9 OCT 2024 00:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -947,7 +947,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 232.
+Package hyperref Info: Option `colorlinks' set `true' on input line 247.
 ) (Selected Topics.aux)
 \openout1 = `"Selected Topics.aux"'.
 
@@ -1185,71 +1185,106 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [6] [7]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 187.
+d on input line 191.
 
-[8] [9] [10]
-Overfull \hbox (0.59756pt too wide) in paragraph at lines 324--325
+[8] [9]
+Overfull \hbox (0.59756pt too wide) in paragraph at lines 265--266
 []\T1/qpl/m/n/10 The Te-ich-muller rep-re-sen-ta-tive is in gen-eral not a ring
  ho-mo-mor-phism, but it is still mul-ti-plica-tive. 
  []
 
-[11]
+[10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 351.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 351.
+(hyperref)                removing `math shift' on input line 302.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 351.
+(hyperref)                removing `\lambda' on input line 302.
 
-[12] (Selected Topics.aux)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 302.
+
+[11] [12]
+Overfull \hbox (19.35158pt too wide) in paragraph at lines 346--347
+\T1/qpl/m/n/10 ful for us to first con-sider this case also be-cause of how it 
+is re-lated to maps of spaces and (co)fibrations. 
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 397--424
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 397--424
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 397--424
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 397--424
+
+ []
+
+[14] [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 511--519
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 511--519
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 511--519
+
+ []
+
+[17] [18] (Selected Topics.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Selected Topics".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Selected Topics".out':
-(rerunfilecheck)             Before: 889D37C7311ADF1673E66C7D33C39324;2519
-(rerunfilecheck)             After:  DFDC8A7F2079492B89AD601CD1B0FE32;2762.
+Package rerunfilecheck Info: File `"Selected Topics".out' has not changed.
+(rerunfilecheck)             Checksum: 47B03EDD3E8B5567E8D1A664EA5F0653;3444.
  ) 
 Here is how much of TeX's memory you used:
- 32345 strings out of 474424
- 637106 string characters out of 5741739
- 1960496 words of memory out of 5000000
- 54087 multiletter control sequences out of 15000+600000
+ 33055 strings out of 474424
+ 654143 string characters out of 5741739
+ 1972496 words of memory out of 5000000
+ 54771 multiletter control sequences out of 15000+600000
  600137 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,16n,120p,566b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,18n,120p,566b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/liula/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/
-liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:
-/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Selected Topics.pdf" (12 pages, 328354 bytes).
+fonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/liula/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users
+/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C
+:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7
+.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
+Output written on "Selected Topics.pdf" (18 pages, 379661 bytes).
 PDF statistics:
- 309 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 400 PDF objects out of 1000 (max. 8388607)
+ 110 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

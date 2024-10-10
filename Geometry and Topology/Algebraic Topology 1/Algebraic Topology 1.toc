@@ -28,6 +28,6 @@
 \contentsline {section}{\numberline {6}CW Complexes}{48}{section.6}%
 \contentsline {subsection}{\numberline {6.1}CW Complexes as a Topological Space}{48}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Properties of CW Complexes}{50}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Admitting CW-Complex Structures}{51}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Computation of the Fundamental Group of CW Complexes}{51}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}More CW Complex Structures}{53}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.3}Admitting CW-Complex Structures}{50}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Some CW Complex Structures}{51}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Computation of the Fundamental Group of CW Complexes}{53}{subsection.6.5}%
