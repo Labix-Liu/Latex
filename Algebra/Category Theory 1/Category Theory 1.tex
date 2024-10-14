@@ -1136,11 +1136,14 @@ Dually, the cokernel of $f$ is the kernel of $f$ in the dual category.
 
 The equalizer gives us a necessary and sufficient criterion for a category to be complete and cocomplete. 
 
-\begin{thm}{}{} Let $\mC$ be a category with small products, and $X:\mJ\to\mC$ be a small diagram. Then there exists maps $$f,g:\prod_{J\in\Obj\mJ}X_J\to\prod_{(\alpha:J\to I)\in\Hom\mJ}X_I$$ such that if $\text{Eq}(f,g)$ exists, it is the limit of the diagram $\mJ$. \\~\\
-
-In particular, $\mC$ is complete if and only if it admits small products and equalizers. Dually, $\mC$ is cocomplete if and only if it admits small coproducts and coequalizers. \tcbline
+\begin{thm}{}{} Let $\mC$ be a category with small products, and $X:\mJ\to\mC$ be a small diagram. Define two morphisms $$f,g:\prod_{J\in\Obj\mJ}X_J\to\prod_{(\alpha:J\to I)\in\mJ}X_I$$ as follows. 
+\begin{itemize}
+\item Define $f$ to be the unique map such that $\pi_I\circ f=\pi_{\text{cod}(\alpha)}$ where both $\pi$ are projections. 
+\item Define $g$ to be the unique map such that $\pi_{\text{cod}(\alpha)}\circ g=F(\alpha)\circ\pi_{\text{dom}(\alpha)}$
+\end{itemize}
+If $\text{Eq}(f,g)$ exists, then there is a canonical isomorphism $$\lim_\mJ X\cong\text{Eq}(f,g)$$ \tcbline
 \begin{proof}
-Let $f,g:\prod_{J\in\Obj\mJ}X_J\to\prod_{(\alpha:J\to I)\in\Hom\mJ}X_I$ be defined as follows. $f$ is determined by the maps $$\pi_I=\pi_\alpha\circ f:\prod_{K\in\Obj\mJ}X_K\overset{\pi_I}{\rightarrow}X_I$$ Similarly, $g$ is determined by the maps $$\pi_\alpha\circ g:\prod_{K\in\Obj\mJ}X_K\overset{\alpha_\ast\circ\pi_J}{\rightarrow}X_I$$ Now define a cone over $X$ by $\pi_I^E:\text{Eq}(f,g)\to X_I$ for all $I\in\Obj\mJ$ by \\~\\
+Define a cone over $X$ by $\pi_I^E:\text{Eq}(f,g)\to X_I$ for all $I\in\Obj\mJ$ by \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 \text{Eq}(f,g)\arrow[r, "\pi_0"] & \prod_{J\in\Obj\mJ}X_J\arrow[r, "\pi_I"] & X_I
 \end{tikzcd}} \\~\\

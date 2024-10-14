@@ -58,6 +58,13 @@ Suppose that $f(X)=Y_1\cup Y_2$ for some closed sets $Y_1,Y_2\subseteq Y$. Then 
 \begin{thm}{}{} Let $X$ be a Noetherian space. Then there exists a finite collection $X_1,\dots,X_n\subseteq X$ of irreducible closed sets such that $$X=X_1\cup\cdots\cup X_n$$ and that $X_i$ is not contained in $X_j$ for $i\neq j$. Moreover, such a decomposition is unique up to reordering of the components. 
 \end{thm}
 
+\subsection{Some Types of Maps}
+\begin{defn}{Dominant Maps}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. We say that $f$ is dominant if $f(X)$ is dense in $Y$. 
+\end{defn}
+
+\begin{defn}{Closed Maps}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. We say that $f$ is closed if for all closed sets $U\subseteq X$, $f(U)$ is closed. 
+\end{defn}
+
 \pagebreak
 \section{Introduction to Affine Varieties}
 \subsection{The Zero Set of Polynomials}
@@ -68,41 +75,75 @@ Algebraic geometry is all about the study of polynomials. By collecting all the 
 
 Notice that point wise this is exactly the same as $k^n$. The whole point of this is that $k^n$ has the structure of a vector space, as well as having the standard topology. We do not want both of these because we will define a different topology on these same set of points. Therefore we may as well give it another name. 
 
-\begin{defn}{Affine Varieties}{} Let $k$ be a field. Let $F=\{f_i\}$ be a collection of polynomials in $k[x_1,\dots,x_n]$. The zero locus of $F$ is defined to be $$V(F)=\{x\in\A^n|f(x)=0\text{ for all }f\in F\}\subseteq\A^n$$ Subsets of $\A^n$ of this form is called affine varieties. 
+\begin{defn}{Affine Varieties}{} Let $k$ be a field. Let $F=\{f_i\}$ be a collection of polynomials in $k[x_1,\dots,x_n]$. The zero locus of $F$ is defined to be $$\V(F)=\{x\in\A^n|f(x)=0\text{ for all }f\in F\}\subseteq\A^n$$ Subsets of $\A^n$ of this form is called affine varieties. 
 \end{defn}
 
-Some authors use the name algebraic varieties, but we would have another use for this name. 
+We can also define affine subvarieties as a relative version of the above, in the sense that we have defined particular subsets of $\A_k^n$ to be affine varieties. We can also define particular subsets of an affine algebraic set $X$ to be an affine algebraic subset. 
 
-\begin{prp}{}{} Let $k$ be a field. If $I$ is the ideal of $F=\{f_i\}$ in $k[x_1,\dots,x_n]$ then $V(F)=V(I)$. \tcbline
-\begin{proof}
-Basic properties of ideals proves the theorem. This is because every $f\in F$ is a finite sum and product of polynomials in the generating set. 
-\end{proof}
-\end{prp}
+\begin{defn}{Affine Subvarieties}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. An affine subvarieties $Y$ of $X$ is a subset of $X$ that is also an affine variety of $\A_k^n$. 
+\end{defn}
 
-Thus from now on we need not consider ourselves with the affine variety of a countable collection of polynomials since we know that the ring of polynomials of $n$ variables is finitely generated. 
+In particular, the affine algebraic subsets of $\A_k^n$ are precisely the affine varieties of $\A_k^n$. 
 
 \begin{prp}{}{} Let $k$ be a field. Then the following are true regarding the zero loci. 
 \begin{itemize}
-\item Closed under countable intersections: Let $\{F_i\;|\;i\in I\}$ be a collection of subsets of $k[x_1,\dots,x_n]$. Then $$\bigcap_{i\in I}V(F_i)=V\left(\bigcup_{i\in I}F_i\right)$$
-\item Closed under finite unions: Let $\{f_i\;|\;i\in I\},\{g_j\;|\;j\in J\}\subset k[x_1,\dots,x_n]$. Then $$V(\{f_i\;|\;i\in I\})\cup V(\{g_j\;|\;j\in J\})=V(\{f_ig_j\;|\;i\in I, j\in J\})$$
-\item $V(\emptyset)=\A_k^n$
-\item $V(1)=\emptyset$
+\item Closed under countable intersections: Let $\{F_i\;|\;i\in I\}$ be a collection of subsets of $k[x_1,\dots,x_n]$. Then $$\bigcap_{i\in I}\V(F_i)=\V\left(\bigcup_{i\in I}F_i\right)$$
+\item Closed under finite unions: Let $\{f_i\;|\;i\in I\},\{g_j\;|\;j\in J\}\subset k[x_1,\dots,x_n]$. Then $$\V(\{f_i\;|\;i\in I\})\cup\V(\{g_j\;|\;j\in J\})=\V(\{f_ig_j\;|\;i\in I, j\in J\})$$
+\item $\V(\emptyset)=\A_k^n$
+\item $\V(1)=\emptyset$
+\item If $F\subseteq G\subseteq k[x_1,\dots,x_n]$ then $\V(G)\subseteq\V(F)$
 \end{itemize}\tcbline
 \begin{proof}~\\
 \begin{itemize}
-\item Let $p$ lie in the union. Then for all $f_i$ and $g_j$ we have that $f_i(p)=g_j(p)=0$. Then in particular $(f_ig_j)(p)=0$ and so we proved ``$\subseteq$''. Now let $p\in V(\{f_ig_j\;|\;i\in I, j\in J\})$. Then there are two cases. If $p\in V(\{f_i\;|\;i\in I\})$, we are done. If $p\notin V(\{f_i\;|\;i\in I\})$, then there exists $f_k\in\{f_i\;|\;i\in I\}$ such that $f_k(p)\neq 0$. But we know that $(f_kg_j)(p)=0$ for all $j\in J$. By cancellation law we conclude that $g_j(p)=0$ for all $j\in J$. We conclude that $p\in V(\{g_j\;|\;j\in J\})$ and we are done. 
+\item Let $p$ lie in the union. Then for all $f_i$ and $g_j$ we have that $f_i(p)=g_j(p)=0$. Then in particular $(f_ig_j)(p)=0$ and so we proved ``$\subseteq$''. Now let $p\in\V(\{f_ig_j\;|\;i\in I, j\in J\})$. Then there are two cases. If $p\in\V(\{f_i\;|\;i\in I\})$, we are done. If $p\notin\V(\{f_i\;|\;i\in I\})$, then there exists $f_k\in\{f_i\;|\;i\in I\}$ such that $f_k(p)\neq 0$. But we know that $(f_kg_j)(p)=0$ for all $j\in J$. By cancellation law we conclude that $g_j(p)=0$ for all $j\in J$. We conclude that $p\in\V(\{g_j\;|\;j\in J\})$ and we are done. 
 \item Since the contents of $V$ are null there are no checks. All points of $\A_k^n$ lie in $V(\emptyset)$. 
-\item For all $p\in\A_k^n$, $p\notin V(1)$ and so we are done. 
+\item For all $p\in\A_k^n$, $p\notin\V(1)$ and so we are done. 
+\item Let $p\in\V(G)$. For any $f\in F$ we have that $f\in G$ and hence $f(p)=0$. Thus $p\in\V(F)$. 
 \end{itemize}
 \end{proof}
 \end{prp}
 
-We now proceed with the relative view of all the above, in the sense that we have defined particular subsets of $\A_k^n$ to be affine varieties. But we can also define particular subsets of an affine algebraic set $X$ to be an affine algebraic subset. 
+The following proposition is a crucial observation that allows us to work with ideals instead of general subsets of the polynomial ring. It is the first step of geometry going into the algebraic side of view. 
 
-\begin{defn}{Affine Algebraic Subsets}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. An affine algebraic subset $Y$ of $X$ is a subset of $X$ that is also an affine algebraic set of $\A_k^n$. 
+\begin{prp}{}{} Let $k$ be a field. If $I$ is the ideal of $F=\{f_i\}$ in $k[x_1,\dots,x_n]$ then $\V(F)=\V(I)$. \tcbline
+\begin{proof}
+Since $F\subseteq I$, we conclude that $V(I)\subseteq V(F)$ by the above proposition. Now suppose that $p\in V(F)$. For any $f\in I$ we have that $f=\sum_{k=1}^nc_kg_k$ for $c_k\in k[x_1,\dots,x_n]$ and $g_k\in I$. Then $f(p)=0$ since $g_k(p)=0$ for all $k$. Hence $p\in V(I)$. Thus we conclude. 
+\end{proof}
+\end{prp}
+
+Thus from now on we need not consider ourselves with the affine variety of a countable collection of polynomials since we know that the ring of polynomials of $n$ variables is finitely generated. If we restrict our attention of $V(-)$ only to ideals, we obtain the following nice properties of $V(-)$ which improves on the set based one. 
+
+\begin{prp}{}{} Let $k$ be a field. Let $I$ and $J$ be ideals of $k[x_1,\dots,x_n]$. Then the following are true regarding the zero loci. 
+\begin{itemize}
+\item $V(I)=V(\sqrt{I})$
+\item $V(I)\cap V(J)=V(I+J)$
+\item $V(I)\cup V(J)=V(I\cap J)$
+\end{itemize}\tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item We have seen that $I\subseteq\sqrt{I}$. Applying $V$ reverses the inclusion to give $V(\sqrt{I})\subseteq V(I)$. Now suppose that $p\in V(I)$. For any $f\in\sqrt{I}$, we have that $f^n\in I$ for some $n\in\N$. But $f^n\in I$ means that $f^n(p)=0$. Since $k$ is a field, we deduce that $f(p)=0$ from $(f(p))^n=0$. Thus $p\in V(\sqrt{I})$. We conclude that $V(I)=V(\sqrt{I})$. 
+\item We have seen that $V(I)\cap V(J)=V(I+J)$. I claim that $I+J=\langle r\in I\cup J\rangle$. Let $x\in I+J$. Then $x=i+j$ for some $i\in I$ and $j\in J$. But sums of elements of an ideal lie in the ideal. Since $i,j\in I\cup J$, we conclude that $x\in\langle r\in I\cup J\rangle$. Now suppose that $y\in\langle r\in I\cup J\rangle$. Then $y=\sum_{k=1}^nc_km_k$ for $c_k\in k[x_1,\dots,x_n]$ and $m_k\in I\cup J$. We can then split the sum into two parts: $$y=\sum_{m_k\in I}c_km_k+\sum_{m_k\in J}c_km_k\in I+J$$ Hence we conclude. Now we conclude that $V(I+J)=V(I\cup J)$ by the above proposition. 
+\item Using the fact that $\sqrt{IJ}=\sqrt{I\cap J}$, we have that $$V(I)\cup V(J)=V(IJ)=V(\sqrt{IJ})=V(\sqrt{I\cap J})=V(I\cap J)$$ and so we are done. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{defn}{Hypersurfaces}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be a variety. We say that $V$ is a hypersurface if it is the vanishing locus $$V=\V(f)$$ of a single polynomial $f\in k[x_1,\dots,x_n]$. 
 \end{defn}
 
-In particular, the affine algebraic subsets of $\A_k^n$ are precisely the affine varieties of $\A_k^n$. 
+The Hilbert basis theorem in conjunction with the above proposition shows that affine varieties can be thought of as very simple things. We do not need to work with uncountably many polynomials that define the vanishing set. 
+
+\begin{crl}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be an affine variety. Then $V$ is the intersection of finitely many hypersurfaces. \tcbline
+\begin{proof}
+Suppose that $V=\V(\{f_i\;|\;i\in I\})$. Then we have that 
+\begin{align*}
+V&=\V((f_i)_{i\in I})\tag{prp 2.1.6}\\
+&=\V(f_1,\dots,f_r)\tag{Hilbert's basis theorem}\\
+&=\bigcap_{i=1}^r\V(f_i)
+\end{align*}
+and so we conclude. 
+\end{proof}
+\end{crl}
 
 \subsection{Irreducible Varieties}
 \begin{defn}{Affine Algebraic Varieties}{} Let $k$ be a field. An affine algebraic set $V\subseteq\A_k^n$ is said to be irreducible if the following are true. For any affine varieties $V_1,V_2\subseteq\A_k^n$ such that $$V=V_1\cup V_2$$ we have that either $V_1=V$ or $V_2=V$. In this case $V$ is also said to be an affine algebraic variety. Otherwise, we say that $V$ is reducible. 
@@ -121,11 +162,6 @@ The notion of irreducibility is more useful in an algebraically closed field bec
 Suppose that $V=U\cup W$ for some closed sets $U$ or $W$. Then $U$ and $W$ are also affine varieties. Since $V$ is irreducible, either $V=U$ or $V=W$. Thus $V$ is connected. 
 \end{proof}
 \end{prp}
-
-While the image of an affine irreducible subvariety under a regular map may not be an affine irreducible subvariety, its closure still is. 
-
-\begin{lmm}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $f:V\to W$ be a regular map. If $U\subseteq V$ is an irreducible subvariety of $V$, then $\overline{f(U)}\subseteq W$ is an irreducible subvariety of $W$. 
-\end{lmm}
 
 \subsection{The Zariski Topology}
 \begin{defn}{Zariski Topology}{} Let $k$ be a field. Define the Zariski topology on $\A_k^n$ to be the topology where the closed sets are precisely all the affine varieties of $\A_k^n$. 
@@ -152,6 +188,19 @@ Using the Zariski topology on $\A_k^n$, we can now endow a subspace topology on 
 Let $V$ be a closed set of $\A_k^1$. Then $V$ is the common zero set of some collection of polynomials. Since each polynomial has at most a finite number of zeroes, $V$ can at most contain finitely many points. 
 \end{proof}
 \end{lmm}
+
+\begin{eg}{}{} Let $k$ be a field. Then the following are true. 
+\begin{itemize}
+\item If $k$ is infinite then $\A_k^1$ is not Hausdorff
+\item If $k$ is finite then $\A_k^1$ is a discrete space and is Hausdorff. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Suppose that $k$ is infinite. Let $x,y\in\A_k^1$. Let $U_x$ and $U_y$ be open neighbourhoods of $x$ and $y$ respectively. Then $V=\A_k^1\setminus U_x$ and $W=\A_k^1\setminus U_y$ are both closed and are hence varieties. By the above, $V$ and $W$ are finite. Hence we can choose $z\notin V$ and $z\notin W$ because $\A_k^1$ is infinite. Then $z\in U_x$ and $z\in U_y$ implies that $U_x$ and $U_y$ are not disjoint. Hence $\A_k^1$ is not Hausdorff
+\item Let $k$ be finite. Then every closed set of $\A_k^1$ is finite. But $\A_k^1$ is also finite. Hence every open set is also finite. In particular, for $x_0\in A_k$, $\{x_0\}$ is an open set because $$V\left(\prod_{c\in\A_k^1\setminus\{x_0\}}(x-c)\right)=\A_k^1\setminus\{x_0\}$$ is a closed set. Thus $\A_k^1$ is the discrete space. Finally, for any two points $x,y\in\A_k^1$, $\{x\}$ and $\{y\}$ are disjoint open neighbourhoods of $x$ and $y$. Hence $\A_k^1$ is Hausdorff. 
+\end{itemize}
+\end{proof}
+\end{eg}
 
 \begin{eg}{}{} Let $k=\R$ or $\C$. The Zariski topology on $\A_k^2$ is not homeomorphic to the product topology of the Zariski topology of $\A_k^1\times\A_k^1$. \tcbline
 \begin{proof}
@@ -203,7 +252,10 @@ and so we conclude.
 \end{proof}
 \end{prp}
 
-While the preimage of a subvariety is a subvariety, the image of a subvariety may not be a variety in general. 
+While the preimage of a subvariety is a subvariety, the image of a subvariety may not be a variety in general, but its closure still is. 
+
+\begin{lmm}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $f:V\to W$ be a regular map. If $U\subseteq V$ is an irreducible subvariety of $V$, then $\overline{f(U)}\subseteq W$ is an irreducible subvariety of $W$. 
+\end{lmm}
 
 \begin{thm}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a regular map. Then $\phi$ is continuous with respective to the Zariski topology. \tcbline
 \begin{proof}
@@ -231,22 +283,31 @@ It is clear that the inverse of $h$ is given by $$(x,y)\mapsto\begin{cases}
 \subsection{Hilbert's Nullstellensatz}
 Recall that these sets of notes are for algebraic geometry, not purely geometry. We would like to employ algebraic methods to the study of these zero sets. In particular, the goal of the chapter is to establish some sort of one-to-one correspondence with some algebraic objects $$\left\{\substack{\text{Affine algebraic}\\\text{sets of }\A_k^n}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\text{Something Algebraic}$$ Hilbert's Nullstellensatz will provide the link. 
 
-\begin{defn}{Ideals of an Affine Variety}{} Let $V$ be an affine algebraic set. Define the ideal of $V$ to be $$I(V)=\{f\in k[x_1,\dots,x_n]\;|\;f(x)=0\text{ for all }x\in V\}$$ 
+\begin{defn}{Ideals of a Set of Points}{} Let $k$ be a field. Let $S\subseteq\A_k^n$ be a subset. Define the ideal of $S$ to be $$\I(S)=\{f\in k[x_1,\dots,x_n]\;|\;f(x)=0\text{ for all }x\in S\}$$ 
 \end{defn}
 
-\begin{lmm}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be an affine algebraic set. Then $I(V)$ is an ideal of $k[x_1,\dots,x_n]$. 
+Recall that the radical ideal is defined as $$\sqrt{I}=\{f\in k[x_1,\dots,x_n]\;|\;f^r\in I\text{ for some }r>0\}$$
+
+\begin{lmm}{}{} Let $k$ be a field. Let $S\subseteq\A_k^n$ be a subset. Then $\I(S)$ is a radical ideal of $k[x_1,\dots,x_n]$. \tcbline
+\begin{proof}
+From Commutative Algebra 1, we already know that $\I(S)\subseteq\sqrt{\I(S)}$. So let $f\in\sqrt{\I(S)}$. Then $f^n\in\I(S)$ for some $n\in\N$. This means that for any $p\in S$, we have that $f^n(p)=0$ Since $k$ is a field, we can apply the cancellation law to get $f(p)=0$. Thus $f\in\I(S)$. Thus we are done. 
+\end{proof}
 \end{lmm}
 
 Similarly as above, $I(V)$ is finitely generated since ideals in a polynomial ring is finitely generated. 
 
-\begin{prp}{}{} Let $V_1,V_2$ be affine algebraic varieties. The following are true. 
+\begin{prp}{}{} Let $k$ be a field. Let $S,T\subseteq\A_k^n$ be subsets. The following are true. 
 \begin{itemize}
-\item If $V_1\subseteq V_2$, then $I(V_1)\supseteq I(V_2)$
-\item $I(V_1\cup V_2)=I(V_1)\cap I(V_2)$
+\item If $S\subseteq T$, then $\I(T)\supseteq\I(S)$
+\item $\I(S\cup T)=\I(S)\cap\I(T)$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $f\in\I(T)$. Then $f(p)=0$ for all $p\in T$. In particular, $f(p)=0$ for all $p\in S$. Thus $f\in\I(S)$. 
+\item Let $f\in\I(S\cup T)$. Then $f(p)=0$ for all $p\in S\cup T$. Then $f\in\I(S)$ and $f\in\I(T)$. Thus $f\in\I(S)\cap\I(T)$. Now suppose that $g\in\I(S)\cap\I(T)$. Then $g(p)=0$ for all $p\in S$ and all $p\in T$. Thus $g\in\I(S\cup T)$. 
 \end{itemize}
+\end{proof}
 \end{prp}
-
-Recall that the radical ideal is defined as $$\sqrt{I}=\{f\in k[x_1,\dots,x_n]\;|\;f^r\in I\text{ for some }r>0\}$$
 
 \begin{thm}{Hilbert's Nullstellensatz}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. Then $$I(V(I))=\sqrt{I}$$
 \end{thm}
@@ -639,11 +700,45 @@ The transition maps between two open cover is given by the rational functions $\
 \pagebreak
 \section{The Tangent Space}
 \subsection{Dimensions}
-\begin{defn}{Dimension (Topological)}{} Let $X$ be a topological space. Suppose that $Z_0\subset Z_1\subset\dots\subset Z_n$ is a chain irreducible varieties of $X$. Define the dimension of $X$ to be $$\dim(X)=\sup_{\substack{Z_0,\dots,Z_n\subseteq X\\\text{irreducible varieties}}}\{n\in\N|Z_0\subset Z_1\subset\dots\subset Z_n\}$$
+\begin{defn}{Dimension (Topological)}{} Let $k$ be a field. Let $X$ be a variety of $\A_k^n$. Define the dimension of $X$ to be $$\dim(X)=\sup_{\substack{Z_0,\dots,Z_n\subseteq X\\\text{irreducible varieties}}}\{n\in\N\;|\;Z_0\subset Z_1\subset\dots\subset Z_n\}$$
 \end{defn}
 
-\begin{lmm}{}{} If $X\subset Y$ then $\dim(X)<\dim(Y)$. 
+Some immediate consequences can be deduced. For instance, if $X$ is a point then $\dim(X)=0$. Also, if $Z_1\subset\cdots\subset Z_m$ is such a maximal chain for some space $X$, then $\dim(Z_d)=d$ and $Z_m=X$. 
+
+\begin{eg}{}{} Let $k$ be a field. Then any finite collection of points in $\A_k^n$ is $0$-dimensional. \tcbline
+\begin{proof}
+If $V$ is a finite set of points of $\A_k^n$, then its irreducible components are precisely all the points of $V$ as a set. Since $V$ itself is not irreducible, the maximal chain of irreducible subvarieties is just given by any single point in the irreducible components of $V$. Thus $V$ is $0$-dimensional. 
+\end{proof}
+\end{eg}
+
+This is a more general observation. 
+
+\begin{lmm}{}{} Let $k$ be a field. Let $V$ be a variety of $\A_k^n$. Then $$\dim(V)=\text{max}\{\dim(V_k)\;|\;V_1,\dots,V_n\text{ the irreducible components of }V\}$$ \tcbline
+\begin{proof}
+Write $m=\text{max}\{\dim(V_k)\;|\;V_1,\dots,V_n\text{ the irreducible components of }V\}$. Suppose that $Z_0\subset\cdots\subset Z_d$ is a maximal chain of irreducible subvarieties of $V$. Suppose that $V_1,\dots,V_n$ are the irreducible components of $V$. We now have that $$Z_d=Z_d\cap X=Z_d\cap(V_1\cup\cdots\cup V_n)=(Z_d\cap V_1)\cup\cdots\cup(Z_d\cap V_n)$$ Since $Z_d$ is irreducible, we have that $Z_d=Z_d\cap V_k$ for some $k$. Hence $Z_d\subseteq V_k$. If $Z_d$ is a strict subset of $V_k$, then $Z_0\subset\cdots\subset Z_d\subset V_k$ is a new maximal chain of irreducible subvarieties of $V$. This is a contradiction. Thus $Z_d=V_k$ and so $Z_0\subset\cdots\subset Z_{d-1}\subset V_k$ is a chain of irreducible subvarieties of $V_k$ that may not be maximal. This means that $\dim(V)\leq\dim(V_k)\leq m$. This concludes the proof that $$\dim(X)\leq m$$~\\
+
+Now suppose that $\dim(V_k)$ achieves the number $m$ for some $k$. Let $Y_1\subset\cdots\subset Y_{\dim(V_k)}$ be a maximal chain of irreducible subvarieties of $V_k$. This chain can also be considered as a chain of irreducible subvarieties of $V$. This means that $\dim(V_k)\leq\dim(V)$. In other words, we have that $$m\leq\dim(X)$$ We conclude that $\dim(X)=m$. 
+\end{proof}
 \end{lmm}
+
+\begin{lmm}{}{} Let $k$ be a field. Let $X,Y\subseteq\A_k^n$ be varieties. If $X\subset Y$ then $\dim(X)\leq\dim(Y)$. \tcbline
+\begin{proof}
+Suppose that $Z_0\subset\cdots\subset Z_n$ is a maximal chain of irreducibles of $X$. Then it is also a chain of irreducibles of $Y$ that may not be maximal. Thus $\dim(X)\leq\dim(Y)$. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $k$ be a field. Let $X\subseteq\A_k^n$ and $Y\subseteq\A_k^m$ be varieties. Let $f:X\to Y$ be a regular map. Then the following are true. 
+\begin{itemize}
+\item If $f$ is closed and surjective and $X,Y$ are irreducible, then $\dim(X)\geq\dim(Y)$
+\item If $f$ is surjective, then $\dim(X)\geq\dim(Y)$
+\item If $f$ is dominant, then $\dim(X)\geq\dim(Y)$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item We induct on $\dim(Y)$. Suppose that $\dim(Y)=0$ for the base case. Then $\dim(X)\geq 0$. Now suppose that there exists some $n\in\N$ such that the statement is true for $\dim(Y)\leq n$. Now suppose that $\dim(Y)=n+1$. Let $Y_0\subset\cdots\subset Y_{n+1}=Y$ be a maximal chain of irreducible subvarieties of $Y$. Notice that $\dim(Y_n)\leq\dim(Y)$ by the above. Together with the fact that $Y_0\subset\cdots\subset Y_n$ is a chain of irreducible subvarieties of $Y$ we conclude that $\dim(Y_n)=n$. Now $f^{-1}(Y_n)$ is closed in $X$ and is a subvariety of $X$. Decompose $f^{-1}(Y_n)$ into irreducible components $V_1,\dots,V_k$. By surjectivity, we have that $f(f^{-1}(Y_n))=Y_n$, and we have that $$Y_n=f(V_1)\cup\cdots\cdots f(V_k)$$ Since $f$ is a closed map, each $f(V_k)$ is also closed. But $Y_n$ is irreducible. So $f(V_k)=Y_n$ for some $k$. This means that $f|_{V_k}:V_k\to Y_n$ is surjective. By inducetive hypothesis, $\dim(V_k)\geq\dim(Y_n)=n$. But $V_i$ is strictly smaller than $X$ and $V_k$ and $X$ are both irreducible. This means that $$\dim(X)>\dim(V_k)\geq\dim(Y_n)=n$$ This implies that $\dim(X)\geq n+1=\dim(Y)$ and so we are done. 
+\end{itemize}
+\end{proof}
+\end{prp}
 
 \begin{lmm}{}{} $\dim(\Prj^n)=\dim(A^n)=n$. 
 \end{lmm}

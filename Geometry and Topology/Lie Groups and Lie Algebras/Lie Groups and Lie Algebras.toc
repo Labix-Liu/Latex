@@ -5,13 +5,14 @@
 \contentsline {subsection}{\numberline {1.4}The Center of a Lie Algebra}{5}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}The Isomorphism Theorems}{6}{subsection.1.5}%
 \contentsline {section}{\numberline {2}Types of Lie Algebras}{7}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Nilpotent Lie Algebras}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Abelian Lie Algebras}{7}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Soluble Lie Algebras}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Simple and Semisimple Lie Algebras}{7}{subsection.2.3}%
-\contentsline {section}{\numberline {3}The Killing Form and Cartan's Criteria}{8}{section.3}%
-\contentsline {section}{\numberline {4}Introduction to Lie Groups}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Lie Groups}{9}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Relation between Lie Groups and Lie Algebras}{9}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Root Systems}{10}{section.5}%
-\contentsline {section}{\numberline {6}Representation Theory of Lie Algebras}{11}{section.6}%
-\contentsline {section}{\numberline {7}Classification of Semisimple Lie Algebras over $\mathbb {C}$}{12}{section.7}%
+\contentsline {subsection}{\numberline {2.3}Nilpotent Lie Algebras}{8}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Simple and Semisimple Lie Algebras}{9}{subsection.2.4}%
+\contentsline {section}{\numberline {3}The Killing Form and Cartan's Criteria}{11}{section.3}%
+\contentsline {section}{\numberline {4}Introduction to Lie Groups}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Lie Groups}{12}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Relation between Lie Groups and Lie Algebras}{12}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Root Systems}{13}{section.5}%
+\contentsline {section}{\numberline {6}Representation Theory of Lie Algebras}{14}{section.6}%
+\contentsline {section}{\numberline {7}Classification of Semisimple Lie Algebras over $\mathbb {C}$}{15}{section.7}%

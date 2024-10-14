@@ -153,11 +153,7 @@ Moreover, we have an isomorphism $$\frac{I+J}{J}\cong\frac{I}{I\cap J}$$
 
 \pagebreak
 \section{Types of Lie Algebras}
-\subsection{Nilpotent Lie Algebras}
-
-\subsection{Soluble Lie Algebras}
-Let $L$ be a Lie algebra. We have seen that $\text{rad}(L)$ is soluble and $L/\text{rad}(L)$ is semisimple. Therefore to study a general Lie algebra, we need to understand soluble Lie algebras and semisimple Lie algebras. If we restrict the case to Lie algebras over $\C$, Lie's theorem will solve the first part of the problem, while the study of semisimple Lie algebras is postponed until section 5. 
-
+\subsection{Abelian Lie Algebras}
 \begin{defn}{Abelian Lie Algebras}{} Let $(L,[-,-])$ be a Lie algebra. We say that $L$ is abelian if $$[x,y]=0$$ for all $x,y\in L$. 
 \end{defn}
 
@@ -167,6 +163,9 @@ Let $L$ be a Lie algebra. We have seen that $\text{rad}(L)$ is soluble and $L/\t
 \begin{crl}{}{} Let $L$ be a Lie algebra. Then the smallest ideal $I$ such that $L/I$ is abelian is given by $$I=[L,L]$$
 \end{crl}
 
+\subsection{Soluble Lie Algebras}
+Let $L$ be a Lie algebra. We have seen that $\text{rad}(L)$ is soluble and $L/\text{rad}(L)$ is semisimple. Therefore to study a general Lie algebra, we need to understand soluble Lie algebras and semisimple Lie algebras. If we restrict the case to Lie algebras over $\C$, Lie's theorem will solve the first part of the problem, while the study of semisimple Lie algebras is postponed until section 5. 
+
 \begin{defn}{Derived Series}{} Let $L$ be a Lie algebra. Define the derived series $L^{(n)}$ of $L$ to be the sequence recursively defined as follows. 
 \begin{itemize}
 \item For $n=0$, define $L^{(0)}=L$
@@ -174,10 +173,105 @@ Let $L$ be a Lie algebra. We have seen that $\text{rad}(L)$ is soluble and $L/\t
 \end{itemize}
 \end{defn}
 
+\begin{lmm}{}{} Let $L_1,L_2$ be Lie algebras. Let $\phi:L_1\to L_2$ be a Lie algebra homomorphism. Then $$\phi(L_1^{(k)})=\phi(L_1)^{(k)}$$
+\end{lmm}
+
+\begin{defn}{Soluble Lie Algebras}{} Let $L$ be a Lie algebra. We say that $L$ is soluble if there exists $n\in\N$ such that $$L^{(n)}=0$$
+\end{defn}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. If $L$ is abelian, then $L$ is soluble. 
+\end{lmm}
+
+\begin{eg}{}{} Consider the following Lie lalgebras. 
+\begin{itemize}
+\item $b_n(\C)$ the set of all upper triangular $n\times n$ matrices is soluble
+\item $SL(2,\C)$ is not soluble
+\item $GL(2,\C)$ is not soluble
+\end{itemize}
+\end{eg}
+
+\begin{prp}{}{} Let $L$ be a Lie algebra. Let $I$ and $J$ be ideals of $L$. Then the following are true. 
+\begin{itemize}
+\item Let $\phi:L\to K$ be a Lie algebra homomorphism. If $L$ is soluble then $\phi(L)$ is soluble. 
+\item Let $M$ be a Lie subalgebra of $L$. If $L$ is soluble, then $M$ is soluble. 
+\item If $I$ and $L/I$ are soluble, then $L$ is soluble. 
+\item If $I$ and $J$ are soluble, then $I+J$ is soluble. 
+\end{itemize}
+\end{prp}
+
 \begin{thm}{Lie's Theorem}{} Let $V$ be a vector space over $\C$. Let $L$ be a soluble Lie subalgebra of $GL(V)$. Then there exists a basis $B$ of $V$ such that for all $M\in L$, $M$ is upper triangular. 
 \end{thm}
 
+\subsection{Nilpotent Lie Algebras}
+\begin{defn}{Lower Central Series}{} Let $L$ be a Lie algebra. Define the lower central series $L^0,L^1,\dots,L^n,\dots$ as follows. 
+\begin{itemize}
+\item For $n=0$, define $L^0=L$
+\item For $n\in\N\setminus\{0\}$, define $$L^n=[L,L^{n-1}]$$
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Then there is an isomorphism $$[L,L^n]=[L^n,L]$$ for all $n\in\N$ given by the opposite map $x\mapsto -x$. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Then the following are true. 
+\begin{itemize}
+\item For all $n\in\N$, $L^n$ is an ideal of $L$. 
+\item $L^{n+1}\subseteq L^n$. 
+\end{itemize}
+\end{lmm}
+
+\begin{defn}{Nilpotent Lie Algebras}{} Let $L$ be a Lie algebra. We say that $L$ is nilpotent if there exists $n\in\N$ such that $$L^n=0$$
+\end{defn}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. If $L$ is abelian, then $L$ is nilpotent. 
+\end{lmm}
+
+\begin{eg}{}{} Consider the following Lie algebras. 
+\begin{itemize}
+\item $SL(2,\C)$ is nilpotent. 
+\item $b_n(\C)$ is not nilpotent for all $n\geq 2$. 
+\item $U_3(\C)$ the Heisenberg Lie algebra is nilpotent ($3\times 3$ strictly upper triangular matrices)
+\item $U_n(\C)$ is nilpotent for all $n\geq 3$. 
+\end{itemize}
+\end{eg}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Then the following are true. 
+\begin{itemize}
+\item Let $M$ be a Lie subalgebra of $L$. If $L$ is nilpotent, then $M$ is nilpotent. 
+\item If $L\neq 0$ is nilpotent, then $Z(L)\neq 0$
+\item If $L/Z(L)$ is nilpotent, then $L$ is nilpotent. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $M$ be a Lie subalgebra of $L$. I claim that $M^k\subseteq L^k$ for all $k\in\N$. The base case $k=0$ is clearly true. Suppose that $M^k\subseteq L^k$. Let $x\in[M,M^k]=M^{k+1}$. Then $x=[m,t]$ for some $m\in M$ and $t\in M^k$. Then $t\in L^k$. Also $m\in L$ implies that $x=[m,t]\in[L,L^k]=L^{k+1}$. Thus $M^{k+1}\subseteq L^{k+1}$. Now since $L$ is nilpotent, there exists $n\in\N$ such that $L^n=0$. Then $M^n\subseteq L^n=0$ so that $M$ is also nilpotent. 
+\item Suppose that $n\in\N$ is the smallest natural number such that $L^n=0$. Then $[L,L^{n-1}]=0$. Let $x\in L$. Then for all $y\in L^{n-1}$, we have that $[x,y]=0$. Thus $x\in Z(L)$. 
+\end{itemize}
+\end{proof}
+\end{lmm}
+
 \subsection{Simple and Semisimple Lie Algebras}
+\begin{prp}{}{} Let $L$ be a Lie algebra. Then there exists a unique soluble ideal $I$ of $L$ such that for any soluble ideal $J\subseteq L$, we have $J\subseteq I$. 
+\end{prp}
+
+\begin{defn}{}{} Let $L$ be a Lie algebra. Define the radical ideal $\text{rad}(L)\subseteq L$ of $L$ to be the unique soluble ideal of $L$ that contains all other soluble ideals. 
+\end{defn}
+
+\begin{defn}{Semisimple Lie Algebras}{}{} Let $L$ be a Lie algebra. We say that $L$ is semisimple if $$\frac{L}{\text{rad}(L)}=\{0\}$$
+\end{defn}
+
+\begin{eg}{}{} Consider the following Lie algebras. 
+\begin{itemize}
+\item $\{0\}$ is semisimple. 
+\item $SL(2,\C)$ is semisimple. 
+\item $GL(2,\C)$ is not semisimple. 
+\end{itemize}
+\end{eg}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Then $L/\text{rad}(L)$ is semisimple. \tcbline
+\begin{proof}
+Let $K$ be a soluble ideal of $L/\text{rad}(L)$. By the correspondence theorem, there exists an ideal $I$ of $L$ such that $\text{rad}(L)\subseteq I$ and $K=I/\text{rad}(L)$. Since $\text{rad}(L)$ and $K$ are soluble, we conclude that $I$ is soluble. Hence $I\subseteq\text{rad}(L)$. We conclude that $I=\text{rad}(L)$. Hence $K=\{0\}$. Thus $L/\text{rad}(L)$ is semisimple. 
+\end{proof}
+\end{lmm}
 
 \pagebreak
 \section{The Killing Form and Cartan's Criteria}

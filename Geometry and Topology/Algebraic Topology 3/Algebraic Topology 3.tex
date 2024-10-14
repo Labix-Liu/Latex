@@ -310,6 +310,14 @@ TBA: extension lemma in Hatcher.
 \begin{defn}{Cellular Approximations}{} Let $X$ and $Y$ be CW-complexes. We say that $f:X\to Y$ has a cellular approximations if $f$ is homotopic to a cellular map $f':X\to Y$. 
 \end{defn}
 
+To this end we need to revisit the notion of polyhedra. 
+
+\begin{defn}{Convex Polyhedra}{} Let $n\in\N$. A convex polyhedra is a subset $S$ of $\R^n$ of the form $$S=\left\{x=(x_1,\dots,x_n)\in\R^n\;\bigg{|}\;\sum_{k=1}^na_{k,1}x_k\leq b_1,\dots,\sum_{k=1}^n a_{k,s}x_k\leq b_s\right\}$$ for some $a_{1,1},\dots,a_{n,s},b_1,\dots,b_s\in\R$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a CW complex. Let $Y\subseteq X$ be a CW subcomplex. Let $Z$ be obtained by attaching a cell $e^k$ to $Y$. Let $f:I^n\to Z$ be a map. Then there exists a map $g:I^n\to X$ such that $$f\overset{f^{-1}(Y)}{\simeq} g$$ and $g$ is such that the following is true. There exists a simplex $\Delta^k\subset e^k$ and polyhedra $P_1,\dots,P_d$ such that $g$ is the (possibly empty) union $$g^{-1}(\Delta^k)=\bigcup_{k=1}^n$$ and $g|_{P_t}$ is the restriction of a linear surjection $\R^n\to\R^k$ for all $t$. 
+\end{lmm}
+
 \begin{thm}{Cellular Approximation Theorem}{} Any map $f:X\to Y$ between CW-complexes has a cellular approximation $f':X\to Y$. Moreover, if $f$ is already cellular on a subcomplex $A\subseteq X$, then we can take $f'|_A=f|_A$. 
 \end{thm}
 
@@ -341,7 +349,13 @@ The goal of this section is that every space has a CW approximation. The given h
 
 \section{Main Results of Homotopy Theory on CW-Complexes}
 \subsection{Excision for Homotopy Groups}
-\begin{thm}{The Homotopy Excision Theorem}{} Let $X$ be a CW-complex and $A,B$ be sub complexes such that $X=A\cup B$ and $A\cap B\neq\emptyset$. If $(A,A\cap B)$ is $m$-connected and $(B,A\cap B)$ is $n$-connected for $m,n\geq 0$, then the map $$\iota_\ast:\pi_i(A,A\cap B)\to(X,B)$$ induced by the inclusion $\iota:(A,A\cap B)\to(X,B)$ is an isomorphism for $0\leq i<m+n$ and a surjection for $i=m+n$. 
+\begin{thm}{The Homotopy Excision Theorem (Blaker's Massey Theorem)}{} Let $X$ be a CW-complex and $A,B$ be sub complexes such that $X=A\cup B$ and $A\cap B\neq\emptyset$. If $(A,A\cap B)$ is $m$-connected and $(B,A\cap B)$ is $n$-connected for $m,n\geq 0$, then the map $$\pi_k(\iota):\pi_k(A,A\cap B)\to\pi_k(X,B)$$ induced by the inclusion $\iota:(A,A\cap B)\to(X,B)$ is an isomorphism for $0\leq k<m+n$ and a surjection for $k=m+n$. \tcbline
+\begin{proof}
+We prove this by considering successively more general cases, starting from the simplest one. \\~\\
+
+Case 1: $A$ is obtained from $A\cap B$ by attaching some $e_\alpha^{m+1}$-cells and $B$ is obtained from $A\cap B$ by attaching one $e^{n+1}$-cell. \\
+We want to show that the map $\pi_k(A,A\cap B)\to(X,B)$ is surjective. Let $f:(I^k,\partial I^k,J^{k-1})\to(X,B,x_0)$ represent an equivalence class in $\pi_k(X,B)$. Since $f$ is continuous, $f$ preserves compactness and hence the image of $f$ is compact. By a property of CW complexes, $\im(f)$ meets only finitely many of the cells $e_\alpha^{m+1}$ and $e^{n+1}$. 
+\end{proof}
 \end{thm}
 
 \begin{prp}{}{} Let $(X,A)$ be a pair of $r$-connected CW complexes and let $A$ be $s$-connected. Then the map $$p_\ast:\pi_k(X,A)\to\pi_k(X/A)$$ induced by the quotient map $p:X\to X/A$ is an isomorphism for $0\leq k\leq r+s$ and a surjection for $k=r+s+1$. 

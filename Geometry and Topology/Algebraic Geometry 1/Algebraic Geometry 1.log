@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  10 OCT 2024 00:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  12 OCT 2024 01:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -947,7 +947,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 247.
+Package hyperref Info: Option `colorlinks' set `true' on input line 249.
 ) (Algebraic Geometry 1.aux)
 \openout1 = `"Algebraic Geometry 1.aux"'.
 
@@ -1085,51 +1085,51 @@ la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 \tf@toc=\write5
 \openout5 = `"Algebraic Geometry 1.toc"'.
 
- [2] [3] [4] [5] [6] [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+ [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 332--333
 
  []
 
-[10] [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+[13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 424--425
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+Underfull \hbox (badness 10000) in paragraph at lines 424--425
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
-
- []
-
-[13] [14] [15] [16]
-Underfull \hbox (badness 1152) in paragraph at lines 434--435
+[16] [17] [18] [19]
+Underfull \hbox (badness 1152) in paragraph at lines 495--496
 \T1/qpl/m/n/10 The new func-tion $\OML/cmm/m/it/10 F$ \T1/qpl/m/n/10 is ho-moge
 -nous of de-gree $\OML/cmm/m/it/10 d$\T1/qpl/m/n/10 , not di-vis-ble by $\OML/c
 mm/m/it/10 x[]$\T1/qpl/m/n/10 . This map from 
  []
 
-[17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31]
-[32] (Algebraic Geometry 1.aux)
+[20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]
+[35] [36] (Algebraic Geometry 1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Algebraic Geometry 1".out' has not changed.
 
-(rerunfilecheck)             Checksum: 33D01786BE439E4A201C2B65BBE9137F;7626.
+(rerunfilecheck)             Checksum: 391155E146839A456A139198F8E66845;7783.
  ) 
 Here is how much of TeX's memory you used:
- 32568 strings out of 474424
- 640475 string characters out of 5741739
- 1962496 words of memory out of 5000000
- 54171 multiletter control sequences out of 15000+600000
+ 32593 strings out of 474424
+ 640832 string characters out of 5741739
+ 1961496 words of memory out of 5000000
+ 54180 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,12n,120p,681b,1188s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,12n,120p,1209b,1188s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1146,9 +1146,9 @@ onts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Geometry 1.pdf" (32 pages, 475685 bytes).
+Output written on "Algebraic Geometry 1.pdf" (36 pages, 496896 bytes).
 PDF statistics:
- 667 PDF objects out of 1000 (max. 8388607)
- 228 named destinations out of 1000 (max. 500000)
- 341 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 703 PDF objects out of 1000 (max. 8388607)
+ 244 named destinations out of 1000 (max. 500000)
+ 349 words of extra memory for PDF output out of 10000 (max. 10000000)
 

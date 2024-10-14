@@ -558,6 +558,9 @@ If $A$ is an $F$-algebra, then it is clear that properties of a vector space hol
 \end{proof}
 \end{lmm}
 
+\begin{lmm}{}{} Let $R$ be a ring. Then $R$ is an algebra over $\Z$. 
+\end{lmm}
+
 \begin{defn}{R-Subalgebra}{} Let $A$ be an $R$-algebra. An $R$-subalgebra of $A$ is a subring of $A$ which is also an $R$-algebra in its own right. 
 \end{defn}
 
@@ -570,23 +573,6 @@ If $A$ is an $F$-algebra, then it is clear that properties of a vector space hol
 \item $f$ is a ring homomorphism: $f(xy)=f(x)f(y)$ for $x,y\in A$
 \end{itemize}
 \end{defn}
-
-\subsection{Commutative Algebras}
-\begin{defn}{Commutative Algebras}{} Let $R$ be a commutative ring. A commutative $R$-algebra is an $R$-algebra $A$ that is commutative. 
-\end{defn}
-
-\begin{prp}{}{} Let $R$ be a commutative ring. Then the following are equivalent characterizations of a commutative $R$-algebra. 
-\begin{itemize}
-\item $A$ is a commutative $R$-algebra
-\item $A$ is a commutative ring together with a ring homomorphism $f:R\to A$
-\end{itemize}\tcbline
-\begin{proof}
-Suppose that $A$ is an $R$-algebra. Then define a map $f:R\to A$ by $f(r)=r\cdot 1$ where $r\cdot 1$ is the module operation on $A$. Then clearly this is a ring homomorphism. \\~\\
-Suppose that $A$ is a commutative ring together with a ring homomorphism $f:R\to A$. Define an action $\cdot:R\times A\to A$ by $r\cdot a=f(r)a$. Then this action clearly allows $A$ to be an $R$-module. 
-\end{proof}
-\end{prp}
-
-Under the correspondence of associative algebra, the above proposition gives a another correspondence between the first one. $$\left\{(A,R)\;\bigg{|}\;\substack{A\text{ is a commutative }\\R\text{-algebra}}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\phi:R\to A\;\bigg{|}\;\substack{\phi\text{ is a ring homomorphism}\\\text{ such that }f(R)\subseteq Z(A)=A}\right\}\;\;$$ In particular, the construction above are inverses of each other so that it gives the one-to-one correspondence. 
 
 \subsection{Free Algebras}
 The polynomial rings defined in Group and Rings enjoy much more structure than just being a ring. In fact, the prototypical example of an algebra is the polynomial ring $R[x]$ for a ring $R$. It is in fact a free $R$-module with basis $\{1,x,x^2,\dots\}$. While $R[x]$ can be decomposed into a direct sum of $R$-modules, $R[x]$ itself is also an $R$-module so that $R[x]$ becomes a commutative algebra. 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  15 AUG 2024 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  12 OCT 2024 02:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -907,6 +907,9 @@ LaTeX Font Info:    Trying to load font information for T1+qpl on input line 11
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qpl.fd
 File: t1qpl.fd 2009/09/25 v1.2 font definition file for T1/qpl
 ))
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbtheorems.c
 ode.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.2.0'
@@ -944,7 +947,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 229.
+Package hyperref Info: Option `colorlinks' set `true' on input line 249.
 ) (Group Cohomology.aux)
 \openout1 = `"Group Cohomology.aux"'.
 
@@ -1036,8 +1039,9 @@ Package hyperref Info: Link coloring ON on input line 16.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
+Couldn't patch \deferred@thm@head!
+LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1067,22 +1071,22 @@ LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 4
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [4] [5] [6] [7] (Group Cohomology.aux)
+enc}] [4] [5] (Group Cohomology.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Group Cohomology".out' has not changed.
-(rerunfilecheck)             Checksum: E80CC924C5FC6BB90C377DF4974161F6;2137.
+(rerunfilecheck)             Checksum: 88033A1D1C27ADAFB842F11655BD667B;1320.
  ) 
 Here is how much of TeX's memory you used:
- 32341 strings out of 474424
- 637980 string characters out of 5741739
+ 32389 strings out of 474424
+ 639139 string characters out of 5741739
  1962496 words of memory out of 5000000
- 54135 multiletter control sequences out of 15000+600000
+ 54188 multiletter control sequences out of 15000+600000
  597664 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,16n,120p,557b,1383s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,16n,120p,567b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1101,9 +1105,9 @@ public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Group Cohomology.pdf" (7 pages, 272042 bytes).
+Output written on "Group Cohomology.pdf" (5 pages, 263273 bytes).
 PDF statistics:
- 220 PDF objects out of 1000 (max. 8388607)
- 38 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 175 PDF objects out of 1000 (max. 8388607)
+ 30 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

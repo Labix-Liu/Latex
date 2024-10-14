@@ -22,7 +22,7 @@
 \pagebreak
 
 \pagebreak
-\section{Basic Notions of Rings}
+\section{Basic Notions of Commutative Rings}
 \subsection{Local Rings}
 \begin{defn}{Local Rings}{} A ring $R$ is said to be a local ring if it has a unique maximal ideal $m$. In this case, we say that $R/m$ is the residue field of $R$. 
 \end{defn}
@@ -42,20 +42,32 @@ The radical of an ideal is a very different notion from the radical of module.
 \begin{defn}{Radical of an Ideal}{} Let $I$ be an ideal of a ring $R$. Define the radical of $I$ to be $$\sqrt{I}=\{r\in R|r^n\in I\text{ for some }n\in\N\}$$
 \end{defn}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then $$\sqrt{I}=\bigcap_{\substack{p\text{ a prime ideal}\\I\subseteq p\subseteq R}}p$$
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then the following are true. 
+\begin{itemize}
+\item $I\subseteq\sqrt{I}$
+\item $\sqrt{\sqrt{I}}=\sqrt{I}$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $r\in I$. Then $r^1\in I$ Thus by choosing $n=1$ we shows that $r^n\in I$. Thus $r\in\sqrt{I}$. 
+\item By the above, we already know that $\sqrt{I}\subseteq\sqrt{\sqrt{I}}$. So let $r\in\sqrt{\sqrt{I}}$. Then there exists some $n\in\N$ such that $r^n\in\sqrt{I}$. But $r^n\in\sqrt{I}$ means that there exists some $m\in\N$ such that $(r^n)^m\in I$. But $nm\in\N$ is a natural number such that $r^{nm}\in I$. Hence $r\in\sqrt{I}$ and so we conclude. 
+\end{itemize}
+\end{proof}
 \end{prp}
 
-\begin{crl}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then we have that $$I\subseteq\sqrt{I}$$ \tcbline
-\begin{proof}
-By the above proposition, $\sqrt{I}$ is the intersection of all prime ideals $P$ that contain $I$. Since each $P$ is such that $I\subseteq P$, we have that $$I=\bigcap_{\substack{p\text{ a prime ideal}\\I\subseteq p\subseteq R}}I\subseteq\bigcap_{\substack{p\text{ a prime ideal}\\I\subseteq p\subseteq R}}p=\sqrt{I}$$ and so we conclude. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I,J$ be ideals of $R$. Then the following are true. 
+\begin{itemize}
+\item $\sqrt{IJ}=\sqrt{I\cap J}$. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $x\in\sqrt{IJ}$. Then $x^n\in IJ$. This means that there exists $i\in I$ and $j\in J$ such that $x^n=ij$. Since $I$ and $J$ are two sided ideals, we can conclude that $x^n=ij\in I,J$. Hence $x^n=ij\in I\cap J$. We conclude that $x\in\sqrt{I\cap J}$. Now let $x\in\sqrt{I\cap J}$. Then there exists $n\in\N$ such that $x^n\in I\cap J$. Then $x^n\in I$ and $x^n\in J$ implies that $x^{2n}=x^n\cdot x^n\in IJ$. We conclude that $x\in\sqrt{IJ}$. 
+\end{itemize}
 \end{proof}
-\end{crl}
+\end{prp}
 
-\begin{crl}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then we have that $$\sqrt{\sqrt{I}}=\sqrt{I}$$ \tcbline
-\begin{proof}
-By the above, we already know that $\sqrt{I}\subseteq\sqrt{\sqrt{I}}$. So let $r\in\sqrt{\sqrt{I}}$. Then there exists some $n\in\N$ such that $r^n\in\sqrt{I}$. But $r^n\in\sqrt{I}$ means that there exists some $m\in\N$ such that $(r^n)^m\in I$. But $nm\in\N$ is a natural number such that $r^{nm}\in I$. Hence $r\in\sqrt{I}$ and so we conclude. 
-\end{proof}
-\end{crl}
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then $$\sqrt{I}=\bigcap_{\substack{p\text{ a prime ideal}\\I\subseteq p\subseteq R}}p$$
+\end{prp}
 
 \begin{defn}{Radical Ideals}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. We say that $I$ is radical if $$\sqrt{I}=I$$
 \end{defn}
@@ -167,7 +179,7 @@ Recall the notion of the Jacobson radical from Rings and Modules.
 \end{prp}
 
 \pagebreak
-\section{Basic Notions of Modules}
+\section{Modules over a Commutative Ring}
 \subsection{Cayley-Hamilton Theorem}
 \begin{defn}{Characteristic Polynomial}{} Let $R$ be a commutative ring. Let $A\in M_{n\times n}(R)$ be a matrix. Define the characteristic polynomial of $A$ to be the polynomial $$c_A(x)=\det(A-xI)$$
 \end{defn}
@@ -207,6 +219,48 @@ Recall the notion of the Jacobson radical from Rings and Modules.
 \item For $g\in\Hom_R(M,N)$, define the map $g^-\in\Hom_S(S\otimes_RM,N)$ by $$g^-(s\otimes m)=s\cdot g(m)$$
 \end{itemize}
 \end{thm}
+
+\pagebreak
+\section{Algebra Over a Commutative Ring}
+\subsection{Commutative Algebras}
+\begin{defn}{Commutative Algebras}{} Let $R$ be a commutative ring. A commutative $R$-algebra is an $R$-algebra $A$ that is commutative. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Then the following are equivalent characterizations of a commutative $R$-algebra. 
+\begin{itemize}
+\item $A$ is a commutative $R$-algebra
+\item $A$ is a commutative ring together with a ring homomorphism $f:R\to A$
+\end{itemize}\tcbline
+\begin{proof}
+Suppose that $A$ is an $R$-algebra. Then define a map $f:R\to A$ by $f(r)=r\cdot 1$ where $r\cdot 1$ is the module operation on $A$. Then clearly this is a ring homomorphism. \\~\\
+Suppose that $A$ is a commutative ring together with a ring homomorphism $f:R\to A$. Define an action $\cdot:R\times A\to A$ by $r\cdot a=f(r)a$. Then this action clearly allows $A$ to be an $R$-module. 
+\end{proof}
+\end{prp}
+
+Under the correspondence of associative algebra, the above proposition gives a another correspondence between the first one. $$\left\{(A,R)\;\bigg{|}\;\substack{A\text{ is a commutative }\\R\text{-algebra}}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\phi:R\to A\;\bigg{|}\;\substack{\phi\text{ is a ring homomorphism}\\\text{ such that }f(R)\subseteq Z(A)=A}\right\}\;\;$$ In particular, the construction above are inverses of each other so that it gives the one-to-one correspondence. 
+
+\subsection{Finitely Generated Algebra}
+\begin{defn}{Finitely Generated Algebra}{} Let $A$ be a commutative algebra over a ring $R$. We say that $A$ is a finitely generated algebra if there exists a finite set of elements $a_1,\dots,a_n$ such that $A$ is generated by $a_1,\dots,a_n$. Explicitly, this means that for all $a\in A$, there exists $c_{i_1,\dots,i_n}\in R$ for $i_1,\dots,i_n\in\N$ such that $$a=\sum_{i_1,\dots,i_n} c_{i_1,\dots,i_n}a_1^{i_1}\cdots a_n^{i_n}$$
+\end{defn}
+
+Finitely generated algebras are also called algebra of finite type. 
+
+\begin{thm}{}{} Let $A$ be a commutative algebra over a ring $R$. Then the following are equivalent. 
+\begin{itemize}
+\item $A$ is a finitely generated algebra over $R$
+\item There exists elements $a_1,\dots,a_n\in A$ such that the evaluation homomorphism $$\phi:R[x_1,\dots,x_n]\to A$$ given by $\phi(f)=f(a_1,\dots,a_n)$ is a surjection
+\item There is an isomorphism $$A\cong\frac{R[x_1,\dots,x_n]}{I}$$ for some ideal $I$
+\end{itemize}
+\end{thm}
+
+\begin{defn}{Finitely Presented Algebra}{} Let $R$ be a ring. Let $A=R[x_1,\dots,x_n]/I$ be a finitely generated algebra over $R$ for some ideal $I$. We say that $A$ is finitely presented if $I$ is finitely generated. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a ring, considered as an algebra over $\Z$. If $R$ is finitely generated over $\Z$, then $R$ is finitely presented. \tcbline
+\begin{proof}
+Trivial since $\Z$ is a principal ideal domain. 
+\end{proof}
+\end{lmm}
 
 \pagebreak
 \section{Localization}
@@ -429,8 +483,6 @@ Irredundant in this sense means that removing any one primary ideal in the inter
 \begin{defn}{Normal Domains}{} Let $R$ be a domain. We say that $R$ is normal (intergrally closed) if $A$ is integrally closed in its field of fractions. \\~\\
 The integral closure of $R$ in $\text{Frac}(R)$ is called the normalization of $R$. 
 \end{defn}
-
-\subsection{The Trace and Norm}
 
 \subsection{The Going-Up and Going-Down Theorems}
 

@@ -33,55 +33,6 @@ Real analysis is the best course for first year undergraduate students trying to
 \section{Properties of the Real Numbers}
 In this section, we will give the very first properties of the real numbers for readers to familiarize themselves with so that when we go on to the main discussion of sequences, we are well equipped with theorems at our disposal. 
 
-\subsection{The Absolute Value}
-Recall that we have constructed the set of real numbers as Dedekinds. Instead of focusing on the set-theoretic foundations of the real numbers. We focus on some of its properties and forego the clumsy notation of thinking about real numbers in terms of a set. \\
-
-The absolute value is an important function when it comes to defining useful concepts such as distances in the field of real. It simply measures the shortest distance between two points. 
-
-\begin{defn}{The Absolute Value}{} The absolute value of a real number $x\in\R$ is defined by
-$$\abs{x}=\begin{cases}
-x & \text{if $x\geq0$} \\
--x & \text{if $x\leq0$}
-\end{cases}$$
-\end{defn}
-
-Readers should already be familiar with the absolute value in high school. In particular, one should be able to draw graphs related to the absolute function. However, there are properties of the absolute value that are yet to be seen or proved. The following properties will be a list of its useful properties. 
-
-\begin{prp}{}{} Let $x,y\in\R$. Then the following are true of the absolute value. 
-\begin{itemize}
-\item $\abs{x}\geq 0$ with equality if and only if $x=0$
-\item $\abs{xy}=\abs{x}\abs{y}$
-\item $\abs{x+y}\leq\abs{x}+\abs{y}$
-\item $\abs{\abs{x}-\abs{y}}\leq\abs{x-y}$
-\end{itemize}\tcbline
-\begin{proof} I left out the proofs of the first and second property since they are simplay obtained via case by case analysis. 
-\begin{itemize}
-\item We start by squaring the left hand side of the inequality. 
-\begin{align*}
-\abs{x+y}^2&=(x+y)^2 \\
-&=x^2+2xy+y^2 \\
-&\leq \abs{x}^2+2\abs{x}\abs{y}+\abs{y}^2 \\
-&=(\abs{x}+\abs{y})^2
-\end{align*}
-Since the both sides of the inequality is non-negative, we can take the square root on both sides, thus obtaining $\abs{x+y}\leq\abs{x}+\abs{y}$. 
-\item Choose $x$ to be $x-y$ in (4) and we obtain $\abs{x}-\abs{y}\leq\abs{x-y}$. Similarly, choosing $y$ to be $y-x$ in (4), we find that $\abs{y}-\abs{x}\leq\abs{y-x}=\abs{x-y}$. Thus we have $\abs{\abs{x}-\abs{y}}\leq\abs{x-y}$. 
-\end{itemize}
-\end{proof}
-\end{prp}
-
-These properties will also be used extensively throguhout the entire notes. The reader should be absolutely familiar with its properties so that they can understand the definitions and the proofs more smoothly. The geometric interpretation of the absolute value will serve as an extremely important visualization on limits and convergences. \\~\\
-
-Often we use intervals for our domain of real valued functions. We will see a definition of it below. 
-
-\begin{defn}{Intervals}{} An interval in $\R$ is a non-empty set $I$ with the property that $a,b\in I$ and $a<x<b\implies x\in I$. An interval containing more than one point is called non-degenerate. We use the following notations to describe intervals. 
-\begin{itemize}
-\item $(a,b)=\{x\in\R|a<x<b\}$
-\item $(a,b]=\{x\in\R|a<x\leq b\}$
-\item $[a,b)=\{x\in\R|a\leq x<b\}$
-\item $[a,b]=\{x\in\R|a\leq x\leq b\}$
-\end{itemize}
-\end{defn}
-
 \subsection{The Completeness Axiom}
 What is special about the real numbers from most of the other number systems is the existence of the completeness axiom that says a bounded subset must have a least upper bound. But before we reach our main result, we develop the notion of supremum and infinum which is especially important when considering convergences and continuity in future chapters. \\
 
@@ -143,6 +94,55 @@ We finally reach the goal of this chapter, which is the completeness axiom.
 
 \begin{thm}{The Completeness Property of Real Numbers}{} Let $S\subseteq\R$ be a subset of $\R$ that is bounded above. Then $S$ has a supremum. 
 \end{thm}
+
+\subsection{The Absolute Value}
+Recall that we have constructed the set of real numbers as Dedekind sets. Instead of focusing on the set-theoretic foundations of the real numbers. We focus on some of its properties and forego the clumsy notation of thinking about real numbers in terms of a set. \\
+
+The absolute value is an important function when it comes to defining useful concepts such as distances in the field of real. It simply measures the shortest distance between two points. 
+
+\begin{defn}{The Absolute Value}{} The absolute value of a real number $x\in\R$ is defined by
+$$\abs{x}=\begin{cases}
+x & \text{if $x\geq0$} \\
+-x & \text{if $x\leq0$}
+\end{cases}$$
+\end{defn}
+
+Readers should already be familiar with the absolute value in high school. In particular, one should be able to draw graphs related to the absolute function. However, there are properties of the absolute value that are yet to be seen or proved. The following properties will be a list of its useful properties. 
+
+\begin{prp}{}{} Let $x,y\in\R$. Then the following are true of the absolute value. 
+\begin{itemize}
+\item $\abs{x}\geq 0$ with equality if and only if $x=0$
+\item $\abs{xy}=\abs{x}\abs{y}$
+\item $\abs{x+y}\leq\abs{x}+\abs{y}$
+\item $\abs{\abs{x}-\abs{y}}\leq\abs{x-y}$
+\end{itemize}\tcbline
+\begin{proof} I left out the proofs of the first and second property since they are simplay obtained via case by case analysis. 
+\begin{itemize}
+\item We start by squaring the left hand side of the inequality. 
+\begin{align*}
+\abs{x+y}^2&=(x+y)^2 \\
+&=x^2+2xy+y^2 \\
+&\leq \abs{x}^2+2\abs{x}\abs{y}+\abs{y}^2 \\
+&=(\abs{x}+\abs{y})^2
+\end{align*}
+Since the both sides of the inequality is non-negative, we can take the square root on both sides, thus obtaining $\abs{x+y}\leq\abs{x}+\abs{y}$. 
+\item Choose $x$ to be $x-y$ in (4) and we obtain $\abs{x}-\abs{y}\leq\abs{x-y}$. Similarly, choosing $y$ to be $y-x$ in (4), we find that $\abs{y}-\abs{x}\leq\abs{y-x}=\abs{x-y}$. Thus we have $\abs{\abs{x}-\abs{y}}\leq\abs{x-y}$. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+These properties will also be used extensively throguhout the entire notes. The reader should be absolutely familiar with its properties so that they can understand the definitions and the proofs more smoothly. The geometric interpretation of the absolute value will serve as an extremely important visualization on limits and convergences. \\~\\
+
+Often we use intervals for our domain of real valued functions. We will see a definition of it below. 
+
+\begin{defn}{Intervals}{} An interval in $\R$ is a non-empty set $I$ with the property that $a,b\in I$ and $a<x<b\implies x\in I$. An interval containing more than one point is called non-degenerate. We use the following notations to describe intervals. 
+\begin{itemize}
+\item $(a,b)=\{x\in\R|a<x<b\}$
+\item $(a,b]=\{x\in\R|a<x\leq b\}$
+\item $[a,b)=\{x\in\R|a\leq x<b\}$
+\item $[a,b]=\{x\in\R|a\leq x\leq b\}$
+\end{itemize}
+\end{defn}
 
 \subsection{Density of the Real Numbers}
 In this chapter we will investigate another important property of the real numbers, albeit shared by the complex numbers as well. This is the density of the real numbers. We try to mathematically prove and formulate the fact that the real numbers are very rich. It is dense in the sense that for every two real numbers, you can always find another real number in between. Obviously if you simply consider the rationals or the irrationals, this is also true. But the main thing to take away here is that there would be an uncountably amount of rationals and irrationals each, between any two real numbers. This distribution can not be measured as well. The rationals and the irrationals are so interspersed and intertwined that there is no notion of "next" number in the reals. And you would not even know whether it is rational or irrational. \\~\\

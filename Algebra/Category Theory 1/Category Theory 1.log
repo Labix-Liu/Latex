@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  20 SEP 2024 23:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  13 OCT 2024 19:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -947,7 +947,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 232.
+Package hyperref Info: Option `colorlinks' set `true' on input line 249.
 ) (Category Theory 1.aux)
 \openout1 = `"Category Theory 1.aux"'.
 
@@ -1202,22 +1202,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 1024--1033
  []
 
 [30] [31] [32] [33] [34] [35] [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1224--1247
+Underfull \hbox (badness 10000) in paragraph at lines 1227--1250
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1224--1247
+Underfull \hbox (badness 10000) in paragraph at lines 1227--1250
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1224--1247
+Underfull \hbox (badness 10000) in paragraph at lines 1227--1250
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1224--1247
+Underfull \hbox (badness 10000) in paragraph at lines 1227--1250
 
  []
 
@@ -1233,50 +1233,40 @@ L3 programming layer <2024-03-14>
 
 LaTeX Warning: There were undefined references.
 
-
-Package rerunfilecheck Warning: File `"Category Theory 1".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Category Theory 1".out':
-(rerunfilecheck)             Before: A2312CEC56398D58FEB21F5BD5465608;6630
-(rerunfilecheck)             After:  A0E898037E6C5A0A93FF34A990E4BE5F;7410.
+Package rerunfilecheck Info: File `"Category Theory 1".out' has not changed.
+(rerunfilecheck)             Checksum: A0E898037E6C5A0A93FF34A990E4BE5F;7410.
  ) 
 Here is how much of TeX's memory you used:
- 35353 strings out of 474424
- 710189 string characters out of 5741739
+ 35381 strings out of 474424
+ 710628 string characters out of 5741739
  1979496 words of memory out of 5000000
- 56954 multiletter control sequences out of 15000+600000
+ 56983 multiletter control sequences out of 15000+600000
  600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,19n,120p,936b,1471s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{subsection.7.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-bx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liu
-la/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Us
-ers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/symbols/msam10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/l
-iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Category Theory 1.pdf" (49 pages, 619534 bytes).
+<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/l
+iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
+Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/symbols/msam10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liu
+la/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users
+/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on "Category Theory 1.pdf" (49 pages, 622310 bytes).
 PDF statistics:
- 722 PDF objects out of 1000 (max. 8388607)
- 227 named destinations out of 1000 (max. 500000)
- 309 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 741 PDF objects out of 1000 (max. 8388607)
+ 226 named destinations out of 1000 (max. 500000)
+ 341 words of extra memory for PDF output out of 10000 (max. 10000000)
 
