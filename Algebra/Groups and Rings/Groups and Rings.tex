@@ -1693,7 +1693,10 @@ Since $R\leq R[x]$ by considering all the constant polynomials, the identity of 
 \end{proof}
 \end{prp}
 
-\begin{thm}{Evaluation Theorem}{} Let $R$ be a ring and let $a$ be an element in the center $Z(R)$ of $R$. Define a mapping $\phi_a:R[x]\to R$ by $$\phi_a\left(\sum_{k=0}^nc_kx^k\right)=\sum_{k=0}^nc_ka^k$$ Then $\phi_a$ is an onto ring homomorphism. 
+\begin{defn}{The Evaluation Map}{} Let $R$ be a ring and let $a$ be an element in the center $Z(R)$ of $R$. Define the evaluation map $\phi_a:R[x]\to R$ by the formula $$\phi_a\left(\sum_{k=0}^nc_kx^k\right)=\sum_{k=0}^nc_ka^k$$
+\end{defn}
+
+\begin{thm}{Evaluation Theorem}{} Let $R$ be a ring and let $a$ be an element in the center $Z(R)$ of $R$. Then the evaluation homomorphism $\phi_a:R[x]\to R$ is a surjective ring homomorphism. 
 \end{thm}
 
 The evaluation maps gives a useful ring homomorphism to construct quotient rings. 
@@ -1718,6 +1721,7 @@ The second part is trivial since $R\leq R[x]$ and they have the same identity.
 \begin{itemize}
 \item $I[x]$ is an ideal of $R$
 \item There is an isomorphism $\frac{R[x]}{I[x]}\cong\frac{R}{I}[x]$ given by the map $\left(f=\sum_{k=0}^na_kx^k+I[x]\right)\mapsto\left(\sum_{k=0}^n(a_k+I)x^k\right)$
+\item If $I$ is a prime ideal of $R$, then $I[x]$ is a prime ideal of $R[x]$. 
 \end{itemize}
 \end{prp}
 

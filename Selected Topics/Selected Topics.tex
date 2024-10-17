@@ -601,7 +601,7 @@ Then the following are true.
 
 \pagebreak
 \section{}
-\subsection{The Blakers-Massey Theorem}
+\subsection{The Blakers-Massey Theorem for Squares}
 The Blakers-Massey theorem is a direct generalization of the homotopy excision theorem. Its proof takes a similar form to the homotopy excision theorem. Let us recall some definitions used. 
 
 \begin{defn}{(Degenerative) Cubes}{} Let $a=(a_1,\dots,a_n)\in\R^n$. Let $\delta>0$. Let $L\subseteq\{1,\dots,n\}$. A cube in $\R^n$ is a set of the form $$W=W(a,\delta,L)=\{x\in\R^n\;|\;a_i\leq x\leq a_i+\delta\text{ for }i\in L\text{ and }x_i=a_i\text{ for }i\notin L\}$$
@@ -657,6 +657,7 @@ This theorem directly generalizes the homotopy excision theorem in the following
 \end{tikzcd}}\\~\\
 We have seen that such a square diagram is a homotopy pushout diagram. Now any inclusion map $W\hookrightarrow Z$ is $k$-connected if and only if $(Z,W)$ is $k$-connected. So $(A,A\cap B)$ is $k_1$-connected and $(X,B)$ is $k_2$-connected. Blaker's-Massey theorem implies that $$\text{hofiber}(A\cap B\to A)\to\text{hofiber}(B,X)$$ is $(k_1+k_2-1)$-connected. But by definition we have an isomorphism $\pi_k(\text{hofiber}(U\to V)\cong\pi_{k+1}(V,U)$. So we are really just saying that $\pi_k(A,A\cap B)\to\pi_k(X,B)$ given by the inclusion is $(k_1+k_2)$-connected. 
 
+\subsection{The Dual Blakers-Massey Theorem for Squares}
 \begin{thm}{Dual Blakers-Massey Theorem for Squares}{} Let $X_0,X_1,X_2,X_{12}\in\bold{CGWH}$ be spaces such that the square \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	X_0 & X_1 \\
@@ -737,14 +738,22 @@ We aim to replace each space $X_I$ by the space $\text{Map}(\mB(\mJ/I),X_I)$ (wh
 
 \begin{defn}{Homotopy Limits}{} Let $\mC$ be a simplicial model category. Let $X:\mJ\to\mC$ be a diagram. Define two maps $$f,g:\prod_{J\in\Obj\mJ}\text{Map}(\mB(\mJ/J),X_J)\to\prod_{(\alpha:J\to I)\in\mJ}\text{Map}(\mB(\mJ/J),X_I)$$ as follows. 
 \begin{itemize}
-\item Define $f$ to be the unique map such that $$\pi_I\circ f=\text{Map}(\mB(\mJ/J),F(\alpha):X_J\to X_I)\circ\pi_J$$ for any $\alpha:J\to I$ a morphism in $\mJ$. 
-\item Define $g$ to be the unique map such that $$\pi_I\circ g=\text{Map}\left(\mB\left(F^\ast(\alpha):\mJ/I\to\mJ/J\right),X_I\right)\circ\pi_I$$ for any $\alpha:J\to I$ a morphism in $\mJ$. 
+\item Define $f$ to be the unique map such that $$\pi_I\circ f=\text{Map}(\mB(\mJ/J),X(\alpha):X_J\to X_I)$$ for any $\alpha:J\to I$ a morphism in $\mJ$. 
+\item Define $g$ to be the unique map such that $$\pi_I\circ g=\text{Map}\left(\mB\left(\mJ/X:\mJ/I\to\mJ/J\right),X_I\right)$$ for any $\alpha:J\to I$ a morphism in $\mJ$. 
 \end{itemize}
 Define the homotopy limit $\text{holim}X$ of $X$ to be the equalizer of the maps $$\text{holim}X=\text{Eq}(f,g)$$
 \end{defn}
 
 \begin{prp}{}{} Let $X:\mJ\to\bold{CGWH}$ be a diagram. Then there is a natural transformation $$\text{holim}_\mJ X\cong\text{Nat}(\mB(\mJ/-):\mJ\to\bold{CGWH},X)$$
 \end{prp}
+
+\begin{defn}{Homotopy Colimits}{} Let $\mC$ be a simplicial model category. Let $X:\mJ\to\mC$ be a diagram. Define two maps $$f,g:\coprod_{(\alpha:J\to I)\in\mJ}X_J\times\mB\left((I/\mJ)^\text{op}\right)\to\coprod_{J\in\Obj\mJ}X_J\times\mB\left((J/\mJ)^\text{op}\right)$$ as follows. 
+\begin{itemize}
+\item On each summand of the domain of $f$, define $f$ to be the map $$X(\alpha)\times\text{id}_{\mB\left((I/\mJ)^\text{op}\right)}:X_J\times\mB\left((I/\mJ)^\text{op}\right)\longrightarrow X_I\times\mB\left((I/\mJ)^\text{op}\right)$$ and then injecting the into the coproduct. 
+\item On each summand of the domain of $g$, define $g$ to be the map $$\text{id}_{X_J}\times\mB(\mJ/X)^\text{op}:X_J\times\mB\left((I/\mJ)^\text{op}\right)\longrightarrow X_J\times\mB\left((J/\mJ)^\text{op}\right)$$ and then injecting into the coproduct. 
+\end{itemize}
+Define the homotopy colimit $\text{hocolim}X$ of $X$ to be the coequalizer of the maps $$\text{hocolim}X=\text{Coeq}(f,g)$$
+\end{defn}
 
 
 \pagebreak

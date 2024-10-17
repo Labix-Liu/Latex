@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  14 OCT 2024 02:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  17 OCT 2024 18:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1243,17 +1243,17 @@ m/n/10 )$\T1/qpl/m/n/10 -connected.
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 682--690
+Underfull \hbox (badness 10000) in paragraph at lines 683--691
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 682--690
+Underfull \hbox (badness 10000) in paragraph at lines 683--691
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 682--690
+Underfull \hbox (badness 10000) in paragraph at lines 683--691
 
  []
 
@@ -1263,13 +1263,13 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Selected Topics".out' has not changed.
-(rerunfilecheck)             Checksum: B92857D04BD78BA9A1AE772383D8EFC0;4563.
+(rerunfilecheck)             Checksum: 8946B0923E62D5D6BE51F210F36CD5AB;4917.
  ) 
 Here is how much of TeX's memory you used:
- 33455 strings out of 474424
- 663925 string characters out of 5741739
+ 33459 strings out of 474424
+ 663988 string characters out of 5741739
  1970496 words of memory out of 5000000
- 55142 multiletter control sequences out of 15000+600000
+ 55144 multiletter control sequences out of 15000+600000
  603037 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,16n,120p,765b,1450s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1293,9 +1293,9 @@ ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppDat
 a/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Selected Topics.pdf" (24 pages, 467457 bytes).
+Output written on "Selected Topics.pdf" (24 pages, 470117 bytes).
 PDF statistics:
- 486 PDF objects out of 1000 (max. 8388607)
- 138 named destinations out of 1000 (max. 500000)
- 237 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 494 PDF objects out of 1000 (max. 8388607)
+ 140 named destinations out of 1000 (max. 500000)
+ 245 words of extra memory for PDF output out of 10000 (max. 10000000)
 

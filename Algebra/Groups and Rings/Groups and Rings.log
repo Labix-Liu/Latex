@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  17 OCT 2024 07:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  17 OCT 2024 17:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1212,46 +1212,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 1458--1460
  []
 
 [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59]
-Underfull \hbox (badness 10000) in paragraph at lines 1753--1757
+Underfull \hbox (badness 10000) in paragraph at lines 1757--1761
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1753--1757
+Underfull \hbox (badness 10000) in paragraph at lines 1757--1761
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1753--1757
+Underfull \hbox (badness 10000) in paragraph at lines 1757--1761
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1753--1757
+Underfull \hbox (badness 10000) in paragraph at lines 1757--1761
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1753--1757
+Underfull \hbox (badness 10000) in paragraph at lines 1757--1761
 
  []
 
 [60]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1803.
+(hyperref)                removing `math shift' on input line 1807.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1803.
+(hyperref)                removing `math shift' on input line 1807.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1803.
+(hyperref)                removing `math shift' on input line 1807.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1803.
+(hyperref)                removing `math shift' on input line 1807.
 
 [61] [62] [63] [64] [65] [66] [67] [68] (Groups and Rings.aux)
  ***********
@@ -1262,10 +1262,10 @@ Package rerunfilecheck Info: File `"Groups and Rings".out' has not changed.
 (rerunfilecheck)             Checksum: 6E9F521CEF7A9B8784A88FF654218887;8938.
  ) 
 Here is how much of TeX's memory you used:
- 32846 strings out of 474424
- 644535 string characters out of 5741739
+ 32848 strings out of 474424
+ 644569 string characters out of 5741739
  1961496 words of memory out of 5000000
- 54305 multiletter control sequences out of 15000+600000
+ 54306 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,14n,120p,952b,1188s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1288,9 +1288,9 @@ X/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppDat
 a/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Groups and Rings.pdf" (68 pages, 773528 bytes).
+Output written on "Groups and Rings.pdf" (68 pages, 773974 bytes).
 PDF statistics:
- 1043 PDF objects out of 1200 (max. 8388607)
- 372 named destinations out of 1000 (max. 500000)
+ 1045 PDF objects out of 1200 (max. 8388607)
+ 373 named destinations out of 1000 (max. 500000)
  458 words of extra memory for PDF output out of 10000 (max. 10000000)
 
