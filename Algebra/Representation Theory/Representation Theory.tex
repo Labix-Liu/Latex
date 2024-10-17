@@ -475,27 +475,21 @@ and so we conclude.
 
 \pagebreak
 \section{Induced Representations}
-\subsection{Induced Representations}
-\begin{defn}{Subgroups}{} Let $H\leq G$ be a subgroup. Let $V$ be a finite dimensional $\C G$-module. Then $H$ acts on $V$ and we denote the corresponding $\C H$-module by $\text{Res}_H^GV$. We write the restriction of the characters as $$\text{Res}_H^G\chi_V=\chi_{\text{Res}_H^GV}:H\to\text{GL}(V)$$
+\subsection{Restricted and Induced Representations}
+\begin{defn}{Restriction of Representations}{} Let $H\leq G$ be a subgroup. Let $V$ be a finite dimensional $\C G$-module. Then $H$ acts on $V$ and we denote the corresponding $\C H$-module by $$\text{Res}_H^GV:H\to GL(V)$$ We write the restriction of the characters as $$\text{Res}_H^G\chi_V=\chi_{\text{Res}_H^GV}:H\to\text{GL}(V)$$
 \end{defn}
 
 Note that if $V$ is an irreducible $\C G$-module, $\text{Res}_H^GV$ may not be irreducible. 
 
-\begin{defn}{The Coset Module}{} Let $G$ be a finite group and let $H$ be a subgroup of $G$. Write $\mH$ the set of cosets of $H$. Define the coset module to be the permutation representation $\rho:G\to\text{GL}(\C\mH)$ where $\rho(g):\C\mH\to\C\mH$ is defined on the basis by sending $t_iH$ to $gt_iH$. 
-\end{defn}
-
-Notice that since $G$ acts on $G/H$, then similar to the case of regular representations, $\C\mH$ becomes a $\C G$-module and hence a representation. 
-
-\begin{defn}{Induced Representation}{} Let $H$ be a subgroup of $G$ of index $l$. Let $t_1H,\dots,t_lH$ represent all the distinct cosets of $H$ in $G$. Let $\rho:H\to GL(n,\C)$ be a representation. Define the induced representation of $\rho$ to be $\text{Ind}_H^G\rho:G\to\text{End}(\C^{nl})$ via $$\text{Ind}_H^G\rho(g)=\begin{pmatrix}
-\rho(t_1^{-1}gt_1) & \cdots & \rho(t_1^{-1}gt_l)\\
-\vdots & \ddots & \vdots\\
-\rho(t_l^{-1}gt_1) & \cdots & \rho(t_l^{-1}gt_l)
-\end{pmatrix}$$ where $\rho(g)=0$ if $g\notin H$. 
+\begin{defn}{Induced Representation}{} Let $H$ be a subgroup of $G$ of index $l$. Let $g_1H,\dots,g_kH$ represent all the distinct cosets of $H$ in $G$. Let $\rho:H\to GL(n,\C)$ be a representation. Define the induced representation $$\text{Ind}_H^G\rho:G\to GL\left(\bigoplus_{i=1}^kg_iV\right)$$ where each $g_i V$ is isomorphic to $V$ via the map $g_iv\mapsto v$, by the following formula. For $g\in G$, the map $\rho(g):\bigoplus_{i=1}^kg_iV\to\bigoplus_{i=1}^kg_iV$ is given by the formula $$\left(\sum_{i=1}^kg_iv_i\right)\mapsto\left(\sum_{i=1}^k(gg_i)v_i\right)$$
 \end{defn}
 
 We need to show that the matrix on the right is invertible for all $g$ in order for $\text{Ind}_H^G\rho$ to formally be called as a representation. This is the content of the following theorem. 
 
-\begin{thm}{}{} Let $H$ be a subgroup of $G$ and $\rho:H\to GL(n,\C)$ a representation of $H$. Then $\text{Ind}_H^G\rho:G\to\text{End}(\C^{nl})$ is a matrix representation. 
+\begin{prp}{}{} Let $G,H$ be groups. Let $V$ be a $\C G$-module and let $W$ be a $\C H$-module. Then there is an isomorphism $$\Hom_{\C H}(W,\text{Res}_H^GV)=\Hom_{\C G}(\text{Ind}_H^GW,V)$$ Explicitly, this means that any $\C H$-module homomorphism $W\to V$ extends uniquely to a $\C G$-homomorphism $\text{Ind}_H^GW\to V$. 
+\end{prp}
+
+\begin{thm}{Frobenius Reciprocity}{} Let $G$ be a finite group and let $H$ be a subgroup of $G$. Let $\chi$ be a character of $G$ and let $\rho$ be a character of $H$. Then $$\left\langle\text{Ind}_H^G\psi,\chi\right\rangle_G=\left\langle\psi,\text{Res}_H^G\chi\right\rangle_H$$
 \end{thm}
 
 \begin{prp}{}{} Let $G$ be a finite group and $H$ a subgroup of $G$ of index $n$. Let $1:H\to\text{GL}(1,\C)$ be the trivial $1$-dimensional representation. Then the induced representation $\text{Ind}_H^G1:G\to\text{End}(\C^n)$ is equivalent to the representation $\rho:G\to\text{GL}(\C\mH)$. \tcbline
@@ -510,14 +504,16 @@ Thus we conclude.
 \end{proof}
 \end{prp}
 
+\begin{defn}{The Coset Module}{} Let $G$ be a finite group and let $H$ be a subgroup of $G$. Write $\mH$ the set of cosets of $H$. Define the coset module to be the permutation representation $\rho:G\to\text{GL}(\C\mH)$ where $\rho(g):\C\mH\to\C\mH$ is defined on the basis by sending $t_iH$ to $gt_iH$. 
+\end{defn}
+
+Notice that since $G$ acts on $G/H$, then similar to the case of regular representations, $\C\mH$ becomes a $\C G$-module and hence a representation. 
+
 \begin{thm}{}{} Suppose that $\mH=\{t_1H,\dots,t_lH\}$ are $\mH'=\{s_1H,\dots,s_lH\}$ are two representations of the set of cosets of $H$ in $G$. Then the two representations constructed from $\mH$ and $\mH'$ are isomorphic. 
 \end{thm}
 
 \begin{lmm}{}{} Let $G$ be a finite group and let $H$ be a subgroup of $G$. Let $\rho:H\to GL(V)$ be a representation with character $\chi$. Then for all $g\in G$, we have that $$\text{Ind}_H^G\chi(g)=\frac{1}{\abs{H}}\sum_{x\in G}\chi_V(x^{-1}gx)$$ where $\chi(g)=0$ if $g\notin H$. 
 \end{lmm}
-
-\begin{thm}{Frobenius Reciprocity}{} Let $G$ be a finite group and let $H$ be a subgroup of $G$. Let $\chi$ be a character of $G$ and let $\rho$ be a character of $H$. Then $$\left\langle\text{Ind}_H^G\psi,\chi\right\rangle_G=\left\langle\psi,\text{Res}_H^G\chi\right\rangle_H$$
-\end{thm}
 
 \subsection{Decomposition of Regular Representations}
 

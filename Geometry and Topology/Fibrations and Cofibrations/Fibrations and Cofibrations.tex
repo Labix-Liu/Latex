@@ -470,4 +470,15 @@ There is then the dual notion of loop spaces and the corresponding sequence. Wri
 where any two consecutive maps form a cofibration. Moreover, $-\Sigma f:\Sigma X\to\Sigma Y$ is defined by $$(-\Sigma f)(x\wedge t)=f(x)\wedge(1-t)$$
 \end{thm}
 
+\subsection{n-Connected Maps}
+\begin{defn}{n-Connected Maps}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. We say that $f$ is $n$-connected if the induced map $$\pi_k(f):\pi_k(X)\to\pi_k(Y)$$ is an isomorphism for $0\leq k<n$ and a surjection for $k=n$. 
+\end{defn}
+
+We can rephrase some of the corner stone theorems of homotopy theory using $n$-connected maps. 
+\begin{itemize}
+\item The homotopy excision theorem can be rephrased into the following. For $X$ a CW-complex and $A,B$ sub complexes of $X$ such that $X=A\cup B$ and $A\cap B\neq\emptyset$. If $(A,A\cap B)$ is $m$-connected and $(B,A\cap B)$ is $n$-connected for $m,n\geq 0$, then the inclusion $\iota:(A,A\cap B)\to(X,B)$ is $(m+n)$-connected. 
+\item The Freudenthal suspension theorem says that if $X$ is an $n$-connected CW complex, then the map $\Omega\Sigma:X\to\Omega(\Sigma(X))$ is a $(2n+1)$-connected map. 
+\end{itemize}
+
+
 \end{document}

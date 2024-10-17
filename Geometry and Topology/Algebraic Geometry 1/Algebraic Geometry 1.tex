@@ -280,67 +280,6 @@ It is clear that the inverse of $h$ is given by $$(x,y)\mapsto\begin{cases}
 \end{proof}
 \end{eg}
 
-\subsection{Hilbert's Nullstellensatz}
-Recall that these sets of notes are for algebraic geometry, not purely geometry. We would like to employ algebraic methods to the study of these zero sets. In particular, the goal of the chapter is to establish some sort of one-to-one correspondence with some algebraic objects $$\left\{\substack{\text{Affine algebraic}\\\text{sets of }\A_k^n}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\text{Something Algebraic}$$ Hilbert's Nullstellensatz will provide the link. 
-
-\begin{defn}{Ideals of a Set of Points}{} Let $k$ be a field. Let $S\subseteq\A_k^n$ be a subset. Define the ideal of $S$ to be $$\I(S)=\{f\in k[x_1,\dots,x_n]\;|\;f(x)=0\text{ for all }x\in S\}$$ 
-\end{defn}
-
-Recall that the radical ideal is defined as $$\sqrt{I}=\{f\in k[x_1,\dots,x_n]\;|\;f^r\in I\text{ for some }r>0\}$$
-
-\begin{lmm}{}{} Let $k$ be a field. Let $S\subseteq\A_k^n$ be a subset. Then $\I(S)$ is a radical ideal of $k[x_1,\dots,x_n]$. \tcbline
-\begin{proof}
-From Commutative Algebra 1, we already know that $\I(S)\subseteq\sqrt{\I(S)}$. So let $f\in\sqrt{\I(S)}$. Then $f^n\in\I(S)$ for some $n\in\N$. This means that for any $p\in S$, we have that $f^n(p)=0$ Since $k$ is a field, we can apply the cancellation law to get $f(p)=0$. Thus $f\in\I(S)$. Thus we are done. 
-\end{proof}
-\end{lmm}
-
-Similarly as above, $I(V)$ is finitely generated since ideals in a polynomial ring is finitely generated. 
-
-\begin{prp}{}{} Let $k$ be a field. Let $S,T\subseteq\A_k^n$ be subsets. The following are true. 
-\begin{itemize}
-\item If $S\subseteq T$, then $\I(T)\supseteq\I(S)$
-\item $\I(S\cup T)=\I(S)\cap\I(T)$
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item Let $f\in\I(T)$. Then $f(p)=0$ for all $p\in T$. In particular, $f(p)=0$ for all $p\in S$. Thus $f\in\I(S)$. 
-\item Let $f\in\I(S\cup T)$. Then $f(p)=0$ for all $p\in S\cup T$. Then $f\in\I(S)$ and $f\in\I(T)$. Thus $f\in\I(S)\cap\I(T)$. Now suppose that $g\in\I(S)\cap\I(T)$. Then $g(p)=0$ for all $p\in S$ and all $p\in T$. Thus $g\in\I(S\cup T)$. 
-\end{itemize}
-\end{proof}
-\end{prp}
-
-\begin{thm}{Hilbert's Nullstellensatz}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. Then $$I(V(I))=\sqrt{I}$$
-\end{thm}
-
-\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{sets of }\A_k^n}\right\}$$ between the radical ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $V(-)$ and $I(-)$. 
-\end{crl}
-
-Note that this bijection is compatible with subset inclusion in the sense of proposition 1.2.3. Bijections of this form that induce a relation on subsets are called Galois connections or Galois correspondence, mimicking his work in Galois theory. 
-
-\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Prime ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine varieties}\\\text{of }\A_k^n}\right\}$$ between the prime ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $V(-)$ and $I(-)$. 
-\end{crl}
-
-\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Maximal ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ between the maximal ideals of $k[x_1,\dots,x_n]$ and points in $\A_k^n$ given by $V(-)$ and $I(-)$. 
-\end{crl}
-
-\begin{prp}{}{} Every radical ideal $J$ in $\F[x_1,\dots,x_n]$ is a finite intersection of prime ideals. \tcbline
-\begin{proof}
-Given a radical ideal $I$, translate it over to its corresponding affine variety $V(I)$. Then the affine variety can be decomposed into a finite union of algebraic varieties $V(I)=\bigcup_{k=1}^nV_k$. These algebraic varities are able to be matched with a prime ideal by the above proposition. This bijection conjugates the union to the intersection and we are done. 
-\end{proof}
-\end{prp}
-
-Up until this point, we constructed a small dictionary between algebra and geometry: \\
-\begin{center}\begin{tabular}{c|c}
-Algebra & Geometry\\
-\hline
-The Polynomial Ring $k[x_1,\dots,x_n]$ & The Space $\A_k^n$\\
-Radical Ideals of $k[x_1,\dots,x_n]$ & Affine Varieties in $\A_k^n$\\
-Prime Ideals of $k[x_1,\dots,x_n]$ & Affine Algebraic Varieties in $\A_k^n$\\
-Maximal Ideals of $k[x_1,\dots,x_n]$ & Points in $\A_k^n$
-\end{tabular}\end{center}
-
-This is the absolute point of view in the sense we are considering every object in geometry under the setting of $\A_k^n$. However we see that it is easy to replace $\A_k^n$ with an affine variety. However we do need a corresponding notion in the algebra side. This is called the coordinate ring. 
-
 \subsection{The Coordinate Ring}
 \begin{defn}{Coordinate Ring}{} Let $k$ be a field and let $V\subseteq\A_k^n$ be an affine variety. Define the coordinate ring of $V$ to be $$k[V]=\frac{k[x_1,\dots,x_n]}{I(V)}$$ to be the ring of polynomial functions on $V$. 
 \end{defn}
@@ -374,6 +313,96 @@ Suppose now that $\C[V]$ is an integral domain but $V$ is reducible. Then there 
 \begin{crl}{}{} Let $V$ and $W$ be affine varieties over a field $k$. Then $V$ and $W$ are isomorphic if and only if $k[V]\cong k[W]$. 
 \end{crl}
 
+\pagebreak
+\section{The Dictionary Between Algebra and Geometry}
+Recall that these sets of notes are for algebraic geometry, not purely geometry. We would like to employ algebraic methods to the study of these zero sets. In particular, the goal of the chapter is to establish some sort of one-to-one correspondence with some algebraic objects $$\left\{\substack{\text{Affine algebraic}\\\text{sets of }\A_k^n}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\text{Something Algebraic}$$ Hilbert's Nullstellensatz will provide the link. 
+
+\subsection{Forming an Ideal of a Set}
+\begin{defn}{Ideals of a Set of Points}{} Let $k$ be a field. Let $S\subseteq\A_k^n$ be a subset. Define the ideal of $S$ to be $$\I(S)=\{f\in k[x_1,\dots,x_n]\;|\;f(x)=0\text{ for all }x\in S\}$$ 
+\end{defn}
+
+Recall that the radical ideal is defined as $$\sqrt{I}=\{f\in k[x_1,\dots,x_n]\;|\;f^r\in I\text{ for some }r>0\}$$
+
+\begin{lmm}{}{} Let $k$ be a field. Let $S\subseteq\A_k^n$ be a subset. Then $\I(S)$ is a radical ideal of $k[x_1,\dots,x_n]$. \tcbline
+\begin{proof}
+From Commutative Algebra 1, we already know that $\I(S)\subseteq\sqrt{\I(S)}$. So let $f\in\sqrt{\I(S)}$. Then $f^n\in\I(S)$ for some $n\in\N$. This means that for any $p\in S$, we have that $f^n(p)=0$ Since $k$ is a field, we can apply the cancellation law to get $f(p)=0$. Thus $f\in\I(S)$. Thus we are done. 
+\end{proof}
+\end{lmm}
+
+Similarly as above, $I(V)$ is finitely generated since ideals in a polynomial ring is finitely generated. 
+
+\begin{prp}{}{} Let $k$ be a field. Let $S,T\subseteq\A_k^n$ be subsets. The following are true. 
+\begin{itemize}
+\item If $S\subseteq T$, then $\I(T)\supseteq\I(S)$
+\item $\I(S\cup T)=\I(S)\cap\I(T)$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $f\in\I(T)$. Then $f(p)=0$ for all $p\in T$. In particular, $f(p)=0$ for all $p\in S$. Thus $f\in\I(S)$. 
+\item Let $f\in\I(S\cup T)$. Then $f(p)=0$ for all $p\in S\cup T$. Then $f\in\I(S)$ and $f\in\I(T)$. Thus $f\in\I(S)\cap\I(T)$. Now suppose that $g\in\I(S)\cap\I(T)$. Then $g(p)=0$ for all $p\in S$ and all $p\in T$. Thus $g\in\I(S\cup T)$. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{lmm}{}{} Let $k$ be a field. Let $S,T\subseteq\A_k^n$ be subsets. Let $V,W\subseteq\A_k^n$ be an affine variety. Then the following are true. 
+\begin{itemize}
+\item $\V(\I(V))=V$
+\item If $V\neq W$ then $\I(V)\neq\I(W)$
+\item $\V(\I(S))=\overline{S}$
+\item $S=T$ if and only if $\I(S)=\I(T)$
+\end{itemize}
+\end{lmm}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an affine variety. Then $V$ is Noetherian. \tcbline
+\begin{proof}
+Suppose that $V_1\supset V_2\supset\cdots$ be a descending chain of subvarieties of $V$. Applying $\I(-)$ gives an ascending chain $$\I(V_1)\subseteq\I(V_2)\subseteq\cdots$$ But $V\neq W$ implies $\I(V)\neq\I(W)$. Since $V_k\supset V_{k+1}$ is a strict containment we conclude that $\I(V_k)\subset\I(V_{k+1})$ is a strict containment. But since $k[x_1,\dots,x_n]$ is a Noetherian ring, we conclude that $\I(V_n)=\I(V_{n+1})=\cdots$ for some $n\in\N$. We conclude that $V_n=V_{n+1}=\cdots$ so that $V$ is Noetherian. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be an affine variety. Then $V$ is compact in the Zariski topology. 
+\end{prp}
+
+Since every object we study in algebraic geometry is compact, this becomes not as useful as a notation in topology. However, we can redefine the notion of compactness so that it will give useful insights on varieties. 
+
+\subsection{The Absolute Hilbert's Nullstellensatz}
+\begin{thm}{Hilbert's Nullstellensatz}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. Then $$I(V(I))=\sqrt{I}$$
+\end{thm}
+
+\begin{eg}{}{} The Hilbert's nullstellensatz fails on a field $k$ that is not algebraically closed. \tcbline
+\begin{proof}
+Consider the variety $\V(x^2+1)\subseteq\A_\R^1$. This set is empty. But $\I(\emptyset)=\R[x]$. But $(x^2+1)$ is a radical ideal. And in particular $(x^2+1)$ does not generate the entire ring $\R[x]$. 
+\end{proof}
+\end{eg}
+
+\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine varieties}\\\text{of }\A_k^n}\right\}$$ between the radical ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $V(-)$ and $I(-)$. 
+\end{crl}
+
+Note that this bijection is compatible with subset inclusion in the sense of proposition 1.2.3. Bijections of this form that induce a relation on subsets are called Galois connections or Galois correspondence, mimicking his work in Galois theory. 
+
+\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Prime ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{varieties of }\A_k^n}\right\}$$ between the prime ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $V(-)$ and $I(-)$. 
+\end{crl}
+
+\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Maximal ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ between the maximal ideals of $k[x_1,\dots,x_n]$ and points in $\A_k^n$ given by $V(-)$ and $I(-)$. 
+\end{crl}
+
+\begin{prp}{}{} Every radical ideal $J$ in $\F[x_1,\dots,x_n]$ is a finite intersection of prime ideals. \tcbline
+\begin{proof}
+Given a radical ideal $I$, translate it over to its corresponding affine variety $V(I)$. Then the affine variety can be decomposed into a finite union of algebraic varieties $V(I)=\bigcup_{k=1}^nV_k$. These algebraic varities are able to be matched with a prime ideal by the above proposition. This bijection conjugates the union to the intersection and we are done. 
+\end{proof}
+\end{prp}
+
+Up until this point, we constructed a small dictionary between algebra and geometry: \\
+\begin{center}\begin{tabular}{c|c}
+Algebra & Geometry\\
+\hline
+The Polynomial Ring $k[x_1,\dots,x_n]$ & The Space $\A_k^n$\\
+Radical Ideals of $k[x_1,\dots,x_n]$ & Affine Varieties in $\A_k^n$\\
+Prime Ideals of $k[x_1,\dots,x_n]$ & Affine Algebraic Varieties in $\A_k^n$\\
+Maximal Ideals of $k[x_1,\dots,x_n]$ & Points in $\A_k^n$
+\end{tabular}\end{center}
+
+This is the absolute point of view in the sense we are considering every object in geometry under the setting of $\A_k^n$. However we see that it is easy to replace $\A_k^n$ with an affine variety. However we do need a corresponding notion in the algebra side. This is called the coordinate ring. 
+
 \subsection{The Relative Nullstellensatz}
 We also have the relative version of Hilbert's Nullstellensatz. We begin with the relative version of the vanishing loci and ideal. 
 
@@ -389,9 +418,6 @@ We also have the relative version of Hilbert's Nullstellensatz. We begin with th
 
 \begin{thm}{Relative Nullstellensatz}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[X]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{subsets of }X}\right\}$$ given by $V_X(-)$ and $I_X(-)$. 
 \end{thm}
-
-\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an affine variety. Then $V$ is Noetherian. 
-\end{prp}
 
 \begin{thm}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an affine algebraic set. Then there exists $V_1,\dots,V_n$ affine algebraic varieties such that $$V=V_1\cup\cdots\cup V_n$$ and $V_i$ does not contain $V_j$ for $i\neq j$. Moreover, such a decomposition is unique up to reordering of the varieties. 
 \end{thm}
@@ -415,7 +441,7 @@ Minimal Prime Ideals of $k[X]$ & Irreducible Components of $X$
 
 All such bijections are moreover given by the construction of $V_X(-)$ and $I_X(-)$. 
 
-\subsection{Rational Functions on a Variety}
+\subsection{Rational Functions on a Variety (To be removed)}
 While polynomial rings are more than sufficient to classify varieties up to isomorphism, we would still like to enlarge the set of functions on a variety. We will do this by introducing rational functions on a variety. 
 
 \begin{defn}{Function Field}{} Let $V$ be an affine variety over a field $k$. Define the function field of $V$ to be $$k(V)=\text{Frac}(k[V])$$ Elements of $k(V)$ are said to be rational functions on $V$. 

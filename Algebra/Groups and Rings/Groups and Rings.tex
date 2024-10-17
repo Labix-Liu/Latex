@@ -1675,7 +1675,7 @@ In the above definition the second item is simply the division algorithm, with s
 In general, we have that $$\text{Fields}\subset\text{Euclidean Domains}\subset\text{PID}\subset\text{UFD}\subset\text{Integral Domains}$$ in which all containments are strict. 
 
 \pagebreak
-\section{Polynomials}
+\section{The Ring of Polynomials}
 \subsection{Polynomials over General Rings}
 In this section we formulate the basic theory of generating polynomials from a ring. 
 \begin{defn}{Indeterminates}{} Let $R$ be a ring. A symbol $x$ is called an indeterminate over $R$ if $$a_0+a_1x+a_2x^2+\dots+a_nx^n=0$$ where $a_i\in R$, implies that $a_i=0$ for each $i$. 
@@ -1693,18 +1693,15 @@ Since $R\leq R[x]$ by considering all the constant polynomials, the identity of 
 \end{proof}
 \end{prp}
 
-\begin{lmm}{}{} Let $R$ be a ring. Then $$\frac{R[x]}{(x)}\cong R$$ \tcbline
-\begin{proof}
-Taking the natural homomorphism $\phi:R[x]\to\frac{R[x]}{(x)}$ where $(x)$ is the ideal, we have that $\ker(\phi)=(x)$. By the first ring isomorphism theorem, $$\frac{R[x]}{(x)}\cong\phi(R[x])$$ But $\phi(R[x])$ is isomorphic to $R$ since every polynomial in $R[x]$ is a sum of a constant function and an element in $(x)$. 
-\end{proof}
-\end{lmm}
-
-Whenever something similar to the above notion is seen, say $\frac{\Q[x]}{x-3}$, one can think of it as, whenever I see a factor of $x-3$ in $\Q[x]$, treat it as $0$. So if you want to find the image of $x^2-4x+5$ in the ring, we simply see that $x^2-4x+5=(x-3)(x-1)+2=2$ since $x-3$ is treated as $0$. Recalling that this is the quotient ring, we essentially quotient out all polynomials that has this factor which leads to $x^2-4x+5$ being treated as the same as the element $2$ in the ring. 
-
 \begin{thm}{Evaluation Theorem}{} Let $R$ be a ring and let $a$ be an element in the center $Z(R)$ of $R$. Define a mapping $\phi_a:R[x]\to R$ by $$\phi_a\left(\sum_{k=0}^nc_kx^k\right)=\sum_{k=0}^nc_ka^k$$ Then $\phi_a$ is an onto ring homomorphism. 
 \end{thm}
 
 The evaluation maps gives a useful ring homomorphism to construct quotient rings. 
+
+\begin{lmm}{}{} Let $R$ be a ring. Then the evaluation homomorphism gives an isomorphism $$\frac{R[x]}{(x-a)}\cong R$$ for any $a\in Z(R)$.  \tcbline
+\begin{proof}
+\end{proof}
+\end{lmm}
 
 \subsection{Polynomials over Integral Domains}
 \begin{prp}{}{} If $R$ is an integral domain then $R[x]$ is an integral domain. In particular the units in $R$ are also units in $R[x]$. \tcbline
@@ -1717,10 +1714,12 @@ The second part is trivial since $R\leq R[x]$ and they have the same identity.
 \begin{prp}{}{} Let $R$ be an integral domain. Then if $f\neq 0$ and $g\neq 0$ in $R[x]$, then $$\deg(fg)=\deg(f)+\deg(g)$$
 \end{prp}
 
-\begin{defn}{Irreducible Polynomial}{} Let $F$ be a field. A non constant polynomial $f\in F[x]$ is irreducible over $F$ if whenever $f(x)=g(x)h(x)$ with $g,h\in F[x]$, then one of $g$ or $h$ is a unit. 
-\end{defn}
-
-This defintion corresponds to the same definition of irreduciblesgiven in the UFD section. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Then the following are true. 
+\begin{itemize}
+\item $I[x]$ is an ideal of $R$
+\item There is an isomorphism $\frac{R[x]}{I[x]}\cong\frac{R}{I}[x]$ given by the map $\left(f=\sum_{k=0}^na_kx^k+I[x]\right)\mapsto\left(\sum_{k=0}^n(a_k+I)x^k\right)$
+\end{itemize}
+\end{prp}
 
 \subsection{Polynomials over UFDs}
 The primary goal of this chapter is to compute results relating to finding out ireducible polynomials in UFD, rather than investigating the structure of polynomial rings. 
