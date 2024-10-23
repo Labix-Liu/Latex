@@ -265,21 +265,30 @@ By induction, we conclude.
 \end{proof}
 \end{lmm}
 
-\subsection{Engel's Theorem}
+\subsection{Engel's Theorem on Nilpotency}
 \begin{defn}{Ad-Nilpotency}{} Let $L$ be a Lie algebra. Let $x\in L$. We say that $x$ is ad-nilpotent if there exists $n\in\N$ such that $$\text{ad}(x)^n=0\in GL(L)$$
 \end{defn}
 
 \begin{lmm}{}{} Let $L$ be Lie algebra. If $L$ is nilpotent, then all elements $x\in L$ are ad-nilpotent. 
 \end{lmm}
 
-\begin{thm}{Engel's Theorem}{} Let $V$ be a vector space over a field $k$. Let $L$ be a Lie subalgebra of $GL(V)$. Suppose that for all $x\in L$, $x$ is ad-nilpotent. Then the following are true. 
+\begin{lmm}{}{} Let $V$ be a vector space. Let $L\subseteq GL(V)$ be a Lie subalgebra. If $T\in L$ is nilpotent, then $T$ is ad-nilpotent. 
+\end{lmm}
+
+\begin{prp}{}{} Let $V$ be a vector space. Let $L\subseteq GL(V)$ be a Lie subalgebra such that for all $T\in L$, $T$ is nilpotent. Then there exists $v\in V$ such that $T(v)=0$ for all $T\in L$. \tcbline
+\begin{proof}
+We induct on the dimension of $L$. 
+\end{proof}
+\end{prp}
+
+\begin{thm}{Engel's Theorem}{} Let $V$ be a vector space. Let $L$ be a Lie subalgebra of $GL(V)$. Suppose that for all $x\in L$, $x$ is ad-nilpotent. Then the following are true. 
 \begin{itemize}
 \item There exists a basis $B$ of $V$ such that every $T\in L$ is upper triangular. 
 \item $L$ is nilpotent. 
 \end{itemize}
 \end{thm}
 
-\subsection{Lie's Theorem}
+\subsection{Lie's Theorem on Solubility}
 
 \subsection{Simple and Semisimple Lie Algebras}
 \begin{prp}{}{} Let $L$ be a Lie algebra. Then there exists a unique soluble ideal $I$ of $L$ such that for any soluble ideal $J\subseteq L$, we have $J\subseteq I$. 

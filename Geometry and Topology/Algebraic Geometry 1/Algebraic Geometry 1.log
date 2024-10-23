@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  15 OCT 2024 21:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  23 OCT 2024 03:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -947,7 +947,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 249.
+Package hyperref Info: Option `colorlinks' set `true' on input line 251.
 ) (Algebraic Geometry 1.aux)
 \openout1 = `"Algebraic Geometry 1.aux"'.
 
@@ -1086,57 +1086,51 @@ la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 \openout5 = `"Algebraic Geometry 1.toc"'.
 
  [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
-[13] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 
  []
 
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 431--432
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--451
+[14] [15] [16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 450--451
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
 
  []
 
-[17] [18] [19] [20]
-Underfull \hbox (badness 1152) in paragraph at lines 521--522
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
+
+ []
+
+[18] [19] [20] [21]
+Underfull \hbox (badness 1152) in paragraph at lines 566--567
 \T1/qpl/m/n/10 The new func-tion $\OML/cmm/m/it/10 F$ \T1/qpl/m/n/10 is ho-moge
 -nous of de-gree $\OML/cmm/m/it/10 d$\T1/qpl/m/n/10 , not di-vis-ble by $\OML/c
 mm/m/it/10 x[]$\T1/qpl/m/n/10 . This map from 
  []
 
-[21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
-[36] [37] (Algebraic Geometry 1.aux)
+[22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36]
+[37] [38] (Algebraic Geometry 1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
+Package rerunfilecheck Info: File `"Algebraic Geometry 1".out' has not changed.
 
-
-Package rerunfilecheck Warning: File `"Algebraic Geometry 1".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Algebraic Geometry 1".out':
-(rerunfilecheck)             Before: CB881BE4E1DD8852EA741EC7844F4345;8327
-(rerunfilecheck)             After:  5437C59A6676D22ACF11C0337C9280D0;8422.
+(rerunfilecheck)             Checksum: 288015EBFC7207A267027E59FEB003D5;8422.
  ) 
 Here is how much of TeX's memory you used:
- 32604 strings out of 474424
- 640993 string characters out of 5741739
+ 32616 strings out of 474424
+ 641081 string characters out of 5741739
  1962496 words of memory out of 5000000
- 54185 multiletter control sequences out of 15000+600000
+ 54193 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,12n,120p,1209b,1188s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,17n,120p,1209b,1188s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1153,9 +1147,9 @@ onts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Geometry 1.pdf" (37 pages, 504548 bytes).
+Output written on "Algebraic Geometry 1.pdf" (38 pages, 512916 bytes).
 PDF statistics:
- 726 PDF objects out of 1000 (max. 8388607)
- 250 named destinations out of 1000 (max. 500000)
+ 735 PDF objects out of 1000 (max. 8388607)
+ 254 named destinations out of 1000 (max. 500000)
  365 words of extra memory for PDF output out of 10000 (max. 10000000)
 

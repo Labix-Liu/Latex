@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  26 AUG 2024 18:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  19 OCT 2024 00:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -947,7 +947,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 232.
+Package hyperref Info: Option `colorlinks' set `true' on input line 249.
 ) (Homological Algebra.aux)
 \openout1 = `"Homological Algebra.aux"'.
 
@@ -1061,53 +1061,70 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 \openout5 = `"Homological Algebra.toc"'.
 
  [2]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 4
-1.
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
+8.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
-[3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [4] [5] [6] [7] [8] [9] [10] [11]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 445.
+d on input line 28.
 
-[12] [13] [14] [15] [16]
+[3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+enc}] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+
+ []
+
+[6] [7]
+Underfull \hbox (badness 1142) in paragraph at lines 194--195
+[]\T1/qpl/m/n/10 Let $\OMS/cmsy/m/n/10 A$ \T1/qpl/m/n/10 be an abelian cat-e-go
+ry. A chain com-plex $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C[]; @[]\OT1/cmr/m/n/10
+ )$ \T1/qpl/m/n/10 over $\OMS/cmsy/m/n/10 A$ \T1/qpl/m/n/10 is said to be ex-ac
+t if 
+ []
+
+[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 667.
+(hyperref)                removing `math shift' on input line 740.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\delta' on input line 667.
+(hyperref)                removing `\delta' on input line 740.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 667.
+(hyperref)                removing `math shift' on input line 740.
 
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 720--721
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 720--721
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 793--794
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 737--738
+Underfull \hbox (badness 10000) in paragraph at lines 793--794
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 737--738
+Underfull \hbox (badness 10000) in paragraph at lines 810--811
 
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 741--742
+Underfull \hbox (badness 10000) in paragraph at lines 810--811
+
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 814--815
 []\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 R$ \T1/qpl/m/n/10 be a ring. Then $\OT1/
 cmr/m/n/10 ([][]\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 
 []\OML/cmm/m/it/10 ; R\OT1/cmr/m/n/10 )$ \T1/qpl/m/n/10 is a sym-met-ric monoid
@@ -1115,39 +1132,39 @@ al cat-e-gory. More-over,
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 741--742
+Underfull \hbox (badness 1331) in paragraph at lines 814--815
 \T1/qpl/m/n/10 it is a closed monoidal cat-e-gory with in-ter-nal hom given by 
 the usual hom func-tor 
  []
 
-[18] [19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 835--836
+[21] [22] [23]
+Underfull \hbox (badness 10000) in paragraph at lines 908--909
 
  []
 
-[21] [22] [23] [24]
-Overfull \hbox (3.34154pt too wide) in paragraph at lines 995--996
+[24] [25] [26] [27]
+Overfull \hbox (3.34154pt too wide) in paragraph at lines 1068--1069
 []\T1/qpl/m/n/10 Notice that co-ho-mo-log-i-cal spec-tral se-quences are re-all
 y the same thing as ho-mo-log-i-cal spec-tral se-quences,
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 1020--1029
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1102
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1020--1029
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1102
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1020--1029
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1102
 
  []
 
-[26] [27] [28] [29] [30] [31]
-Underfull \hbox (badness 1117) in paragraph at lines 1232--1233
+[29] [30] [31] [32] [33] [34]
+Underfull \hbox (badness 1117) in paragraph at lines 1305--1306
 []\T1/qpl/m/n/10 Define sim-i-larly the ho-mo-topy cat-e-gories $\OML/cmm/m/it/
 10 K[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A\OT1/cmr/m/n/10 )$\T1/qpl/m/n/10 , $\O
 ML/cmm/m/it/10 K[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A\OT1/cmr/m/n/10 )$ \T1/qpl
@@ -1156,19 +1173,19 @@ n/10 )$ \T1/qpl/m/n/10 for $[][]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A\OT1/cmr/m/n
 /10 )$\T1/qpl/m/n/10 , 
  []
 
-[32] [33] [34] [35] [36] [37] [38] (Homological Algebra.aux)
+[35] [36] [37] [38] [39] [40] [41] (Homological Algebra.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Homological Algebra".out' has not changed.
-(rerunfilecheck)             Checksum: 497AA93E191824B432D19D9E1A55BC47;7258.
+(rerunfilecheck)             Checksum: 6A3E045913630A497F233F6C0E31F052;7423.
  ) 
 Here is how much of TeX's memory you used:
- 37873 strings out of 474424
- 777740 string characters out of 5741739
- 2018496 words of memory out of 5000000
- 59468 multiletter control sequences out of 15000+600000
+ 37969 strings out of 474424
+ 779761 string characters out of 5741739
+ 2037496 words of memory out of 5000000
+ 59554 multiletter control sequences out of 15000+600000
  601492 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,18n,120p,654b,1471s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1194,9 +1211,9 @@ s/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/
 Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri
 .pfb>
-Output written on "Homological Algebra.pdf" (38 pages, 569393 bytes).
+Output written on "Homological Algebra.pdf" (41 pages, 583866 bytes).
 PDF statistics:
- 706 PDF objects out of 1000 (max. 8388607)
- 230 named destinations out of 1000 (max. 500000)
+ 726 PDF objects out of 1000 (max. 8388607)
+ 240 named destinations out of 1000 (max. 500000)
  325 words of extra memory for PDF output out of 10000 (max. 10000000)
 

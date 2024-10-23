@@ -280,39 +280,6 @@ It is clear that the inverse of $h$ is given by $$(x,y)\mapsto\begin{cases}
 \end{proof}
 \end{eg}
 
-\subsection{The Coordinate Ring}
-\begin{defn}{Coordinate Ring}{} Let $k$ be a field and let $V\subseteq\A_k^n$ be an affine variety. Define the coordinate ring of $V$ to be $$k[V]=\frac{k[x_1,\dots,x_n]}{I(V)}$$ to be the ring of polynomial functions on $V$. 
-\end{defn}
-
-An example does better than its definition. Let us make an example out of $\R^2$. Let $f(x,y)=xy-1$. Then $V(f)=\{(x,y)\in\R^2|xy=1\}$. Then $\R[V]$ can be described simply where if you see any polynomial with a factor of $xy$ in it, treat it as $1$. For example, if $g(x,y)=(x+y)^2\in\R[x,y]$, then $g(x,y)=x^2+2xy+y^2=x^2+y^2+2\in\R[V]$. This example makes the next theorem quite obvious. 
-
-\begin{prp}{}{} Let $V$ be an affine variety over an algebraically closed field $k$. Then the following are equivalent. 
-\begin{itemize}
-\item $V$ is irreducible
-\item $I(V)$ is a prime ideal
-\item $k[V]$ is an integral domain. 
-\end{itemize}\tcbline
-\begin{proof}
-It is clear from ring theory that $I(V)$ is a prime ideal if and only if $\C[V]$ is an integral domain. Suppose now that $V$ is irreducible. Suppose for a contradiction that $\C[V]$ is not an integral domain. Then there exists nonzero $f_1,f_2\in\C[V]$ such that $f_1f_2=0$. Since they are nonzero, $V(f_1)$ and $V(f_2)$ are not $V$. But $V(f_1f_2)=V$. This means that $V(f_1)\cup V(f_2)=V(f_1f_2)=V$. Which means that $V$ is reducible, a contradiction. \\~\\
-Suppose now that $\C[V]$ is an integral domain but $V$ is reducible. Then there are some $V_1,V_2$ nonempty and closed such that $V_1\cup V_2=V$. By nullstellensatz, $I(V_1)$ and $I(V_2)$ are non empty since they are not the entire $V$. Choose nonzero $f_1\in I(V_1)$ and $f_2\in I(V_2)$. Then $f_1f_2$ vanishes on $V$. Thus $f_1f_2=0$ which contradicts the fact that $\C[V]$ is an integral domain. 
-\end{proof}
-\end{prp}
-
-\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a regular map. Then $\phi$ is given by $$\phi=(\phi_1,\dots,\phi_m)$$ for some $\phi_1,\dots,\phi_m\in k[V]$. 
-\end{prp}
-
-\begin{defn}{Pullback of a Regular Map}{} Let $\phi:V\to W$ be a morphism of varieties. Then define the pull back of $\phi$ by $$\phi^\ast:k[W]\to k[V]$$ where $\phi^\ast(p)=p\circ\phi$ for each $p\in k[W]$. 
-\end{defn}
-
-\begin{lmm}{}{} Let $V,W,U$ be affine varieties. If $f:V\to W$ and $g:W\to U$ are regular maps, then $$(g\circ f)^\ast=f^\ast\circ g^\ast$$
-\end{lmm}
-
-\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V$ and $W$ be affine varieties over $k$. Then there is a bijection $$\left\{\substack{\text{Regular maps}\\ V\to W}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Algebra Homomorphisms}\\ k[W]\to k[V]}\right\}$$ between the regular maps and algebra homomorphisms. 
-\end{prp}
-
-\begin{crl}{}{} Let $V$ and $W$ be affine varieties over a field $k$. Then $V$ and $W$ are isomorphic if and only if $k[V]\cong k[W]$. 
-\end{crl}
-
 \pagebreak
 \section{The Dictionary Between Algebra and Geometry}
 Recall that these sets of notes are for algebraic geometry, not purely geometry. We would like to employ algebraic methods to the study of these zero sets. In particular, the goal of the chapter is to establish some sort of one-to-one correspondence with some algebraic objects $$\left\{\substack{\text{Affine algebraic}\\\text{sets of }\A_k^n}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\text{Something Algebraic}$$ Hilbert's Nullstellensatz will provide the link. 
@@ -365,7 +332,7 @@ Suppose that $V_1\supset V_2\supset\cdots$ be a descending chain of subvarieties
 Since every object we study in algebraic geometry is compact, this becomes not as useful as a notation in topology. However, we can redefine the notion of compactness so that it will give useful insights on varieties. 
 
 \subsection{The Absolute Hilbert's Nullstellensatz}
-\begin{thm}{Hilbert's Nullstellensatz}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. Then $$I(V(I))=\sqrt{I}$$
+\begin{thm}{Hilbert's Nullstellensatz I}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. Then $$\I(\V(I))=\sqrt{I}$$
 \end{thm}
 
 \begin{eg}{}{} The Hilbert's nullstellensatz fails on a field $k$ that is not algebraically closed. \tcbline
@@ -374,16 +341,15 @@ Consider the variety $\V(x^2+1)\subseteq\A_\R^1$. This set is empty. But $\I(\em
 \end{proof}
 \end{eg}
 
-\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine varieties}\\\text{of }\A_k^n}\right\}$$ between the radical ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $V(-)$ and $I(-)$. 
-\end{crl}
+\begin{thm}{Hilbert's Nullstellensatz II}{} Let $k$ be an algebraically closed field. Then the following are true. 
+\begin{itemize}
+\item There is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine varieties}\\\text{of }\A_k^n}\right\}$$ between the radical ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
+\item There is an inclusion reversing bijection $$\left\{\substack{\text{Prime ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{varieties of }\A_k^n}\right\}$$ between the prime ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
+\item There is an inclusion reversing bijection $$\left\{\substack{\text{Maximal ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ between the maximal ideals of $k[x_1,\dots,x_n]$ and points in $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
+\end{itemize}
+\end{thm}
 
 Note that this bijection is compatible with subset inclusion in the sense of proposition 1.2.3. Bijections of this form that induce a relation on subsets are called Galois connections or Galois correspondence, mimicking his work in Galois theory. 
-
-\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Prime ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{varieties of }\A_k^n}\right\}$$ between the prime ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $V(-)$ and $I(-)$. 
-\end{crl}
-
-\begin{crl}{}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Maximal ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ between the maximal ideals of $k[x_1,\dots,x_n]$ and points in $\A_k^n$ given by $V(-)$ and $I(-)$. 
-\end{crl}
 
 \begin{prp}{}{} Every radical ideal $J$ in $\F[x_1,\dots,x_n]$ is a finite intersection of prime ideals. \tcbline
 \begin{proof}
@@ -403,20 +369,99 @@ Maximal Ideals of $k[x_1,\dots,x_n]$ & Points in $\A_k^n$
 
 This is the absolute point of view in the sense we are considering every object in geometry under the setting of $\A_k^n$. However we see that it is easy to replace $\A_k^n$ with an affine variety. However we do need a corresponding notion in the algebra side. This is called the coordinate ring. 
 
+\subsection{The Coordinate Ring}
+We have worked with the case of $\A_k^n$ up until this point, and considered varieties $V$ of $\A_k^n$  as objects of $\A_k^n$. We would also like to develop the relative point of view. This means that we think of each variety $V$ as the background space, and think of subvarieties of $V$. In order to establish the Nullstellensatz for this case, we need to define the corresponding algebraic object, similar to how the affine space $\A_k^n$ corresponds to the polynomial ring $k[x_1,\dots,x_n]$. 
+
+\begin{defn}{Coordinate Ring}{} Let $k$ be a field and let $V\subseteq\A_k^n$ be an affine variety. Define the coordinate ring of $V$ to be the $k$-algebra $$k[V]=\frac{k[x_1,\dots,x_n]}{\I(V)}$$
+\end{defn}
+
+An example does better than its definition. Let us make an example out of $\R^2$. Let $f(x,y)=xy-1$. Then $V(f)=\{(x,y)\in\R^2|xy=1\}$. Then $\R[V]$ can be described simply where if you see any polynomial with a factor of $xy$ in it, treat it as $1$. For example, if $g(x,y)=(x+y)^2\in\R[x,y]$, then $g(x,y)=x^2+2xy+y^2=x^2+y^2+2\in\R[V]$. This example makes the next theorem quite obvious. 
+
+\begin{prp}{}{} Let $V$ be an affine variety over an algebraically closed field $k$. Then the following are equivalent. 
+\begin{itemize}
+\item $V$ is irreducible
+\item $I(V)$ is a prime ideal
+\item $k[V]$ is an integral domain. 
+\end{itemize}\tcbline
+\begin{proof}
+It is clear from ring theory that $I(V)$ is a prime ideal if and only if $\C[V]$ is an integral domain. Suppose now that $V$ is irreducible. Suppose for a contradiction that $\C[V]$ is not an integral domain. Then there exists nonzero $f_1,f_2\in\C[V]$ such that $f_1f_2=0$. Since they are nonzero, $V(f_1)$ and $V(f_2)$ are not $V$. But $V(f_1f_2)=V$. This means that $V(f_1)\cup V(f_2)=V(f_1f_2)=V$. Which means that $V$ is reducible, a contradiction. \\~\\
+Suppose now that $\C[V]$ is an integral domain but $V$ is reducible. Then there are some $V_1,V_2$ nonempty and closed such that $V_1\cup V_2=V$. By nullstellensatz, $I(V_1)$ and $I(V_2)$ are non empty since they are not the entire $V$. Choose nonzero $f_1\in I(V_1)$ and $f_2\in I(V_2)$. Then $f_1f_2$ vanishes on $V$. Thus $f_1f_2=0$ which contradicts the fact that $\C[V]$ is an integral domain. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be a field. Let $R$ be a $k$-algebra. Then $R$ is reduced and finitely generated over $k$ if and only if $R$ is isomorphic to the coordinate ring of some affine variety $V$ of $\A_k^n$. \tcbline
+\begin{proof}
+It is clear that every coordinate ring is a reduced and finitely generated $k$-algebra. Let $R$ be a reduced and finitely generated $k$-algebra. Suppose that $R$ is generated by $b_1,\dots,b_n$ over $k$. Then be definition of a finitely generated $k$-algebra, there is a surjective homomorphism $$\varphi:k[x_1,\dots,x_n]\to R$$ defined by $x_i\mapsto b_i$. By the first isomorphism theorem for $k$-algebras, there is an isomorphism $$\frac{k[x_1,\dots,x_n]}{\ker(\varphi)}\cong R$$ induced by $\varphi$. Now $R$ is reduced, hence $\ker(\varphi)$ is a radical ideal. By Hilbert's Nullstellensatz (it corollary), there exists an affine variety $V\subseteq\A_k^n$ such that $\I(V)=\ker(\varphi)$. Thus we conclude. 
+\end{proof}
+\end{prp}
+
+Thus we establish a bijection in the following form: $$\left\{\substack{\text{Reduced and }\\\text{finitely generated }k\text{-algebra}}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Coordinate Rings }\\ k[V]\text{ over }k}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\text{Affine varieties over }k\right\}$$ In fact, this is an equivalence of categories. We will see this in Algebraic Geometry 2. 
+ 
+\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a regular map. Then $\phi$ is given by $$\phi=(\phi_1,\dots,\phi_m)$$ for some $\phi_1,\dots,\phi_m\in k[V]$. 
+\end{prp}
+
+\begin{defn}{Pullback of a Regular Map}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a morphism. Define the pull back of $\phi$ to be the map $$\phi^\ast:k[W]\to k[V]$$ given by the formula $\phi^\ast(p)=p\circ\phi$ for each $p\in k[W]$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a morphism. Then the pullback map $\phi^\ast:k[W]\to k[V]$ is a well defined $k$-algebra homomorphism. \tcbline
+\begin{proof}
+Let $f\in k[W]$. Then $f$ and $\phi$ are both polynomials. Hence the composition of polynomials $f\circ\phi$ is also a polynomial. To show that it is well defined on the coordinate ring, we want to show that if $f\in\I(W)$, then $f\circ\phi\in\I(V)$. Let $x\in V$. Then $\phi(x)\in W$ so that $f(\phi(x))=0$. Thus $f\circ\phi\in\I(V)$. \\~\\
+
+To prove that $\phi^\ast$ is a $k$-algebra homomorphism, we have that: 
+\begin{itemize}
+\item Let $f,g\in k[W]$. Then $$\phi^\ast(f)+\phi^\ast(g)=f\circ\phi+g\circ\phi=(f+g)\circ\phi=\phi^\ast(f+g)$$ by considering addition element-wise. 
+\item Let $f,g\in k[W]$. Then $$\phi^\ast(f)\phi^\ast(g)=(f\circ\phi)(g\circ\phi)=(fg)\circ\phi$$ by considering multiplication element-wise. 
+\item Let $\lambda\in k$ and $f\in k[W]$. Then $$\phi^\ast(\lambda f)=(\lambda f)\circ\phi=\lambda\cdot(f\circ\phi)=\lambda\phi^\ast(f)$$ by considering linearity element-wise. 
+\end{itemize}
+\end{proof}
+\end{lmm}
+
+\begin{lmm}{}{} Let $V,W,U$ be affine varieties. If $f:V\to W$ and $g:W\to U$ are regular maps, then $$(g\circ f)^\ast=f^\ast\circ g^\ast$$
+\end{lmm}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Then there is a bijection $$\left\{\substack{\text{Regular maps}\\ V\to W}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Algebra Homomorphisms}\\ k[W]\to k[V]}\right\}$$ given by sending each morphism $\phi:V\to W$ to the pullback map $\phi^\ast$.  \tcbline
+\begin{proof}
+Suppose that $\phi\neq\rho$. Then there exists $x\in V$ such that $\phi(x)\neq\rho(x)$. I claim that there exists $f\in k[W]$ such that $f(\phi(x))\neq f(\rho(x))$. Indeed, since $\phi(x)$ and $\rho(x)$ are different points, then there exists at least one coordinate $y_i$ of $\phi(x)$ and $\rho(x)$ that are different. Then the function $y_i:W\to k$ that picks out the $i$th coordinate satisfy our requirements. Now we have that 
+\begin{align*}
+f(\phi(x))&\neq f(\rho(x))\\
+\phi^\ast(f)(x)&\neq\rho^\ast(f)(x)
+\end{align*}
+which implies that $\phi^\ast\neq\rho^\ast$. 
+\end{proof}
+\end{prp}
+
+\begin{crl}{}{} Let $V$ and $W$ be affine varieties over a field $k$. Then $V$ and $W$ are isomorphic if and only if $k[V]\cong k[W]$. 
+\end{crl}
+
 \subsection{The Relative Nullstellensatz}
 We also have the relative version of Hilbert's Nullstellensatz. We begin with the relative version of the vanishing loci and ideal. 
 
-\begin{defn}{Relative Vanishing Loci and Ideal}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. 
+\begin{defn}{Relative Vanishing Loci and Ideal}{} Let $k$ be a field. Let $X$ be an affine variety of $\A_k^n$. 
 \begin{itemize}
-\item Let $F\subset k[X]$. Define the vanishing loci of $F$ in $X$ to be $$V_X(F)=\{p\in X\;|;f(p)=0\text{ for all }f\in F\}$$
-\item Let $S\subset X$. Define the ideal of $S$ in $X$ to be $$I_X(S)=\{f\in k[X]\;|\;f(s)=0\text{ for all }s\in S\}$$
+\item Let $F\subset k[X]$ be a subset. Define the vanishing loci of $F$ in $X$ to be $$\V_X(F)=\{p\in X\;|;f(p)=0\text{ for all }f\in F\}$$
+\item Let $S\subset X$ be a subset of the affine variety. Define the ideal of $S$ in $X$ to be $$\I_X(S)=\{f\in k[X]\;|\;f(s)=0\text{ for all }s\in S\}$$
 \end{itemize}
 \end{defn}
 
-\begin{lmm}{}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Let $Y$ be an affine algebraic subset of $X$. Then $$k[Y]=\frac{k[X]}{I_X(Y)}$$
+\begin{lmm}{}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Let $Y$ be an affine algebraic subset of $X$. Then $$k[Y]=\frac{k[X]}{\I_X(Y)}$$
 \end{lmm}
 
-\begin{thm}{Relative Nullstellensatz}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[X]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{subsets of }X}\right\}$$ given by $V_X(-)$ and $I_X(-)$. 
+\begin{thm}{Relative Nullstellensatz}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Then the following are true. 
+\begin{itemize}
+\item There is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[X]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine subvarieties}\\ W\text{ of }V}\right\}$$
+\item There is an inclusion reversing bijection $$\left\{\substack{\text{Prime ideals of}\\ k[X]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{subvarieties of }X}\right\}$$
+\item There is an inclusion reversing bijection $$\left\{\substack{\text{Maximal ideals of}\\ k[X]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\X}\right\}$$
+\end{itemize} 
+all of which given by $\V_X(-)$ and $\I_X(-)$. \tcbline
+\begin{proof}
+Using the Absolute version of Hilbert's nullstellensatz, we can establish the following series of bijections: 
+\begin{align*}
+\left\{\substack{\text{Radical ideals of}\\ k[X]}\right\}\;\;&\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]\text{ that contain }\I(X)}\right\}\tag{The Correspondence Theorem}\\
+&\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine subvarieties of }\\ \A_k^n\text{ such that }\I(W)\supseteq\I(V)}\right\}\tag{Hilbert's Nullstellensatz}\\
+&\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine subvarieties}\\ W\text{ of }V}\right\}\tag{Inclusion Reversing Property}\\
+\end{align*}
+Moreover, this bijection is inclusion reversing because the Hilbert's Nullstellensatz is inclusion reversing. The other two proofs uses the same method. 
+\end{proof}
 \end{thm}
 
 \begin{thm}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an affine algebraic set. Then there exists $V_1,\dots,V_n$ affine algebraic varieties such that $$V=V_1\cup\cdots\cup V_n$$ and $V_i$ does not contain $V_j$ for $i\neq j$. Moreover, such a decomposition is unique up to reordering of the varieties. 

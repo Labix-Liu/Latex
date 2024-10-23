@@ -110,6 +110,17 @@ Notice that we have restricted our spaces to that in $\bold{CG}$, the category o
 \end{tikzcd}}\\~\\
 \end{defn}
 
+\begin{defn}{}{} Let $\mU$ be a full subcategory of $\bold{Top}_\ast$. Define the category $$\text{Sp}^\N(\mU)$$ of sequential spectra of $\mU$ to consist of the following data. 
+\begin{itemize}
+\item The objects are the sequential spectra $\{E_n\in\mU\;|\;n\in\N\}$ of spaces in $\mU$. 
+\item The morphisms are the functions of spectra
+\item Composition is given by component-wise composition. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{CW Spectra}{} A CW spectrum $E$ is a collection $\{E_n\;|\;n\in\Z\}$ of CW-complexes with a chosen basepoint together with maps $e_n:\Sigma E_n\to E_{n+1}$ so that $\Sigma E_n$ is recognized as a subcomplex of $E_{n+1}$. 
+\end{defn}
+
 \begin{defn}{Subspectra}{} Let $E$ and $F$ be spectra. We say that $F$ is a subspectra of $E$ if $F_n\subseteq E_n$ for all $n\in\N$. 
 \end{defn}
 
@@ -130,10 +141,10 @@ Notice that we have restricted our spaces to that in $\bold{CG}$, the category o
 \subsection{Brown's Representability Theorem}
 Specific types of spectra are related to (co)homology theories. We will introduce the names of such spectra below. 
 
-\begin{defn}{CW Spectra}{} A CW spectrum $E$ is a collection $\{E_n\;|\;n\in\Z\}$ of CW-complexes with a chosen basepoint together with maps $e_n:\Sigma E_n\to E_{n+1}$ so that $\Sigma E_n$ is recognized as a subcomplex of $E_{n+1}$. 
+\begin{defn}{$\Omega$-Spectra}{} Let $\{E_n\;|\;n\in\Z\}$ and $e_n:E_n\to\Omega E_{n+1}$ be a spectra. We say that it is an $\Omega$-spectra if the induced map $(e_n)_\ast$ is a weak homotopy equivalence. 
 \end{defn}
 
-\begin{defn}{$\Omega$-Spectra}{} Let $\{E_n\;|\;n\in\Z\}$ and $e_n:E_n\to\Omega E_{n+1}$ be a spectra. We say that it is an $\Omega$-spectra if the induced map $(e_n)_\ast$ is a weak homotopy equivalence. 
+\begin{defn}{The Category of $\Omega$-Spectra}{} Let $\mU$ be a full subcategory of $\bold{Top}_\ast$. Define the category of $\Omega$-spectra $$\Omega\text{Sp}^\N(\mU)$$ over $\mU$ to be the full subcategory of $\text{Sp}^\N(\mU)$ consisting of $\Omega$-spectra. 
 \end{defn}
 
 Recall that if $Z$ is a group-like $H$-space (ref Concise J.P. May), then $[X,Z]$ has a group structure. 
@@ -149,7 +160,9 @@ Then the collection of functors $\widetilde{E}^k$ for all $k$ defines a reduced 
 \begin{thm}{Brown's Representability Theorem}{} Let $\widetilde{h}^n:\bold{hCW}_\ast\to\bold{Ab}$ be a reduced cohomology theory with chosen base points on the CW complexes. Then there exists a CW spectrum $\K=\{K_n\;|\;n\in\N\}$ and natural isomorphisms $$\widetilde{h}^n(X)\cong[X,K_n]_\ast$$ for all CW-complexes $X$. 
 \end{thm}
 
-It is related to representability in category theory in the following sense: Since $\widetilde{h}^n$ are functors that are homotopy equivalent, we can instead consider $\widetilde{h}^n$ as a functor from the homotopy category $\bold{hCW}_\ast$ of pointed CW-complexes to $\bold{Ab}$. Then Hom sets in $\bold{hCW}$ are precisely $[X,Y]_\ast$ which are the base point preserving homotopic maps from $X$ to $Y$. Then Brown's representability states that the functor $\widetilde{h}^n:\bold{hCW}_\ast\to\bold{Ab}$ is representable via $[X,K_n]_\ast$ and more over the $K_n$ assemble into a spectrum. 
+It is related to representability in category theory in the following sense: Since $\widetilde{h}^n$ are functors that are homotopy equivalent, we can instead consider $\widetilde{h}^n$ as a functor from the homotopy category $\bold{hCW}_\ast$ of pointed CW-complexes to $\bold{Ab}$. Then Hom sets in $\bold{hCW}$ are precisely $[X,Y]_\ast$ which are the base point preserving homotopic maps from $X$ to $Y$. Then Brown's representability states that the functor $\widetilde{h}^n:\bold{hCW}_\ast\to\bold{Ab}$ is representable via $[X,K_n]_\ast$ and more over the $K_n$ assemble into a spectrum. \\
+
+Unfortunately, the two assignments does not give an equivalence of categories. The obstruction is called phantom maps. 
 
 \begin{thm}{}{} Every reduced cohomology theory determines and is determined by an $\Omega$ CW-spectrum. 
 \end{thm}

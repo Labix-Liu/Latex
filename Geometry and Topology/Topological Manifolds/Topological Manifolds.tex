@@ -109,7 +109,8 @@ Choose a fundamental class in $H_k(S^k)$. It is clear that the long exact sequen
 \end{proof}
 \end{lmm}
 
-In order to deduce orientability of a manifolds, we appeal to a vector bundle on the manifold. 
+\subsection{The Orientation Bundle}
+In order to deduce orientability of a manifolds, we appeal to the theory of vector bundles. 
 
 \begin{defn}{Orientation Bundle}{} Let $M$ be a topological manifold. Define the orientation bundle $\widetilde{M}$ to be the set of pairs $$\widetilde{M}=\left\{(x,\omega_x)\;\bigg{|}\;\; x\in M, \omega_x\in H_k(M,M\setminus\{x\})\right\}$$ together the projection map $\pi:\widetilde{M}\to M$ defined by $\pi(x,\omega_x)=x$ and with the topology defined as follows. \\~\\
 
@@ -293,7 +294,7 @@ The above two classes of compact surfaces together with the sphere exhausts all 
 \end{itemize}
 \end{thm}
 
-\subsection{The Homology of Surfaces}
+\subsection{The (Co)Homology of Surfaces}
 Recall that a compact surface is a connected topological manifold of dimension $2$ that is compact. Moreover, every compact surface is homeomorphic to either $\Sigma_g=\T\#\cdots\#\T$ for $g\geq 0$ or $N_h=\R\Prj^2\#\cdots\#\R\Prj^2$ for $h\geq 1$. We can now compute the homology groups of these surfaces and moreover, show that $\sum_g$ is orientable while $N_h$ is not, using the CW complexes given above. 
 
 \begin{thm}{}{} Let $g\geq 0$. The homology of the $g$-holed torus $\Sigma_g$ is given by $$H_n(\Sigma_g)=\begin{cases}
@@ -387,6 +388,83 @@ The image of the matrix is $2\Z$ and by exactness this is the kernel of the map 
 Notice that removing a small closed disk from $\R\Prj^2$ yields a space homeomorphic to the open Mobius strip. It follows that for $h>0$, the space $N_h$ contains the open Mobius strip as a subspace. Since the Mobius strip is non-orientable, $N_h$ is also non-orientable. 
 \end{proof}
 \end{crl}
+
+\begin{thm}{}{} Let $g\geq 0$. The singular cohomology of the $g$-holed torus $\Sigma_g$ with coefficients in $\Z$ is given by $$H^n(\Sigma_g;\Z)=\begin{cases}
+\Z & \text{ if } n=0,2\\
+\Z^{2g} & \text{ if } n=1\\
+0 & \text{otherwise}
+\end{cases}$$ \tcbline
+\begin{proof}
+We use the universal coefficient theorem in all dimensions. 
+When $n=0$, we have that 
+\begin{align*}
+H^0(\Sigma_g;\Z)&\cong\Hom(H_0(\Sigma_g;R);\Z)\oplus\text{Ext}(H_{-1}(\Sigma_g;\Z),\Z)\\
+&\cong\Hom(\Z,\Z)\oplus 0\\
+&\cong\Z
+\end{align*}
+When $n=1$, we have that 
+\begin{align*}
+H^1(\Sigma_g;\Z)&\cong\Hom(H_1(\Sigma_g),\Z)\oplus\text{Ext}(H_0(\Sigma_g),\Z)\\
+&\cong\Hom(\Z^{2g},\Z)\oplus\text{Ext}(\Z,\Z)\\
+&\cong\Z^{2g}\oplus 0\\
+&\cong\Z^{2g}
+\end{align*}
+When $n=2$, we have that 
+\begin{align*}
+H^2(\Sigma_g;\Z)&\cong\Hom(H_2(\Sigma_g),\Z)\oplus\text{Ext}(H_1(\Sigma_g),\Z)\\
+&\cong\Hom(\Z,\Z)\oplus\text{Ext}(\Z^{2g},\Z)\\
+&\cong\Z\oplus 0\\
+&\cong\Z
+\end{align*}
+When $n\geq 3$, we have that 
+\begin{align*}
+H^n(\Sigma_g;\Z)&\cong\Hom(H_n(\Sigma_g),\Z)\oplus\text{Ext}(H_{n-1}(\Sigma_g),\Z)\\
+&\cong\Hom(0,\Z)\oplus\text{Ext}(H_{n-1}(\Sigma_g),\Z)
+\end{align*}
+When $n\geq 4$, then $H_{n-1}(\Sigma_g)=0$ hence the cohomology group is $0$. When $n=3$, $H_2(\Sigma_g)\cong\Z$ is a free abelian group hence the cohomology group is $0$. 
+\end{proof}
+\end{thm}
+
+We use the cohomology of $\Sigma_g$ to illustrate generators of cohomology. Ref: Hatcher Ex3.7. 
+
+\begin{thm}{}{} Let $h\geq 1$. The singular cohomology of non-orientable surface $N_h$ with coefficients in $\Z$ is given by $$H^n(N_h;\Z)=\begin{cases}
+\Z & \text{ if } n=0\\
+\Z^{h-1} & \text{ if } n=1\\
+\Z/2\Z & \text{ if } n=2\\
+0 & \text{otherwise}
+\end{cases}$$ \tcbline
+\begin{proof}
+We use the universal coefficient theorem in all dimensions. 
+When $n=0$, we have that 
+\begin{align*}
+H^0(N_h;\Z)&\cong\Hom(H_0(N_h;R);\Z)\oplus\text{Ext}(H_{-1}(N_h;\Z),\Z)\\
+&\cong\Hom(\Z,\Z)\oplus 0\\
+&\cong\Z
+\end{align*}
+When $n=1$, we have that 
+\begin{align*}
+H^1(N_h;\Z)&\cong\Hom(H_1(N_h),\Z)\oplus\text{Ext}(H_0(N_h),\Z)\\
+&\cong\Hom(\Z^{h-1}\oplus\Z/2\Z,\Z)\oplus\text{Ext}(\Z,\Z)\\
+&\cong\Z^{h-1}\oplus 0\\
+&\cong\Z^{h-1}
+\end{align*}
+When $n=2$, we have that 
+\begin{align*}
+H^2(N_h;\Z)&\cong\Hom(H_2(N_h),\Z)\oplus\text{Ext}(H_1(N_h),\Z)\\
+&\cong\Hom(\Z,\Z)\oplus\text{Ext}(\Z^{h-1}\oplus\Z/2\Z,\Z)\\
+&\cong 0\oplus\text{Ext}(\Z^{h-1},\Z)\oplus\text{Ext}(\Z/2\Z,\Z)\\
+&\cong 0\oplus 0\oplus \Z/2\Z\\
+&\cong\Z/2\Z
+\end{align*}
+When $n\geq 3$, we have that 
+\begin{align*}
+H^n(N_h;\Z)&\cong\Hom(H_n(N_h),\Z)\oplus\text{Ext}(H_{n-1}(N_h),\Z)\\
+&\cong\Hom(0,\Z)\oplus\text{Ext}(0,\Z)\\
+&\cong 0
+\end{align*}
+and so we conclude. 
+\end{proof}
+\end{thm}
 
 \subsection{The Euler Characteristic}
 Recall that if $X$ is a CW complex such that $U\cap V=X$ and $U$ and $V$ are open subsets, then we have the formula $$\chi(X)=\chi(U)+\chi(V)-\chi(U\cap V)$$

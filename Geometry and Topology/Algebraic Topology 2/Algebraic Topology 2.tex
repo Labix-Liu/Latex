@@ -138,7 +138,11 @@ It is easy to also deduce the following consequences:
 
 \begin{lmm}{}{1.2.4} Let $A,B,C$ be abelian groups and $f:A\to B$ and $g:B\to C$ group homomorphisms such that \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+	0 & A & B & C & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
 \end{tikzcd}}\\~\\
 is a short exact sequence. Then the following are true. 
 \begin{itemize}
@@ -152,7 +156,20 @@ Since $g$ is surjective, by the first isomorphism theorem we conclude that $\fra
 \end{proof}
 \end{lmm}
 
-When dealing with exact sequences, the first isomorphism theorem is often your best friend. \\~\\
+From the above we can deduce that whenever we see the following sequences: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\ker(g)} & B & C & 0 \\
+	0 & A & B & {\frac{B}{\im(f)}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["\iota", hook, from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=2-1, to=2-2]
+	\arrow["f", from=2-2, to=2-3]
+	\arrow["q", two heads, from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}}\\~\\
+they will be exact sequences. 
 
 Split exact sequence are a special type of exact sequences that will come up a lot in the study of homology since we are dealing with a lot of free groups, which are isomorphic to some number of copies of $\Z$. 
 
@@ -2057,6 +2074,28 @@ Direct since singular homology coincides with simplicial homology.
 \end{proof}
 \end{crl}
 
+\subsection{The Tensor Product Functor}
+Let $R$ be a ring. Let $M,N$ be $R$-modules. Recall that we defined the tensor product of $M$ and $N$ via the universal property in Rings and Modules: The tensor product is an $R$-module $M\otimes_RN$ such that for any $R$-bilinear map $\varphi:M\times N\to L$ where $L$ is an $R$-module, there exists a unique map $\rho:M\otimes_RN\to L$ such that $$\varphi=\rho\circ u$$ where $u:M\times N\to M\otimes_RN$ is the map $(m,n)\mapsto(m\otimes n)$. \\
+
+We specialize the case to where $R=\Z$. In this case, $M$ and $N$ are just abelian groups. 
+
+\begin{defn}{The Tensor Product Functor}{} Let $G$ be an abelian group. Define the tensor product functor over $G$ to be the functor $$-\otimes G:\bold{Ab}\to\bold{Ab}$$ to consist of the following data. 
+\begin{itemize}
+\item For each abelian group $H\in\bold{Ab}$, the functor assigns the abelian group $H\otimes G$. 
+\item For each group homomorphism $f:A\to B$, define the induced homomorphism $f\otimes G:A\otimes G\to B\otimes G$ by $$a\otimes g\mapsto f(a)\otimes g$$
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $A,B,C,G$ be abelian groups. Let $f:A\to B$ and $g:B\to C$ be group homomorphisms. If $A\to B\to C\to 0$ is an exact sequence, then the sequence \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{A\otimes G} & {B\otimes G} & {C\otimes G} & 0
+	\arrow["{f\otimes G}", from=1-1, to=1-2]
+	\arrow["{g\otimes G}", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}} \\~\\
+is exact. 
+\end{prp}
+
 \subsection{Homology with Coefficients}
 We would now like to generalize singular homology so that the coefficients of the chain complex does not take values in $\Z$, but instead in an arbitrary group $G$. For this, we first modify the group of $n$-chains. 
 
@@ -2190,6 +2229,25 @@ Finally we show that $\ker(f^\ast)\subseteq\im(g^\ast)$. Let $f^\ast(\phi)=0$ fo
 Since $\phi(k)=0$ for all $k\in\im(f)$, $\phi$ descends to a map $\overline{\phi}:\frac{B}{\im(f)}\to G$. But $\im(f)=\ker(g)$ hence this is equivalent to a map $\overline{\phi}:\frac{B}{\ker(g)}\to G$. But by the first isomorphism theorem and the fact that $g$ is surjective, we conclude that $\overline{g}:\frac{B}{\ker(g)}\overset{g}{\cong} C$, where $b+\ker(g)\mapsto g(b)$. Thus we have constructed a map $\overline{\phi}\circ\overline{g}^{-1}:C\to G$ given by $g(b)\mapsto b+\ker(g)\mapsto\phi(b)$. But now $g^\ast(\overline{\phi}\circ\overline{g}^{-1})$ is the map defined by $$b\mapsto g(b)\mapsto b+\ker(g)\mapsto\phi(b)$$ and so this map is exactly $\phi$. Thus $\phi\in\im(g^\ast)$. 
 \end{itemize}
 \end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $C_\bullet,D_\bullet,E_\bullet\in\bold{Ch}(\Z)$ be chain complexes such that the short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {C_\bullet} & {D_\bullet} & {E_\bullet} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+of chain complexes is degree wise split (this means that $D_n\cong C_n\oplus E_n$ for all $n\in\N$). Then the dual of the chain complex \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {E^\bullet} & {D^\bullet} & {C^\bullet} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{g^\ast}", from=1-2, to=1-3]
+	\arrow["{f^\ast}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is also a short exact sequence of chain complexes. 
 \end{prp}
 
 \subsection{Producing a Cochain Complex from a Chain Complex}
@@ -2562,16 +2620,12 @@ An analogous result remains true when we consider homology with coefficients in 
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & H\arrow[r] & 0
 \end{tikzcd}}\\~\\
-for $H$. Define the Tor group of $H$ with coefficients in $G$ to be the first homology group of the chain complex \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & F_1\otimes G\arrow[r] & F_0\otimes G\arrow[r] & H\otimes G\arrow[r] & 0
-\end{tikzcd}}\\~\\
-In other words, $$\text{Tor}(H,G)=\text{Tor}_1^\Z(H,G)=\ker(F_1\otimes G\to F_0\otimes G)=H_1(F_\bullet\otimes G)$$
+for $H$. Define the Tor group of $H$ with coefficients in $G$ to be the first homology group of the chain complex $F_\bullet\otimes G$. In other words, $$\text{Tor}(H,G)=\text{Tor}_1^\Z(H,G)=\ker(F_1\otimes G\to F_0\otimes G)=H_1(F_\bullet\otimes G)$$
 \end{defn}
 
 Similar to that of Ext, the current definition is a very specialized version of the general definition. Readers are referred to Homological Algebra for the general treatment. 
 
-\begin{thm}{Universal Coefficient Theorem for Homology}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex with coefficients in $\Z$. Let $G$ be an abelian group. Then for all $n\in\N$, there is a split exact sequence \\~\\
+\begin{thm}{Universal Coefficient Theorem for Homology}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex of free abelian groups. Let $G$ be an abelian group. Then there exists a map $k:H_n(C_\bullet)\otimes G\to H_n(C_\bullet;G)$ such that $\coker(k)\cong\text{Tor}(H_{n-1}(C_\bullet),G)$ and a split exact sequence (that is not natural) of the form \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	0 & {H_n(C_\bullet)\otimes G} & {H_n(C_\bullet;G)} & {\text{Tor}(H_{n-1}(C_\bullet);G)} & 0
 	\arrow[from=1-1, to=1-2]
@@ -2579,8 +2633,10 @@ Similar to that of Ext, the current definition is a very specialized version of 
 	\arrow[from=1-3, to=1-4]
 	\arrow[from=1-4, to=1-5]
 \end{tikzcd}}\\~\\
-In particular, split exactness implies that $$H_n(C_\bullet;G)\cong\text{Tor}(H_{n-1}(C_\bullet);G)\oplus H_n(C_\bullet)\otimes G$$
+for all $n\in\N$. In particular, split exactness implies that $$H_n(C_\bullet;G)\cong\text{Tor}(H_{n-1}(C_\bullet);G)\oplus H_n(C_\bullet)\otimes G$$
 \end{thm}
+
+Note that all of the above need not be done in the setting of an abelian group. Instead, we could use $R$-modules $M$ for a ring $R$. We leave this for a course in Homological Algebra. 
 
 \pagebreak
 \section{Singular Cohomology}
@@ -2593,7 +2649,13 @@ We now have all the pieces to define singular cohomology. This is a three step f
 \begin{defn}{Singular Cohomology Groups of a Space}{} Let $X$ be a topological space and $(C^\bullet(X;G),\delta_\bullet)$ the singular cochain complex of $X$ with coefficients in an abelian group $G$. The $n$th cohomology group of $X$ with coefficients in $G$ is defined to be $$H^n(X;G)=\frac{\ker(\delta_{n+1}:C^n(X;G)\to C^{n+1}(X;G))}{\im(\delta_n:C^{n-1}(X;G)\to C^n(X;G))}=H_\bullet(C^\bullet(X;G),\delta_\bullet)$$
 \end{defn}
 
-We can describe the construction of singular cohomology groups as a three step functorial process $$H^n(-;G):\bold{Top}\overset{C_\bullet(-)}{\longrightarrow}\bold{Ch}(\Z)\overset{\Hom(-,G)}{\longrightarrow}\bold{CCh}(\Z)\overset{H_n(-)}{\longrightarrow}\bold{Ab}$$ Therefore the construction of singular cohomology groups are also functorial. 
+We can describe the construction of singular cohomology groups as a three step functorial process $$H^n(-;G):\bold{Top}\overset{C_\bullet(-)}{\longrightarrow}\bold{Ch}(\Z)\overset{\Hom(-,G)}{\longrightarrow}\bold{CCh}(\Z)\overset{H_n(-)}{\longrightarrow}\bold{Ab}$$ Therefore the construction of singular cohomology groups are also functorial. \\~\\
+
+Recall that for a space $X$, its singular chain complex $C_\bullet^\text{Sing}(X)$ is defined to be free abelian group $$C_n^\text{Sing}(X)=\Z[\Delta^n]$$ on the set of singular $n$-simplicies on $X$. By dualizing it, one obtains the singular cochain complex $$C_\text{Sing}^n(X)=\Hom(\Z[\Delta^n],G)$$ for any abelian group $G$. Such a map $f\in\Hom(\Z[\Delta^n],G)$ is determined on the generators of the free abelian group by its universal property. And so $f$ is essentially determined by the choice of an element $g\in G$ for every singular $n$-simplex. In other words, every element of $C_\text{Sing}^n(X;G)$ of $X$ is just a labelling of every singular $n$-simplex with an element of $G$. Now if $f:\Z[\Delta^n]\to G$ is a cocycle, we simply require that the sum of the values that $f$ takes on the boundary of $\Delta^n$ to be $0$. In particular, 
+\begin{itemize}
+\item Elements of $C_\text{Sing}^0(X;G)$ simply labels every point of $X$ with an element of $G$. 
+\item Elements of $Z^0(X;G)$ labels every point of $X$ with an element of $G$ such that $f(v_0)=f(v_1)$, thus forming a $1$-simplex $v:[0,1]\to X$ (Indeed, if $f\in Z^0(X;G)$, then $\delta(f)=f\circ\partial=0$. Choosing the $1$-simplex $[0,1]$ shows that $0=f(\partial([0,1]))=f(v_0-v_1)=f(v_0)-f(v_1)$ which is exactly what we wanted). But this means that elements of $Z^0(X;G)$ labels every point of $X$ with an element of $G$ such that $f$ is constant on path components of $X$. 
+\end{itemize}
 
 \begin{defn}{Induced Homomorphisms}{} Let $f:X\to Y$ be a continuous map. Let $G$ be an abelian group. Define the induced map on cohomology $$f^\ast:H^n(Y;G)\to H^n(X;G)$$ by the formula $[\alpha]\mapsto[\alpha\circ f]$. 
 \end{defn}
@@ -2606,65 +2668,6 @@ We can describe the construction of singular cohomology groups as a three step f
 \end{thm}
 
 \begin{thm}{Reduced Cohomology Groups}{}
-\end{thm}
-
-\begin{defn}{Relative Cohomology Groups}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Define the relative cochain complex $$(C^\bullet(X,A;G),\partial^\ast)$$ with coefficients in $G$ to be the dual of the relative chain complex $(C_\bullet(X,A),\partial)$. Define the $n$th relative cohomology group of $X$ to be the quotient group $$H_n(X,A;G)=\frac{\ker(\partial^\ast:C^n(X,A;G)\to C^{n+1}(X,A;G))}{\im(\partial^\ast:C^{n-1}(X,A;G)\to C^n(X,A;G))}=H_n(C^\bullet(X,A;G))$$
-\end{defn}
-
-\begin{lmm}{}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Then the $n$th term of the relative cochain complex is given by $$C^n(X,A;G)=\{\alpha:C_n(X)\to G\;|\;\alpha(\sigma)=0\text{ for all }\sigma\in C_n(X,A)\text{ such that }\im(\sigma)\subseteq A\}$$
-\end{lmm}
-
-\begin{lmm}{}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Then the dual of the short exact sequence of chain complex \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & C_\bullet(A)\arrow[r, "\iota"] & C_\bullet(X)\arrow[r, "j"] & C_\bullet(X,A)\arrow[r] & 0
-\end{tikzcd}}\\~\\ given explicitly by \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {C^\bullet(X,A;G)} & {C^\bullet(X)} & {C^\bullet(A)} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["{j^\ast}", from=1-2, to=1-3]
-	\arrow["{i^\ast}", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-is also a short exact sequence of chain complexes. \tcbline
-\begin{proof}
-Notice that in the original short exact sequence, the sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {C_n(A)} & {C_n(X)} & {C_n(X,A)} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-is split exact. Since the Hom functor preserves split exact sequence, we have that the following sequence given by \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {C^n(X,A;G)} & {C^n(X)} & {C^n(A)} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["{j^\ast}", from=1-2, to=1-3]
-	\arrow["{i^\ast}", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-is also split exact. Therefore in particular the short exact sequence of chain complexes is short exact. 
-\end{proof}
-\end{lmm}
-
-\begin{thm}{Long Exact Sequence of Relative Cohomology Groups}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Then there is an exact sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-\cdots\arrow[r] & H^{n-1}(A)\arrow[r, "\partial"] & H^n(X,A)\arrow[r, "j^\ast"] & H^n(X)\arrow[r, "i^\ast"] & H^n(A)\arrow[r] & \cdots
-\end{tikzcd}}\\~\\
-where $\iota:A\to X$ is the inclusion map and $j:X\to X\setminus A$ is the quotient map. Moreover, the connecting homomorphism $\partial:H_{n-1}(A)\to H_n(X,A)$ is defined by ?????. \tcbline
-\begin{proof}
-Notice that \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {C^\bullet(X,A;G)} & {C^\bullet(X)} & {C^\bullet(A)} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["{j^\ast}", from=1-2, to=1-3]
-	\arrow["{i^\ast}", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-is a short exact sequence by the above lemma. Thus it induces a long exact sequence in cohomology groups. \\~\\
-
-Consider $[z]=z+C_n(A)\in C_n(X,A)$ a cycle in $C_n(X,A)$. The surjective map $j$ is the projection map so $j(z)=[z]$. Now $d(z)\in\ker(j)$ because $$j(d(z))=d(j(z))=d([z])=0$$ by assumption So $d(z)\in\ker(j)=\im(i)$. Since $i$ is the inclusion, $[d(z)]\in C_{n-1}(A)$ is precisely the element that $\partial$ maps $[z]$ to. 
-\end{proof}
 \end{thm}
 
 \subsection{Properties of Singular Cohomology}
@@ -2681,30 +2684,228 @@ Consider $[z]=z+C_n(A)\in C_n(X,A)$ a cycle in $C_n(X,A)$. The surjective map $j
 in cohomology. 
 \end{thm}
 
+\subsection{Relative Cohomology}
+\begin{defn}{Relative Cohomology Groups}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Define the relative cochain complex $$(C^\bullet(X,A;G),\partial^\ast)$$ with coefficients in $G$ to be the dual of the relative chain complex $(C_\bullet(X,A),\partial)$. Define the $n$th relative cohomology group of $X$ to be the quotient group $$H_n(X,A;G)=\frac{\ker(\partial^\ast:C^n(X,A;G)\to C^{n+1}(X,A;G))}{\im(\partial^\ast:C^{n-1}(X,A;G)\to C^n(X,A;G))}=H_n(C^\bullet(X,A;G))$$
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Then the $n$th term of the relative cochain complex is given by $$C^n(X,A;G)=\{\alpha:C_n(X)\to G\;|\;\alpha(\sigma)=0\text{ for all }\sigma\in C_n(X,A)\text{ such that }\im(\sigma)\subseteq A\}$$
+\end{lmm}
+
+\begin{thm}{Long Exact Sequence of Relative Cohomology Groups}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Then there is an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\cdots\arrow[r] & H^{n-1}(A;M)\arrow[r, "\partial"] & H^n(X,A;M)\arrow[r, "j^\ast"] & H^n(X;M)\arrow[r, "i^\ast"] & H^n(A)\arrow[r] & \cdots
+\end{tikzcd}}\\~\\
+where $\iota:A\to X$ is the inclusion map and $j:X\to X\setminus A$ is the quotient map. Moreover, the connecting homomorphism $\partial:H^{n-1}(A;M)\to H^n(X,A;M)$ is defined by ?????. \tcbline
+\begin{proof}
+Notice that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {C^\bullet(X,A;G)} & {C^\bullet(X)} & {C^\bullet(A)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{j^\ast}", from=1-2, to=1-3]
+	\arrow["{i^\ast}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is a short exact sequence by the above lemma. Thus it induces a long exact sequence in cohomology groups. \\~\\
+
+Consider $[z]=z+C_n(A)\in C_n(X,A)$ a cycle in $C_n(X,A)$. The surjective map $j$ is the projection map so $j(z)=[z]$. Now $d(z)\in\ker(j)$ because $$j(d(z))=d(j(z))=d([z])=0$$ by assumption So $d(z)\in\ker(j)=\im(i)$. Since $i$ is the inclusion, $[d(z)]\in C_{n-1}(A)$ is precisely the element that $\partial$ maps $[z]$ to. 
+\end{proof}
+\end{thm}
+
+\begin{prp}{}{} Let $X$ be a space. Let $B\subseteq A\subseteq X$ be subspaces. Let $j:B\hookrightarrow A$ and $i:A\hookrightarrow X$ be inclusions. Then \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {C_\bullet^\text{Sing}(A,B)} & {C_\bullet^\text{Sing}(X,B)} & {C_\bullet^\text{Sing}(A,B)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["i", from=1-2, to=1-3]
+	\arrow["j", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is a short exact sequence of chain complexes. 
+\end{prp}
+
+\begin{thm}{Long Exact Sequence of Triplet of Spaces}{} Let $X$ be a space. Let $B\subseteq A\subseteq X$ be subspaces. Let $j:B\hookrightarrow A$ and $i:A\hookrightarrow X$ be inclusions. Let $M$ be a $R$-module for some ring $R$. Then there is a long exact sequence in cohomology \\~\\
+\adjustbox{scale=0.8,center}{\begin{tikzcd}
+	\cdots & {H^{n-1}(A,B;M)} & {H^n(X,A;M)} & {H^n(X,B;M)} & {H^n(A,B;M)} & {H^{n+1}(X,A;M)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["\delta", from=1-2, to=1-3]
+	\arrow["{j^\ast}", from=1-3, to=1-4]
+	\arrow["{i^\ast}", from=1-4, to=1-5]
+	\arrow["\delta", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+induced by the dual of the short exact sequence of the above proposition. The map $\delta$ is given by the connecting homomorphism. 
+\end{thm}
+
+The connecting homomorphism $\partial$ in homology is related to the connecting homomorphism $\delta$ in the following way. 
+
+\begin{prp}{}{} Let $(X,A)$ be a pair of space. Let $M$ be a $R$-module for some ring $R$. Let $\partial:H_{n+1}(X,A)\to H_n(A)$ denote the connecting homomorphism in relative homology. Let $\delta:H^n(A;M)\to H^{n+1}(X,A;M)$ denote the connecting homomorphism in relative cohomology. Then the following diagram is commutative: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{H^n(A;M)} & {H^{n+1}(X,A;M)} \\
+	{\Hom_R(H_n(A),M)} & {\Hom_R(H_{n+1}(X,A);M)}
+	\arrow["\delta", from=1-1, to=1-2]
+	\arrow["h"', from=1-1, to=2-1]
+	\arrow["h", from=1-2, to=2-2]
+	\arrow["{\partial^\ast}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+where $h$ is the canonical homomorphism given by the universal coefficient theorem. 
+\end{prp}
+
 \subsection{The Cup Product}
 What separates singular cohomology from singular homology is that the abelian group arising from the cohomology groups has a natural structure of a ring. This in turns makes singular cohomology an invariant that associates to every space a graded ring, instead of just a sequence of abelian groups. \\~\\
 
 For this, we define the cup product which serves as multiplication between elements of the graded abelian groups. 
 
-\begin{defn}{Cup Product}{} Let $X$ be a space. Let $R$ be a ring. Let $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Define the cup product to be $\phi\smile\psi:C^{k+l}(X;R)\to R$ where for $\sigma=[v_0,\dots,v_{k+l}]$, we have that $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_k]})\cdot\psi(\sigma|_{[v_k,\dots,v_{k+l}]})$$
+\begin{defn}{Cup Product}{} Let $X$ be a space. Let $R$ be a ring. Let $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Define the cup product to be $\phi\smile\psi:C^{k+l}(X;R)\to R$ where for $\sigma=[v_0,\dots,v_{k+l}]$, we have that $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_k]})\cdot\psi(\sigma|_{[v_k,\dots,v_{k+l}]})$$ and then extended $R$-linearly. 
 \end{defn}
 
 Notice that the cup product is defined in terms of the singular complexes, therefore this definition only works for chain complexes that arise from a space. Moreover, the cup product is only defined when we take singular cohomology in a ring instead of an abelian group. 
 
-\begin{prp}{}{} Let $X$ be a space. Let $R$ be a ring. Let $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Then we have that $$\delta(\phi\smile\psi)=\delta\phi\smile\psi+(-1)^k\phi\smile\delta\psi$$
+\begin{lmm}{}{} Let $X$ be a space. Let $R$ be a ring. Let $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Then we have that $$\delta(\phi\smile\psi)=\delta\phi\smile\psi+(-1)^k\phi\smile\delta\psi$$ \tcbline
+\begin{proof}
+Let $\sigma:\Delta^{k+1+l}\to X$ be a singular $(k+1+l)$-simplex. We have that 
+\begin{align*}
+(\delta\phi\smile\psi)(\sigma)&=\delta(\phi)(\sigma|_{v_0,\dots,v_{k+1}})\cdot\psi(\sigma|_{v_{k+1},\dots,v_{k+1+l}})\\
+&=\phi(\partial(\sigma|_{v_0,\dots,v_{k+1}}))\cdot\psi(\sigma|_{v_{k+1},\dots,v_{k+1+l}})\\
+&=\phi\left(\sum_{i=0}^{k+1}(-1)^i\sigma|_{v_0,\dots,\hat{v}_i,\dots,v_{k+1}}\right)\cdot\psi(\sigma|_{v_{k+1},\dots,v_{k+1+l}})\\
+&=\sum_{i=0}^{k+1}(-1)^i\phi(\sigma|_{v_0,\dots,\hat{v}_i,\dots,v_{k+1}})\cdot\psi(\sigma|_{v_{k+1},\dots,v_{k+1+l}})
+\end{align*}
+and 
+\begin{align*}
+(-1)^k\left(\phi\smile\delta(\psi)\right)(\sigma)&=\phi(\sigma|_{v_0,\dots,v_k})\cdot(\psi(\partial\sigma|_{v_k,\dots,v_{k+1+l}}))\\
+&=\phi(\sigma|_{v_0,\dots,v_k})\cdot((-1)^k\psi(\partial\sigma|_{v_k,\dots,v_{k+1+l}}))\\
+&=\phi(\sigma|_{v_0,\dots,v_k})\cdot\psi\left(\sum_{j=k}^{k+1+l}(-1)^j\sigma|_{v_k,\dots,\hat{v}_j,\dots,v_{k+1+l}}\right)\\
+&=\phi(\sigma|_{v_0,\dots,v_k})\cdot\sum_{j=k}^{k+1+l}(-1)^j\psi(\sigma|_{v_k,\dots,\hat{v}_j,\dots,v_{k+1+l}})
+\end{align*}
+Notice that the last term of the first sum cancels out the first term of the second sum. Thus we have 
+\begin{align*}
+&\;\;\;\;(\delta\phi\smile\psi)(\sigma)+(-1)^k\left(\phi\smile\delta(\psi)\right)(\sigma)\\
+&=\sum_{i=0}^{k+1}(-1)^i\phi(\sigma|_{v_0,\dots,\hat{v}_i,\dots,v_{k+1}})\cdot\psi(\sigma|_{v_{k+1},\dots,v_{k+1+l}})+\phi(\sigma|_{v_0,\dots,v_k})\cdot\sum_{j=k}^{k+1+l}(-1)^j\psi(\sigma|_{v_k,\dots,\hat{v}_j,\dots,v_{k+1+l}})\\
+&=\sum_{i=0}^k(-1)^i\phi(\sigma|_{v_0,\dots,\hat{v}_i,\dots,v_{k+1}})\cdot\psi(\sigma|_{v_{k+1},\dots,v_{k+1+l}})+\phi(\sigma|_{v_0,\dots,v_k})\cdot\sum_{j=k+1}^{k+1+l}(-1)^j\psi(\sigma|_{v_k,\dots,\hat{v}_j,\dots,v_{k+1+l}})\\
+&=(\phi\smile\psi)(\partial\sigma)\\
+&=\delta(\phi\smile\psi)(\sigma)
+\end{align*}
+and so we conclude. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $X$ be a space. Let $R$ be a ring. Then the cup product $$\smile:H^m(X;R)\times H^n(X;R)\to H^{m+n}(X;R)$$ descends to homology and is well defined. \tcbline
+\begin{proof}
+By the universal property of quotients, we just have to show the following: 
+\begin{itemize}
+\item If $\phi$ and $\psi$ are cochains, then $\phi\smile\psi$ is a cochain
+\item If either $\phi$ or $\psi$ are coboundaries, then $\phi\smile\psi$ is a coboundary. 
+\end{itemize}
+So let $\phi$ and $\psi$ are cochains. Then $\delta(\phi)=0$ and $\delta(\psi)=0$. By the above lemma, we have that $$\delta(\phi\smile\psi)=0\smile\psi+(-1)^n\phi\smile 0=0$$ Hence we are done. \\~\\
+
+If $\phi$ is a coboundary, then there exists $\alpha\in C^{n-1}(X;R)$ such that $\delta(\alpha)=\phi$. Then we have that $$\delta(\alpha\smile\psi)=\phi\smile\psi+(-1)^{n-1}\alpha\smile 0=\psi\smile\psi$$ so that $\phi\smile\psi$ is a coboundary. If $\psi$ is a coboundary, then there exists $\beta\in C^{m-1}(X;R)$ such that $\delta(\beta)=\psi$. Then we have that $$\delta(\phi\smile\beta)=0\smile\beta+(-1)^n\phi\smile\psi$$ so that $\phi\smile\psi$ is a coboundary. 
+\end{proof}
 \end{prp}
 
-\begin{lmm}{}{} Let $X$ be a space. Let $R$ be a ring. Then the cup product $$\smile:H^m(X;R)\times H^n(X;R)\to H^{m+n}(X;R)$$ descends to homology and is well defined. 
-\end{lmm}
+\begin{prp}{}{} Let $X$ be a space and let $R$ be a commutative ring. If $\phi\in H^m(X;R)$ and $\psi\in H^n(X;R)$, then $$\phi\smile\psi=(-1)^{mn}\psi\smile\phi$$ \tcbline
+\begin{proof}
+
+\end{proof}
+\end{prp}
+
+It is important to note that the above proposition (graded commutativity) is only true when $R$ is a commutative ring. 
+
+\begin{thm}{The Cohomology Ring}{} Let $X$ be a topological space and $R$ a commutative ring with identity. Then the direct sum of abelian groups $$H^\ast(X;R)=\bigoplus_{i=0}^\infty H^i(X;R)$$ is a graded commutative ring with identity $1_R\in H^0(X;R)$. The product is given by the cup product $$\smile:H^m(X;R)\times H^n(X;R)\to H^{m+n}(X;R)$$ defined by $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_n]})\cdot\psi(\sigma|_{[v_n,\dots,v_{n+m}]})$$ Moreover, $H^\ast(X;R)$ is an $R$-algebra. \tcbline
+\begin{proof}
+\end{proof}
+\end{thm}
 
 \begin{lmm}{}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a map. Let $R$ be a ring. Then the induced map $f^\ast:H^n(Y;R)\to H^n(X;R)$ satisfies $f^\ast(\phi\smile\psi)=f^\ast(\phi)\smile f^\ast(\psi)$. 
 \end{lmm}
 
-\begin{prp}{}{} Let $X$ be a space and let $R$ be a ring. If $\phi\in H^m(X;R)$ and $\psi\in H^n(X;R)$, then $$\phi\smile\psi=(-1)^{mn}\psi\smile\phi$$
+\begin{defn}{The Relative Cup Product}{} Let $X$ be a space. Let $A,B\subseteq X$ be open. Let $R$ be a ring. Define the relative cup product of $A$ and $B$ to be the map $$\smile:H^k(X,A;R)\times H^l(X,B;R)\to H^{k+l}(X,A\cup B;R)$$ by the formula $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_k]})\cdot\psi(\sigma|_{[v_k,\dots,v_{k+l}]})$$ for $\phi\in C_\text{Sing}^k(X,A;R)$ and $\psi\in C_\text{Sing}^l(X,B;R)$. 
+\end{defn}
+
+In particular, notice that this is the same formula for the (absolute) cup product, other than the fact that the domain of the two inputs are restricted. But we also want to show that this map is well defined in the sense that the codomain is given correctly. 
+
+\begin{lmm}{}{} Let $X$ be a space. Let $A,B\in X$ be open. Let $R$ be a ring. Then the relative cup product $$\smile:H^k(X,A;R)\times H^l(X,B;R)\to H^{k+l}(X,A\cup B;R)$$ is well defined. \tcbline
+\begin{proof}
+Let $\phi\in C_\text{Sing}^k(X,A;R)$ and $\psi\in C_\text{Sing}^l(X,B;R)$. Then $\phi$ vanishes on any simplexes in $A$. Likewise $\psi$ vanishes on any simplexes in $B$. Recall in the proof of excision that $C^n(X,A+B;R)$ is the subgroup of $C^n(X;R)$ consisting of cochains that vanish on sums of chains in $A$ and sums of chains in $B$. We conclude that $\phi\smile\psi\in C^{k+l}(X,A+B;R)$. So now our cup product is well-defined in the following way: $$\smile:C^k(X,A;R)\times C^l(X,B;R)\to C^{k+l}(X,A+B;R)$$ Moreover, they descend to their respective cohomology groups in the same way as 11.4.3. \\~\\
+
+Recall from singular homology that the following two horizontal sequences are exact: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {C_n(A\cup B)} & {C_n(X)} & {C_n(X,A\cup B)} & 0 \\
+	0 & {C_n(A+B)} & {C_n(X)} & {C_n(X,A+B)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow[two heads, from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=2-1, to=2-2]
+	\arrow[hook, from=2-2, to=2-3]
+	\arrow[two heads, from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}}\\~\\
+Dualizing also gives two short exact sequence of chain complexes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {C^n(X,A\cup B;R)} & {C^n(X;R)} & {C^n(A\cup B;R)} & 0 \\
+	0 & {C^n(X,A+B;R)} & {C^n(X;R)} & {C^n(A+B;R)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow[two heads, from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=2-1, to=2-2]
+	\arrow[hook, from=2-2, to=2-3]
+	\arrow[two heads, from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}}\\~\\
+Now recall from 4.3.7 that the inclusion $C_\bullet(A+B)\to C_\bullet(A\cup B)$ is chain homotopic to the identity map. Dualizing the inclusion gives a restriction map $C^\bullet(A\cup B)\to C^\bullet(A+B)$ that is chain homotopic to the identity. By naturality of the connecting homomorphism, we now obtain the following diagram: \\~\\
+\adjustbox{scale=0.8,center}{\begin{tikzcd}
+	\cdots & {H^n(X,A\cup B;R)} & {H^n(X;R)} & {H^n(A\cup B;R)} & {H^{n+1}(X,A\cup B;R)} & {H^{n+1}(X;R)} & \cdots \\
+	\cdots & {H^n(X,A+B;R)} & {H^n(X;R)} & {H^n(A+B;R)} & {H^{n+1}(X,A+B;R)} & {H^{n+1}(X;R)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\cong"', from=1-2, to=2-2]
+	\arrow[from=1-3, to=1-4]
+	\arrow["\cong"{description}, from=1-3, to=2-3]
+	\arrow["\delta", from=1-4, to=1-5]
+	\arrow[from=1-4, to=2-4]
+	\arrow[from=1-5, to=1-6]
+	\arrow["\cong"', from=1-5, to=2-5]
+	\arrow[from=1-6, to=1-7]
+	\arrow["\cong"{description}, from=1-6, to=2-6]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+	\arrow["\delta", from=2-4, to=2-5]
+	\arrow[from=2-5, to=2-6]
+	\arrow[from=2-6, to=2-7]
+\end{tikzcd}}\\~\\
+By the 5-lemma, we conclude that the middle map is an isomorphism and so we conclude. 
+\end{proof}
+\end{lmm}
+
+\begin{thm}{The Relative Cohomology Ring}{} Let $X$ be a topological space and $R$ a commutative ring with identity. Then the direct sum of abelian groups $$H^\ast(X;R)=\bigoplus_{i=0}^\infty H^i(X;R)$$ is a graded commutative ring with identity $1_R\in H^0(X;R)$. The product is given by the cup product $$\smile:H^m(X;R)\times H^n(X;R)\to H^{m+n}(X;R)$$ defined by $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_n]})\cdot\psi(\sigma|_{[v_n,\dots,v_{n+m}]})$$ Moreover, $H^\ast(X;R)$ is an $R$-algebra. \tcbline
+\begin{proof}
+\end{proof}
+\end{thm}
+
+\begin{prp}{}{} Let $X$ be a space. Let $R$ be a ring. Let $\{U_k\;|\;1\leq k\leq n\}$ be the smallest open cover of $X$ such that each inclusion $U_k\hookrightarrow X$ is null-homotopic. Let $x_k\in H^{i_k}(X;R)$ for some $i_k\in\N$ and $1\leq j\leq n$. Then $$x_1\smile\cdots\smile x_n=0$$ \tcbline
+\begin{proof}
+For each $U_k$ in the open cover, notice that $U_k\hookrightarrow X$ begin null-homotopic implies that the long exact sequence in relative cohomology becomes \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {H^{i_j}(X,U_k)} & {H^{i_j}(X)} & {H^{i_j}(U_k)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["0", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+which also implies that $H^{i_j}(X,U_k)\to H^{i_j}(X)$ is surjective. Thus by taking the product, we have that the map $$H^{i_1}(X,U_1)\times\cdots\times H^{i_n}(X,U_n)\to H^{i_1}(X)\times\cdots\times H^{i_n}(X)$$ is surjective. Now by surjectivity, there exists a lift $(\tilde{x}_1,\dots,\tilde{x}_n)\in H^{i_1}(X,U_1)\times\cdots\times H^{i_n}(X,U_n)$ of $(x_1,\dots,x_n)$. Now using the relative version of the cup product, we obtain a commutative diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\prod_{k=1}^nH^{i_k}(X;R)} & {H^{i_1+\dots+i_n}(X;R)} \\
+	{\prod_{k=1}^nH^{i_k}(X,U_k;R)} & {H^{i_1+\dots+i_n}(X,U_1\cup\cdots\cup U_n;R)}
+	\arrow["\smile", from=1-1, to=1-2]
+	\arrow[two heads, from=2-1, to=1-1]
+	\arrow["\smile", from=2-1, to=2-2]
+	\arrow[two heads, from=2-2, to=1-2]
+\end{tikzcd}}\\~\\
+(why is it natural / commutative) But $X=\bigcup_{i=1}^nU_i$ implies that $H^{i_1+\dots+i_n}(X,U_1\cup\cdots\cup U_n;R)=0$. Thus $(x_1,\dots,x_n)$ is mapped to the $0$ element. 
+\end{proof}
 \end{prp}
 
-\begin{thm}{The Cohomology Ring}{} Let $X$ be a topological space and $R$ a commutative ring with identity. Then $$H^\ast(X;R)=\bigoplus_{i=0}^\infty H^i(X;R)$$ is a graded commutative ring with identity under the cup product. Moreover, $H^\ast(X;R)$ is an $R$-algebra. 
-\end{thm}
+Such a number $n$ is called the Lusternik-Schnirelmann category of $X$. 
 
 \subsection{The Kunneth Formula}
 \begin{defn}{The Cross Product}{} Let $X,Y$ be topological spaces. Denote $p_1:X\times Y\to X$ and $p_2:X\times Y\to Y$ the projection maps. Define the cross product of $x\in H^m(X;R)$ and $y\in H^m(Y;R)$ for a ring $R$ to be $$x\times y=p_1^\ast(x)\smile p_2^\ast(y)$$ where $x\times y\in H^{m+n}(X\times Y;R)$. 
@@ -2768,18 +2969,6 @@ Define similar the homotopy category $\bold{hTop}_\ast$ of pointed topological s
 \subsection{Categorical Constructs in the Category of Spaces}
 We have seen pushouts and pullbacks in Category Theory 1. Let us first recall them. 
 
-\begin{defn}{Pullbacks and Pushouts}{} A pullback space is the limit of a diagram $X:\mJ\to\bold{Top}$ where $\mJ=\left(\cdot\rightarrow\cdot\leftarrow\cdot\right)$. We denote the limit in this case as $$\lim_\mJ X=C\times_DB$$ Dually, a pushout is the colimit of a diagram $X:\mJ^{\text{op}}\to\bold{Top}$, where $\mJ=\left(\cdot\leftarrow\cdot\rightarrow\cdot\right)$. We denote the colimit in this case as $$\colim_\mJ X=C\amalg_DB$$~\\
-
-In particular, the universal product of limits means that for any space $X$ together with maps $\lambda_C:X\to C$ and $\lambda_B:X\to B$ such that $f\circ\lambda_C=g\circ\lambda_D$, there exists a unique $u:X\to C\times_DB$ such that the following diagram commutes (Dually, the diagram on the right): \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-X\arrow[rrdd, "\lambda_C", bend left=25]\arrow[ddddr, "\lambda_B"', bend right=25]\arrow[rdd, "\exists!u", dashed] & & & & & & X & & \\
- &&&&&&&&\\
- & C\times_DB\arrow[dd, "\pi_B"]\arrow[r, "\pi_C"] & C\arrow[dd, "f"] & & & & & C\amalg_DB\arrow[luu, "\exists!u"', dashed] & C\arrow[l, "\iota_C"']\arrow[lluu, "\lambda_C"', bend right=25]\\
- &&&&&&&&\\
- & B\arrow[r, "g"] & D & & & & & B\arrow[uu, "\iota_B"']\arrow[uuuul, "\lambda_B", bend left=25] & D\arrow[l, "g"']\arrow[uu, "f"']
-\end{tikzcd}}\\~\\
-\end{defn}
-
 \begin{defn}{Adjunction Spaces}{} Let $X,Y$ be spaces and $A\subseteq X$ a subspace. Let $f:A\to Y$ be a map. Define the adjunction space of $X$ and $Y$ to be  the space $$X\amalg_fY=\frac{X\amalg Y}{a\sim f(a)}$$ together with the quotient topology. 
 \end{defn}
 
@@ -2811,6 +3000,8 @@ The final CW complex $X$ is then obtained by the union with the weak topology. B
 \begin{prp}{}{} Let $X,Y$ be spaces with chosen base point $x_0$ and $y_0$ respectively. Then the wedge product $$X\vee Y=X\amalg_fY$$ is an adjunction space with $Z=\{x_0\}$ and map $f:Z\to Y$ defined by $f(x_0)=y_0$. 
 \end{prp}
 
+\pagebreak
+\section{Suspensions and Loopspaces}
 \subsection{Suspensions of a Space}
 \begin{defn}{Reduced Suspension}{} Let $(X,x_0)$ be a pointed space. Define the reduced suspension of $X$ to be the space $$\Sigma X=\frac{X\times I}{(X\times\{0\}\cup X\times\{1\}\cup\{x_0\}\times I)}$$ together with the base point as the equivalence class in the quotient. 
 \end{defn}
@@ -2824,6 +3015,59 @@ By definition of quotients, the reduced suspension defines a canonical continuou
 \item For the homotopy category, $\Sigma$ sends a homotopy class of maps $[X,Y]$ to $$[\Sigma X,\Sigma Y]$$ respectively given by the same formula as above
 \end{itemize}
 \end{thm}
+
+\begin{defn}{Unreduced Suspensions}{} Let $X$ be a space. Define the unreduced suspension of $X$ to be the space $$SX=\frac{X\times I}{X\times\{0\},X\times\{1\}}$$
+\end{defn}
+
+\subsection{The Construction of the Loop Space}
+\begin{defn}{Compact Open Topology}{} Let $X,Y$ be spaces. Define the compact open topology on the set $$\Hom_\bold{Top}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}$$ as follows. For $K\subseteq X$ compact and $U\subseteq Y$ open, consider the fiber product $$V(K,U)=\Hom_\bold{Top}(K,U)\times_{\Hom_\bold{Top}(K,Y)}\Hom_\bold{Top}(X,Y)$$ The collection of all $V(K,U)$ running through $K$ and $U$ forms the subbase for the compact open topology on $\Hom_\bold{Top}(X,Y)$. 
+\end{defn}
+
+\begin{defn}{Loop Spaces}{} Let $(X,x_0)$ be a pointed space. Define the loop space of $(X,x_0)$ to be $$\Omega X=\Hom_\bold{Top}(S^1,X)$$ together with the compact open topology and base point the constant loop $c_{x_0}$. 
+\end{defn}
+
+\begin{thm}{}{} The construction of the loopspace $\Omega$ define functors on $\bold{Top}_\ast$ and $\bold{hTop}_\ast$ as follows. 
+\begin{itemize}
+\item $\Omega$ sends a pointed space $(X,x_0)$ to $$(\Omega X,c_{x_0})$$
+\item For the non homotopy category, $\Omega$ sends a map $f:X\to Y$ to $$\Omega f:\Omega X\to\Omega Y$$ defined by $\Omega f(\gamma)=f\circ\gamma$. 
+\item For the homotopy category, $\Omega$ sends a homotopy class of maps $[X,Y]$ to $$[\Omega X,\Omega Y]$$ respectively given by the same formula as above. 
+\end{itemize}
+\end{thm}
+
+\begin{lmm}{}{} Let $G$ be an abelian group and let $n\in\N$. Then there is a homeomorphism $$\Omega K(G,n)\cong K(G,n-1)$$
+\end{lmm}
+
+\subsection{The Suspension-Loopspace Adjunction}
+\begin{thm}{The Suspension-Loopspace Adjunction}{} The functor $\Sigma:\bold{Top}_\ast\to\bold{Top}_\ast$ is a left adjoint to the functor $\Omega:\bold{hTop}_\ast\to\bold{hTop}_\ast$. Explicitly, if $X,Y$ are pointed spaces, there is a natural bijection of sets $$\Hom_\bold{Top_\ast}(\Sigma X,Y)\cong\Hom_\bold{Top_\ast}(X,\Omega Y)$$ Moreover, the bijection induces a homeomorphism if we equip both sides with the compact open topology. 
+\end{thm}
+
+\begin{thm}{}{} The suspension-loopspace adjunction $$\Sigma:\bold{Top}_\ast\rightleftarrows\bold{Top}_\ast:\Omega$$ induces an adjunction in the homotopy category $$\Sigma:\bold{hTop}_\ast\rightleftarrows\bold{hTop}_\ast:\Omega$$ Explicitly, there is a natural bijection given by $$[\Sigma X,Y]_\ast\cong[X,\Omega Y]_\ast$$
+\end{thm}
+
+Switzer / Hatcher\\
+
+By the set bijection $[\Sigma^nX,Y]_\ast\cong[X,\Omega^nY]_\ast$, we can endow the structure of a group on $[\Sigma^nX,Y]_\ast$. 
+
+\subsection{(Co)Homology of Suspensions and Loopspaces}
+\begin{prp}{}{} Let $X$ be a space. Then the suspension map induces natural isomorphisms $$\widetilde{H}_{k+1}(\Sigma X)\cong\widetilde{H}(X)$$ for $k\geq -1$. 
+\end{prp}
+
+\begin{prp}{}{} Let $X$ be a space. The the unreduced suspension map induces natural isomorphisms $$H_{k+1}(SX)\cong H_k(SX)$$ for $k\geq 1$. Moreover, the following are true. 
+\begin{itemize}
+\item There is an isomorphism $H_0(X)\cong H_1(SX)\oplus\Z$
+\item $H_0(SX)\cong\Z$. 
+\end{itemize}
+\end{prp}
+
+\subsection{Group Structure on the Set of Maps}
+\begin{defn}{Group Structure on Loop Spaces}{} Let $X$ be a space. Define a group structure on $\Omega X$ as follows. Let $\cdot:\Omega X\times\Omega X\to\Omega X$ be defined as the concatenation: $(f,g)\mapsto f\cdot g$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X,Y$ be spaces. Then the group structure on $\Omega Y$ endows $[X,\Omega Y]_\ast$ with a group structure defined as follows. The binary operation $+:[X,\Omega Y]_\ast\times[X,\Omega Y]_\ast\to[X,\Omega Y]_\ast$ is defined by $$([f],[g])\mapsto[f+g]$$ where $f+g:X\to\Omega Y$ is defined by $(f+g)(x)=f(x)\cdot g(x)$. 
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y$ be spaces. Then for $n\geq 2$, the group $$[X,\Omega^n Y]_\ast$$ is abelian. 
+\end{prp}
 
 \pagebreak
 \section{Homology and Cohomology Theories}
@@ -2878,6 +3122,7 @@ By adding on the axiom of weak equivalence and the fact that every space admits 
 
 However, note that in this case some of the working homology theories are not a generalized homology theory in this sense (when we encounter the dual notion, sheaf cohomology is not a generalized cohomology theory). 
 
+\subsection{Ordinary Homology Theories}
 \begin{defn}{Ordinary Homology Theory}{} Let $G$ be an abelian group. If a generalized homology theory $(h_n,\delta_n)$ in addition satisfies 
 \begin{itemize}
 \item Dimension: $$h_n(\ast)=\begin{cases}
@@ -2917,7 +3162,7 @@ where $\iota:A\to X$ is the inclusion and $p:X\to X/A$ is the projection.
 
 \item Suspension: There is a natural isomorphism $$\Sigma:\widetilde{h}_n(X,x_0)\overset{\cong}{\longleftrightarrow}\widetilde{h}_{n+1}(\Sigma X,\ast)$$
 
-\item Additivity: If $X=\coprod_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}_n(X_i)\cong\widetilde{h}_n(X)$$ is an isomorphism
+\item Additivity: If $X=\bigvee_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}_n(X_i)\cong\widetilde{h}_n(X)$$ is an isomorphism
 \end{itemize}
 \end{defn}
 
@@ -2951,13 +3196,13 @@ Thus we have showed that under the conditions of all the given axioms of all suc
 
 Some authors indeed does not require the weak equivalence axiom to exist. In such cases the bijection between generalized homology theories and reduced homology theories can be constructed, but there is no passage between homology of CW complexes and homology of spaces in general. 
 
-\subsection{Cohomology Theories}
+\subsection{Generalized Cohomology Theories}
 \begin{defn}{Generalized Cohomology Theory for CW Pairs}{} A Generalized cohomology theory is a collection of contravariant functors and natural transformations $$h^n:\bold{CW}_2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n\circ F\Rightarrow h^{n+1}(X,A)$$ where $F(X,A)=(A,\emptyset)$, for each $n\in\N$ such that the following are true. 
 \begin{itemize}
 \item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h^n(f)=h^n(g):h^n(X,A)\to h^n(Y,B)$$
 \item Exactness: If $X$ is a CW-complex and $A\subseteq X$, then there is a short exact sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {h^n(X/A)} & {h^n(X)} & {h^n(A)} & {h^{n+1}(X/A)} & {h^{n+1}(X)} & \cdots
+\adjustbox{scale=0.95,center}{\begin{tikzcd}
+	\cdots & {h^n(X,A)} & {h^n(X,\emptyset)} & {h^n(A,\emptyset)} & {h^{n+1}(X,A)} & {h^{n+1}(X,\emptyset)} & \cdots
 	\arrow[from=1-1, to=1-2]
 	\arrow[from=1-2, to=1-3]
 	\arrow[from=1-3, to=1-4]
@@ -2976,6 +3221,7 @@ Some authors indeed does not require the weak equivalence axiom to exist. In suc
 \end{itemize}
 \end{defn}
 
+\subsection{Ordinary Cohomology Theories}
 \begin{defn}{Ordinary Cohomology Theory}{} Let $G$ be an abelian group. If a generalized cohomology theory $(h^n,\delta^n)$ in addition satisfies 
 \begin{itemize}
 \item Dimension: $$h^n(\ast)=\begin{cases}
@@ -2986,6 +3232,7 @@ G & \text{ if } n=0\\
 Then $h_n$ is called an ordinary homology theory. 
 \end{defn}
 
+\subsection{Reduced Cohomology Theories}
 \begin{defn}{Reduced Cohomology Theory for CW Complexes}{} A reduced cohomology theory is a collection of contravariant functors $$\widetilde{h}^n:\bold{CW}\to\bold{Ab}$$ satisfying the following. 
 \begin{itemize}
 \item Homotopy Invariance: If $f\simeq g:X\to Y$ then $$\widetilde{h}^n(f)=\widetilde{h}^n(g):\widetilde{h}^n(X)\to\widetilde{h}^n(Y)$$
@@ -3000,7 +3247,7 @@ Then $h_n$ is called an ordinary homology theory.
 	\arrow[from=1-6, to=1-7]
 \end{tikzcd}}\\~\\
 where $\iota:A\to X$ is the inclusion and $\pi:X\to X/A$ is the projection. 
-\item Additivity: If $X=\coprod_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}^n(X_i)\cong\widetilde{h}^n(X)$$ is an isomorphism
+\item Additivity: If $X=\bigvee_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}^n(X_i)\cong\widetilde{h}^n(X)$$ is an isomorphism
 \item Suspension: There is an isomorphism $$\widetilde{h}^n(\Sigma):\widetilde{h}^n(X)\overset{\cong}{\longrightarrow}\widetilde{h}^{n+1}(\Sigma X)$$
 \end{itemize}
 \end{defn}

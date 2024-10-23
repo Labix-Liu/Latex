@@ -61,7 +61,20 @@ By the above proposition, we conclude that $M$ is the unique maximal ideal of $k
 
 We will discuss more of local rings in the topic of localizations. 
 
-\subsection{Revisiting Ideals}
+\subsection{Hilbert's Basis Theorem}
+\begin{prp}{}{} If $A$ is a Noetherian and $\phi$ is a homomorphism of $A$ onto a ring $B$, then $B$ is Noetherian. 
+\end{prp}
+
+\begin{thm}{Hilbert's Basis Theorem}{} If $R$ is a Noetherian ring, then $R[x_1,\dots,x_n]$ is a Noetherian ring. 
+\end{thm}
+
+\begin{prp}{}{} Let $R$ be a Noetherian ring and $I$ be an ideal in $R$. Then $R/I$ is Noetherian. 
+\end{prp}
+
+\begin{thm}{}{} Let $R=\bigoplus_{i=1}^nR_i$ be a graded ring. Then $R$ is Noetherian if and only if $R_0$ is Noetherian and $R$ is finitely generated as an $R_0$-module. 
+\end{thm}
+
+\subsection{Operations on Ideals}
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $S,T\subseteq R$ be subsets of $R$. Then $$\langle S\cup T\rangle=\langle S\rangle +\langle T\rangle$$
 \end{prp}
 
@@ -81,8 +94,6 @@ Indeed, the ideal $(x^2+2)$ corresponds to the ideal $(3)$ in $\frac{\Z[x]}{(x+1
 
 Some more important results from Groups and Rings and Rings and Modules include: 
 \begin{itemize}
-\item $I$ is a prime ideal if and only if $R/I$ is an integral domain. 
-\item $I$ is a maximal ideal if and only if $R/I$ is a field. 
 \item If $I$ and $J$ are coprime, then $IJ=I\cap J$
 \item Chinese Remainder Theorem: If $I$ and $J$ are coprime, then there is an isomorphism $$\frac{R}{I\cap J}\cong\frac{R}{I}\times\frac{R}{J}$$
 \end{itemize}
@@ -192,6 +203,19 @@ By the correspondence theorem, $(x,y)/(x^2-y)$ is an maximal ideal of $R$. In pa
 \end{proof}
 \end{eg}
 
+\begin{defn}{Reduced Rings}{} Let $R$ be a commutative ring. We say that $R$ is reduced if $N(R)=0$. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Then $R/I$ is reduced if and only if $I$ is a radical ideal. 
+\end{prp}
+
+So radical, prime and maximal ideals all have characterizations using the quotient ring: 
+\begin{itemize}
+\item $I$ is maximal if and only if $R/I$ is a field. 
+\item $I$ is prime if and only if $R/I$ is an integral domain. 
+\item $I$ is radical if and only if $R/I$ is reduced. 
+\end{itemize}
+
 Recall the notion of the Jacobson radical from Rings and Modules. Let $R$ be a ring. The Jacobson radical of $R$ is the radical $$J(R)=\text{rad}(R)=\bigcap_{\substack{S\trianglelefteq R\\R\text{ is cosimple}}}S$$ of $R$ considered as a left $R$-module. But when $R$ is a commutative ring, this description can be simplified. 
 
 \begin{prp}{}{} Let $R$ be a commutative ring. Then $$J(R)=\bigcap_{\substack{m\text{ is a}\\\text{maximal ideal}}}m$$ \tcbline
@@ -269,6 +293,69 @@ Regarding ideals of the polynomial ring, the following maybe useful:
 \item There is an isomorphism $\frac{R[x]}{I[x]}\cong\frac{R}{I}[x]$ given by the map $\left(f=\sum_{k=0}^na_kx^k+I[x]\right)\mapsto\left(\sum_{k=0}^n(a_k+I)x^k\right)$
 \item If $I$ is a prime ideal of $R$, then $I[x]$ is a prime ideal of $R[x]$. 
 \end{itemize}
+
+\pagebreak
+\section{Simplifying Generators of an Ideal}
+\subsection{Ordering on the Monomials}
+Recall that a monomial in $R[x_1,\dots,x_n]$ is an element in the polynomial ring of the form $x_1^{a_1}\cdots x_n^{a_n}$. For simplicity we write this as $x^{(a_1,\dots,a_n)}$. 
+
+\begin{defn}{Monomial Ordering}{} A monomial ordering on a polynomial ring $k[x_1,\dots,x_n]$ is a relation $>$ on $\N^n$. This means that the following are true. 
+\begin{itemize}
+\item $>$ is a total ordering on $\N^n$
+\item If $a>b$ and $c\in\N^n$ then $a+c>b+c$
+\item $>$ is a well ordering on $\N^n$ (any nonempty subset of $\N^n$ has a smallest element)
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Lexicographical Order}{} Let $a=(a_1,\dots,a_n)$ and $b=(b_1,\dots,b_n)$ in $\N^n$. We say that $a>_{\text{lex}}b$ if in the first nonzero entry of $a-b$ is positive. 
+\end{defn}
+
+In practise this means that the we value more powers of $x_1$
+
+\begin{defn}{Graded Lex Order}{} Let $a=(a_1,\dots,a_n)$ and $b=(b_1,\dots,b_n)$ in $\N^n$. We say that $a>_{\text{grlex}}b$ if either of the following holds. 
+\begin{itemize}
+\item $\abs{a}=\sum_{k=1}^na_k>\sum_{k=1}^nb_k=\abs{b}$
+\item $\abs{a}=\abs{b}$ and $a>_{\text{lex}}b$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Graded Lex Order}{} Let $a=(a_1,\dots,a_n)$ and $b=(b_1,\dots,b_n)$ in $\N^n$. We say that $a>_{\text{grlex}}b$ if either of the following holds. 
+\begin{itemize}
+\item $\abs{a}=\sum_{k=1}^na_k>\sum_{k=1}^nb_k=\abs{b}$
+\item $\abs{a}=\abs{b}$ and the last nonzero entry of $a-b$ is negative. 
+\end{itemize}
+\end{defn}
+
+In practise we value lower powers of the last variable $x_n$. 
+
+\begin{prp}{}{} The above three orders are all monomial orderings of $k[x_1,\dots,x_n]$. 
+\end{prp}
+
+\begin{defn}{Multidegree}{} Let $f\in k[x_1,\dots,x_n]$ be a polynomial in the form $f=\sum_{v\in\N^n}c_vx^v$. Define the multidegree of $f$ to be $$\text{multideg}(f)=\max_>\{v\in\N^n|a_v\neq 0\}$$ where $>$ is a monomial ordering on $k[x_1,\dots,x_n]$. 
+\end{defn}
+
+\begin{defn}{Leading Objects}{} Let $f\in k[x_1,\dots,x_n]$ be a polynomial in the form $f=\sum_{v\in\N^n}c_vx^v$. 
+\begin{itemize}
+\item Define the leading coefficient of $f$ to be $\text{LC}(f)=c_\text{multideg(f)}\in k$
+\item Define the leading monomial of $f$ to be $\text{LM}(f)=c_\text{multideg(f)}\in k$
+\item Define the leading term of $f$ to be $\text{LT}=\text{LC}(f)\cdot\text{LM}(f)$
+\end{itemize}
+\end{defn}
+
+\begin{prp}{Division Algorithm in $k[x_1,\dots,x_n]$}{}
+\end{prp}
+
+\subsection{Monomial Ideals}
+\begin{defn}{Monomial Ideals}{} An ideal $I\subset k[x_1,\dots,x_n]$ is said to be a monomial ideal if $I$ is generated by a set of monomials $\{x^v|v\in A\}$ for some $A\subset\N^n$. In this case we write $$I=\langle x^v|v\in A\rangle$$
+\end{defn}
+
+\begin{lmm}{}{} Let $I=\langle x^v|v\in A\rangle$ be an ideal of $k[x_1,\dots,x_n]$. Then a monomial $x^w$ lies in $I$ if and only if $x^v|x^w$ for some $v\in A$. Moreover, if $f=\sum_{w\in\N^n}c_wx^w\in k[x_1,\dots,x_n]$ lies in $I$, then each $x^w$ is divisible by $x^v$ for some $v\in A$. 
+\end{lmm}
+
+\begin{thm}{Dickson's Lemma}{} Every monomial ideal is finitely generated. In particular, every monomial ideal $I=\langle x^v|v\in A\rangle$ is of the form $$I=\langle x^{v_1},\dots,x^{v_n}\rangle$$ where $v_1,\dots,v_n\in A$. 
+\end{thm}
+
+\subsection{Groebner Bases}
 
 \pagebreak
 \section{Modules over a Commutative Ring}
@@ -431,85 +518,9 @@ If $S=\{1,f,f^2,\dots\}$ then we write $S^{-1}M=M_f=M[1/f]$.
 \end{prp}
 
 \pagebreak
-\section{Noetherian Rings}
-\subsection{Ordering on the Monomials}
-Recall that a monomial in $R[x_1,\dots,x_n]$ is an element in the polynomial ring of the form $x_1^{a_1}\cdots x_n^{a_n}$. For simplicity we write this as $x^{(a_1,\dots,a_n)}$. 
-
-\begin{defn}{Monomial Ordering}{} A monomial ordering on a polynomial ring $k[x_1,\dots,x_n]$ is a relation $>$ on $\N^n$. This means that the following are true. 
-\begin{itemize}
-\item $>$ is a total ordering on $\N^n$
-\item If $a>b$ and $c\in\N^n$ then $a+c>b+c$
-\item $>$ is a well ordering on $\N^n$ (any nonempty subset of $\N^n$ has a smallest element)
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Lexicographical Order}{} Let $a=(a_1,\dots,a_n)$ and $b=(b_1,\dots,b_n)$ in $\N^n$. We say that $a>_{\text{lex}}b$ if in the first nonzero entry of $a-b$ is positive. 
-\end{defn}
-
-In practise this means that the we value more powers of $x_1$
-
-\begin{defn}{Graded Lex Order}{} Let $a=(a_1,\dots,a_n)$ and $b=(b_1,\dots,b_n)$ in $\N^n$. We say that $a>_{\text{grlex}}b$ if either of the following holds. 
-\begin{itemize}
-\item $\abs{a}=\sum_{k=1}^na_k>\sum_{k=1}^nb_k=\abs{b}$
-\item $\abs{a}=\abs{b}$ and $a>_{\text{lex}}b$
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Graded Lex Order}{} Let $a=(a_1,\dots,a_n)$ and $b=(b_1,\dots,b_n)$ in $\N^n$. We say that $a>_{\text{grlex}}b$ if either of the following holds. 
-\begin{itemize}
-\item $\abs{a}=\sum_{k=1}^na_k>\sum_{k=1}^nb_k=\abs{b}$
-\item $\abs{a}=\abs{b}$ and the last nonzero entry of $a-b$ is negative. 
-\end{itemize}
-\end{defn}
-
-In practise we value lower powers of the last variable $x_n$. 
-
-\begin{prp}{}{} The above three orders are all monomial orderings of $k[x_1,\dots,x_n]$. 
-\end{prp}
-
-\begin{defn}{Multidegree}{} Let $f\in k[x_1,\dots,x_n]$ be a polynomial in the form $f=\sum_{v\in\N^n}c_vx^v$. Define the multidegree of $f$ to be $$\text{multideg}(f)=\max_>\{v\in\N^n|a_v\neq 0\}$$ where $>$ is a monomial ordering on $k[x_1,\dots,x_n]$. 
-\end{defn}
-
-\begin{defn}{Leading Objects}{} Let $f\in k[x_1,\dots,x_n]$ be a polynomial in the form $f=\sum_{v\in\N^n}c_vx^v$. 
-\begin{itemize}
-\item Define the leading coefficient of $f$ to be $\text{LC}(f)=c_\text{multideg(f)}\in k$
-\item Define the leading monomial of $f$ to be $\text{LM}(f)=c_\text{multideg(f)}\in k$
-\item Define the leading term of $f$ to be $\text{LT}=\text{LC}(f)\cdot\text{LM}(f)$
-\end{itemize}
-\end{defn}
-
-\begin{prp}{Division Algorithm in $k[x_1,\dots,x_n]$}{}
-\end{prp}
-
-\subsection{Monomial Ideals}
-\begin{defn}{Monomial Ideals}{} An ideal $I\subset k[x_1,\dots,x_n]$ is said to be a monomial ideal if $I$ is generated by a set of monomials $\{x^v|v\in A\}$ for some $A\subset\N^n$. In this case we write $$I=\langle x^v|v\in A\rangle$$
-\end{defn}
-
-\begin{lmm}{}{} Let $I=\langle x^v|v\in A\rangle$ be an ideal of $k[x_1,\dots,x_n]$. Then a monomial $x^w$ lies in $I$ if and only if $x^v|x^w$ for some $v\in A$. Moreover, if $f=\sum_{w\in\N^n}c_wx^w\in k[x_1,\dots,x_n]$ lies in $I$, then each $x^w$ is divisible by $x^v$ for some $v\in A$. 
-\end{lmm}
-
-\begin{thm}{Dickson's Lemma}{} Every monomial ideal is finitely generated. In particular, every monomial ideal $I=\langle x^v|v\in A\rangle$ is of the form $$I=\langle x^{v_1},\dots,x^{v_n}\rangle$$ where $v_1,\dots,v_n\in A$. 
-\end{thm}
-
-\subsection{Groebner Bases}
-
-\subsection{Hilbert's Basis Theorem}
-\begin{prp}{}{} If $A$ is a Noetherian and $\phi$ is a homomorphism of $A$ onto a ring $B$, then $B$ is Noetherian. 
-\end{prp}
-
-\begin{thm}{Hilbert's Basis Theorem}{} If $R$ is a Noetherian ring, then $R[x_1,\dots,x_n]$ is a Noetherian ring. 
-\end{thm}
-
-\begin{prp}{}{} Let $R$ be a Noetherian ring and $I$ be an ideal in $R$. Then $R/I$ is Noetherian. 
-\end{prp}
-
-\begin{thm}{}{} Let $R=\bigoplus_{i=1}^nR_i$ be a graded ring. Then $R$ is Noetherian if and only if $R_0$ is Noetherian and $R$ is finitely generated as an $R_0$-module. 
-\end{thm}
-
-\pagebreak
 \section{Primary Decomposition}
 \subsection{Support of a Module}
-\begin{defn}{Support of a Module}{} Let $M$ be an $A$-module. The support of $M$ is the subset $$\text{Supp}(M)=\{P\text{ a prime ideal of }A|M_P\neq 0\}$$
+\begin{defn}{Support of a Module}{} Let $A$ be a commutative ring. Let $M$ be an $A$-module. The support of $M$ is the subset $$\text{Supp}(M)=\{P\text{ a prime ideal of }A\;|\;M_P\neq 0\}$$
 \end{defn}
 
 \subsection{Associated Prime}
@@ -517,20 +528,16 @@ In practise we value lower powers of the last variable $x_n$.
 \end{defn}
 
 \subsection{Primary Ideals}
-\begin{defn}{Primary Ideals}{} Let $R$ be a ring. An ideal $Q$ of $R$ is called primary if
-\begin{itemize}
-\item $Q\neq R$
-\item $fg\in Q$ implies $f\in Q$ or $g^m\in Q$ for some $m>0$
-\end{itemize}
+\begin{defn}{Primary Ideals}{} Let $R$ be a commutative ring. Let $Q$ be a proper ideal of $R$. We say that $Q$ is a primary ideal of $R$ if $fg\in Q$ implies $f\in Q$ or $g^m\in Q$ for some $m>0$. 
 \end{defn}
 
-\begin{lmm}{}{} If $Q$ is primary, then $\sqrt{Q}$ is prime. 
+\begin{lmm}{}{} Let $A$ be a commutative ring. Let $Q$ be a primary ideal of $A$. Then $\sqrt{Q}$ is the smallest prime ideal containing $Q$. 
 \end{lmm}
 
 \begin{lmm}{}{} Let $R$ be a Noetherian ring and $I$ be a proper ideal that is not primary. Then $$I=J_1\cap J_2$$ for some ideals $J_1,J_2\neq I$. 
 \end{lmm}
 
-\begin{defn}{P-Primary Ideals}{} Let $A$ be a ring and $P$ a prime ideal. An ideal $Q$ is $P$-primary if $Q$ is primary and $Q=\text{rad}(P)$
+\begin{defn}{P-Primary Ideals}{} Let $A$ be a commutative ring. Let $P$ be a prime ideal. Let $Q$ be an ideal. We say that $Q$ is a $P$-primary ideal of $A$ if $$Q=\sqrt{P}$$
 \end{defn}
 
 \begin{thm}{}{} Let $A$ be a Noetherian ring and $Q$ an ideal of $A$. Then $Q$ is $P$-primary if and only if $\text{Ann}(A/Q)=\{P\}$. 
@@ -539,11 +546,15 @@ In practise we value lower powers of the last variable $x_n$.
 \subsection{Primary Decomposition}
 We want to express ideal $I$ in $R$ as $I=P_1^{e_1}\cdots P_n^{e_n}$ similar to a factorization of natural numbers, for some prime ideals $P_1,\dots,P_n$. However this notion fails and thus we have the following new type of ideal. 
 
-\begin{defn}{Primary Decompositions}{} A primary decomposition of an ideal $I$ is an expression $I=Q_1\cap\dots\cap Q_r$ with each $Q_i$ primary. \\~\\
-The decomposition is said to be irredundant if $I\neq\cap_{i\neq j}Q_i$ for any $j$. The decomposition is said to be minimal if $r$ is the smallest possible such decomposition for $I$. 
+\begin{defn}{Primary Decompositions}{} Let $A$ be a commutative ring. Let $I$ be an ideal of $A$. A primary decomposition $I$ consists of primary ideals $Q_1,\dots,Q_r$ of $A$ such that $$I=Q_1\cap\cdots\cap Q_r$$
 \end{defn}
 
-Irredundant in this sense means that removing any one primary ideal in the intersection fails to become a decomposition of $I$. 
+\begin{defn}{Minimal Primary Decompositions}{} Let $A$ be a commutative ring. Let $I$ be an ideal of $A$. Let $$I=Q_1\cap\cdots\cap Q_r$$ be a primary decomposition of $I$. We say that the decomposition is minimal if the following are true. 
+\begin{itemize}
+\item Each $\sqrt{Q_i}$ are distinct for $1\leq i\leq r$
+\item Removing a primary ideal changes the intersection. This means that for any $i$, $I\neq\bigcap_{j\neq i}Q_j$
+\end{itemize}
+\end{defn}
 
 \begin{thm}{}{} Every proper ideal in a Noetherian ring has a primary decomposition. 
 \end{thm}

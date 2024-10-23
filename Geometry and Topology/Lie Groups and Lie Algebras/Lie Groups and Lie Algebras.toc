@@ -8,8 +8,8 @@
 \contentsline {subsection}{\numberline {2.1}Abelian Lie Algebras}{7}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Soluble Lie Algebras}{7}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Nilpotent Lie Algebras}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Engel's Theorem}{10}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Lie's Theorem}{10}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.4}Engel's Theorem on Nilpotency}{10}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Lie's Theorem on Solubility}{10}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Simple and Semisimple Lie Algebras}{10}{subsection.2.6}%
 \contentsline {section}{\numberline {3}The Killing Form and Cartan's Criteria}{12}{section.3}%
 \contentsline {section}{\numberline {4}Introduction to Lie Groups}{13}{section.4}%

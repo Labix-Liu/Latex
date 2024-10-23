@@ -42,11 +42,9 @@ The writer's first exposure towards Algebraic Topology lies in one particular mo
 
 \section{Homotopies and the Fundamental Group}
 \subsection{Homotopies and Homotopy Equivalences}
-In general, showing that two spaces are not homeomorphic is hard. Therefore we turn to a weaker statement: homotopy equivalence. It will become aparent that homeomorphic spaces are necessarily homotopic, but homotopic spaces may not be homeomorphic in general. \\~\\
+In general, showing that two spaces are not homeomorphic is hard. Therefore we turn to a weaker statement: homotopy equivalence. It will become aparent that homeomorphic spaces are necessarily homotopic, but homotopic spaces may not be homeomorphic in general. 
 
-Notation: Map means continuous function. Moreover, $I=[0,1]$ is the interval in $\R$. 
-
-\begin{defn}{Homotopy}{} Let $f,g:X\to Y$ be maps. A homotopy from $f$ to $g$ is a continuous function $H:X\times I\to Y$ such that $$H(x,0)=f(x)\;\;\;\;\text{ and }\;\;\;\;H(x,1)=g(x)$$ for all $x\in X$. In this case, we say that $f$ is homotopic to $g$ and write $f\simeq g$. 
+\begin{defn}{Homotopy}{} Let $X,Y$ be spaces. Let $f,g:X\to Y$ be maps. A homotopy from $f$ to $g$ is a continuous function $H:X\times I\to Y$ such that $$H(x,0)=f(x)\;\;\;\;\text{ and }\;\;\;\;H(x,1)=g(x)$$ for all $x\in X$. In this case, we say that $f$ is homotopic to $g$ and write $f\simeq g$. 
 \end{defn}
 
 In particular, we require $H$ to be continuous in the sense that both on any point $x\in X$ and any $t\in I$ so that the transformation taken between two functions are continuous. 
@@ -327,20 +325,12 @@ Recall that a map of sets $g\circ f$ has the property that $g$ is surjective and
 \end{proof}
 \end{prp}
 
-The proposition is useful in the following sense. If $r:X\to A$ is a retraction that the inclusion $i_\ast$ is injective and $r_\ast$ is surjective. If there is no group homomorphism for which $r_\ast$ can be surjective or $i_\ast$ can be injective, then we have reached a contradiction so that there is no retraction from $X$ to $A$. \\~\\
-
-Finally, we show that products and wedge sums work well with fundamental groups. 
+The proposition is useful in the following sense. If $r:X\to A$ is a retraction that the inclusion $i_\ast$ is injective and $r_\ast$ is surjective. If there is no group homomorphism for which $r_\ast$ can be surjective or $i_\ast$ can be injective, then we have reached a contradiction so that there is no retraction from $X$ to $A$.  
 
 \begin{prp}{}{} Let $(X,x_0)$ and $(Y,y_0)$ be pointed topological spaces. Then $$\pi_1(X\times Y,(x_0,y_0))\cong\pi_1(X,x_0)\times\pi_1(Y,y_0)$$
 \end{prp}
 
 In particular, notice that elements of the form $([f],[e_{y_0}])$ and $([e_{x_0}],[g])$ commute. This can be established by exhibiting homotopies from $([f],[g])$ to $$([f],[e_{y_0}])\cdot([e_{x_0}],[g])\;\;\;\;\text{ and }\;\;\;\;([e_{x_0}],[g])\cdot([f],[e_{y_0}])$$ respectively. 
-
-\begin{defn}{Wedge Sum of Spaces}{} Let $\{(X_i,x_i)\;|\;i\in I\}$ be a family of pointed spaces. Define their wedge sum to be the quotient space $$\bigvee_{i\in I}(X_i,x_i)=\frac{\coprod_{i\in I}X_i}{\coprod_{i\in I}\{x_i\}}$$
-\end{defn}
-
-\begin{prp}{}{} Let $\{(X_i,x_i)\;|\;i\in I\}$ be a family of path connected pointed spaces. The wedge sum of the family of spaces has fundamental group $$\pi_1\left(\bigvee_{i\in I}(X_i,x_i),x\right)\cong\ast_{i\in I}\pi_1(X_i,x_i)$$ where the base point $x$ point at which the wedge sum is glued. 
-\end{prp}
 
 \subsection{Simply Connected Spaces}
 Simply connected, spaces, also called $1$-connected space, is a name given to when the space has trivial fundamental group. As we introduce the higher homotopy groups, there will be higher notions of connectivity that follow. 
@@ -881,6 +871,9 @@ Note that $\Psi$ is induced by the inclusions $i_\alpha:U_\alpha\hookrightarrow 
 
 Reminiscing the baby Seifert-van Kampen theorem, the above general isomorphism $$\frac{\ast_\alpha\pi_1(U_\alpha,x_0)}{\ker(\Psi)}\cong\pi_1(X,x_0)$$ is precisely the amalgamated product of a collection of groups. 
 
+\begin{defn}{Wedge Sum of Spaces}{} Let $\{(X_i,x_i)\;|\;i\in I\}$ be a family of pointed spaces. Define their wedge sum to be the quotient space $$\bigvee_{i\in I}(X_i,x_i)=\frac{\coprod_{i\in I}X_i}{\coprod_{i\in I}\{x_i\}}$$
+\end{defn}
+
 \subsection{Fundamental Groups of Important Spaces}
 \begin{thm}{Fundamental Group of $T^n$}{} The fundamental group of the $n$-torus is $$\pi_1(T^n,x_0)\cong\pi_1(S^1,1)\times\cdots\times\pi_1(S^1,1)$$ the product of $n$ fundamental groups of the circle for any $x_0\in T^n$. \tcbline
 \begin{proof}
@@ -1383,6 +1376,19 @@ Since the identity map satisfies the description, this unique map $k$ must be $k
 \end{proof}
 \end{prp}
 
+For those who have knowledge in pushouts, we have essentially showed that the following diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{S^{n-1}} & {D^n} \\
+	{\R\Prj^{n-1}} & {\R\Prj^n}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[two heads, from=1-1, to=2-1]
+	\arrow[two heads, from=1-2, to=2-2]
+	\arrow[hook, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+is a pushout diagram. 
+
+Recall that the definition of the complex projective space is $\C\Prj^n=\frac{\C^{n+1}\setminus\{0\}}{\sim}$ where we say that $x\sim\lambda x$ for $\lambda\in\C^\times$. Now $\C^{n+1}$ is homeomorphic to $\R^{2n+2}$, and inside it sits the sphere $S^{2n+1}$. By restricting the equivalence relation on $\C\Prj^n$ to $S^{2n+1}$, we obtain an isomorphism $$\C\Prj^n\cong\frac{S^{2n+1}}{\sim}$$ where $x\sim -x$ for $x\in S^{2n+1}$. It is now clear that there is a projection $S^{2n-1}\to\C\Prj^{n-1}$. On the other hand, we want to make $\C\Prj^n$ into a quotient of $D^{2n}$. 
+
 \begin{prp}{}{} Let $n\geq 1$. Then the complex projective space $\C\Prj^n$ has a CW structure given inductively as follows. 
 \begin{itemize}
 \item $\C\Prj^1\cong S^2$ has the structure of a CW complex identical to that of $S^2$
@@ -1394,9 +1400,53 @@ In particular, the CW structure of $\C\Prj^n$ consists of the following.
 \item For each $2k$-cell $D^{2k}$, the attaching map is defined inductively to be the quotient map $$\partial D^{2k}\cong S^{2k-1}\to\C\Prj^{2k-1}\cong\frac{S^{2k-1}}{\sim}$$
 \end{itemize} \tcbline
 \begin{proof}
+The case $n=1$ is given. We can proceed to the inductive case. This means that we want to show that the space given by attaching $D^{2n}$ to $\C\Prj^{n-1}$ is homeomorphic to $\C\Prj^n$. Suppose that the resulting space if all $X$. Write the quotient map as $$q:S^{2n-1}\to\frac{S^{2n-1}}{\sim}\cong\C\Prj^{n-1}$$ The definition of CW complexes imply that $$X=\frac{\C\Prj^{n-1}\amalg D^{2n}}{\sim'}$$ where $x'\sim q(x)$ for all $x\in S^{2n-1}\cong\partial D^{2n}$. \\~\\
 
+We digress and look at how $\C\Prj^n$ can be obtained as a quotient of $D^{2n}$. Consider the map $j:D^{2n}\to S^{2n+1}$ defined by $$j(z_1,\dots,z_n)=\left(z_1,\dots,z_n,\sqrt{1-\sum_{k=1}^{n+1}\abs{z_k}^2}\right)$$ This map is injective because the $(n+1)$th coordinate is determined by the first $n$ coordinates. Thus $j$ gives a homeomorphism to its image $j(D^{2n})=T$. Now I claim that there is a homeomorphism $$\frac{T}{\sim}\cong\frac{S^{2n+1}}{\sim}\cong\C\Prj^n$$ where $\sim$ is given by restricting the equivalence relation in $\C\Prj^n$ to the respective domains. We have the following diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	T & {\frac{S^{2n+1}}{\sim}} \\
+	{\frac{T}{\sim}}
+	\arrow["w", two heads, from=1-1, to=1-2]
+	\arrow["v"', two heads, from=1-1, to=2-1]
+\end{tikzcd}}\\~\\
+We need to apply the universal property of quotients for both the quotients. Explicitly, the equivalence classes of $T/\sim$ is given as follows. 
+\begin{itemize}
+\item If the last complex coordinate of $a\in T$ is non-zero, then $[a]=\{a\}$. 
+\item If the last complex coordinate of $a=\left(a_1,\dots,a_n,\sqrt{1-\sum_{k=1}^{n+1}\abs{a_k}^2}\right)\in T$ is zero, then $a\in S^{2n+1}$ implies that the $\sum_{i=1}^n\abs{a_i}^2=1$ so that $a\in\partial D^{2n}\cong\partial T$. In which case $[a]=\{a,-a\}$. 
+\end{itemize}
+We first wish to apply the universal property of $T/\sim$. Let $a,b\in T$ such that $[a]=[b]\in S^{2n+1}/\sim$. We want to show that $v(a)=v(b)$. But $[a]=[b]$ implies $a=b$ or $a=-b$. If $a=b$ then we are done. If $a=-b$, then because the last coordinate of $a$ and $b$ are real and non-negative, we must conclude that the last coordinate of $a$ and $b$ are zero. In that case we have $v(a)=[a]=\{a,-a\}=\{a,b\}=[b]=v(b)$ and so we are done. By the universal property of quotients, there exists a unique map $T/\sim\to S^{2n+1}/\sim$. Now let $c,d\in T$ such that $[c]=[d]\in T/\sim$. We want to show that $w(c)=w(d)$. There are two cases. If the last complex coordinate of $c\in T$ is non-zero, then $\{c\}=[c]=[d]=\{d\}$ so that $c=d$. Then $w(c)=w(d)$ is true. Now if the last complex coordinate of $c\in T$ is zero, then $\{c,-c\}=[c]=[d]=\{d,-d\}$. Hence either $c=d$ or $c=-d$. Again if $c=d$ then we are done. If $c=-d$, then $w(c)=\{c,-c\}=\{c,d\}=[d]=w(d)$ and so we conclude. We conclude that $T/\sim$ and $S^{2n+1}/\sim$ are homeomorphic. Thus we have that $$\C\Prj^n\cong\frac{S^{2n+1}}{\sim}\cong\frac{D^{2n}}{\sim}$$~\\
+
+Back to the main proof. I claim that $X\cong D^{2n}/\sim$ whence we can conclude that $X\cong\C\Prj^n$. To construct a map $D^{2n}/\sim\to X$, we need the universal property of $D^{2n}/\sim$ as a quotient: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{D^{2n}} && {\frac{D^{2n}}{\sim}} \\
+	& {\C\Prj^{n-1}\amalg D^{2n}} \\
+	&& X
+	\arrow["\alpha", from=1-1, to=1-3]
+	\arrow["\iota"', hook, from=1-1, to=2-2]
+	\arrow["{\exists!}", dashed, from=1-3, to=3-3]
+	\arrow["\beta"', two heads, from=2-2, to=3-3]
+\end{tikzcd}}\\~\\
+Let $[a]=[b]\in D^{2n}/\sim$. We want to show that $\beta(\iota(a))=\beta(\iota(b))$. There are two cases. If the last complex coordinate is non-zero, then $a=b$ and so we are done. Otherwise, $a=-b$ and $a,b\in\partial D^{2n}\cong S^{2n-1}$. Then $\beta(-b)=[-b]=\{-b,b\}=\{a,b\}=[a]=\beta(a)$ and so we are done. By the universal property of quotients, we obtain a unique map $D^{2n}/\sim\to X$. \\~\\
+
+To construct a map $X\to D^{2n}/\sim$, we appeal to the universal property of $X$ as a quotient. Let $[c]=[d]\in X$. We want to show that $\alpha(c)=\alpha(d)$. If $c\in\partial D^{2n}\cong S^{2n-1}$, then either $c=d$ or $c=-d$. In both cases, $\alpha(c)=\alpha(d)$ is clear. If $c\notin\partial D^{2n}$, then $c=d$ and so again we are done. We conclude that $D^{2n}/\sim X$ are homeomorphic, and so we are done. 
 \end{proof}
 \end{prp}
+
+Again for those who have knowledge in pushouts, we have essentially showed that the following diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{S^{2n-1}} & {D^{2n}} \\
+	{\C\Prj^{n-1}} & {\C\Prj^n}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[two heads, from=1-1, to=2-1]
+	\arrow[two heads, from=1-2, to=2-2]
+	\arrow[hook, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+is a pushout diagram where $S^{2n-1}\to\C\Prj^{n-1}\cong\frac{S^{2n-1}}{\sim}$ is the quotient map and $D^{2n}\to\C\Prj^n$ is also the quotient map defined by the composition: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{D^{2n}} & {S^{2n+1}} & {\C\Prj^n}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[two heads, from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
 
 \subsection{Computation of the Fundamental Group of CW Complexes}
 Recall that the fundamental group cannot distinguish higher dimensional topological properties, so without loss of assumption we can take all CW complexes in this section to be 2-skeletons. Without loss of generality, we can take the 2-skeleton to be path-connected. \\~\\

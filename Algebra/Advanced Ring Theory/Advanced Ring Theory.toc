@@ -15,7 +15,8 @@
 \contentsline {subsection}{\numberline {3.4}The Matrix Rings}{24}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Artin-Wedderburn Theorem}{25}{subsection.3.5}%
 \contentsline {section}{\numberline {4}Central Simple Algebras}{28}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Spitting Fields of Central Simple Algebras}{28}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}Central Simple Algebras}{28}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Spitting Fields of Central Simple Algebras}{28}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Exercises}{30}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Problem Set 1}{30}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Problem Set 2}{33}{subsection.5.2}%

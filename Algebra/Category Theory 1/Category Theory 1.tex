@@ -1062,7 +1062,16 @@ X\arrow[rrdd, "\lambda_C", bend left=25]\arrow[ddddr, "\lambda_B"', bend right=2
 \item For $\mC=\text{Set}$, the pullback is precisely $$C\times_DB\cong\{(x,y)\in C\times B\;|\;f(x)=g(y)\}$$ and the pushout is precisely $$C\amalg_DB\cong\frac{C\amalg B}{\sim}$$ where $x\in C\sim y\in B$ if and only if $f(x)=g(y)$ for $C,D,B$ sets. 
 \item For $\mC=\text{Top}$, pullbacks and pushouts are the same as in Set. 
 \item For $\mC=\text{Grp}$, pullbacks are the same as pullbacks in Set. The pushout is precisely $$\colim\left(G\overset{f}{\leftarrow}K\overset{g}{\rightarrow}H\right)=G\ast_KH$$ the amalgamated product of the groups $G$ and $H$ over $K$. \\~\\(Recall the amalgamated product is defined by $G\ast_KH=\frac{G\ast H}{N}$ for $N$ the normalizer of $\{f(k)\cdot(g(k))^{-1}\;|\;k\in K\}$
-\end{itemize}
+\end{itemize} \tcbline
+\begin{proof}
+Define $\lambda_C:\{(c,b)\in C\times B\;|\;f(c)=g(b)\}\to C$ by $(c,b)\mapsto c$ and similarly for $\lambda_B$. It is then clear that $f\circ\lambda_C=g\circ\lambda_B$ by definition of the set. By the universal property of pushouts, we obtain a unique map $u:\{(c,b)\in C\times B\;|\;f(c)=g(b)\}\to C\times_DB$. Now define a map $$v:C\times_DB\to \{(c,b)\in C\times B\;|\;f(c)=g(b)\}$ by $v(z)=(\pi_C(z),\pi_B(z))$$ Note that we have $\lambda_C(v(z))=\pi_C(z)$ and a similar argument shows that $\lambda_B\circ v=\pi_B$. Now apply $X=C\times_DB$ to the universal property of $C\times_DB$. Then there exists a unique map $C\times_DB\to C\times_DB$ such that the diagram in the above definition commutes. The identity is such a map and hence it is the unique map. But $u\circ v$ also allows the above diagram to commute because 
+\begin{align*}
+(\pi_C\circ u\circ v)(z)&=\lambda_C(v(z))\\
+&=\lambda_C(\pi_C(z),\pi_B(z))\\
+&=\pi_C(z)
+\end{align*}
+and similarly for $\pi_B\circ u\circ v=\pi_B$. Thus $u\circ v=\text{id}$. 
+\end{proof}
 \end{prp}
 
 \subsection{Inverse and Direct Limits}
