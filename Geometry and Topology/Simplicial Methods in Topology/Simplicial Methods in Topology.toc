@@ -1,19 +1,19 @@
 \contentsline {section}{\numberline {1}The Category of Simplicial Sets}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}The Simplex Category}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Simplicial Sets}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Geometric Realization of Simplicial Sets}{5}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Simplicial and Semisimplicial Objects}{6}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Simplicial Homological Algebra}{7}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Chain Complexes of Simplicial Objects}{7}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}The Singular Functor}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Normalized Chain Complexes}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Bar Resolutions}{9}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Simplicial Homotopy Theory}{10}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Homotopies of Simplicial Objects}{10}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Horns and Fillers}{11}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Fibrations and Cofibrations}{11}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}The Simplicial Homotopy Groups}{12}{subsection.3.4}%
-\contentsline {section}{\numberline {4}The Nerve-Homotopy Adjunction}{14}{section.4}%
-\contentsline {subsection}{\numberline {4.1}The Nerve of a Category}{14}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}The Homotopy Category of a Simplicial Set}{14}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}The Classifying Space}{15}{subsection.4.3}%
+\contentsline {subsection}{\numberline {1.2}Simplicial Sets}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Geometric Realization of Simplicial Sets}{6}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Simplicial and Semisimplicial Objects}{7}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Simplicial Homological Algebra}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Chain Complexes of Simplicial Objects}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The Singular Functor}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Normalized Chain Complexes}{9}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Bar Resolutions}{10}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Simplicial Homotopy Theory}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Homotopies of Simplicial Objects}{11}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Horns and Fillers}{12}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Fibrations and Cofibrations}{12}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}The Simplicial Homotopy Groups}{13}{subsection.3.4}%
+\contentsline {section}{\numberline {4}The Nerve-Homotopy Adjunction}{15}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The Nerve of a Category}{15}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}The Homotopy Category of a Simplicial Set}{15}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}The Classifying Space}{16}{subsection.4.3}%

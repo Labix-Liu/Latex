@@ -59,13 +59,14 @@
 \contentsline {subsection}{\numberline {14.3}The Suspension-Loopspace Adjunction}{94}{subsection.14.3}%
 \contentsline {subsection}{\numberline {14.4}(Co)Homology of Suspensions and Loopspaces}{95}{subsection.14.4}%
 \contentsline {subsection}{\numberline {14.5}Group Structure on the Set of Maps}{95}{subsection.14.5}%
-\contentsline {section}{\numberline {15}Homology and Cohomology Theories}{96}{section.15}%
-\contentsline {subsection}{\numberline {15.1}Generalized Homology Theories}{96}{subsection.15.1}%
-\contentsline {subsection}{\numberline {15.2}Ordinary Homology Theories}{97}{subsection.15.2}%
-\contentsline {subsection}{\numberline {15.3}Reduced Homology Theory}{98}{subsection.15.3}%
-\contentsline {subsection}{\numberline {15.4}Generalized Cohomology Theories}{100}{subsection.15.4}%
-\contentsline {subsection}{\numberline {15.5}Ordinary Cohomology Theories}{101}{subsection.15.5}%
-\contentsline {subsection}{\numberline {15.6}Reduced Cohomology Theories}{101}{subsection.15.6}%
-\contentsline {section}{\numberline {16}The Euler Characteristic}{102}{section.16}%
-\contentsline {subsection}{\numberline {16.1}The Characteristic as an Invariant}{102}{subsection.16.1}%
-\contentsline {subsection}{\numberline {16.2}First Properties of the Euler Characteristic}{103}{subsection.16.2}%
+\contentsline {subsection}{\numberline {14.6}The Art of Delooping}{95}{subsection.14.6}%
+\contentsline {section}{\numberline {15}Homology and Cohomology Theories}{97}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Generalized Homology Theories}{97}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Ordinary Homology Theories}{98}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}Reduced Homology Theory}{99}{subsection.15.3}%
+\contentsline {subsection}{\numberline {15.4}Generalized Cohomology Theories}{101}{subsection.15.4}%
+\contentsline {subsection}{\numberline {15.5}Ordinary Cohomology Theories}{102}{subsection.15.5}%
+\contentsline {subsection}{\numberline {15.6}Reduced Cohomology Theories}{102}{subsection.15.6}%
+\contentsline {section}{\numberline {16}The Euler Characteristic}{103}{section.16}%
+\contentsline {subsection}{\numberline {16.1}The Characteristic as an Invariant}{103}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}First Properties of the Euler Characteristic}{104}{subsection.16.2}%

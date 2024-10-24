@@ -144,8 +144,13 @@ Specific types of spectra are related to (co)homology theories. We will introduc
 \begin{defn}{$\Omega$-Spectra}{} Let $\{E_n\;|\;n\in\Z\}$ and $e_n:E_n\to\Omega E_{n+1}$ be a spectra. We say that it is an $\Omega$-spectra if the induced map $(e_n)_\ast$ is a weak homotopy equivalence. 
 \end{defn}
 
-\begin{defn}{The Category of $\Omega$-Spectra}{} Let $\mU$ be a full subcategory of $\bold{Top}_\ast$. Define the category of $\Omega$-spectra $$\Omega\text{Sp}^\N(\mU)$$ over $\mU$ to be the full subcategory of $\text{Sp}^\N(\mU)$ consisting of $\Omega$-spectra. 
-\end{defn}
+\begin{lmm}{}{} Let $X$ be an infinite loopspace. Define a sequence of spaces and maps inductively:
+\begin{itemize}
+\item Let $X_0=X$
+\item Suppose $X_n$ is a chosen space. Choose $X_{n+1}$ to be a space such that $X_n\simeq\Omega X_{n+1}$. Also let the bonding map $\sigma_n$ be the weak equivalence $\sigma:X_n\to\Omega X_{n+1}$. 
+\end{itemize}
+The above data defines an $\Omega$-spectrum. 
+\end{lmm}
 
 Recall that if $Z$ is a group-like $H$-space (ref Concise J.P. May), then $[X,Z]$ has a group structure. 
 

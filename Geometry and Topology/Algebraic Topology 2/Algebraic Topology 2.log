@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  23 OCT 2024 04:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  24 OCT 2024 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1531,106 +1531,112 @@ Overfull \hbox (1.4395pt too wide) detected at line 2785
  []
 
 [83] [84] [85] [86] [87] [88] [89] [90]
-Underfull \hbox (badness 10000) in paragraph at lines 2972--2991
+Underfull \hbox (badness 10000) in paragraph at lines 2975--2994
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2972--2991
+Underfull \hbox (badness 10000) in paragraph at lines 2975--2994
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2972--2991
+Underfull \hbox (badness 10000) in paragraph at lines 2975--2994
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2972--2991
+Underfull \hbox (badness 10000) in paragraph at lines 2975--2994
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2972--2991
+Underfull \hbox (badness 10000) in paragraph at lines 2975--2994
 
  []
 
 [91] [92] [93]
-Underfull \hbox (badness 10000) in paragraph at lines 3044--3045
+Underfull \hbox (badness 10000) in paragraph at lines 3047--3048
 
  []
 
-[94] [95]
-Underfull \hbox (badness 10000) in paragraph at lines 3071--3072
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3102--3103
+[94] [95] [96]
+Underfull \hbox (badness 10000) in paragraph at lines 3081--3082
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3102--3103
-
- []
-
-[96]
-Underfull \hbox (badness 10000) in paragraph at lines 3137--3138
+Underfull \hbox (badness 10000) in paragraph at lines 3112--3113
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3137--3138
+Underfull \hbox (badness 10000) in paragraph at lines 3112--3113
 
  []
 
 [97]
-Overfull \hbox (7.22758pt too wide) in paragraph at lines 3139--3141
+Underfull \hbox (badness 10000) in paragraph at lines 3147--3148
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3147--3148
+
+ []
+
+[98]
+Overfull \hbox (7.22758pt too wide) in paragraph at lines 3149--3151
 []\T1/qpl/m/n/10 In fact, this sub-sec-tion will also prove a uni-fi-ca-tion th
 e-o-rem for the fol-low-ing four ho-molog the-o-ries: 
  []
 
-[98]
-Underfull \hbox (badness 10000) in paragraph at lines 3192--3193
+[99]
+Underfull \hbox (badness 10000) in paragraph at lines 3202--3203
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3192--3193
+Underfull \hbox (badness 10000) in paragraph at lines 3202--3203
 
  []
 
-[99] [100] [101] [102]
-Overfull \hbox (24.79155pt too wide) in paragraph at lines 3310--3311
+[100] [101] [102] [103]
+Overfull \hbox (24.79155pt too wide) in paragraph at lines 3320--3321
 []\T1/qpl/m/n/10 The above propo-si-tion al-lows the fol-low-ing def-i-ni-tion 
 to be well de-fined un-der dif-fer-ent CW-complexes. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3315--3316
+Underfull \hbox (badness 10000) in paragraph at lines 3325--3326
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3315--3316
+Underfull \hbox (badness 10000) in paragraph at lines 3325--3326
 
  []
 
-[103] [104] (Algebraic Topology 2.aux)
+[104] [105] (Algebraic Topology 2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-Package rerunfilecheck Info: File `"Algebraic Topology 2".out' has not changed.
 
-(rerunfilecheck)             Checksum: DD70CDA1C8C1F6B178617B6D2B67BF3A;14083.
+
+Package rerunfilecheck Warning: File `"Algebraic Topology 2".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Algebraic Topology 2".out':
+(rerunfilecheck)             Before: DD70CDA1C8C1F6B178617B6D2B67BF3A;14083
+(rerunfilecheck)             After:  EE2F0D9C6EEB1F52BE5BE32AC7116B08;14252.
  ) 
 Here is how much of TeX's memory you used:
- 40769 strings out of 474424
- 849260 string characters out of 5741739
+ 40775 strings out of 474424
+ 849353 string characters out of 5741739
  2021496 words of memory out of 5000000
- 62163 multiletter control sequences out of 15000+600000
+ 62165 multiletter control sequences out of 15000+600000
  600947 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,22n,120p,1319b,1541s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1657,9 +1663,9 @@ pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/q
 plb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gy
 re/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/te
 x-gyre/qplri.pfb>
-Output written on "Algebraic Topology 2.pdf" (104 pages, 1384392 bytes).
+Output written on "Algebraic Topology 2.pdf" (105 pages, 1386584 bytes).
 PDF statistics:
- 1333 PDF objects out of 1440 (max. 8388607)
- 434 named destinations out of 1000 (max. 500000)
+ 1340 PDF objects out of 1440 (max. 8388607)
+ 438 named destinations out of 1000 (max. 500000)
  596 words of extra memory for PDF output out of 10000 (max. 10000000)
 

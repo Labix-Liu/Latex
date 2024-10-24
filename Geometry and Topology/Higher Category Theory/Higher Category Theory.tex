@@ -25,6 +25,10 @@
 \pagebreak
 \section{Introduction to Infinity Categories}
 \subsection{Infinity Categories and Some Examples}
+We recall some basic facts about simplicial sets. If $S:\Delta\to\bold{Set}$ is a simplicial set, then by Yoneda's emebdding we know that the $n$-simplices of $S$ are given by $$S([n])=\Hom_\bold{sSet}(\Delta^n,S)$$ In other words, specifying an $n$-simplex is the same as specifying a map of simplicial sets $$\Delta^n\to S$$
+
+
+
 The foundations of infinity categories lay on the simpicial sets. Intuitively, any face $\partial_k\Delta$ of an $n$-simplex $\Delta$ captures a homotopy of the faces of $\partial_k\Delta$. 
 
 \begin{defn}{Infinity Categories}{} An infinity category is a simplicial set $C$ such that each inner horn admits a filler. In other words, for all $0<i<n$, the following diagram commutes: \\~\\
@@ -37,8 +41,81 @@ The foundations of infinity categories lay on the simpicial sets. Intuitively, a
 \end{tikzcd}}\\~\\
 \end{defn}
 
+\begin{defn}{Objects and Morphisms}{} Let $\mC$ be an infinity category. Define the following notions for $\mC$. 
+\begin{itemize}
+\item Define the objects of $\mC$ to be the $0$-simplices of $\mC$. 
+\item Define the morphisms of $\mC$ to be the $1$-simplices of $\mC$. 
+\end{itemize}
+\end{defn}
+
 \begin{thm}{}{} Let $\mC$ be a category. Every inner horn of the nerve $N(C)$ of $\mC$ admits a filler and hence is an infinity category. 
 \end{thm}
+
+\subsection{Joins and Slices}
+We begin by rewriting the definition of a simplex category as follows. Instead of having distinguished names $[n]$ for the objects, we instead just think of the simplex category with objects as finite and totally ordered sets. Indeed any of these sets will be in bijection to $[n]$ for some $n\in\N$. This language will help us define the join. 
+
+\begin{defn}{}{} Let $J$ be a finite and totally ordered set. A cut of $J$ consists of two subsets $I,I'\subseteq J$ such that $$J=I\amalg I'$$ and $i<i'$ for all $i\in I$ and $i'<I'$. 
+\end{defn}
+
+\begin{defn}{Joins}{} Let $X,Y$ be simplicial sets. Define the join of $X$ and $Y$ to be the simplicial set $X\ast Y$ as follows. 
+\begin{itemize}
+\item Denote $J\neq\emptyset$ any finite and totally ordered set. Define $$X\ast Y(J)=\coprod_{\substack{I\amalg I'=J\\i<i'\text{ for }i\in I,i'\in I'}}X(I)\times Y(I')\coprod_{I,I'\text{ cuts of }J}X(I)\times Y(I')$$ where by convention, $X(\emptyset)=Y(\emptyset)=\ast$. 
+\item For two finite and totally ordered sets $J$ and $J'$ and a morphism $J\to J'$ preserving order, the map $$(X\ast Y)[J']\to(X\ast Y)[J]$$ is defined as follows. Let $K,K'$ be a cut of $J'$. Then $\alpha$ restricts to two well defined maps $$\alpha|_{\alpha^{-1}(K)}:\alpha^{-1}(K)\to K\;\;\;\;\text{ and }\;\;\;\;\alpha|_{\alpha^{-1}(K')}:\alpha^{-1}(K')\to K'$$ In particular these are order preserving, and each are morphisms in the simplex category $\Delta$. Thus this gives us a unique morphism $$X(K)\times X(K')\to X(\alpha^{-1}(K))\times X(\alpha^{-1}(K'))$$ By taking the product of these maps, we thus obtain a morphism $(X\ast Y)[J']\to(X\ast Y)[J]$, turning the above definition into a simplicial set. 
+\end{itemize}
+\end{defn}
+
+Concrete examples: 
+\begin{itemize}
+\item When $J=[0]$, we have that 
+\begin{align*}
+(X\ast Y)[0]&=X[0]\times Y(\emptyset)\amalg X(\emptyset)\times Y[0]\\
+&=X_0\amalg Y_0
+\end{align*}
+which means that the vertices of $X\ast Y$ are the vertices of $X$ and $Y$ combined disjointly. 
+\item When $J=[1]$, we have that 
+\begin{align*}
+(X\ast Y)[1]&=X[1]\times Y(\emptyset)\amalg X(\{0\})\times Y(\{1\}) \amalg X(\emptyset)\times Y[1]\\
+&=X_1\amalg X_0\times Y_0\amalg Y_1
+\end{align*}
+\end{itemize}
+
+TBA: The join of ordinary categories. 
+
+\begin{lmm}{}{} Let $X$ and $Y$ be simplicial sets. Then $N(X\ast Y)\cong N(X)\ast N(Y)$
+\end{lmm}
+
+TBA: functoriality of join
+
+\begin{prp}{}{} Let $X,Y$ be simplicial sets. Then $X\ast Y$ is an infinity category if and only if $X$ and $Y$ are infinity categories. 
+\end{prp}
+
+Recall that the over category $\mC/X$ consists of pairs $(Y,f:Y\to X)$ and morphism are given by commutative diagrams. Let us rephrase the definition as follows. The over category is the unique category such that if $\mD$ is another category, there is a bijection $$\Hom_\bold{CAT}(\mD,\mC/X)\cong\Hom_X(\mD\ast[0],\mC)$$ where the right hand side indicates that we only consider morphisms $\mD\ast[0]\to\mC$ in which $[0]$ is mapped to $X$. This characterization is due to the fact that a morphism $[0]\to\mC$ is essentially a choice of object in $\mC$, in which case we choose to be $X$. 
+
+\begin{defn}{Over Category for Infinity Categories}{} Let $K,X$ be simplicial sets. Let $f:K\to X$ be a map. Define the over category (which is a simplicial set) $$f/X:\Delta\to\bold{Set}$$ as follows. 
+\begin{itemize}
+\item For each $n$, we have $$(f/X)_n=\Hom_{K/\bold{sSet}}(K\ast\Delta^n,X)$$
+\end{itemize}
+\end{defn}
+
+TBA: Adjunction of join and slice. 
+
+\subsection{}
+For an ordinary category $\mC$, we have the notion of Hom sets (at least for locally small categories). We would like to reproduce this notion for infinity categories. \\
+
+Recall that a an $n$-simplex $x$ is degenerate if any two of its consecutive vertices are given by the same element. Explicitly, this means that $x$ lies in the image of some degeneracy map $s_k$. 
+
+\begin{defn}{The Right Mapping Space}{} Let $\mC$ be an infinity category. Let $x,y\in\mC$ be objects. Define the right mapping space from $x$ to $y$ to be the simplicial set defined by $$\Hom_\mC^R(x,y)([n])=\left\{h\in\mC_{n+1}\;\bigg{|}\;d_{n+1}(h)=(\underbrace{s_0\circ\cdots\circ s_0}_{n\text{ times}})(x)\text{ and }(d_0\circ\cdots\circ d_n)(h)=y\right\}$$ for each $n\in\N$. 
+\end{defn}
+
+In plain English, the hom set from $x$ to $y$ on the $n$th level consists of $n+1$-simplices $h$ for which the face of $h$ with the first $n$-vertices are given by the $n$ simplex $[x,\dots,x]$, while the last vertex of $h$ is given by $y$. 
+
+\begin{defn}{The Left Mapping Space}{} Let $\mC$ be an infinity category. Let $x,y\in\mC$ be objects. Define the left mapping space from $x$ to $y$ to be the simplicial set defined by $$\Hom_\mC^L(x,y)([n])=\left\{h\in\mC_{n+1}\;\bigg{|}\;d_{n+1}(h)=(\underbrace{s_0\circ\cdots\circ s_0}_{n\text{ times}})(y)\text{ and }(d_0\circ\cdots\circ d_n)(h)=x\right\}$$ for each $n\in\N$. 
+\end{defn}
+
+These two notions are equivalent up to homotopy (Land) Also pullbacks (Land)
+
+\begin{prp}{}{} Let $\mC$ be an infinity category. Let $x,y\in\mC$. Then both mapping spaces $\Hom_\mC^R(x,y)$ and $\Hom_\mC^L(x,y)$ are Kan complexes. 
+\end{prp}
 
 \subsection{Homotopy Infinity Categories}
 Recall that for a simplicial set $X$, we defined the homotopy category $h(X)$ of $X$. Such an assignment is functorial. In the case of infinity categories, we can exhibit the structure of $h(X)$ more explicitly. 
@@ -100,6 +177,35 @@ Since infinity catregories require only inner horns to admit a filler, we have t
 \end{thm}
 
 More: Kan complexes = infinity groupoids (quillen equivalence in model category), and we should think of spaces as Kan complexes / infinity groupoids from now on. 
+
+\pagebreak
+\section{Limits and Colimits}
+\subsection{Terminal and Initial Objects}
+\begin{defn}{Initial and Terminal Objects}{} Let $\mC$ be an infinity category. Let $x\in\mC$ be an object. 
+\begin{itemize}
+\item We say that $x$ is initial if for all objects $y\in\mC$, there is a homotopy equivalence $$\Hom_\mC(x,y)\simeq\Delta^0$$
+\item Dually, we say that $x$ is terminal if for all objects $y\in\mC$, there is a homotopy equivalence $$\Hom_\mC(y,x)\simeq\Delta^0$$
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $\mC$ be an infinity category. Let $x\in\mC$ be an object. Then the following are equivalent. 
+\begin{itemize}
+\item $x$ is terminal. 
+\item For all $n\geq 1$, every lifting problem of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\Delta^{\{n\}}} & {\partial\Delta^n} & \mC \\
+	& {\Delta^n}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow["x", bend left = 20, from=1-1, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow[dashed, from=2-2, to=1-3]
+\end{tikzcd}}\\~\\
+\end{itemize}
+\end{prp}
+
+\subsection{Limits and Colimits}
+\begin{defn}{Limits in Infinity Categories}{} Let $K,X$ be infinity categories. Let $F:K\to X$ be a map. Define the limit $$\lim_FX$$of $F$ over $X$ to be the terminal object of the slice category $X/F$ if it exists. 
+\end{defn}
 
 
 

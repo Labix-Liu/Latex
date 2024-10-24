@@ -52,13 +52,28 @@ k-1 & \text{ if } i+1\leq k\leq n+1
 
 \begin{prp}{}{} The face maps and the degeneracy maps in the simplex category $\Delta$ satisfy the following simplicial identities: 
 \begin{itemize}
-\item $d^i\circ d^j=d^{j-1}\circ d^i$ if $i<j$
-\item $d^i\circ s^j=s^{j-1}\circ d^i$ if $i<j$
-\item $d^i\circ s^i=\text{id}$
-\item $d^{i+1}\circ s^i=\text{id}$
-\item $d^i\circ s^j=s^j\circ d^{i-1}$ if $i>j+1$
-\item $s^i\circ s^j=s^{j+1}\circ s^i$ if $i\leq j$
+\item $d^j\circ d^i=d^i\circ d^{j-1}$ if $i<j$
+\item $s^j\circ s^i=s^i\circ s^{j+1}$ if $i\leq j$
+\item $s^j\circ d^i=\begin{cases}
+\text{id} & \text{ if } i=j\text{ or }j+1\\
+d^i\circ s^{j-1} & \text{ if } i<j\\
+d^{i-1}\circ s^j & \text{ if }i>j+1
+\end{cases}$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Consider the object $[n-1]$. On the left, we have that 
+\begin{align*}
+d^j(d^i[n-1])&=d^j([0,\dots,i-1,i+1,\dots,n])\\
+&=[0,\dots,i-1,i+1,\dots,j-1,j+1,\dots,n+1]
+\end{align*}
+On the right, we have that
+\begin{align*}
+d^i(d^{j-1}[n-1])&=d^i([0,\dots,j-2,j,\dots,n])\\
+&=[0,\dots,i-1,i+1,\dots,j-1,j+1,\dots,n+1]
+\end{align*} and so the relation is indeed true. 
 \end{itemize}
+\end{proof}
 \end{prp}
 
 \begin{prp}{}{} Every morphism in the simplex category $\Delta$ is a composition of the face maps and the degeneracy maps. 
@@ -67,6 +82,9 @@ k-1 & \text{ if } i+1\leq k\leq n+1
 \subsection{Simplicial Sets}
 \begin{defn}{Simplicial Sets}{} A simplicial set is a presheaf $$S:\Delta\to\text{Sets}$$ 
 \end{defn}
+
+\begin{eg}{}{} Let $X$ be a topological space. The set of singular simplices of $X$ is given by the presheaf $$S:\Delta\to\bold{Set}$$ defined by $[n]\mapsto\Hom_\bold{Top}(\abs{\Delta^n},X)$. In other words, an $n$-simplex of $X$ is simply a continuous function $\sigma:\Delta^n\to X$. This is exactly the same as how we defined singular $n$-simplexes in Algebraic Topology 2. 
+\end{eg}
 
 \begin{defn}{Category of Simplicial Sets}{} The category of simplicial sets $\text{sSet}$ is defined as follows. 
 \begin{itemize}
@@ -96,21 +114,33 @@ Notice that $\Delta^n$ is a simplicial set $$\Delta^n:\Delta\to\text{Set}$$ defi
 
 All such simplicial sets $\Delta^n$ are useful in determining the contents of an arbitrary simplicial set. As for any presheaf, instead of focusing between the passage of data from $\Delta$ to $\text{Set}$, we should instead think of what kind of structure the presheaf brings to $\text{Set}$. Let $C$ be a simplicial set. Then this means the following. For each $n$, there is a set $C_n=\Hom_\text{sSet}(\Delta^n,C)$. For each morphism in $\Delta$, there is a corresponding morphism in $\text{Set}$, which we shall discuss now. 
 
-\begin{thm}{}{} Let $C:\Delta\to\text{Set}$ be a simplicial set. Then every morphism in $C(\Delta)$ is the composite of two kinds of maps: 
+\begin{prp}{}{} Let $S:\Delta\to\text{Set}$ be a simplicial set. Then every morphism in $S(\Delta)$ is the composite of two kinds of maps: 
 \begin{itemize}
-\item The face maps: $d_i:C_n\to C_{n-1}$ for $0\leq i\leq n$ defined by $$d_i=C(d^i:[n-1]\to[n])$$
-\item The degeneracy maps: $s_i:C_{n+1}\to C_n$ for $0\leq i\leq n$ defined by $$s_i=C(s^i:[n+1]\to[n])$$
+\item The face maps: $d_i:S_n\to S_{n-1}$ for $0\leq i\leq n$ defined by $$d_i=S(d^i:[n-1]\to[n])$$
+\item The degeneracy maps: $s_i:S_{n+1}\to S_n$ for $0\leq i\leq n$ defined by $$s_i=S(s^i:[n+1]\to[n])$$
 \end{itemize}
-Moreover, these maps satisfy the above simplicial identities
-\end{thm}
+Moreover, these maps satisfy the following simplicial identities: 
+\begin{itemize}
+\item $d_i\circ d_j=d_{j-1}\circ d_i$ if $i<j$
+\item $s_i\circ s_j=s_{j+1}\circ s_i$ if $i\leq j$
+\item $d_i\circ s_j=\begin{cases}
+\text{id} & \text{ if } i=j\text{ or }j+1\\
+s_{j-1}\circ d_i & \text{ if } i<j\\
+s_j\circ d_{i-1} & \text{ if }i>j+1
+\end{cases}$
+\end{itemize} \tcbline
+\begin{proof}
+Results are immediate using prp 1.1.3 and the fact that $S$ is contravariant. 
+\end{proof}
+\end{prp}
 
-\begin{thm}{}{} The category $\bold{sSet}$ is a symmetric monoidal category with level-wise cartesian product. 
-\end{thm}
+\begin{prp}{}{} The category $\bold{sSet}$ is a symmetric monoidal category with level-wise cartesian product. 
+\end{prp}
 
 Recall the notion of a $\Delta$-set from Algebraic Topology 2 and one might realize they look suspiciously similar to that of a simplicial set. Let us recall. A $\Delta$-set is a collection of sets $S_n$ for $n\in\N$ together with maps $d_i^n:S_n\to S_{n-1}$ for $0\leq i\leq n$ such that $$d_i^{n-1}\circ d_j^n=d_{j-1}^{n-1}\circ d_i^n$$ for $i<j$. One can easily convince themselves that every simplicial set is a $\Delta$-set. Indeed, a simplicial set satisfies five more relations than a $\Delta$-set. Therefore we have that $$\bold{sSet}\subset\Delta\text{ Complexes}$$
 
-\begin{thm}{}{} Every simplicial set is a $\Delta$-set. 
-\end{thm}
+\begin{prp}{}{} Every simplicial set is a $\Delta$-set. 
+\end{prp}
 
 Combining with the previously learnt combinatorial objects in algebraic topology, we now have the following tower:  $$\text{Simplicial Complexes}\subset\bold{sSet}\subset\Delta\text{ Complexes}\subset\bold{CW}$$
 
@@ -120,6 +150,11 @@ Combining with the previously learnt combinatorial objects in algebraic topology
 \item Denote $\partial\Delta^n$ the simplicial subset generated by the faces $\partial_i\Delta^n$ for $0\leq i\leq n$. Define $\partial\Delta^0=\emptyset$. 
 \end{itemize}
 \end{defn}
+
+\begin{defn}{Degenerate Simplices}{} Let $S:\Delta\to\bold{Set}$ be a simplicial set. Let $x\in S_n$ be an $n$-simplex. We say that $x$ is degenerate if if $x\in\im(s_k)$ for some degenerate map $s_k$. 
+\end{defn}
+
+Intuitively, degenerate simplices refer to simplicies that consecutively have the same face. Indeed, if $x=s_k(y)$ for some $k$, then the $k$th and $k+1$th position of the simplex $x$ is given by the same element. Collapsing the two vertices should return the simplex $y$. 
 
 \subsection{Geometric Realization of Simplicial Sets}
 \begin{defn}{Geometric Realization of Standard n-Simplexes}{} Let $n\in\N$. Consider the standard $n$-simplex $\Delta^n$. Define the geometric realization of $\Delta^n$ to be $$\abs{\Delta^n}=\left\{\sum_{k=0}^nt_kv_k\bigg{|}\sum_{k=0}^nt_k=1\text{ and }t_k\geq 0\text{ for all }k=0,\dots,n\right\}$$

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  19 AUG 2024 18:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  24 OCT 2024 03:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -907,6 +907,9 @@ LaTeX Font Info:    Trying to load font information for T1+qpl on input line 11
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qpl.fd
 File: t1qpl.fd 2009/09/25 v1.2 font definition file for T1/qpl
 ))
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbtheorems.c
 ode.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.2.0'
@@ -944,7 +947,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 229.
+Package hyperref Info: Option `colorlinks' set `true' on input line 251.
 ) (Higher Category Theory.aux)
 \openout1 = `"Higher Category Theory.aux"'.
 
@@ -1036,8 +1039,9 @@ Package hyperref Info: Link coloring ON on input line 16.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
+Couldn't patch \deferred@thm@head!
+LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1057,50 +1061,71 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 \openout5 = `"Higher Category Theory.toc"'.
 
  [2]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 4
-8.
 
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 28.
+
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 4
+6.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
 enc}] [4]
-Underfull \hbox (badness 1418) in paragraph at lines 80--81
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
+
+ []
+
+[5] [6]
+Underfull \hbox (badness 1418) in paragraph at lines 157--158
 []\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/10 be a space. Then the h
 o-mo-topy cat-e-gory of the sin-gu-lar set of $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/
 10 is equal to 
  []
 
-[5] (Higher Category Theory.aux)
+[7] [8] (Higher Category Theory.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-Package rerunfilecheck Info: File `"Higher Category Theory".out' has not change
-d.
-(rerunfilecheck)             Checksum: E02D95A57132AD69EAA2001C9CCF8135;1016.
+
+
+Package rerunfilecheck Warning: File `"Higher Category Theory".out' has changed
+.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Higher Category Theory".out':
+(rerunfilecheck)             Before: 25FCFBBB2EA4147CC60F9E42C4730590;1558
+(rerunfilecheck)             After:  186F0D6E1660F0435312F9FABB8F6377;1717.
  ) 
 Here is how much of TeX's memory you used:
- 32219 strings out of 474424
- 635729 string characters out of 5741739
- 1954496 words of memory out of 5000000
- 54029 multiletter control sequences out of 15000+600000
- 596737 words of font info for 74 fonts, out of 8000000 for 9000
+ 32400 strings out of 474424
+ 639338 string characters out of 5741739
+ 1953496 words of memory out of 5000000
+ 54184 multiletter control sequences out of 15000+600000
+ 597664 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,16n,120p,563b,1383s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,16n,120p,769b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liula/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Higher Category Theory.pdf" (5 pages, 202189 bytes).
+cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/li
+ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
+/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5
+.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/tex-gyre/qplr.pfb>
+Output written on "Higher Category Theory.pdf" (8 pages, 280691 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 211 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 85 words of extra memory for PDF output out of 10000 (max. 10000000)
 
