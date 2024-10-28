@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  24 OCT 2024 16:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  25 OCT 2024 03:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1334,7 +1334,7 @@ Overfull \hbox (17.71152pt too wide) in paragraph at lines 1242--1243
 he sin-gu-lar ho-mol-ogy groups of the two. 
  []
 
-<Image 1.png, id=707, 498.86375pt x 503.8825pt>
+<Image 1.png, id=713, 498.86375pt x 503.8825pt>
 File: Image 1.png Graphic file (type png)
 <use Image 1.png>
 Package pdftex.def Info: Image 1.png  used on input line 1253.
@@ -1397,12 +1397,12 @@ Overfull \hbox (5.71089pt too wide) in paragraph at lines 1809--1810
 phism which makes the def-i-ni-tion clearer. 
  []
 
-<Image 3.png, id=822, 810.02625pt x 310.15875pt>
+<Image 3.png, id=828, 810.02625pt x 310.15875pt>
 File: Image 3.png Graphic file (type png)
 <use Image 3.png>
 Package pdftex.def Info: Image 3.png  used on input line 1833.
 (pdftex.def)             Requested size: 405.01213pt x 155.079pt.
-<Image 4.png, id=823, 849.1725pt x 296.10625pt>
+<Image 4.png, id=829, 849.1725pt x 296.10625pt>
 File: Image 4.png Graphic file (type png)
 <use Image 4.png>
 Package pdftex.def Info: Image 4.png  used on input line 1858.
@@ -1622,21 +1622,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 3325--3326
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
+Package rerunfilecheck Info: File `"Algebraic Topology 2".out' has not changed.
 
-
-Package rerunfilecheck Warning: File `"Algebraic Topology 2".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Algebraic Topology 2".out':
-(rerunfilecheck)             Before: DD70CDA1C8C1F6B178617B6D2B67BF3A;14083
-(rerunfilecheck)             After:  EE2F0D9C6EEB1F52BE5BE32AC7116B08;14252.
+(rerunfilecheck)             Checksum: EE2F0D9C6EEB1F52BE5BE32AC7116B08;14252.
  ) 
 Here is how much of TeX's memory you used:
- 40775 strings out of 474424
- 849353 string characters out of 5741739
+ 40776 strings out of 474424
+ 849370 string characters out of 5741739
  2021496 words of memory out of 5000000
- 62165 multiletter control sequences out of 15000+600000
+ 62166 multiletter control sequences out of 15000+600000
  600947 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,22n,120p,1319b,1541s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1663,9 +1657,9 @@ pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/q
 plb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gy
 re/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/te
 x-gyre/qplri.pfb>
-Output written on "Algebraic Topology 2.pdf" (105 pages, 1386584 bytes).
+Output written on "Algebraic Topology 2.pdf" (105 pages, 1387450 bytes).
 PDF statistics:
- 1340 PDF objects out of 1440 (max. 8388607)
+ 1345 PDF objects out of 1440 (max. 8388607)
  438 named destinations out of 1000 (max. 500000)
- 596 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 604 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -25,9 +25,7 @@
 \pagebreak
 \section{The Stable Phenomena}
 \subsection{The Stable Homotopy Groups}
-In Algebraic Topology, we refer to a property or invariant being stable if applying the suspension functor to the space does not change the property (up to possibly a shift in index). The first such example is one we have already encountered. \\
-
-Let $X$ be a space. We have seen in Algebraic Topology 3 that we can define the stable homotopy groups of $X$ as follows. 
+In Algebraic Topology, we refer to a property or invariant being stable if applying the suspension functor to the space does not change the property (up to possibly a shift in index). The first such example is one we have already encountered. 
 
 \begin{defn}{Stable Homotopy Groups}{} Let $X$ be a space. Let $n\in\N$. Define the $n$th stable homotopy groups of $X$ to be $$\pi_n^s(X)=\colim_{k\to\infty}\pi_{n+k}(\Sigma^kX)$$
 \end{defn}
@@ -110,7 +108,7 @@ Notice that we have restricted our spaces to that in $\bold{CG}$, the category o
 \end{tikzcd}}\\~\\
 \end{defn}
 
-\begin{defn}{}{} Let $\mU$ be a full subcategory of $\bold{Top}_\ast$. Define the category $$\text{Sp}^\N(\mU)$$ of sequential spectra of $\mU$ to consist of the following data. 
+\begin{defn}{The Category of Sequential Spectra}{} Let $\mU$ be a full subcategory of $\bold{Top}_\ast$. Define the category $$\text{Sp}^\N(\mU)$$ of sequential spectra of $\mU$ to consist of the following data. 
 \begin{itemize}
 \item The objects are the sequential spectra $\{E_n\in\mU\;|\;n\in\N\}$ of spaces in $\mU$. 
 \item The morphisms are the functions of spectra
@@ -118,10 +116,7 @@ Notice that we have restricted our spaces to that in $\bold{CG}$, the category o
 \end{itemize}
 \end{defn}
 
-\begin{defn}{CW Spectra}{} A CW spectrum $E$ is a collection $\{E_n\;|\;n\in\Z\}$ of CW-complexes with a chosen basepoint together with maps $e_n:\Sigma E_n\to E_{n+1}$ so that $\Sigma E_n$ is recognized as a subcomplex of $E_{n+1}$. 
-\end{defn}
-
-\begin{defn}{Subspectra}{} Let $E$ and $F$ be spectra. We say that $F$ is a subspectra of $E$ if $F_n\subseteq E_n$ for all $n\in\N$. 
+\begin{defn}{CW Spectra}{} A CW spectrum $E$ is a collection $\{E_n\;|\;n\in\Z\}$ of CW-complexes with a chosen basepoint together with maps $e_n:\Sigma E_n\to E_{n+1}$ so that $\Sigma E_n$ is recognized as a subcomplex of $E_{n+1}$. The category of CW spectra is denoted by $$\text{Sp}^\N(\bold{CW}_\ast)$$
 \end{defn}
 
 \begin{defn}{The Suspension Spectrum}{} Let $X\in\bold{CG}_\ast$ be a space. Define the suspension spectrum $\Sigma^\infty X$ of $X$ to consist of the following data. 
@@ -147,7 +142,7 @@ Specific types of spectra are related to (co)homology theories. We will introduc
 \begin{lmm}{}{} Let $X$ be an infinite loopspace. Define a sequence of spaces and maps inductively:
 \begin{itemize}
 \item Let $X_0=X$
-\item Suppose $X_n$ is a chosen space. Choose $X_{n+1}$ to be a space such that $X_n\simeq\Omega X_{n+1}$. Also let the bonding map $\sigma_n$ be the weak equivalence $\sigma:X_n\to\Omega X_{n+1}$. 
+\item Suppose $X_n$ is a chosen space. Choose $X_{n+1}$ to be a space such that $$X_n\simeq\Omega X_{n+1}$$ Also let the bonding map $\sigma_n$ be the weak equivalence $\sigma:X_n\to\Omega X_{n+1}$. 
 \end{itemize}
 The above data defines an $\Omega$-spectrum. 
 \end{lmm}
@@ -216,22 +211,14 @@ Suspension gives equivalence of categories.
 \pagebreak
 \section{The Stable Model Structure on Sequential Spectra}
 \subsection{The Category of Sequential Spectra}
-\begin{defn}{The Category of Spectra}{} Define the category $\mS^\N$ of spectra to consist of the following data. 
-\begin{itemize}
-\item The objects are spectra arising from sequences of spaces in $\bold{CG}_\ast$
-\item The morphisms are given by functions of spectra (not maps)
-\item Composition is given by the composition of functions
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Smash Tensoring}{} Let $E$ be a spectrum and let $X\in\bold{CG}_\ast$ be a pointed space. Define the smash tensoring of $E$ and $X$ to be the spectrum $E\wedge X$ given as follows. 
+\begin{defn}{Smash Tensoring}{} Let $E\in\text{Sp}^\N(\bold{CGWH}_\ast)$ be a spectrum and let $X\in\bold{CG}_\ast$ be a pointed space. Define the smash tensoring of $E$ and $X$ to be the spectrum $$E\wedge X$$ given as follows. 
 \begin{itemize}
 \item For each $n\in\N$, $(E\wedge X)_n=E_n\wedge X$
 \item For each map $e_n:\Sigma E\to E_{n+1}$, the structure map is given by $$e_n\wedge\text{id}_X:\Sigma(E\wedge X)_n\to(E\wedge X)_{n+1}$$ by wed
 \end{itemize}
 \end{defn}
 
-\begin{defn}{Powering}{} Let $E$ be a spectrum and let $X\in\bold{CG}_\ast$ be a pointed space. Define the powering of $E$ and $X$ to be the spectrum $\text{Map}(X,E)_\ast$ given as follows. 
+\begin{defn}{Powering}{} Let $E\in\text{Sp}^\N(\bold{CGWH}_\ast)$ be a spectrum and let $X\in\bold{CG}_\ast$ be a pointed space. Define the powering of $E$ and $X$ to be the spectrum $$\text{Map}(X,E)_\ast$$ given as follows. 
 \begin{itemize}
 \item For each $n\in\N$, $(\text{Map}(X,E)_\ast)_n=\text{Map}(X,E_n)_\ast$
 \item For each map $e_n:\Sigma E\to E_{n+1}$, the structure map is given by $$\Sigma(\text{Map}(X,E)_\ast)_n\overset{(\text{const},\text{id})}{\longrightarrow}\text{Map}(X,\Sigma E_n)_\ast\overset{\text{Map}(X,e_n)_\ast}{\longrightarrow}(\text{Map}(X,E)_\ast)_{n+1}$$ by wed
@@ -240,7 +227,7 @@ Suspension gives equivalence of categories.
 
 Next: Smash tensoring and powering are functorial (nLab), adjunction between smash tensoring and powering. 
 
-\begin{defn}{Shifted Spectrum}{} Let $X\in\bold{CG}$ be a space. Define the $k$-fold shifted spectrum $F_k^\N X$ of $X$ to consists of 
+\begin{defn}{Shifted Spectrum}{} Let $X\in\bold{CG}$ be a space. Define the $k$-fold shifted spectrum $$F_k^\N X$$ of $X$ to consists of the following data. 
 \begin{itemize}
 \item For each $n$, the space is given by $$(F_k^\N X)_n=\begin{cases}
 S^{n-k}\wedge X & \text{ if } n\geq k\\
@@ -292,10 +279,10 @@ for $n+k>1$. We write the $n$th stable homotopy group as $$\pi_n(X)=\colim_{k\to
 
 Notice that this is a generalization of the stable homotopy groups in Algebraic Topology 3. Indeed if one considers the suspension spectrum of space, then the homotopy groups of the given suspension spectrum are the stable homotopy groups. This is made rigorous with the following functor. 
 
-\begin{defn}{The Suspension Functor}{} Define the suspension functor $\Sigma^\infty:\bold{CG}_\ast\to\mS^\N$ to consist of the following. 
+\begin{defn}{The Suspension Functor}{} Define the suspension functor $$\Sigma^\infty:\bold{CG}_\ast\to\mS^\N$$ to consist of the following. 
 \begin{itemize}
 \item For $X\in\bold{CG}_\ast$ a space, $\Sigma^\infty X$ is the suspension spectrum of $X$
-\item For $f:X\to Y$ a map, $\Sigma^\infty f:\Sigma^\infty X\to\Sigma^\infty Y$ is the map induced by the $n$th suspension of $f$ for all $n\in\N$. 
+\item For $f:X\to Y$ a map, $$\Sigma^\infty f:\Sigma^\infty X\to\Sigma^\infty Y$$ is the map induced by the $n$th suspension of $f$ for all $n\in\N$. 
 \end{itemize}
 \end{defn}
 
@@ -351,8 +338,6 @@ Moreover, the fibrant objects are precisely the $\Omega$-spectra.
 \item The fibrations are precisely the stable fibrations
 \end{itemize}
 \end{defn}
-
-\subsection{In View of Infinity Categories}
 
 \pagebreak
 \section{The First Stable Homotopy Category}

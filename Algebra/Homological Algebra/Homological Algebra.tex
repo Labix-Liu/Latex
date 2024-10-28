@@ -84,6 +84,35 @@ In other words, we have the diagram: \\
 for which we require that $$\im(\partial_{n+1})\subseteq\ker(\partial_n)$$ for each $n$. 
 \end{defn}
 
+\begin{defn}{Chain Map}{} Let $(C_\bullet,\partial_\bullet)$ and $(C_\bullet',\partial_\bullet')$ be two chain complexes in an abelian category $\mA$. A chain map $f_\bullet:C_\bullet\to C_\bullet'$ is a family of maps $$f_n:C_n\to C_n'$$ in $\mA$ such that $\partial_n'\circ f_n=f_{n-1}\circ\partial_n$ for all $n$. \\~\\
+In other words, we have the following commutative diagram: \\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\cdots\arrow[r] & C_{n+1}\arrow[r, "\partial_{n+1}"]\arrow[d, "f_{n+1}"] & C_n\arrow[r, "\partial_n"]\arrow[d, "f_n"] & C_{n-1}\arrow[r]\arrow[d, "f_{n-1}"] & \cdots\\
+\cdots\arrow[r] & C_{n+1}'\arrow[r, "\partial_{n+1}'"] & C_n'\arrow[r, "\partial_n'"] & C_{n-1}'\arrow[r] & \cdots
+\end{tikzcd}}
+\end{defn}
+
+\begin{prp}{}{} Let $f_\bullet:C_\bullet\to D_\bullet$ and $g_\bullet:D_\bullet\to E_\bullet$ be two chain maps. Then $g_\bullet\circ f_\bullet$ is also a chain map. \tcbline
+\end{prp}
+
+\begin{defn}{Category of Chain Complexes}{} Let $\mA$ be an abelian category. Define $\bold{Ch}(\mA)$ to be the category of chain complexes where 
+\begin{itemize}
+\item The objects are chain complexes of objects in $\mA$. 
+\item The morphisms are chain maps. 
+\item Composition is given by composition of functions. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Variants of the Category of Chain Complexes}{} Let $\mA$ be an abelian category. 
+\begin{itemize}
+\item Define the category $\bold{Ch}_{\geq 0}(\mA)$ of non-negative chain complexes to be the full subcategory of $\bold{Ch}(\mA)$ consisting of chain complexes that is $0$ in negative degrees. 
+\item Define the category $\bold{Ch}_{\leq 0}(\mA)$ of non-positive chain complexes to be the full subcategory of $\bold{Ch}(\mA)$ consisting of chain complexes that is $0$ in positive degrees. 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Let $\mA$ be an abelian category. Then $\bold{Ch}(\mA)$ is also an abelian category. 
+\end{thm}
+
 \begin{defn}{The Homology Groups of a Chain Complex}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex in an abelian category $\mA$. Define $Z_n(C_\bullet)=\ker(\partial_n)$ and $B_n(C_\bullet)=\im(\partial_{n+1})$. Define the $n$th homology of $(C_\bullet,\partial_\bullet)$ to be $$H_n(C_\bullet)=\frac{Z_n(C_\bullet)}{B_n(C_\bullet)}=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}$$
 Elements of $Z_n(C_\bullet)=\ker(\partial_n)$ are called $n$-cycles and elements of $B_n(C_\bullet)=\im(\partial_{n+1})$ are called $n$-boundaries. 
 \end{defn}
@@ -123,35 +152,6 @@ Firstly, we have that $$\partial\circ g_n\circ f_n=g_{n-1}\circ\partial\circ f_n
 We have that $g_\ast(f_\ast([z]))=g_\ast([f(z)])=[g(f(z))]=(g_\ast\circ f_\ast)([z])$. Also, we have that $$\text{id}_\ast([z])=[\text{id}(z)]=[z]=\text{id}_{H^n}([z])$$ and so we conclude. 
 \end{proof}
 \end{prp}
-
-\begin{defn}{Chain Map}{} Let $(C_\bullet,\partial_\bullet)$ and $(C_\bullet',\partial_\bullet')$ be two chain complexes in an abelian category $\mA$. A chain map $f_\bullet:C_\bullet\to C_\bullet'$ is a family of maps $$f_n:C_n\to C_n'$$ in $\mA$ such that $\partial_n'\circ f_n=f_{n-1}\circ\partial_n$ for all $n$. \\~\\
-In other words, we have the following commutative diagram: \\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-\cdots\arrow[r] & C_{n+1}\arrow[r, "\partial_{n+1}"]\arrow[d, "f_{n+1}"] & C_n\arrow[r, "\partial_n"]\arrow[d, "f_n"] & C_{n-1}\arrow[r]\arrow[d, "f_{n-1}"] & \cdots\\
-\cdots\arrow[r] & C_{n+1}'\arrow[r, "\partial_{n+1}'"] & C_n'\arrow[r, "\partial_n'"] & C_{n-1}'\arrow[r] & \cdots
-\end{tikzcd}}
-\end{defn}
-
-\begin{prp}{}{} Let $f_\bullet:C_\bullet\to D_\bullet$ and $g_\bullet:D_\bullet\to E_\bullet$ be two chain maps. Then $g_\bullet\circ f_\bullet$ is also a chain map. \tcbline
-\end{prp}
-
-\begin{defn}{Category of Chain Complexes}{} Let $\mA$ be an abelian category. Define $\bold{Ch}(\mA)$ to be the category of chain complexes where 
-\begin{itemize}
-\item The objects are chain complexes of objects in $\mA$. 
-\item The morphisms are chain maps. 
-\item Composition is given by composition of functions. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Variants of the Category of Chain Complexes}{} Let $\mA$ be an abelian category. 
-\begin{itemize}
-\item Define the category $\bold{Ch}_{\geq 0}(\mA)$ of non-negative chain complexes to be the full subcategory of $\bold{Ch}(\mA)$ consisting of chain complexes that is $0$ in negative degrees. 
-\item Define the category $\bold{Ch}_{\leq 0}(\mA)$ of non-positive chain complexes to be the full subcategory of $\bold{Ch}(\mA)$ consisting of chain complexes that is $0$ in positive degrees. 
-\end{itemize}
-\end{defn}
-
-\begin{thm}{}{} Let $\mA$ be an abelian category. Then $\bold{Ch}(\mA)$ is also an abelian category. 
-\end{thm}
 
 \subsection{The Category of Cochain Complexes}
 \begin{defn}{Cochain Complexes}{} Let $\mA$ be an abelian category. A cochain complex $(C^\bullet,\partial^\bullet)$ is a family objects $C^n\in\mA$ for $n\in\Z$ and morphisms $\delta^n:C^{n-1}\to C^n$ such that $\delta^{n+1}\circ\delta^n=0$ for all $n$. In other words, we have the diagram: \\~\\

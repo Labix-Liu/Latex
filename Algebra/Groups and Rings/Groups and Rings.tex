@@ -513,7 +513,7 @@ Let $N_G(N)=G$. Then for all $g\in G$, $gN=Ng$ thus $N$ is normal.
 
 As motivated from above, $N_G(S)$ is just all the elements in $G$ so that $S$ is allowed to be normal. Then obviously if $N_G(S)$ is the entirety of $G$ then $S$ would be allowed to be normal. 
 
-\subsection{The Isomorphism Theorems}
+\subsection{The Isomorphism Theorems for Groups}
 \begin{thm}{The First Isomorphism Theorem}{} Let $\phi:G\to H$ be a homomorphism. Then the following are true regarding the kernel and the image of the homomorphism. 
 \begin{itemize}
 \item $\ker(\phi)\trianglelefteq G$
@@ -1190,49 +1190,43 @@ As a direct result, if in addition to the above conditions, we have $G=HK$ then 
 \pagebreak
 \section{Introduction to Rings}
 \subsection{Basic Concept of Rings}
-\begin{defn}{Rings}{} A ring $(R,+,\times)$ is a set $R$ together with two binary operations $+$ and $\times$ such that 
+\begin{defn}{Rings}{} A ring consists of an abelian group $(R,+)$ together with a binary operation $\cdot:R\times R\to R$ such that the following are true. 
 \begin{itemize}
-\item $(R,+)$ is an abelian group. 
-\item $a,b\in R$ implies $ab\in R$
-\item $a\times(b\times c)=(a\times b)\times c$ for all $a,b,c\in R$
-\item There exists an element $1\in R$, called a multiplicative identity of $R$, such that for all $a\in R$ we have $a*1=1*a=a$
-\end{itemize}
-Moreover, the following distributive properties are satisfied. 
-
-\begin{itemize}
-\item $(a+b)\times c=(a\times c)+(b\times c)$ for all $a,b,c\in R$
-\item $a\times(b+c)=(a\times b)+(a\times c)$ for all $a,b,c\in R$
+\item Associativity: $a\cdot(b\cdot c)=(a\cdot b)\cdot c$ for all $a,b,c\in R$
+\item Unitality: There exists an element $1\in R$ such that $a\cdot 1=1\cdot a=a$ for all $a\in R$. 
+\item Left distributivity: $(a+b)\cdot c=(a\cdot c)+(b\cdot c)$ for all $a,b,c\in R$
+\item Right distributivity: $a\cdot(b+c)=(a\cdot b)+(a\cdot c)$ for all $a,b,c\in R$
 \end{itemize}
 \end{defn}
 
-\begin{prp}{}{} Let $R$ be a ring. 
+\begin{lmm}{}{} Let $(R,+,\cdot)$ be a ring. 
 \begin{itemize}
-\item $0a=a0=0$ for all $a\in R$
-\item $(-a)b=a(-b)=-(ab)$ for all $a,b\in R$
-\item $(-a)(-b)=ab$ for all $a,b\in R$
-\item $-a=(-1)a$
+\item $0\cdot a=a\cdot 0=0$ for all $a\in R$
+\item $(-a)\cdot b=a\cdot (-b)=-(a\cdot b)$ for all $a,b\in R$
+\item $(-a)\cdot (-b)=a\cdot b$ for all $a,b\in R$
+\item $-a=(-1)\cdot a$
 \end{itemize}\tcbline
 \begin{proof}
 Trivial. 
 \end{proof}
-\end{prp}
+\end{lmm}
 
 As with subgroups and groups, we have subrings of a ring. 
 
-\begin{defn}{Subring}{} A subring of the ring $R$ is a subgroup of $R$ that is closed under multiplication. 
+\begin{defn}{Subring}{} Let $R$ be a ring. Let $S\subseteq R$ be a subset. We say that $S$ is a subring of $R$ if $S$ is a ring in its own right. 
 \end{defn}
 
-\begin{thm}{Subring Criterion}{} Let $R$ be a ring and $S$ a subset of $R$. $S$ is a subring of $R$ if
+\begin{prp}{Subring Criterion}{} Let $R$ be a ring and $S$ a subset of $R$. Then $S$ is a subring of $R$ if and only if 
 \begin{itemize}
 \item $a,b\in S\implies ab\in S$
-\item (subgroup criterion) $a,b\in S\implies a-b\in S$
+\item $a,b\in S\implies a-b\in S$
 \item $1\in S$
 \end{itemize}\tcbline
 \begin{proof}
 Suppose that $R$ is a ring and $S$ is a subring. Then the subgroup criterion is already satisfied. If $a,b\in S$ then $ab\in S$ since $S$ is a ring. Identity also exists since it is a ring. \\~\\
 Now suppose that $S$ is a subset that satisfies the three criterion. By the subgroup criterion $S$ is an abelian subgroup. Associativity and distributivity is automatically satisfied. The closure property is also satisfied by the first item. The identity is also satisfied by the third item thus we are done. 
 \end{proof}
-\end{thm}
+\end{prp}
 
 \begin{prp}{}{} Let $R$ be a ring and $I,J$ subrings of $R$. Then $I\cap J$ is also a subring of $R$. \tcbline
 \begin{proof}
@@ -1246,7 +1240,7 @@ Similar to the order of a group, we have the characteristic of a ring.
 \end{defn}
 
 \subsection{Division Rings}
-\begin{defn}{Unit}{} Let $R$ be a ring. An element $a\in R$ is a unit in $R$ if there is some $b\in R$ such that $ab=ba=1$. The set of units in $R$ is denoted $R^\times$. 
+\begin{defn}{Units of a Ring}{} Let $R$ be a ring. An element $a\in R$ is a unit in $R$ if there is some $b\in R$ such that $ab=ba=1$. The set of units in $R$ is denoted $R^\times$. 
 \end{defn}
 
 \begin{defn}{Division Rings}{} A ring $R$ is a division ring if every non-zero element of $R$ is a unit in $R$. 
@@ -1256,7 +1250,7 @@ In particular, division ring as the name suggests, allows division in the ring. 
 
 An important type division rings will be the following. 
 
-\begin{defn}{Fields}{} A commutative division ring is called a field. 
+\begin{defn}{Fields}{} Let $F$ be a ring. We say that $F$ is a field if $F$ is a commutative division ring. 
 \end{defn}
 
 Fields are studied extensively in field theory, where its unique properties as a field is discussed. In groups and rings, we perform treatment on fields by considering its properties as a ring, rather than a field. 
@@ -1340,29 +1334,38 @@ I like that there is a subtle sense of symmetry here. The conditions on the arro
 
 \pagebreak
 \subsection{Ring Homomorphisms and Ideals}
-\begin{defn}{Ring Homomorphism}{} Let $R,S$ be rings. A ring homomorphism is a map $\phi:R\to S$ such that $$\phi(a+b)=\phi(a)+\phi(b)$$ and $$\phi(ab)=\phi(a)\phi(b)$$ for all $a,b\in R$. A bijective ring homomorphism is called a ring isomomorphism. 
-\end{defn}
-
-\begin{defn}{Kernel}{} The kernel of the ring homomorphism $\phi$, denoted $\ker(\phi)$ is defined as $$\ker(\phi)=\{r\in R|\phi(r)=0\}$$
-\end{defn}
-
-\begin{defn}{Ideals}{} Let $R$ be a ring. Let $I\subset R$ and let $r\in R$. Define $rI=\{ra|a\in I\}$ and $Ir=\{ar|a\in I\}$
+\begin{defn}{Ring Homomorphism}{} Let $R,S$ be rings. A ring homomorphism is a map $\phi:R\to S$ such that the following are true: 
 \begin{itemize}
-\item $I$ is a left ideal of $R$ if $(I,+)$ is a subgroup of $(R,+)$ and $rI\subseteq I$ for all $r\in R$
-\item $I$ is a right ideal of $R$ if $(I,+)$ is a subgroup of $(R,+)$ and $Ir\subseteq I$ for all $r\in R$
-\item A subset $I$ that is both a left ideal and right ideal is called an ideal of $R$. 
+\item $\phi(a+b)=\phi(a)+\phi(b)$ for all $a,b\in R$
+\item $\phi(ab)=\phi(a)\phi(b)$ for all $a,b\in R$
+\end{itemize}
+A bijective ring homomorphism is called a ring isomomorphism. 
+\end{defn}
+
+\begin{defn}{Left, Right and Two-Sided Ideals}{} Let $(R,+,\cdot)$ be a ring. Let $I\subseteq R$. 
+\begin{itemize}
+\item $I$ is a left ideal of $R$ if $(I,+)$ is a subgroup of $(R,+)$ and $r\cdot i\in I$ for all $r\in R$ and $i\in I$
+\item $I$ is a right ideal of $R$ if $(I,+)$ is a subgroup of $(R,+)$ and $i\cdot r\in I$ for all $r\in R$ and $i\in I$
+\item $I$ is a two-sided ideal of $R$ is $I$ is both a left ideal and a right ideal
 \end{itemize}
 \end{defn}
 
-\begin{lmm}{}{} Let $I$ be an ideal of a ring $R$. Then $I=R$ if and only if there exists a unit $u\in R$ such that $u\in I$. \tcbline
+\begin{lmm}{}{} Let $R$ be a ring. Let $I$ be an ideal of $R$. Then $I=R$ if and only if $I$ contains a unit of $R$. \tcbline
 \begin{proof}
-Let $I=R$. Then trivially $u\in I$. Now let $u\in I$ be a unit. Let $x\in R$, I want to show that $x\in I$ thus completing the proof that $R\subseteq I$. Now $x=x(u^{-1}u)=(xu^{-1})u$. Since $xu^{-1}\in R$ and $u\in I$, their muplication will also be in $I$, thus $x\in I$. 
+Let $I=R$. Then trivially $1\in I$. Now let $u\in I$ be a unit. Let $x\in R$, I want to show that $x\in I$ thus completing the proof that $R\subseteq I$. Now $x=x(u^{-1}u)=(xu^{-1})u$. Since $xu^{-1}\in R$ and $u\in I$, their multiplication will also be in $I$, thus $x\in I$. 
 \end{proof}
 \end{lmm}
 
-This lemma is also very useful if you consider the fact that the mupltiplicative identity is also a unit. 
+This lemma is also very useful if you consider the fact that the multiplicative identity is also a unit. 
 
-\begin{prp}{}{} If $I,J$ are ideals of a ring $R$ then $$I+J=\{i+j|i\in I,j\in J\}$$ and $$I\cap J=\{r\in R|r\in I,r\in J\}$$ are both ideals of $R$. \tcbline
+\begin{defn}{Operations on Ideals}{} Let $R$ be a ring. Let $I,J$ be ideals of $R$. 
+\begin{itemize}
+\item Define the sum of $I$ and $J$ by $$I+J=\{i+j|i\in I,j\in J\}$$
+\item Define the intersection of $I$ and $J$ by $$I\cap J=\{r\in R|r\in I,r\in J\}$$
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $I,J$ be ideals of $R$. Then $I+J$ and $I\cap J$ are both ideals of $R$. \tcbline
 \begin{proof}
 Let $R$ be a ring and $I,J$ its ideals. 
 \begin{itemize}
@@ -1372,45 +1375,6 @@ Now let $r\in R$ and $i+j\in I+J$. Then $r(i+j)=ri+rj$ by distributivity. Since 
 \end{itemize}
 \end{proof}
 \end{prp}
-
-\begin{prp}{}{} The kernel of any ring homomorphism is an ideal. \tcbline
-\begin{proof}
-Kernels are trivially subgroups of $(R,+)$. Let $r\in R$. Let $x\in\ker(\phi)$. Then $\phi(rx)=\phi(r)\phi(x)=\phi(r)\cdot 0\in\ker(\phi)$ thus we are done. 
-\end{proof}
-\end{prp}
-
-\begin{prp}{Quotient Ring}{} Let $I$ be an ideal of a ring $R$. Then the cosets of $I$ in $R$, $$R/I=\{r+I|r\in R\}$$ is a ring with addition defined the same as quotient groups $$(r+I)+(s+I)=(r+s)+I$$ and multiplication defined as $$(r+I)(s+I)=\{ab\in R|a\in r+I,b\in s+I\}=rs+I$$ called the quotient ring of $R$ by $I$. \tcbline
-\begin{proof}
-Since $(I,+)$ is a subgroup of $(R,+)$, we know that $R/I$ is already an abelian group. We simply show that multplication is well defined. Suppose that $x_1+I=x_2+I$ and $y_1+I=y_2+I$. Then 
-\begin{align*}
-(x_1+I)(y_1+I)&=x_1y_1+I\\
-&=(x_1y_1-x_1y_2+x_1y_2-x_2y_2+x_2y_2)+I\\
-&=(x_1(y_1-y_2)+(x_1-x_2)y_2+x_2y_2)+I\\
-&=x_2y_2+I
-\end{align*}
-since $y_1-y_2\in I$ and $x_1-x_2\in I$. This shows that taking different represetatives of the cosets of an ideal does not matter for multiplication. \\~\\
-Now we show that $1+I$ is the muplicative identity of $R/I$. Let $x+I\in R/I$. We have that $(1+I)(x+I)=x+I$ thus we are done. Associativity and distributivity follows from the fact that $R$ has these properties. 
-\end{proof}
-\end{prp}
-
-\begin{thm}{}{} If $I$ is an ideal of $R$, the map $\phi:R\to R/I$ defined by $\phi(r)=r+I$ is a surjective ring homomorphism with kernel $I$. \tcbline
-\begin{proof}
-Let $a,b\in R$. Then 
-\begin{align*}
-\phi(a+b)&=(a+b)+I\\
-&=(a+I)+(b+I)\\
-&=\phi(a)+\phi(b)
-\end{align*}
-Now let $r\in R$. Then
-\begin{align*}
-\phi(ra)&=ra+I\\
-&=(r+I)(a+I)\\
-&=\phi(r)\phi(a)
-\end{align*}
-Now we show that $\phi$ is surjective. Let $r+I\in R/I$. Then trivially $\phi(r)=r+I$ thus we are done. \\~\\
-Finally we show that $\ker(\phi)=I$. Let $a\in\ker(\phi)$. Then $\phi(a)=a+I=I$. This means that $a\in I$ and we have shown that $\ker(\phi)\subseteq I$. Now suppose that $a\in I$. Then $\phi(a)=a+I=I$. Thus $a\in\ker(\phi)$ and we are done. 
-\end{proof}
-\end{thm}
 
 \subsection{Types of Ideals}
 \begin{lmm}{}{} Let $R$ be a commutative ring and $a\in R$. Then $(a)=\{ar:r\in R\}$ is an ideal. \tcbline
@@ -1457,6 +1421,111 @@ If $M$ is maximal then $R/M$ being a field implies that $R/M$ is an integral dom
 
 The proof is rather inconstructive in the sense that it does not provide a good insight to the structure, the reasoning behind why every maximal ideal is prime. For a more structure-revealing proof, consider the following alternative approach: \\~\\
 Let $M$ be a maximal ideal of a commutative ring $R$. Let $ab\in M$ but $a\notin M$. Then $M+(a)=R$ since $M$ is maximal. Then $1\in R$ means that there exists $k\in M$ and $r\in R$ such that $k+ra=1$. Mutplying by $b$ gives $kb+rab=b$. Since $kb\in M$ and $rab\in M$, $b\in M$ and we are done. 
+
+\pagebreak
+\section{The Isomorphism Theorem for Rings}
+\subsection{Kernels and the Quotient Ring}
+\begin{defn}{Kernel}{} Let $R,S$ be rings. Let $\phi:R\to S$ be a ring homomorphism. Define the kernel of $\phi$ to be $$\ker(\phi)=\{r\in R\;|\;\phi(r)=0\}$$
+\end{defn}
+
+\begin{prp}{}{} Let $R,S$ be a ring. Let $\phi:R\to S$ be a ring homomorphism. Then $\ker(\phi)$ is an ideal of $R$. 
+\end{prp}
+
+\begin{prp}{}{} Let $I$ be an ideal of a ring $R$. Then the cosets of $I$ in $R$, $$R/I=\{r+I|r\in R\}$$ is a ring with addition defined the same as quotient groups $$(r+I)+(s+I)=(r+s)+I$$ and multiplication defined as $$(r+I)(s+I)=\{ab\in R|a\in r+I,b\in s+I\}=rs+I$$ \tcbline
+\begin{proof}
+Since $(I,+)$ is a subgroup of $(R,+)$, we know that $R/I$ is already an abelian group. We simply show that multplication is well defined. Suppose that $x_1+I=x_2+I$ and $y_1+I=y_2+I$. Then 
+\begin{align*}
+(x_1+I)(y_1+I)&=x_1y_1+I\\
+&=(x_1y_1-x_1y_2+x_1y_2-x_2y_2+x_2y_2)+I\\
+&=(x_1(y_1-y_2)+(x_1-x_2)y_2+x_2y_2)+I\\
+&=x_2y_2+I
+\end{align*}
+since $y_1-y_2\in I$ and $x_1-x_2\in I$. This shows that taking different represetatives of the cosets of an ideal does not matter for multiplication. \\~\\
+Now we show that $1+I$ is the muplicative identity of $R/I$. Let $x+I\in R/I$. We have that $(1+I)(x+I)=x+I$ thus we are done. Associativity and distributivity follows from the fact that $R$ has these properties. 
+\end{proof}
+\end{prp}
+
+\begin{defn}{Quotient Rings}{} Let $R$ be a ring. Let $I$ be an ideal of $R$. Define the quotient ring of $R$ by $I$ to be the abelian group $$\frac{R}{I}=\{r+I\;|\;r\in R\}$$ together with multiplication defined by $$(r+I)\cdot(s+I)=rs+I$$
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $I\subseteq R$ be a subset. Then $I$ is an ideal of $R$ if and only if it is the kernel of some ring homomorphism. 
+\end{prp}
+
+\subsection{Isomophism Theorem for Rings}
+The isomorphism theorem for rings is a direct result that extends the group isomorphism theorems. Their proofs are mostly the same except that we also have to check that multiplication is preserved so that the isomorphisms inherited from groups is indeed a ring isomorphism. 
+
+\begin{thm}{The First Isomorphism Theorem for Rings}{} If $\phi:R\to S$ is a homomorphism of rings, then the following are true. 
+\begin{itemize}
+\item $\ker(\phi)$ is an ideal of $R$
+\item $\im(\phi)\leq S$ is a subring of $S$
+\end{itemize}
+Moreover, we have an isomorphism $$\frac{R}{\ker(\phi)}\cong\phi(R)$$ in rings. \tcbline
+\begin{proof}
+A group isomorphism $R/\ker(\phi)\cong\phi(R)$ can be established from the first isomorphism theorem for groups. Moreover we know that $\ker(\phi)$ is a normal subgroup. To show that $\ker(\phi)$ is an ideal, notice that for $r\in R$ and $k\in\ker\phi$, $\phi(rk)=\phi(r)\phi(k)=0$ thus $rk\in\ker(\phi)$. To show that $R/\ker(\phi)\cong\phi(R)$ is a ring isomorphism, suppose that $\pi$ is the induced group isomorphism. Notice that 
+\begin{align*}
+\pi((r_1+\ker(\phi))(r_2+\ker(\phi)))&=\pi(r_1r_2+\ker(\phi))\\
+&=\phi(r_1r_2)\\
+&=\phi(r_1)\phi(r_2)\\
+&=\pi(r_1+\ker(\phi))\pi(r_2+\ker(\phi))
+\end{align*}
+and so we conclude. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{The Second Isomorphism Theorem for Rings}{} Let $A\leq R$ and $B$ an ideal of $R$. Then the following are true. 
+\begin{itemize}
+\item $A+B=\{a+b\;|\;a\in A,b\in B\}$ is a subring of $R$
+\item $A\cap B$ is an ideal of $A$
+\end{itemize}
+Moreover, we have an isomorphism $$\frac{A+B}{B}\cong\frac{A}{A\cap B}$$ in rings. 
+\end{thm}
+
+\begin{thm}{The Third Isomorphism Theorem for Rings}{} Let $I,J$ be ideals of $R$ with $I\subset J$. Then $J/I$ is an ideal of $R/I$ and $(R/I)/(J/I)\cong R/J$
+\end{thm}
+
+\begin{thm}{The Correspondence Theorem}{} Let $R$ be a ring. Let $I$ be a left ideal of $R$. Then there is an inclusion preserving one-to-one bijection $$\left\{\substack{\text{Subrings of }R\\\text{containing }I}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\text{Subrings of }R/I\right\}$$ induced by the surjective ring homomorphism $\varphi:R\to R/I$. Moreover, there is an inclusion preserving one-to-one bijection $$\left\{\substack{\text{Ideals of }R\\\text{containing }I}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\text{Ideals of }R/I\right\}$$ given by the map $A\mapsto A/I$ for $A$ an ideal of $R$ containing $I$. 
+\end{thm}
+
+\subsection{Chinese Remainder Theorem}
+In this section we develop the necessary notions in order to illustrate the Chinese Remainder Theorem. 
+
+\begin{defn}{Direct product of Rings}{} Let $R,S$ be rings. Define the direct product of $R$ and $S$ to be the set $R\times S=\{(r,s)\in R\times S\}$ together with the binary operations defined element wise. 
+\end{defn}
+
+It is a routine exercise to check that $R\times S$ is indeed a ring in its own right. \\~\\
+
+A rather unintuitive definition is that of coprime ideals. 
+
+\begin{defn}{Coprime Ideals}{} We say that two ideals $A,B$ in a ring $R$ are coprime if $A+B=R$. 
+\end{defn}
+
+But there is indeed a good reason for the name. Notice that in $\Z$, the prime ideals are exactly the ideals $(p)$ where $p$ is a prime. We also have a nice inclusion of ideals whenever $p|a$ which is $(a)\subseteq(p)$, which we will prove later. This means that in general, the smaller the number $a$ is, the larger the ideal $(a)$ is and indeed, the smaller the number is in $\Z$, the more numbers it can possibly divide. Now recall that if $a$ and $b$ are coprime in $\Z$, then their gcd will be $1$. Indeed we will develop the notion of gcd for ideals as well, which is to say that if $d=\gcd(a,b)$ in the usual sense, then $(a)\subseteq(d)$ and $(b)\subseteq(d)$. Then if $a$ and $b$ are coprime, their ideals are both subsets of $(1)$, which is exactly $R$. This leads to why we say that two ideals are coprime. 
+
+\begin{prp}{}{} Let $A,B$ be ideals of a ring $R$. If $A$ and $B$ are coprime then $$AB=A\cap B$$ \tcbline
+\begin{proof}
+
+\end{proof}
+\end{prp}
+
+\begin{thm}{Chinese Remainder Theorem}{} Let $I_1,\dots, I_n$ be ideals of a ring $R$. Then the ring homomorphism $$\phi:R\to\frac{R}{I_1}\times\cdots\times\frac{R}{I_n}$$ defined by $\phi(x)=(x+I_1,\dots,x+I_n)$ has kernel $$I=\bigcap_{k=1}^nI_k$$ Moreover, if each $I_j$ and $I_k$ are pairwise coprime, then there is an isomorphism $$\frac{R}{I}\cong\frac{R}{I_1}\times\cdots\times\frac{R}{I_n}$$ given by $\phi$. \tcbline
+\begin{proof}
+Since $\phi$ is a collection of projections on to each factor, $\phi$ is a ring homomorphism. It is clear that $I$ is the kernel of the homomorphism. Indeed given $x\in I$, then $x$ lies in each and every $I_k$ for $1\leq k\leq n$. Thus $\phi(x)=(x+I_1,\dots,x+I_n)=0$. Conversely, if $(x+I_1,\dots,x+I_n)$ is such that applying $\phi$ gives $0$, then $x\in I_1,\dots,I_n$ so that $x\in I$. \\~\\
+
+When the ideals are pairwise corpime, consider the elements $e_k=(0,\dots,0,x+I_k,0,\dots,0)$ for $1\leq k\leq n$ (these are called full system of orthogonal central idempotents). Notice that they satisfy the equation $1=e_1+\dots+e_n$ and $e_k^2=e_k$ for $1\leq k\leq n$ for $i\neq j$, we have $e_ie_j=0$. Now since $I_i$ and $I_j$ are coprime, we have that $R=I_i+I_j$ so that $1=a_j+z_j$ for $a_j\in I_i$ (note the subscript) and $z_j\in I_j$. Define $x_i=z_1\cdots z_{i-1}\cdot z_{i+1}\cdots z_n$ for each $1\leq i\leq n$. Write the projection homomorphism as $\psi:R\to R/I_j$. If $i\neq j$, then $\phi_j(x_i)=0$ because $x_i$ contains the element $z_j$ that lies in $I_j$. Also, we have that $$\psi_i(z_j)=\psi_i(1-a_j)=\psi_i(1)-\psi_i(a_j)=\psi_i(1)=1$$ in $R/I_i$ since $a_j\in I_i$. Thus we have that $$\psi_i(x_i)=\psi_i(z_1)\cdots\psi_i(z_n)=1$$~\\
+
+All this means that $x_i\in R$ is such that $\psi(x_i)=(0,\dots,0,1+I_i,0,\dots,0)$ for $1\leq i\leq n$. Now to prove surjectivity, let $(r_1,\dots,r_n)$ be an element in the product. Then we have that $$(r_1,\dots,r_n)=\sum_{j=1}^n\psi(r_i)e_i=\sum_{j=1}^n\psi(r_ix_i)$$ and so $r_1x_1+\dots+r_nx_n\in R$ is our desired element. And so we are done. 
+\end{proof}
+\end{thm}
+
+This is a more generalized version of the Chinese Remainder Theorem in number theory. Indeed, to recover the one in number theory, take $R=\Z$ and $I_k=(n_k)$ for some $n_k\in\Z$ so that $I_k$ is the principal ideal on $n_k$. Moreover, by choosing each $n_k$ to be pairwise coprime, we obtain the isomorphism which proves that the congruence relation can be solved. \\~\\
+
+Notice that the proof is instructive. Indeed we can simply follow the steps of the proof to find a solution. Namely, given $(r_1,\dots,r_n)$ in the product, we can find $r\in R$ such that $\phi(r)=(r_1,\dots,r_n)$. The steps are as follows. 
+\begin{enumerate}
+\item Fix $1\leq i\leq n$. Using $R=I_i+I_j$, find $a_j\in I_i$ and $z_j\in I_j$ such that $1=a_j+z_j$ for each $j$. This can be done for example by Bezout's lemma in $R=\Z$. 
+\item Define $x_i=z_1\cdots z_{i-1}\cdot z_{i+1}\cdots z_n$ for $1\leq k\leq n$. 
+\item Do the same for each $1\leq i\leq n$. The solution is then $r=r_1x_1+\dots+r_nx_n$. 
+\end{enumerate}
+
 
 \pagebreak
 \section{Integral Domains}

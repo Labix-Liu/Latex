@@ -485,23 +485,175 @@ Some authors instead require the objects of the homotopy category to only consis
 This crucial theorem shows us that if we only really care about maps up to homotopies, we can forget about objects that are not bifibrant. The above theorem says that leaving only the bifibrant objects will still give us the same homotopy category. In particular, every object is weakly equivalent to a bifibrant object. And since we only really care about spaces up to weakly equivalence classes, we can forget about non-bifibrant objects. 
 
 \subsection{Derived Functors}
-\begin{defn}{Left Derived Functors}{} Let $\mC$ be a model category. Let $\mD$ be a category. Let $F:\mC\to\mD$ be a functor. A left derived functor of $F$ is a functor $LF:\text{Ho}(\mC)\to\mD$ together with a natural transformation $t:LF\circ\gamma\Rightarrow F$ that is universal in the following sense: \\~\\
+\begin{defn}{Left Derived Functors}{} Let $\mC$ be a model category. Let $\mD$ be a category. Let $F:\mC\to\mD$ be a functor. A left derived functor of $F$ is a functor $$LF:\text{Ho}(\mC)\to\mD$$ together with a natural transformation $t:LF\circ\gamma\Rightarrow F$ that is universal in the following sense: \\~\\
 
-If $G:\text{Ho}(\mC)\to\mD$ is a another functor and $s:G\circ\gamma\Rightarrow F$ is a another a natural transformation, then there exists a unique natural transformation $p:G\Rightarrow LF$ such that $s=p\circ t$. 
+If $G:\text{Ho}(\mC)\to\mD$ is a another functor and $s:G\circ\gamma\Rightarrow F$ is a another a natural transformation, then there exists a unique natural transformation $p:G\Rightarrow LF$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{G\circ\gamma} & {LF\circ\gamma} \\
+	& F
+	\arrow["{p\circ\gamma}", from=1-1, to=1-2, Rightarrow]
+	\arrow["s"', from=1-1, to=2-2, Rightarrow]
+	\arrow["t", from=1-2, to=2-2, Rightarrow]
+\end{tikzcd}}\\~\\
 \end{defn}
 
-\begin{defn}{Right Derived Functors}{} Let $\mC$ be a model category. Let $\mD$ be a category. Let $F:\mC\to\mD$ be a functor. A right derived functor of $F$ is a functor $RF:\text{Ho}(\mC)\to\mD$ together with a natural transformation $t:F\Rightarrow RF\circ\gamma$ that is universal in the following sense: \\~\\
+\begin{defn}{Right Derived Functors}{} Let $\mC$ be a model category. Let $\mD$ be a category. Let $F:\mC\to\mD$ be a functor. A right derived functor of $F$ is a functor $$RF:\text{Ho}(\mC)\to\mD$$ together with a natural transformation $t:F\Rightarrow RF\circ\gamma$ that is universal in the following sense: \\~\\
 
 If $G:\text{Ho}(\mC)\to\mD$ is a another functor and $s:F\Rightarrow G\circ\gamma$ is a another a natural transformation, then there exists a unique natural transformation $p:RF\circ\gamma\Rightarrow G\circ\gamma$ such that $s=p\circ t$. 
 \end{defn}
 
+\begin{prp}{}{} Let $\mC,\mD$ be model categories. Let $F:\mC\to\mD$ be a functor. Let $X,Y\in\mC$ be cofibrant objects and let $f:X\to Y$ be a weak equivalence. If $F(f)$ is an isomorphism, then $LF$ exists and the map $$t_X:LF(X)\to F(X)$$ is an isomorphism in $\mD$. 
+\end{prp}
+
 \begin{defn}{Total Derived Functors}{} Let $\mC,\mD$ be model categories. Let $F:\mC\to\mD$ be a functor. 
 \begin{itemize}
-\item The total left derived functor $\L F:\text{Ho}(\mC)\to\text{Ho}(\mD)$ of $F$ is the left derived functor of the composite $\gamma_D\circ F:\mC\to\text{Ho}(\mD)$. 
-\item The total right derived functor $\R F:\text{Ho}(\mC)\to\text{Ho}(\mD)$ of $F$ is the right derived functor of the composite $\gamma_D\circ F:\mC\to\text{Ho}(\mD)$. 
+\item The total left derived functor $$\L F:\text{Ho}(\mC)\to\text{Ho}(\mD)$$ of $F$ is the left derived functor of the composite $\gamma_D\circ F:\mC\to\text{Ho}(\mD)$. 
+\item The total right derived functor $$\R F:\text{Ho}(\mC)\to\text{Ho}(\mD)$$ of $F$ is the right derived functor of the composite $\gamma_D\circ F:\mC\to\text{Ho}(\mD)$. 
 \end{itemize}
 \end{defn}
 
+
+\pagebreak
+\section{Quillen Adjunctions and Quillen Equivalence}
+\subsection{Quillen Adjunctions}
+\begin{defn}{Quillen Adjunction}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be an adjuction. We say that $F$ and $G$ define a Quillen adjunction if $F$ preserves cofibrations and $G$ preserves fibrations. In this case we say that $F$ is a left Quillen functor and $G$ is a right Quillen functor. 
+\end{defn}
+
+\begin{thm}{}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be an adjuction. Then the following are equivalent. 
+\begin{itemize}
+\item $F$ and $G$ are a pair of Quillen adjunction
+\item $F$ preserves cofibrations and trivial cofibrations
+\item $G$ preserves fibrations and trivial fibrations
+\end{itemize}
+\end{thm}
+
+\begin{prp}{}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be a Quillen adjuction. Then the following are true. 
+\begin{itemize}
+\item $F$ preserves weak equivalences between cofibrant objects
+\item $F$ preserves weak equivalences between fibrant objects
+\end{itemize}
+\end{prp}
+
+\subsection{Relation to Total Derived Functors}
+\begin{thm}{}{} Let $\mC,\mD$ be model categories and let $F:\mC\rightleftarrows\mD:G$ be a Quillen adjunction. Then the total derived functors of $F$ and $G$ exists and $$\L F:\text{Ho}(\mC)\rightleftarrows\text{Ho}(\mD):\R G$$ form an adjoint pair. 
+\end{thm}
+
+\begin{prp}{}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be a Quillen adjuction. Then the following are true. 
+\begin{itemize}
+\item The left derived functor $LF$ preserves coproducts, pushouts and cylinder objects
+\item The right derived functor $RG$ preserves products, pullbacks and path objects
+\end{itemize}
+\end{prp}
+
+\subsection{Quillen Equivalence}
+\begin{defn}{Quillen Equivalence}{} Let $\mC$ and $\mD$ be model categories. Let $F:\mC\rightleftarrows\mD:G$ be a Quillen adjuction. We say that $F$ and $G$ define a Quillen equivalence if $LF$ or $RG$ define an equivalence of localized categories between $\mW^{-1}\mC$ and $\mV^{-1}\mD$. 
+\end{defn}
+
+\begin{thm}{}{} Let $\mC,\mD$ be model categories and let $F:\mC\rightleftarrows\mD:G$ be a Quillen adjunction Suppose for each cofibrant object $A$ of $\mC$ and fibrant object $B$ of $\mD$, $f:A\to G(B)$ is a weak equivalence in $\mC$ if and only if its adjoint $\overline{f}:F(A)\to B$ is a weak equivalence in $\mD$. Then $\L F$ and $\R G$ are a Quillen equivalence. 
+\end{thm}
+
+\pagebreak
+\section{Model Structures on Standard Categories}
+\subsection{Cofibrantly Generated Model Structures}
+\begin{defn}{}{} Let $\mC$ be a model category. We say that $\mC$ is cofibrantly generated if there are sets $I$ and $J$ such that the following are true. 
+\begin{itemize}
+\item ?
+\end{itemize}
+\end{defn}
+
+\begin{thm}{Recognition Theorem}{} Let $\mC$ be a category with small limits and colimits. Let $\mW$ be a class of morphisms which is closed under composition and contains all the identity morphisms. Let $I$ and $J$ be sets of morphisms in $\mC$ such that $\mW$, $I$ and $J$ satisfy the following. 
+\begin{itemize}
+\item $\mW$ satisfies the 2 out of 3 property
+\item ??
+\item ??
+\item ??
+\item ??
+\item ??
+\item ??
+\end{itemize}
+\end{thm}
+
+\subsection{Model Structure on $\bold{Top}$}
+We have seen from Algebraic Topology 3 that $\bold{Top}$ can be given the structure of a model category. We will give a complete proof of the axioms here. 
+
+\begin{thm}{}{} The category $\bold{Top}$ of topological spaces is a model category with the following model. 
+\begin{itemize}
+\item The weak equivalences are the homotopy equivalences
+\item The fibrations are the Hurewicz fibrations
+\item The cofibrations are the Hurewicz cofibrations
+\end{itemize}
+\end{thm}
+
+The homotopy category of $\bold{Top}$ under this model structure gives the usual homotopy category $\text{Ho}(\bold{Top})$. However, such a model structure on $\bold{Top}$ is far from unique. There are in particular two more canonical model structures on $\bold{Top}$. One such model structure is given by the Serre fibrations. 
+
+\begin{thm}{}{} The category $\bold{Top}$ of topological spaces is a model category with the following model. 
+\begin{itemize}
+\item The weak equivalences are the classical weak equivalences
+\item The fibrations are the Serre fibrations
+\item The cofibrations are the retracts of relative cell complexes
+\end{itemize}
+We denote the model structure together with the category by $\bold{Top}_\text{Quillen}$
+\end{thm}
+
+In this model structure the homotopy category is in fact the homotopy category of CW complexes. Indeed every space is weakly equivalent to a CW complex (CW approximation) and Serre fibrations satisfy the homotopy lifting property with respect only to all CW complexes. \\~\\
+
+Using the fact that under categories of a model category inherits the model structure, we can show the following: 
+
+\begin{lmm}{}{} The category $\bold{Top}_\ast$ can be equipped with a model structure inherited from either one of the model structures on $\bold{Top}$. 
+\end{lmm}
+
+\begin{thm}{}{} The category $\bold{CG}$ of topological spaces is a model category with the restriction of the model structure on $\bold{Top}_\text{Quillen}$. 
+\end{thm}
+
+
+\subsection{Model Structure on the Category of Chain Complexes}
+\begin{thm}{}{} Let $R$ be a ring. Then $\bold{Ch}_{\geq 0}(\bold{Mod}_R)$ is a model category with the following data. 
+\begin{itemize}
+\item The weak equivalences are the quasi-isomorphisms
+\item The cofibrations are the morphism of chain complexes $f_\bullet:C_\bullet\to D_\bullet$ such that each $f_k$ is a monomorphism with a projective $R$-module as kernel
+\item The fibrations are the morphism of chain complexes $f_\bullet:C_\bullet\to D_\bullet$ such that each $f_k$ is an epimorphism. 
+\end{itemize}
+\end{thm}
+
+\subsection{Model Structure on $\bold{sSet}$}
+In this subsection, we consider the model category $\bold{Top}$ where the model structure is given by the classical weak equivalences. 
+
+\begin{thm}{}{} The category $\bold{sSet}$ of simplicial sets admits a model structure with the following data. 
+\begin{itemize}
+\item The weak equivalences are morphisms $f:C\to D$ of simplicial sets such that $\abs{f}:\abs{C}\to\abs{D}$ is a weak equivalence in $\bold{Top}$ under the geometric relization functor
+\item The cofibrations are the morphism $f:C\to D$ of simplicial sets such that each map $f_n:C_n\to D_n$ is a monomorphism
+\item The fibrations are the morphisms $f:C\to D$ such that $f$ has the right lifting property with respect to acyclic cofibrations
+\end{itemize}
+\end{thm}
+
+\begin{lmm}{}{} Acyclic cofibrations in $\bold{sSet}$ are precisely the Kan fibrations. 
+\end{lmm}
+
+Recall that in Simplicial Methods of Topology, we defined the singular functor $S:\bold{Top}\to\bold{sSet}$ by sending every topological space to its set of all $n$-simplices for all $n$. We also showed that $S$ and the geometric realization functor are adjoint. Here we will show that they are in fact a Quillen adjunction, and a Quillen equivalence. 
+
+\begin{thm}{}{} The singular functor and geometric realization functor $$\abs{\;\cdot\;}:\text{Top}\rightleftarrows\text{sSet}:S$$ form a Quillen adjunction. Moreover, the Quillen adjunction is a Quillen equivalence and hence descends to an model equivalence of categories $$\text{Ho}(\bold{sSet})\cong\text{Ho}(\bold{Top})$$
+\end{thm}
+
+\pagebreak
+\section{Model Structures on the Functor Category}
+\subsection{The Case of Cofibrantly Generated Model Categories}
+\begin{thm}{}{} Let $\mJ$ be a small category. Let $\mC$ be a cofibrantly generated model category with generating cofibrations $I$ and generating trivial cofibrations $J$. Then $\mC^\mJ$ is a cofibrantly generated model category with the following data. 
+\begin{itemize}
+\item The generating cofibrations are given as $\{X\Rightarrow Y\in\mC^\mJ\;|\;\}$
+\item The generating trivial cofibrations are ?
+\end{itemize}
+\end{thm}
+
+\begin{prp}{}{} Let $\mJ$ be a small category. Let $\mC$ be a cofibrantly generated model category with generating cofibrations $I$ and generating trivial cofibrations $J$. Then the model category structure of $\mC^\mJ$ consists of the following data: 
+\begin{itemize}
+\item The weak equivalences are the natural transformations $X\Rightarrow Y$ such that $X(C)\to Y(C)$ is a weak equivalence for all $C\in\mC$
+\item The fibrations are the natural transformations $X\Rightarrow Y$ such that $X(C)\to Y(C)$ is a fibration for all $C\in\mC$
+\item The cofibrations are the natural transformations $X\Rightarrow Y$ that is a retract of a transfinite compositions of pushouts of elements of 
+\end{itemize}
+\end{prp}
+
+\pagebreak
+\section{Homotopy Limits and Colimits}
 \subsection{Homotopy Pushouts and Pullbacks}
 Pushouts and pullbacks are not generally well-behaved with respect to homotopy. We remedy this by defining the notion of homotopy pushouts and pullbacks. 
 
@@ -602,7 +754,7 @@ such that $f_A$, $f_B$ and $f_C$ are weak equivalences in $\mC$
 	\arrow["{f_C}", from=1-5, to=3-4]
 	\arrow[from=2-2, to=2-3]
 	\arrow[from=2-2, to=3-2]
-	\arrow[from=2-3, to=1-1]
+	\arrow[from=1-1, to=2-3]
 	\arrow["{f_B=p_B(f)}", from=2-3, to=3-3]
 	\arrow[from=2-4, to=2-3]
 	\arrow[from=2-4, to=3-4]
@@ -619,126 +771,7 @@ by the universal property of pullbacks. The fibrations are such morphisms such t
 \begin{defn}{The Homotopy Pullback Functor}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. Define the homotopy pullback functor to be the total derived functor $$\R\text{lim}_\mJ:\text{Ho}(\mC^\mJ)\to\text{Ho}(\mC)$$ of the functor $\text{lim}_\mJ:\mC^\mJ\to\mC$. 
 \end{defn}
 
-\pagebreak
-\section{Quillen Adjunctions and Quillen Equivalence}
-\subsection{Quillen Adjunctions}
-\begin{defn}{Quillen Adjunction}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be an adjuction. We say that $F$ and $G$ define a Quillen adjunction if $F$ preserves cofibrations and $G$ preserves fibrations. In this case we say that $F$ is a left Quillen functor and $G$ is a right Quillen functor. 
-\end{defn}
-
-\begin{thm}{}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be an adjuction. Then the following are equivalent. 
-\begin{itemize}
-\item $F$ and $G$ are a pair of Quillen adjunction
-\item $F$ preserves cofibrations and trivial cofibrations
-\item $G$ preserves fibrations and trivial fibrations
-\end{itemize}
-\end{thm}
-
-\begin{prp}{}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be a Quillen adjuction. Then the following are true. 
-\begin{itemize}
-\item $F$ preserves weak equivalences between cofibrant objects
-\item $F$ preserves weak equivalences between fibrant objects
-\end{itemize}
-\end{prp}
-
-\subsection{Total Derived Functors}
-\begin{thm}{}{} Let $\mC,\mD$ be model categories and let $F:\mC\rightleftarrows\mD:G$ be a Quillen adjunction. Then the total derived functors of $F$ and $G$ exists and $$\L F:\text{Ho}(\mC)\rightleftarrows\text{Ho}(\mD):\R G$$ form an adjoint pair. 
-\end{thm}
-
-\begin{prp}{}{} Let $\mC$ and $\mD$ be model categories. Let $$F:\mC\rightleftarrows\mD:G$$ be a Quillen adjuction. Then the following are true. 
-\begin{itemize}
-\item The left derived functor $LF$ preserves coproducts, pushouts and cylinder objects
-\item The right derived functor $RG$ preserves products, pullbacks and path objects
-\end{itemize}
-\end{prp}
-
-\subsection{Quillen Equivalence}
-\begin{defn}{Quillen Equivalence}{} Let $\mC$ and $\mD$ be model categories. Let $F:\mC\rightleftarrows\mD:G$ be a Quillen adjuction. We say that $F$ and $G$ define a Quillen equivalence if $LF$ or $RG$ define an equivalence of localized categories between $\mW^{-1}\mC$ and $\mV^{-1}\mD$. 
-\end{defn}
-
-\begin{thm}{}{} Let $\mC,\mD$ be model categories and let $F:\mC\rightleftarrows\mD:G$ be a Quillen adjunction Suppose for each cofibrant object $A$ of $\mC$ and fibrant object $B$ of $\mD$, $f:A\to G(B)$ is a weak equivalence in $\mC$ if and only if its adjoint $\overline{f}:F(A)\to B$ is a weak equivalence in $\mD$. Then $\L F$ and $\R G$ are a Quillen equivalence. 
-\end{thm}
-
-\pagebreak
-\section{Model Structures on Standard Categories}
-\subsection{Cofibrantly Generated Model Structures}
-\begin{defn}{}{} Let $\mC$ be a model category. We say that $\mC$ is cofibrantly generated if there are sets $I$ and $J$ such that the following are true. 
-\begin{itemize}
-\item ?
-\end{itemize}
-\end{defn}
-
-\begin{thm}{Recognition Theorem}{} Let $\mC$ be a category with small limits and colimits. Let $\mW$ be a class of morphisms which is closed under composition and contains all the identity morphisms. Let $I$ and $J$ be sets of morphisms in $\mC$ such that $\mW$, $I$ and $J$ satisfy the following. 
-\begin{itemize}
-\item $\mW$ satisfies the 2 out of 3 property
-\item ??
-\item ??
-\item ??
-\item ??
-\item ??
-\item ??
-\end{itemize}
-\end{thm}
-
-\subsection{Model Structure on $\bold{Top}$}
-We have seen from Algebraic Topology 3 that $\bold{Top}$ can be given the structure of a model category. We will give a complete proof of the axioms here. 
-
-\begin{thm}{}{} The category $\bold{Top}$ of topological spaces is a model category with the following model. 
-\begin{itemize}
-\item The weak equivalences are the homotopy equivalences
-\item The fibrations are the Hurewicz fibrations
-\item The cofibrations are the Hurewicz cofibrations
-\end{itemize}
-\end{thm}
-
-The homotopy category of $\bold{Top}$ under this model structure gives the usual homotopy category $\text{Ho}(\bold{Top})$. However, such a model structure on $\bold{Top}$ is far from unique. There are in particular two more canonical model structures on $\bold{Top}$. One such model structure is given by the Serre fibrations. 
-
-\begin{thm}{}{} The category $\bold{Top}$ of topological spaces is a model category with the following model. 
-\begin{itemize}
-\item The weak equivalences are the classical weak equivalences
-\item The fibrations are the Serre fibrations
-\item The cofibrations are the retracts of relative cell complexes
-\end{itemize}
-We denote the model structure together with the category by $\bold{Top}_\text{Quillen}$
-\end{thm}
-
-In this model structure the homotopy category is in fact the homotopy category of CW complexes. Indeed every space is weakly equivalent to a CW complex (CW approximation) and Serre fibrations satisfy the homotopy lifting property with respect only to all CW complexes. \\~\\
-
-Using the fact that under categories of a model category inherits the model structure, we can show the following: 
-
-\begin{lmm}{}{} The category $\bold{Top}_\ast$ can be equipped with a model structure inherited from either one of the model structures on $\bold{Top}$. 
-\end{lmm}
-
-\begin{thm}{}{} The category $\bold{CG}$ of topological spaces is a model category with the restriction of the model structure on $\bold{Top}_\text{Quillen}$. 
-\end{thm}
-
-
-\subsection{Model Structure on the Category of Chain Complexes}
-\begin{thm}{}{} Let $R$ be a ring. Then $\bold{Ch}_{\geq 0}(\bold{Mod}_R)$ is a model category with the following data. 
-\begin{itemize}
-\item The weak equivalences are the quasi-isomorphisms
-\item The cofibrations are the morphism of chain complexes $f_\bullet:C_\bullet\to D_\bullet$ such that each $f_k$ is a monomorphism with a projective $R$-module as kernel
-\item The fibrations are the morphism of chain complexes $f_\bullet:C_\bullet\to D_\bullet$ such that each $f_k$ is an epimorphism. 
-\end{itemize}
-\end{thm}
-
-\subsection{Model Structure on $\bold{sSet}$}
-In this subsection, we consider the model category $\bold{Top}$ where the model structure is given by the classical weak equivalences. 
-
-\begin{thm}{}{} The category $\bold{sSet}$ of simplicial sets admits a model structure with the following data. 
-\begin{itemize}
-\item The weak equivalences are morphisms $f:C\to D$ of simplicial sets such that $\abs{f}:\abs{C}\to\abs{D}$ is a weak equivalence in $\bold{Top}$ under the geometric relization functor
-\item The cofibrations are the morphism $f:C\to D$ of simplicial sets such that each map $f_n:C_n\to D_n$ is a monomorphism
-\item The fibrations are the morphisms $f:C\to D$ such that $f$ has the right lifting property with respect to acyclic cofibrations
-\end{itemize}
-\end{thm}
-
-\begin{lmm}{}{} Acyclic cofibrations in $\bold{sSet}$ are precisely the Kan fibrations. 
-\end{lmm}
-
-Recall that in Simplicial Methods of Topology, we defined the singular functor $S:\bold{Top}\to\bold{sSet}$ by sending every topological space to its set of all $n$-simplices for all $n$. We also showed that $S$ and the geometric realization functor are adjoint. Here we will show that they are in fact a Quillen adjunction, and a Quillen equivalence. 
-
-\begin{thm}{}{} The singular functor and geometric realization functor $$\abs{\;\cdot\;}:\text{Top}\rightleftarrows\text{sSet}:S$$ form a Quillen adjunction. Moreover, the Quillen adjunction is a Quillen equivalence and hence descends to an model equivalence of categories $$\text{Ho}(\bold{sSet})\cong\text{Ho}(\bold{Top})$$
-\end{thm}
+\subsection{Homotopy Limits}
 
 \pagebreak
 \section{Pointed Model Categories}

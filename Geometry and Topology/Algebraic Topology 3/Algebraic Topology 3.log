@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  13 OCT 2024 20:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  25 OCT 2024 20:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -947,7 +947,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 249.
+Package hyperref Info: Option `colorlinks' set `true' on input line 251.
 ) (Algebraic Topology 3.aux)
 \openout1 = `"Algebraic Topology 3.aux"'.
 
@@ -1203,75 +1203,86 @@ Underfull \hbox (badness 10000) in paragraph at lines 368--369
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
 d on input line 372.
 
-[16] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 437--438
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 434--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--438
+Underfull \hbox (badness 10000) in paragraph at lines 434--435
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 436--445
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--448
+Underfull \hbox (badness 10000) in paragraph at lines 436--445
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--448
+Underfull \hbox (badness 10000) in paragraph at lines 436--445
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 439--448
-
- []
-
-[19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 494--495
-
- []
-
-[21] [22] (Algebraic Topology 3.aux)
+[19] [20] (Algebraic Topology 3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-Package rerunfilecheck Info: File `"Algebraic Topology 3".out' has not changed.
 
-(rerunfilecheck)             Checksum: CA9592F3979A3F8F3AB5C1417FF725E3;4211.
+
+Package rerunfilecheck Warning: File `"Algebraic Topology 3".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Algebraic Topology 3".out':
+(rerunfilecheck)             Before: CA9592F3979A3F8F3AB5C1417FF725E3;4211
+(rerunfilecheck)             After:  17B289F57FE02E3745CB0A5121AB21FD;3538.
  ) 
 Here is how much of TeX's memory you used:
- 32912 strings out of 474424
- 650727 string characters out of 5741739
+ 32819 strings out of 474424
+ 648466 string characters out of 5741739
  1963496 words of memory out of 5000000
- 54622 multiletter control sequences out of 15000+600000
+ 54540 multiletter control sequences out of 15000+600000
  600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,16n,120p,1047b,1387s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmbx5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/
-liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:
-/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.
-pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Topology 3.pdf" (22 pages, 436314 bytes).
+
+pdfTeX warning (dest): name{subsection.5.1} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.5} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.2} has been referenced but does not ex
+ist, replaced by a fixed one
+
+<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+bx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liul
+a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/U
+sers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.p
+fb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
+s/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on "Algebraic Topology 3.pdf" (20 pages, 404271 bytes).
 PDF statistics:
- 422 PDF objects out of 1000 (max. 8388607)
- 118 named destinations out of 1000 (max. 500000)
+ 392 PDF objects out of 1000 (max. 8388607)
+ 107 named destinations out of 1000 (max. 500000)
  189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

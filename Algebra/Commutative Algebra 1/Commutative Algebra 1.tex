@@ -62,18 +62,51 @@ By the above proposition, we conclude that $M$ is the unique maximal ideal of $k
 We will discuss more of local rings in the topic of localizations. 
 
 \subsection{Hilbert's Basis Theorem}
-\begin{prp}{}{} If $A$ is a Noetherian and $\phi$ is a homomorphism of $A$ onto a ring $B$, then $B$ is Noetherian. 
-\end{prp}
-
-\begin{thm}{Hilbert's Basis Theorem}{} If $R$ is a Noetherian ring, then $R[x_1,\dots,x_n]$ is a Noetherian ring. 
+\begin{thm}{Hilbert's Basis Theorem}{} Let $R$ be a commutative ring. If $R$ is Noetherian, then $$R[x_1,\dots,x_n]$$ is a Noetherian ring. 
 \end{thm}
 
-\begin{prp}{}{} Let $R$ be a Noetherian ring and $I$ be an ideal in $R$. Then $R/I$ is Noetherian. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. If $R$ is Noetherian then $R/I$ is Noetherian. 
 \end{prp}
 
 \begin{thm}{}{} Let $R=\bigoplus_{i=1}^nR_i$ be a graded ring. Then $R$ is Noetherian if and only if $R_0$ is Noetherian and $R$ is finitely generated as an $R_0$-module. 
 \end{thm}
 
+\subsection{Spectra of a Ring}
+\begin{defn}{Max Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the max spectrum of $A$ to be $$\text{maxSpec}(A)=\{m\subseteq A\;|\;m\text{ is a maximal ideal of }A\}$$
+\end{defn}
+
+\begin{defn}{Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the spectrum of $A$ to be $$\text{Spec}(A)=\{p\subseteq A\;|\;p\text{ is a prime ideal of }A\}$$
+\end{defn}
+
+\begin{eg}{}{} Consider the following commutative rings. 
+\begin{itemize}
+\item $\text{Spec}(\Z/6\Z)=\{(2+6\Z),(3+6\Z)\}$
+\item $\text{Spec}(\Z/8\Z)=\{(2+8\Z)\}$
+\item $\text{Spec}(\Z/24\Z)=\{(2+24\Z),(3+24\Z)\}$
+\item $\text{Spec}(\R[x])=\{(f)\;|\;f\text{ is irreducible }\}$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item The only ideals of $\Z/6\Z$ are $(2+6\Z)$ and $(3+6\Z)$. We need to find which ones are prime ideals. Now $\Z/6\Z\setminus(2+6\Z)$ consists of $1+6\Z$, $3+6\Z$ and $5+6\Z$. No multiplication of these elements give an element of $(2+6\Z)$. So any two elements in $\Z/6\Z$ which multiply to an element of $(2+6\Z)$ must contain one element that lie in $(2+6\Z)$. Hence $(2+6\Z)$ is prime. This is similar for $(3+6\Z)$. Hence $\text{Spec}(\Z/6\Z)=\{(2+6\Z),(3+6\Z)\}$. 
+\item The only ideals of $\Z/8\Z$ are $(2+8\Z)$ and $(4+8\Z)$. A similar argument as above shows that $(2+8\Z)$ is a prime ideal. However, $6+8\Z\notin(4+8\Z)$ while $(6+8\Z)^2=4+8\Z\in(4+8\Z)$ which shows that $(4+8\Z)$ is not a prime ideal. 
+\item A similar proof as above ensues. 
+\item Recall that $\R[x]$ is a principal ideal domain. Let $I=(f)$ be a prime ideal of $\R[x]$. Then $f$ is irreducible. Thus every prime ideal of $\R[x]$ is of the form $(f)$ for $f$ an irreducible polynomial. 
+\end{itemize}
+\end{proof}
+\end{eg}
+
+\begin{lmm}{}{} Let $R,S$ be commutative rings. Let $f_1:R\times S\to R$ and $f_2:R\times S\to S$ denote the projection maps. Then the map $$f_1^\ast\amalg f_2^\ast:\text{Spec}(R)\amalg\text{Spec}(S)\to\text{Spec}(R\times S)$$ is a bijection. \tcbline
+\begin{proof}
+The core of the proof is the fact that $P$ is a prime ideal of $R\times S$ if and only if $P=R\times Q$ or $P=V\times S$ for either a prime ideal $Q$ of $P$ or a prime ideal $V$ of $S$. It is clear that if $Q$ is a prime ideal of $S$ and $V$ is a prime ideal of $R$, then $R\times Q$ and $V\times S$ are both prime ideals of $R\times S$. \\~\\
+
+So suppose that $P$ is a prime ideal in $R\times S$. Let $e_1=(1,0)$ and $e_2=(0,1)$. Since $P\neq R$, at least one of $e_1$ or $e_2$ is not in $P$. Without loss of generality assume that $e_1\notin P$. But $e_1e_2=0\in P$ and $P$ being prime implies that $e_2\in P$. Since $e_2$ is the identity of $\{0\}\times S\cong S$, we conclude that $\{0\}\times S\subseteq P$. By the correspondence theorem, the projection map $f_1:R\times S\to R$ gives a bijection between prime ideals of $R\times S$ that contain $\{0\}\times S$ and prime ideals of $R$. So $f_1(P)$ is a prime ideal of $R$. Thus $P=f_1(P)\times S$ which is exactly what we wanted. \\~\\
+
+Now the bijection is clear. $f_1^\ast\amalg f_2^\ast$ sends a prime ideal $P$ of $R$ to $P\times S$ and it sends a prime ideal $Q$ of $S$ to $R\times Q$. This map is surjective by the above argument. It is injective by inspection. 
+\end{proof}
+\end{lmm}
+
+\pagebreak
+\section{Ideals Of a Commutative Ring}
 \subsection{Operations on Ideals}
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $S,T\subseteq R$ be subsets of $R$. Then $$\langle S\cup T\rangle=\langle S\rangle +\langle T\rangle$$
 \end{prp}
@@ -164,6 +197,8 @@ Now suppose that $J/I$ is a radical ideal. Let $r\in\sqrt{J}$. This means that $
 \end{proof}
 \end{thm}
 
+Another way to write the bijections is via spectra: $$\text{Spec}(R/I)\;\;\overset{1:1}{\longleftrightarrow}\;\;\{P\in\text{Spec}(R)\;|\;I\subseteq P\}$$ and $$\text{maxSpec}(R/I)\;\;\overset{1:1}{\longleftrightarrow}\;\;\{m\in\text{maxSpec}(R)\;|\;I\subseteq m\}$$
+
 \subsection{Nilradical and Jacobson Ideals}
 Let $R$ be a ring. Recall that an element $r\in R$ is nilpotent if $r^n=0_R$ for some $n\in\N$. When $R$ is commutative, we can form an ideal out of nilpotent elements. 
 
@@ -187,7 +222,7 @@ Note that this is different from nilpotent ideals, as nilpotency is a property o
 
 \begin{prp}{}{} Let $R$ be a commutative ring. The nilradical of $R$ is the intersection of all prime ideals of $R$. \tcbline
 \begin{proof}
-We want to show that $$N(R)=\bigcap_{\substack{P\text{ a prime}\\\text{ideal of }R}}P$$
+We want to show that $$N(R)=\bigcap_{P\in\text{Spec}(R)}P$$
 Trivially $N(R)$ is a prime ideal. Now suppose that $r\in R$ is in the intersection of all prime ideals. Then $r^n$ also lies in every prime ideal. 
 \end{proof}
 \end{prp}
@@ -218,7 +253,7 @@ So radical, prime and maximal ideals all have characterizations using the quotie
 
 Recall the notion of the Jacobson radical from Rings and Modules. Let $R$ be a ring. The Jacobson radical of $R$ is the radical $$J(R)=\text{rad}(R)=\bigcap_{\substack{S\trianglelefteq R\\R\text{ is cosimple}}}S$$ of $R$ considered as a left $R$-module. But when $R$ is a commutative ring, this description can be simplified. 
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Then $$J(R)=\bigcap_{\substack{m\text{ is a}\\\text{maximal ideal}}}m$$ \tcbline
+\begin{prp}{}{} Let $R$ be a commutative ring. Then $$J(R)=\bigcap_{m\in\text{maxSpec}(R)}m$$ \tcbline
 \begin{proof}
 Submodules of $R$ are precisely ideals of $R$ and cosimple ideals are ideals $I$ of $R$ for which $R/I$ is simple. But if $R/I$ is simple, then $R/I$ contains no ideals which means that $R/I$ is a field. So $I$ is a maximal ideal. 
 \end{proof}
@@ -229,7 +264,7 @@ Recall some properties of the Jacobson radical from Rings and Modules. For a (no
 \item $J(R/J(R))=0$
 \end{itemize}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Then $x\in J(R)$ if and only if $1-xy\neq 0$ for all $y\in R$. \tcbline
+\begin{prp}{}{} Let $R$ be a commutative ring. Then $x\in J(R)$ if and only if $1-xy\in R^\times$ for all $y\in R$. \tcbline
 \begin{proof}
 \end{proof}
 \end{prp}
@@ -290,7 +325,7 @@ Some more important results from Groups and Rings and Rings and Modules include:
 Regarding ideals of the polynomial ring, the following maybe useful: 
 \begin{itemize}
 \item $I[x]$ is an ideal of $R$
-\item There is an isomorphism $\frac{R[x]}{I[x]}\cong\frac{R}{I}[x]$ given by the map $\left(f=\sum_{k=0}^na_kx^k+I[x]\right)\mapsto\left(\sum_{k=0}^n(a_k+I)x^k\right)$
+\item There is an isomorphism $\frac{R[x]}{I[x]}\cong\frac{R}{I}[x]$ given by the map $$\left(f=\sum_{k=0}^na_kx^k+I[x]\right)\mapsto\left(\sum_{k=0}^n(a_k+I)x^k\right)$$
 \item If $I$ is a prime ideal of $R$, then $I[x]$ is a prime ideal of $R[x]$. 
 \end{itemize}
 
@@ -374,24 +409,60 @@ When $R$ is a commutative ring, the first axiom is relaxed so that the resulting
 \begin{thm}{Cayley-Hamilton Theorem}{} Let $R$ be a commutative ring. Let $A\in M_{n\times n}(R)$ be a matrix. Then $c_A(A)=0$. 
 \end{thm}
 
-\begin{crl}{}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. Let $\varphi\in\text{End}_R(M)$. If $\varphi(M)\subseteq IM$, then there exists $a_1,\dots,a_n\in I$ such that $$\varphi^n+a_1\varphi^{n-1}+\dots+a_{n-1}\varphi+\text{id}_M=0:M\to M$$
+\begin{crl}{}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. Let $\varphi\in\text{End}_R(M)$. If $\varphi(M)\subseteq IM$, then there exists $a_1,\dots,a_n\in I$ such that $$\varphi^n+a_1\varphi^{n-1}+\dots+a_{n-1}\varphi+\text{id}_M=0:M\to M$$ \tcbline
+\begin{proof}
+Suppose that $M$ is generated by $x_1,\dots,x_n$. There exists a surjective map $\rho:R^n\to M$ given by $(r_1,\dots,r_n)\mapsto\sum_{k=1}^nr_kx_n$. Since $\varphi(M)\subseteq IM$, we havt that $$\varphi(x_k)=\sum_{i=1}^nr_{ki}x_i$$ for some $r_{ki}\in I$. Write $A$ to be the matrix $A=(a_{ki})$. We now have a commutative diagram: \\~\\
+In other words, we have the diagram: \\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{R^n} & M \\
+	{R^n} & M
+	\arrow["\rho", two heads, from=1-1, to=1-2]
+	\arrow["A"', from=1-1, to=2-1]
+	\arrow["\varphi", from=1-2, to=2-2]
+	\arrow["\rho"', two heads, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+By Cayley-Hamilton theorem, we have that $c_A(A)=0$ is the zero function. For all $x\in R^n$, we have that 
+\begin{align*}
+c_A(A)(x)&=0\\
+c_A(Ax)&=0\\
+\rho(c_A(Ax))&=\rho(0)\\
+c_A(\rho(Ax))&=0\tag{$\rho$ is $R$-linear}\\
+c_A(\varphi(\rho(x)))&=0\tag{Diagram is commutative}
+\end{align*}
+Since $\rho$ is surjective, we conclude that for any $m\in M$, the above calculation gives $c_A(\varphi(m))=0$ so that $c_A(\varphi)$ is the zero map. 
+\end{proof}
 \end{crl}
 
 \subsection{Nakayama's Lemma}
-\begin{lmm}{Nakayama's Lemma I}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. If $IM=M$, then there exists $r\in R$ such that $rM=0$ and $r-1\in I$. 
+\begin{lmm}{Nakayama's Lemma I}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. If $IM=M$, then there exists $r\in R$ such that $rM=0$ and $r-1\in I$. \tcbline
+\begin{proof}
+Choose $\varphi=\text{id}_M$. Then $\varphi$ is surjective so that $M=\varphi(M)\subseteq IM$. By crl 4.1.3, there exists $r_1,\dots,r_n\in I$ such that $(1+r_1+\dots+r_n)M=0$. By choosing $r=1+r_1+\dots+r_n$, we see that $rM=0$ and $r-1\in I$ so that we conclude. 
+\end{proof}
 \end{lmm}
 
-\begin{lmm}{Nakayama's Lemma II}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$ such that $I\subseteq J(R)$ and $IM=M$. Then $M=0$. 
+\begin{lmm}{Nakayama's Lemma II}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$ such that $I\subseteq J(R)$ and $IM=M$. Then $M=0$. \tcbline
+\begin{proof}
+By Nakayama's lemma I, there exists $r\in R$ such that $rM=0$ and $r-1\in I\subseteq J(R)$. By 2.3.8, we have that $1-(r-1)(-1)=r\in R^\times$. This means that $r$ is invertible. Hence $rM=0$ implies $M=r^{-1}rM=0$. 
+\end{proof}
 \end{lmm}
+
+\begin{crl}{}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$ such that $I\subseteq J(R)$. Let $N$ be an $R$-submodule of $M$. If $$M=IM+N$$ then $M=N$. \tcbline
+\begin{proof}
+Since quotients of finitely generated modules are finitely generated, we know that $M/N$ is finitely generated. Define the map $$\phi:IM+N\to I\frac{M}{N}$$ by $\phi(im+n)=i(m+N)$. This map is clearly surjective. Now I claim that $\ker(\phi)=N$. For any $im+n\in\ker(\phi)$, we see that $i(m+N)=N$ means that $im\in N$. Hence $im+n\in N$. On the other hand, if $im+n\in N$ then $im\in N$. But this means that $im+N=N$. Hence $im+n\in\ker(\phi)$. By the first isomorphism theorem for modules, we conclude that $$\frac{M}{N}=\frac{IM+N}{N}\cong I\frac{M}{N}$$ We can now apply Nakayama's lemma II to conclude that $M/N=0$ so that $M=N$. 
+\end{proof}
+\end{crl}
 
 \begin{crl}{}{} Let $(R,m)$ be a local ring. Let $M$ be a finitely generated $R$-module. Then the following are true. 
 \begin{itemize}
 \item $M/mM$ is a finite dimensional vector space over $R/m$. 
 \item $a_1,\dots,a_n\in M$ generates $M$ as an $R$-module if and only if $a_1+mM,\dots,a_n+mM$ generates $M/mM$ as a $R/m$ vector space. 
-\end{itemize}
-\end{crl}
+\end{itemize} \tcbline
+\begin{proof}
+For the first part, we already know that $M/mM$ is an $R$-module. We notice that for any $k\in m$ and $t+mM\in M/mM$ we have that $k(t+mM)=kt+kmM$. But $kt\in m$ means that $kt+kmM=mM$. Hence $M/mM$ is well defined as an $R/m$-module. Now suppose that $M$ is finitely generated by the elements $a_1,\dots,a_n$. Let $x+mM\in M/mM$. Then there exists $r_k\in R$ such that $x=r_1a_1+\dots+r_na_n$. But this means that $$x+mM=r_1(a_1+mM)+\dots+r_n(a_n+mM)$$ This means that $M/mM$ is generated by $a_1+mM,\dots,a_n+mM$. We conclude that $M/mM$ is finite dimensional. \\~\\
 
-\subsection{Exact Sequences}
+Suppose that $a_1,\dots,a_n\in M$ generates $M$ as an $R$-module. By the same argument as above, we can see that $a_1+mM,\dots,a_n+mM$ is a set of generators for $M/mM$. For the other direction, suppose that $a_1+mM,\dots,a_n+mM$ generates $M/mM$ as an $R/m$-vector space. Define $N=Ra_1+\dots+Ra_n\leq M$. Set $I=J(R)=m$. We want to show that $M=IM+N$. It is clear that $IM+N\leq M$. If $x\in M$, then there exists $r_k\in R$ such that $x+mM=r_1(a_1+mM)+\dots+r_n(a_n+M)$. In particular, this means that $$x-\sum_{k=1}^nr_ka_k\in mM$$ Hence $x\in IM+N$. We can now apply the above corollary to deduce that $M=N=Ra_1+\dots+Ra_n$ so that $M$ is generated by $a_1,\dots,a_n$. And so we are done. 
+\end{proof}
+\end{crl}
 
 \subsection{Change of Rings}
 \begin{defn}{Extension of Scalars}{} Let $R,S$ be commutative rings. Let $\varphi:R\to S$ be a ring homomorphism. Let $M$ be an $R$-module. Define the extension of $M$ to the ring $S$ to be the $S$-module $$S\otimes_R M$$

@@ -113,7 +113,7 @@ Its quite hard to wrap your head around this proof. Using the definition of a su
 
 \pagebreak
 
-\section{Unions and Intersections}
+\section{Operations on Sets}
 \subsection{Axiom of Unions}
 \begin{axm}{Axiom of Unions}{} For every collection of sets $A$ there exists a set that contains all the elements that belong to at least one set of the given collection. In other words, there exists a set $B$ such that $$B=\{x\in a\;|\;a\in A\}$$
 \end{axm}
@@ -267,11 +267,7 @@ Let $A\in\bigcup_{X\in E}\mathcal{P}(X)$. Then $A\subseteq\mathcal{P}(X)$ for so
 \end{proof}
 \end{prp}
 
-
-\pagebreak
-\section{Functions and Relations}
 \subsection{Cartesian Products}
-Ordered pairs are used to define cartesian products, which in turn gives a formal definition to functions. 
 \begin{defn}{Ordered Pairs}{} Define the ordered pair of $a$ and $b$ to be $$(a,b)=\{\{a\},\{a,b\}\}$$
 \end{defn}
 
@@ -318,6 +314,8 @@ We end the section with properties of the cartesian product when used in conjunc
 \end{proof}
 \end{prp}
 
+\pagebreak
+\section{Relations on a Set}
 \subsection{Relations}
 Relations appear naturally in the course of studying mathematics. Some simple relations that are used commonly include $=$, $\leq$ and $\geq$ and $<,>$. In fact, $\subset$ and $\subseteq$ are also relations. \\~\\
 More generally, relations are used to associate two elements of a set. This could be done because that they share similar properties or used for comparison. 
@@ -333,12 +331,12 @@ Bear with the notation for now. This is a natural extension of names from defini
 
 We now classify relations based on some properties it exhibits. Note that this is not all the properties of relations but instead only the first few important ones. 
 
-\begin{defn}{Classification of Relations}{} Let $R$ be a relation. We say that 
+\begin{defn}{Types of Relations}{} Let $R$ be a relation. We say that 
 \begin{itemize}
 \item $R$ is reflexive if $(x,x)\in R$ for all $x\in R$
 \item $R$ is symmetric if $(x,y)\in R\implies (y,x)\in R$ for all $x,y\in R$
 \item $R$ is transitive if $(x,y)\in R$ and $(y,z)\in R$ implies $(x,z)\in R$ for all $x,y,z\in R$
-\item $R$ is an equivalence relation if it is reflexive, symmetric and transitive
+\item $R$ is anti-symmetric if $(x,y)\in R$ and $(y,x)\in R$ implies $x=y$. 
 \end{itemize}
 \end{defn}
 
@@ -351,6 +349,7 @@ Finally, we have inverse relations which proves itself useful when dealing with 
 
 Notice that here, every relation is guaranteed to have an inverse. But for function, additional requirements have to be satisfied in order for functions to be reversed. \\~\\
 
+\subsection{Partitions and Equivalence Relations}
 The remainder of the section is mainly for exhibiting the relation between partitions and equivalence relations. This is often useful in the sense that whenever an equivalence relation appears, a partition will be possible from the set. \\~\\
 Firstly we define partitions. 
 
@@ -361,9 +360,15 @@ Firstly we define partitions.
 \end{itemize}
 \end{defn}
 
-Although we have yet to define the order of a set (number of elements in a set), it is important to note that partitions does not mean that the number of elements in each partition is the same. \\~\\
+Although we have yet to define the order of a set (number of elements in a set), it is important to note that partitions does not mean that the number of elements in each partition is the same. 
 
-The following notion will only be used in the main theorem of the section for convenience. Technically it is also used in number theory and group theory but they will not appear here. 
+\begin{defn}{}{} Let $X$ be a set. Let $R$ be a relation on $X$. We say that $R$ is an equivalence relation if the following are true. 
+\begin{itemize}
+\item $R$ is reflexive
+\item $R$ is symmetric
+\item $R$ is transitive
+\end{itemize}
+\end{defn}
 
 \begin{defn}{Equivalence Class}{} Let $R$ be an equivalence relation on a set $X$. Denote $[x]=\{y\in X\;|\;(x,y)\in R\}$ the equivalence class of $x\in X$ and $X/R=\{[x]\;|\;x\in X\}$ the set of all equivalence classes. 
 \end{defn}
@@ -383,6 +388,8 @@ We now prove $R$ is an equivalence relation. We have that $(x,x)\in R$ for every
 \end{proof}
 \end{thm}
 
+\pagebreak
+\section{Functions between Sets}
 \subsection{Functions}
 Functions play an integral role in all of mathematics. Therefore it is important to be able to express this concept in terms of set theoretic language. 
 \begin{defn}{Functions}{} Let $X,Y$ be sets. A function from $X$ to $Y$ is a relation $f\subseteq X\times Y$ such that
@@ -710,9 +717,35 @@ Thus by the principle of induction, we have the commutative law.
 Now that we have the natural numbers, we can also extend the numbers into integers, rationals, real numbers and even complex numbers. Most of them without the use of set theoretic language. However, this is another topic unrelated to set theory mostly. 
 
 \pagebreak
-\section{Comparing Sets}
-\subsection{Order in the Natural Numbers}
+\section{Ordering and Cardinality}
+\subsection{Total and Partial Orders}
+\begin{defn}{Partial Order}{} Let $X$ be a set. Let $R$ be a relation on $X$. We say that $R$ is a partial order on $X$ if the following are true. 
+\begin{itemize}
+\item $R$ is reflexive
+\item $R$ is anti-symmetric
+\item $R$ is transitive
+\end{itemize}
+In this case, we say that $R$ is partially ordered, or that $R$ is a poset. 
+\end{defn}
+
+\begin{defn}{Total Order}{} Let $X$ be a set. Let $R$ be a relation on $X$. We say that $R$ is a total ordering on $X$ if for any $x,y\in X$, either $(x,y)\in R$ or $(y,x)\in R$. In this case, we say that $X$ is totally ordered. 
+\end{defn}
+
+\begin{defn}{Chains}{} Let $X$ be a set. Let $R$ be a partial order on $X$. A chain in $X$ is a subset $S\subseteq X$ such that $R$ restricted to $S$ gives a total order on $S$. 
+\end{defn}
+
+\begin{defn}{Initial Segments}{} Let $X$ be a partially ordered set and $a\in X$, the set $$s(a)=\{x\in X:x<a\}$$ is the initial segment determined by $a$. The weak initial segment is denoted $$\bar{s}(a)=\{x\in X:x\leq a\}$$ 
+\end{defn}
+
+\begin{defn}{Least and Greatest Element}{} Let $X$ be a partially ordered set and $a\in X$ such that $a\leq x$ for all $x\in X$. Then $a$ is the least element of $X$. If $b\in X$ such that $x\leq b$ for all $x\in X$ then $b$ is the greatest element of $X$. 
+\end{defn}
+
+\begin{defn}{Minimal and Maximal Elements}{} Let $X$ be a partially ordered set and $a\in X$ such that $x\leq a$ implies $x=a$, then $a$ is called the minimal element of $X$. If $b\in X$ such that $b\leq x$ implies $x=b$, then $b$ is called the maximal element of $X$. 
+\end{defn}
+
+\subsection{Ordering the Natural Numbers}
 Another important aspect of the natural numbers is that they are comparable. We have the notion of size in them. The Peano axioms for the natural numbers also encapusulates this nicely. 
+
 \begin{defn}{Comparable}{} Two natural numbers $m,n$ are comparable if either $m\in n$ or $m=n$ or $n\in m$. 
 \end{defn}
 
@@ -731,13 +764,13 @@ Now that we have seen that any two natural numbers are comparable, we can essent
 
 As we will see later, even comparisons have different types, namely total orders and partial orders. Total order means that everything in the set can be rearranged into one long queue according to the way we want to order it. Partial order means that not everything in the set is comparable against each other, leading to a tree like appearance when we try and sort the elements. 
 
-\begin{prp}{}{} The relation $<$ is transitive. 
+\begin{prp}{}{} The relation $<$ on $\N$ is transitive. 
 \end{prp}
 
-It is worth noting here that $<$ is neither reflexive nor transitive which the readers can check. Can you think of the inverse relation for $<$?
+It is worth noting here that $<$ is neither reflexive nor symmetric which the readers can check. 
 
-\subsection{Cardinality}
-We begin not from the definition of cardinality, but rather by introducing comparison between the cardinality of two sets. Inherently, cardinality simply means the number of elements in a set (for the finite case). 
+\subsection{Cardinality of Sets}
+We begin not from the definition of cardinality, but rather by introducing a way to compare the size of two sets. Cardinality can be thought of as the number of elements in a set (for the finite case). 
 
 \begin{defn}{Cardinality of a Set}{} Two sets $A$ and $B$ have the same cardinality if there exists a bijection between $A$ and $B$. In this case, we write $$\abs{A}=\abs{B}$$ where $\abs{A}$ stands for the cardinality of $A$. \\~\\
 We say that $A$ has cardinality strictly less than $B$ if there exists an injective function from $A$ to $B$, but no bijective function exists. In this case, we write $\abs{A}<\abs{B}$. 
@@ -768,25 +801,8 @@ In particular, mathematicians also say that a set is countable if it is either f
 \begin{defn}{Uncountable Sets}{} We say that a set $A$ is uncountable if it has cardinality strictly greater than $\N$. In other words, if $$\abs{A}>\abs{\N}$$
 \end{defn}
 
-\subsection{Posets}
-\begin{defn}{Antisymmetric}{} A relation $R$ in $X$ is antisymmetric if for every $x,y\in X$, $(x,y)\in R$ and $(y,x)\in R$ implies $x=y$. 
-\end{defn}
-
-\begin{defn}{Partial Order}{} A partial order is a relation $R$ in $X$ such that $R$ is reflexive, antisymmetric and transitive in $X$. We use the symbol $\leq$ for a partial order. We say that $X$ is partially ordered. 
-\end{defn}
-
-\begin{defn}{Total Order}{} $\leq$ is a total order in $X$ if for every $x,y\in X$ either $x\leq y$ or $y\leq x$. In this case we say that $X$ forms a chain. We also say that $X$ is totally ordered. 
-\end{defn}
-
-\begin{defn}{Initial Segments}{} Let $X$ be a partially ordered set and $a\in X$, the set $$s(a)=\{x\in X:x<a\}$$ is the initial segment determined by $a$. The weak initial segment is denoted $$\bar{s}(a)=\{x\in X:x\leq a\}$$ 
-\end{defn}
-
-\begin{defn}{Least and Greatest Element}{} Let $X$ be a partially ordered set and $a\in X$ such that $a\leq x$ for all $x\in X$. Then $a$ is the least element of $X$. If $b\in X$ such that $x\leq b$ for all $x\in X$ then $b$ is the greatest element of $X$. 
-\end{defn}
-
-\begin{defn}{Minimal and Maximal Elements}{} Let $X$ be a partially ordered set and $a\in X$ such that $x\leq a$ implies $x=a$, then $a$ is called the minimal element of $X$. If $b\in X$ such that $b\leq x$ implies $x=b$, then $b$ is called the maximal element of $X$. 
-\end{defn}
-
+\pagebreak
+\section{Equivalent Formations of Zorn's Lemma}
 \subsection{Axiom of Choice and Zorn's Lemma}
 \begin{defn}{Families}{} A family is a function $f:I\to X$ where $I$ is an index set, usually $\omega$ or a natural number, such that every element of the range of $f$ is of the form $x_i$, $i\in\omega$. 
 \end{defn}
@@ -863,7 +879,7 @@ In particular, mathematicians also say that a set is countable if it is either f
 \end{thm}
 
 \pagebreak
-\section{Beyond Infinity}
+\section{Counting Beyond Infinity}
 \subsection{Ordinal Numbers}
 \begin{defn}{$\omega$ Successor Function}{} Let $f$ be a function from strict predecessors of some natural number $n$, and $f(0)=\omega$ and $f(m^+)=f(m)^+$ whenever $m^+<n$. Then this function is an $\omega$ Successor Function. 
 \end{defn}

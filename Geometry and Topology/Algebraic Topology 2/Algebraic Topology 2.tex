@@ -2120,7 +2120,7 @@ The answer is yes, but it is not an isomorphism. Moreover, there is a way to mea
 \pagebreak
 \section{Algebra of Cochain Complexes}
 \subsection{Cochain Complexes}
-\begin{defn}{Cochain Complexes}{} A cochain complex $(C^\bullet,\partial^\bullet)$ is a family of abelian groups $C^n$ for $n\in\Z$ and maps $\delta^n:C^{n-1}\to C^n$ such that $\delta^{n+1}\circ\delta^n=0$ for all $n$. In other words, we have the diagram: \\~\\
+\begin{defn}{Cochain Complexes}{} Let $R$ be a ring. A cochain complex $(C^\bullet,\partial^\bullet)$ over $R$ is a family of $R$-modules $C^n$ for $n\in\Z$ and $R$-module homomorphisms $\delta^n:C^{n-1}\to C^n$ such that $\delta^{n+1}\circ\delta^n=0$ for all $n$. In other words, we have the diagram: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 \cdots & C^{n+1}\arrow[l] & C^n\arrow[l, "\delta^{n+1}"'] & C^{n-1}\arrow[l, "\delta^n"'] & \cdots\arrow[l]
 \end{tikzcd}}
@@ -2128,9 +2128,9 @@ The answer is yes, but it is not an isomorphism. Moreover, there is a way to mea
 
 Notice that algebraically, there is no difference between a chain complex and a cochain complex, other than the fact that the boundary maps run in the other direction. For $(C_\bullet,\partial_\bullet)$ a chain complex, we can form a cochain complex by setting $C^n=C_{-n}$ and then using the same boundary maps. 
 
-\begin{defn}{Category of Cochain Complexes}{} Define the category of cochain complexes $$\bold{CCh}(\Z)$$ to consist of the following data. 
+\begin{defn}{Category of Cochain Complexes}{} Let $R$ be a ring. Define the category of cochain complexes $$\bold{CCh}(R)$$ to consist of the following data. 
 \begin{itemize}
-\item The objects are the cochain complexes
+\item The objects are the cochain complexes over $R$
 \item The morphisms are the chain maps
 \item Composition is given by the composition of maps on all levels of the chain map. 
 \end{itemize}
@@ -2138,14 +2138,14 @@ Notice that algebraically, there is no difference between a chain complex and a 
 
 Because cochain complexes is the same data as a chain complex, we can also define homology groups for cochain complexes. We call them the cohomology groups of the cochain complex. 
 
-\begin{defn}{Cohomology Groups}{} Let $(C^\bullet,\partial^\bullet)$ be a cochain complex. Define the $n$th cohomology group of the cochain complex to be $$H^n(C^\bullet,\partial^\bullet)=\frac{\ker(\partial^{n+1}:C^n\to C^{n+1})}{\im(\partial^n:C^{n-1}\to C^n)}=H_n(C^\bullet,\partial^\bullet)$$ for $n\in\N$. 
+\begin{defn}{Cohomology Groups}{} Let $R$ be a ring. Let $(C^\bullet,\partial^\bullet)$ be a cochain complex over $R$. Define the $n$th cohomology group of the cochain complex to be $$H^n(C^\bullet,\partial^\bullet)=\frac{\ker(\partial^{n+1}:C^n\to C^{n+1})}{\im(\partial^n:C^{n-1}\to C^n)}=H_n(C^\bullet,\partial^\bullet)$$ for $n\in\N$. 
 \end{defn}
 
 The construction of cohomology groups are functorial because the homology groups of a chain complex also are. 
 
-\begin{defn}{The Cohomology Functor}{} Let $n\in\N$. Define the $n$th cohomology functor to be the functor $$H^n:\bold{CCh}(\Z)\to\bold{Ab}$$ to consist of the following data. 
+\begin{defn}{The Cohomology Functor}{} Let $R$ be a ring. Let $n\in\N$. Define the $n$th cohomology functor to be the functor $$H^n:\bold{CCh}(R)\to\bold{Ab}$$ to consist of the following data. 
 \begin{itemize}
-\item For each cochain complex $(C^\bullet,\delta^\bullet)$, define $H^n(C^\bullet,\delta^\bullet)$ to be the $n$th cohomology group of the cochain complex. 
+\item For each cochain complex $(C^\bullet,\delta^\bullet)$ over $R$, define $H^n(C^\bullet,\delta^\bullet)$ to be the $n$th cohomology group of the cochain complex. 
 \item For each chain map $f^\bullet:(C^\bullet,\delta^\bullet)\to(D^\bullet,\delta^\bullet)$, the induced map $$f^\ast:H^n(C^\bullet,\delta^\bullet)\to H^n(C^\bullet,\delta^\bullet)$$ is defined by $[z]\mapsto[f^n(z)]$. 
 \end{itemize}
 \end{defn}

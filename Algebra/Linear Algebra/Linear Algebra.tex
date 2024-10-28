@@ -28,25 +28,12 @@ The rest of the chapters will focus on particular properties of vector spaces an
 
 \section{Vector Spaces}
 \subsection{Introduction to Vector Spaces}
-\begin{defn}{Vector Space}{} A vector space $V$ over a field $\F$ is an abelian group $V$ whose binary operation is called vector addition, together with a group action $\cdot:\F\times V\to V$ called scalar multiplication. In particular, this means that the following properties are satisfied. \\
-$(V,+)$ is an abelian group. 
+\begin{defn}{Vector Space}{} Let $\F$ be a field. A vector space over $\F$ is an abelian group $V$ together with a function $\cdot:\F\times V\to V$ such that the following are true. 
 \begin{itemize}
-\item $\vb{u}+\vb{v}\in V$
-\item $\vb{u}+(\vb{v}+\vb{w})=(\vb{u}+\vb{v})+\vb{w}$
-\item There exists a vector $\vb{0}_V$ such that $\vb{0}_V+\vb{u}=\vb{u}$
-\item There exists an additive inverse $-\vb{u}$ such that $\vb{u}+(-\vb{u})=\vb{0}$
-\item $\vb{u}+\vb{v}=\vb{v}+\vb{u}$
-\end{itemize}
-$\F$ acts on $V$ as a group action, with an identity in $V$. 
-\begin{itemize}
-\item $a\cdot \vb{u}\in V$
-\item $a(b\vb{u})=(ab)\vb{u}$
-\item There exists a vector $1_V$ such that $1_v\cdot \vb{u}=\vb{u}$
-\end{itemize}
-Distributive laws. 
-\begin{itemize}
-\item $a(\vb{u}+\vb{v})=a\vb{u}+a\vb{v}$
-\item $(a+b)\vb{u}=a\vb{u}+b\vb{u}$
+\item $\lambda\cdot(v+w)=\lambda\cdot v+\lambda\cdot w$ for all $v,w\in V$ and $\lambda\in\F$
+\item $(\lambda\mu)\cdot v=\lambda\cdot(\mu\cdot v)$ for all $v\in V$ and $\lambda,\mu\in\F$
+\item $(\lambda+\mu)\cdot v=\lambda\cdot v+\mu\cdot v$ for all $v\in V$ and $\lambda,\mu\in\F$
+\item $1_\F\cdot v=v$ for all $v\in V$. 
 \end{itemize}
 \end{defn}
 
@@ -105,9 +92,10 @@ Now by reordering $a_mw_m,\dots,a_nw_n$, we may assume that $a_m\neq 0$. Thus we
 \end{proof}
 \end{thm}
 
-Clearly this implies that linearly independent sets of vectors must have cardinality less than sets of vectors that span $V$. By taking the highest cardinality of such linearly indendent set of vectors, and the lowest cardinality of such sets of vectors that span $V$, we necessarily have that they are equal and thus is exactly the dimension of $V$. \\~\\
+Clearly this implies that linearly independent sets of vectors must have cardinality less than sets of vectors that span $V$. By taking the highest cardinality of such linearly indendent set of vectors, and the lowest cardinality of such sets of vectors that span $V$, we necessarily have that they are equal and thus is exactly the dimension of $V$. \\
 
-We will discuss about dimensions and infinite dimensional vector spaces more in functional analysis. For the rest of the notes we will mostly go with finite dimensional vector spaces. \\~\\
+We will discuss about dimensions and infinite dimensional vector spaces more in functional analysis. For the rest of the notes we will mostly go with finite dimensional vector spaces. \\
+
 We now give a criterion with matrices to find whether a set of vectors span $V$ or whether they are linearly independent. 
 
 \begin{thm}{}{} Let $V$ be a vector space of dimension $n$ and $S=\{v_1,\dots,v_n\}\subset V$. Then 
@@ -119,10 +107,15 @@ We now give a criterion with matrices to find whether a set of vectors span $V$ 
 \end{thm}
 
 \subsection{Vector Subspaces}
-\begin{defn}{Vector Subspaces}{} A subset $U$ of a vector space $V$ is called a subspace of $V$ if $U$ is also a vector space. 
+\begin{defn}{Vector Subspaces}{} Let $\F$ be a field. Let $V$ be a vector space over $\F$. A vector subspace of $V$ is a subset $U\subseteq V$ such that $U$ is a vector space over $\F$ in its own right. 
 \end{defn}
 
-\begin{prp}{Subspace Criterion}{} $U$ is a subspace of $V$ if and only if $U$ is closed under vector addition and scalar multiplication and contains the zero vector. \tcbline
+\begin{prp}{Subspace Criterion}{} Let $\F$ be a field. Let $V$ be a vector space over $\F$. Let $U\subseteq V$ be a subset. Then $U$ is a subspace of $V$ if and only if the following is true. 
+\begin{itemize}
+\item $0_V\in U$
+\item For all $u_1,u_2\in U$, $u_1+u_2\in U$
+\item For all $u\in U$ and $\lambda\in\F$, $\lambda\cdot u\in U$
+\end{itemize} \tcbline
 \begin{proof}
 Suppose that $U$ is a subspace of $V$. Then necessarily $U$ is closed under vector addition and scalar multiplication and contains the zero vector. \\~\\
 Now suppose that the latter conditions are fulfilled by a subset $U$ of $V$. Then it is easy to see that $U$ satisfies all the criteria for being a vector space. 
@@ -873,11 +866,12 @@ Then we have that $$B=P^TAQ$$
 \begin{defn}{Bilinear Forms}{} Let $V$ be a vector space over a field $\F$. A bilinear form on $V$ is a bilinear map $$\tau:V\times V\to\F$$
 \end{defn}
 
-\begin{defn}{Types of Bilinear Forms}{} A bilinear form is said to be
+\begin{defn}{Types of Bilinear Forms}{} Let $k$ be a field. Let $V$ be a vector space over $k$. Let $\tau:V\times V\to k$ be a bilinear form. 
 \begin{itemize}
-\item symmetric if $\tau(v,w)=\tau(w,v)$
-\item antisymmetric if $\tau(v,w)=-\tau(w,v)$
-\item positive definite if $\tau(v,v)>0$ for all $v\in V$. 
+\item We say that $\tau$ is symmetric if $\tau(v,w)=\tau(w,v)$
+\item We say that $\tau$ is antisymmetric if $\tau(v,w)=-\tau(w,v)$
+\item We say that $\tau$ is positive definite if $\tau(v,v)>0$ for all $v\in V$. 
+\item We say that $\tau$ is non-degenerate if $\tau(v,w)=0$ for all $w\in V$ implies that $v=0$. 
 \end{itemize}
 \end{defn}
 
@@ -998,7 +992,8 @@ Throughout this section, $\F$ means either $\R$ or $\C$. In general normed vecto
 
 \subsection{Inner Products}
 Inner products are only properly defined for vector spaces over $\R$ and $\C$. From this point onwards we will limit our discussions with $V=\R^n$ or $\C^n$ and $K=\R$ or $\C$. 
-\begin{defn}{Inner Products}{} An inner product on $V$ is a function that takes each ordered pair $(x,y)$ of a vector space $V$ to a number $\langle x,y\rangle\in K$ such that 
+
+\begin{defn}{Inner Products}{} Let $V$ be a vector space over $\R$ or $\C$. An inner product on $V$ is a function that takes each ordered pair $(x,y)$ of a vector space $V$ to a number $\langle x,y\rangle\in K$ such that 
 \begin{itemize}
 \item $\langle x,x\rangle\geq0$ for all $x\in V$ with equality if and only if $x=0$. 
 \item $\langle x+z,y\rangle=\langle x,y\rangle+\langle z,y\rangle$ for all $x$ for all $x,y,z\in V$
@@ -1007,6 +1002,8 @@ Inner products are only properly defined for vector spaces over $\R$ and $\C$. F
 \end{itemize}
 In this case $V$ is called an inner product space. 
 \end{defn}
+
+Notice that this is the same as saying the vector space is equipped with a symmetric bilinear form if the underlying field is $\R$. 
 
 \begin{prp}{}{} Let $u,v,w\in V$. Let $\lambda\in K$. Then the following are true. 
 \begin{itemize}
@@ -1145,8 +1142,11 @@ By the Gram-Schmidt procedure, every basis can be transformed into an orthonorma
 \end{thm}
 
 \subsection{Orthogonal Complements}
-\begin{defn}{Orthogonal Complement}{} Let $U$ be a subset of an inner product space $V$. The orthogonal complement of $U$ is defined as $$U^{\perp}=\{v\in V|\langle v,u\rangle=0\text{ for all }u\in U\}$$
+\begin{defn}{Orthogonal Complement}{} Let $V$ be an inner product space. Let $U$ be a vector subspace of $V$. Define the orthogonal complement $U^\perp$ of $U$ in $V$ to be $$U^{\perp}=\{v\in V|\langle v,u\rangle=0\text{ for all }u\in U\}$$
 \end{defn}
+
+\begin{lmm}{}{} Let $(V,\langle-,-\rangle)$ be an inner product space. Then $\langle-,-\rangle$ is non-degenerate if and only if $V^\perp=0$. 
+\end{lmm}
 
 \begin{prp}{}{} Let $U$ be a subset of $V$. 
 \begin{itemize}

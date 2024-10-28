@@ -21,7 +21,7 @@
 \usepackage{subcaption}
 \usepackage{wrapfig}
 \usepackage{makecell}
-
+\usepackage[dvipsnames]{xcolor}
 
 \usetikzlibrary{arrows.meta}
 
@@ -143,8 +143,10 @@
 \definecolor{OxfordBlue}{HTML}{031D44}
 \definecolor{PrussianBlue}{HTML}{04395E}
 \definecolor{PolynesianBlue}{HTML}{1F487E}
-\definecolor{Cerulean}{HTML}{247BA0}
+\definecolor{Cerulean}{HTML}{275168}
+\definecolor{AirSuperiorityBlue}{HTML}{77A3BB}
 
+\definecolor{Royal}{HTML}{9D80BA}
 
 %=========================================
 % Theorem Environment
@@ -169,7 +171,7 @@
 }{defn}
 
 \newtcbtheorem[number within=subsection, use counter from=thm]{axm}{Axiom}%
-{	colback=red!5, 
+{	colback=red!3, 
 	colframe=Darkred, 
 	fonttitle=\bfseries, 
 	breakable, 
@@ -178,8 +180,8 @@
 }{axm}
 
 \newtcbtheorem[number within=subsection, use counter from=thm]{prp}{Proposition}%
-{	colback=LightBlue!3, 
-	colframe=Glaucous, 
+{	colback=Royal!3, 
+	colframe=Royal, 
 	fonttitle=\bfseries, 
 	breakable, 
 	enhanced jigsaw, 
@@ -187,8 +189,8 @@
 }{prp}
 
 \newtcbtheorem[number within=subsection, use counter from=thm]{lmm}{Lemma}%
-{	colback=LightBlue!3, 
-	colframe=LightBlue!60, 
+{	colback=Glaucous!3, 
+	colframe=Glaucous, 
 	fonttitle=\bfseries, 
 	breakable, 
 	enhanced jigsaw, 
@@ -196,8 +198,8 @@
 }{lmm}
 
 \newtcbtheorem[number within=subsection, use counter from=thm]{crl}{Corollary}%
-{	colback=LightBlue!3, 
-	colframe=LightBlue!60, 
+{	colback=AirSuperiorityBlue!3, 
+	colframe=AirSuperiorityBlue, 
 	fonttitle=\bfseries, 
 	breakable, 
 	enhanced jigsaw, 

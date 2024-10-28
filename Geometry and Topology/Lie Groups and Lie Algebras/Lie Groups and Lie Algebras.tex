@@ -265,7 +265,7 @@ By induction, we conclude.
 \end{proof}
 \end{lmm}
 
-\subsection{Engel's Theorem on Nilpotency}
+\subsection{Engel's Theorem and Lie's Theorem}
 \begin{defn}{Ad-Nilpotency}{} Let $L$ be a Lie algebra. Let $x\in L$. We say that $x$ is ad-nilpotent if there exists $n\in\N$ such that $$\text{ad}(x)^n=0\in GL(L)$$
 \end{defn}
 
@@ -288,13 +288,20 @@ We induct on the dimension of $L$.
 \end{itemize}
 \end{thm}
 
-\subsection{Lie's Theorem on Solubility}
+\begin{thm}{Lie's Theorem}{} Let $V$ be a vector space over $\C$. Let $L$ be a Lie subalgebra of $GL(V)$. If $L$ is soluble, then there exists a basis $B$ of $V$ such that every $T\in L$ is upper triangular. 
+\end{thm}
 
-\subsection{Simple and Semisimple Lie Algebras}
+\begin{crl}{}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is soluble if and only if $[L,L]$ is nilpotent. 
+\end{crl}
+
+\begin{crl}{}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is soluble if and only if $[L,L]$ is nilpotent. 
+\end{crl}
+
+\subsection{Semisimple Lie Algebras}
 \begin{prp}{}{} Let $L$ be a Lie algebra. Then there exists a unique soluble ideal $I$ of $L$ such that for any soluble ideal $J\subseteq L$, we have $J\subseteq I$. 
 \end{prp}
 
-\begin{defn}{}{} Let $L$ be a Lie algebra. Define the radical ideal $\text{rad}(L)\subseteq L$ of $L$ to be the unique soluble ideal of $L$ that contains all other soluble ideals. 
+\begin{defn}{Radical Ideals}{} Let $L$ be a Lie algebra. Define the radical ideal $\text{rad}(L)\subseteq L$ of $L$ to be the unique soluble ideal of $L$ that contains all other soluble ideals. 
 \end{defn}
 
 \begin{defn}{Semisimple Lie Algebras}{}{} Let $L$ be a Lie algebra. We say that $L$ is semisimple if $$\frac{L}{\text{rad}(L)}=\{0\}$$
@@ -314,8 +321,81 @@ Let $K$ be a soluble ideal of $L/\text{rad}(L)$. By the correspondence theorem, 
 \end{proof}
 \end{lmm}
 
+\subsection{Simple Lie Algebras}
+\begin{defn}{Simple Lie Algebras}{} Let $L$ be a Lie algebra. We say that $L$ is simple if $L$ is non-abelian and has no proper non-zero ideals. 
+\end{defn}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. If $L$ is simple, then $L$ is semisimple. 
+\end{lmm}
+
+\begin{defn}{Simple Ideals}{} Let $L$ be a Lie algebra. Let $I$ be an ideal of $L$. We say that $I$ is simple if $I$ is simple as a Lie algebra. 
+\end{defn}
+
 \pagebreak
 \section{The Killing Form and Cartan's Criteria}
+\subsection{The Jordan-Chevalley Decompositions}
+\begin{defn}{Jordan-Chevalley Decompositions}{} Let $k$ be a field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. A Jordan-Chevalley decomposition of $V$ consists of $D,S\in\text{End}(V)$ such that the following are true. 
+\begin{itemize}
+\item $T=D+S$
+\item $D$ is diagonalizable
+\item $S$ is nilpotent
+\item $SD=DS$
+\end{itemize}
+\end{defn}
+
+We note here that if we consider vector spaces as a $k$-module, then saying $V$ semisimple is the same as saying $V$ is diagonalizable. 
+
+\begin{prp}{}{} Let $k$ be a field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Then $T$ admits a unique Jordan-Chevalley decomposition. 
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Let $D,S\in\text{End}(V)$ be the Jordan-Chevalley decomposition of $T$. Then there exists $p,q\in k[x]$ such that $p(T)=D$ and $q(T)=S$. 
+\end{prp}
+
+\begin{lmm}{}{} Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Let $D,S\in\text{End}(V)$ be the Jordan-Chevalley decomposition of $T$. Then $$\text{ad}(T)=\text{ad}(D)+\text{ad}(S)$$ is the Jordan decomposition of $\text{ad}(T)$. 
+\end{lmm}
+
+\subsection{The Killing Form}
+\begin{defn}{The Killing Form}{} Let $L$ be a Lie algebra over $\C$. Define the killing form of $L$ to be the function $$k:L\times L\to\C$$ given by $k(x,y)=\text{tr}(\text{ad}(x)\circ\text{ad}(y))$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $\F$ be a field. Let $L$ be a Lie algebra over $\C$. Then the killing form on $L$ is a symmetric bilinear form. 
+\end{lmm}
+
+Recall from Linear algebra that $L$ is now an inner product space when equipped with the killing form. 
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Let $I$ be an ideal of $L$. If $k$ is the killing form of $L$ and $k|_I$ is the killing form of $I$, then $$k|_I=k|_{I\times I}$$
+\end{lmm}
+
+\subsection{Cartan's Criterion}
+\begin{prp}{}{} Let $V$ be a finite dimensional vector space over $\C$. Let $L$ be a Lie subalgebra of $GL(V)$. If $\text{tr}(xy)=0$ for all $x,y\in L$, then $L$ is soluble. 
+\end{prp}
+
+\begin{thm}{Cartan's First Criterion}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is soluble if and only if $k(x,y)=0$ for all $x\in L$ and $y\in[L,L]$. 
+\end{thm}
+
+Let $L$ be a Lie algebra. The killing form allows $L$ to be an inner product space. Recall from Linear Algebra that the orthogonal complement of a subspace $W$ of $L$ is given by $$W^\perp=\{x\in L\;|\;k(x,w)=0\text{ for all }w\in W\}$$
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra over $\C$. Let $I$ be an ideal of $I$. Then $I^\perp$ is an ideal of $L$. 
+\end{lmm}
+
+Recall from Linear Algebra that a bilinear form is non-degenerate if  if $$\{v\in V\;|\;\tau(v,w)=0\text{ for all }w\in V\}=0$$ Because the killing form is symmetric bilinear, this is the same as saying the orthogonal complement $V^\perp=0$. 
+
+\begin{thm}{Cartan's Second Criterion}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is semisimple if and only if $k$ is non-degenerate. 
+\end{thm}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra over $\C$. Let $I$ be an ideal of $L$. If $L$ is semisimple, then the following are true. 
+\begin{itemize}
+\item $L=I\oplus I^\perp$ as Lie algebras
+\item $I$ and $I^\perp$ are semisimple. 
+\end{itemize}
+\end{lmm}
+
+\begin{thm}{}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is semisimple if and only if there exists simple ideals $I_1,\dots,I_k$ of $L$ such that $$L=I_1\oplus\cdots\oplus I_k$$
+\end{thm}
+
+\subsection{Derivations of Lie Algebras}
+
+\subsection{Abstract Jordan Decomposition}
 
 \pagebreak
 \section{Introduction to Lie Groups}

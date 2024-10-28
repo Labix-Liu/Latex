@@ -30,31 +30,28 @@ References:
 \subsection{The Category of Affine Algebraic Varieties}
 Recall that coordinate rings are finitely generated algebras over $k$ the ground field. 
 
-\begin{defn}{The Category of Affine Algebraic Sets}{} Define the category of affine algebraic sets $\text{AffAlgSet}_k$ over a field $k$ as follows. 
+\begin{defn}{The Category of Affine Varieties}{} Define the category of affine varieties $\text{AffVar}_k$ over a field $k$ as follows. 
 \begin{itemize}
-\item The objects are the affine algebra sets $V(F)$ for some set of polynomials $F$ over $k$. 
-\item The morphisms are the regular maps. This means that $\phi:V\to W$ is such that $\phi(p)=(f_1(p),\dots,f_m(p))$ for some $f_1,\dots,f_m\in k[V]$. 
+\item The objects are the affine varieties $\V(F)$ for some set of polynomials $F$ over $k$. 
+\item The morphisms are the morphisms of affine varieties. This means that $\phi:V\to W$ is such that $\phi(p)=(f_1(p),\dots,f_m(p))$ for some $f_1,\dots,f_m\in k[V]$. 
 \end{itemize}
 \end{defn}
 
-\begin{defn}{}{}
-\end{defn}
-
-\begin{thm}{}{} Let $k$ be a field. Then there is an equivalence of categories $$(\text{AffAlgSet}_k)^\text{op}\cong(\text{Reduced Finitely Generated }k\text{-algebras})$$
+\begin{prp}{}{} Let $k$ be a field. Then there is an equivalence of categories $$(\text{AffVar}_k)^\text{op}\cong(\text{Reduced Finitely Generated }k\text{-algebras})$$
 given as follows. 
 \begin{itemize}
-\item For every affine algebraic set $V$, there corresponds a reduced finitely generated $k$=-algebra which is the coordinate ring $$k[V]=\frac{k[x_1,\dots,x_n]}{I(V)}$$
+\item For every affine algebraic set $V$, there corresponds a reduced finitely generated $k$-algebra which is the coordinate ring $$k[V]=\frac{k[x_1,\dots,x_n]}{I(V)}$$
 \item For every regular map $\phi:V\to W$, there is a corresponding homomorphism of $k$-algebras $\phi^\ast:k[W]\to k[V]$ defined by $f\mapsto f\circ\phi$. 
 \end{itemize}
-\end{thm}
+\end{prp}
 
 Reduced = non-nilpotent
 
-\begin{defn}{}{} $\text{AffAlgVar}$
+\begin{defn}{The Category of Affine Algebraic Varieties}{} Define the category of affine algebraic varieties $\text{AffAlgVar}_k$ over a field $k$ to be the full subcategory of $\text{AffVar}_k$ consisting of irreducible affine varieties. 
 \end{defn}
 
-\begin{thm}{}{} Let $k$ be a field the above equivalence of categories restricts to an equivalence of categories $$(\text{AffAlgVar}_k)^\text{op}\cong(\text{Integral Finitely Generated }k\text{-algebras})$$
-\end{thm}
+\begin{prp}{}{} Let $k$ be a field the above equivalence of categories restricts to an equivalence of categories $$(\text{AffAlgVar}_k)^\text{op}\cong(\text{Integral Finitely Generated }k\text{-algebras})$$
+\end{prp}
 
 The goal is now to remove the non-nilpotent condition. For example, we would like to distinguish between the variety $V(x=0)$ and the variety $V(x^2=0)$. 
 
@@ -89,72 +86,26 @@ Unfortunately one big problem in classical algebraic geometry is that the ringed
 
 \pagebreak
 \section{The Construction of Schemes}
-\subsection{Spectrum of a Ring}
-\begin{defn}{Max Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the max spectrum of $A$ to be $$\text{maxSpec}(A)=\{m\subseteq A\;|\;m\text{ is a maximal ideal of }A\}$$
-\end{defn}
-
-\begin{defn}{Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the spectrum of $A$ to be $$\text{Spec}(A)=\{p\subseteq A\;|\;p\text{ is a prime ideal of }A\}$$
-\end{defn}
-
-\begin{eg}{}{} Consider the following commutative rings. 
-\begin{itemize}
-\item $\text{Spec}(\Z/6\Z)=\{(2+6\Z),(3+6\Z)\}$
-\item $\text{Spec}(\Z/8\Z)=\{(2+8\Z)\}$
-\item $\text{Spec}(\Z/24\Z)=\{(2+24\Z),(3+24\Z)\}$
-\item $\text{Spec}(\R[x])=\{(f)\;|\;f\text{ is irreducible }\}$
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item The only ideals of $\Z/6\Z$ are $(2+6\Z)$ and $(3+6\Z)$. We need to find which ones are prime ideals. Now $\Z/6\Z\setminus(2+6\Z)$ consists of $1+6\Z$, $3+6\Z$ and $5+6\Z$. No multiplication of these elements give an element of $(2+6\Z)$. So any two elements in $\Z/6\Z$ which multiply to an element of $(2+6\Z)$ must contain one element that lie in $(2+6\Z)$. Hence $(2+6\Z)$ is prime. This is similar for $(3+6\Z)$. Hence $\text{Spec}(\Z/6\Z)=\{(2+6\Z),(3+6\Z)\}$. 
-\item The only ideals of $\Z/8\Z$ are $(2+8\Z)$ and $(4+8\Z)$. A similar argument as above shows that $(2+8\Z)$ is a prime ideal. However, $6+8\Z\notin(4+8\Z)$ while $(6+8\Z)^2=4+8\Z\in(4+8\Z)$ which shows that $(4+8\Z)$ is not a prime ideal. 
-\item A similar proof as above ensues. 
-\item Recall that $\R[x]$ is a principal ideal domain. Let $I=(f)$ be a prime ideal of $\R[x]$. Then $f$ is irreducible. Thus every prime ideal of $\R[x]$ is of the form $(f)$ for $f$ an irreducible polynomial. 
-\end{itemize}
-\end{proof}
-\end{eg}
-
-Morphisms of the spectrum comes for free from the definition of morphism of locally ringed space. We omit the same discussion here. However, there is a once again a bijection between geometry and algebra given by the following proposition. 
-
-\begin{prp}{}{} Let $A,B$ be commutative rings. Then there is a bijection $$\left\{\substack{\text{Morphisms}\\\text{Spec}(B)\to\text{Spec}(A)}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Ring homomorphisms}\\ A\to B}\right\}$$ given as follows. For $\phi:A\to B$ a ring homomorphism, $\phi^\ast:\text{Spec}(B)\to\text{Spec}(A)$ is the map that sends the prime ideal $P$ of $B$ to $\phi^\ast(P)=\phi^{-1}(P)$. 
-\end{prp}
-
-\begin{lmm}{}{} Let $R,S$ be commutative rings. Let $f_1:R\times S\to R$ and $f_2:R\times S\to S$ denote the projection maps. Then the map $$f_1^\ast\amalg f_2^\ast:\text{Spec}(R)\amalg\text{Spec}(S)\to\text{Spec}(R\times S)$$ is a bijection. \tcbline
-\begin{proof}
-The core of the proof is the fact that $P$ is a prime ideal of $R\times S$ if and only if $P=R\times Q$ or $P=V\times S$ for either a prime ideal $Q$ of $P$ or a prime ideal $V$ of $S$. It is clear that if $Q$ is a prime ideal of $S$ and $V$ is a prime ideal of $R$, then $R\times Q$ and $V\times S$ are both prime ideals of $R\times S$. \\~\\
-
-So suppose that $P$ is a prime ideal in $R\times S$. Let $e_1=(1,0)$ and $e_2=(0,1)$. Since $P\neq R$, at least one of $e_1$ or $e_2$ is not in $P$. Without loss of generality assume that $e_1\notin P$. But $e_1e_2=0\in P$ and $P$ being prime implies that $e_2\in P$. Since $e_2$ is the identity of $\{0\}\times S\cong S$, we conclude that $\{0\}\times S\subseteq P$. By the correspondence theorem, the projection map $f_1:R\times S\to R$ gives a bijection between prime ideals of $R\times S$ that contain $\{0\}\times S$ and prime ideals of $R$. So $f_1(P)$ is a prime ideal of $R$. Thus $P=f_1(P)\times S$ which is exactly what we wanted. \\~\\
-
-Now the bijection is clear. $f_1^\ast\amalg f_2^\ast$ sends a prime ideal $P$ of $R$ to $P\times S$ and it sends a prime ideal $Q$ of $S$ to $R\times Q$. This map is surjective by the above argument. It is injective by inspection. 
-\end{proof}
-\end{lmm}
-
+\subsection{The Vanishing Locus for Spectra}
 What follows is that we will repeat what we did with affine algebraic sets and affine algebraic varieties, except that we now consider the spectrum of a ring instead of the affine space $\A_k^n$. 
 
-\begin{defn}{Zero Locus}{} Let $A$ be a commutative ring. Let $S\subseteq A$. Define the vanishing locus of $S$ to be $$V(S)=\{p\in\text{Spec}(A)\;|\;S\subseteq p\}$$
+\begin{defn}{Zero Locus}{} Let $A$ be a commutative ring. Let $S\subseteq A$. Define the vanishing locus of $S$ to be $$\V(S)=\{p\in\text{Spec}(A)\;|\;S\subseteq p\}$$
 \end{defn}
 
-This definition is motivated by the following reason. Consider $A=k[x]$. A subset $S$ of $A$ is just a collection of polynomials over $x$. Ideally, by Hilbert's nullstellensatz, points correspond to maximal ideals. So $V(S)$ should be defined as $V(S)=\{p\in\text{maxSpec}(A)\;|\:S\subseteq p\}$. This way of defining $V(S)$ would be a complete analogue for the zero loci in classical algebraic geometry. This definition turns out to fail completely because ring homomorphisms does not reflect maximal ideals. The reason why we want this will become apparent later. But for now, we relax the condition on maximal ideal and allow prime ideals into the scene instead. \\~\\
-
-Notice that from the definition we can directly see that $V(S)$ and $D(S)$ partitions $\text{Spec}(A)$ for every $S\subset A$. Moreover, if $S$ generates the ideal $a$, $V(a)=V(M)$ hence we will only feed in ideals of $A$ into $V(\cdot)$ from now on. 
+This definition is motivated by the following reason. Consider $A=k[x]$. A subset $S$ of $A$ is just a collection of polynomials over $x$. By Hilbert's Nullstellensatz, points correspond to maximal ideals. So $\V(S)$ should be defined as $$\V(S)=\{p\in\text{maxSpec}(A)\;|\:S\subseteq p\}$$ This way of defining $\V(S)$ would be a complete analogue for the zero loci in classical algebraic geometry. This definition turns out to not be the right notion because ring homomorphisms does not reflect maximal ideals. 
 
 \begin{lmm}{}{} Let $A$ be a commutative ring. The following are true. 
 \begin{itemize}
-\item Let $\{a_i|i\in I\}$ be a countable set of ideals of $A$, then $$V\left(\sum_{i\in I}a_i\right)=\bigcap_{i\in I}V(a_i)$$
-\item Let $\{a_1,\dots,a_n\}$ be a finite set of ideals of $A$, then $$V\left(\bigcap_{k=1}^na_k\right)=\bigcup_{k=1}^nV(a_k)$$
+\item Let $\{a_i|i\in I\}$ be a countable set of ideals of $A$, then $$\V\left(\sum_{i\in I}a_i\right)=\bigcap_{i\in I}\V(a_i)$$
+\item Let $\{a_1,\dots,a_n\}$ be a finite set of ideals of $A$, then $$\V\left(\bigcap_{k=1}^na_k\right)=\bigcup_{k=1}^n\V(a_k)$$
 \end{itemize}
 \end{lmm}
 
-\begin{defn}{Ideals from a Zero Locus}{} Let $A$ be a commutative ring. Let $X\subseteq\text{Spec}(R)$. Define $$I(V)=\{f\in A\;|\;f\in p\text{ for all }p\in V\}$$
+\begin{defn}{Ideals from a Zero Locus}{} Let $A$ be a commutative ring. Let $V\subseteq\text{Spec}(R)$. Define $$\I(V)=\{f\in A\;|\;f\in p\text{ for all }p\in V\}$$
 \end{defn}
 
-\begin{thm}{Scheme-theoretic Nullstellensatz}{} Let $A$ be a commutative ring. Let $J$ be an ideal of $A$. Then $I(V(J))=\sqrt{J}$. 
-\end{thm}
-
-\begin{crl}{}{} Let $A$ be a commutative ring. Then $V(-)$ and $I(-)$ induce an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Closed Subsets of}\\\text{Spec}(A)}\right\}$$
-\end{crl}
-
 \subsection{Zariski Topology of a Spectrum}
-\begin{defn}{Zariski Topology}{} Let $A$ be a commutative ring. Define the Zariski topology on $\text{Spec}(A)$ to be the topology where the closed sets are exactly sets of the form $V(S)$ for $S\subseteq A$. 
+\begin{defn}{Zariski Topology}{} Let $A$ be a commutative ring. Define the Zariski topology on $\text{Spec}(A)$ to be the topology where the closed sets are exactly sets of the form $\V(S)$ for $S\subseteq A$. 
 \end{defn}
 
 We can also explicitly write out the open sets and a basis for the Zariski topology. 
@@ -162,10 +113,19 @@ We can also explicitly write out the open sets and a basis for the Zariski topol
 \begin{defn}{Distinguished Open Sets}{} Let $A$ be a commutative ring. Let $S\subseteq A$. Define the distinguished open set of $S$ to be $$D(S)=\{p\in\text{Spec}(A)|S\not\subseteq p\}$$ Let $f\in A$. Then the collection $$D(f)=\{p\in\text{Spec}(A)|f\notin p\}$$ for $f$ varying in $A$ are called basic open sets. 
 \end{defn}
 
-They are called open sets is because sets of the form $D(S)$ will form a topology for $\text{Spec}(A)$, and these basic open sets are precisely the basis for the sets of the form $D(S)$. 
+Notice that from the definition we can directly see that $\V(S)$ and $D(S)$ partitions $\text{Spec}(A)$ for every $S\subset A$. Moreover, if $S$ generates the ideal $a$, $\V(a)=\V(M)$ hence we will only feed in ideals of $A$ into $\V(-)$ from now on. 
 
 \begin{thm}{}{} Let $A$ be a commutative ring. The open sets of the Zariski topology of $\text{Spec}(A)$ are the sets $D(S)$ for $S\subseteq A$. Moreover, the collection $D(f)$ for $f\in A$ is a basis for the topology. 
 \end{thm}
+
+\begin{prp}{}{} Let $A,B$ be commutative rings. Then there is a bijection $$\left\{\substack{\text{Continuous maps}\\\text{Spec}(B)\to\text{Spec}(A)}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Ring homomorphisms}\\ A\to B}\right\}$$ given as follows. For $\phi:A\to B$ a ring homomorphism, $\phi^\ast:\text{Spec}(B)\to\text{Spec}(A)$ is the map that sends the prime ideal $P$ of $B$ to $\phi^\ast(P)=\phi^{-1}(P)$. 
+\end{prp}
+
+\begin{thm}{Scheme-theoretic Nullstellensatz}{} Let $A$ be a commutative ring. Let $J$ be an ideal of $A$. Then $\I(\V(J))=\sqrt{J}$. 
+\end{thm}
+
+\begin{crl}{}{} Let $A$ be a commutative ring. Then $\V(-)$ and $\I(-)$ induce an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Closed Subsets of}\\\text{Spec}(A)}\right\}$$
+\end{crl}
 
 \subsection{The Structure Sheaf of a Ring}
 We now define the structure sheaf on a spectrum so that they form a ringed space. 
@@ -236,8 +196,8 @@ Given a ring homomorphism $\varphi:R\to S$, define a map $f:\text{Spec}(S)\to\te
 \end{itemize}
 \end{defn}
 
-\begin{thm}{}{} There is an equivalence of categories between $\bold{AffSch}$ and $\bold{Ring}^{\text{op}}$ given by the functors $\text{Spec}(-):\bold{Ring}^\text{op}\to\bold{AffSch}$ and $\Gamma:\bold{AffSch}\to\bold{Ring}^\text{op}$
-\end{thm}
+\begin{prp}{}{} There is an equivalence of categories between $\bold{AffSch}$ and $\bold{Ring}^{\text{op}}$ given by the functors $$\text{Spec}(-):\bold{Ring}^\text{op}\overset{\cong}{\longleftrightarrow}\bold{AffSch}:\Gamma$$
+\end{prp}
 
 \subsection{General Scehemes}
 \begin{defn}{Schemes}{} A scheme is a locally ringed space $X$ such that every point $x\in X$ has an open neighbourhood $U$ which is isomorphic to an affine scheme as a locally ringed space. 
@@ -334,12 +294,7 @@ Then $\mO_{\text{Proj}(S)}$ is a sheaf on $S$.
 \begin{thm}{}{} Let $X$ be a scheme and let $R$ be a ring. The assignment $$\left(f:X\to\text{Spec}(R)\right)\mapsto\left(f^\ast:R\to\mO_X(X)\right)$$ defines a bijection $$\Hom_{\bold{Sch}}(X,\text{Spec}(R))\cong\Hom_\bold{Ring}(R,\mO_X(X))$$
 \end{thm}
 
-\begin{defn}{Category of $S$-Schemes}{} Let $S$ be a fixed scheme. The category $\bold{Sch}_S$ of schemes over $S$ is the category whose objects are the morphisms $X\to S$ of schemes, and whose morphisms are the morphisms $X\to Y$ of schemes such that the following diagram commute: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-X\arrow[rr]\arrow[rd]&&Y\arrow[ld]\\
-&S&
-\end{tikzcd}}\\~\\
-The scheme $S$ is also called the base scheme and the morphism $X\to S$ is called the structural morphism of the $S$-scheme $X$. 
+\begin{defn}{Category of $S$-Schemes}{} Let $S$ be a fixed scheme. Define the category of $S$-schemes to be the over category $$\bold{Sch}_S=\bold{Sch}/S$$
 \end{defn}
 
 \begin{lmm}{}{} For any scheme $X$, the morphism $X\to\text{Spec}(\Z)$ is a final object in $\text{Sch}$. Also, the identity morphism $\text{id}:S\to S$ is a final object in $\text{Sch}_S$
@@ -348,25 +303,6 @@ The scheme $S$ is also called the base scheme and the morphism $X\to S$ is calle
 The problem is now is that the category of schemes is not good enough to work with in Algebraic Geometry. There are much more restriction to coordinate ring associated to a variety. If we use any arbitrary ring for the structure of schemes, it will be too broad to work with. For instance, in classical algebraic geometry we only work will coordinate rings, which are finitely generated. 
 
 \subsection{Categorical Constructs of Schemes}
-\begin{defn}{Fibered Product}{} Let $S$ be a scheme and $X,Y$ be schemes over $S$. Define the fibered product of $X$ and $Y$ over $S$ to be a scheme $$X\times_SY$$ together with morphisms $p_1:X\times_SY\to X$ and $p_2:X\times_SY\to Y$ such that the following universal property holds. \\~\\
-
-For any scheme $Z$ with morphisms $f:Z\to X$ and $g:Z\to Y$, there exists a unique morphism $\theta:Z\to X\times_SY$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	Z \\
-	& {X\times_SY} & Y \\
-	& X & S
-	\arrow["{\exists!\theta}"', dashed, from=1-1, to=2-2]
-	\arrow["g", from=1-1, to=2-3, bend left = 20]
-	\arrow["f"', from=1-1, to=3-2, bend right = 20]
-	\arrow["{p_2}", from=2-2, to=2-3]
-	\arrow["{p_1}"', from=2-2, to=3-2]
-	\arrow[from=2-3, to=3-3]
-	\arrow[from=3-2, to=3-3]
-\end{tikzcd}} \\
-\end{defn}
-
-The definition is simply that of a fiber product in a category. Alternatively, it is the product in the category of schemes over $S$. When $X$ and $Y$ are simply schemes, we can just think of them as schemes over $\text{Spec}(\Z)$ because it is terminal in the category of schemes $\bold{Sch}$. In this case the fibered product becomes simply the product in $\bold{Sch}$. In general, when one defines a property of morphism of schemes, one is also inherently defining it for a general scheme, by considering the scheme $X$ with the unique morphism $X\to\text{Spec}(\Z)$. 
-
 \begin{thm}{}{} Let $X$ and $Y$ be two schemes over $S$. Then the fibered product $X\times_SY$ exists and is unique up to unique isomorphism. \tcbline
 \begin{proof}
 We first prove the theorem for the case of affine schemes. Let $X=\text{Spec}(A)$, $Y=\text{Spec}(B)$ and $S=\text{Spec}(C)$. I claim that $\text{Spec}(A\otimes_CB)$ is the fibered product of $X$ and $Y$ over $S$. Using the equivalence of categories, we have that 

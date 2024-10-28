@@ -8,7 +8,6 @@
 \contentsline {subsection}{\numberline {2.2}The Level-wise Model Structure on the Category of Spectra}{9}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Homotopy Groups of a Spectrum}{10}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}The Stable Model Structure on the Category of Spectra}{11}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}In View of Infinity Categories}{12}{subsection.2.5}%
 \contentsline {section}{\numberline {3}The First Stable Homotopy Category}{13}{section.3}%
 \contentsline {subsection}{\numberline {3.1}The Stable Homotopy Category}{13}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Properties of the Stable Homotopy Category}{13}{subsection.3.2}%

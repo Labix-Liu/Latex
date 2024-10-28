@@ -1,26 +1,26 @@
-\contentsline {section}{\numberline {1}Natural Numbers}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Order of Natural Numbers}{2}{subsection.1.1}%
-\contentsline {section}{\numberline {2}Integers}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Introduction to Integers}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Divisibility}{4}{subsection.2.2}%
+\contentsline {section}{\numberline {1}Natural Numbers}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Order of Natural Numbers}{3}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Integers}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Introduction to Integers}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Divisibility}{5}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}The Division Algorithm}{5}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Unique Factorization}{7}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Rational Numbers}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Introduction to Rationals}{9}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Arithmetic and Order of Rationals}{9}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Real Numbers}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Dedekind Cuts}{10}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}The Binomial Theorem}{12}{subsection.4.2}%
+\contentsline {subsection}{\numberline {2.4}Unique Factorization}{8}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Rational Numbers}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Introduction to Rationals}{10}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Real Numbers}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Dedekind Cuts}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}The Binomial Theorem}{13}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Complex Numbers}{14}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Introduction to Complex Numbers}{14}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Modulus and Argument}{15}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Exponential Form of Complex Numbers}{16}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Algebraic Inequalities}{18}{section.6}%
-\contentsline {section}{\numberline {7}Basics of Matrices}{19}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Matrices and its Operations}{19}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Elementary Matrices}{21}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Row Operations}{22}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Determinants}{23}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Inverses of Matrices}{24}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}System of Linear Equations}{26}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}System of Linear Equations}{26}{subsection.7.7}%
+\contentsline {subsection}{\numberline {5.2}Conjugates}{14}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Modulus and Argument}{15}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Roots of Complex Numbers}{16}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Algebraic Inequalities}{17}{section.6}%
+\contentsline {section}{\numberline {7}Basics of Matrices}{18}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Matrices and its Operations}{18}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Elementary Matrices}{20}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Row Operations}{21}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Determinants}{22}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Inverses of Matrices}{23}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}System of Linear Equations}{24}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}System of Linear Equations}{25}{subsection.7.7}%

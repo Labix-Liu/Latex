@@ -22,83 +22,6 @@
 \end{abstract}
 \pagebreak
 \tableofcontents
-\pagebreak
-
-\section{More on Rings}
-\subsection{Isomophism Theorem for Rings}
-The isomorphism theorem for rings is a direct result that extends the group isomorphism theorems. \\~\\ Their proofs are mostly the same except that we also have to check that multplication is preserved so that the isomorphisms inherited from groups is indeed a ring isomorphism. 
-
-\begin{thm}{The First Isomorphism Theorem for Rings}{} If $\phi:R\to S$ is a homomorphism of rings, then the following are true. 
-\begin{itemize}
-\item $\ker(\phi)$ is an ideal of $R$
-\item $\im(\phi)\leq S$ is a subring of $S$
-\end{itemize}
-Moreover, we have an isomorphism $$\frac{R}{\ker(\phi)}\cong\phi(R)$$ in rings. \tcbline
-\begin{proof}
-A group isomorphism $R/\ker(\phi)\cong\phi(R)$ can be established from the first isomorphism theorem for groups. Moreover we know that $\ker(\phi)$ is a normal subgroup. To show that $\ker(\phi)$ is an ideal, notice that for $r\in R$ and $k\in\ker\phi$, $\phi(rk)=\phi(r)\phi(k)=0$ thus $rk\in\ker(\phi)$. To show that $R/\ker(\phi)\cong\phi(R)$ is a ring isomorphism, suppose that $\pi$ is the induced group isomorphism. Notice that 
-\begin{align*}
-\pi((r_1+\ker(\phi))(r_2+\ker(\phi)))&=\pi(r_1r_2+\ker(\phi))\\
-&=\phi(r_1r_2)\\
-&=\phi(r_1)\phi(r_2)\\
-&=\pi(r_1+\ker(\phi))\pi(r_2+\ker(\phi))
-\end{align*}
-and so we conclude. 
-\end{proof}
-\end{thm}
-
-\begin{thm}{The Second Isomorphism Theorem for Rings}{} Let $A\leq R$ and $B$ an ideal of $R$. Then the following are true. 
-\begin{itemize}
-\item $A+B=\{a+b\;|\;a\in A,b\in B\}$ is a subring of $R$
-\item $A\cap B$ is an ideal of $A$
-\end{itemize}
-Moreover, we have an isomorphism $$\frac{A+B}{B}\cong\frac{A}{A\cap B}$$ in rings. 
-\end{thm}
-
-\begin{thm}{The Third Isomorphism Theorem for Rings}{} Let $I,J$ be ideals of $R$ with $I\subset J$. Then $J/I$ is an ideal of $R/I$ and $(R/I)/(J/I)\cong R/J$
-\end{thm}
-
-\begin{thm}{The Correspondence Theorem}{} Let $R$ be a ring. Let $I$ be a left ideal of $R$. Then there is an inclusion preserving one-to-one bijection $$\left\{\substack{\text{Subrings of }R\\\text{containing }I}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\text{Subrings of }R/I\right\}$$ induced by the surjective ring homomorphism $\varphi:R\to R/I$. Moreover, there is an inclusion preserving one-to-one bijection $$\left\{\substack{\text{Ideals of }R\\\text{containing }I}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\text{Ideals of }R/I\right\}$$ given by the map $A\mapsto A/I$ for $A$ an ideal of $R$ containing $I$. 
-\end{thm}
-
-\subsection{Chinese Remainder Theorem}
-In this section we develop the necessary notions in order to illustrate the Chinese Remainder Theorem. 
-
-\begin{defn}{Direct product of Rings}{} Let $R,S$ be rings. Define the direct product of $R$ and $S$ to be the set $R\times S=\{(r,s)\in R\times S\}$ together with the binary operations defined element wise. 
-\end{defn}
-
-It is a routine exercise to check that $R\times S$ is indeed a ring in its own right. \\~\\
-
-A rather unintuitive definition is that of coprime ideals. 
-
-\begin{defn}{Coprime Ideals}{} We say that two ideals $A,B$ in a ring $R$ are coprime if $A+B=R$. 
-\end{defn}
-
-But there is indeed a good reason for the name. Notice that in $\Z$, the prime ideals are exactly the ideals $(p)$ where $p$ is a prime. We also have a nice inclusion of ideals whenever $p|a$ which is $(a)\subseteq(p)$, which we will prove later. This means that in general, the smaller the number $a$ is, the larger the ideal $(a)$ is and indeed, the smaller the number is in $\Z$, the more numbers it can possibly divide. Now recall that if $a$ and $b$ are coprime in $\Z$, then their gcd will be $1$. Indeed we will develop the notion of gcd for ideals as well, which is to say that if $d=\gcd(a,b)$ in the usual sense, then $(a)\subseteq(d)$ and $(b)\subseteq(d)$. Then if $a$ and $b$ are coprime, their ideals are both subsets of $(1)$, which is exactly $R$. This leads to why we say that two ideals are coprime. 
-
-\begin{prp}{}{} Let $A,B$ be ideals of a ring $R$. If $A$ and $B$ are coprime then $$AB=A\cap B$$ \tcbline
-\begin{proof}
-
-\end{proof}
-\end{prp}
-
-\begin{thm}{Chinese Remainder Theorem}{} Let $I_1,\dots, I_n$ be ideals of a ring $R$. Then the ring homomorphism $$\phi:R\to\frac{R}{I_1}\times\cdots\times\frac{R}{I_n}$$ defined by $\phi(x)=(x+I_1,\dots,x+I_n)$ has kernel $$I=\bigcap_{k=1}^nI_k$$ Moreover, if each $I_j$ and $I_k$ are pairwise coprime, then there is an isomorphism $$\frac{R}{I}\cong\frac{R}{I_1}\times\cdots\times\frac{R}{I_n}$$ given by $\phi$. \tcbline
-\begin{proof}
-Since $\phi$ is a collection of projections on to each factor, $\phi$ is a ring homomorphism. It is clear that $I$ is the kernel of the homomorphism. Indeed given $x\in I$, then $x$ lies in each and every $I_k$ for $1\leq k\leq n$. Thus $\phi(x)=(x+I_1,\dots,x+I_n)=0$. Conversely, if $(x+I_1,\dots,x+I_n)$ is such that applying $\phi$ gives $0$, then $x\in I_1,\dots,I_n$ so that $x\in I$. \\~\\
-
-When the ideals are pairwise corpime, consider the elements $e_k=(0,\dots,0,x+I_k,0,\dots,0)$ for $1\leq k\leq n$ (these are called full system of orthogonal central idempotents). Notice that they satisfy the equation $1=e_1+\dots+e_n$ and $e_k^2=e_k$ for $1\leq k\leq n$ for $i\neq j$, we have $e_ie_j=0$. Now since $I_i$ and $I_j$ are coprime, we have that $R=I_i+I_j$ so that $1=a_j+z_j$ for $a_j\in I_i$ (note the subscript) and $z_j\in I_j$. Define $x_i=z_1\cdots z_{i-1}\cdot z_{i+1}\cdots z_n$ for each $1\leq i\leq n$. Write the projection homomorphism as $\psi:R\to R/I_j$. If $i\neq j$, then $\phi_j(x_i)=0$ because $x_i$ contains the element $z_j$ that lies in $I_j$. Also, we have that $$\psi_i(z_j)=\psi_i(1-a_j)=\psi_i(1)-\psi_i(a_j)=\psi_i(1)=1$$ in $R/I_i$ since $a_j\in I_i$. Thus we have that $$\psi_i(x_i)=\psi_i(z_1)\cdots\psi_i(z_n)=1$$~\\
-
-All this means that $x_i\in R$ is such that $\psi(x_i)=(0,\dots,0,1+I_i,0,\dots,0)$ for $1\leq i\leq n$. Now to prove surjectivity, let $(r_1,\dots,r_n)$ be an element in the product. Then we have that $$(r_1,\dots,r_n)=\sum_{j=1}^n\psi(r_i)e_i=\sum_{j=1}^n\psi(r_ix_i)$$ and so $r_1x_1+\dots+r_nx_n\in R$ is our desired element. And so we are done. 
-\end{proof}
-\end{thm}
-
-This is a more generalized version of the Chinese Remainder Theorem in number theory. Indeed, to recover the one in number theory, take $R=\Z$ and $I_k=(n_k)$ for some $n_k\in\Z$ so that $I_k$ is the principal ideal on $n_k$. Moreover, by choosing each $n_k$ to be pairwise coprime, we obtain the isomorphism which proves that the congruence relation can be solved. \\~\\
-
-Notice that the proof is instructive. Indeed we can simply follow the steps of the proof to find a solution. Namely, given $(r_1,\dots,r_n)$ in the product, we can find $r\in R$ such that $\phi(r)=(r_1,\dots,r_n)$. The steps are as follows. 
-\begin{enumerate}
-\item Fix $1\leq i\leq n$. Using $R=I_i+I_j$, find $a_j\in I_i$ and $z_j\in I_j$ such that $1=a_j+z_j$ for each $j$. This can be done for example by Bezout's lemma in $R=\Z$. 
-\item Define $x_i=z_1\cdots z_{i-1}\cdot z_{i+1}\cdots z_n$ for $1\leq k\leq n$. 
-\item Do the same for each $1\leq i\leq n$. The solution is then $r=r_1x_1+\dots+r_nx_n$. 
-\end{enumerate}
 
 \pagebreak
 \section{Basic Module Theory}
@@ -393,12 +316,22 @@ While free modules mimic the notion of a vector space, finitely generated module
 \end{prp}
 
 \subsection{Tensor Products of Modules}
-\begin{defn}{Tensor Product of Modules}{} Let $R$ be a ring. Let $A,B$ be $R$-modules. The tensor product of $A$ and $B$ over $R$ is an $R$-module $$A\otimes_R B$$ together with an $R$-bilinear map $\phi:A\times B\to A\otimes_RB$ such that for any other $R$-bilinear map $\psi:A\times B\to C$, there is a unique $R$-linear map $\theta:A\otimes_RB\to C$ such that $\psi=\theta\circ\phi$. In other words, the following diagram commutes: \\~\\
+\begin{defn}{Bilinear Maps}{} Let $R$ be a ring. Let $A,B,C$ be $R$-modules. We say that an $R$-module homomorphism $$\varphi:A\times B\to C$$ is bilinear if the following are true. 
+\begin{itemize}
+\item Linearity in the first variable: $$\varphi(sa_1+ta_2,b)=s\varphi(a_1,b)+t\varphi(a_2,b)$$ for all $a_1,a_2\in A$, $b\in B$ and $s,t\in R$. 
+\item Linearity in the second variable: $$\varphi(a,sb_1+tb_2)=s\varphi(a,b_1)+t\varphi(a,b_2)$$ for all $a\in A$, $b_1,b_2\in B$ and $s,t\in R$. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Tensor Product of Modules}{} Let $R$ be a ring. Let $A,B$ be $R$-modules. The tensor product of $A$ and $B$ over $R$ is an $R$-module $$A\otimes_R B$$ together with an $R$-bilinear map $\phi:A\times B\to A\otimes_RB$ such that the following universal property as satisfied. For any other $R$-bilinear map $\psi:A\times B\to C$, there is a unique $R$-linear map $\theta:A\otimes_RB\to C$ such that the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 A\times B\arrow[r, "\phi"]\arrow[rd, "\psi"'] & A\otimes_RB\arrow[d, "\exists !\theta", dashed]\\
 &C
 \end{tikzcd}}
 \end{defn}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $A,B$ be $R$-modules. There is a one-to-one correspondence $$\left\{\varphi:A\times B\to R\;|\;\varphi\text{ is bilinear}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\Hom_R(A\otimes_RB,R)$$ given by the universal property. Explicitly, denote $\varphi:A\times B\to A\otimes_R B$ the universal map. For each $f\in\Hom_R(A\otimes_RB,R)$, it is mapped to $f\circ\varphi$. 
+\end{prp}
 
 The universal property makes it very abstract and hard to visualize the tensor product. There are a number of explicit ways to think about the tensor product. 
 
@@ -411,16 +344,6 @@ The universal property makes it very abstract and hard to visualize the tensor p
 \end{itemize}
 for $a,a_1,a_2\in A$, $b,b_1,b_2\in B$ and $s\in R$. Then the tensor product of $A$ and $B$ is given by $$A\otimes_RB=\frac{F}{L}$$
 \end{lmm}
-
-\begin{defn}{Bilinear Maps}{} Let $R$ be a ring. Let $A,B,C$ be $R$-modules. We say that a $R$-module homomorphism $\varphi:A\times B\to C$ is bilinear if the following are true. 
-\begin{itemize}
-\item Linearity in the first variable: $\varphi(sa_1+ta_2,b)=s\varphi(a_1,b)+t\varphi(a_2,b)$ for all $a_1,a_2\in A$, $b\in B$ and $s,t\in R$. 
-\item Linearity in the second variable: $\varphi(a,sb_1+tb_2)=s\varphi(a,b_1)+t\varphi(a,b_2)$ for all $a\in A$, $b_1,b_2\in B$ and $s,t\in R$. 
-\end{itemize}
-\end{defn}
-
-\begin{thm}{}{} Let $R$ be a ring. Let $A,B$ be $R$-modules. There is a one-to-one correspondence $$\left\{\varphi:A\times B\to R\;|\;\varphi\text{ is bilinear}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\Hom_R(A\otimes_RB,R)$$ given by the universal property. Explicitly, denote $\varphi:A\times B\to A\otimes_R B$ the universal map. For each $f\in\Hom_R(A\otimes_RB,R)$, it is mapped to $f\circ\varphi$. 
-\end{thm}
 
 \begin{prp}{}{} Let $R$ be a ring and $A,B,C$ be $R$-modules. Then the following properties hold for the tensor product. 
 \begin{itemize}
@@ -435,6 +358,16 @@ for $a,a_1,a_2\in A$, $b,b_1,b_2\in B$ and $s\in R$. Then the tensor product of 
 \end{prp}
 
 \begin{prp}{}{} Let $M$ be an $R$-module and $I$ an ideal of $R$. Then $$M\otimes\frac{R}{I}\cong\frac{M}{IM}$$
+\end{prp}
+
+Recall that any abelian group $A$ can also be thought of as a $\Z$-module. The tensor product over $\Z$ or any of its quotient modules are significantly easier to compute. 
+
+\begin{prp}{}{} Let $A$ be an abelian group. Then the following are true. 
+\begin{itemize}
+\item $\Z\otimes_\Z A\cong A$
+\item $\Z/p\Z\otimes_\Z A\cong A/pA$
+\item $\Z/m\Z\otimes \Z/n\Z\cong\Z/\gcd(m,n)\Z$
+\end{itemize}
 \end{prp}
 
 \subsection{Tensor Products of Vector Spaces}
@@ -610,7 +543,12 @@ Consider the set of monomials over elements of $X$. They form a basis of $R\lang
 \end{prp}
 
 \subsection{Graded Structures}
-\begin{defn}{Graded Rings}{} A graded ring $R$ is a ring such that the underlying additive group is a direct sum of abelian groups $R_i$, meaning that $$R=\bigoplus_{n\in\N}R_n$$ and such that for $r_i\in R_i$ and $r_j\in R_j$, $r_ir_j\in R_{i+j}$. A $\Z$ graded ring is a ring graded in $\Z$ instead of $\N$. 
+\begin{defn}{Graded Rings}{} Let $R$ be a ring. We say that $R$ is graded if the following are true. 
+\begin{itemize}
+\item The abelian group structure of $R$ decomposes into a direct sum $$R=\bigoplus_{k=0}^\infty R_k$$ where each $R_k$ is an abelian group 
+\item For $r_i\in R_i$ and $r_j\in R_j$, $r_ir_j\in R_{i+j}$. 
+\end{itemize}
+We say that an element $r\in R$ is homogenous if $r\in R_k$ for some $k\in\N$. 
 \end{defn}
 
 \begin{prp}{}{} The following are true for a graded ring $R=\bigoplus_{n\in\N}R_i$. 
@@ -628,13 +566,16 @@ Consider the set of monomials over elements of $X$. They form a basis of $R\lang
 \end{proof}
 \end{prp}
 
-\begin{defn}{Homogenous Ideals}{} An ideal $I$ of a graded ring $R$ is said to be homogenous if for each $a\in I$, the homogenous components of $a$ is in $I$. 
+\begin{defn}{Graded Commutative Rings}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a graded ring. We say that $R$ is graded commutative if for all $r\in R_i$ and $r\in R_j$, $$r\cdot s=(-1)^{ij}s\cdot r$$
+\end{defn}
+
+\begin{defn}{Homogenous Ideals}{} Let $R$ be a graded ring. Let $I$ be an ideal of $R$. We say that $I$ is a homogenous ideal if for all $a\in I$, each homogenous components of $a$ lies in $I$. 
 \end{defn}
 
 \begin{prp}{}{} If $I$ is an homogenous ideal of a graded ring $R$, then $R/I$ is also a graded ring. 
 \end{prp}
 
-\begin{defn}{Graded Module}{} A graded $R$-module $M$ is a left $R$-module $M$ where $R$ is graded such that $$M=\bigoplus_{i\in\N}M_i$$ and $R_iM_j\subseteq M_{i+j}$. 
+\begin{defn}{Graded Module}{} A graded $R$-module $M$ is a left $R$-module $M$ where $R$ is graded such that $$M=\bigoplus_{k=0}^\infty M_k$$ and $R_iM_j\subseteq M_{i+j}$. 
 \end{defn}
 
 \begin{defn}{Graded Algebra}{} A graded algebra $A$ over $R$ is an algebra that is also a graded ring. 

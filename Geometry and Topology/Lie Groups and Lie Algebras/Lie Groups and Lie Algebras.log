@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  18 OCT 2024 06:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  28 OCT 2024 05:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -897,6 +897,9 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \c@nlinenum=\count337
 \TeXr@lab=\toks52
 )
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgpagella.sty
 Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
 ) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
@@ -947,7 +950,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 249.
+Package hyperref Info: Option `colorlinks' set `true' on input line 253.
 ) (Lie Groups and Lie Algebras.aux)
 \openout1 = `"Lie Groups and Lie Algebras.aux"'.
 
@@ -1068,29 +1071,43 @@ LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
+enc}] [4] [5] [6] [7] [8] [9] [10] [11]
+Overfull \hbox (12.99718pt too wide) in paragraph at lines 364--365
+[]\T1/qpl/m/n/10 Recall from Lin-ear al-ge-bra that $\OML/cmm/m/it/10 L$ \T1/qp
+l/m/n/10 is now an in-ner prod-uct space when equipped with the killing form. 
+ []
+
+[12] [13] [14] [15] [16] [17]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 378.
+(hyperref)                removing `math shift' on input line 458.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 378.
+(hyperref)                removing `math shift' on input line 458.
 
-[17] (Lie Groups and Lie Algebras.aux)
+[18] (Lie Groups and Lie Algebras.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-Package rerunfilecheck Info: File `"Lie Groups and Lie Algebras".out' has not c
-hanged.
-(rerunfilecheck)             Checksum: BCD44A521BD5329C168D4362BC0BDF4A;4040.
+
+
+Package rerunfilecheck Warning: File `"Lie Groups and Lie Algebras".out' has ch
+anged.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Lie Groups and Lie Algebras".out':
+
+(rerunfilecheck)             Before: 61EE12B7CCF54AF6DE5474E9B50C522A;4493
+(rerunfilecheck)             After:  900A436FF477CF994B4EEE239416CF69;4904.
  ) 
 Here is how much of TeX's memory you used:
- 32334 strings out of 474424
- 636937 string characters out of 5741739
- 1958496 words of memory out of 5000000
- 54058 multiletter control sequences out of 15000+600000
+ 32461 strings out of 474424
+ 638975 string characters out of 5741739
+ 1959496 words of memory out of 5000000
+ 54157 multiletter control sequences out of 15000+600000
  601182 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,12n,120p,616b,1184s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1107,9 +1124,9 @@ sers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><
 C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.p
 fb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qp
 lri.pfb>
-Output written on "Lie Groups and Lie Algebras.pdf" (17 pages, 325109 bytes).
+Output written on "Lie Groups and Lie Algebras.pdf" (18 pages, 341303 bytes).
 PDF statistics:
- 357 PDF objects out of 1000 (max. 8388607)
- 107 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 405 PDF objects out of 1000 (max. 8388607)
+ 132 named destinations out of 1000 (max. 500000)
+ 205 words of extra memory for PDF output out of 10000 (max. 10000000)
 
