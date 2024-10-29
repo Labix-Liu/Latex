@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  29 OCT 2024 08:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  30 OCT 2024 05:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1180,42 +1180,49 @@ m/n/10 )$\T1/qpl/m/n/10 -connected.
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1053--1061
+Underfull \hbox (badness 10000) in paragraph at lines 1056--1064
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1053--1061
+Underfull \hbox (badness 10000) in paragraph at lines 1056--1064
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1053--1061
+Underfull \hbox (badness 10000) in paragraph at lines 1056--1064
 
  []
 
-[29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1117--1126
+[29] [30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 1120--1129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1117--1126
+Underfull \hbox (badness 10000) in paragraph at lines 1120--1129
 
  []
 
-[31] [32] (Classical Homotopy Theory.aux)
+[32] [33] (Classical Homotopy Theory.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-Package rerunfilecheck Info: File `"Classical Homotopy Theory".out' has not cha
-nged.
-(rerunfilecheck)             Checksum: D640D8C8DAB7A85F3185C1E19B357C09;6374.
+
+
+Package rerunfilecheck Warning: File `"Classical Homotopy Theory".out' has chan
+ged.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Classical Homotopy Theory".out':
+(rerunfilecheck)             Before: D640D8C8DAB7A85F3185C1E19B357C09;6374
+(rerunfilecheck)             After:  71DDE45C1514CAE99C32E0DE738D473A;6783.
  ) 
 Here is how much of TeX's memory you used:
- 35138 strings out of 474424
- 706236 string characters out of 5741739
+ 35141 strings out of 474424
+ 706271 string characters out of 5741739
  1979496 words of memory out of 5000000
  56800 multiletter control sequences out of 15000+600000
  600947 words of font info for 79 fonts, out of 8000000 for 9000
@@ -1241,9 +1248,9 @@ rograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/
 liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Classical Homotopy Theory.pdf" (32 pages, 519650 bytes).
+Output written on "Classical Homotopy Theory.pdf" (33 pages, 520987 bytes).
 PDF statistics:
- 548 PDF objects out of 1000 (max. 8388607)
- 163 named destinations out of 1000 (max. 500000)
+ 554 PDF objects out of 1000 (max. 8388607)
+ 166 named destinations out of 1000 (max. 500000)
  245 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  29 OCT 2024 07:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  30 OCT 2024 05:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1059,11 +1059,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
-(Selected Topics.toc [2])
+(Selected Topics.toc)
 \tf@toc=\write5
 \openout5 = `"Selected Topics.toc"'.
 
- [3]
+ [2]
 Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
@@ -1074,7 +1074,7 @@ Underfull \hbox (badness 1735) in paragraph at lines 44--44
  el-e-men-tary sym-met-ric poly-no-mi-als to be the el-e-ments 
  []
 
-[4]
+[3]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 51.
@@ -1114,7 +1114,7 @@ LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 6
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
-[5{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+[4{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
 enc}]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1148,7 +1148,7 @@ n aug-mented $\OML/cmm/m/it/10 ^^U$\T1/qpl/m/n/10 -ring if it comes with a $\OM
 L/cmm/m/it/10 ^^U$\T1/qpl/m/n/10 - 
  []
 
-[6]
+[5]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 131.
@@ -1185,18 +1185,18 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 140.
 
-[7] [8]
+[6] [7]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
 d on input line 191.
 
-[9] [10]
+[8] [9]
 Overfull \hbox (0.59756pt too wide) in paragraph at lines 265--266
 []\T1/qpl/m/n/10 The Te-ich-muller rep-re-sen-ta-tive is in gen-eral not a ring
  ho-mo-mor-phism, but it is still mul-ti-plica-tive. 
  []
 
-[11]
+[10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 302.
@@ -1209,259 +1209,188 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 302.
 
-[12] [13]
-Overfull \hbox (19.35158pt too wide) in paragraph at lines 346--347
-\T1/qpl/m/n/10 ful for us to first con-sider this case also be-cause of how it 
-is re-lated to maps of spaces and (co)fibrations. 
- []
-
-[14] [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 524--534
+[11] [12] [13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 420--448
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 524--534
-
- []
-
-[17] [18] [19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 649--658
+Underfull \hbox (badness 10000) in paragraph at lines 420--448
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--658
+Underfull \hbox (badness 10000) in paragraph at lines 420--448
 
  []
 
 
-Overfull \hbox (12.61661pt too wide) in paragraph at lines 658--659
-\T1/qpl/m/n/10 So we are re-ally just say-ing that $\OML/cmm/m/it/10 ^^Y[]\OT1/
-cmr/m/n/10 (\OML/cmm/m/it/10 A; A \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 B\OT1/cmr
-/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/
-it/10 X; B\OT1/cmr/m/n/10 )$ \T1/qpl/m/n/10 given by the in-clu-sion is $\OT1/c
-mr/m/n/10 (\OML/cmm/m/it/10 k[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 k[]\OT1/cmr/
-m/n/10 )$\T1/qpl/m/n/10 -connected. 
- []
-
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 683--691
+Underfull \hbox (badness 10000) in paragraph at lines 420--448
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 683--691
+Underfull \hbox (badness 10000) in paragraph at lines 420--448
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 683--691
-
- []
-
-[22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 747--756
+Underfull \hbox (badness 10000) in paragraph at lines 420--448
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 747--756
-
- []
-
-[24] [25] [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 846--874
+Underfull \hbox (badness 10000) in paragraph at lines 420--448
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--874
+Underfull \hbox (badness 10000) in paragraph at lines 420--448
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--874
+Underfull \hbox (badness 10000) in paragraph at lines 453--470
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--874
+Underfull \hbox (badness 10000) in paragraph at lines 453--470
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 470--522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--874
+Underfull \hbox (badness 10000) in paragraph at lines 470--522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--874
+Underfull \hbox (badness 10000) in paragraph at lines 470--522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--874
+Underfull \hbox (badness 10000) in paragraph at lines 470--522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--874
+Underfull \hbox (badness 10000) in paragraph at lines 470--522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 879--896
+Underfull \hbox (badness 10000) in paragraph at lines 470--522
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 879--896
-
- []
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 896--948
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 896--948
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 896--948
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 896--948
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 896--948
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 896--948
-
- []
-
-[29]
-Underfull \hbox (badness 2134) in paragraph at lines 956--957
+[16]
+Underfull \hbox (badness 2134) in paragraph at lines 530--531
 \T1/qpl/m/n/10 given as fol-lows. For a lin-ear func-tor $\OML/cmm/m/it/10 F$\T
 1/qpl/m/n/10 , we as-so-ciate to it the se-quence of spaces 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 960--961
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 960--961
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 971--972
+Underfull \hbox (badness 10000) in paragraph at lines 548--558
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 971--972
+Underfull \hbox (badness 10000) in paragraph at lines 548--558
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 558--567
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 975--985
+Underfull \hbox (badness 10000) in paragraph at lines 558--567
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 975--985
-
- []
-
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 985--994
+Underfull \hbox (badness 10000) in paragraph at lines 558--567
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 985--994
+Underfull \hbox (badness 10000) in paragraph at lines 567--576
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 985--994
+Underfull \hbox (badness 10000) in paragraph at lines 567--576
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 994--1003
+Underfull \hbox (badness 10000) in paragraph at lines 567--576
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 994--1003
+Underfull \hbox (badness 10000) in paragraph at lines 580--589
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 994--1003
+Underfull \hbox (badness 10000) in paragraph at lines 580--589
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1008--1009
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
+
+ []
+
+[19] [20] [21]
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1008--1009
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
 
  []
 
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 1043--1044
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1043--1044
-
- []
-
-[32] [33] [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1143--1144
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1143--1144
-
- []
-
-[35] [36] [37] [38] [39] [40] [41] [42] (Selected Topics.aux)
+[22] [23] [24] [25] [26] [27] [28] [29] (Selected Topics.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Selected Topics".out' has not changed.
-(rerunfilecheck)             Checksum: 60F99A6E609179AAA40DF90363868525;9171.
+(rerunfilecheck)             Checksum: CBED74127BC0D2B4FACE1085C1FC26CC;6859.
  ) 
 Here is how much of TeX's memory you used:
- 35242 strings out of 474424
- 706763 string characters out of 5741739
+ 34223 strings out of 474424
+ 681723 string characters out of 5741739
  1974496 words of memory out of 5000000
- 56810 multiletter control sequences out of 15000+600000
- 603037 words of font info for 87 fonts, out of 8000000 for 9000
+ 55850 multiletter control sequences out of 15000+600000
+ 600137 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,22n,120p,765b,1450s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,22n,120p,749b,1390s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1482,11 +1411,10 @@ ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/User
 s/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/
 Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
-<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri
-.pfb>
-Output written on "Selected Topics.pdf" (42 pages, 592832 bytes).
+
+Output written on "Selected Topics.pdf" (29 pages, 472739 bytes).
 PDF statistics:
- 817 PDF objects out of 1000 (max. 8388607)
- 254 named destinations out of 1000 (max. 500000)
- 437 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 637 PDF objects out of 1000 (max. 8388607)
+ 196 named destinations out of 1000 (max. 500000)
+ 341 words of extra memory for PDF output out of 10000 (max. 10000000)
 
