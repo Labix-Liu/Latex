@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  25 OCT 2024 03:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  28 OCT 2024 21:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -897,6 +897,9 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \c@nlinenum=\count337
 \TeXr@lab=\toks52
 )
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgpagella.sty
 Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
 ) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
@@ -947,7 +950,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 251.
+Package hyperref Info: Option `colorlinks' set `true' on input line 253.
 ) (Algebraic Topology 2.aux)
 \openout1 = `"Algebraic Topology 2.aux"'.
 
@@ -1627,10 +1630,10 @@ Package rerunfilecheck Info: File `"Algebraic Topology 2".out' has not changed.
 (rerunfilecheck)             Checksum: EE2F0D9C6EEB1F52BE5BE32AC7116B08;14252.
  ) 
 Here is how much of TeX's memory you used:
- 40776 strings out of 474424
- 849370 string characters out of 5741739
+ 40850 strings out of 474424
+ 850626 string characters out of 5741739
  2021496 words of memory out of 5000000
- 62166 multiletter control sequences out of 15000+600000
+ 62237 multiletter control sequences out of 15000+600000
  600947 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,22n,120p,1319b,1541s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1657,7 +1660,7 @@ pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/q
 plb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gy
 re/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/te
 x-gyre/qplri.pfb>
-Output written on "Algebraic Topology 2.pdf" (105 pages, 1387450 bytes).
+Output written on "Algebraic Topology 2.pdf" (105 pages, 1388068 bytes).
 PDF statistics:
  1345 PDF objects out of 1440 (max. 8388607)
  438 named destinations out of 1000 (max. 500000)

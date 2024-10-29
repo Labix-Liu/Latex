@@ -5,10 +5,10 @@
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{Labix}
-\lhead{Cohomology of Schemes}
+\lhead{Selected Topics}
 \rfoot{\thepage}
 
-\title{Cohomology of Schemes}
+\title{Selected Topics}
 
 \author{Labix}
 
@@ -955,6 +955,63 @@ Now since $F$ is reduced and $CX\simeq\ast$, we can further simplify it into \\~
 
 \begin{thm}{}{} There is an equivalence of categories $$\mH_1(\bold{CGWH}_\ast,\bold{CGWH}_\ast)\cong\Omega\text{Sp}^\N(\bold{CGWH}_\ast)$$ given as follows. For a linear functor $F$, we associate to it the sequence of spaces $\{F(S^n)\;|\;n\in\N\}$, and this defines a spectra. 
 \end{thm}
+
+\subsection{Important Theorems}
+Denote $\text{Sp}$ by the category of spectra. Define a map $\mL(\bold{Top}_\ast,\text{Sp})\to\text{Sp}$ that sends $F:\bold{Top}_\ast\to\text{Sp}$ to the spectra $F(S^0)$. Conversely, define a map $\text{Sp}\to\mL(\bold{Top}_\ast,\text{Sp})$ by sending each spectra $X$ to the functor $X\wedge -$. \\~\\
+
+Now define a map $\mL(\bold{Top}_\ast)\to\text{Sp}$ as follows. For each $F:\bold{Top}_\ast\to\bold{Top}_\ast$, $F(S^n)$ is a collection of spaces indexed by $\N$. As for the bonding maps $F(S^n)\wedge S^1\to F(S^{n+1})$, this is defined as follows: 
+\begin{enumerate}
+\item Consider the identity map $\text{id}:X\wedge Y\to X\wedge Y$. 
+\item By the smash-hom adjunction, this corresponds to a map $Y\to\text{Map}(X,X\wedge Y)$. 
+\item Now composing with $F$ gives a map $$Y\to\text{Map}(X,X\wedge Y)\to\text{Map}(F(X),F(X\wedge Y))$$ (Why is the latter map continuous?)
+\item By the smash-hom adjunction, this corresponds to a map $F(X)\wedge Y\to F(X\wedge Y)$
+\item Taking $X=S^n$ and $Y=S^1$ gives the desired results. 
+\end{enumerate}
+
+This way we also need to show that $F(S^n)\wedge S^1\to F(S^{n+1})$ is a weak equivalence. \\~\\
+
+Alternatively, we can construct the map $F(S^n)\to\Omega F(S^{n+1})$ as follows. 
+\begin{enumerate}
+\item We begin by noticing that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & \ast \\
+	\ast & {\Sigma X}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+is a homotopy pushout. 
+\item Applying $F$ sends the homotopy pushout to a homotopy pullback: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{F(X)} & {F(\ast)} \\
+	{F(\ast)} & {F(\Sigma X)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\item Since $F$ is reduced, the diagram can be simplified into \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{F(X)} & \ast \\
+	\ast & {F(\Sigma X)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\item Now recall that $\Omega(F(\Sigma X))$ is the homotopy pullback of $\ast\rightarrow F(\Sigma X)\leftarrow\ast$. 
+\item We obtain maps $F(X)\to\text{holim}(\ast\rightarrow F(\Sigma X)\leftarrow\ast)$ and $\Omega F(\Sigma X)\to\text{holim}(\ast\rightarrow F(\Sigma X)\leftarrow\ast)$ which are both weak equivalences. Hence we obtain a weak equivalence $F(X)\simeq\Omega F(\Sigma X)$. 
+\item When $X=S^n$ we obtain exactly what we want because $\Sigma S^n=S^{n+1}$. 
+\end{enumerate}
+
+In fact one can prove that the second constructed map and the first constructed map coincide by the smash-hom adjunction (how to prove?). \\~\\
+
+We now have maps $\mL(\bold{Top}_\ast)\rightleftarrows\text{Sp}$. This actually gives an equivalence of categories. In fact, one can find out that it is a two step process: $$\mL(\bold{Top}_\ast)\rightleftarrows\mL(\bold{Top}_\ast,\text{Sp})\rightleftarrows\text{Sp}$$
+
+
+
+
 
 \pagebreak
 \section{Algebras and Coalgebras}
