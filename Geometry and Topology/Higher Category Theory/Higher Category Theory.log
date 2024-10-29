@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  24 OCT 2024 03:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  30 OCT 2024 05:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -897,6 +897,9 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \c@nlinenum=\count337
 \TeXr@lab=\toks52
 )
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgpagella.sty
 Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
 ) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
@@ -947,7 +950,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 251.
+Package hyperref Info: Option `colorlinks' set `true' on input line 253.
 ) (Higher Category Theory.aux)
 \openout1 = `"Higher Category Theory.aux"'.
 
@@ -1077,7 +1080,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--104
  []
 
 [5] [6]
-Underfull \hbox (badness 1418) in paragraph at lines 157--158
+Underfull \hbox (badness 1418) in paragraph at lines 159--160
 []\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/10 be a space. Then the h
 o-mo-topy cat-e-gory of the sin-gu-lar set of $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/
 10 is equal to 
@@ -1088,22 +1091,15 @@ o-mo-topy cat-e-gory of the sin-gu-lar set of $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Higher Category Theory".out' has changed
-.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Higher Category Theory".out':
-(rerunfilecheck)             Before: 25FCFBBB2EA4147CC60F9E42C4730590;1558
-(rerunfilecheck)             After:  186F0D6E1660F0435312F9FABB8F6377;1717.
+Package rerunfilecheck Info: File `"Higher Category Theory".out' has not change
+d.
+(rerunfilecheck)             Checksum: D7280FA5AB9D8664EC325498797B7847;1924.
  ) 
 Here is how much of TeX's memory you used:
- 32400 strings out of 474424
- 639338 string characters out of 5741739
+ 32477 strings out of 474424
+ 640640 string characters out of 5741739
  1953496 words of memory out of 5000000
- 54184 multiletter control sequences out of 15000+600000
+ 54257 multiletter control sequences out of 15000+600000
  597664 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,16n,120p,769b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1123,9 +1119,9 @@ cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Higher Category Theory.pdf" (8 pages, 280691 bytes).
+Output written on "Higher Category Theory.pdf" (8 pages, 282398 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 45 named destinations out of 1000 (max. 500000)
- 85 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 222 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
