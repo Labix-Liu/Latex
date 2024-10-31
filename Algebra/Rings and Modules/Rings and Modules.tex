@@ -127,15 +127,158 @@ I claim that $\ker(\phi)=A\cap B$. If $a\in\ker(\phi)$ then $a+B=B$ implies that
 \begin{thm}{Correspondence Theorem for Modules}{} Let $N$ be a submodule of the $R$-module $M$. There is a bijection between the submodules of $M$ which contain $N$ and the submodules of $M/N$. $$\left\{\substack{\text{Submodules of }M\\\text{containing }N}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Submodules }\\\text{of }M/N}\right\}$$ The correspondence is given by sending $A$ to $A/N$ for all $A\supseteq N$. 
 \end{thm}
 
-\subsection{The Endomorphism Ring}
+\pagebreak
+\section{Constructing New Modules}
+\subsection{Direct Sum of Modules}
+\begin{defn}{Direct Product of Modules}{} Let $I$ be an indexing set and $\{M_i\;|\;i\in I\}$ a family of $R$-modules. Define the direct product to be the set $$\prod_{i\in I}M_i=\left\{(m_i)_{i\in I}\;\bigg{|}m_i\in M_i\;\right\}$$ together with the left $R$-module structure inherited component wise. 
+\end{defn}
+
+\begin{defn}{External Direct Sum of Modules}{} Let $I$ be an indexing set and $\{M_i\;|\;i\in I\}$ be a family of $R$-modules. Define the direct sum of the family of modules to be $$\bigoplus_{i\in I}M_i=\left\{(m_i)_{i\in I}\in\prod_{i\in I}M_i\;\bigg{|}\;m_i\neq 0\text{ for finitely many }i\right\}$$
+\end{defn}
+
+There is no different between finite direct sum and finite direct products. However when $I$ is an infinite indexing set, there is a big difference. For instance, a direct product of rings is still a ring but infinite direct product of rings is not a ring. 
+
+\begin{defn}{Internal Direct Sum of Modules}{} Let $I$ be an indexing set and $\{N_i\;|\;i\in I\}$ be a family of submodules of a left $R$-module $M$. Define $$\sum_{i\in I}N_i=\{a_1+\dots+a_n\;|\;a_i\in N_i\}$$ If the external direct product is isomorphic to $$\bigoplus_{i\in I}N_i\cong\sum_{i\in I}N_i$$ then we call $\sum_{i\in I}N_i$ the internal direct sum and denote it with $\bigoplus_{i\in I}N_i$ instead. If $M\cong\bigoplus_{i\in I}N_i$ then we say that $M$ is the internal direct sum. 
+\end{defn}
+
+Thus there is no distinction in external and internal direct sum of modules, just that whether our view point starts with the larger module $M$ or with the collection $\{M_i\;|\;i\in I\}$. 
+
+\begin{lmm}{}{} Let $I$ be an indexing set and $\{N_i\;|\;i\in I\}$ be a family of submodules of a left $R$-module $M$. Define $\phi:\bigoplus_{i\in I}N_i\to M$ by $$\phi\left((m_i)_{i\in I}\right)=\sum_{i\in I}m_i$$ Then the following are true. 
+\begin{itemize}
+\item $\im(\phi)=\sum_{i\in I}N_i$
+\item If $\phi$ is injective then $\sum_{i\in I}N_i$ is the internal direct sum
+\item $\phi$ is bijective then $M$ is the internal direct sum of $\{N_i\;|\;i\in I\}$
+\end{itemize} \tcbline
+\begin{proof}
+Firstly, it is clear that $\im(\phi)=\sum_{i\in I}N_i$ by definition of $\phi$. If $\phi$ is injective then we obtain an isomorphism $\bigoplus_{i\in I}N_i\cong\sum_{i\in I}N_i$ by the first isomorphism theorem of modules. Finally if $\phi$ is also surjective then we have $M=\sum_{i\in I}N_i\cong\bigoplus_{i\in I}N_i$ and so we are done. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $I$ be an indexing set. Let $M_i$ be an $R$-module for each $i\in I$. Then there is an isomorphism $$\bigoplus_{i\in I}M_i\cong\prod_{i\in I}M_i$$ given component-wise if and only if $\abs{I}\in\N$. 
+\end{prp}
+
+\subsection{Free Modules}
+\begin{defn}{Basis of a Module}{} Let $R$ be a ring and $M$ a left $R$-module. Let $B\subseteq M$. 
+\begin{itemize}
+\item We say that $B$ is linearly independent if for every $\{b_1,\dots,b_n\}\subseteq B$ such that $$\sum_{i=1}^nr_ib_i=0_M$$ we have that $r_1=\dots=r_n=0_R$
+\item We say that $B$ is a generating set of $M$ if for all $m\in M$, $$m=\sum_{b\in B}r_b\cdot b$$ for finitely many non zero $r_b$
+\item We say that $B$ is a basis of $M$ if $B$ is both linearly independent and is a generating set of $M$. 
+\end{itemize}
+\end{defn}
+
+By considering $r_b$ being dependent on $b\in B$, we can define $$\text{Fun}_f(B,R)=\{f:B\to R\;|\;f(b)=0_R\text{ for all but finitely many }b\in B\}$$ then we can rewrite the definition of generating sets to be if for every $m\in M$, there exists $f\in\text{Fun}_f(B,R)$ such that $m=\sum_{b\in B}f(b)\cdot b$. We can also define linear independence in a similar fashion. \\~\\
+
+Basis for a module is similar to a basis for vector spaces. Indeed every field is a ring so one can think of modules as a generalization for vector spaces. However, not every module admits a basis just like the theory in vector spaces. When they do admit a basis, we call the module a free module. 
+
+\begin{defn}{Free R-Module}{} Let $R$ be a ring and $M$ a left $R$-module. We say that $M$ is a free $R$-module if $M$ has a basis. 
+\end{defn}
+
+\begin{eg}{}{} Consider the following abelian groups as $\Z$-modules. 
+\begin{itemize}
+\item $\Z[x]$ is a free $\Z$-module isomorphic to $\bigoplus_{n\in\N}\Z\cdot x$. 
+\item $\Z[[x]]$ is not a free $\Z$-module but is isomorphic to $\prod_{n\in\N}\Z$. 
+\item $\Q$ is not a free $\Z$-module. 
+\item $\Q/\Z$ is not a free $\Z$-module. 
+\item $\R$ is not a free $\Z$-module. 
+\end{itemize}
+\end{eg}
+
+\begin{lmm}{}{} For every set $B$ there is a free left $R$-module $$\bigoplus_{b\in B}R=\left\{(r_1,r_2,\dots)\in\prod_{b\in B}R\;|\;\text{ All but finitely many }r_i\text{ is }0\right\}$$ with basis of cardinality $\abs{B}$. \tcbline
+\begin{proof}
+$\prod_{b\in B}R$ inherits the structure of an $R$-module be defining component wise addition and left $R$-action. Notice that $\{(1,0,\dots,),(0,1,0,\dots),\dots\}$ is then a basis with cardinality $B$ since every element in $\bigoplus{b\in B}R$ only has finitely many non zero components so that it is a unique linear combination of the the set. \\~\\
+
+Alternatively, notice that $\prod_{b\in B}R=\text{Fun}(B,R)$ the set of all functions from $B$ to $R$ together with addition and left $R$-action defined on elements. Then $\bigoplus_{b\in B}R=\text{Fun}_f(B,R)$ and that the delta functions $$\delta_b(x)=\begin{cases}
+1 & \text{ if } x=b\\
+0 & \text{ if } x\neq b
+\end{cases}$$ form a basis for $\bigoplus_{b\in B}R$. 
+\end{proof}
+\end{lmm}
+
+Notice that while the countable Cartesian product $\prod_{i\in I}R$ is indeed a left $R$-module, it is not a free module. Because in the definition of a generating set elements of the direct sum is a finite sum of elements. But elements in $\prod_{i\in I}R$ can have countably many long components. 
+
+\begin{prp}{}{} Let $R$ be a ring. Let $M$ be a free $R$-module. Then there is an isomorphism $$M\cong\bigoplus_{i\in I}R$$ for some indexing set $I$. 
+\end{prp}
+
+\begin{lmm}{}{} Every left $R$-module is isomorphic to a quotient of a free module. \tcbline
+\begin{proof}
+Let $M$ be an $R$-module. Choose a generating set $B\subseteq M$. This is always possible because trivially we can choose $B=M$. Define a map $\pi_B:\bigoplus_{b\in B}R\to M$ by $$\pi_B(r_1,r_2,\dots)=\sum_{b\in B}r_b\cdot b$$ Note that the sum is finite since elements of $\bigoplus_{b\in B}R$ has finitely many non-zero components. It is clear that it is an $R$-module homomorphism. It is also surjective by definition of a generating set. By the first isomorphism theorem for module, we have that $$\frac{\bigoplus_{b\in B}R}{\ker(\pi_B)}\cong M$$ and so we conclude. 
+\end{proof}
+\end{lmm}
+
+The following is reminiscent of a theorem in linear algebra. However note that we require that $R$ to be a division ring. Because we only dealt with finite dimensional vector spaces in Linear Algebra, we will need Zorn's lemma to deal with the case that the basis set has countable cardinality. Recall Zorn's lemma: If $(\mP,\preceq)$ is a non empty poset such that every chain $P_1\preceq P_2\preceq\cdots$ has an upper bound, then $(\mP,\preceq)$ contains a maximal element. 
+
+\begin{thm}{}{} Let $R$ be a division ring. Let $M$ be a left $R$-module. Then
+\begin{itemize}
+\item Every linearly independent subset $S\subseteq M$ can be extended to a basis
+\item Every generating set $Q\subseteq M$ contains a basis
+\item $M$ is a free $R$-module
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $S$ be a linearly independent set. Let $(\mP,\subseteq)$ be the poset ordered by inclusion, where elements are subsets $S\subseteq X\subseteq M$ and that $X$ is linearly independent. $\mP$ is non empty since $S\in\mP$. Let $\mC$ be a chain in $\mP$. If $\mC$ is empty, then any $X\in\mP$ is an upper bound. So assume that $\mC$ is non-empty. Consider the set $$T=\bigcup_{X\in\mC}X$$ Clearly $X\subseteq T$ for all $X\in\mC$. It remains to show that $T\in\mP$. \\~\\
+
+Clearly $S\subseteq T$. We now want to show that $T$ is a linearly independent set. Let $v_1,\dots,v_m\in T$ and $a_1,\dots,a_m\in R$ such that $$\sum_{k=1}^ma_kv_k=0$$ Since $T$ is the union of $X\in\mC$, each $v_j$ belongs to some $X_j\in\mC$. Since $\mC$ is a chain, one of these sets, $X_m$ contains all the other $X_j$. Thus $v_1,\dots,v_m\in X_m$. Since $X_m\in\mP$, we conclude that $a_1=\dots=a_m=0$. Thus $T$ is linearly independent so that $T\in\mP$. \\~\\
+
+By Zorn's lemma, $\mP$ has a maximal element $Z$. Suppose that $Z$ does not span $M$. Then there exists $v\in M$ that is not a finite linear combination of elements of $Z$. Since $Z$ is maximal, $Z\cup\{v\}$ does not belong to $\mP$ and hence is linearly dependent. Thus there are $v_1,\dots,v_m\in Z$ and $a_1,\dots,a_m,a\in R$ not all $0$ such that $$\sum_{k=1}^ma_kv_k+av=0$$ If $a=0$ then we have linear dependence among $v_1,\dots,v_m$, a contradiction. Thus $a\neq 0$. Since $R$ is a division ring, $a$ has an inverse $a^{-1}$. Hence $$v=-a^{-1}a_1v_1-\cdots-a^{-1}a_mv_m$$ This is a contradiction. Thus $Z$ is a basis. 
+
+\item Suppose that $(\mP,\subseteq)$ is the poset under inclusion with elements of $\mP$ being subsets $X\subseteq Q$ and $X$ is linearly independent. Notice that $\emptyset\in\mP$ so $\mP$ is non empty. By a similar argument as above, we can conclude that $\mP$ has an upper bound. By Zorn's lemma, $\mP$ has a maximal element $Z$. It is linearly independent and is contained in $Q$. Now $Z$ is a basis once we have shown that $Z$ generates $M$. Since every $v\in M$ is a finite linear combination of elements of $Q$, we just have to express every $q\in Q$ as a linear combination of $Z$. \\~\\
+
+Suppose that this is false. Then there exists $q\in Q$ such that $q$ is not a linear combination of $Z$. By a similar argument as above, $Z\cup\{q\}$ is a bigger element of $\mP$, contradicting the fact that $Z$ is maximal. Thus we are done. 
+
+\item Either apply the first point with $S=\emptyset$ or apply the second point with $Q=M$. 
+\end{itemize}
+This concludes the proof. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{Universal Property of Free Modules}{} Let $R$ be a ring. Let $M$ be an $R$-module. Let $B$ be a set. Let $f:B\to M$ be a function of sets. Then $M$ is a free module with basis $B$ if and only if the following is true. \\~\\
+
+For every $R$-module $N$ and function of sets $g:B\to N$, there exists a unique $R$-module homomorphism $h:M\to N$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	B & M \\
+	& N
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g"', from=1-1, to=2-2]
+	\arrow["{\exists!}", dashed, from=1-2, to=2-2]
+\end{tikzcd}}\\~\\
+\end{thm}
+
+\subsection{Finitely Generated Modules}
+\begin{defn}{Finitely Generated Modules}{} Let $R$ be a ring. Let $M$ be a left $R$-module. We say that $M$ is finitely generated if $M$ has a finite generating set. 
+\end{defn}
+
+This notion should be somewhat familiar to us. A finitely generated $\Z$-module is just a finitely generated abelian group. We have already classified all finitely generated $\Z$-modules by the fundamental theorem of finitely generated abelian groups. \\
+
+On the other hand, a finitely generated $k$-module for a field $k$ is exactly a finite dimensional vector space over $k$. We have already classified all finitely generated $k$-modules as they are isomorphic to $k^n$ for some $n\in\N$. 
+
+\begin{eg}{}{} Consider the following abelian groups as $\Z$-modules. 
+\begin{itemize}
+\item $\Z[x]$ is not a finitely generated $\Z$-module. 
+\item $\Z[[x]]$ is not a finitely generated $\Z$-module. 
+\item $\Q$ is not a finitely generated $\Z$-module. 
+\item $\Q/\Z$ is not a finitely generated $\Z$-module. 
+\item $\R$ is not a finitely generated $\Z$-module. 
+\end{itemize}
+\end{eg}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Then $M$ is finitely generated if and only if there exists a surjective homomorphism $R^n\to M$ for some $n\in\N$. 
+\end{prp}
+
+While free modules mimic the notion of a vector space, finitely generated free modules mirror the notion of finite dimensional vector spaces. 
+
+\begin{prp}{}{} Let $R$ be a ring. Let $M$ be an $R$-module. If $M$ if finitely generated and free, then there is an isomorphism $$M\cong R^n\cong R^{\oplus n}$$ for some $n\in\N$. 
+\end{prp}
+
+\subsection{The Module of Homomorphisms}
 \begin{defn}{The Set of Homomorphisms}{} Let $R$ be a ring. Let $M,N$ be $R$-modules. Define the homomorphism ring of $R$ to be the set $$\Hom_R(M,N)=\{\phi:M\to N\;|\;\phi\text{ is an }R\text{-module homomorphism}\}$$ of all $R$-module homomorphisms from $M$ to $N$.
 \end{defn}
 
-\begin{prp}{}{} Let $R$ be a ring. Let $M,N$ be $R$-modules. Then $\Hom_R(M,N)$ is an $R$-module with the following binary operations. 
+\begin{prp}{}{} Let $R$ be a ring. Let $M,N$ be $R$-modules. Then $\Hom_R(M,N)$ is a $Z(R)$-module with the following binary operations. 
 \begin{itemize}
 \item For $\phi,\varphi:M\to N$ two $R$-module homomorphisms, define $\phi+\varphi:M\to N$ by $(\phi+\varphi)(m)=\phi(m)+\varphi(m)$ for all $m\in M$
-\item For $\phi:M\to N$ an $R$-module homomorphism and $r\in R$, define $r\phi:M\to N$ by $(r\phi)(m)=r\cdot\phi(m)$ for all $m\in M$. 
-\end{itemize} \tcbline
+\item For $\phi:M\to N$ an $R$-module homomorphism and $r\in Z(R)$, define $r\phi:M\to N$ by $(r\phi)(m)=r\cdot\phi(m)$ for all $m\in M$. 
+\end{itemize} 
+In particular, it is an abelian group. \tcbline
 \begin{proof}
 We first show that the addition operation gives the structure of a group. 
 \begin{itemize}
@@ -152,6 +295,7 @@ Thus we are done.
 \end{proof}
 \end{prp}
 
+\subsection{The Endomorphism Ring}
 \begin{defn}{Endomorphisms of a Module}{} Let $R$ be a ring and $M$ a left $R$-module. An endomorphism of $M$ is a homomorphism $\phi:M\to M$. Denote the set of all $R$-endomorphisms by $$\text{End}_R(M)=\{\phi:M\to M\;|\;\phi\text{ is an isomorphism of }M\}$$
 \end{defn}
 
@@ -216,104 +360,6 @@ Thus $\phi$ is a ring isomorphism.
 \end{prp}
 
 Notice that in the proof it might be more natural to show first that $R^\text{op}\cong\text{End}_R(R)$ and then to show that $R^\text{op}\cong R$. The first isomorphism is naturally isomorphic but the second one is not. Naturality refers to category theory. 
-
-\pagebreak
-\section{Constructing New Modules}
-\subsection{Direct Sum of Modules}
-\begin{defn}{Direct Product of Modules}{} Let $I$ be an indexing set and $\{M_i\;|\;i\in I\}$ a family of $R$-modules. Define the direct product to be the set $$\prod_{i\in I}M_i=\left\{(m_i)_{i\in I}\;\bigg{|}m_i\in M_i\;\right\}$$ together with the left $R$-module structure inherited component wise. 
-\end{defn}
-
-\begin{defn}{External Direct Sum of Modules}{} Let $I$ be an indexing set and $\{M_i\;|\;i\in I\}$ be a family of $R$-modules. Define the direct sum of the family of modules to be $$\bigoplus_{i\in I}M_i=\left\{(m_i)_{i\in I}\in\prod_{i\in I}M_i\;\bigg{|}\;m_i\neq 0\text{ for finitely many }i\right\}$$
-\end{defn}
-
-There is no different between finite direct sum and finite direct products. However when $I$ is an infinite indexing set, there is a big difference. For instance, a direct product of rings is still a ring but infinite direct product of rings is not a ring. 
-
-\begin{defn}{Internal Direct Sum of Modules}{} Let $I$ be an indexing set and $\{N_i\;|\;i\in I\}$ be a family of submodules of a left $R$-module $M$. Define $$\sum_{i\in I}N_i=\{a_1+\dots+a_n\;|\;a_i\in N_i\}$$ If the external direct product is isomorphic to $$\bigoplus_{i\in I}N_i\cong\sum_{i\in I}N_i$$ then we call $\sum_{i\in I}N_i$ the internal direct sum and denote it with $\bigoplus_{i\in I}N_i$ instead. If $M\cong\bigoplus_{i\in I}N_i$ then we say that $M$ is the internal direct sum. 
-\end{defn}
-
-Thus there is no distinction in external and internal direct sum of modules, just that whether our view point starts with the larger module $M$ or with the collection $\{M_i\;|\;i\in I\}$. 
-
-\begin{lmm}{}{} Let $I$ be an indexing set and $\{N_i\;|\;i\in I\}$ be a family of submodules of a left $R$-module $M$. Define $\phi:\bigoplus_{i\in I}N_i\to M$ by $$\phi\left((m_i)_{i\in I}\right)=\sum_{i\in I}m_i$$ Then the following are true. 
-\begin{itemize}
-\item $\im(\phi)=\sum_{i\in I}N_i$
-\item If $\phi$ is injective then $\sum_{i\in I}N_i$ is the internal direct sum
-\item $\phi$ is bijective then $M$ is the internal direct sum of $\{N_i\;|\;i\in I\}$
-\end{itemize} \tcbline
-\begin{proof}
-Firstly, it is clear that $\im(\phi)=\sum_{i\in I}N_i$ by definition of $\phi$. If $\phi$ is injective then we obtain an isomorphism $\bigoplus_{i\in I}N_i\cong\sum_{i\in I}N_i$ by the first isomorphism theorem of modules. Finally if $\phi$ is also surjective then we have $M=\sum_{i\in I}N_i\cong\bigoplus_{i\in I}N_i$ and so we are done. 
-\end{proof}
-\end{lmm}
-
-\subsection{Free Modules}
-\begin{defn}{Basis of a Module}{} Let $R$ be a ring and $M$ a left $R$-module. Let $B\subseteq M$. 
-\begin{itemize}
-\item We say that $B$ is linearly independent if for every $\{b_1,\dots,b_n\}\subseteq B$ such that $$\sum_{i=1}^nr_ib_i=0_M$$ we have that $r_1=\dots=r_n=0_R$
-\item We say that $B$ is a generating set of $M$ if for all $m\in M$, $$m=\sum_{b\in B}r_b\cdot b$$ for finitely many non zero $r_b$
-\item We say that $B$ is a basis of $M$ if $B$ is both linearly independent and is a generating set of $M$. 
-\end{itemize}
-\end{defn}
-
-By considering $r_b$ being dependent on $b\in B$, we can define $$\text{Fun}_f(B,R)=\{f:B\to R\;|\;f(b)=0_R\text{ for all but finitely many }b\in B\}$$ then we can rewrite the definition of generating sets to be if for every $m\in M$, there exists $f\in\text{Fun}_f(B,R)$ such that $m=\sum_{b\in B}f(b)\cdot b$. We can also define linear independence in a similar fashion. \\~\\
-
-Basis for a module is similar to a basis for vector spaces. Indeed every field is a ring so one can think of modules as a generalization for vector spaces. However, not every module admits a basis just like the theory in vector spaces. When they do admit a basis, we call the module a free module. 
-
-\begin{defn}{Free R-Module}{} Let $R$ be a ring and $M$ a left $R$-module. We say that $M$ is a free $R$-module if $M$ has a basis. 
-\end{defn}
-
-Conversely, every set of elements forms the basis for a free $R$-module. This is what it means for the $R$-module to be free, as a universal property. 
-
-\begin{lmm}{}{} For every set $B$ there is a free left $R$-module $$\bigoplus_{b\in B}R=\left\{(r_1,r_2,\dots)\in\prod_{b\in B}R\;|\;\text{ All but finitely many }r_i\text{ is }0\right\}$$ with basis of cardinality $\abs{B}$. \tcbline
-\begin{proof}
-$\prod_{b\in B}R$ inherits the structure of an $R$-module be defining component wise addition and left $R$-action. Notice that $\{(1,0,\dots,),(0,1,0,\dots),\dots\}$ is then a basis with cardinality $B$ since every element in $\bigoplus{b\in B}R$ only has finitely many non zero components so that it is a unique linear combination of the the set. \\~\\
-
-Alternatively, notice that $\prod_{b\in B}R=\text{Fun}(B,R)$ the set of all functions from $B$ to $R$ together with addition and left $R$-action defined on elements. Then $\bigoplus_{b\in B}R=\text{Fun}_f(B,R)$ and that the delta functions $$\delta_b(x)=\begin{cases}
-1 & \text{ if } x=b\\
-0 & \text{ if } x\neq b
-\end{cases}$$ form a basis for $\bigoplus_{b\in B}R$. 
-\end{proof}
-\end{lmm}
-
-Notice that while the countable Cartesian product $\prod_{b\in B}R$ is indeed a left $R$-module, it is not a free module. Because in the definition of a generating set we always require it to be finite. But elements in $\prod_{b\in B}R$ can have countably many long components. 
-
-\begin{lmm}{}{} Every left $R$-module is isomorphic to a quotient of a free module. \tcbline
-\begin{proof}
-Let $M$ be an $R$-module. Choose a generating set $B\subseteq M$. This is always possible because trivially we can choose $B=M$. Define a map $\pi_B:\bigoplus_{b\in B}R\to M$ by $$\pi_B(r_1,r_2,\dots)=\sum_{b\in B}r_b\cdot b$$ Note that the sum is finite since elements of $\bigoplus_{b\in B}R$ has finitely many non-zero components. It is clear that it is an $R$-module homomorphism. It is also surjective by definition of a generating set. By the first isomorphism theorem for module, we have that $$\frac{\bigoplus_{b\in B}R}{\ker(\pi_B)}\cong M$$ and so we conclude. 
-\end{proof}
-\end{lmm}
-
-The following is reminiscent of a theorem in linear algebra. However note that we require that $R$ to be a division ring. Because we only dealt with finite dimensional vector spaces in Linear Algebra, we will need Zorn's lemma to deal with the case that the basis set has countable cardinality. Recall Zorn's lemma: If $(\mP,\preceq)$ is a non empty poset such that every chain $P_1\preceq P_2\preceq\cdots$ has an upper bound, then $(\mP,\preceq)$ contains a maximal element. 
-
-\begin{thm}{}{} Let $R$ be a division ring. Let $M$ be a left $R$-module. Then
-\begin{itemize}
-\item Every linearly independent subset $S\subseteq M$ can be extended to a basis
-\item Every generating set $Q\subseteq M$ contains a basis
-\item $M$ is a free $R$-module
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item Let $S$ be a linearly independent set. Let $(\mP,\subseteq)$ be the poset ordered by inclusion, where elements are subsets $S\subseteq X\subseteq M$ and that $X$ is linearly independent. $\mP$ is non empty since $S\in\mP$. Let $\mC$ be a chain in $\mP$. If $\mC$ is empty, then any $X\in\mP$ is an upper bound. So assume that $\mC$ is non-empty. Consider the set $$T=\bigcup_{X\in\mC}X$$ Clearly $X\subseteq T$ for all $X\in\mC$. It remains to show that $T\in\mP$. \\~\\
-
-Clearly $S\subseteq T$. We now want to show that $T$ is a linearly independent set. Let $v_1,\dots,v_m\in T$ and $a_1,\dots,a_m\in R$ such that $$\sum_{k=1}^ma_kv_k=0$$ Since $T$ is the union of $X\in\mC$, each $v_j$ belongs to some $X_j\in\mC$. Since $\mC$ is a chain, one of these sets, $X_m$ contains all the other $X_j$. Thus $v_1,\dots,v_m\in X_m$. Since $X_m\in\mP$, we conclude that $a_1=\dots=a_m=0$. Thus $T$ is linearly independent so that $T\in\mP$. \\~\\
-
-By Zorn's lemma, $\mP$ has a maximal element $Z$. Suppose that $Z$ does not span $M$. Then there exists $v\in M$ that is not a finite linear combination of elements of $Z$. Since $Z$ is maximal, $Z\cup\{v\}$ does not belong to $\mP$ and hence is linearly dependent. Thus there are $v_1,\dots,v_m\in Z$ and $a_1,\dots,a_m,a\in R$ not all $0$ such that $$\sum_{k=1}^ma_kv_k+av=0$$ If $a=0$ then we have linear dependence among $v_1,\dots,v_m$, a contradiction. Thus $a\neq 0$. Since $R$ is a division ring, $a$ has an inverse $a^{-1}$. Hence $$v=-a^{-1}a_1v_1-\cdots-a^{-1}a_mv_m$$ This is a contradiction. Thus $Z$ is a basis. 
-
-\item Suppose that $(\mP,\subseteq)$ is the poset under inclusion with elements of $\mP$ being subsets $X\subseteq Q$ and $X$ is linearly independent. Notice that $\emptyset\in\mP$ so $\mP$ is non empty. By a similar argument as above, we can conclude that $\mP$ has an upper bound. By Zorn's lemma, $\mP$ has a maximal element $Z$. It is linearly independent and is contained in $Q$. Now $Z$ is a basis once we have shown that $Z$ generates $M$. Since every $v\in M$ is a finite linear combination of elements of $Q$, we just have to express every $q\in Q$ as a linear combination of $Z$. \\~\\
-
-Suppose that this is false. Then there exists $q\in Q$ such that $q$ is not a linear combination of $Z$. By a similar argument as above, $Z\cup\{q\}$ is a bigger element of $\mP$, contradicting the fact that $Z$ is maximal. Thus we are done. 
-
-\item Either apply the first point with $S=\emptyset$ or apply the second point with $Q=M$. 
-\end{itemize}
-This concludes the proof. 
-\end{proof}
-\end{thm}
-
-While free modules mimic the notion of a vector space, finitely generated modules mirror the notion of finite dimensional vector spaces. 
-
-\begin{defn}{Finitely Generated Modules}{} Let $R$ be a ring. Let $M$ be a left $R$-module. We say that $M$ is finitely generated if there is an isomorphism $$M=\bigoplus_{k=1}^nR$$ for some $n\in\N$. In other words, $M$ is a free module with finite basis. 
-\end{defn}
-
-\begin{prp}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Then $M$ is finitely generated if and only if there exists a surjective homomorphism $R^n\to M$ for some $n\in\N$. 
-\end{prp}
 
 \subsection{Tensor Products of Modules}
 \begin{defn}{Bilinear Maps}{} Let $R$ be a ring. Let $A,B,C$ be $R$-modules. We say that an $R$-module homomorphism $$\varphi:A\times B\to C$$ is bilinear if the following are true. 
@@ -465,6 +511,204 @@ If $R$ is a division ring, then every left $R$-module has basis by theorem 2.6.5
 Consider the homomorphism $\pi:R\to M$ defined by $\pi(r)=rx$. Then $\ker(\pi)=0$ otherwise there would be a linear dependency on the basis element $x$. Since $\im(\pi)$ is a non-zero submodule of $M$, a simple module, $\im(\pi)=M$. By the first isomorphism theorem, $M\cong R$ as left $R$-modules. By lemma 2.4.3, we have an isomorphism $$\text{End}_R(M)\cong\text{End}_R(R)\cong R$$ of rings. By Schur's lemma II, we have that $\text{End}_R(M)\cong R$ is a division ring. 
 \end{proof}
 \end{thm}
+
+\pagebreak
+\section{Exact Sequences of Modules}
+\subsection{Introduction to Exact Sequences}
+\begin{defn}{Long Exact Sequences}{} Let $R$ be a ring. Let $M_k$ be a left $R$-module for each $k\in\Z$. Let $f_k:M_k\to M_{k-1}$ be $R$-module homomorphisms for each $k\in\Z$. We say that the sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {M_1} & {M_k} & {M_{k+1}} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{f_{k+1}}", from=1-2, to=1-3]
+	\arrow["{f_k}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is exact if $\im(f_{k+1})=\ker(f_k)$ for all $k\in\Z$. 
+\end{defn}
+
+\begin{defn}{Short Exact Sequences}{} Let $R$ be a ring. A short exact sequence of $R$-modules is a long exact sequence consisting of $3$ consecutive non-zero terms in the sequence. Explicitly, it is given by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+for $M_1,M_2,M_3$ being $R$-modules and $f:M_1\to M_2$ and $g:M_2\to M_3$ being $R$-module homomorphisms. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $M_1,M_2,M_3$ be $R$-modules. Let $f:M_1\to M_2$ and $g:M_2\to M_3$ be $R$-module homomorphisms. Then the sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is exact if and only if the following are true. 
+\begin{itemize}
+\item $f$ is injective. 
+\item $g$ is surjective. 
+\item $\im(f)=\ker(g)$. 
+\end{itemize}
+\end{lmm}
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $M_1,M_2,M_3$ be $R$-modules. Let $f:M_1\to M_2$ and $g:M_2\to M_3$ be $R$-module homomorphisms such that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is a short exact sequence. Then the following are true. 
+\begin{itemize}
+\item $M_1\cong\ker(g)$
+\item $M_3\cong\text{coker}(f)=\frac{M_2}{\im(f)}$
+\end{itemize} \tcbline
+\begin{proof}
+Since $f$ is injective, by the first isomorphism theorem we conclude that $A\cong\im(f)$. By exactness, $\im(f)=\ker(g)$ so that $A\cong\ker(g)$. \\~\\
+
+Since $g$ is surjective, by the first isomorphism theorem we conclude that $\frac{B}{\ker(g)}\cong C$. By exactness, $\im(f)=\ker(g)$ and so we conclude. 
+\end{proof}
+\end{lmm}
+
+From the above we can deduce that whenever we see the following sequences: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\ker(g)} & B & C & 0 \\
+	0 & A & B & {\frac{B}{\im(f)}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["\iota", hook, from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=2-1, to=2-2]
+	\arrow["f", from=2-2, to=2-3]
+	\arrow["q", two heads, from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}}\\~\\
+are exact by definition. 
+
+\subsection{Split Exact Sequences}
+\begin{defn}{Split Exact Sequence}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+We say that the sequence is split exact if $M_2\cong M_1\oplus M_3$. 
+\end{defn}
+
+The following is an important equivalent characterization of split exact sequence. 
+
+\begin{prp}{The Splitting Lemma}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & A & B & C & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then the following are equivalent. 
+\begin{itemize}
+\item The short exact sequence is a split exact sequence
+\item There exists an $R$-module homomorphism $p:B\to A$ such that $p\circ f=\text{id}_A$
+\item There exists an $R$-module homomorphism $s:C\to B$ such that $g\circ s=\text{id}_C$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $(1)\implies(2),(3)$: Suppose that $B\cong A\oplus C$. Then the projection map $p:A\oplus C\to A$ and the inclusion map $s:C\to A\oplus C$ is such that $p\circ f=\text{id}_A$ and $g\circ s=\text{id}_C$. 
+
+\item $(2)\implies(1)$: For any $b\in B$, write $b=f(p(b))+(b-f(p(b)))$. Then $f(p(b))\in\im(f)$ and $b-f(p(b))\in\ker(p)$ since $p(b-f(p(b)))=p(b)-p(b)=0$. Now I claim that $\ker(p)\cap\im(f)=0$. Indeed if $b\in\ker(p)\cap\im(f)$, then there exists $a\in A$ such that $f(a)=b$. Then $$a=p(f(a))=p(b)=0$$ Thus $b=f(0)=0$. This shows that $B\cong\ker(p)\oplus\im(f)$. \\~\\
+
+Consider the restricted $g|_{\ker(p)}:\ker(p)\to C$. I want to show that $g$ is an isomorphism. Let $b\in\ker\left(g|_{\ker(p)}\right)$. By exactness, there exists $a\in A$ such that $f(a)=b$. Then $a=p(f(a))=p(b)=0$ since $b\in\ker(p)$. Thus $b=f(0)=0$ so that $b\in\ker\left(g|_{\ker(p)}\right)$. For surjectivity, let $c\in C$. By exactness, $g$ is surjective so there exists $b\in B$ such that $g(b)=c$. Since $B\cong\ker(p)\oplus\im(f)$, we can write $b=f(a)+k$ for some $a\in A$ and $k\in\ker(p)$. Then we have that $$c=g(b)=g(f(a)+k)=g(k)$$ which means that there exists $k\in\ker(p)$ such that $g|_{\ker(p)}(k)=c$. Thus $\ker(p)\cong C$. Since $f$ is injective, $im(f)=f(A)\cong A$. Thus we have that $B\cong\im(f)\oplus\ker(p)\cong A\oplus C$. 
+
+\item $(3)\implies(1)$: For any $b\in B$, write $b=(b-s(g(b)))+s(g(b))$. Then $s(g(b))\in\im(s)$ and $g(b)=g(b)-g(s(g(b))=0$ so that $b-s(g(b))\in\ker(g)$. Now I claim that $\ker(g)\cap\im(s)=0$. Indeed if $b\in\ker(g)\cap\im(s)$, then there exists $c\in C$ such that $s(b)=c$ and $$c=g(s(c))=g(b)=0$$ since $b\in\ker(g)$ so that $c=0$. This shows that $B\cong\ker(g)\oplus\im(s)$. \\~\\
+
+Since $\ker(g)=\im(f)$ by exactness, $f$ being injective also implies that $A\cong\im(f)=\ker(g)$. Since also we have that $g\circ s=\text{id}_C$, we have that $s$ is injective so that $\im(s)\cong C$. Thus we conclude that $B\cong\ker(g)\oplus\im(s)\cong A\oplus C$. 
+\end{itemize}
+Thus we conclude. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & A & B & C & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+If $C$ is a free $R$-module then it is a split exact sequence. \tcbline
+\begin{proof}
+Since $C$ is a free $R$-module, there exists a basis $X=\{c_1,\dots,c_n\}$ such that $C=\bigoplus_{i=1}^nRc_i$. Since $g$ is surjective, we can find $b_1,\dots,b_n\in B$ such that $g(b_i)=c_i$ for $1\leq i\leq n$. By the universal property of free $R$-modules, there exists an $R$-module homomorphism $s:C\to B$ such that $s(c_i)=b_i$ for $1\leq i\leq n$. Now notice that for $c\in C$, we can write $c=\sum_{i=1}^nk_ic_i$ for some $k_i\in\Z$. Since $s$ is an $R$-module homomorphism, we have that $s\left(\sum_{i=1}^nk_ic_i\right)=\sum_{i=1}^nk_ib_i$. Then we have that $$g(s(c))=g\left(\sum_{i=1}^nk_ib_i\right)=\sum_{i=1}^nk_ic_i$$ Thus $g\circ s=\text{id}_C$. By the splitting lemma, we conclude that $B\cong A\oplus C$. 
+\end{proof}
+\end{prp}
+
+The following two lemmas are very intuitive and straight forward to remember. 
+
+\begin{lmm}{Five Lemma}{} Let $R$ be a ring. Consider the commutative diagram \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+A\arrow[r, "f"]\arrow[d, "l"] & B\arrow[r, "g"]\arrow[d, "m"] & C\arrow[r, "h"]\arrow[d, "n"] & D\arrow[r, "j"]\arrow[d, "p"] & E\arrow[d, "q"]\\
+A'\arrow[r, "r"] & B'\arrow[r, "s"] & C'\arrow[r, "t"] & D'\arrow[r, "u"] & E'
+\end{tikzcd}}\\~\\
+where all the objects are $R$-modules. Suppose that the following are true. 
+\begin{itemize}
+\item The two rows are exact
+\item $m:B\to B'$ and $p:D\to D'$ are isomorphisms
+\item $l:A\to A'$ is surjective
+\item $q:E\to E'$ is injective
+\end{itemize}
+Then $n$ is an isomorphism. \tcbline
+\begin{proof}
+For injectivity, \\
+Let $c\in\ker(n)$. Then $n(c)=0$. By commutativity, we have that $$p(h(c))=t(n(c))=t(0)=0$$ Since $p$ is an isomorphism, then $h(c)=0$ and $c\in\ker(h)$. By exactness, we have that $c\in\ker(h)=\im(g)$. Thus there exists $b\in B$ such that $g(b)=c$. Now by commutativity, we have that $$s(m(b))=n(g(b))=n(c)=0$$ so that $m(b)\in\ker(s)$. By exactness, we have that $m(b)\in\ker(s)=\im(r)$. Thus there exists $a'\in A'$ such that $r(a')=m(b)$. By surjectivity of $l$, there exists $a\in A$ such that $l(a)=a'$. By commutativity, we have that $$m(f(a))=r(l(a))=r(a')=m(b)$$ Since $m$ is an isomorphism, $f(a)=b$. Then by exactness, $\ker(g)=\im(f)$ implies $$0=g(f(a))g(b)=c$$ Thus $c=0$ and so $n$ is injective. \\~\\
+
+For surjectivity, \\
+Let $c'\in C'$. By exactness, we have that $u(t(c'))=0$. Since $p$ is an isomorphism, there exists $d\in D$ such that $p(d)=t(c')$. By commutativity, we have that $$q(j(d))=u(p(d))=u(t(c'))=0$$ Since $q$ is injective, $j(d)=0$. So $d\in\ker(j)$. By exactness, $d\in\ker(j)=\im(h)$. Thus there exists $c\in C$ such that $h(c)=d$. By commutativity, we have that $$t(n(c))=p(h(c))=p(d)=t(c')$$ Thus $t(n(c)-c')=0$ and $n(c)-c'\in\ker(t)$. By exactness, $n(c)-c'\in\ker(t)=\im(s)$. So there exists $b'\in B'$ such that $s(b')=n(c)-c'$. Since $m$ is an isomorphism, there exists $b\in B$ such that $m(b)=b'$. By commutativity, we have that $$n(g(b))=s(m(b))=n(c)-c'$$ Now $n(g(b)-c)=c'$ and so we have proven surjectivity. 
+\end{proof}
+\end{lmm}
+
+The proof is long but is rather straight forward. In every step there is only one possible way to advance, and so one eventually arrives at the conclusion. 
+
+\begin{lmm}{Snake Lemma}{} Let $R$ be a ring. Consider the commutative diagram \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+ & A\arrow[r, "f"]\arrow[d, "a"] & B\arrow[r, "g"]\arrow[d, "b"] & C\arrow[r]\arrow[d, "c"] & 0\\
+0\arrow[r] & A'\arrow[r, "f'"] & B'\arrow[r, "g'"] & C' & 
+\end{tikzcd}}\\~\\
+where all the objects are $R$-modules. If the two rows are exact, then there is an exact sequence relating the kernels and cokernels of $a,b,c$ \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\ker(a)\arrow[r] & \ker(b)\arrow[r] & \ker(c)\arrow[r, "d"] & \coker(a)\arrow[r] & \coker(b)\arrow[r] & \coker(c)
+\end{tikzcd}}\\~\\
+where $d$ is called the connecting homomorphism. \tcbline
+\begin{proof}
+We construct the function $d$ as follows. 
+\begin{itemize}
+\item Let $k\in\ker(c)$. 
+\item By exactness, $g$ is surjective. Thus there exists $l\in B$ such that $g(l)=k$. 
+\item But $g'(b(l))=c(g(l))=c(k)=0$ which means that $b(l)\in\ker(g')$. By exactness, there exists $m\in A'$ such that $f'(m)=b(l)$ since $\im(f')=\ker(g')$. This $m$ is unique since $f'$ is injective. In particular, $[m]\in\text{coker}(a)$. 
+\end{itemize}
+We then define $d:\ker(c)\to\coker(a)$ by $d(k)=m$. \\~\\
+
+We need to show that $d$ is well defined. Suppose that $l'$ is another element in $B$ such that $g(l')=k$. Then $g(l-l')=0$ so that $l-l'\in\ker(g)$. By exactness, $\im(f)=\ker(g)$ so there is some $n\in A$ such that $f(n)=l-l'$. By a similar argument as the first paragraph, one can find $m'\in A'$ such that $f'(m')=b(l')$. Then $$f'(a(n))=b(f(n))=b(l-l')=b(l)-b(l')=f'(m)-f'(m')$$ Since $f'$ is injective by exactness, we have that $a(n)=m-m'$ so that $m-m'\in\im(a)$ and hence $[m]=[m']$. Thus $d$ is a well defined map. \\~\\
+
+Since all operations above are $R$-module homomorphisms, $d$ is also an $R$-module homomorphism. \\~\\
+
+It remains to show exactness of the sequence. 
+\end{proof}
+\end{lmm}
+
+\begin{lmm}{}{} Let $k$ be a field. Let the following be an exact sequence of vector spaces over $k$. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & A & B & C & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then $\dim(V_1)=\dim(V_2)+\dim(V_0)$. 
+\end{lmm}
 
 \pagebreak
 \section{Algebras over a Ring}

@@ -24,7 +24,7 @@
 
 \pagebreak
 \section{Introduction to Infinity Categories}
-\subsection{Infinity Categories and Some Examples}
+\subsection{Infinity Categories as Simplicial Sets}
 We recall some basic facts about simplicial sets. If $S:\Delta\to\bold{Set}$ is a simplicial set, then by Yoneda's emebdding we know that the $n$-simplices of $S$ are given by $$S([n])=\Hom_\bold{sSet}(\Delta^n,S)$$ In other words, specifying an $n$-simplex is the same as specifying a map of simplicial sets $$\Delta^n\to S$$
 
 
@@ -50,6 +50,14 @@ The foundations of infinity categories lay on the simpicial sets. Intuitively, a
 
 \begin{thm}{}{} Let $\mC$ be a category. Every inner horn of the nerve $N(C)$ of $\mC$ admits a filler and hence is an infinity category. 
 \end{thm}
+
+\subsection{Infinity Categories as Topological Categories}
+\begin{defn}{Topological Categories}{} Let $\mC$ be a category. We say that $\mC$ is a topological category if $\mC$ is enriched over $\bold{CGWH}$. 
+\end{defn}
+
+Recall that two enriched categories are equivalent if $F:\mC\to\mD$ is fully faithful and essentially surjective. Being fully faithful as $\mS$-functor means that $F$ induces an isomorphism on Hom sets. However this notion is too strong for us because we only want to consider spaces up to homotopy equivalence. 
+
+\subsection{Infinity Categories as Simplicial Categories}
 
 \subsection{Joins and Slices}
 We begin by rewriting the definition of a simplex category as follows. Instead of having distinguished names $[n]$ for the objects, we instead just think of the simplex category with objects as finite and totally ordered sets. Indeed any of these sets will be in bijection to $[n]$ for some $n\in\N$. This language will help us define the join. 
@@ -149,7 +157,29 @@ In this case we write $f\simeq g$.
 \begin{lmm}{}{} Let $C$ be an infinity category. Let $f:C\to D$ be a morphism. Then $f$ is an isomorphism in $C$ if and only if $[f]$ is an isomorphism in $h(C)$. 
 \end{lmm}
 
-\subsection{Relation to Model Categories}
+\pagebreak
+\section{Relation to Model Categories}
+\subsection{Inverting Morphisms in an Infinity Category}
+\begin{defn}{}{} Let $\mC$ be an infinity category. Let $W$ be a collection of morphisms in $\mC$. Define the category $$\mC[W^{-1}]$$ together with its canonical functor $F:\mC\to\mC[W^{-1}]$ by the following universal property. For every infinity category $\mD$ together with a functor $G:\mC\to\mD$ such that $G(f)$ is an equivalence for $f\in W$, there exists a unique functor $H:\mC[W^{-1}]\to\mD$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\mC & {\mC[W^{-1}]} \\
+	& \mD
+	\arrow["F", from=1-1, to=1-2]
+	\arrow["G"', from=1-1, to=2-2]
+	\arrow["{\exists!H}", dashed, from=1-2, to=2-2]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{prp}{}{} Let $\mC$ be an infinity category. Let $W$ be a collection of morphisms in $\mC$. Then $\mC[W^{-1}]$ exists and is unique up to equivalence. 
+\end{prp}
+
+\subsection{Exhibiting a Model Category as an Infinity Category}
+Up until now, we have two ways of associating different types of categories with its homotopy category. Namely, if $\mC$ is a model category, then we can associate to it the homotopy category $\text{Ho}(\mC)$. Similarly, if $\mD$ is an infinity category, we can also associate to it a homotopy category $\text{Ho}(\mD)$. This constructions are highly related. In particular, there is a functor sending every model category to an infinity category such that the most important notions such as homotopy limits and colimits coincide. \\
+
+Recall that for a model category $\mC$, we denote the full subcategory spanned by cofibrant objects by $\mC_c$. 
+
+\begin{defn}{}{} Let $(\mC,W)$ be a model category. Let $\mD$ be an infinity category. Let $F:N(\mC_c)\to\mD$ be a functor. We say that $F$ exhibits the underlying category $\mC$ as $\mD$ if the functor induces an equivalence of categories $$N(\mC_c)[W^{-1}]\simeq\mC$$
+\end{defn}
 
 \pagebreak
 \section{Infinity Categories in Topology}

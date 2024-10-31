@@ -29,47 +29,85 @@ References:
 \tableofcontents
 
 \pagebreak
+
 \section{Algebra of Chain Complexes}
 Homological algebra is the backbone for algebraic topology. In this chapter we will first develop all related notions of chain complexes and exact sequences before diving into the topology side of things. 
 
 \subsection{Chain Complexes}
 We begin with a very important notion in homological algebra. A chain complex records a sequence of abelian groups together with group homomorphisms that connect them up. All of homology and cohomology starts with establish a chain complex out of a topological space. 
 
-\begin{defn}{Chain Complex}{1.1.1} A chain complex $(C_\bullet,\partial_\bullet)$ is a family of abelian groups $C_n$ for $n\in\Z$ and maps $\partial_n:C_n\to C_{n-1}$ such that $\partial_n\circ\partial_{n+1}=0$ for all $n$. \\~\\
-In other words, we have the diagram: \\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-\cdots\arrow[r] & C_{n+1}\arrow[r, "\partial_{n+1}"] & C_n\arrow[r, "\partial_n"] & C_{n-1}\arrow[r] & \cdots
+\begin{defn}{Chain Complex}{1.1.1} Let $R$ be a ring. A chain complex $(C_\bullet,\partial_\bullet)$ is a family of $R$-modules $C_n$ for $n\in\Z$ and $R$-module homomorphisms $\partial_n:C_n\to C_{n-1}$ such that $\partial_n\circ\partial_{n+1}=0$ for all $n$. Explicitly, we have a diagram as follows: \\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {C_{n+1}} & {C_n} & {C_{n-1}} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\partial_{n+1}}", from=1-2, to=1-3]
+	\arrow["{\partial_n}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
 \end{tikzcd}}\\~\\
 for which we require that $$\im(\partial_{n+1})\subseteq\ker(\partial_n)$$ for each $n$. 
 \end{defn}
 
-The requirement of each $C_n$ only being abelian means that this notion naturally extends to algebraic objects with extra structure such as $R$-module for a ring $R$, or even vector spaces. However it is crucial that each $C_n$ is abelian instead of just being a group. This is because of the following definition. 
+We can relate short exact sequences with chain complexes. In particular, one can always extract short exact sequences from chain complexes. 
 
-\begin{defn}{Homology Group}{1.1.2} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Define $Z_n(C_\bullet)=\ker(\partial_n)$ and $B_n(C_\bullet)=\im(\partial_{n+1})$. Define the $n$th homology group of $(C_\bullet,\partial_\bullet)$ to be $$H_n(C_\bullet)=\frac{Z_n(C_\bullet)}{B_n(C_\bullet)}=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}$$
-Elements of $Z_n(C_\bullet)=\ker(\partial_n)$ are called $n$-cycles and elements of $B_n(C_\bullet)=\im(\partial_{n+1})$ are called $n$-boundaries. 
-\end{defn}
+\begin{lmm}{}{1.1.2} Let $(C_\bullet,\partial_\bullet)$ be a chain complex over $\Z$. Then for any $n$, the sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {Z_n(C_\bullet)} & {C_n} & {B_{n-1}(C_\bullet)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["\iota", from=1-2, to=1-3]
+	\arrow["{\partial_n}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is a short exact sequence. Moreover, if the terms of the chain complex consist of free abelian groups, then the sequence is split exact. \tcbline
+\begin{proof}
+The inclusion map is injective. $\partial_n$ is also surjective on its image. Finally, $\ker(\partial_n)$ is by definition $Z_n(C_\bullet)\cong\im(\iota)$. Now since subgroups of a free abelian group are free, we conclude that $B_{n-1}\leq C_n$ is free. Recall that if the third term of a short exact sequence is free, the sequence is split. Hence we conclude. 
+\end{proof}
+\end{lmm}
 
-Note that the definition of homology groups make sense. Indeed every boundary operator of chain complex must satisfy the relation $\partial_n\circ\partial_{n+1}=0$ which directly translates to $B_n(C_\bullet)\leq Z_n(C_\bullet)$. Moreover, since $Z_n(C_\bullet)$ is abelian and $B_n(C_\bullet)$ is a subgroup of $Z_n(C_\bullet)$, $B_n(C_\bullet)$ must be a normal subgroup of $Z_n(C_\bullet)$ so that taking the quotient makes sense. \\~\\
+It is routine to also define maps between chain complexes. Indeed in Groups and Rings we introduced groups and group homomorphisms. In Topology we defined topological spaces and continuous maps. For chain complexes we have the notion of chain maps. 
 
-It is routine to also define maps between chain complexes. Indeed in Groups and Rings we introduced groups and group homomorphisms. In Topology we defined topological spaces and continuous maps. 
-
-\begin{defn}{Chain Map}{1.1.3} Let $(C_\bullet,\partial_\bullet)$ and $(C_\bullet',\partial_\bullet')$ be two chain complexes. A chain map $f_\bullet:C_\bullet\to C_\bullet'$ is a family of maps $$f_n:C_n\to C_n'$$ such that $\partial_n'\circ f_n=f_{n-1}\circ\partial_n$ for all $n$. \\~\\
-In other words, we have the following commutative diagram: \\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-\cdots\arrow[r] & C_{n+1}\arrow[r, "\partial_{n+1}"]\arrow[d, "f_{n+1}"] & C_n\arrow[r, "\partial_n"]\arrow[d, "f_n"] & C_{n-1}\arrow[r]\arrow[d, "f_{n-1}"] & \cdots\\
-\cdots\arrow[r] & C_{n+1}'\arrow[r, "\partial_{n+1}'"] & C_n'\arrow[r, "\partial_n'"] & C_{n-1}'\arrow[r] & \cdots
+\begin{defn}{Chain Map}{1.1.3} Let $R$ be a ring. Let $(C_\bullet,\partial_\bullet)$ and $(D_\bullet,\partial_\bullet')$ be two chain complexes over $R$. A chain map $f_\bullet:C_\bullet\to D_\bullet$ is a family of $R$-module homomorphisms $$f_n:C_n\to D_n$$ such that $\partial_n'\circ f_n=f_{n-1}\circ\partial_n$ for all $n$. Explicitly, we have the following commutative diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {C_{n+1}} & {C_n} & {C_{n-1}} & \cdots \\
+	\cdots & {D_{n+1}} & {D_n} & {D_{n-1}} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\partial_{n+1}}", from=1-2, to=1-3]
+	\arrow["{f_{n+1}}"', from=1-2, to=2-2]
+	\arrow["{\partial_n}", from=1-3, to=1-4]
+	\arrow["{f_n}"', from=1-3, to=2-3]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{f_{n-1}}", from=1-4, to=2-4]
+	\arrow[from=2-1, to=2-2]
+	\arrow["{\partial_{n+1}'}"', from=2-2, to=2-3]
+	\arrow["{\partial_n'}"', from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
 \end{tikzcd}}
 \end{defn}
 
-\begin{defn}{The Category of Chain Complexes}{} Define the category of chain complexes $$\bold{Ch}(\Z)$$ to consist of the following data. 
+It is customary to drop the $n\in\N$ in the notation as it is usually implicit. So for example the condition for chain map becomes $\partial'\circ f=f\circ\partial$. 
+
+\begin{lmm}{}{1.1.4} Let $R$ be a ring. Let $C_\bullet,D_\bullet,E_\bullet$ be chain complexes over $R$. Let $f:C_\bullet\to D_\bullet$ and $g:D_\bullet\to E_\bullet$ be chain maps. Then the term-wise composition of $f$ and $g$ also gives a chain map $g\circ f:C_\bullet\to D_\bullet$. 
+\end{lmm}
+
+\begin{defn}{The Category of Chain Complexes}{1.1.5} Let $R$ be a ring. Define the category of chain complexes $$\bold{Ch}(R)$$ over $R$ to consist of the following data. 
 \begin{itemize}
-\item The objects are the chain complexes
+\item The objects are the chain complexes over $R$
 \item The morphisms are the chain maps
-\item Composition is given by the composition of maps on all levels of the chain map. 
+\item Composition is given by the term-wise composition of maps on all levels. 
 \end{itemize}
 \end{defn}
 
-\begin{lmm}{}{1.1.4} A chain map $f_\bullet:C_\bullet\to C_\bullet'$ induces group homomorphisms $$f_\ast:H_n(C_\bullet)\to H_n(C_\bullet')$$ between homology groups defined by $f_\ast([z])=[f(z)]$. \tcbline
+\begin{defn}{Homology Group}{1.1.6} Let $R$ be a ring. Let $(C_\bullet,\partial_\bullet)$ be a chain complex over $R$. 
+\begin{itemize}
+\item Define the the $R$-submodule of $n$-cycles of the chain complex to be $$Z_n(C_\bullet)=\ker(\partial_n)$$
+\item Define the $R$-submodule of $n$-boundaries of the chain complex to be $$B_n(C_\bullet)=\im(\partial_{n+1})$$
+\item Define the $n$th homology of the chain complex to be $$H_n(C_\bullet)=\frac{Z_n(C_\bullet)}{B_n(C_\bullet)}=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}$$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Induced Homomorphisms}{1.1.7} Let $R$ be a ring. Let $C_\bullet$ and $D_\bullet$ be chain complexes over $R$. Let $f:C_\bullet\to D_\bullet$ be a chain map. Define the induced map on homology $$f_\ast:H_n(C_\bullet)\to H_n(D_\bullet)$$ by the formula $f_\ast([z])=[f(z)]$. 
+\end{defn}
+
+\begin{lmm}{}{1.1.8} Let $R$ be a ring. Let $C_\bullet$ and $C_\bullet'$ be chain complexes over $R$. Let $f:C_\bullet\to C_\bullet'$ be a chain map. Then the induced map on homology $$f_\ast:H_n(C_\bullet)\to H_n(C_\bullet')$$ is a well defined $R$-module homomorphism. \tcbline
 \begin{proof}
 For every map $f_n:C_n\to C_n'$, we can restrict the domain to cycles so that we obtain a map $f_n:Z_n(C_\bullet)\to C_n'$. Using the relation given between the boundary operator and the family of maps, we check that this map descends to a map in homology. \\~\\
 
@@ -82,11 +120,9 @@ This means that $f_n(b)$ is the boundary of the element $f_{n+1}(c)\in C_{n+1}$,
 \end{proof}
 \end{lmm}
 
-It is customary to drop the $n\in\N$ in the notation as it is usually implicit. So for example the condition for chain map becomes $\partial'\circ f=f\circ\partial$. \\~\\
-
 We then have functoriality of the induced map. 
 
-\begin{prp}{}{1.1.5} Let $f_\bullet:C_\bullet\to D_\bullet$ and $g_\bullet:D_\bullet\to E_\bullet$ be two chain maps. Then $g_\bullet\circ f_\bullet$ is also a chain map. Moreover, the induced map on the homology groups satisfy the following: 
+\begin{prp}{}{1.1.9} Let $R$ be a ring. Let $C_\bullet,D_\bullet,E_\bullet$ be chain complexes over $R$. Let $f:C_\bullet\to D_\bullet$ and $g:D_\bullet\to E_\bullet$ be chain maps. Then the induced map on the homology groups satisfy the properties: 
 \begin{itemize}
 \item $g_\ast\circ f_\ast=(g\circ f)_\ast$
 \item $\text{id}_\ast=\text{id}_{H_n}$
@@ -98,260 +134,42 @@ We have that $g_\ast(f_\ast([z]))=g_\ast([f(z)])=[g(f(z))]=(g_\ast\circ f_\ast)(
 \end{proof}
 \end{prp}
 
-\begin{defn}{The Homology Functor}{} Define the homology functors $$H_n(-):\bold{Ch}(\Z)\to\bold{Ab}$$ for each $n$ as follows. 
+\begin{defn}{The Homology Functor}{1.1.10} Let $R$ be a ring. Define the homology functors $$H_n(-):\bold{Ch}(R)\to\bold{Ab}$$ for each $n$ as follows. 
 \begin{itemize}
 \item For each chain complex $C_\bullet$ over $R$, $H_n(C_\bullet)$ is the $n$th homology group of $C_\bullet$. 
 \item For each chain map $f:C_\bullet\to C_\bullet'$, $$H_n(f):H_n(C_\bullet)\to H_n(C_\bullet')$$ is the induced map on homology. 
 \end{itemize}
 \end{defn}
 
-\subsection{Exact Sequences}
-Exact sequences occur naturally from sequences of chain complexes. In particular, exact sequences with $3$ consecutive non-zero terms is a compact way of saying that certain maps in the chain complex hold the property of being injective and surjective. 
-
-\begin{defn}{Exact Sequence}{1.2.1} A chain complex $(C_\bullet,\partial_\bullet)$ is said to be exact if $\im(\partial_{n+1})=\ker(\partial_n)$ for all $n$. 
-\end{defn}
-
-Notice that the homology groups of an exact sequence is trivial. 
-
-\begin{defn}{Short Exact Sequence}{1.2.2} Let $A,B,C$ be abelian groups. A short exact sequence is an exact sequence of the form \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
-\end{tikzcd}}\\~\\
-where $f:A\to B$ and $g:B\to C$ are group homomorphisms. 
-\end{defn}
-
-It should be reflex action that whenever one sees a short exact sequence, they can deduce the following equivalent information out of the sequence. 
-
-\begin{prp}{}{1.2.3} Let $A,B,C$ be abelian groups and $f:A\to B$ and $g:B\to C$ be group homomorphisms. A chain complex \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
-\end{tikzcd}}\\~\\
-is short exact if and only if $f$ is injective, $g$ is surjective and $\ker(g)\subseteq\im(f)$. \tcbline
-\begin{proof}
-Suppose that we have the above short exact sequence. Then by exactness at $A$, we have $\im(0\to A)=\ker(f)$ and so $f$ is injective. By exactness at $C$, $\im(g)=\ker(C\to 0)$ and so $g$ is surjective. \\~\\
-
-Now suppose that $f$ is injective and $g$ is surjective and $\ker(g)\subseteq\im(f)$. Then $\im(0\to A)\subseteq\ker(f)=0$ implies exactness at $A$. Moreover, $\im(g)\subseteq\ker(C\to 0)$ implies that $C\subseteq\ker(C\to 0)$ and so the chain complex is exact at $C$. Finally by assumption of a chain complex, we have that $\im(f)\subseteq\ker(g)$. Combined with the assumption that $\ker(g)\subseteq\im(f)$ we conclude. 
-\end{proof}
-\end{prp}
-
-It is easy to also deduce the following consequences: 
-
-\begin{lmm}{}{1.2.4} Let $A,B,C$ be abelian groups and $f:A\to B$ and $g:B\to C$ group homomorphisms such that \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & A & B & C & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["f", from=1-2, to=1-3]
-	\arrow["g", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-is a short exact sequence. Then the following are true. 
-\begin{itemize}
-\item $A\cong\ker(g)$
-\item $C\cong\frac{B}{\im(f)}$
-\end{itemize} \tcbline
-\begin{proof}
-Since $f$ is injective, by the first isomorphism theorem we conclude that $A\cong\im(f)$. By exactness, $\im(f)=\ker(g)$ so that $A\cong\ker(g)$. \\~\\
-
-Since $g$ is surjective, by the first isomorphism theorem we conclude that $\frac{B}{\ker(g)}\cong C$. By exactness, $\im(f)=\ker(g)$ and so we conclude. 
-\end{proof}
-\end{lmm}
-
-From the above we can deduce that whenever we see the following sequences: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {\ker(g)} & B & C & 0 \\
-	0 & A & B & {\frac{B}{\im(f)}} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["\iota", hook, from=1-2, to=1-3]
-	\arrow["g", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-	\arrow[from=2-1, to=2-2]
-	\arrow["f", from=2-2, to=2-3]
-	\arrow["q", two heads, from=2-3, to=2-4]
-	\arrow[from=2-4, to=2-5]
-\end{tikzcd}}\\~\\
-they will be exact sequences. 
-
-Split exact sequence are a special type of exact sequences that will come up a lot in the study of homology since we are dealing with a lot of free groups, which are isomorphic to some number of copies of $\Z$. 
-
-\begin{defn}{Split Exact Sequence}{1.2.5} Let $A,B,C$ be abelian groups such that \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
-\end{tikzcd}}\\~\\
-is a short exact sequence. We say that it is split exact if $B\cong A\oplus C$. 
-\end{defn}
-
-The following is an important equivalent characterization of split exact sequence. 
-
-\begin{thm}{The Splitting Lemma}{1.2.6} Let $A,B,C$ be abelian groups. Then the following are equivalent for a short exact sequence \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
-\end{tikzcd}}\\
-\begin{itemize}
-\item The short exact sequence is split exact sequence
-\item There exists a homomorphism $p:B\to A$ such that $p\circ f=\text{id}_A$
-\item There exists a homomorphism $s:C\to B$ such that $g\circ s=\text{id}_C$
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item $(1)\implies(2),(3)$: Suppose that $B\cong A\oplus C$. Then the projection map $p:A\oplus C\to A$ and the inclusion map $s:C\to A\oplus C$ is such that $p\circ f=\text{id}_A$ and $g\circ s=\text{id}_C$. 
-
-\item $(2)\implies(1)$: For any $b\in B$, write $b=f(p(b))+(b-f(p(b)))$. Then $f(p(b))\in\im(f)$ and $b-f(p(b))\in\ker(p)$ since $p(b-f(p(b)))=p(b)-p(b)=0$. Now I claim that $\ker(p)\cap\im(f)=0$. Indeed if $b\in\ker(p)\cap\im(f)$, then there exists $a\in A$ such that $f(a)=b$. Then $$a=p(f(a))=p(b)=0$$ Thus $b=f(0)=0$. This shows that $B\cong\ker(p)\oplus\im(f)$. \\~\\
-
-Consider the restricted $g|_{\ker(p)}:\ker(p)\to C$. I want to show that $g$ is an isomorphism. Let $b\in\ker\left(g|_{\ker(p)}\right)$. By exactness, there exists $a\in A$ such that $f(a)=b$. Then $a=p(f(a))=p(b)=0$ since $b\in\ker(p)$. Thus $b=f(0)=0$ so that $b\in\ker\left(g|_{\ker(p)}\right)$. For surjectivity, let $c\in C$. By exactness, $g$ is surjective so there exists $b\in B$ such that $g(b)=c$. Since $B\cong\ker(p)\oplus\im(f)$, we can write $b=f(a)+k$ for some $a\in A$ and $k\in\ker(p)$. Then we have that $$c=g(b)=g(f(a)+k)=g(k)$$ which means that there exists $k\in\ker(p)$ such that $g|_{\ker(p)}(k)=c$. Thus $\ker(p)\cong C$. Since $f$ is injective, $im(f)=f(A)\cong A$. Thus we have that $B\cong\im(f)\oplus\ker(p)\cong A\oplus C$. 
-
-\item $(3)\implies(1)$: For any $b\in B$, write $b=(b-s(g(b)))+s(g(b))$. Then $s(g(b))\in\im(s)$ and $g(b)=g(b)-g(s(g(b))=0$ so that $b-s(g(b))\in\ker(g)$. Now I claim that $\ker(g)\cap\im(s)=0$. Indeed if $b\in\ker(g)\cap\im(s)$, then there exists $c\in C$ such that $s(b)=c$ and $$c=g(s(c))=g(b)=0$$ since $b\in\ker(g)$ so that $c=0$. This shows that $B\cong\ker(g)\oplus\im(s)$. \\~\\
-
-Since $\ker(g)=\im(f)$ by exactness, $f$ being injective also implies that $A\cong\im(f)=\ker(g)$. Since also we have that $g\circ s=\text{id}_C$, we have that $s$ is injective so that $\im(s)\cong C$. Thus we conclude that $B\cong\ker(g)\oplus\im(s)\cong A\oplus C$. 
-\end{itemize}
-Thus we conclude. 
-\end{proof}
-\end{thm}
-
-The reason why split exact sequences are important for homology, is given by the following proposition. 
-
-\begin{prp}{}{1.2.7} Let $A,B,C$ be abelian groups such that \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
-\end{tikzcd}}\\~\\
-is a short exact sequence. If $C$ is a free abelian group then it is a split exact sequence. \tcbline
-\begin{proof}
-Since $C$ is a free group, there exists a basis $X=\{c_1,\dots,c_n\}$ such that $C$ is the free abelian group on $X$. Since $g$ is surjective, we can find $b_1,\dots,b_n\in B$ such that $g(b_i)=c_i$ for $1\leq i\leq n$. By the universal property of free abelian group, there exists a group homomorphism $s:C\to B$ such that $s(c_i)=b_i$ for $1\leq i\leq n$. Now notice that for $c\in C$, we can write $c=\sum_{i=1}^nk_ic_i$ for some $k_i\in\Z$. Since $s$ is a group homomorphism, we have that $s\left(\sum_{i=1}^nk_ic_i\right)=\sum_{i=1}^nk_ib_i$. Then we have that $$g(s(c))=g\left(\sum_{i=1}^nk_ib_i\right)=\sum_{i=1}^nk_ic_i$$ (This makes sense since every abelian group is a $\Z$-module). Thus $g\circ s=\text{id}_C$. By the splitting lemma, we conclude that $B\cong A\oplus C$. 
-\end{proof}
-\end{prp}
-
-The following two lemmas are very intuitive and straight forward to remember. 
-
-\begin{lmm}{Five Lemma}{1.2.8} Consider the commutative diagram \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-A\arrow[r, "f"]\arrow[d, "l"] & B\arrow[r, "g"]\arrow[d, "m"] & C\arrow[r, "h"]\arrow[d, "n"] & D\arrow[r, "j"]\arrow[d, "p"] & E\arrow[d, "q"]\\
-A'\arrow[r, "r"] & B'\arrow[r, "s"] & C'\arrow[r, "t"] & D'\arrow[r, "u"] & E'
-\end{tikzcd}}\\~\\
-where all the objects are abelian groups. Suppose that the following are true. 
-\begin{itemize}
-\item The two rows are exact
-\item $m:B\to B'$ and $p:D\to D'$ are isomorphisms
-\item $l:A\to A'$ is surjective
-\item $q:E\to E'$ is injective
-\end{itemize}
-Then $n$ is an isomorphism. \tcbline
-\begin{proof}
-For injectivity, \\
-Let $c\in\ker(n)$. Then $n(c)=0$. By commutativity, we have that $$p(h(c))=t(n(c))=t(0)=0$$ Since $p$ is an isomorphism, then $h(c)=0$ and $c\in\ker(h)$. By exactness, we have that $c\in\ker(h)=\im(g)$. Thus there exists $b\in B$ such that $g(b)=c$. Now by commutativity, we have that $$s(m(b))=n(g(b))=n(c)=0$$ so that $m(b)\in\ker(s)$. By exactness, we have that $m(b)\in\ker(s)=\im(r)$. Thus there exists $a'\in A'$ such that $r(a')=m(b)$. By surjectivity of $l$, there exists $a\in A$ such that $l(a)=a'$. By commutativity, we have that $$m(f(a))=r(l(a))=r(a')=m(b)$$ Since $m$ is an isomorphism, $f(a)=b$. Then by exactness, $\ker(g)=\im(f)$ implies $$0=g(f(a))g(b)=c$$ Thus $c=0$ and so $n$ is injective. \\~\\
-
-For surjectivity, \\
-Let $c'\in C'$. By exactness, we have that $u(t(c'))=0$. Since $p$ is an isomorphism, there exists $d\in D$ such that $p(d)=t(c')$. By commutativity, we have that $$q(j(d))=u(p(d))=u(t(c'))=0$$ Since $q$ is injective, $j(d)=0$. So $d\in\ker(j)$. By exactness, $d\in\ker(j)=\im(h)$. Thus there exists $c\in C$ such that $h(c)=d$. By commutativity, we have that $$t(n(c))=p(h(c))=p(d)=t(c')$$ Thus $t(n(c)-c')=0$ and $n(c)-c'\in\ker(t)$. By exactness, $n(c)-c'\in\ker(t)=\im(s)$. So there exists $b'\in B'$ such that $s(b')=n(c)-c'$. Since $m$ is an isomorphism, there exists $b\in B$ such that $m(b)=b'$. By commutativity, we have that $$n(g(b))=s(m(b))=n(c)-c'$$ Now $n(g(b)-c)=c'$ and so we have proven surjectivity. 
-\end{proof}
-\end{lmm}
-
-The proof is long but is rather straight forward. In every step there is only one possible way to advance, and so one eventually arrives at the conclusion. 
-
-\begin{lmm}{Snake Lemma}{1.2.9} Consider the commutative diagram \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
- & A\arrow[r, "f"]\arrow[d, "a"] & B\arrow[r, "g"]\arrow[d, "b"] & C\arrow[r]\arrow[d, "c"] & 0\\
-0\arrow[r] & A'\arrow[r, "f'"] & B'\arrow[r, "g'"] & C' & 
-\end{tikzcd}}\\~\\
-where all the objects are abelian groups. If the two rows are exact, then there is an exact sequence relating the kernels and cokernels of $a,b,c$ \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-\ker(a)\arrow[r] & \ker(b)\arrow[r] & \ker(c)\arrow[r, "d"] & \coker(a)\arrow[r] & \coker(b)\arrow[r] & \coker(c)
-\end{tikzcd}}\\~\\
-where $d$ is called the connecting homomorphism. \tcbline
-\begin{proof}
-We construct the function $d$ as follows. 
-\begin{itemize}
-\item Let $k\in\ker(c)$. 
-\item By exactness, $g$ is surjective. Thus there exists $l\in B$ such that $g(l)=k$. 
-\item But $g'(b(l))=c(g(l))=c(k)=0$ which means that $b(l)\in\ker(g')$. By exactness, there exists $m\in A'$ such that $f'(m)=b(l)$ since $\im(f')=\ker(g')$. This $m$ is unique since $f'$ is injective. In particular, $[m]\in\text{coker}(a)$. 
-\end{itemize}
-We then define $d:\ker(c)\to\coker(a)$ by $d(k)=m$. \\~\\
-
-We need to show that $d$ is well defined. Suppose that $l'$ is another element in $B$ such that $g(l')=k$. Then $g(l-l')=0$ so that $l-l'\in\ker(g)$. By exactness, $\im(f)=\ker(g)$ so there is some $n\in A$ such that $f(n)=l-l'$. By a similar argument as the first paragraph, one can find $m'\in A'$ such that $f'(m')=b(l')$. Then $$f'(a(n))=b(f(n))=b(l-l')=b(l)-b(l')=f'(m)-f'(m')$$ Since $f'$ is injective by exactness, we have that $a(n)=m-m'$ so that $m-m'\in\im(a)$ and hence $[m]=[m']$. Thus $d$ is a well defined map. \\~\\
-
-Since all operations above are group homomorphisms, $d$ is also a group homomorphism. \\~\\
-
-It remains to show exactness of the sequence. 
-\end{proof}
-\end{lmm}
-
-We can relate short exact sequences with chain complexes. In particular, one can always extract short exact sequences from chain complexes. 
-
-\begin{lmm}{}{1.2.10} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Then for any $n$, the sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {Z_n(C_\bullet)} & {C_n} & {B_{n-1}(C_\bullet)} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["\iota", from=1-2, to=1-3]
-	\arrow["{\partial_n}", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-is a short exact sequence. Moreover, if the terms of the chain complex is free abelian, then the sequence is split exact. \tcbline
-\begin{proof}
-The inclusion map is injective. $\partial_n$ is also surjective on its image. Finally, $\ker(\partial_n)$ is by definition $Z_n(C_\bullet)\cong\im(\iota)$. Now since subgroups of a free abelian group are free, we conclude that $B_{n-1}\leq C_n$ is free. Hence by 1.2.7 we have that the sequence is split. 
-\end{proof}
-\end{lmm}
-
-\subsection{Chain Homotopy}
-In algebraic topology 1, we defined the notion of homotopies between two maps. In general, algebraic topologists are not only interested in maps between two objects such as groups or vector spaces, we are also interested in the maps between the maps. Therefore homotopies play such a crucial role in Algebraic Topology 1. In order to produce results similar to homotopy invariance of the fundamental groups, we will need the notion of homotopies between chain maps. \\~\\
+\subsection{Chain Homotopies}
+In algebraic topology 1, we defined the notion of homotopies between two maps. In general, algebraic topologists are not only interested in maps between two objects such as groups or vector spaces, we are also interested in the maps between the maps. Therefore homotopies play such a crucial role in Algebraic Topology 1. In order to produce results similar to homotopy invariance of the fundamental groups, we will need the notion of homotopies between chain maps. \\
 
 One can think of the chain complexes as our objects, chain maps as morphisms between chain complexes and morphisms between chain maps as chain homotopies. This is precisely the notion of the category of chain complexes. 
 
-\begin{defn}{Chain Homotopy}{1.3.1} Let $a_\bullet,b_\bullet:C_\bullet\to C_\bullet'$ be two chain maps. Then a chain homotopy from $a$ to $b$ is a collection of morphisms $$\eta_n:C_n\to C_{n+1}'$$ such that $$b_n-a_n=\partial_{n+1}'\eta_n+\eta_{n-1}\partial_n$$ for all $n\in\Z$. In this case, $a$ and $b$ are said to be chain homotopic. \\~\\
-In other words, we have the diagram: \\~\\
-\adjustbox{scale=1.15,center}{\begin{tikzcd}
-	\cdots && {C_{n+1}} && {C_n} && {C_{n-1}} && \cdots \\
-	\\
-	\cdots && {C_{n+1}'} && {C_n'} && {C_{n-1}'} && \cdots
-	\arrow[from=1-1, to=1-3]
-	\arrow["{\partial_{n+1}}", from=1-3, to=1-5]
-	\arrow["{\partial_n}", from=1-5, to=1-7]
-	\arrow[from=3-1, to=3-3]
-	\arrow["{\partial_{n+1}'}", from=3-3, to=3-5]
-	\arrow["{\partial_n'}", from=3-5, to=3-7]
-	\arrow["{\eta_{n+1}}"{description}, from=1-3, to=3-1]
-	\arrow["{\eta_n}"{description}, from=1-5, to=3-3]
-	\arrow["{\eta_{n-1}}"{description}, from=1-7, to=3-5]
-	\arrow["{b_{n+1}-a_{n+1}}"{description}, from=1-3, to=3-3]
-	\arrow["{b_n-a_n}"{description}, from=1-5, to=3-5]
-	\arrow["{b_{n-1}-a_{n-1}}"{description}, from=1-7, to=3-7]
-	\arrow[from=1-7, to=1-9]
-	\arrow[from=3-7, to=3-9]
+\begin{defn}{Chain Homotopy}{1.2.1} Let $R$ be a ring. Let $C_\bullet,D_\bullet$ be chain complexes over $R$. Let $f:C_\bullet\to D_\bullet$ and $g:C_\bullet\to D_\bullet$ be chain maps. Then a chain homotopy from $f$ to $g$ is a collection of morphisms $$\eta_n:C_n\to C_{n+1}'\;\;\;\;\text{ such that }\;\;\;\;g_n-f_n=\partial_{n+1}'\eta_n+\eta_{n-1}\partial_n$$ for all $n\in\Z$. Explicitly, the following diagram is commutative: \\~\\
+\adjustbox{scale=1.2,center}{\begin{tikzcd}
+	\cdots & {C_{n+1}} & {C_n} & {C_{n-1}} & \cdots \\
+	\cdots & {D_{n+1}} & {D_n} & {D_{n-1}} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\partial_{n+1}}", from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-1]
+	\arrow["{g-f}"', from=1-2, to=2-2]
+	\arrow["{\partial_n}", from=1-3, to=1-4]
+	\arrow["{\eta_n}"{description}, from=1-3, to=2-2]
+	\arrow["{g-f}"{description}, from=1-3, to=2-3]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{\eta_{n-1}}"{description}, from=1-4, to=2-3]
+	\arrow["{g-f}", from=1-4, to=2-4]
+	\arrow[from=1-5, to=2-4]
+	\arrow[from=2-1, to=2-2]
+	\arrow["{\partial_{n+1}'}"', from=2-2, to=2-3]
+	\arrow["{\partial_n'}"', from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
 \end{tikzcd}}\\~\\
-
-In this case we write $f\simeq g$. 
+In this case, $f$ and $g$ are said to be chain homotopic and we write $f\simeq g$. 
 \end{defn}
 
-Note that $b_n-a_n$ makes sense as a map. Indeed for each $c\in C_n$, $a_n(c)$ and $b_n(c)$ are elements of the abelian group $C_n'$ so it makes sense that we can subtract them: $b_n(c)-a_n(c)$. In general $b_n-a_n$ thus also defines a map from $C_n$ to $C_n'$. This phenomenon happens in general when considering homomorphisms between abelian groups. In fact, for $A$ and $B$ two abelian groups, the set $$\text{Hom}(A,B)=\{\phi:A\to B\;|\;\phi\text{ is a homomorphism }\}$$ of all morphisms from $A$ to $B$ is an abelian group. Category theorists may realize this as the category of abelian groups being an abelian category. \\~\\
-
-One consequence of chain homotopies is the following. 
-
-\begin{lmm}{}{1.3.2} Let $a,b$ be chain homotopic. Then their induced maps in homology are equal. Meaning $$a_n=b_n:H_n(X)\to H_n(Y)$$ \tcbline
-\begin{proof}
-Let $c\in\ker(\partial_n)$ be an $n$-cycle. Using the equation for chain homotopy, we have that 
-\begin{align*}
-b(c)-a(c)&=\partial_{n+1}'(\eta_n(c))+\eta_{n-1}(\partial(c))\\
-&=\partial_{n+1}'(\eta(c))
-\end{align*}
- is a boundary in $\im(\partial_{n+1}')\subseteq C_n'$. Thus $b_n(c)$ and $a_n(c)$ are of the same coset in $H_n(X)$. 
-\end{proof}
-\end{lmm}
-
-Chain homotopies are also well defined in compositions. 
-
-\begin{prp}{}{1.3.3} Let $f_1,g_1:C_\bullet\to D_\bullet$ and $f_2,g_2:D_\bullet\to E_\bullet$ be chain maps. If $f_1$ and $g_1$ are chain homotopic and $f_2$ and $g_2$ are chain homotopic, then $f_2\circ f_1$ is chain homotopic to $g_2\circ g_1$. \tcbline
-\begin{proof}
-The chain homotopies between $f_1$ and $g_1$ imposes the identity $$\partial\eta+\eta\partial=g_1-f_1$$ for $\eta:C_\bullet\to D_\bullet$ the given chain homotopy. Similarly, for $\nu:D_\bullet\to E_\bullet$ we have the identity $$\partial\nu+\nu\partial=g_2-f_2$$ Then we have that 
-\begin{align*}
-g_2\circ g_1-f_2\circ f-1&=g_2\circ g_1-g_2\circ f_1+g_2\circ f_1-f_2\circ f_1\\
-&=g_2(g_1-f_1)+(g_2-f_2)\circ f_1\\
-&=g_2(\partial\eta+\eta\partial)+(\partial\nu+\nu\partial)\circ f_1\\
-&=\partial g_2\eta+g_2\eta\partial+\partial\nu f_1+\nu f_1\partial\\
-&=\partial(g_2\eta+\nu f_1)+(g_2\eta+\nu f_1)\partial
-\end{align*}
-Thus $g_2\eta+\nu f_1:C_n\to E_{n+1}$ would be a valid chain homotopy from $g_2\circ g_1$ to $f_2\circ f_1$. 
-\end{proof}
-\end{prp}
-
-In particular, they define an equivalence relation on the set of all chain maps between two fixed chain complexes. 
-
-\begin{lmm}{}{1.3.4} Let $C_\bullet$ and $D_\bullet$ be two chain complexes. Then the relation $\simeq$ on the chain maps from $C_\bullet$ to $D_\bullet$ is an equivalence relation. \tcbline
+\begin{lmm}{}{1.2.2} Let $R$ be a ring. Let $C_\bullet,D_\bullet$ be chain complexes over $R$. Then the relation $\simeq$ on the chain maps from $C_\bullet$ to $D_\bullet$ is an equivalence relation. \tcbline
 \begin{proof}
 Let $f_\bullet,g_\bullet,h_\bullet:C_\bullet\to D_\bullet$ be chain maps. Then it is clear that $f_\bullet\simeq f_\bullet$ by the $0$ map. Indeed we have that $\partial 0+0\partial=0=f-f$. Thus $\simeq$ is reflexive. if $f_\bullet$ and $g_\bullet$ are chain homotopic by $\eta$, then we have the identity $$\partial\eta+\eta\partial=g-f$$ But then we have 
 \begin{align*}
@@ -370,20 +188,49 @@ so that $\nu+\eta$ defines a chain homotopy from $f$ to $h$.
 \end{proof}
 \end{lmm}
 
+One consequence of chain homotopies is the following. 
+
+\begin{lmm}{}{1.2.3} Let $R$ be a ring. Let $C_\bullet,D_\bullet$ be chain complexes over $R$. Let $f:C_\bullet\to D_\bullet$ and $g:C_\bullet\to D_\bullet$ be chain maps. If $f$ and $g$ are chain homotopic, then $f$ and $g$ induce the same map $$f_n=g_n:H_n(X)\to H_n(Y)$$ in homology. \tcbline
+\begin{proof}
+Let $c\in\ker(\partial_n)$ be an $n$-cycle. Using the equation for chain homotopy, we have that 
+\begin{align*}
+b(c)-a(c)&=\partial_{n+1}'(\eta_n(c))+\eta_{n-1}(\partial(c))\\
+&=\partial_{n+1}'(\eta(c))
+\end{align*}
+ is a boundary in $\im(\partial_{n+1}')\subseteq C_n'$. Thus $b_n(c)$ and $a_n(c)$ are of the same coset in $H_n(X)$. 
+\end{proof}
+\end{lmm}
+
+Chain homotopies are also well defined in compositions. 
+
+\begin{prp}{}{1.2.4} Let $R$ be a ring. Let $C_\bullet,D_\bullet$ be chain complexes over $R$. Let $f_1,g_1:C_\bullet\to D_\bullet$ and $f_2,g_2:C_\bullet\to D_\bullet$ be chain maps. If $f_1\simeq g_1$ and $f_2\simeq g_2$, then $f_2\circ f_1\simeq g_2\circ g_1$. \tcbline
+\begin{proof}
+The chain homotopies between $f_1$ and $g_1$ imposes the identity $$\partial\eta+\eta\partial=g_1-f_1$$ for $\eta:C_\bullet\to D_\bullet$ the given chain homotopy. Similarly, for $\nu:D_\bullet\to E_\bullet$ we have the identity $$\partial\nu+\nu\partial=g_2-f_2$$ Then we have that 
+\begin{align*}
+g_2\circ g_1-f_2\circ f-1&=g_2\circ g_1-g_2\circ f_1+g_2\circ f_1-f_2\circ f_1\\
+&=g_2(g_1-f_1)+(g_2-f_2)\circ f_1\\
+&=g_2(\partial\eta+\eta\partial)+(\partial\nu+\nu\partial)\circ f_1\\
+&=\partial g_2\eta+g_2\eta\partial+\partial\nu f_1+\nu f_1\partial\\
+&=\partial(g_2\eta+\nu f_1)+(g_2\eta+\nu f_1)\partial
+\end{align*}
+Thus $g_2\eta+\nu f_1:C_n\to E_{n+1}$ would be a valid chain homotopy from $g_2\circ g_1$ to $f_2\circ f_1$. 
+\end{proof}
+\end{prp}
+
 While chain maps induce a map on the homology groups, we will see that chain homotopy equivalences induces isomorphisms on the homology groups, intuitively because they produce an inverse for each map on the level of homology. 
 
-\begin{defn}{Chain Homotopy Equivalence}{1.3.5} Let $C_\bullet$ and $D_\bullet$ be two chain complexes. We say that they are chain homotopy equivalence if there exists chain maps $a_\bullet:C_\bullet\to D_\bullet$ and $b_\bullet:C_\bullet\to D_\bullet$ such that there are chain homotopies $$b_\bullet\circ a_\bullet\simeq\text{id}_{C_\bullet}\;\;\;\;\text{ and }\;\;\;\;a_\bullet\circ b_\bullet\simeq\text{id}_{D_\bullet}$$
+\begin{defn}{Chain Homotopy Equivalence}{1.2.5} Let $R$ be a ring. Let $C_\bullet,D_\bullet$ be chain complexes over $R$. We say that they are chain homotopy equivalence if there exists chain maps $f_\bullet:C_\bullet\to D_\bullet$ and $g_\bullet:D_\bullet\to C_\bullet$ such that there are chain homotopies $$g_\bullet\circ f_\bullet\simeq\text{id}_{C_\bullet}\;\;\;\;\text{ and }\;\;\;\;f_\bullet\circ g_\bullet\simeq\text{id}_{D_\bullet}$$ In this case, we say that $g$ is a chain homotopy inverse of $f$. 
 \end{defn}
 
-\begin{lmm}{}{1.3.6} Let $C_\bullet$ and $D_\bullet$ be chain homotopy equivalent. Then the chain maps induces an isomorphism $$H_n(C_\bullet)\cong H_n(D_\bullet)$$ in all degrees $n\in\N$. \tcbline
+\begin{lmm}{}{1.2.6} Let $R$ be a ring. Let $C_\bullet,D_\bullet$ be chain complexes over $R$. Suppose that $f:C_\bullet\to D_\bullet$ is a chain map that induces a chain homotopy equivalence between $C_\bullet$ and $D_\bullet$. Then $f$ induces an isomorphism $$H_n(C_\bullet)\cong H_n(D_\bullet)$$ in all degrees $n\in\N$. \tcbline
 \begin{proof}
-We know that $b_\bullet\circ a_\bullet\simeq\text{id}_{C_\bullet}$ which means that they induce the same map: $$b_\ast\circ a_\ast=\text{id}_{H_n(C_\bullet)}$$ Similarly the chain homotopies $a_\bullet\circ b_\bullet\simeq\text{id}_{D_\bullet}$ induce the same map $$a_\ast\circ b_\ast:\text{id}_{H_n(D_\bullet)}$$ as the identity. Then these two identities mean that $a_\ast$ is both injective and surjective. 
+Suppose that $g$ is the chain homotopy inverse of $f$. We know that $g_\bullet\circ f_\bullet\simeq\text{id}_{C_\bullet}$ which means that they induce the same map: $$g_\ast\circ f_\ast=\text{id}_{H_n(C_\bullet)}$$ Similarly the chain homotopies $f_\bullet\circ g_\bullet\simeq\text{id}_{D_\bullet}$ induce the same map $$f_\ast\circ g_\ast:\text{id}_{H_n(D_\bullet)}$$ as the identity. Then these two identities mean that $f_\ast$ is both injective and surjective. 
 \end{proof}
 \end{lmm}
 
 Similar to homotopies in Algebraic Topology, chain homotopy also defines an equivalence relation on all the chain maps. 
 
-\begin{prp}{}{1.3.7} Chain homotopy equivalence defines an equivalence relation on all chain complexes. \tcbline
+\begin{prp}{}{1.2.7} Chain homotopy equivalence defines an equivalence relation on all chain complexes. \tcbline
 \begin{proof}
 Clearly any chain complex is chain homotopy equivalent to itself by the identity map. If $C_\bullet$ and $D_\bullet$ are chain homotopy equivalent by the chain maps $a_\bullet:C_\bullet\to D_\bullet$ and $b_\bullet:D_\bullet\to C_\bullet$, then we have the identities $b_\bullet\circ a_\bullet=\text{id}_{C_\bullet}$ and $a_\bullet\circ b_\bullet=\text{id}_{D_\bullet}$. We can then read them in reverse so that $D_\bullet$ and $C_\bullet$ are chain homotopy equivalence by the maps $b_\bullet$ and $a_\bullet$. \\~\\
 
@@ -398,42 +245,93 @@ This is reminiscent to that of ordinary homotopies between continuous maps. Name
 \subsection{Sequences of Chain Complexes}
 One can even define short exact sequences of chain complexes themselves. 
 
-\begin{defn}{Short Exact Sequence of Chain Complexes}{} Let $A_\bullet,B_\bullet,C_\bullet$ be chain complexes. Let $i:A_\bullet\to B_\bullet$ and $j:B_\bullet\to C_\bullet$ be chain maps. A short exact sequence of chain complexes is a diagram of the form \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-& 0\arrow[d] & 0\arrow[d] & 0\arrow[d] &\\
-\cdots\arrow[r] & A_{n+1}\arrow[r, "d_A"]\arrow[d, "i"] & A_n\arrow[r, "d_A"]\arrow[d, "i"] & A_{n-1}\arrow[r]\arrow[d, "i"] & \cdots\\
-\cdots\arrow[r] & B_{n+1}\arrow[r, "d_B"]\arrow[d, "j"] & B_n\arrow[r, "d_B"]\arrow[d, "j"] & B_{n-1}\arrow[r]\arrow[d, "j"] & \cdots\\
-\cdots\arrow[r] & C_{n+1}\arrow[r, "d_C"]\arrow[d] & C_n\arrow[r, "d_C"]\arrow[d] & C_{n-1}\arrow[r]\arrow[d] & \cdots\\
-& 0 & 0 & 0 &
-\end{tikzcd}}\\~\\
-such that for each $n$ (vertically in the diagram), the sequence \\~\\
-\adjustbox{scale=1.0, center}{\begin{tikzcd}
-0\arrow[r] & A_n\arrow[r, "i"] & B_n\arrow[r, "j"] & C_n\arrow[r] & 0
-\end{tikzcd}}\\~\\ is a short exact sequence. We write this as \\~\\
+\begin{defn}{Short Exact Sequence of Chain Complexes}{} Let $R$ be a ring. Let the following be a sequence of homomorphisms in $\bold{Ch}({_R\bold{Mod}})$. \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & A_\bullet\arrow[r, "i"] & B_\bullet\arrow[r, "j"] & C_\bullet\arrow[r] & 0
-\end{tikzcd}}
+	0 & {A_\bullet} & {B_\bullet} & {C_\bullet} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+We say that it is short exact if for each $n\in\N$, the following sequence\\~\\
+\adjustbox{scale=1.0, center}{\begin{tikzcd}
+	0 & {A_n} & {B_n} & {C_n} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{f_n}", from=1-2, to=1-3]
+	\arrow["{g_n}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is short exact. 
 \end{defn}
 
-The following theorem is core to the proof of Mayer-Vietoris sequences. It also encapsulates how one would prove a theorem in homological algebra, namely through diagram chasing. 
+Explicitly, we can see that a short exact sequence of chain complexes can be written in diagrams as: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& \vdots & \vdots & \vdots \\
+	0 & {A_{n+1}} & {B_{n+1}} & {C_{n+1}} & 0 \\
+	0 & {A_n} & {B_n} & {C_n} & 0 \\
+	0 & {A_{n-1}} & {B_{n-1}} & {C_{n-1}} & 0 \\
+	& \vdots & \vdots & \vdots
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=1-4, to=2-4]
+	\arrow[from=2-1, to=2-2]
+	\arrow["{f_{n+1}}", from=2-2, to=2-3]
+	\arrow["\partial"', from=2-2, to=3-2]
+	\arrow["{g_{n+1}}", from=2-3, to=2-4]
+	\arrow["\partial"', from=2-3, to=3-3]
+	\arrow[from=2-4, to=2-5]
+	\arrow["\partial", from=2-4, to=3-4]
+	\arrow[from=3-1, to=3-2]
+	\arrow["{f_n}", from=3-2, to=3-3]
+	\arrow["\partial"', from=3-2, to=4-2]
+	\arrow["{g_n}", from=3-3, to=3-4]
+	\arrow["\partial"', from=3-3, to=4-3]
+	\arrow[from=3-4, to=3-5]
+	\arrow["\partial", from=3-4, to=4-4]
+	\arrow[from=4-1, to=4-2]
+	\arrow["{f_{n-1}}", from=4-2, to=4-3]
+	\arrow[from=4-2, to=5-2]
+	\arrow["{g_{n-1}}", from=4-3, to=4-4]
+	\arrow[from=4-3, to=5-3]
+	\arrow[from=4-4, to=4-5]
+	\arrow[from=4-4, to=5-4]
+\end{tikzcd}}\\~\\
 
-\begin{thm}{}{} Let $A_\bullet,B_\bullet,C_\bullet$ be a chain complexes such that \\~\\
+\begin{thm}{}{} Let $R$ be a ring. Let the following be a short exact sequence of chain complexes in $\bold{Ch}({_R\bold{Mod}})$. \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & A_\bullet\arrow[r, "i"] & B_\bullet\arrow[r, "j"] & C_\bullet\arrow[r] & 0
+	0 & {A_\bullet} & {B_\bullet} & {C_\bullet} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
 \end{tikzcd}}\\~\\
-is a short exact sequence of chain complexes. Then there exists a connecting homomorphism $\partial:H_n(C_\bullet)\to H_{n-1}(A_\bullet)$ such that the following sequence of homology groups \\~\\
+Then there exists a connecting homomorphism $d:H_n(C_\bullet)\to H_{n-1}(A_\bullet)$ such that the following sequence of homology groups \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-\cdots\arrow[r] & H_{n+1}(C_\bullet)\arrow[r, "\partial"] & H_n(A_\bullet)\arrow[r, "i_\ast"] & H_n(B_\bullet)\arrow[r, "j_\ast"] & H_n(C_\bullet)\arrow[r, "\partial"] & H_{n-1}(A_\bullet)\arrow[r] & \cdots
+	\cdots & {H_{n+1}(C_\bullet)} & {H_n(A_\bullet)} & {H_n(B_\bullet)} & {H_n(C_\bullet)} & {H_{n-1}(A_\bullet)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["d", from=1-2, to=1-3]
+	\arrow["{(f_n)_\ast}", from=1-3, to=1-4]
+	\arrow["{(g_n)_\ast}", from=1-4, to=1-5]
+	\arrow["d", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
 \end{tikzcd}}\\~\\
-is an exact sequence. \tcbline
+is long exact. Explicitly, $d$ is defined as follows. 
+\begin{itemize}
+\item Let $[c]\in H_n(C_\bullet)$. By surjectivity of $g_n$ there exists $b\in B_n$ such that $g_n(b)=c$. 
+\item We have $c\in Z_n(C_\bullet)$. Because $g_{n-1}(\partial_B(b))=\partial_C(g_n(b))=\partial_C(c)=0$, we have that $\partial_B(b)\in\ker(g_{n-1})=\im(f_{n-1})$. So there exists $a\in A_{n-1}$ such that $f_{n-1}(a)=\partial_B(b)$. 
+\end{itemize} 
+We then define $$d([c])=[a]$$ \tcbline
 \begin{proof}
-We will construct the homomorphism $\partial:H_n(C_\bullet)\to H_{n-1}(A_\bullet)$ as follows. Let $c\in Z_n(C_\bullet)$. Then we have that $d(c)=0$. By exactness, $B_n\to C_n$ is surjective. So there exists $b\in B_n$ such that $j(b)=c$. We can apply $d$ to $b$ to obtain $d(b)\in B_{n-1}$. By definition of a chain map, we have that $j(d(b))=d(j(b))=d(c)=0$. Thus $d(b)\in\ker(j)$. Since $\ker(j)=\im(i)$ by exactness, there exists $a\in A_{n-1}$ such that $i(a)=d(b)$. This $a$ is unique since $i$ is injective. Notice that $a$ is a cycle in $A_{n-1}$ since $i(d(a))=d(i(a))=d(d(b))=0$. Since $i$ is injective by exactness, we have that $d(a)=0$. Thus $a$ is a cycle. Then we can define the connecting homomorphism as mapping $[c]$ to $[a]$. \\~\\
+We want to show that this is well defined. We have made two choices in the definition of $d$. 
+\begin{itemize}
+\item Suppose that $b,b'\in B_n$ are such that $g_n(b)=c=g_n(b')$. Then $b-b'\in\ker(g_n)=\im(f_n)$ means that there exists $a'\in A_n$ such that $f_n(a'')=b-b'$. Using the same argument from the construction of the map $d$, we obtain $a,a'\in A_{n-1}$ such that $f_{n-1}(a)=\partial_B(b)$ and $f_{n-1}(a')=\partial_B(b')$. This means that $f_{n-1}(a-a')=\partial_B(b-b')=\partial_B(f_n(a''))$. By commutativity of the diagram, we have that $$\partial_B(f_n(a''))=f_{n-1}(\partial_A(a''))$$ so that we have $f_{n-1}(a-a')=f_{n-1}(\partial_A(a''))$. Since $f_{n-1}$ is injective, we conclude that $a-a'=\partial_A(a'')$. But this means that $[a]=[a']$. This implies that the choice of $b$ did not matter in the definition of $d$. 
+\item Suppose that $a,a'\in A_{n-1}$ such that $f_{n-1}(a)=\partial_B(b)=f_{n-1}(a')$. Then by injectivity of $f_{n-1}$ we conclude that $a=a'$. 
+\end{itemize}
+We now need to show that $d$ is well defined under equivalence classes. Suppose that $c\in\im(\partial_C)$. This implies that there exists $c'\in C_{n+1}$ such that $\partial_C(c')=c$. By surjectivity of $g_{n+1}$, there exists $b\in B_{n+1}$ such that $g_{n+1}(b)=c'$. By commutativity of the diagram, we have that $$c=\partial_C(g_{n+1}(b))=g_n(\partial_B(b))$$ Following the construction of $d$, we obtain $a\in A_{n-1}$ such that $f_{n-1}(a)=\partial_B(\partial_B(b))=0$. Hence $a=0$. We conclude that $d$ is a well defined function. We next show that $d$ is an $R$-module homomorphism. \\~\\
 
-This is well defined. Throughout the constructive argument we have made one arbitrary choice which is in choosing $b$ such that $j(b)=c$. So suppose that we choose $b'$ instead of $b$ such that $j(b')=c$. By a similar argument, we would have found $a'\in A_{n-1}$ such that $i(a')=b$. We want to show that $[a]=[a']$. Now $b-b'\in B_n$ maps to $0$ since $j(b-b')=j(b)-j(b')=c-c=0$. This means that $b-b'\in\ker(j)$. By exactness, $\ker(j)=\im(i)$ implies that there exists some $a''\in A_n$ such that $i(a'')=b-b'$. This choice of $a''$ is unique since $i$ is injective. Then we have that $$d(b-b')=d(i(a''))=i(d(a''))$$ But also we have that $i(a)=d(b)$ and $i(a')=d(b')$ from above so that $i(a-a')=d(b-b')$. Since $i$ is injective, we have that $a-a'=d(a'')$. Since $d(a'')$ is a boundary, we conclude that $a$ and $a''$ lie in the same coset so that $[a]=[a']$. \\~\\
+Suppose that $[c],[c']\in H_n(C_\bullet)$. Following the construction of $d$ we obtain $b,b'\in B_n$ and $a,a'\in A_{n-1}$ such that $$g_n(b)=c\;\;\;\;g_n(b')=c'\;\;\;\;f_{n-1}(a)=\partial_B(b)\;\;\;\;f_{n-1}(a')=\partial_B(b')$$ We notice that $g_n(b+b')=c+c'$ and $f_{n-1}(a+a')=\partial_B(b+b')$ so that $$d([c+c'])=[a+a']=[a]+[a']=d([c])+d([c'])$$ The prove is similar in showing that $d([rc])=rd([c])$
 
-This is a group homomorphism since all operations above are group homomorphisms. We now check that it is well defined under equivalence classes. In particular, we want to show that if $c\in B_n(C_\bullet)$, then $\partial(c)=0$. So suppose so. Then there exists $c'\in C_{n+1}$ such that $d(c')=c$. By surjectivity of $h$, there exists $b\in B_{n+1}$ such that $j(b)=c'$. Then we have that $$j(d(b))=d(j(b))=c'$$ In other words, $d(b)\in B_n$ is such that $j(d(b))=c'$. Following the construction of the connecting homomorphism, we obtain $d(d(b))\in B_{n-1}$ which is $0$ since $d\circ d=0$. By exactness, there exists $a\in A_{n-1}$ such that $i(a)=d(d(b))=0$. Since $i$ is injective, $a=0$ and so we are done. \\~\\
-
-Now we have to show that the sequence is exact. 
+We also need to show that the long sequence is exact. 
 \end{proof}
 \end{thm}
 
@@ -441,7 +339,7 @@ Notice that the above theorem is essentially an application of the snake lemma. 
 
 The following theorem looks horrifying but it is not as terrible as it looks. In essence, we want to show a naturality condition. This means that given a morphism of short exact sequences of chain complexes, we want an induced map that satisfies some commutative square. 
 
-\begin{thm}{}{} Let $A_\bullet,B_\bullet,C_\bullet,A_\bullet',B_\bullet',C_\bullet'$ be six chain complexes and let the following \\~\\
+\begin{thm}{}{} Let $R$ be a ring. Let the following be a short exact sequence of chain complexes in $\bold{Ch}({_R\bold{Mod}})$. Let $A_\bullet,B_\bullet,C_\bullet,A_\bullet',B_\bullet',C_\bullet'$ be six chain complexes and let the following \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	0 & {A_\bullet} & {B_\bullet} & {C_\bullet} & 0 \\
 	0 & {A_\bullet'} & {B_\bullet'} & {C_\bullet'} & 0
@@ -2152,84 +2050,25 @@ The construction of cohomology groups are functorial because the homology groups
 
 Notice that obtaining cohomology from chain complexes is covariant. 
 
-\subsection{Hom Functor for Abelian Groups}
-\begin{defn}{The Hom Set}{} Let $G,H$ be abelian groups. Denote $$\Hom(G,H)=\{\varphi:G\to H\;|\;\varphi\text{ is a group homomorphism}\}$$ the set of all homomorphisms from $G$ to $H$. 
+\subsection{The Hom Functor}
+
+\subsection{Producing a Cochain Complex from a Chain Complex}
+Let $R$ be a ring. Let $M,N$ be $R$-modules. Recall that $\Hom_R(M,N)$ is only an abelian group, and at most a $Z(R)$-ring in general. However, when $R$ is commutative, $\Hom_R(M,N)$ becomes an $R$-module. Here we treat the more general case and consider the case when $R$ is a general ring. 
+
+\begin{defn}{Dualization of a Chain Complex}{} Let $R$ be a ring. Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Let $M$ be an $R$-module. For each $R$-module $C_n$, define the associated cochain group to be $$C^n=\Hom_R(C_n,M)$$ Also define the coboundary map $\delta^n=\partial_n^\ast:C^{n-1}\to C^n$ by $$\delta^n(\phi)(\alpha)=\psi(\partial_{n+1}(\alpha))$$
 \end{defn}
 
-\begin{lmm}{}{} Let $H,G$ be abelian groups. Then the operator $$+:\Hom(H,G)\times\Hom(H,G)\to\Hom(H,G)$$ defined by $(f+g)(x)=f(x)+g(x)$ gives $\Hom(H,G)$ the structure of an abelian group. 
+\begin{lmm}{}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex and let $C^\bullet$ and $\delta^\bullet$ be the associated cochain groups and coboundary maps respectively. Then $$\delta^n\circ\delta^{n-1}=0$$ for all $n$ such that $(C^\bullet,\delta^\bullet)$ is a cochain complex. 
 \end{lmm}
 
-Recall that $\Hom(-;G):\bold{Ab}\to\bold{Set}$ for any abelian group $G$ defines a contravariant functor with the following data. 
+\begin{defn}{The Hom Functor on Chain Complexes}{} Let $R$ be a ring. Let $M$ be an $R$-module. Define the (contravariant) Hom functor on chain complexes to be the functor $$\Hom(-;M):\bold{Ch}(R)\to\bold{CCh}(\Z)$$ consisting of the following data. 
 \begin{itemize}
-\item For each abelian group $H$, the set $\Hom(H,G)$ of all group homomorphisms $H\to G$
-\item For each group homomorphism $A\to B$, a map of sets $f^\ast:\Hom(B,G)\to\Hom(A,G)$ defined by $\varphi\mapsto\varphi\circ f$. 
-\end{itemize}
-
-By the above lemma, $\Hom(H,G)$ for any abelian group $H$ is also an abelian group. Now we can also show that $f^\ast$ is a group homomorphism, so that $\Hom(-;G)$ is actually a functor with target in $\bold{Ab}$. 
-
-\begin{lmm}{}{} Let $A,B,G$ be abelian groups. Let $f:A\to B$ be a group homomorphism. Then the induced map $$f^\ast:\Hom(B,G)\to\Hom(A,G)$$ defined by $\varphi\mapsto\varphi\circ f$ is a group homomorphism. 
-\end{lmm}
-
-\begin{defn}{The Hom Functor with Target in $\bold{Ab}$}{} Define the Hom functor for any abelian group $G$ $$\Hom(-;G):\bold{Ab}\to\bold{Ab}$$ to consist of the following. 
-\begin{itemize}
-\item For each abelian group $H$ the functor assigns the abelian group $\Hom(H,G)$
-\item For each group homomorphism $f:A\to B$, $\Hom(f;G):\Hom(B,G)\to\Hom(A;G)$ is the group homomorphism defined by $$\varphi\mapsto\varphi\circ f$$
+\item For $(C_\bullet,\partial_\bullet)$ a chain complex, define a cochain complex by $C^n=\Hom(C_n;G)$ and coboundary map by $\delta_n=\partial_n^\ast$
+\item For a chain map $f_\bullet:(C_\bullet,\delta_\bullet)\to(D_\bullet,\delta_\bullet)$, define a chain map $f^\ast:D^n\to C^n$ by $\varphi\mapsto\varphi\circ f$. 
 \end{itemize}
 \end{defn}
 
-\begin{prp}{}{} Let $A,B,C$ be abelian groups. Then the $\Hom$ functor has the following properties. 
-\begin{itemize}
-\item $\Hom(A\oplus B,G)\cong\Hom(A,G)\oplus\Hom(B,G)$
-\item $\Hom(A\times B,G)\cong\Hom(A,G)\times\Hom(B,G)$
-\end{itemize} \tcbline
-\begin{proof}
-Let $\phi:A\oplus B\to G$ be a homomorphism. Define $\phi_1:A\to G$ and $\phi_2:
-B\to G$ by $\phi_1(a)=\phi(a,0)$ and $\phi_2(b)=\phi(0,b)$. I claim that the map $\phi\mapsto\phi_1\oplus\phi_2$ defines the required isomorphism. Firstly, this map is a group homomorphism. Indeed if $\phi,\rho\in\Hom(A\oplus B,G)$, then $(\phi+\rho)_1(a)=(\phi+\rho)(a,0)=\phi(a)+\rho(a)=\phi_1(a)+\rho_1(a)$ and vice versa for $(\phi+\rho)_2=\phi_2+\rho_2$. Thus $$\phi+\rho\mapsto(\phi+\rho)_1\oplus(\phi+\rho)_2=\phi_1\oplus\phi_2+\rho_1\oplus\rho_2$$ I claim that this map is injective. Let $\phi_1\oplus\phi_2=\rho_1\oplus\rho_2$. Notice that $$\rho_1(a)=\rho_1(a)+\rho_2(0)=(\rho_1\oplus\rho_2)(a\oplus 0)=(\phi_1\oplus\phi_2)(a\oplus 0)=\phi_1(a)+\phi_2(0)=\phi_1(a)$$ and vice versa for $\rho_2(b)=\phi_2(b)$. Then we have that 
-\begin{align*}
-\phi(a,b)&=\phi(a,0)+\phi(0,b)\\
-&=\phi_1(a)+\phi_2(b)\\
-&=\rho_1(a)+\rho_2(b)\\
-&=\rho(a,b)
-\end{align*}
-Thus this map is injective. Finally, for any $\phi\oplus\rho\in\Hom(A,G)\oplus\Hom(B,G)$, define $\theta:A\oplus B\to G$ by $\theta(a,b)=\phi(a)+\rho(b)$. This is a group homomorphism since 
-\begin{align*}
-\theta((a_1,b_1)+(a_2+b_2))&=\theta(a_1+a_2,b_1+b_2)\\
-&=\phi(a_1+a_2)+\rho(b_1+b_2)\\
-&=\phi(a_1)+\phi(a_2)+\rho(b_1)+\rho(b_2)\\
-&=(\phi(a_1)+\rho(b_1))+(\phi(a_2)+\rho(b_2))\\
-&=\theta(a_1,b_1)+\theta(a_2,b_2)
-\end{align*}
-Moreover, we can see that $\theta_1=\phi$ and $\theta_2=\rho$. Thus this map is surjective. Combining the above results show that the map $\phi\mapsto\phi_1\oplus\phi_2$ is a bijection, and hence gives the desired isomorphism. 
-\end{proof}
-\end{prp}
-
-Notice that the first condition can be phrased in terms of exact sequences. Namely, the proposition says that if $0\to A\to B\to C\to 0$ is split exact, then \\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & \Hom(C,G)\arrow[r, "g^\ast"] & \Hom(B,G)\arrow[r, "f^\ast"] & \Hom(A,G)\arrow[r] & 0
-\end{tikzcd}}\\~\\
-is split exact. 
-
-\begin{prp}{}{} Let $A,B,C$ be abelian groups. Let $f:A\to B$ and $g:B\to C$ be homomorphisms. Then the following are true.  
-\begin{itemize}
-\item If $A\overset{f}{\to} B\overset{g}{\to} C\to 0$ is an exact sequence, then the sequence \\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & \Hom(C,G)\arrow[r, "g^\ast"] & \Hom(B,G)\arrow[r, "f^\ast"] & \Hom(A,G)
-\end{tikzcd}}\\~\\
-is also exact for any abelian group $G$. 
-\item If $0\to A\overset{f}{\to} B\overset{g}{\to} C$ is an exact sequence, then the sequence ???
-is also exact for any abelian group $G$. 
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item We first show that $g^\ast$ is injective. Let $\phi,\rho\in\Hom(C,G)$ such that $g^\ast(\phi)=g^\ast(\rho)$. This means that $\phi\circ g=\rho\circ g$. Let $c\in C$. Since $g$ is surjective, there exists $b\in B$ such that $g(b)=c$. Then $$\phi(c)=\phi(g(b))=\rho(g(b))=\rho(c)$$ Hence $\phi=\rho$. \\~\\
-
-Now we show that $\im(g^\ast)\subseteq\ker(f^\ast)$. Let $g^\ast(\phi)\in\Hom(B,G)$ for $\phi\in\Hom(C,G)$. We want to show that $f^\ast(g^\ast(\phi))=0$. But we have that $$(\phi\circ g\circ f)(a)=\phi(g(f(a))=\phi(0)=0$$ since $\im(f)=\ker(g)$. Thus we conclude. \\~\\
-
-Finally we show that $\ker(f^\ast)\subseteq\im(g^\ast)$. Let $f^\ast(\phi)=0$ for $\phi\in\Hom(B,G)$. This means that $\phi\circ f=0$ or in other words, $\im(f)\subseteq\ker(\phi)$.
-Since $\phi(k)=0$ for all $k\in\im(f)$, $\phi$ descends to a map $\overline{\phi}:\frac{B}{\im(f)}\to G$. But $\im(f)=\ker(g)$ hence this is equivalent to a map $\overline{\phi}:\frac{B}{\ker(g)}\to G$. But by the first isomorphism theorem and the fact that $g$ is surjective, we conclude that $\overline{g}:\frac{B}{\ker(g)}\overset{g}{\cong} C$, where $b+\ker(g)\mapsto g(b)$. Thus we have constructed a map $\overline{\phi}\circ\overline{g}^{-1}:C\to G$ given by $g(b)\mapsto b+\ker(g)\mapsto\phi(b)$. But now $g^\ast(\overline{\phi}\circ\overline{g}^{-1})$ is the map defined by $$b\mapsto g(b)\mapsto b+\ker(g)\mapsto\phi(b)$$ and so this map is exactly $\phi$. Thus $\phi\in\im(g^\ast)$. 
-\end{itemize}
-\end{proof}
-\end{prp}
+If $R$ is commutative, we can upgrade the structure of the Hom sets to get a Hom functor of the form $$\Hom(-;M):\bold{Ch}(R)\to\bold{Ch}(R)$$
 
 \begin{prp}{}{} Let $C_\bullet,D_\bullet,E_\bullet\in\bold{Ch}(\Z)$ be chain complexes such that the short exact sequence \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -2250,25 +2089,11 @@ of chain complexes is degree wise split (this means that $D_n\cong C_n\oplus E_n
 is also a short exact sequence of chain complexes. 
 \end{prp}
 
-\subsection{Producing a Cochain Complex from a Chain Complex}
-\begin{defn}{Dualization of a Chain Complex}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Let $G$ be a fixed abelian group. For each abelian group $C_n$, define the associated cochain group to be $$C^n=\Hom(C_n,G)$$ Also define the coboundary map $\delta^n=\partial_n^\ast:C^{n-1}\to C^n$ by $$\delta^n(\phi)(\alpha)=\psi(\partial_{n+1}(\alpha))$$
-\end{defn}
-
-\begin{lmm}{}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex and let $C^\bullet$ and $\delta^\bullet$ be the associated cochain groups and coboundary maps respectively. Then $$\delta^n\circ\delta^{n-1}=0$$ for all $n$ such that $(C^\bullet,\delta^\bullet)$ is a cochain complex. 
-\end{lmm}
-
-\begin{defn}{The Hom Functor on Chain Complexes}{} Define the (contravariant) Hom functor on chain complexes for any abelian group $G$ to be the functor $$\Hom(-;G):\bold{Ch}(\Z)\to\bold{CCh}(\Z)$$ consisting of the following data. 
-\begin{itemize}
-\item For $(C_\bullet,\partial_\bullet)$ a chain complex, define a cochain complex by $C^n=\Hom(C_n;G)$ and coboundary map by $\delta_n=\partial_n^\ast$
-\item For a chain map $f_\bullet:(C_\bullet,\delta_\bullet)\to(D_\bullet,\delta_\bullet)$, define a chain map $f^\ast:D^n\to C^n$ by $\varphi\mapsto\varphi\circ f$. 
-\end{itemize}
-\end{defn}
-
 We have now defined a series of functors. We also recap on the material in section 1. 
 \begin{itemize}
 \item We have defined the homology functor of chain complexes $$H_n:\bold{Ch}(\Z)\to\bold{Ab}$$ for each $n\in\N$. 
 \item Using the very same functor, but thinking about cochain complexes as chain complexes in the wrong direction, we have also defined the cohomology functor of cochain complexes $$H^n:\bold{CCh}(\Z)\to\bold{Ab}$$ for each $n\in\N$. 
-\item We have a functorial method of dualizing chain complexes into cochain complexes by the functor $$\Hom(-;G):\bold{Ch}(\Z)\to\bold{CCh}(\Z)$$ for any abelian group $G$. 
+\item Specializing to the case $R=\Z$, we have a functorial method of dualizing chain complexes into cochain complexes by the functor $$\Hom(-;A):\bold{Ch}(\Z)\to\bold{CCh}(\Z)$$ for any abelian group $A$. 
 \end{itemize}
 
 \pagebreak

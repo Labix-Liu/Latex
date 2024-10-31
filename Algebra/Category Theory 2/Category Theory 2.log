@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  19 OCT 2024 01:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  31 OCT 2024 18:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -897,6 +897,9 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \c@nlinenum=\count337
 \TeXr@lab=\toks52
 )
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgpagella.sty
 Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
 ) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
@@ -947,7 +950,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 249.
+Package hyperref Info: Option `colorlinks' set `true' on input line 253.
 ) (Category Theory 2.aux)
 \openout1 = `"Category Theory 2.aux"'.
 
@@ -1082,19 +1085,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--72
  []
 
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [4] [5] (Category Theory 2.aux)
+enc}] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
+
+ []
+
+[6] (Category Theory 2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Category Theory 2".out' has not changed.
-(rerunfilecheck)             Checksum: F5E9D4A5E249B41F3B67354E5C8EF270;792.
+(rerunfilecheck)             Checksum: 044F01923666FA15489578C5D887E012;1231.
  ) 
 Here is how much of TeX's memory you used:
- 32538 strings out of 474424
- 642961 string characters out of 5741739
+ 32785 strings out of 474424
+ 648289 string characters out of 5741739
  1965496 words of memory out of 5000000
- 54348 multiletter control sequences out of 15000+600000
+ 54585 multiletter control sequences out of 15000+600000
  597664 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,16n,120p,568b,1471s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1104,14 +1112,18 @@ fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liula/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/l
-iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Use
-rs/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Category Theory 2.pdf" (5 pages, 217430 bytes).
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/li
+ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/
+Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.
+pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
+ymbols/msam10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/tex-gyre/qplr.pfb>
+Output written on "Category Theory 2.pdf" (6 pages, 256221 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 19 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 169 PDF objects out of 1000 (max. 8388607)
+ 26 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 

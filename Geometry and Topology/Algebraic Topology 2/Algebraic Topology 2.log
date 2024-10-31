@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  28 OCT 2024 21:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  31 OCT 2024 06:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1079,206 +1079,188 @@ la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 \openout5 = `"Algebraic Topology 2.toc"'.
 
  [3]
-Overfull \hbox (4.68163pt too wide) in paragraph at lines 33--34
+Overfull \hbox (4.68163pt too wide) in paragraph at lines 34--35
 \T1/qpl/m/n/10 lated no-tions of chain com-plexes and ex-act se-quences be-fore
  div-ing into the topol-ogy side of things. 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
-
  []
 
 [4]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 64.
+d on input line 91.
 
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
+ []
+
+[6] [7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-
- []
-
-[5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 159--173
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--173
-
- []
-
-[7] [8] [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 292--293
+Underfull \hbox (badness 10000) in paragraph at lines 267--299
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 292--293
+Underfull \hbox (badness 10000) in paragraph at lines 267--299
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--322
+Underfull \hbox (badness 10000) in paragraph at lines 267--299
+
+ []
+
+[9]
+Underfull \hbox (badness 1521) in paragraph at lines 300--300
+[]\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 R$ \T1/qpl/m/n/10 be a ring. Let the fol
+-low-ing be a short ex-act se-quence of chain com-plexes in 
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--322
-
- []
-
-[11] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
-
+Underfull \hbox (badness 1521) in paragraph at lines 342--342
+[]\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 R$ \T1/qpl/m/n/10 be a ring. Let the fol
+-low-ing be a short ex-act se-quence of chain com-plexes in 
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 440--441
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 440--441
-
- []
-
-[15] [16] [17] [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 621--622
+[11] [12] [13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 621--622
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
 
  []
 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 661--662
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 661--662
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 559--560
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 663--664
+Underfull \hbox (badness 10000) in paragraph at lines 559--560
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 663--664
-
- []
-
-[21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 690--691
+Underfull \hbox (badness 10000) in paragraph at lines 561--562
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 690--691
+Underfull \hbox (badness 10000) in paragraph at lines 561--562
+
+ []
+
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 588--589
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 697--698
+Underfull \hbox (badness 10000) in paragraph at lines 588--589
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 697--698
+Underfull \hbox (badness 10000) in paragraph at lines 595--596
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 704--705
+Underfull \hbox (badness 10000) in paragraph at lines 595--596
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 704--705
+Underfull \hbox (badness 10000) in paragraph at lines 602--603
 
  []
 
-[23]
-Overfull \hbox (9.46637pt too wide) in paragraph at lines 726--727
+
+Underfull \hbox (badness 10000) in paragraph at lines 602--603
+
+ []
+
+[18]
+Overfull \hbox (9.46637pt too wide) in paragraph at lines 624--625
 []\T1/qpl/m/n/10 Being a chain com-plex means that the group of $\OML/cmm/m/it/
 10 n$\T1/qpl/m/n/10 -cycles and $\OML/cmm/m/it/10 n$\T1/qpl/m/n/10 -boundaries 
 are au-to-mat-i-cally de-fined. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 731--732
+Underfull \hbox (badness 10000) in paragraph at lines 629--630
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 731--732
+Underfull \hbox (badness 10000) in paragraph at lines 629--630
 
  []
 
-[24] [25] [26]
-Overfull \hbox (3.44504pt too wide) in paragraph at lines 820--821
+[19] [20] [21]
+Overfull \hbox (3.44504pt too wide) in paragraph at lines 718--719
 \T1/qpl/m/n/10 we still need to show that it is a group ho-mo-mor-phism. The fo
 l-low-ing lemma will help in the proof. 
  []
 
+[22] [23]
+Underfull \hbox (badness 10000) in paragraph at lines 768--769
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 768--769
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 779--781
+
+ []
+
+[24] [25] [26]
+Underfull \hbox (badness 10000) in paragraph at lines 811--812
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 811--812
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 818--819
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 818--819
+
+ []
+
 [27] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 870--871
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 870--871
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 881--883
-
- []
-
-[29] [30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 913--914
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 913--914
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 920--921
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 920--921
-
- []
-
-[32] [33]
-Overfull \hbox (6.00711pt too wide) in paragraph at lines 977--978
+Overfull \hbox (6.00711pt too wide) in paragraph at lines 875--876
 []\T1/qpl/m/n/10 In fact, we can find the barycen-ter in-duc-tively. Know-ing t
 he barycen-ter $\OML/cmm/m/it/10 b[]$ \T1/qpl/m/n/10 on the $\OML/cmm/m/it/10 i
 $\T1/qpl/m/n/10 th face $\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 v[]; [] ; []; [] ; v
@@ -1286,354 +1268,349 @@ $\T1/qpl/m/n/10 th face $\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 v[]; [] ; []; [] ; v
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 982--983
+Underfull \hbox (badness 10000) in paragraph at lines 880--881
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 982--983
+Underfull \hbox (badness 10000) in paragraph at lines 880--881
 
  []
 
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1027
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1027
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 924--925
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1028--1029
+Underfull \hbox (badness 10000) in paragraph at lines 924--925
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1028--1029
-
- []
-
-[35] [36] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1127--1128
+Underfull \hbox (badness 10000) in paragraph at lines 926--927
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1127--1128
+Underfull \hbox (badness 10000) in paragraph at lines 926--927
 
  []
 
-[38] [39]
-Overfull \hbox (0.99142pt too wide) in paragraph at lines 1191--1192
+[30] [31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+
+ []
+
+[33] [34]
+Overfull \hbox (0.99142pt too wide) in paragraph at lines 1089--1090
 []\T1/qpl/m/n/10 Our first ap-pli-ca-tion of the Mayer-Vietoris se-quence comes
  with the com-pu-ta-tion of the ho-mol-ogy groups
  []
 
-[40]
-Overfull \hbox (17.71152pt too wide) in paragraph at lines 1242--1243
+[35]
+Overfull \hbox (17.71152pt too wide) in paragraph at lines 1140--1141
 \T1/qpl/m/n/10 Vietoris se-quence and ho-mo-topy in-vari-ance we can com-pute t
 he sin-gu-lar ho-mol-ogy groups of the two. 
  []
 
-<Image 1.png, id=713, 498.86375pt x 503.8825pt>
+<Image 1.png, id=679, 498.86375pt x 503.8825pt>
 File: Image 1.png Graphic file (type png)
 <use Image 1.png>
-Package pdftex.def Info: Image 1.png  used on input line 1253.
+Package pdftex.def Info: Image 1.png  used on input line 1151.
 (pdftex.def)             Requested size: 149.66028pt x 151.16591pt.
-[41 <./Image 1.png>] [42] [43] [44] [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1436--1437
+[36 <./Image 1.png>] [37] [38] [39] [40]
+Underfull \hbox (badness 10000) in paragraph at lines 1334--1335
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1436--1437
+Underfull \hbox (badness 10000) in paragraph at lines 1334--1335
 
  []
 
-[46] [47] [48] [49]
-Overfull \hbox (27.27145pt too wide) in paragraph at lines 1528--1529
+[41] [42] [43] [44]
+Overfull \hbox (27.27145pt too wide) in paragraph at lines 1426--1427
 []\T1/qpl/m/n/10 Relative ho-mol-ogy also sat-is-fies the ho-mo-topy in-vari-an
 ce prop-erty and has the Mayer-Vietoris se-quence. 
  []
 
-[50] [51]
-Underfull \hbox (badness 10000) in paragraph at lines 1647--1648
+[45] [46]
+Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1647--1648
+Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1649--1650
+Underfull \hbox (badness 10000) in paragraph at lines 1547--1548
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1649--1650
+Underfull \hbox (badness 10000) in paragraph at lines 1547--1548
 
  []
 
-[52]
-Overfull \hbox (9.17105pt too wide) in paragraph at lines 1666--1667
+[47]
+Overfull \hbox (9.17105pt too wide) in paragraph at lines 1564--1565
 \T1/qpl/m/n/10 Local ho-mol-ogy for-gets ev-ery-thing on the space $\OML/cmm/m/
 it/10 X$ \T1/qpl/m/n/10 ex-cept for a small neigh-bour-hood around a point. 
  []
 
-[53] [54]
-Underfull \hbox (badness 10000) in paragraph at lines 1748--1749
+[48] [49]
+Underfull \hbox (badness 10000) in paragraph at lines 1646--1647
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1748--1749
+Underfull \hbox (badness 10000) in paragraph at lines 1646--1647
 
  []
 
-[55] [56] [57]
-Overfull \hbox (5.71089pt too wide) in paragraph at lines 1809--1810
+[50] [51] [52]
+Overfull \hbox (5.71089pt too wide) in paragraph at lines 1707--1708
 \T1/qpl/m/n/10 by propo-si-tion 6.2.2. How-ever, there is an ob-vi-ous iso-mor-
 phism which makes the def-i-ni-tion clearer. 
  []
 
-<Image 3.png, id=828, 810.02625pt x 310.15875pt>
+<Image 3.png, id=794, 810.02625pt x 310.15875pt>
 File: Image 3.png Graphic file (type png)
 <use Image 3.png>
-Package pdftex.def Info: Image 3.png  used on input line 1833.
+Package pdftex.def Info: Image 3.png  used on input line 1731.
 (pdftex.def)             Requested size: 405.01213pt x 155.079pt.
-<Image 4.png, id=829, 849.1725pt x 296.10625pt>
+<Image 4.png, id=795, 849.1725pt x 296.10625pt>
 File: Image 4.png Graphic file (type png)
 <use Image 4.png>
-Package pdftex.def Info: Image 4.png  used on input line 1858.
+Package pdftex.def Info: Image 4.png  used on input line 1756.
 (pdftex.def)             Requested size: 424.5852pt x 148.05275pt.
 
-Overfull \hbox (2.91525pt too wide) in paragraph at lines 1858--1859
+Overfull \hbox (2.91525pt too wide) in paragraph at lines 1756--1757
  [] 
  []
 
-[58 <./Image 3.png>] [59 <./Image 4.png>] [60]
-Underfull \hbox (badness 10000) in paragraph at lines 1913--1934
+[53 <./Image 3.png>] [54 <./Image 4.png>] [55]
+Underfull \hbox (badness 10000) in paragraph at lines 1811--1832
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1913--1934
+Underfull \hbox (badness 10000) in paragraph at lines 1811--1832
 
  []
 
-[61]
-Underfull \hbox (badness 10000) in paragraph at lines 1950--1956
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1950--1956
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 1848--1854
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1950--1956
+Underfull \hbox (badness 10000) in paragraph at lines 1848--1854
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1966--1967
+Underfull \hbox (badness 10000) in paragraph at lines 1848--1854
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1966--1967
+Underfull \hbox (badness 10000) in paragraph at lines 1864--1865
 
  []
 
 
-Overfull \hbox (13.32161pt too wide) in paragraph at lines 1968--1969
+Underfull \hbox (badness 10000) in paragraph at lines 1864--1865
+
+ []
+
+
+Overfull \hbox (13.32161pt too wide) in paragraph at lines 1866--1867
 []\T1/qpl/m/n/10 We can now com-pute the sin-gu-lar ho-mol-ogy of more com-pli-
 cated spaces such as the pro-jec-tive space. 
  []
 
-[62] [63] [64]
-Overfull \hbox (0.90508pt too wide) in paragraph at lines 2063--2064
+[57] [58] [59]
+Overfull \hbox (0.90508pt too wide) in paragraph at lines 1961--1962
 []\T1/qpl/m/n/10 We can fi-nally show that sim-pli-cial ho-mol-ogy is in-de-pen
 -dent of the choice of $\OT1/cmr/m/n/10 ^^A$\T1/qpl/m/n/10 -complex struc-ture.
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2078--2079
+Underfull \hbox (badness 10000) in paragraph at lines 1976--1977
 
  []
 
-[65]
-Underfull \hbox (badness 10000) in paragraph at lines 2116--2117
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2116--2117
-
- []
-
-[66] [67] [68]
-Underfull \hbox (badness 10000) in paragraph at lines 2206--2211
-
- []
-
-[69] [70] [71] [72] [73]
-Underfull \hbox (badness 10000) in paragraph at lines 2370--2371
+[60]
+Underfull \hbox (badness 10000) in paragraph at lines 2014--2015
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2372--2373
+Underfull \hbox (badness 10000) in paragraph at lines 2014--2015
+
+ []
+
+[61] [62] [63] [64] [65] [66]
+Underfull \hbox (badness 10000) in paragraph at lines 2195--2196
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2372--2373
+Underfull \hbox (badness 10000) in paragraph at lines 2197--2198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2374--2375
+Underfull \hbox (badness 10000) in paragraph at lines 2197--2198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2374--2375
-
- []
-
-[74] [75] [76] [77] [78] [79]
-Underfull \hbox (badness 10000) in paragraph at lines 2652--2653
+Underfull \hbox (badness 10000) in paragraph at lines 2199--2200
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2652--2653
+Underfull \hbox (badness 10000) in paragraph at lines 2199--2200
 
  []
 
-[80] [81] [82]
-Underfull \hbox (badness 10000) in paragraph at lines 2753--2754
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2753--2754
+[67] [68] [69] [70] [71] [72]
+Underfull \hbox (badness 10000) in paragraph at lines 2477--2478
 
  []
 
 
-Overfull \hbox (1.4395pt too wide) detected at line 2785
+Underfull \hbox (badness 10000) in paragraph at lines 2477--2478
+
+ []
+
+[73] [74] [75]
+Underfull \hbox (badness 10000) in paragraph at lines 2578--2579
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2578--2579
+
+ []
+
+
+Overfull \hbox (1.4395pt too wide) detected at line 2610
 []
  []
 
-[83] [84] [85] [86] [87] [88] [89] [90]
-Underfull \hbox (badness 10000) in paragraph at lines 2975--2994
+[76] [77] [78] [79] [80] [81] [82] [83]
+Underfull \hbox (badness 10000) in paragraph at lines 2800--2819
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2975--2994
+Underfull \hbox (badness 10000) in paragraph at lines 2800--2819
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2975--2994
+Underfull \hbox (badness 10000) in paragraph at lines 2800--2819
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2975--2994
+Underfull \hbox (badness 10000) in paragraph at lines 2800--2819
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2975--2994
+Underfull \hbox (badness 10000) in paragraph at lines 2800--2819
 
  []
 
-[91] [92] [93]
-Underfull \hbox (badness 10000) in paragraph at lines 3047--3048
+[84] [85] [86]
+Underfull \hbox (badness 10000) in paragraph at lines 2872--2873
 
  []
 
-[94] [95] [96]
-Underfull \hbox (badness 10000) in paragraph at lines 3081--3082
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3112--3113
+[87] [88] [89]
+Underfull \hbox (badness 10000) in paragraph at lines 2906--2907
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3112--3113
-
- []
-
-[97]
-Underfull \hbox (badness 10000) in paragraph at lines 3147--3148
+Underfull \hbox (badness 10000) in paragraph at lines 2937--2938
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3147--3148
+Underfull \hbox (badness 10000) in paragraph at lines 2937--2938
 
  []
 
-[98]
-Overfull \hbox (7.22758pt too wide) in paragraph at lines 3149--3151
+[90]
+Underfull \hbox (badness 10000) in paragraph at lines 2972--2973
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2972--2973
+
+ []
+
+[91]
+Overfull \hbox (7.22758pt too wide) in paragraph at lines 2974--2976
 []\T1/qpl/m/n/10 In fact, this sub-sec-tion will also prove a uni-fi-ca-tion th
 e-o-rem for the fol-low-ing four ho-molog the-o-ries: 
  []
 
-[99]
-Underfull \hbox (badness 10000) in paragraph at lines 3202--3203
+[92]
+Underfull \hbox (badness 10000) in paragraph at lines 3027--3028
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3202--3203
+Underfull \hbox (badness 10000) in paragraph at lines 3027--3028
 
  []
 
-[100] [101] [102] [103]
-Overfull \hbox (24.79155pt too wide) in paragraph at lines 3320--3321
+[93] [94] [95] [96]
+Overfull \hbox (24.79155pt too wide) in paragraph at lines 3145--3146
 []\T1/qpl/m/n/10 The above propo-si-tion al-lows the fol-low-ing def-i-ni-tion 
 to be well de-fined un-der dif-fer-ent CW-complexes. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3325--3326
+Underfull \hbox (badness 10000) in paragraph at lines 3150--3151
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3325--3326
+Underfull \hbox (badness 10000) in paragraph at lines 3150--3151
 
  []
 
-[104] [105] (Algebraic Topology 2.aux)
+[97] [98] (Algebraic Topology 2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Algebraic Topology 2".out' has not changed.
 
-(rerunfilecheck)             Checksum: EE2F0D9C6EEB1F52BE5BE32AC7116B08;14252.
+(rerunfilecheck)             Checksum: C36B69AE52C1B72C0FC809613EBA9623;14045.
  ) 
 Here is how much of TeX's memory you used:
- 40850 strings out of 474424
- 850626 string characters out of 5741739
- 2021496 words of memory out of 5000000
- 62237 multiletter control sequences out of 15000+600000
+ 40077 strings out of 474424
+ 830097 string characters out of 5741739
+ 2017496 words of memory out of 5000000
+ 61485 multiletter control sequences out of 15000+600000
  600947 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,22n,120p,1319b,1541s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1660,9 +1637,9 @@ pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/q
 plb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gy
 re/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/te
 x-gyre/qplri.pfb>
-Output written on "Algebraic Topology 2.pdf" (105 pages, 1388068 bytes).
+Output written on "Algebraic Topology 2.pdf" (98 pages, 1348148 bytes).
 PDF statistics:
- 1345 PDF objects out of 1440 (max. 8388607)
- 438 named destinations out of 1000 (max. 500000)
- 604 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1292 PDF objects out of 1440 (max. 8388607)
+ 417 named destinations out of 1000 (max. 500000)
+ 596 words of extra memory for PDF output out of 10000 (max. 10000000)
 

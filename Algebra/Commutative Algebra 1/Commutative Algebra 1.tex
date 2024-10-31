@@ -479,6 +479,93 @@ Suppose that $a_1,\dots,a_n\in M$ generates $M$ as an $R$-module. By the same ar
 \end{thm}
 
 \pagebreak
+\section{Exact Sequences of Modules over Commutative Rings}
+\subsection{Properties of the Hom Set}
+Let $R$ be a ring. Let $M,N$ be $R$-modules. Recall that in Rings and Modules that $\Hom_R(M,N)$ is a $Z(R)$-modules. When $R$ is commutative, $Z(R)=R$ so that the Hom set becomes an $R$-module. 
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M,N$ be $R$-modules. Then $$\Hom_R(M,N)$$ is an $R$-module with the following binary operations. 
+\begin{itemize}
+\item For $\phi,\varphi:M\to N$ two $R$-module homomorphisms, define $\phi+\varphi:M\to N$ by $(\phi+\varphi)(m)=\phi(m)+\varphi(m)$ for all $m\in M$
+\item For $\phi:M\to N$ an $R$-module homomorphism and $r R$, define $r\phi:M\to N$ by $(r\phi)(m)=r\cdot\phi(m)$ for all $m\in M$. 
+\end{itemize} 
+In particular, it is an abelian group. \tcbline
+\begin{proof}
+We first show that the addition operation gives the structure of a group. 
+\begin{itemize}
+\item Since $M$ is associative as an additive group, associativity follows
+\item Clearly the zero map $0\in\Hom_R(M,N)$ acts as the additive inverse since for any $\phi\in\Hom_R(M,N)$, we have that $\phi(m)+0=0+\phi(m)=\phi(m)$ since $0$ is the additive identity for $M$
+\item For every $\phi\in\Hom_R(M,N)$, the map taking $m$ to $-\phi(m)$ also lies in $\Hom_R(M,N)$. Since $-\phi(m)$ is the inverse of $\phi(m)$ in $M$ for each $m\in M$, we have that $-\phi$ is the inverse of $\phi$
+\end{itemize}
+We now show that 
+\begin{itemize}
+\item Let $r,s\in R$, we have that $((sr)\phi)(m)=(sr)\cdot\phi(m)=s\cdot(r\cdot\phi(m))=s(r(\phi))(m)$ and hence we showed associativity. 
+\item It is clear that $1_R\in R$ acts as the identity of the operation. 
+\end{itemize}
+Thus we are done. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $I$ be an indexing set. Let $M_i,N$ be $R$-modules for $i\in I$. Then the following are true. 
+\begin{itemize}
+\item There is an isomorphism $$\Hom\left(\bigoplus_{i\in I}M_i,N\right)\cong\bigoplus_{i\in I}\Hom(M_i,N)$$
+\item There is an isomorphism $$\Hom\left(\prod_{i\in I}M_i,N\right)\cong\prod_{i\in I}\Hom(M_i,N)$$
+\end{itemize} \tcbline
+\end{prp}
+
+\begin{defn}{Induced Map of Hom}{} Let $R$ be a commutative ring. Let $M_1,M_2,N$ be $R$-modules. Let $f:M_1\to M_2$ be an $R$-module homomorphism. Define the induced map $$f^\ast:\Hom_R(M_2,N)\to\Hom(M_1,N)$$ by the formula $\varphi\mapsto\varphi\circ f$
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $M_1,M_2,N$ be $R$-modules. Let $f:M_1\to M_2$ be an $R$-module homomorphism. Then the induced map $$f^\ast:\Hom(M_2,N)\to\Hom(M_1,N)$$ is an $R$-module homomorphism. 
+\end{lmm}
+
+\subsection{Applying Hom and Tensor to Exact Sequences}
+\begin{prp}{}{} Let $R$ be a commutative ring. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & M_1 & M_2 & M_3 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\ Let $N$ be an $R$-module. Then the following sequence \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	0 & {\Hom_R(M_3.N)} & {\Hom_R(M_2,N)} & {\Hom_R(M_1,N)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{g^\ast}", from=1-2, to=1-3]
+	\arrow["{f^\ast}", from=1-3, to=1-4]
+\end{tikzcd}} \\~\\ 
+is exact. \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item We first show that $g^\ast$ is injective. Let $\phi,\rho\in\Hom(C,G)$ such that $g^\ast(\phi)=g^\ast(\rho)$. This means that $\phi\circ g=\rho\circ g$. Let $c\in C$. Since $g$ is surjective, there exists $b\in B$ such that $g(b)=c$. Then $$\phi(c)=\phi(g(b))=\rho(g(b))=\rho(c)$$ Hence $\phi=\rho$. \\~\\
+
+Now we show that $\im(g^\ast)\subseteq\ker(f^\ast)$. Let $g^\ast(\phi)\in\Hom(B,G)$ for $\phi\in\Hom(C,G)$. We want to show that $f^\ast(g^\ast(\phi))=0$. But we have that $$(\phi\circ g\circ f)(a)=\phi(g(f(a))=\phi(0)=0$$ since $\im(f)=\ker(g)$. Thus we conclude. \\~\\
+
+Finally we show that $\ker(f^\ast)\subseteq\im(g^\ast)$. Let $f^\ast(\phi)=0$ for $\phi\in\Hom(B,G)$. This means that $\phi\circ f=0$ or in other words, $\im(f)\subseteq\ker(\phi)$.
+Since $\phi(k)=0$ for all $k\in\im(f)$, $\phi$ descends to a map $\overline{\phi}:\frac{B}{\im(f)}\to G$. But $\im(f)=\ker(g)$ hence this is equivalent to a map $\overline{\phi}:\frac{B}{\ker(g)}\to G$. But by the first isomorphism theorem and the fact that $g$ is surjective, we conclude that $\overline{g}:\frac{B}{\ker(g)}\overset{g}{\cong} C$, where $b+\ker(g)\mapsto g(b)$. Thus we have constructed a map $\overline{\phi}\circ\overline{g}^{-1}:C\to G$ given by $g(b)\mapsto b+\ker(g)\mapsto\phi(b)$. But now $g^\ast(\overline{\phi}\circ\overline{g}^{-1})$ is the map defined by $$b\mapsto g(b)\mapsto b+\ker(g)\mapsto\phi(b)$$ and so this map is exactly $\phi$. Thus $\phi\in\im(g^\ast)$. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & M_1 & M_2 & M_3 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\ Let $N$ be an $R$-module. Then the following sequence \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{M_1\otimes N} & {M_2\otimes N} & {M_3\otimes N} & 0
+	\arrow["{f\otimes\text{id}_N}", from=1-1, to=1-2]
+	\arrow["{g\otimes\text{id}_N}", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}} \\~\\
+is exact. 
+\end{prp}
+
+However, one can observe that we did not imply that $M_1\otimes N\to M_2\otimes N$ is                                                             injective. Indeed, this is because tensoring does not preserve injections. 
+
+\pagebreak
 \section{Algebra Over a Commutative Ring}
 \subsection{Commutative Algebras}
 \begin{defn}{Commutative Algebras}{} Let $R$ be a commutative ring. A commutative $R$-algebra is an $R$-algebra $A$ that is commutative. 

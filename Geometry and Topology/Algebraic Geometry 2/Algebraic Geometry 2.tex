@@ -86,28 +86,75 @@ Unfortunately one big problem in classical algebraic geometry is that the ringed
 
 \pagebreak
 \section{The Construction of Schemes}
-\subsection{The Vanishing Locus for Spectra}
-What follows is that we will repeat what we did with affine algebraic sets and affine algebraic varieties, except that we now consider the spectrum of a ring instead of the affine space $\A_k^n$. 
+\subsection{Max Spec and its Topology}
+Let $V\subseteq\A_\C^n$ be an affine variety. Recall that the coordinate ring is an invariant algebraic object of $V$. Given a finitely generated and reduced $\C$-algebra, recall that this is the coordinate ring of sub variety $V$. In particular, we wish to reconstruct the geometry of $V$ just from the $\C$-algebra. 
 
-\begin{defn}{Zero Locus}{} Let $A$ be a commutative ring. Let $S\subseteq A$. Define the vanishing locus of $S$ to be $$\V(S)=\{p\in\text{Spec}(A)\;|\;S\subseteq p\}$$
+\begin{defn}{Vanishing Locus for Spec}{} Let $A$ be a commutative ring. Let $S\subseteq A$ be a subset. Define the vanishing locus of $S$ to be the set $$\V^{\text{mS}}(S)=\{P\in\text{Spec}(A)\;|\;S\subseteq P\}$$
 \end{defn}
-
-This definition is motivated by the following reason. Consider $A=k[x]$. A subset $S$ of $A$ is just a collection of polynomials over $x$. By Hilbert's Nullstellensatz, points correspond to maximal ideals. So $\V(S)$ should be defined as $$\V(S)=\{p\in\text{maxSpec}(A)\;|\:S\subseteq p\}$$ This way of defining $\V(S)$ would be a complete analogue for the zero loci in classical algebraic geometry. This definition turns out to not be the right notion because ring homomorphisms does not reflect maximal ideals. 
 
 \begin{lmm}{}{} Let $A$ be a commutative ring. The following are true. 
 \begin{itemize}
-\item Let $\{a_i|i\in I\}$ be a countable set of ideals of $A$, then $$\V\left(\sum_{i\in I}a_i\right)=\bigcap_{i\in I}\V(a_i)$$
-\item Let $\{a_1,\dots,a_n\}$ be a finite set of ideals of $A$, then $$\V\left(\bigcap_{k=1}^na_k\right)=\bigcup_{k=1}^n\V(a_k)$$
+\item Let $\{a_i|i\in I\}$ be a countable set of ideals of $A$, then $$\V^\text{mS}\left(\sum_{i\in I}a_i\right)=\bigcap_{i\in I}\V^\text{mS}(a_i)$$
+\item Let $\{a_1,\dots,a_n\}$ be a finite set of ideals of $A$, then $$\V^\text{mS}\left(\bigcap_{k=1}^na_k\right)=\bigcup_{k=1}^n\V^\text{mS}(a_k)$$
 \end{itemize}
 \end{lmm}
 
-\begin{defn}{Ideals from a Zero Locus}{} Let $A$ be a commutative ring. Let $V\subseteq\text{Spec}(R)$. Define $$\I(V)=\{f\in A\;|\;f\in p\text{ for all }p\in V\}$$
+\begin{defn}{Zariski Topology for Spec}{} Let $A$ be a commutative ring. Let $S\subseteq A$ be a subset. Define the Zariski topology on $\text{Spec}(A)$ to be the topology where the closed sets are precisely $\V^\text{mS}(I)$ for $I\subseteq A$ an ideal. 
 \end{defn}
 
-\subsection{Zariski Topology of a Spectrum}
-\begin{defn}{Zariski Topology}{} Let $A$ be a commutative ring. Define the Zariski topology on $\text{Spec}(A)$ to be the topology where the closed sets are exactly sets of the form $\V(S)$ for $S\subseteq A$. 
+By the relative nullstellensatz, we obtain a one-to-one bijection $$\text{Points of }V\;\;\overset{1:1}{\longleftrightarrow}\;\;\text{Maximal ideals in }\C[V]=\text{maxSpec}(\C[V])$$ Recall that a subset $W$ of $V$ is closed if $W=\V(I)$ is the vanishing locus of some ideal $I$ of $\C[V]$. This means that we have a bijection $$\{\text{Closed Subsets of }V\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\{\V(I)\;|\;I\text{ an ideal of }\C[V]\}$$ Now $x\in W=\V(I)$ if and only if the maximal ideal $m_x$ corresponding to $x$ contains $I$. This shows that the under this bijection, the two notions of Zariski topology coincide. 
+
+\begin{prp}{}{} Let $V$ be an affine variety over $\C$. Then the Zariski topology on $V$ and $\text{Spec}(\C[V])$ are homeomorphic via the bijection $$\text{Points of }V\;\;\overset{1:1}{\longleftrightarrow}\;\;\text{Maximal ideals in }\C[V]=\text{maxSpec}(\C[V])$$
+\end{prp}
+
+This gives the reason why we call the above topology on $\text{Spec}(A)$ the Zariski topology. However, there is a huge caveat with this definition. Recall that for a $\C$-algebra homomorphism $\C[W]\to\C[V]$, a certain bijection from Algebraic Geometry 1 says that this defines a unique morphism $V\to W$. Because we would like to identify $\text{maxSpec}(\C[V])$ with $V$, we would ideally like a continuous map $\text{maxSpec}(\C[V])\to\text{maxSpec}(\C[W])$. Indeed we have this. 
+
+\begin{lmm}{}{} Let $k$ be a field. Let $V,W$ be affine varieties over $k$. Let $\phi:V\to W$ be a morphism of affine varieties. Let $m_x$ be the maximal ideal in $\C[V]$ corresponding to a point $x\in V$. Then $$(\phi^\ast)^{-1}(m_x)=m_{\phi(x)}$$
+\end{lmm}
+
+\begin{defn}{Induced Map on Max Spectrum}{} Let $k$ be a field. Let $V,W$ be affine varieties over $k$. Let $\phi:V\to W$ be a morphism of affine varieties. Define the function $$\phi^\flat:\text{maxSpec}(\C[V])\to\text{maxSpec}(\C[W])$$ by the formula $m\mapsto\phi^{-1}(m)$
 \end{defn}
 
+We thus now have the following nice diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\text{maxSpec}(\C[V])} & {\text{maxSpec}(\C[W])} \\
+	V & W
+	\arrow["{\phi^\flat}", from=1-1, to=1-2]
+	\arrow["{1:1}"', leftrightarrow, from=1-1, to=2-1]
+	\arrow["{1:1}", leftrightarrow, from=1-2, to=2-2]
+	\arrow["\phi"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+
+However, for arbitrary ring homomorphisms $S\to R$ (instead of morphisms between coordinate rings), maximal ideals cannot be reflected. Since we would like to define algebraic geometry on all rings, we need to tweak our definition of maxSpec. 
+
+\subsection{Spectrum and its Topology}
+Recall that for $A$ a commutative ring, we defined $$\text{Spec}(A)=\{P\subseteq A\;|\;P\text{ is a prime ideal of }A\}$$ We can similarly define the notion of vanishing loci of $\text{Spec}(A)$. 
+
+\begin{defn}{Zero Locus}{} Let $A$ be a commutative ring. Let $T\subseteq A$. Define the vanishing locus of $T$ to be $$\V^\text{S}(T)=\{p\in\text{Spec}(A)\;|\;T\subseteq p\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $A$ be a commutative ring. The following are true. 
+\begin{itemize}
+\item Let $\{a_i|i\in I\}$ be a countable set of ideals of $A$, then $$\V^\text{S}\left(\sum_{i\in I}a_i\right)=\bigcap_{i\in I}\V^\text{S}(a_i)$$
+\item Let $\{a_1,\dots,a_n\}$ be a finite set of ideals of $A$, then $$\V^\text{S}\left(\bigcap_{k=1}^na_k\right)=\bigcup_{k=1}^n\V^\text{S}(a_k)$$
+\end{itemize}
+\end{lmm}
+
+\begin{defn}{Zariski Topology on Spec}{} Let $A$ be a commutative ring. Define the Zariski topology on $\text{Spec}(A)$ to be the topology where the closed sets are exactly sets of the form $\V(I)$ for $I\subseteq A$ an ideal of $A$. 
+\end{defn}
+
+Let us look at some examples of the Zariski topology on spectra. When $A=\Z$, then recall that $$\text{Spec}(\Z)=\{(p)\;|\;p\text{ is a prime }\}\cup\{(0)\}$$ Notice that the former set is just maxSpec, which returns some the original geometric picture of $\Z$ (only some because $\Z$ is not a coordinate ring). Now if $V$ is a closed set of $\text{Spec}(\Z)$, then $V=\V(I)$ for some ideal $I$ of $\Z$. But $\Z$ is a PID so $I=(k)$ for some $k\in\Z$. Then $$V=\V(I)=\{p\in\text{Spec}(\Z)\;|\;p\;|\;k\}$$ is noticeably a finite set, and is empty if and only if $k=\pm1$. The zero ideal $(0)$ is not contained in any closed sets other than all of $\text{Spec}(\Z)$. Indeed $\overline{(0)}=\text{Spec}(\Z)$. \\~\\
+
+Now when $A=\C[V]$, then recall that by Hilbert's Nullstellensatz that there is an inclusion reversing bijection $$\text{Spec}(\C[V])=\left\{\substack{\text{Prime ideals of}\\ \C[V]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine irreducible}\\\text{subvarieties of } V}\right\}$$ Now if $W$ is a closed set of $\text{Spec}(\C[V])$, then $W=\V(I)$ for some ideal $I$ of $\C[V]$. The above bijection induces a bijection $$\V^\text{S}(I)=\left\{P\;|\;P\supseteq I\right\}=\left\{P\;|\;\V(P)\subseteq\V(I)\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{W\subseteq V\;|\;W\text{ is irreducible and }W\subseteq\V(I)\right\}$$~\\
+
+Consider the example where $V=\A_\C^1$. Then $$\text{Spec}(\C[t])=\underbrace{\{(t-a)\;|\;a\in\C\}}_{=\text{maxSpec}(\C[t])}\cup\{(0)\}$$ So there is still a part of the geometry of $\text{Spec}(\C[t])$ that still looks like $V=\A_\C^1$ because $\text{maxSpec}(\C[t])$ is in bijection with $\A_\C^1$. Under the Hilbert's nullstellensatz, we can also conclude that $(0)$ corresponds to the set $\{\A_\C^1\}$ considered as one point in the geometric picture of $\text{Spec}(\C[t])$. \\~\\
+
+Heuristic: $\text{Spec}(\C[V])$ is an geometric enhancement of $V$. All the point of $V$ are still in $\text{Spec}(\C[V])$, but more points are added in because for each irreducible polynomial $f$ in $\C[V]$, a new floating point is added. This floating point $(f)$ embodies the curve that the irreducible polynomial $f$ represents, in the sense that its closure $\overline{(f)}$ will contain itself as a point and all the maximal ideals $(x-a)$ for which $a$ is a point on $f$. 
+
+\begin{prp}{}{} Let $A,B$ be commutative rings. Then there is a bijection $$\left\{\substack{\text{Continuous maps}\\\text{Spec}(B)\to\text{Spec}(A)}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Ring homomorphisms}\\ A\to B}\right\}$$ given as follows. For $\phi:A\to B$ a ring homomorphism, $\phi^\ast:\text{Spec}(B)\to\text{Spec}(A)$ is the map that sends the prime ideal $P$ of $B$ to $\phi^\ast(P)=\phi^{-1}(P)$. 
+\end{prp}
+
+\subsection{The Open Sets of the Zariski Topology}
 We can also explicitly write out the open sets and a basis for the Zariski topology. 
 
 \begin{defn}{Distinguished Open Sets}{} Let $A$ be a commutative ring. Let $S\subseteq A$. Define the distinguished open set of $S$ to be $$D(S)=\{p\in\text{Spec}(A)|S\not\subseteq p\}$$ Let $f\in A$. Then the collection $$D(f)=\{p\in\text{Spec}(A)|f\notin p\}$$ for $f$ varying in $A$ are called basic open sets. 
@@ -118,8 +165,9 @@ Notice that from the definition we can directly see that $\V(S)$ and $D(S)$ part
 \begin{thm}{}{} Let $A$ be a commutative ring. The open sets of the Zariski topology of $\text{Spec}(A)$ are the sets $D(S)$ for $S\subseteq A$. Moreover, the collection $D(f)$ for $f\in A$ is a basis for the topology. 
 \end{thm}
 
-\begin{prp}{}{} Let $A,B$ be commutative rings. Then there is a bijection $$\left\{\substack{\text{Continuous maps}\\\text{Spec}(B)\to\text{Spec}(A)}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Ring homomorphisms}\\ A\to B}\right\}$$ given as follows. For $\phi:A\to B$ a ring homomorphism, $\phi^\ast:\text{Spec}(B)\to\text{Spec}(A)$ is the map that sends the prime ideal $P$ of $B$ to $\phi^\ast(P)=\phi^{-1}(P)$. 
-\end{prp}
+\subsection{Hilbert's Nullstellensatz for Spec}
+\begin{defn}{Ideals from a Zero Locus}{} Let $A$ be a commutative ring. Let $V\subseteq\text{Spec}(R)$. Define $$\I(V)=\{f\in A\;|\;f\in p\text{ for all }p\in V\}$$
+\end{defn}
 
 \begin{thm}{Scheme-theoretic Nullstellensatz}{} Let $A$ be a commutative ring. Let $J$ be an ideal of $A$. Then $\I(\V(J))=\sqrt{J}$. 
 \end{thm}
