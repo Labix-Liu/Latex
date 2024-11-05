@@ -446,9 +446,9 @@ defines a horn $\Lambda_i^{n+1}\to X$. Such a map extends to a map $\theta:\Delt
 \end{thm}
 
 \pagebreak
-\section{The Nerve-Homotopy Adjunction}
+\section{Constructing a Category from Simplicial Sets}
 \subsection{The Nerve of a Category}
-\begin{defn}{Nerve of a Category}{} Let $\mC$ be a category. Define the nerve of the category $N(C):\Delta\to\text{sSet}$ as follows. 
+\begin{defn}{Nerve of a Category}{} Let $\mC$ be a category. Define the nerve of the category $N(C)\in\bold{sSet}$ as follows. 
 \begin{itemize}
 \item For $n\in\N$, $N(C)_n$ consists of paths of morphisms with $n$ compositions: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -505,21 +505,32 @@ where $f:[m]\to[n]$ is a morphism in $\Delta$.
 \end{thm}
 
 \subsection{The Homotopy Category of a Simplicial Set}
-\begin{defn}{Homotopy Category of Simplicial Sets}{} Let $X\in\bold{sSet}$ be a simplicial set. Define the homotopy category $h(X)$ of $X$ as follows: 
-\begin{itemize}
-\item The objects are the zero set $h(X)=X_0$
-\item Every $f\in X_1=\Hom_\bold{sSet}(\Delta^1,X)$ gives a map $d_1(f)\to d_0(f)$.
-\item Composition is generated arbitrarily: for every $f$ and $g$ morphisms such that $d_0(f)=d_1(g)$, define a new morphism $h=g\ast f$. Then further modulo the morphisms by defining relations as follows: For every two simplex $\sigma:\Delta^2\to X$ such that $d_0(\sigma)=g$, $d_1(\sigma)=h$ and $d_2(\sigma)=f$, define $h\sim g\ast f$. 
-\end{itemize}
+\begin{defn}{Homotopy Category of Simplicial Sets}{} Let $X\in\bold{sSet}$. Define the homotopy category $h(X)$ and the universal map $u:X\to N(h(X))$ by the following universal property. For any category $\mD$ and morphism of simplicial sets $f:X\to N(\mD)$, there exists a unique functor $G:h(X)\to\mD$ such that the following diagram commutes. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & {N(h(X))} \\
+	& {N(\mD)}
+	\arrow["u", from=1-1, to=1-2]
+	\arrow["F"', from=1-1, to=2-2]
+	\arrow["{\exists!N(G)}", dashed, from=1-2, to=2-2]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+Note that the nerve functor $N$ is fully faithful. In other words there is a bijection $$\Hom_\bold{Cat}(\mC,\mD)\cong\Hom_\bold{sSet}(N(\mC),N(\mD))$$ This means that giving a morphism $h(X)\to\mD$ is exactly the same as giving a morphism $N(h(X))\to N(\mD)$. 
+
+\begin{lmm}{}{} Let $X\in\bold{sSet}$. Then the homotopy category $h(X)$ exists and is unique up to unique isomorphism. 
+\end{lmm}
+
+\begin{defn}{Induced Functors on Homotopy Category}{} Let $X,Y\in\bold{sSet}$. Let $F:X\to Y$ be a map of simplicial sets. Define the induced functor $$h(F):h(X)\to h(Y)$$ of $F$ to be the unique morphism corresponding to the functor $u\circ F:X\to Y\to N(h(Y))$ under the universal property of $h(X)$. 
 \end{defn}
 
 \begin{defn}{The Homotopy Functor}{} Define the homotopy functor $h:\text{sSet}\to\text{Cat}$ as follows. 
 \begin{itemize}
-\item On objects, $h$ sends a simplicial set $S:\Delta\to\text{Set}$ to 
+\item On objects, $h$ sends a simplicial set $S:\Delta\to\text{Set}$ to $h(S)$. 
+\item For $f:S\to T$ a morphism of simplicial sets, $h(f):h(S)\to h(T)$ is the induced functor on the homotopy category defined above. 
 \end{itemize}
 \end{defn}
 
-\begin{thm}{}{} The homotopy functor $h:\text{sSet}\to\text{Cat}$ is left adjoint to the nerve functor $N:\text{Cat}\to\text{sSet}$. This means that there is a natural bijection $$\Hom_\text{Cat}(h(C),D)\cong\Hom_\text{sSet}(C,N(D))$$
+\begin{thm}{}{} The homotopy functor $h$ is left adjoint $$h:\bold{sSet}\rightleftarrows\bold{Cat}:N$$ to the nerve functor $N$. This means that there is a natural bijection $$\Hom_\text{Cat}(h(C),D)\cong\Hom_\text{sSet}(C,N(D))$$
 \end{thm}
 
 \subsection{The Classifying Space}
@@ -528,6 +539,33 @@ where $f:[m]\to[n]$ is a morphism in $\Delta$.
 
 \begin{defn}{Classifying Space of a Group}{} Let $G$ be a group. Define the classifying space of $G$ to be $$BG=|N(G)|$$ where $G$ here is considered as a groupoid with one element. 
 \end{defn}
+
+\pagebreak
+\section{The Categorical Structure of $\bold{sSet}$}
+\subsection{Completeness and Cocompleteness}
+\begin{defn}{Product of Simplicial Sets}{} Let $S,T$ be simplicial sets. Define the product of $S$ and $T$ to be the simplicial set $$S\times T:\Delta\to\bold{Set}$$ by the formula $$[n]\mapsto S_n\times T_n$$
+\end{defn}
+
+\begin{prp}{}{} Let $S,T$ be simplicial sets. Then the categorical product of $S$ and $T$ is precisely $S\times T$. 
+\end{prp}
+
+\begin{lmm}{}{} Let $S,T$ be simplicial sets. Then there is a canonical homeomorphism $$\abs{S\times T}\cong\abs{S}\times\abs{T}$$ given by geometric realization. 
+\end{lmm}
+
+\subsection{The Closed Monoidal Structure of $\bold{sSet}$}
+\begin{defn}{Internal Hom of Simplicial Sets}{} Let $S,T$ be simplicial sets. Define the simplicial set $$[S,T]:\Delta\to\bold{Set}$$ by the formula $$[n]\mapsto\Hom_\bold{sSet}(\Delta^n\times S\to T)$$ By the Yoneda embedding this is well defined. 
+\end{defn}
+
+\begin{defn}{Evaluation Morphism}{} Let $S,T$ be simplicial sets. Define the evaluation morphism $$\text{Ev}:[S,T]\times S\to T$$ as follows. For $f\in[S,T]$ and $n$-simplex and $\sigma\in S$ an $n$-simplex, define an $n$-simplex in $T$ by $$\Delta^n\overset{\delta}{\rightarrow}\Delta^n\times\Delta^n\overset{\text{id}\times\sigma}{\rightarrow}\Delta^n\times S\overset{f}{\rightarrow}T$$
+\end{defn}
+
+\begin{thm}{The Closed Monoidal Adjunction}{} Let $S,T,U$ be simpplicial sets. Then there is a natural isomorphism $$\Hom_\bold{sSet}(S\times T,U)\cong\Hom_\bold{sSet}(S,[T,U])$$ induced by the post composition of the evaluation momorphism (in the opposite way). Moreover $\bold{sSet}$ is a closed monoidal category. 
+\end{thm}
+
+\begin{prp}{}{} Let $S,T$ be simplicial sets. Then the above isomorphism induces an isomorphism $$N([S,T])\cong\Hom_\bold{Cat}(N(S),N(T))$$ of categories. 
+\end{prp}
+
+We can do even better. We can show that $[S,T]$ can be canonically identified with morphisms from $S$ to $T$ so that $[S,T]=\Hom_\bold{sSet}(S,T)$, and even conclude that $\bold{sSet}$ is enriched over itself. 
 
 
 

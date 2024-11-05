@@ -29,5 +29,5 @@
 \contentsline {subsection}{\numberline {6.1}CW Complexes as a Topological Space}{47}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Properties of CW Complexes}{49}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Admitting CW-Complex Structures}{49}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Some CW Complex Structures}{50}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Computation of the Fundamental Group of CW Complexes}{54}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.4}CW Complex Structure of Projective Spaces}{50}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Computation of the Fundamental Group of CW Complexes}{55}{subsection.6.5}%

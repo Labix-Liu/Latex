@@ -29,6 +29,83 @@ References:
 \tableofcontents
 
 \pagebreak
+\section{The Categorical Viewpoint}
+Recall that the category of topological spaces $\bold{Top}$ is complete and cocomplete. This means that all kinds of limits and colimits exists in $\bold{Top}$. We have already seen the product space and disjoint union with their universal property as a limit / colimit. There are also more constructs that can be recognized / defined in terms of the universal property. 
+
+\subsection{Different Categories of Spaces}
+\begin{defn}{The Category of Pointed Topological Spaces}{} Define the category of pointed topological spaces $\bold{Top}_\ast$ to consist of the following data. 
+\begin{itemize}
+\item The objects are a pair $(X,x_0)$ where $X$ is a topological space and $x_0\in X$ is a chosen base point. 
+\item For $(X,x_0)$ and $(Y,y_0)$ two pointed spaces, the morphisms $$\Hom_{\bold{Top}_\ast}((X,x_0),(Y,y_0))=\{f:X\to Y\;|\;f\text{ is continuous and }f(x_0)=y_0\}$$ are the continuous maps from $X$ to $Y$ such that base points are preserved. 
+\item Composition is defined as the composition of functions such that base point is preserved. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $(X,x_0)$ and $(Y,y_0)$ be pointed spaces. Then the product and coproduct of the two spaces in $\bold{Top}_\ast$ are $$(X\times Y,(x_0,y_0))\;\;\;\;\text{ and }\;\;\;\;(X\vee Y,x_0=y_0)$$ respectively. 
+\end{prp}
+
+\begin{defn}{The Category of CW Complexes}{} Define the category of CW complexes $\bold{CW}$ to consist of the following data. 
+\begin{itemize}
+\item The objects are CW complexes. 
+\item For $X$ and $Y$ two CW complexes, the morphisms $$\Hom_{\bold{CW}}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}$$ are the continuous maps from $X$ to $Y$. 
+\item Composition is defined as the composition of functions. 
+\end{itemize}
+Define similarly the category $\bold{CW}_\ast$ of pointed topological spaces. 
+\end{defn}
+
+\begin{defn}{The Category of Pairs of Spaces}{} Define the category of pairs of topological spaces $\bold{Top}^2$ to consist of the following data. 
+\begin{itemize}
+\item The objects are a pair $(X,A)$ where $X$ is a topological space $A\subseteq X$ is a subspace of $X$. 
+\item For $(X,A)$ and $(Y,B)$ two pointed spaces, the morphisms $$\Hom_{\bold{Top}^2}((X,A),(Y,B))=\{f:X\to Y\;|\;f\text{ is continuous and }f(A)\subseteq B\}$$ are the continuous maps from $X$ to $Y$ such that subspaces are mapped to subspaces. 
+\item Composition is defined as the composition of functions such that subspaces are mapped to subspaces. 
+\end{itemize}
+Define similarly the category $\bold{CW}^2$ of pairs of CW complexes. 
+\end{defn}
+
+\begin{defn}{Homotopy Category of Spaces}{} Define the homotopy category of topological spaces $\bold{hTop}$ to consist of the following data. 
+\begin{itemize}
+\item The objects are topological spaces. 
+\item For $X$ and $Y$ two spaces, the morphisms $$\Hom_{\bold{CW}}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}/\sim$$ are the homotopy classes of continuous maps from $X$ to $Y$. 
+\item Composition is defined as the composition of functions. 
+\end{itemize}
+Define similar the homotopy category $\bold{hTop}_\ast$ of pointed topological spaces and pointed homotopy classes of maps. 
+\end{defn}
+
+\subsection{Categorical Constructs in the Category of Spaces}
+We have seen pushouts and pullbacks in Category Theory 1. Let us first recall them. 
+
+\begin{defn}{Adjunction Spaces}{} Let $X,Y$ be spaces and $A\subseteq X$ a subspace. Let $f:A\to Y$ be a map. Define the adjunction space of $X$ and $Y$ to be  the space $$X\amalg_fY=\frac{X\amalg Y}{a\sim f(a)}$$ together with the quotient topology. 
+\end{defn}
+
+The prototypical example of adjunction spaces come from CW complexes. It is easy to notice that the data of obtaining the $(n+1)$-skeleton inductively is the same content of a pushout diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{S_\alpha^{n-1}} & {X^n} \\
+	{D_\alpha^n} & {X^{n+1}}
+	\arrow["{\varphi_\alpha}", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["{\Phi_\alpha}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+Indeed $\Phi_\alpha$ is determined by $\varphi_\alpha$ as a property of the pushout. Collectively, we identify the attaching of all $n$-cells as the following pushout: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\coprod_{\alpha\in I_n}S_\alpha^{n-1}} && {X^n} \\
+	\\
+	{\coprod_{\alpha\in I_n}D_\alpha^n} && {X^{n+1}}
+	\arrow["{\coprod_{\alpha\in I_n}\varphi_\alpha}", from=1-1, to=1-3]
+	\arrow[hook, from=1-1, to=3-1]
+	\arrow[from=1-3, to=3-3]
+	\arrow["{\coprod_{\alpha\in I_n}\Phi_\alpha}"', from=3-1, to=3-3]
+\end{tikzcd}}\\~\\
+
+The final CW complex $X$ is then obtained by the union with the weak topology. But this is just the explicit description of the colimit of the $n$-skeletons. 
+
+\begin{prp}{}{} Let $X,Y$ be spaces and $A\subseteq X$ a subspace of $X$. Let $f:A\to Y$ be a map. Then the adjunction space $X\amalg_f Y$ is a pushout of $f$ and $i:A\to X$ in $\bold{Top}$. 
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y$ be spaces with chosen base point $x_0$ and $y_0$ respectively. Then the wedge product $$X\vee Y=X\amalg_fY$$ is an adjunction space with $Z=\{x_0\}$ and map $f:Z\to Y$ defined by $f(x_0)=y_0$. 
+\end{prp}
+
+\pagebreak
 
 \section{Algebra of Chain Complexes}
 Homological algebra is the backbone for algebraic topology. In this chapter we will first develop all related notions of chain complexes and exact sequences before diving into the topology side of things. 
@@ -804,9 +881,6 @@ By definition $\pi_\ast$ sends every $[\sigma]\in H_0(X)$ to the generator of $H
 
 Note that the upcoming two theorems: homotopy invariance and Mayer Vietoris also holds for reduced homology. 
 
-\pagebreak
-
-\section{Computing the Singular Homology Groups}
 \subsection{Homotopy Invariance}
 The goal of this subsection is to establish homotopy invariance for singular homology. This is not at all obvious compared to that of fundamental groups. We will split the proof into the part involving topology, and the part involving algebra. In fact, we have already completed the proof on the algebra side in chapter $1$. This is the notion of chain homotopy. In category terms they represent homotopy between morphisms of objects. Therefore the notion of chain maps is important in proving any theorem involving homotopies. \\~\\
 
@@ -1783,7 +1857,7 @@ In fact, one can explicitly describe the isomorphism as follows. For $D_\alpha^n
 \begin{lmm}{}{} Let $X$ be a CW-complex. Then the following are true regarding the singular homology of $X$. 
 \begin{itemize}
 \item If $X$ is of dimension $k$ then $H_n(X)=0$ for all $n>k$. 
-\item The map $H_n(X^m)\to H_n(X)$ induced by the inclusion $X^m\to X$ is an isomorphism if $m>n$ and surjective if $m=n$. 
+\item The map $H_n(X^m)\to H_n(X)$ induced by the inclusion $X^m\to X$ is an isomorphism if $m<n$ and surjective if $m=n$. 
 \end{itemize} \tcbline
 \begin{proof}
 We proceed by induction. When $k=0$, it is obvious. Assume the statement is true for $k-1$. Consider the long exact sequence for relative homology: \\~\\
@@ -2014,6 +2088,62 @@ In particular, notice that the tensor product here just means that $C_n(X;G)$ is
 A natural question would be to ask whether there is a relation between homology with integer coefficients $H_n(X)$ and homology with arbitrary coefficients $H_n(X;G)$. Namely, the chain complex for singular homology with coefficients simply replaces the integral coefficients of the original singular chain complex via the tensor product. Is there a natural association between $H_n(X)\otimes G$ and $H_n(X;G)$? \\~\\
 
 The answer is yes, but it is not an isomorphism. Moreover, there is a way to measure the failure of the isomorphism in a natural and functorial way. This will be delayed to later sections. 
+
+\subsection{Axioms of Homology}
+\begin{defn}{Generalized Homology Theory for CW Pairs}{} A Generalized Homology Theory is a collection of functors and natural transformations $$h_n:\bold{CW}^2\to\bold{Ab}\;\;\;\;\text{ and }\;\;\;\;\delta_n:h_n\Rightarrow h_n\circ F$$ where $F(X,Y)=(Y,\emptyset)$, for each $n\in\N$, such that the following are true. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h_n(f)=h_n(g):h_n(X,A)\to h_n(Y,B)$$
+\item Exactness: There exists an exact sequence \\~\\
+\adjustbox{scale=0.98,center}{\begin{tikzcd}
+	\cdots & {h_{n+1}(X,A)} & {h_n(A,\emptyset)} & {h_n(X,\emptyset)} & {h_n(X,A)} & {h_{n-1}(A,\emptyset)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\delta_{n+1}}", from=1-2, to=1-3]
+	\arrow["h_n(i)", from=1-3, to=1-4]
+	\arrow["h_n(j)", from=1-4, to=1-5]
+	\arrow["{\delta_n}", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+where $i:(A,\emptyset)\to(X,\emptyset)$ and $j:(X,\emptyset)\to(X,A)$ are inclusions. 
+\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then there is an isomorphism $$h_n(X\setminus E,A\setminus E)\cong h_n(X,A)$$ induced by the inclusion map. 
+\end{itemize}
+\end{defn}
+
+The homotopy invariance axiom means that homology descends to a functor $\bold{HoCW}^2\to\bold{Ab}$. Therefore some authors write the axiom implicit in the definition of the functors $h_n$, and then saying that a homology theory consists of functors $h_n:\bold{HoCW}\to\bold{Ab}$ instead. 
+
+\begin{lmm}{}{} The excision axiom is equivalent to saying that $X=A^\circ\cup B^\circ$ with inclusion map $\iota:(B,A\cap B)\to (X,A)$ implies $h_n(\iota):h_n(B,A\cap B)\to h_n(X,A)$ is an isomorphism. 
+\end{lmm}
+
+\begin{defn}{Additive Homology Theory}{} Let $h_n:\bold{CW}^2\to\bold{Ab}$ be a generalized homology theory. We say that $h_n$ is additive if the following axiom is satisfied. 
+\begin{itemize}
+\item Additivity: If $(X,A)=\coprod_{i\in I}(X_i,A_i)$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}h_n(X_i,A_i)\cong h_n(X,A)$$ is an isomorphism
+\end{itemize}
+\end{defn}
+
+We mention for once and for all that the additivity axiom is required only when the CW complexes are non-finite. In particular, in order for the homology theory to be meaningful, we must restrict the underlying category of spaces to be finite CW complexes if one drops the additivity axiom. \\~\\
+
+\begin{defn}{Generalized Homology Theory for Spaces}{} A Generalized Homology Theory is a collection of functors $$h_n:\bold{Top}^2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta_n:h_n\circ F\Rightarrow h_{n-1}$$ where $F(X,Y)=(Y,\emptyset)$, for each $n\in\N$, satisfying the first four axioms together with the following. 
+\begin{itemize}
+\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h_n(X,A)\to h_n(Y,B)$$ is an isomorphism. 
+\end{itemize}
+\end{defn}
+
+By adding on the axiom of weak equivalence and the fact that every space admits a weak equivalence to a CW complex, we can see that the two theories are the same. 
+
+\begin{thm}{}{} Any generalized homology theory on $\bold{Top}^2$ determines and is determined by a generalized homology theory on $\bold{CW}^2$.
+\end{thm}
+
+\begin{defn}{Ordinary Homology Theory}{} Let $G$ be an abelian group. If a generalized homology theory $(h_n,\delta_n)$ in addition satisfies 
+\begin{itemize}
+\item Dimension: $$h_n(\ast)=\begin{cases}
+G & \text{ if } n=0\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{itemize}
+Then $h_n$ is called an ordinary homology theory. 
+\end{defn}
+
+\begin{thm}{Eilenberg-Steenrod Uniqueness Theorem}{} Let $T:(h_n,\delta_n)\to(h_n',\delta_n')$ be a natural transformation of generalized homology theories defined on $\bold{CW}^2$ such that $h_n(\ast)\cong h_n'(\ast)$, then $T$ is a natural isomorphism $$(h_n,\delta_n)\cong(h_n',\delta_n')$$
+\end{thm}
 
 \pagebreak
 \section{Algebra of Cochain Complexes}
@@ -2492,14 +2622,31 @@ Recall that for a space $X$, its singular chain complex $C_\bullet^\text{Sing}(X
 \end{itemize}
 \end{thm}
 
-\begin{thm}{Reduced Cohomology Groups}{}
-\end{thm}
+\begin{defn}{Reduced Cohomology Groups}{} Let $X$ be a space. Let $R$ be a ring. Let $M$ be an $R$-module. Define the reduced cohomology groups of $X$ to be $$\widetilde{H}_\text{Sing}^n(X;M)=H^n(\Hom(C_\bullet(X)\to\Z,M))$$ the $n$th cohomology groups of the dual of the augmented singular chain complex \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	\cdots & {C_n(X)} & \cdots & {C_1(X)} & {C_0(X)} & \Z & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["\varepsilon", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+of $X$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a space. Let $R$ be a ring. Let $M$ be an $R$-module. Then the following are true regarding the reduced cohomology of $X$. 
+\begin{itemize}
+\item For all $n>0$, $$\widetilde{H}_\text{Sing}^n(X;M)=H_\text{Sing}^n(X;M)$$
+\item When $n=0$, the universal coefficient theorem induces an isomorphism $$\widetilde{H}_\text{Sing}^0(X;M)\cong\Hom(H_0^\text{Sing}(X),M)$$
+\end{itemize}
+\end{prp}
 
 \subsection{Properties of Singular Cohomology}
 \begin{thm}{Homotopy Invariance}{} Let $f,g:X\to Y$ be continuous such that $f\simeq g$. Then $f$ and $g$ induces the same map $$f^\ast=g^\ast:H^n(Y)\to H^n(X)$$ on singular cohomology. 
 \end{thm}
 
-\begin{thm}{Excision}{}
+\begin{thm}{Excision}{} Let $(X,A)$ be a pair of spaces. Let $Z\subseteq A$ such that $\overline{Z}\subset A^\circ$. Let $R$ be a ring. Let $M$ be an $R$-module. Then the inclusion map $\iota:(X\setminus Z,A\setminus Z)\hookrightarrow(X,A)$ induces an isomorphism $$\iota^\ast:H^n(X,A;M)\overset{\cong}{\longrightarrow}H^n(X\setminus Z,A\setminus Z;M)$$ in cohomology groups for all $n\in\N$. 
 \end{thm}
 
 \begin{thm}{Mayer-Vietoris Sequence}{} Let $X$ be a topological space and $U_1,U_2$ be open sets of $X$ such that $X=U_1\cup U_2$ and that $U_1\cap U_2\neq\emptyset$. Write $i_1:U_1\cap U_2\to U_1$, $i_2:U_1\cap U_2\to U_2$, $j_1:U_1\to X$ and $j_2:U_2\to X$ the inclusion maps. Let $G$ be an abelian group. Then there is a long exact sequence \\~\\
@@ -2574,6 +2721,62 @@ The connecting homomorphism $\partial$ in homology is related to the connecting 
 where $h$ is the canonical homomorphism given by the universal coefficient theorem. 
 \end{prp}
 
+\pagebreak
+\section{Variants of Cohomology}
+\subsection{Simplicial and Cellular Cohomology}
+\begin{defn}{Simplicial Cohomology Groups}{} Let $X$ be a $\Delta$-complex. Let $R$ be a ring. Let $M$ be an $R$-module. Define the $n$th simplicial cohomology group of $X$ $$H_\Delta^n(X;M)=H^n(\Hom(\Delta_\bullet(X),M))$$ to be the $n$th cohomology group of the dual of the simplicial complex $\Delta_\bullet(X)$ of $X$. 
+\end{defn}
+
+\begin{defn}{Cellular Cochain Complex}{} Let $X$ be a CW complex. Let $R$ be a ring. Let $M$ be an $R$-module. Define the cellular cochain complex of $X$ with coefficients in $M$ to be $$C_\text{CW}^n(X;M)=\Hom_R(C_n^\text{CW}(X),M)$$ the dual of the cellular chain complex. 
+\end{defn}
+
+TBA: We can can splice the dual of the exact sequence to obtain the cellular chain complex similar to that of cellular homology. 
+
+\begin{defn}{Cellular Cohomology Groups}{} Let $X$ be a CW complex. Let $R$ be a ring. Let $M$ be an $R$-module. Define the $n$ cellular cohomology group of $X$ with coefficients in $M$ $$H_\text{CW}^n(X;M)=H^n(\Hom(C_n^\text{CW}(X),M))$$ to be the $n$th cohomology group of the dual of the cellular chain complex. 
+\end{defn}
+
+\subsection{Axioms of Cohomology}
+\begin{defn}{Generalized Cohomology Theory for CW Pairs}{} A Generalized cohomology theory is a collection of contravariant functors and natural transformations $$h^n:\bold{CW}_2\to{_R\bold{Mod}}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n\circ F\Rightarrow h^{n+1}(X,A)$$ where $F(X,A)=(A,\emptyset)$, for each $n\in\N$ such that the following are true. 
+\begin{itemize}
+\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h^n(f)=h^n(g):h^n(X,A)\to h^n(Y,B)$$
+\item Exactness: If $X$ is a CW-complex and $A\subseteq X$, then there is a short exact sequence \\~\\
+\adjustbox{scale=0.95,center}{\begin{tikzcd}
+	\cdots & {h^n(X,A)} & {h^n(X,\emptyset)} & {h^n(A,\emptyset)} & {h^{n+1}(X,A)} & {h^{n+1}(X,\emptyset)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{\partial_n}", from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then $$h^n(X\setminus E,A\setminus E)\cong h^n(X,A)$$ induced by the inclusion map
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Additive Cohomology Theories}{} Let $h_n:\bold{CW}^2\to{_R\bold{Mod}}$ be a generalized cohomology theory. We say that $h_n$ is additive if it satisfies the following axiom. 
+\begin{itemize}
+\item Additivity: Denote the inclusion map as $\iota_k:(X_k,A_k)\to\coprod_{k\in I}(X_k,A_k)$. Then the product of the induced maps of inclusions induce an isomorphism $$\prod_{k\in I}(\iota_k)^\ast:h^n\left(\coprod_{k\in I}(X_k,A_k)\right)\overset{\cong}{\longrightarrow}\prod_{k\in I}h^n(X_k,A_k)$$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Generalized Cohomology Theory for Spaces}{} A Generalized cohomology theory is a collection of contravariant functors and natural transformations $$h^n:\bold{Top}_2\to{_R\bold{Mod}}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n\circ F\Rightarrow h^{n+1}(X,A)$$ where $F(X,A)=(A,\emptyset)$, for each $n\in\N$, satisfying the above first four axioms and the following. 
+\begin{itemize}
+\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h^n(Y,B)\to h^n(X,A)$$ is an isomorphism. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Ordinary Cohomology Theory}{} Let $G$ be an abelian group. If a generalized cohomology theory $(h^n,\delta^n)$ in addition satisfies 
+\begin{itemize}
+\item Dimension: $$h^n(\ast)=\begin{cases}
+G & \text{ if } n=0\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{itemize}
+Then $h^n$ is called an ordinary cohomology theory. 
+\end{defn}
+
+\pagebreak
+\section{The Ring Structure in Singular Cohomology}
 \subsection{The Cup Product}
 What separates singular cohomology from singular homology is that the abelian group arising from the cohomology groups has a natural structure of a ring. This in turns makes singular cohomology an invariant that associates to every space a graded ring, instead of just a sequence of abelian groups. \\~\\
 
@@ -2641,6 +2844,7 @@ It is important to note that the above proposition (graded commutativity) is onl
 \begin{lmm}{}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a map. Let $R$ be a ring. Then the induced map $f^\ast:H^n(Y;R)\to H^n(X;R)$ satisfies $f^\ast(\phi\smile\psi)=f^\ast(\phi)\smile f^\ast(\psi)$. 
 \end{lmm}
 
+\subsection{The Relative Cup Product}
 \begin{defn}{The Relative Cup Product}{} Let $X$ be a space. Let $A,B\subseteq X$ be open. Let $R$ be a ring. Define the relative cup product of $A$ and $B$ to be the map $$\smile:H^k(X,A;R)\times H^l(X,B;R)\to H^{k+l}(X,A\cup B;R)$$ by the formula $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_k]})\cdot\psi(\sigma|_{[v_k,\dots,v_{k+l}]})$$ for $\phi\in C_\text{Sing}^k(X,A;R)$ and $\psi\in C_\text{Sing}^l(X,B;R)$. 
 \end{defn}
 
@@ -2733,96 +2937,29 @@ which also implies that $H^{i_j}(X,U_k)\to H^{i_j}(X)$ is surjective. Thus by ta
 Such a number $n$ is called the Lusternik-Schnirelmann category of $X$. 
 
 \subsection{The Kunneth Formula}
-\begin{defn}{The Cross Product}{} Let $X,Y$ be topological spaces. Denote $p_1:X\times Y\to X$ and $p_2:X\times Y\to Y$ the projection maps. Define the cross product of $x\in H^m(X;R)$ and $y\in H^m(Y;R)$ for a ring $R$ to be $$x\times y=p_1^\ast(x)\smile p_2^\ast(y)$$ where $x\times y\in H^{m+n}(X\times Y;R)$. 
+\begin{defn}{The Cross Product}{} Let $X,Y$ be topological spaces. Let $R$ be a commutative ring. Denote $p_1:X\times Y\to X$ and $p_2:X\times Y\to Y$ the projection maps. Define the cross product of $x\in H^m(X;R)$ and $y\in H^m(Y;R)$ for a ring $R$ to be $$x\times y=p_1^\ast(x)\smile p_2^\ast(y)$$ where $x\times y\in H^{m+n}(X\times Y;R)$. 
 \end{defn}
 
-\begin{prp}{}{} Let $a,c\in H^\ast(X;R)$ and $b,d\in H^\ast(Y;R)$ with $c\in H^m(X;R)$ and $d\in H^n(Y;R)$ we have $$(a\times b)\smile(c\times d)=(-1)^{mn}(a\smile c)\times(b\smile d)$$
+\begin{prp}{}{} Let $X,Y$ be topological spaces. Let $R$ be a commutative ring. Let $a,c\in H^\ast(X;R)$ and $b,d\in H^\ast(Y;R)$ with $c\in H^m(X;R)$ and $d\in H^n(Y;R)$ we have $$(a\times b)\smile(c\times d)=(-1)^{mn}(a\smile c)\times(b\smile d)$$
 \end{prp}
 
-\begin{thm}{The Kunneth Formula}{} Let $X$ and $Y$ be CW-complexes and $R$ a ring. Then the cross product $$\times:H^\ast(X;R)\otimes_R H^\ast(Y;R)\to H^\ast(X\times Y;R)$$ is an isomorphism of rings if $H^k(Y;R)$ is a finitely generated free $R$-module for all $k$. 
+Recall that an $R$-module $M$ is finitely generated and free if and only if $M\cong R^n\cong R^{\oplus n}$ for some $n\in\N$. 
+
+\begin{thm}{The Kunneth Formula}{} Let $X$ and $Y$ be CW-complexes. Let $R$ be a commutative ring. Then the cross product $$\times:H^\ast(X;R)\otimes_R H^\ast(Y;R)\to H^\ast(X\times Y;R)$$ is graded ring homomorphism. Moreover, it is an isomorphism of graded rings if $H^k(Y;R)$ is a finitely generated free $R$-module for all $k$. 
 \end{thm}
 
-\pagebreak
-\section{Variants of Cohomology}
-\subsection{Simplicial Cohomology}
+\begin{thm}{The Relative Kunneth Formula}{} Let $(X,A)$ and $(Y,B)$ be CW complex pairs. Let $R$ be a commutative ring. Then the cross product $$\times:H^\ast(X,A;R)\otimes_R H^\ast(Y,B;R)\to H^\ast(X\times Y,X\times B\cup A\times Y;R)$$ is graded ring homomorphism. Moreover, it is an isomorphism of graded rings if $H^k(Y,B;R)$ is a finitely generated free $R$-module for all $k$. 
+\end{thm}
 
-\subsection{Cellular Cohomology}
-
-\pagebreak
-\section{The Categorical Viewpoint}
-Recall that the category of topological spaces $\bold{Top}$ is complete and cocomplete. This means that all kinds of limits and colimits exists in $\bold{Top}$. We have already seen the product space and disjoint union with their universal property as a limit / colimit. There are also more constructs that can be recognized / defined in terms of the universal property. 
-
-\subsection{Different Categories of Spaces}
-\begin{defn}{The Category of Pointed Topological Spaces}{} Define the category of pointed topological spaces $\bold{Top}_\ast$ to consist of the following data. 
+\subsection{Applications of the Cup Product}
+\begin{prp}{}{} Let $n\in\N$. Then the following are true. 
 \begin{itemize}
-\item The objects are a pair $(X,x_0)$ where $X$ is a topological space and $x_0\in X$ is a chosen base point. 
-\item For $(X,x_0)$ and $(Y,y_0)$ two pointed spaces, the morphisms $$\Hom_{\bold{Top}_\ast}((X,x_0),(Y,y_0))=\{f:X\to Y\;|\;f\text{ is continuous and }f(x_0)=y_0\}$$ are the continuous maps from $X$ to $Y$ such that base points are preserved. 
-\item Composition is defined as the composition of functions such that base point is preserved. 
+\item There is an isomorphism of graded rings $$H^\ast(\R\Prj^n;\Z/2\Z)\cong\frac{\Z/2\Z[t]}{(t^{n+1})}$$ where $t$ is of degree $1$ in the graded structure. 
+\item There is an isomorphism of graded rings $$H^\ast(\C\Prj^n;\Z)\cong\frac{\Z[t]}{(t^{n+1})}$$ where $t$ is of degree $2$ in the graded structure. 
 \end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $(X,x_0)$ and $(Y,y_0)$ be pointed spaces. Then the product and coproduct of the two spaces in $\bold{Top}_\ast$ are $$(X\times Y,(x_0,y_0))\;\;\;\;\text{ and }\;\;\;\;(X\vee Y,x_0=y_0)$$ respectively. 
 \end{prp}
 
-\begin{defn}{The Category of CW Complexes}{} Define the category of CW complexes $\bold{CW}$ to consist of the following data. 
-\begin{itemize}
-\item The objects are CW complexes. 
-\item For $X$ and $Y$ two CW complexes, the morphisms $$\Hom_{\bold{CW}}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}$$ are the continuous maps from $X$ to $Y$. 
-\item Composition is defined as the composition of functions. 
-\end{itemize}
-Define similarly the category $\bold{CW}_\ast$ of pointed topological spaces. 
-\end{defn}
-
-\begin{defn}{The Category of Pairs of Spaces}{} Define the category of pairs of topological spaces $\bold{Top}^2$ to consist of the following data. 
-\begin{itemize}
-\item The objects are a pair $(X,A)$ where $X$ is a topological space $A\subseteq X$ is a subspace of $X$. 
-\item For $(X,A)$ and $(Y,B)$ two pointed spaces, the morphisms $$\Hom_{\bold{Top}^2}((X,A),(Y,B))=\{f:X\to Y\;|\;f\text{ is continuous and }f(A)\subseteq B\}$$ are the continuous maps from $X$ to $Y$ such that subspaces are mapped to subspaces. 
-\item Composition is defined as the composition of functions such that subspaces are mapped to subspaces. 
-\end{itemize}
-Define similarly the category $\bold{CW}^2$ of pairs of CW complexes. 
-\end{defn}
-
-\begin{defn}{Homotopy Category of Spaces}{} Define the homotopy category of topological spaces $\bold{hTop}$ to consist of the following data. 
-\begin{itemize}
-\item The objects are topological spaces. 
-\item For $X$ and $Y$ two spaces, the morphisms $$\Hom_{\bold{CW}}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}/\sim$$ are the homotopy classes of continuous maps from $X$ to $Y$. 
-\item Composition is defined as the composition of functions. 
-\end{itemize}
-Define similar the homotopy category $\bold{hTop}_\ast$ of pointed topological spaces and pointed homotopy classes of maps. 
-\end{defn}
-
-\subsection{Categorical Constructs in the Category of Spaces}
-We have seen pushouts and pullbacks in Category Theory 1. Let us first recall them. 
-
-\begin{defn}{Adjunction Spaces}{} Let $X,Y$ be spaces and $A\subseteq X$ a subspace. Let $f:A\to Y$ be a map. Define the adjunction space of $X$ and $Y$ to be  the space $$X\amalg_fY=\frac{X\amalg Y}{a\sim f(a)}$$ together with the quotient topology. 
-\end{defn}
-
-The prototypical example of adjunction spaces come from CW complexes. It is easy to notice that the data of obtaining the $(n+1)$-skeleton inductively is the same content of a pushout diagram: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{S_\alpha^{n-1}} & {X^n} \\
-	{D_\alpha^n} & {X^{n+1}}
-	\arrow["{\varphi_\alpha}", from=1-1, to=1-2]
-	\arrow[hook, from=1-1, to=2-1]
-	\arrow[from=1-2, to=2-2]
-	\arrow["{\Phi_\alpha}"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-Indeed $\Phi_\alpha$ is determined by $\varphi_\alpha$ as a property of the pushout. Collectively, we identify the attaching of all $n$-cells as the following pushout: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\coprod_{\alpha\in I_n}S_\alpha^{n-1}} && {X^n} \\
-	\\
-	{\coprod_{\alpha\in I_n}D_\alpha^n} && {X^{n+1}}
-	\arrow["{\coprod_{\alpha\in I_n}\varphi_\alpha}", from=1-1, to=1-3]
-	\arrow[hook, from=1-1, to=3-1]
-	\arrow[from=1-3, to=3-3]
-	\arrow["{\coprod_{\alpha\in I_n}\Phi_\alpha}"', from=3-1, to=3-3]
-\end{tikzcd}}\\~\\
-
-The final CW complex $X$ is then obtained by the union with the weak topology. But this is just the explicit description of the colimit of the $n$-skeletons. 
-
-\begin{prp}{}{} Let $X,Y$ be spaces and $A\subseteq X$ a subspace of $X$. Let $f:A\to Y$ be a map. Then the adjunction space $X\amalg_f Y$ is a pushout of $f$ and $i:A\to X$ in $\bold{Top}$. 
-\end{prp}
-
-\begin{prp}{}{} Let $X,Y$ be spaces with chosen base point $x_0$ and $y_0$ respectively. Then the wedge product $$X\vee Y=X\amalg_fY$$ is an adjunction space with $Z=\{x_0\}$ and map $f:Z\to Y$ defined by $f(x_0)=y_0$. 
+\begin{prp}{}{} Let $\R^n$ be equipped with the structure of a division algebra over $\R$. Then $n$ is a power of $2$. 
 \end{prp}
 
 \pagebreak
@@ -2902,7 +3039,7 @@ By the set bijection $[\Sigma^nX,Y]_\ast\cong[X,\Omega^nY]_\ast$, we can endow t
 \end{defn}
 
 \pagebreak
-\section{Homology and Cohomology Theories}
+\section{Relation Between (Co)Homology Theories}
 We have seen that the homotopy groups, the homology groups and the cohomology groups all satisfy a functorial property. This means that they can be considered as functors from the category of spaces to the category of some algebraic structures. It is meaningful to study all of them at once, and to compare different versions of homology and cohomology. \\
 
 In general, there are different parameters of the (co)homology theories. 
@@ -2911,62 +3048,6 @@ In general, there are different parameters of the (co)homology theories.
 \item ``Generalized'' means that that dimension axiom is dropped. This enables wilder (co)homology theories such as (co)bordism to appear. ``Ordinary'' means that the dimension axiom is included. In the case that we restrict to CW complexes, this axiom ensures that all (co)homology theories of this type are isomorphic to each other. 
 \item ``Reduced'' theories typically throw away the relative context in order to gain more concrete computations. There is a theorem that says that determining a generalized (co)homology theory is the ``same'' determining a reduced theory and vice versa. 
 \end{itemize}
-
-\subsection{Generalized Homology Theories}
-The homotopy groups and the homology groups share many properties. The point of the axioms is to separate the notion of homotopy groups and homology groups. Indeed the homotopy groups together are a stronger invariant for spaces. Since homology is a functor, a natural question to ask is: what are the properties of singular / cellular / simplicial homology that make homology unique in the sense that only such a functor gives this unique identification of spaces through the invariant? 
-
-\begin{defn}{Generalized Homology Theory for CW Pairs}{} A Generalized Homology Theory is a collection of functors and natural transformations $$h_n:\bold{CW}^2\to\bold{Ab}\;\;\;\;\text{ and }\;\;\;\;\delta_n:h_n\Rightarrow h_n\circ F$$ where $F(X,Y)=(Y,\emptyset)$, for each $n\in\N$, such that the following are true. 
-\begin{itemize}
-\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h_n(f)=h_n(g):h_n(X,A)\to h_n(Y,B)$$
-\item Exactness: There exists an exact sequence \\~\\
-\adjustbox{scale=0.98,center}{\begin{tikzcd}
-	\cdots & {h_{n+1}(X,A)} & {h_n(A,\emptyset)} & {h_n(X,\emptyset)} & {h_n(X,A)} & {h_{n-1}(A,\emptyset)} & \cdots
-	\arrow[from=1-1, to=1-2]
-	\arrow["{\delta_{n+1}}", from=1-2, to=1-3]
-	\arrow["h_n(i)", from=1-3, to=1-4]
-	\arrow["h_n(j)", from=1-4, to=1-5]
-	\arrow["{\delta_n}", from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-\end{tikzcd}}\\~\\
-where $i:(A,\emptyset)\to(X,\emptyset)$ and $j:(X,\emptyset)\to(X,A)$ are inclusions. 
-\item Additivity: If $(X,A)=\coprod_{i\in I}(X_i,A_i)$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}h_n(X_i,A_i)\cong h_n(X,A)$$ is an isomorphism
-\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then there is an isomorphism $$h_n(X\setminus E,A\setminus E)\cong h_n(X,A)$$ induced by the inclusion map. 
-\end{itemize}
-\end{defn}
-
-We mention for once and for all that the additivity axiom is required only when the CW complexes are non-finite. In particular, in order for the homology theory to be meaningful, we must restrict the underlying category of spaces to be finite CW complexes if one drops the additivity axiom. \\~\\
-
-Also, the homotopy invariance axiom means that homology descends to a functor $\bold{HoCW}^2\to\bold{Ab}$. Therefore some authors write the axiom implicit in the definition of the functors $h_n$, and then saying that a homology theory consists of functors $h_n:\bold{HoCW}\to\bold{Ab}$ instead. 
-
-\begin{lmm}{}{} The excision axiom is equivalent to saying that $X=A^\circ\cup B^\circ$ with inclusion map $\iota:(B,A\cap B)\to (X,A)$ implies $h_n(\iota):h_n(B,A\cap B)\to h_n(X,A)$ is an isomorphism. 
-\end{lmm}
-
-\begin{defn}{Generalized Homology Theory for Spaces}{} A Generalized Homology Theory is a collection of functors $$h_n:\bold{Top}^2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta_n:h_n\circ F\Rightarrow h_{n-1}$$ where $F(X,Y)=(Y,\emptyset)$, for each $n\in\N$, satisfying the first four axioms together with the following. 
-\begin{itemize}
-\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h_n(X,A)\to h_n(Y,B)$$ is an isomorphism. 
-\end{itemize}
-\end{defn}
-
-By adding on the axiom of weak equivalence and the fact that every space admits a weak equivalence to a CW complex, we can see that the two theories are the same. 
-
-\begin{thm}{}{} Any generalized homology theory on $\bold{Top}^2$ determines and is determined by a generalized homology theory on $\bold{CW}^2$.
-\end{thm}
-
-However, note that in this case some of the working homology theories are not a generalized homology theory in this sense (when we encounter the dual notion, sheaf cohomology is not a generalized cohomology theory). 
-
-\subsection{Ordinary Homology Theories}
-\begin{defn}{Ordinary Homology Theory}{} Let $G$ be an abelian group. If a generalized homology theory $(h_n,\delta_n)$ in addition satisfies 
-\begin{itemize}
-\item Dimension: $$h_n(\ast)=\begin{cases}
-G & \text{ if } n=0\\
-0 & \text{ otherwise }
-\end{cases}$$
-\end{itemize}
-Then $h_n$ is called an ordinary homology theory. 
-\end{defn}
-
-\begin{thm}{Eilenberg-Steenrod Uniqueness Theorem}{} Let $T:(h_n,\delta_n)\to(h_n',\delta_n')$ be a natural transformation of generalized homology theories defined on $\bold{CW}^2$ such that $h_n(\ast)\cong h_n'(\ast)$, then $T$ is a natural isomorphism $$(h_n,\delta_n)\cong(h_n',\delta_n')$$
-\end{thm}
 
 \subsection{Reduced Homology Theory}
 In Algebraic Topology 2, we have also encountered the notion of reduced singular homology. This is derived directly from singular homology, where one simply defines reduced singular homology by also considering the augmented chain complex. Such a construction can easily be extended to arbitrary homology theories: Indeed there is no need for a topological argument in the definition of reduced singular homology. \\~\\
@@ -3027,42 +3108,6 @@ We have now showed that reduced homology theory and generalized homology theory 
 Thus we have showed that under the conditions of all the given axioms of all such homology theories, we really just have the same thing: $$\substack{\text{Generalized  Homology Theory}\\\text{for Spaces}}\overset{1:1}{\longleftrightarrow}\substack{\text{Reduced Homology Theory}\\\text{for Spaces}}\overset{1:1}{\longleftrightarrow}\substack{\text{Reduced Homology Theory}\\\text{for CW Complexes}}\overset{1:1}{\longleftrightarrow}\substack{\text{Generalized Homology Theory}\\\text{for CW Complexes}}$$ We once again note that such a bijection is only possible when we introduce the weak equivalence axiom for homology theories on spaces. Such an axiom in fact restricts the amount of valid homology theories, but it is only through this axiom that we can declare all such homology theories are essentially determined by one another. \\~\\
 
 Some authors indeed does not require the weak equivalence axiom to exist. In such cases the bijection between generalized homology theories and reduced homology theories can be constructed, but there is no passage between homology of CW complexes and homology of spaces in general. 
-
-\subsection{Generalized Cohomology Theories}
-\begin{defn}{Generalized Cohomology Theory for CW Pairs}{} A Generalized cohomology theory is a collection of contravariant functors and natural transformations $$h^n:\bold{CW}_2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n\circ F\Rightarrow h^{n+1}(X,A)$$ where $F(X,A)=(A,\emptyset)$, for each $n\in\N$ such that the following are true. 
-\begin{itemize}
-\item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h^n(f)=h^n(g):h^n(X,A)\to h^n(Y,B)$$
-\item Exactness: If $X$ is a CW-complex and $A\subseteq X$, then there is a short exact sequence \\~\\
-\adjustbox{scale=0.95,center}{\begin{tikzcd}
-	\cdots & {h^n(X,A)} & {h^n(X,\emptyset)} & {h^n(A,\emptyset)} & {h^{n+1}(X,A)} & {h^{n+1}(X,\emptyset)} & \cdots
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow["{\partial_n}", from=1-4, to=1-5]
-	\arrow[from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-\end{tikzcd}}\\~\\
-\item Additivity: If $(X,A)=\coprod_{i\in I}(X_i,A_i)$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}h^n(X_i,A_i)\cong h^n(X,A)$$ is an isomorphism
-\item Excision: If $\overline{E}\subseteq A^\circ\subseteq X$, then $$h^n(X\setminus E,A\setminus E)\cong h^n(X,A)$$ induced by the inclusion map
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Generalized Cohomology Theory for Spaces}{} A Generalized cohomology theory is a collection of contravariant functors and natural transformations $$h^n:\bold{Top}_2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n\circ F\Rightarrow h^{n+1}(X,A)$$ where $F(X,A)=(A,\emptyset)$, for each $n\in\N$, satisfying the above first four axioms and the following. 
-\begin{itemize}
-\item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h^n(Y,B)\to h^n(X,A)$$ is an isomorphism. 
-\end{itemize}
-\end{defn}
-
-\subsection{Ordinary Cohomology Theories}
-\begin{defn}{Ordinary Cohomology Theory}{} Let $G$ be an abelian group. If a generalized cohomology theory $(h^n,\delta^n)$ in addition satisfies 
-\begin{itemize}
-\item Dimension: $$h^n(\ast)=\begin{cases}
-G & \text{ if } n=0\\
-0 & \text{ otherwise }
-\end{cases}$$
-\end{itemize}
-Then $h_n$ is called an ordinary homology theory. 
-\end{defn}
 
 \subsection{Reduced Cohomology Theories}
 \begin{defn}{Reduced Cohomology Theory for CW Complexes}{} A reduced cohomology theory is a collection of contravariant functors $$\widetilde{h}^n:\bold{CW}\to\bold{Ab}$$ satisfying the following. 

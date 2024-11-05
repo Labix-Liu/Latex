@@ -51,14 +51,185 @@ The foundations of infinity categories lay on the simpicial sets. Intuitively, a
 \begin{thm}{}{} Let $\mC$ be a category. Every inner horn of the nerve $N(C)$ of $\mC$ admits a filler and hence is an infinity category. 
 \end{thm}
 
-\subsection{Infinity Categories as Topological Categories}
+\subsection{The Homotopy Category of Infinite Categories}
+Let $S$ be a simplicial set. Recall that we have functorially assigned a category $h(S)$ to $S$ called the homotopy category of $S$. This is given together with the universal functor $u:S\to N(h(S))$ by the universal property: For category $\mD$ and a functor $F:S\to N(\mD)$, there exists a unique morphism $F:h(S)\to\mD$ such that $F=N(G)\circ u$. When $S$ is an infinity category, compositions of morphisms forming $n$-simplexes can be shortened to one by the filler-admitting property. 
+
+\begin{defn}{Homotopic Morphisms}{} Let $\mC$ be an infinity category. Two morphisms $f,g:C\to D$ are said to be homotopic if there exists a $2$-simplex $\sigma$ such that 
+\begin{itemize}
+\item $d_0(\sigma)=\text{id}_D$
+\item $d_1(\sigma)=g$
+\item $d_2(\sigma)=f$
+\end{itemize}
+In this case we write $f\simeq g$. 
+\end{defn}
+
+Pictorially, we denote the existence of such a $\sigma$ by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& D \\
+	& \sigma \\
+	C && D
+	\arrow["{\text{id}_D}", from=1-2, to=3-3]
+	\arrow["f", from=3-1, to=1-2]
+	\arrow["g"', from=3-1, to=3-3]
+\end{tikzcd}}\\~\\
+
+This diagram here does not denote commutative, but instead denotes the existence of a $2$-simplex $\sigma$ that has the above as vertices and edges. Rewriting the above definition, we can say that $g\circ f:C\to E$ is homotopic to $h:C\to E$ if there exists a $2$-simplex of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& D \\
+	& \sigma \\
+	C && E
+	\arrow["g", from=1-2, to=3-3]
+	\arrow["f", from=3-1, to=1-2]
+	\arrow["h"', from=3-1, to=3-3]
+\end{tikzcd}}\\~\\
+By definition of an infinity category, every inner horn admits a filler. This means that for any composable morphisms $f$ and $g$ giving $g\circ f$, we can always find a morphism $h$ such that $g\circ f$ is homotopic to $h$. However, this $h$ may not be unique, so we cannot conclude that infinity categories have a well defined notion of composition. 
+
+\begin{prp}{}{} Let $C$ be an infinity category. Let $f,f':C\to D$ and $g,g':D\to E$ be morphisms in $C$. If $f\simeq f'$ and $g\simeq g'$, then $$g\circ f\simeq g'\circ f'$$
+\end{prp}
+
+\begin{lmm}{}{} Homotopy is an equivalence relation in any infinity category. 
+\end{lmm}
+
+We can explicitly write out the homotopy category of an infinity category as follows. 
+
+\begin{prp}{}{} Let $\mC$ be an infinity category. Then the homotopy category $h(\mC)$ is isomorphic (as categories) to the category defined as follows. 
+\begin{itemize}
+\item The objects of $h(\mC)$ are the objects of $\mC$
+\item For $A,B\in\mC$ two objects, the morphisms are equivalent classes of morphisms $[f]$ for $f\in\Hom_\mC(A,B)$. 
+\item Composition is defined by $$[g]\circ[f]=[g\circ f]$$ which is well defined by .2
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Isomorphisms in Infinity Categories}{} Let $\mC$ be an infinity category. Let $f:X\to Y$ be a morphism in $\mC$. We say that $f$ is an isomorphism if $[f]$ is an isomorphism in $h(\mC)$. 
+\end{defn}
+
+\subsection{The Infinity Category of Morphisms}
+Let $\mC$ and $\mD$ be infinity categories. Recall that the nerve functor is fully faithful. This means that there is a bijection $$\Hom_\bold{Cat}(\mC,\mD)\cong\Hom_\bold{sSet}(N(\mC),N(\mD))$$ We generalize this bijection to define functors for infinity categories. 
+
+\begin{defn}{Functors between Infinity Categories}{} Let $\mC,\mD$ be infinity categories. A functor $F:\mC\to\mD$ is a morphism of simplicial sets. 
+\end{defn}
+
+In other words, there is no extra structure for morphisms between infinity categories and between simplicial sets. 
+
+\begin{lmm}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. Then the following are true. 
+\begin{itemize}
+\item $F$ sends an object of $\mC$ to an object of $\mD$. 
+\item $F$ sends a morphism in $\mC$ to a morphism in $\mD$. 
+\item $F$ sends the identity morphism of $X\in\mC$ to the identity morphism of $F(X)\in\mD$. 
+\item If $f:X\to Y$ and $g:Y\to Z$ are morphisms in $\mC$, then $F(g\circ f)=F(g)\circ F(f)$
+\end{itemize}
+\end{lmm}
+
+Explicitly, morphisms of infinity categories behave exactly what we want it to be like: A generalization of functors between ordinary categories. However, note that it is not enough to specify a morphism of infinity categories just from specifying it on objects. This is because we also need to tell the functor where to map the $n$-simplices. In other words, we need to tell the functor where to send the homotopy data. \\
+
+Because the data of a functor between infinity categories carry $2$-simplicies to $2$-simplicies, we can easily deduce the following. 
+
+\begin{lmm}{}{} Let $\mC,\mD$ be infinity category. Let $F:\mC\to\mD$ be a functor. Then the following are true. 
+\begin{itemize}
+\item If $f\simeq g$ are homotopic in $\mC$, then $F(f)\simeq F(g)$ are homotopic in $\mD$. 
+\item If $f$ is an isomorphism in $\mC$, then $F(f)$ is an isomorphism in $\mD$. 
+\end{itemize}
+\end{lmm}
+
+When $\mC,\mD$ are ordinary categories, we can talk about diagrams of shape $\mC$ in $\mD$. This just means that we only care about the shape of $\mC$, and we consider this shape inside $\mD$. This was the foundations for limits and colimits of a category. We can also do this for infinity categories, but recall that a functor between infinity categories carries much more data than just the shape of the domain infinity category: it also carries homotopy information. \\
+
+Now recall that for $S,T$ two simplicial sets, we can canonically identify the internal hom $[S,T]$ with the external hom $\Hom_\bold{sSet}(S,T)$ (What is the identification?). This gives the structure of a simplicial set with $\Hom_\bold{sSet}(S,T)$. When $S$ and $T$ are infinity categories, we can show that the Hom set is also an infinity category. 
+
+\begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Then $$\text{Hom}_\bold{sSet}(\mC,\mD)$$ is an infinity category. 
+\end{prp}
+
+\subsection{Natural Transformations}
+\begin{defn}{Natural Transformations}{} Let $\mC,\mD$ be infinity categories. Let $F,G\in\Hom_\bold{sSet}(\mC,\mD)$ be functors. A natural transformation $\alpha:F\Rightarrow G$ from $F$ to $G$ is a morphism in $\Hom_\bold{sSet}(\mC,\mD)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Let $F,G\in\Hom_\bold{sSet}(\mC,\mD)$ be functors. Then $\alpha:F\Rightarrow G$ is a natural transformation if and only if $\alpha$ is a homotopy of simplicial sets from $F$ to $G$. 
+\end{prp}
+
+\begin{lmm}{}{} Let $\mC,\mD$ be categories. Let $F,G:\mC\to\mD$ be functors. Then $\alpha:F\Rightarrow G$ is a natural transformation if and only if $N(\alpha):N(\mC)\to N(\mD)$ is a natural transformation of infinity categories. 
+\end{lmm}
+
+\begin{defn}{Natural Isomorphisms}{} Let $\mC,\mD$ be infinity categories. Let $F,G\in\Hom_\bold{sSet}(\mC,\mD)$ be functors. A natural isomorphism from $F$ to $G$ is a natural transformation $\alpha:F\Rightarrow G$ such that $\alpha$ is an isomorphism in $\Hom_\bold{sSet}(\mC,\mD)$. In this case, we say that $F$ and $G$ are naturally isomorphic. 
+\end{defn}
+
+\subsection{Equivalence of Infinity Categories}
+\begin{defn}{Equivalence of Infinity Categories}{} Let $\mC,\mD$ be infinity categories. We say that $\mC$ and $\mD$ are equivalent infinity categories if there exists functors $F:\mC\to\mD$ and $G:\mD\to\mC$ such that the following are true. 
+\begin{itemize}
+\item $G\circ F$ is isomorphic to $\text{id}_\mC$ in $\Hom_\bold{sSet}(\mC,\mC)$
+\item $F\circ G$ is isomorphic to $\text{id}_\mD$ in $\Hom_\bold{sSet}(\mD,\mD)$
+\end{itemize}
+\end{defn}
+
+Recall that two objects in an infinity category $\mC$ is isomorphic if they are isomorphic in $h(\mC)$ in the ordinary sense. In our case, this means that we consider $G\circ F$ and $\text{id}_\mC$ to be objects of the infinity category $\Hom_\bold{sSet}(\mC,\mC)$, and they are isomorphic if $[G\circ F]=[\text{id}_\mC]$. This is the same as saying that $G\circ F$ and $\text{id}_\mC$ are homotopic. (It is also the same as saying $\mC$ and $\mD$ are homotopy equivalent as simplicial sets)
+
+\begin{lmm}{}{} Let $\mC,\mD$ be infinity categories. If $\mC$ and $\mD$ are naturally isomorphic, then $\mC$ and $\mD$ are equivalent. 
+\end{lmm}
+
+\begin{prp}{}{} Let $\mC,\mD$ be ordinary categories. Let $F:\mC\to\mD$ be functor. Then $F:\mC\to\mD$ induces an equivalence of categories if and only if $N(F):N(\mC)\to N(\mD)$ induces an equivalence of categories. 
+\end{prp}
+
+\begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. If $F$ is an equivalence of infinity categories, then $h(F):h(\mC)\to h(\mD)$ is an equivalence of ordinary categories. 
+\end{prp}
+
+\begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. Then $F$ is an equivalence of infinity categories if and only if $$F\circ -:\Hom_\bold{sSet}(K,\mC)\to\Hom_\bold{sSet}(K,\mD)$$ is an equivalence of infinity categories for all simplicial sets $K$. 
+\end{prp}
+
+\pagebreak
+\section{Simplicial Categories}
+\subsection{Infinity Categories as Simplicial Categories}
+\begin{defn}{Simplicial Categories}{} A simplicial category is a category $\mC$ enriched over $\bold{sSet}$. A simplicial functor is a functor $F:\mC\to\mD$ that is $\bold{sSet}$-enriched. Denote the category of simplicial categories by $$\bold{Cat}_\bold{sSet}$$
+\end{defn}
+
+\begin{prp}{}{} Let $\mC$ be a category. Then $\mC$ is a simplicial category if and only if $\mC$ is a simplicial object in $\bold{Cat}$ such that the underlying simplicial set of objects is constant. 
+\end{prp}
+
+1.1.4.2 HTT
+
+\begin{defn}{Weakly Equivalent Simplicial Categories}{} Let $\mC,\mD$ be simplicial categories. Let $F:\mC\to\mD$ be a simplicial functor. We say that $F$ is a weak equivalence if the following are true. 
+\begin{itemize}
+\item For all $A,B\in\mC$, the induced map of simplicial sets $$F:\Hom_\mC(A,B)\to\Hom_\mC(F(A),F(B))$$ is weakly equivalent. 
+\item For all $D\in\mD$, there exists some $C\in\mC$ such that $F(C)\cong D$
+\end{itemize}
+\end{defn}
+
+Note: Markus land says this is weak equivalence, HTT says that this equivalence. 
+
 \begin{defn}{Topological Categories}{} Let $\mC$ be a category. We say that $\mC$ is a topological category if $\mC$ is enriched over $\bold{CGWH}$. 
 \end{defn}
 
 Recall that two enriched categories are equivalent if $F:\mC\to\mD$ is fully faithful and essentially surjective. Being fully faithful as $\mS$-functor means that $F$ induces an isomorphism on Hom sets. However this notion is too strong for us because we only want to consider spaces up to homotopy equivalence. 
 
-\subsection{Infinity Categories as Simplicial Categories}
 
+\pagebreak
+\section{Kan Complexes}
+\begin{lmm}{}{} Let $X$ be a space. Then applying the singular functor $S(X)$ gives an infinity category. 
+\end{lmm}
+
+\begin{prp}{}{} Let $X$ be a space. Then the homotopy category of the singular set of $X$ is equal to $h(S(X))=\prod_1(X)$ the fundamental groupoid of $X$. 
+\end{prp}
+
+\subsection{Kan Complexes}
+\begin{defn}{Kan Complexes}{} A Kan complex is a simplicial set $C$ such that each horn (inner and outer) admits a filler. In other words, for all $0\leq i\leq n$, the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\Lambda_i^n} & C \\
+	{\Delta^n}
+	\arrow["\forall", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow["\exists"', dashed, from=2-1, to=1-2]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+Since infinity catregories require only inner horns to admit a filler, we have the following inclusion relation: $$\substack{\text{Kan}\\\text{Complexes}}\subset\substack{\text{Infinity}\\\text{Categories}}$$
+
+\begin{prp}{}{} Let $X$ be a space. Then $S(X)$ is a Kan complex. 
+\end{prp}
+
+\begin{thm}{}{} Let $\mC$ be a small category. Then the simplicial set $N(\mC)$ is a Kan complex if and only if $\mC$ is a groupoid. 
+\end{thm}
+
+More: Kan complexes = infinity groupoids (quillen equivalence in model category), and we should think of spaces as Kan complexes / infinity groupoids from now on. 
+
+\pagebreak
+\section{Infinity Categorical Constructions}
 \subsection{Joins and Slices}
 We begin by rewriting the definition of a simplex category as follows. Instead of having distinguished names $[n]$ for the objects, we instead just think of the simplex category with objects as finite and totally ordered sets. Indeed any of these sets will be in bijection to $[n]$ for some $n\in\N$. This language will help us define the join. 
 
@@ -107,7 +278,15 @@ Recall that the over category $\mC/X$ consists of pairs $(Y,f:Y\to X)$ and morph
 
 TBA: Adjunction of join and slice. 
 
-\subsection{}
+\subsection{Mapping Spaces}
+\begin{defn}{Mapping Spaces}{} Let $\mC$ be an infinity category. Let $x,y\in\mC$ be objects. Define the mapping space from $x$ to $y$ to be the pullback $$\Hom_\mC(x,y)=\{x\}\times_{\Hom_\bold{sSet}(\{0\},\mC)}\times\Hom_\bold{sSet}(\Delta^1,\mC)\times_{\Hom_\bold{sSet}(\{1\},\mC)}\{y\}$$
+\end{defn}
+
+Note: $\Hom_\bold{sSet}(\Delta^0,\mC)\cong\mC$ via the map $\text{Ev}:\Hom_\bold{sSet}(\Delta^0,\mC)\times\Delta^0\to\mC$. \\
+
+Note: Land 1.3.47, Kerodon 4.6
+
+\subsection{Left and Right (Pinched) Mapping Spaces}
 For an ordinary category $\mC$, we have the notion of Hom sets (at least for locally small categories). We would like to reproduce this notion for infinity categories. \\
 
 Recall that a an $n$-simplex $x$ is degenerate if any two of its consecutive vertices are given by the same element. Explicitly, this means that $x$ lies in the image of some degeneracy map $s_k$. 
@@ -125,90 +304,14 @@ These two notions are equivalent up to homotopy (Land) Also pullbacks (Land)
 \begin{prp}{}{} Let $\mC$ be an infinity category. Let $x,y\in\mC$. Then both mapping spaces $\Hom_\mC^R(x,y)$ and $\Hom_\mC^L(x,y)$ are Kan complexes. 
 \end{prp}
 
-\subsection{Homotopy Infinity Categories}
-Recall that for a simplicial set $X$, we defined the homotopy category $h(X)$ of $X$. Such an assignment is functorial. In the case of infinity categories, we can exhibit the structure of $h(X)$ more explicitly. 
-
-\begin{defn}{Homotopic Morphisms}{} Let $\mC$ be an infinity category. Two morphisms $f,g:C\to D$ are said to be homotopic if there exists a $2$-simplex $\sigma$ such that 
+\begin{prp}{}{} Let $\mC$ be an infinity category. Let $x,y\in\mC$. Then the following are true. 
 \begin{itemize}
-\item $d_0(\sigma)=\text{id}_D$
-\item $d_1(\sigma)=g$
-\item $d_2(\sigma)=f$
+\item The right mapping space is isomorphic to the pullback $$\Hom_\mC^R(x,y)\cong\{x\}\times_{\Hom_\bold{sSet}(\{0\},\mC)}\mC/y$$
+\item The left mapping space is isomorphic to the pullback $$\Hom_\mC^L(x,y)\cong x/\mC\times_{\Hom_\bold{sSet}(\{1\},\mC)}\{y\}$$
 \end{itemize}
-In this case we write $f\simeq g$. 
-\end{defn}
-
-\begin{lmm}{}{} Homotopy is an equivalence relation in any infinity category. 
-\end{lmm}
-
-\begin{prp}{}{} Let $C$ be an infinity category. Let $f,f':C\to D$ and $g,g':D\to E$ be morphisms in $C$. If $f\simeq f'$ and $g\simeq g'$, then $$g\circ f\simeq g'\circ f'$$
 \end{prp}
 
-\begin{defn}{Homotopy Category}{} Let $C$ be an infinity category. Define the homotopy category $h(C)$ of $C$ to consist of the following. 
-\begin{itemize}
-\item The objects are the objects of $C$
-\item The morphisms are equivalent classes of morphisms $[f]$ for $f$ a morphism in $C$
-\item Composition is defined by $$[g]\circ[f]=[g\circ f]$$ which is well defined by the above. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Isomorphisms in Infinity Categories}{} Let $C$ be an infinity category. Let $f:C\to D$ be a morphism. We say that $f$ is an isomorphism if there exists $g:D\to C$ such that $g\circ f\simeq\text{id}_C$ and $f\circ g\simeq\text{id}_D$. 
-\end{defn}
-
-\begin{lmm}{}{} Let $C$ be an infinity category. Let $f:C\to D$ be a morphism. Then $f$ is an isomorphism in $C$ if and only if $[f]$ is an isomorphism in $h(C)$. 
-\end{lmm}
-
-\pagebreak
-\section{Relation to Model Categories}
-\subsection{Inverting Morphisms in an Infinity Category}
-\begin{defn}{}{} Let $\mC$ be an infinity category. Let $W$ be a collection of morphisms in $\mC$. Define the category $$\mC[W^{-1}]$$ together with its canonical functor $F:\mC\to\mC[W^{-1}]$ by the following universal property. For every infinity category $\mD$ together with a functor $G:\mC\to\mD$ such that $G(f)$ is an equivalence for $f\in W$, there exists a unique functor $H:\mC[W^{-1}]\to\mD$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\mC & {\mC[W^{-1}]} \\
-	& \mD
-	\arrow["F", from=1-1, to=1-2]
-	\arrow["G"', from=1-1, to=2-2]
-	\arrow["{\exists!H}", dashed, from=1-2, to=2-2]
-\end{tikzcd}}\\~\\
-\end{defn}
-
-\begin{prp}{}{} Let $\mC$ be an infinity category. Let $W$ be a collection of morphisms in $\mC$. Then $\mC[W^{-1}]$ exists and is unique up to equivalence. 
-\end{prp}
-
-\subsection{Exhibiting a Model Category as an Infinity Category}
-Up until now, we have two ways of associating different types of categories with its homotopy category. Namely, if $\mC$ is a model category, then we can associate to it the homotopy category $\text{Ho}(\mC)$. Similarly, if $\mD$ is an infinity category, we can also associate to it a homotopy category $\text{Ho}(\mD)$. This constructions are highly related. In particular, there is a functor sending every model category to an infinity category such that the most important notions such as homotopy limits and colimits coincide. \\
-
-Recall that for a model category $\mC$, we denote the full subcategory spanned by cofibrant objects by $\mC_c$. 
-
-\begin{defn}{}{} Let $(\mC,W)$ be a model category. Let $\mD$ be an infinity category. Let $F:N(\mC_c)\to\mD$ be a functor. We say that $F$ exhibits the underlying category $\mC$ as $\mD$ if the functor induces an equivalence of categories $$N(\mC_c)[W^{-1}]\simeq\mC$$
-\end{defn}
-
-\pagebreak
-\section{Infinity Categories in Topology}
-\begin{lmm}{}{} Let $X$ be a space. Then applying the singular functor $S(X)$ gives an infinity category. 
-\end{lmm}
-
-\begin{prp}{}{} Let $X$ be a space. Then the homotopy category of the singular set of $X$ is equal to $h(S(X))=\prod_1(X)$ the fundamental groupoid of $X$. 
-\end{prp}
-
-\subsection{Kan Complexes}
-\begin{defn}{Kan Complexes}{} A Kan complex is a simplicial set $C$ such that each horn (inner and outer) admits a filler. In other words, for all $0\leq i\leq n$, the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\Lambda_i^n} & C \\
-	{\Delta^n}
-	\arrow["\forall", from=1-1, to=1-2]
-	\arrow[hook, from=1-1, to=2-1]
-	\arrow["\exists"', dashed, from=2-1, to=1-2]
-\end{tikzcd}}\\~\\
-\end{defn}
-
-Since infinity catregories require only inner horns to admit a filler, we have the following inclusion relation: $$\substack{\text{Infinity}\\\text{Categories}}\subset\substack{\text{Kan}\\\text{Complexes}}$$
-
-\begin{prp}{}{} Let $X$ be a space. Then $S(X)$ is a Kan complex. 
-\end{prp}
-
-\begin{thm}{}{} Let $\mC$ be a small category. Then the simplicial set $N(\mC)$ is a Kan complex if and only if $\mC$ is a groupoid. 
-\end{thm}
-
-More: Kan complexes = infinity groupoids (quillen equivalence in model category), and we should think of spaces as Kan complexes / infinity groupoids from now on. 
+\subsection{Composition of Morphisms in Infinity Categories}
 
 \pagebreak
 \section{Limits and Colimits}
@@ -228,18 +331,61 @@ More: Kan complexes = infinity groupoids (quillen equivalence in model category)
 	{\Delta^{\{n\}}} & {\partial\Delta^n} & \mC \\
 	& {\Delta^n}
 	\arrow[hook, from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
 	\arrow["x", bend left = 20, from=1-1, to=1-3]
 	\arrow[from=1-2, to=2-2]
 	\arrow[dashed, from=2-2, to=1-3]
 \end{tikzcd}}\\~\\
+has a solution. 
 \end{itemize}
 \end{prp}
+
+initial / terminal carries over by equivalence\\
+
+initial in i-cat imply initial in hCat
 
 \subsection{Limits and Colimits}
 \begin{defn}{Limits in Infinity Categories}{} Let $K,X$ be infinity categories. Let $F:K\to X$ be a map. Define the limit $$\lim_FX$$of $F$ over $X$ to be the terminal object of the slice category $X/F$ if it exists. 
 \end{defn}
 
 
+\pagebreak
+\section{Relation to Model Categories}
+\subsection{Inverting Morphisms in an Infinity Category}
+\begin{defn}{}{} Let $\mC$ be an infinity category. Let $W$ be a collection of morphisms in $\mC$. Define the category $$\mC[W^{-1}]$$ together with its canonical functor $F:\mC\to\mC[W^{-1}]$ by the following universal property. \\~\\
+
+For every infinity category $\mD$ together with a functor $G:\mC\to\mD$ such that $G(f)$ is an equivalence for $f\in W$, there exists a unique functor $H:\mC[W^{-1}]\to\mD$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\mC & {\mC[W^{-1}]} \\
+	& \mD
+	\arrow["F", from=1-1, to=1-2]
+	\arrow["G"', from=1-1, to=2-2]
+	\arrow["{\exists!H}", dashed, from=1-2, to=2-2]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{prp}{}{} Let $\mC$ be an infinity category. Let $W$ be a collection of morphisms in $\mC$. Then $\mC[W^{-1}]$ exists and is unique up to equivalence of infinity categories. 
+\end{prp}
+
+Given a category $\mC$ with weak equivalences $\mW$, we now have a way to systematically construct an infinity category associated to $\mC$. Namely, $$(\mC,\mW)\mapsto N(\mC)[\mW^{-1}]$$
+
+\subsection{Exhibiting a Model Category as an Infinity Category}
+Up until now, we have two ways of associating different types of categories with its homotopy category. Namely, if $\mC$ is a model category, then we can associate to it the homotopy category $\text{Ho}(\mC)$. Similarly, if $\mD$ is an infinity category, we can also associate to it a homotopy category $\text{Ho}(\mD)$. This constructions are highly related. In particular, there is a functor sending every model category to an infinity category such that the most important notions such as homotopy limits and colimits coincide. \\
+
+Recall that for a model category $\mC$, we denote the full subcategory spanned by cofibrant objects by $\mC_c$. 
+
+\begin{defn}{}{} Let $(\mC,W)$ be a model category. Let $\mD$ be an infinity category. Let $F:N(\mC_c)\to\mD$ be a functor. We say that $F$ exhibits the underlying category $\mC$ as $\mD$ if the functor induces an equivalence of categories $$N(\mC_c)[W^{-1}]\simeq\mD$$
+\end{defn}
+
+Ref:1.3.4.20 HA
+
+\begin{thm}{[Dwyer-Kan]}{} Let $(\mC,\mW)$ be a model category. ??? determines a map $N(\mC_c)\to N(\mC_{cf})$ that induces an equivalence of infinity categories $$N(\mC_c)[\mW^{-1}]\simeq N(\mC_{cf})$$
+\end{thm}
+
+TBA: Left Quillen equivalence implies equivalence of infinity categories. 
+
+\subsection{}
+Presentable iff $\mD\simeq N(\mC_cf)$ where $\mC$ is a combinatorial simplicial model category. 
 
 
 \end{document}

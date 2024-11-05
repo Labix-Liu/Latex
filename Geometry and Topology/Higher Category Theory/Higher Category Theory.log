@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  30 OCT 2024 07:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  4 NOV 2024 05:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1073,67 +1073,106 @@ LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 4
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
+Underfull \hbox (badness 10000) in paragraph at lines 66--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--75
+
+ []
+
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 76--86
 
  []
 
-[5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 173--174
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--86
 
  []
 
-[7]
-Underfull \hbox (badness 1418) in paragraph at lines 185--186
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 123--124
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+
+ []
+
+[5] [6] [7] [8]
+Underfull \hbox (badness 1418) in paragraph at lines 207--208
 []\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/10 be a space. Then the h
 o-mo-topy cat-e-gory of the sin-gu-lar set of $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/
 10 is equal to 
  []
 
-[8] [9] (Higher Category Theory.aux)
+[9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
+
+ []
+
+[11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
+
+ []
+
+[14] [15] (Higher Category Theory.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Higher Category Theory".out' has changed
-.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Higher Category Theory".out':
-(rerunfilecheck)             Before: 20ECAED641393BE81CC50F026F51D0B5;2832
-(rerunfilecheck)             After:  C69225468E5852712072AA202E23A233;3122.
+Package rerunfilecheck Info: File `"Higher Category Theory".out' has not change
+d.
+(rerunfilecheck)             Checksum: F4686F018E03A635AC5AE4920477105A;4558.
  ) 
 Here is how much of TeX's memory you used:
- 32520 strings out of 474424
- 641497 string characters out of 5741739
- 1951496 words of memory out of 5000000
- 54292 multiletter control sequences out of 15000+600000
+ 32677 strings out of 474424
+ 644788 string characters out of 5741739
+ 1959496 words of memory out of 5000000
+ 54417 multiletter control sequences out of 15000+600000
  597664 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,16n,120p,769b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/li
-ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
-/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5
-.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Higher Category Theory.pdf" (9 pages, 293018 bytes).
+fonts/cm/cmbx5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/
+liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:
+/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.
+pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
+Output written on "Higher Category Theory.pdf" (15 pages, 350179 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 357 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 
