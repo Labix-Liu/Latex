@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  3 NOV 2024 00:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  6 NOV 2024 21:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1074,44 +1074,39 @@ File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 enc}]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 86.
+d on input line 83.
 
 
-Overfull \hbox (6.43738pt too wide) in paragraph at lines 105--106
-\T1/qpl/m/n/10 which is the im-age of $\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/
-cmr/m/n/10 ]$ \T1/qpl/m/n/10 un-der the yoneda em-bed-ding $\OML/cmm/m/it/10 y 
-\OT1/cmr/m/n/10 : ^^A \OMS/cmsy/m/n/10 ! []$ \T1/qpl/m/n/10 de-fined by $\OT1/c
-mr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 7! [][]\OT1/cmr
-/m/n/10 ([\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/1
-0 ^^@\OT1/cmr/m/n/10 )$\T1/qpl/m/n/10 . 
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
  []
 
 [4] [5] [6] [7] [8] [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 320--321
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--321
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
 [11] [12] [13] [14] [15] [16] [17]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 544.
+(hyperref)                removing `math shift' on input line 550.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 544.
+(hyperref)                removing `math shift' on input line 550.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 555.
+(hyperref)                removing `math shift' on input line 561.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 555.
+(hyperref)                removing `math shift' on input line 561.
 
 [18] [19] (Simplicial Methods in Topology.aux)
  ***********
@@ -1123,10 +1118,10 @@ t changed.
 (rerunfilecheck)             Checksum: C211CE0567D170545B8E44DC180C4325;4557.
  ) 
 Here is how much of TeX's memory you used:
- 33312 strings out of 474424
- 660665 string characters out of 5741739
+ 33310 strings out of 474424
+ 660631 string characters out of 5741739
  1971496 words of memory out of 5000000
- 55021 multiletter control sequences out of 15000+600000
+ 55020 multiletter control sequences out of 15000+600000
  603344 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,16n,120p,784b,1467s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1150,10 +1145,10 @@ ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liu
 la/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Simplicial Methods in Topology.pdf" (19 pages, 431934 bytes)
+Output written on "Simplicial Methods in Topology.pdf" (19 pages, 431504 bytes)
 .
 PDF statistics:
- 412 PDF objects out of 1000 (max. 8388607)
- 113 named destinations out of 1000 (max. 500000)
+ 411 PDF objects out of 1000 (max. 8388607)
+ 112 named destinations out of 1000 (max. 500000)
  189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

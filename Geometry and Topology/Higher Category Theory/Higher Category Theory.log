@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  4 NOV 2024 05:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  6 NOV 2024 23:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1125,33 +1125,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 290--291
 
  []
 
-[11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 343--344
-
- []
-
-[13]
+[11] [12] [13]
 Underfull \hbox (badness 10000) in paragraph at lines 373--374
 
  []
 
-[14] [15] (Higher Category Theory.aux)
+[14] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 430--431
+
+ []
+
+[16] [17] (Higher Category Theory.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Higher Category Theory".out' has not change
 d.
-(rerunfilecheck)             Checksum: F4686F018E03A635AC5AE4920477105A;4558.
+(rerunfilecheck)             Checksum: 11FD9102DAB7B5A2C200DAFB887EFA28;4834.
  ) 
 Here is how much of TeX's memory you used:
- 32677 strings out of 474424
- 644788 string characters out of 5741739
+ 32816 strings out of 474424
+ 648047 string characters out of 5741739
  1959496 words of memory out of 5000000
- 54417 multiletter control sequences out of 15000+600000
+ 54547 multiletter control sequences out of 15000+600000
  597664 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,16n,120p,769b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,18n,120p,769b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1170,9 +1170,9 @@ public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Higher Category Theory.pdf" (15 pages, 350179 bytes).
+Output written on "Higher Category Theory.pdf" (17 pages, 362152 bytes).
 PDF statistics:
- 357 PDF objects out of 1000 (max. 8388607)
- 86 named destinations out of 1000 (max. 500000)
- 189 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 378 PDF objects out of 1000 (max. 8388607)
+ 95 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

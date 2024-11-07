@@ -80,7 +80,7 @@ d^i(d^{j-1}[n-1])&=d^i([0,\dots,j-2,j,\dots,n])\\
 \end{prp}
 
 \subsection{Simplicial Sets}
-\begin{defn}{Simplicial Sets}{} A simplicial set is a presheaf $$S:\Delta\to\text{Sets}$$ 
+\begin{defn}{Simplicial Sets}{} A simplicial set is a presheaf $$S:\Delta^\text{op}\to\bold{Set}$$ Define the $n$-simplicies of $S$ to be the set $$S_n=S([n])$$
 \end{defn}
 
 \begin{eg}{}{} Let $X$ be a topological space. The set of singular simplices of $X$ is given by the presheaf $$S:\Delta\to\bold{Set}$$ defined by $[n]\mapsto\Hom_\bold{Top}(\abs{\Delta^n},X)$. In other words, an $n$-simplex of $X$ is simply a continuous function $\sigma:\Delta^n\to X$. This is exactly the same as how we defined singular $n$-simplexes in Algebraic Topology 2. 
@@ -102,22 +102,19 @@ d^i(d^{j-1}[n-1])&=d^i([0,\dots,j-2,j,\dots,n])\\
 \end{itemize}
 \end{defn}
 
-The Yoneda lemma in this context implies that there is a bijection $$\Hom_{\text{sSet}}(\Hom_\Delta([n],-),S)\cong S([n])$$ that is natural in the variable $[n]$. We will denote $$\Delta^n=\Hom_\Delta([n],-)$$ which is the image of $[n]$ under the yoneda embedding $y:\Delta\to\text{sSet}$ defined by $[n]\mapsto\Hom_\Delta([n],-)$. 
+The Yoneda lemma in this context implies that there is a bijection $$\Hom_{\text{sSet}}(\Hom_\Delta(-,[n]),S)\cong S([n])=S_n$$ that is natural in the variable $[n]$. 
 
-\begin{defn}{n-Simplices}{} Let $S:\Delta\to\text{Set}$ be a simplicial set. For $n\in\N$, define the $n$-simplices of $S$ to be $$S_n=S([n])=\Hom_\text{sSet}(\Delta^n,S)$$
+\begin{defn}{Standard $n$-Simplicies}{} Let $n\in\N$. Define the standard $n$-simplex to be the simplicial set $$\Delta^n=\Hom_\Delta(-,[n]):\Delta\to\bold{Set}$$
 \end{defn}
 
-Notice that $\Delta^n$ is a simplicial set $$\Delta^n:\Delta\to\text{Set}$$ defined by $[m]\mapsto\Hom_\Delta([n],[m])$. Notice that if $n>m$, then it is impossible to have an order preserving function $[n]\to[m]$. Hence when $n>m$, $\Hom_\Delta([n],[m])$ is empty. It is also clear that the $m$-simplices of $\Delta^n$ are precisely the order preserving maps $[m]\to[n]$. 
-
-\begin{defn}{Standard n-Simplex}{} Let $n\in\N$. The standard $n$-simplex is the simplicial set $\Delta^n:\Delta\to\text{Set}$ defined by $$\Delta^n=\Hom_\Delta([n],-)$$
-\end{defn}
+Notice that $\Delta^n$ is a simplicial set $$\Delta^n:\Delta\to\text{Set}$$ defined by $[m]\mapsto\Hom_\Delta([m],[n])$. Notice that if $m>n$, then it is impossible to have an order preserving function $[m]\to[n]$. Hence when $m>n$, $\Hom_\Delta([m],[n])$ is empty. \\
 
 All such simplicial sets $\Delta^n$ are useful in determining the contents of an arbitrary simplicial set. As for any presheaf, instead of focusing between the passage of data from $\Delta$ to $\text{Set}$, we should instead think of what kind of structure the presheaf brings to $\text{Set}$. Let $C$ be a simplicial set. Then this means the following. For each $n$, there is a set $C_n=\Hom_\text{sSet}(\Delta^n,C)$. For each morphism in $\Delta$, there is a corresponding morphism in $\text{Set}$, which we shall discuss now. 
 
 \begin{prp}{}{} Let $S:\Delta\to\text{Set}$ be a simplicial set. Then every morphism in $S(\Delta)$ is the composite of two kinds of maps: 
 \begin{itemize}
 \item The face maps: $d_i:S_n\to S_{n-1}$ for $0\leq i\leq n$ defined by $$d_i=S(d^i:[n-1]\to[n])$$
-\item The degeneracy maps: $s_i:S_{n+1}\to S_n$ for $0\leq i\leq n$ defined by $$s_i=S(s^i:[n+1]\to[n])$$
+\item The degeneracy maps: $s_i:S_n\to S_{n+1}$ for $0\leq i\leq n$ defined by $$s_i=S(s^i:[n+1]\to[n])$$
 \end{itemize}
 Moreover, these maps satisfy the following simplicial identities: 
 \begin{itemize}
@@ -133,6 +130,15 @@ s_j\circ d_{i-1} & \text{ if }i>j+1
 Results are immediate using prp 1.1.3 and the fact that $S$ is contravariant. 
 \end{proof}
 \end{prp}
+
+We can now explicitly determine a simplicial set using the above proposition. We can alternatively define a simplicial set to be the following data. 
+\begin{itemize}
+\item For each $n\in\N$, a set $S_n$. 
+\item For $n\in\N$ and $0\leq i\leq n$, a face map $$d_i^n:S_n\to S_{n-1}$$ determining the $i$th face of the $n$-simplex
+\item For $n\in\N$ and $0\leq i\leq n$, a degeneracy map $$s_i^n:S_n\to S_{n+1}$$
+\end{itemize}
+
+The above data is sufficient to determine a unique simplicial set. 
 
 \begin{prp}{}{} The category $\bold{sSet}$ is a symmetric monoidal category with level-wise cartesian product. 
 \end{prp}
@@ -214,14 +220,14 @@ Hence a simplicial object in $\bold{Set}$ is just simplical sets.
 \subsection{Chain Complexes of Simplicial Objects}
 \begin{defn}{Associated Chain Complex}{} Let $\mA$ be an abelian category. Let $A$ be a (semi)-simplicial object in $\mA$. Define the associated chain complex of $A$ to be \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {C_{n+1}(A)} & {C_n(A)} & {C_{n-1}(A)} & \cdots & {C_1(A)}
+	\cdots & {C_{n+1}(A)} & {C_n(A)} & {C_{n-1}(A)} & \cdots & {C_0(A)}
 	\arrow[from=1-1, to=1-2]
 	\arrow["{\partial_{n+1}}", from=1-2, to=1-3]
 	\arrow["{\partial_n}", from=1-3, to=1-4]
 	\arrow[from=1-4, to=1-5]
 	\arrow[from=1-5, to=1-6]
 \end{tikzcd}}\\~\\
-where $C_n(A)=A_n$ and the boundary operator given by $\partial_n=\sum_{i=0}^n(-1)^id_i^n:A_n\to A_{n-1}$. 
+where $C_n(A)=A_n$ and the boundary operator given by $$\partial_n=\sum_{i=0}^n(-1)^id_i^n:A_n\to A_{n-1}$$
 \end{defn}
 
 TBA: Functoriality of associated chain complex

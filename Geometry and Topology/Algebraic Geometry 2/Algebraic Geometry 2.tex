@@ -112,7 +112,7 @@ This gives the reason why we call the above topology on $\text{Spec}(A)$ the Zar
 \begin{lmm}{}{} Let $k$ be a field. Let $V,W$ be affine varieties over $k$. Let $\phi:V\to W$ be a morphism of affine varieties. Let $m_x$ be the maximal ideal in $\C[V]$ corresponding to a point $x\in V$. Then $$(\phi^\ast)^{-1}(m_x)=m_{\phi(x)}$$
 \end{lmm}
 
-\begin{defn}{Induced Map on Max Spectrum}{} Let $k$ be a field. Let $V,W$ be affine varieties over $k$. Let $\phi:V\to W$ be a morphism of affine varieties. Define the function $$\phi^\flat:\text{maxSpec}(\C[V])\to\text{maxSpec}(\C[W])$$ by the formula $m\mapsto\phi^{-1}(m)$
+\begin{defn}{Induced Map on Max Spectrum}{} Let $k$ be a field. Let $V,W$ be affine varieties over $k$. Let $\phi:V\to W$ be a morphism of affine varieties. Define the function $$\phi^\flat:\text{maxSpec}(\C[V])\to\text{maxSpec}(\C[W])$$ by the formula $m\mapsto(\phi^\ast)^{-1}(m)$
 \end{defn}
 
 We thus now have the following nice diagram: \\~\\
@@ -151,7 +151,19 @@ Consider the example where $V=\A_\C^1$. Then $$\text{Spec}(\C[t])=\underbrace{\{
 
 Heuristic: $\text{Spec}(\C[V])$ is an geometric enhancement of $V$. All the point of $V$ are still in $\text{Spec}(\C[V])$, but more points are added in because for each irreducible polynomial $f$ in $\C[V]$, a new floating point is added. This floating point $(f)$ embodies the curve that the irreducible polynomial $f$ represents, in the sense that its closure $\overline{(f)}$ will contain itself as a point and all the maximal ideals $(x-a)$ for which $a$ is a point on $f$. 
 
-\begin{prp}{}{} Let $A,B$ be commutative rings. Then there is a bijection $$\left\{\substack{\text{Continuous maps}\\\text{Spec}(B)\to\text{Spec}(A)}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Ring homomorphisms}\\ A\to B}\right\}$$ given as follows. For $\phi:A\to B$ a ring homomorphism, $\phi^\ast:\text{Spec}(B)\to\text{Spec}(A)$ is the map that sends the prime ideal $P$ of $B$ to $\phi^\ast(P)=\phi^{-1}(P)$. 
+\begin{defn}{Induced Map on Spectrum}{} Let $R,S$ be commutative rings. Let $\phi:R\to S$ be a ring homomorphism. Define the function $$\phi^\flat:\text{Spec}(S)\to\text{Spec}(R)$$ by the formula $P\mapsto\phi^{-1}(P)$
+\end{defn}
+
+\begin{lmm}{}{}  Let $R,S$ be commutative rings. Let $\phi:R\to S$ be a ring homomorphism.  Then the induced map $$\phi^\flat:\text{Spec}(S)\to\text{Spec}(R)$$ is continuous. 
+\end{lmm}
+
+\begin{prp}{}{} Let $A,B$ be commutative rings. Then there is a bijection $$\left\{\substack{\text{Continuous maps}\\\text{Spec}(B)\to\text{Spec}(A)}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Ring homomorphisms}\\ A\to B}\right\}$$ given as follows. For $\phi:A\to B$ a ring homomorphism, we associated to it the induced map $\phi^\flat:\text{Spec}(B)\to\text{Spec}(A)$. 
+\end{prp}
+
+\begin{prp}{}{} Let $V,W$ be affine varieties over $\C$. Let $F:V\to W$ be a morphism of affine varieties. Let $m_x$ be the maximal ideal of $\C[V]$ corresponding to the point $x$. Then $$(F^\ast)^\flat(m_x)=m_{F(x)}$$
+\end{prp}
+
+\begin{prp}{}{} Let $V$ be an affine variety over $\C$. Let $X\subseteq V$ be an affine irreducible subvariety. Let $P_X$ be the prime ideal of $\C[V]$ corresponding to $X$. Let $Y=\overline{F(X)}$. Then $$(F^\ast)^\flat(P_X)=P_Y$$
 \end{prp}
 
 \subsection{The Open Sets of the Zariski Topology}

@@ -613,31 +613,33 @@ Trivial since $\Z$ is a principal ideal domain.
 \begin{defn}{Multiplicative Set}{} Let $R$ be a commutative ring. $S\subseteq R$ is a multiplicative set if $1\in S$ and $S$ is closed under multiplication: $x,y\in S$ implies $xy\in S$
 \end{defn}
 
-\begin{defn}{Localization of a Ring}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set. Define the ring of fractions of $R$ with respect to $S$ by $$S^{-1}R=\left\{\frac{r}{s}|r\in R,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{r}{s}\sim\frac{r'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(ru'-r'u)=0$$
-If $S=\{1,f,f^2,\dots\}$ then we write $S^{-1}R=R_f=R[1/f]$. 
+\begin{defn}{Localization of a Ring}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set. Define the ring of fractions of $R$ with respect to $S$ by $$S^{-1}R=\left\{\frac{r}{s}|r\in R,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{r}{s}\sim\frac{r'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(ru'-r'u)=0$$ If $S=\{1,f,f^2,\dots\}$ then we write $$S^{-1}R=R_f=R[1/f]$$
 \end{defn}
 
 \begin{prp}{}{} Let $S^{-1}R$ be a ring of fractions. 
 \begin{itemize}
 \item $\sim$ as defined in the ring of fractions is an equivalence relation
 \item $(S^{-1}R,+,\times)$ is a ring
-\item The map $\phi:R\to S^{-1}R$ defined by $\phi(r)\to\frac{r}{1}$ is a ring homomorphism
 \end{itemize}\tcbline
 \begin{proof}~\\
 \begin{itemize}
 \item Trivial
 \item Define addition by $\frac{r}{s}+\frac{r'}{s'}=\frac{rs'+r's}{ss'}$ and multiplication by $\frac{r}{s}\cdot\frac{r'}{s'}=\frac{rr'}{ss'}$. Clearly addition is abelian, and has identity $\frac{0}{1}$ and inverse $\frac{-r}{s}$ for any $\frac{r}{s}\in S^{-1}R$. Multiplication also has identity $\frac{1}{1}$. 
-\item We have that $\phi(r+s)=\frac{r+s}{1}=\frac{r}{1}+\frac{s}{1}=\phi(r)+\phi(s)$ and $\phi(rs)=\frac{rs}{1}=\frac{r}{1}\cdot\frac{s}{1}=\phi(r)\cdot\phi(s)$ for any $r,s\in R$. 
 \end{itemize}
 \end{proof}
 \end{prp}
 
-\begin{thm}{Universal Property}{} Let $g:A\to B$ be a ring homomorphism such that $g(s)$ is a unit in $B$ for all $s\in S$. Then there exists a unique ring homomorphism $h:S^{-1}A\to B$ such that $g=h\circ\phi$. In other words, the following diagram commutes: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-A\arrow[r, "\phi"]\arrow[rd, "g"] & S^{-1}A\arrow[d, "\exists!h", dashed]\\
-&B
+\begin{prp}{Universal Property}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. Let $\iota:R\hookrightarrow S^{-1}R$ be the inclusion. Then the following is true. \\~\\
+
+For all rings $B$ and ring homomorphisms $\phi:R\to B$ such that $\phi(s)\in B^\times$ for all $s\in S$, there exists a unique ring homomorphism $\psi:S^{-1}R\to B$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	R & {S^{-1}R} \\
+	& B
+	\arrow["\iota", hook, from=1-1, to=1-2]
+	\arrow["\phi"', from=1-1, to=2-2]
+	\arrow["{\exists !\psi}", dashed, from=1-2, to=2-2]
 \end{tikzcd}}
-\end{thm}
+\end{prp}
 
 \subsection{Localization at a Prime Ideal}
 \begin{lmm}{}{} Let $R$ be a ring and $P$ a prime ideal of $R$. Then $R\setminus P$ is a multiplicative set. \tcbline
@@ -649,10 +651,10 @@ By definition, $xy\in P$ implies $x\in P$ or $y\in P$, since $R\setminus P$ remo
 \begin{defn}{Localization on Prime Ideals}{} Let $R$ be a commutative ring. Let $P$ be a prime ideal. Denote $$R_p=(R\setminus P)^{-1}R$$ the localization of $R$ at $P$. 
 \end{defn}
 
-\begin{lmm}{}{} Let $R$ be an integral domain. Then the localization $$(R\setminus(0))^{-1}R$$ is exactly the field of fractions of $R$. 
+\begin{lmm}{}{} Let $R$ be an integral domain. Then we have $$\text{Frac}(R)=R_{(0)}$$
 \end{lmm}
 
-\begin{prp}{}{} Let $R$ be a ring and let $p$ be a prime ideal of $R$. Then $R_p$ is a local ring. \tcbline
+\begin{prp}{}{} Let $R$ be a commutative ring and let $p$ be a prime ideal of $R$. Then $R_p$ is a local ring with unique maximal ideal given by $$PR_p=\left\{\frac{r}{s}\;|\;r\in P,s\notin P\right\}$$ \tcbline
 \begin{proof}
 Let $I$ be the set of all non-units of $R_p$. It is sufficient to show that $I$ is an ideal by the above lemma. Clearly if $i\in I$ then $r\cdot i$ is also not invertible. Explicitly, we have $$I=\left\{\frac{r}{s}\in R_p\bigg{|}r\in p\right\}$$ Let $\frac{r_1}{s_1},\frac{r_2}{s_2}\in I$, then $\frac{r_1}{s_1}+\frac{r_2}{s_2}=\frac{r_1s_2+r_2s_1}{s_1s_2}$ is in $I$ since $r_1,r_2\in P$ and $P$ being an ideal implies $r_1s_2+r_2s_1\in P$. 
 \end{proof}
@@ -660,20 +662,108 @@ Let $I$ be the set of all non-units of $R_p$. It is sufficient to show that $I$ 
 
 Be wary that in general localizations does not result in a local ring. This happens only when we are localizing with respect to a prime ideal. The importance of prime ideals is not explicit in the above because only using prime ideals $P$ can $R\setminus P$ be a multiplicative set which ultimately allows localization to make sense. 
 
-\subsection{Properties of Localization}
-\begin{prp}{}{} Localization commutes with direct sum of modules and quotient modules. 
-\end{prp}
-
 \subsection{Localization of a Module}
-\begin{defn}{Localization of a Module}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set Let $M$ be a $R$-module. Define the ring of fractions of $M$ with respect to $S$ by $$S^{-1}M=\left\{\frac{m}{s}|m\in M,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{m}{s}\sim\frac{m'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(mu'-m'u)=0$$
-If $S=\{1,f,f^2,\dots\}$ then we write $S^{-1}M=M_f=M[1/f]$. 
+\begin{defn}{Localization of a Module}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set Let $M$ be a $R$-module. Define the ring of fractions of $M$ with respect to $S$ by $$S^{-1}M=\left\{\frac{m}{s}|m\in M,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{m}{s}\sim\frac{m'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(mu'-m'u)=0$$ If $S=\{1,f,f^2,\dots\}$ then we write $$S^{-1}M=M_f=M[1/f]$$
 \end{defn}
 
-\begin{prp}{}{} Let $S$ be a multiplicative set of a ring $R$. Then localization at $S$ preservers exact sequences. 
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $S\subseteq R$ be a multiplicative subset. Then $S^{-1}M$ is an $S^{-1}R$-module with operation given by $$\left(\frac{r}{s_1},\frac{m}{s_2}\right)\mapsto\frac{r\cdot m}{s_1s_2}$$
+\end{lmm}
+
+\begin{defn}{Induced Map of Localization}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Define the induced map $$S^{-1}\phi:S^{-1}M\to S^{-1}N$$ by the formula $\frac{m}{s}\mapsto\frac{\phi(n)}{s}$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Then the induced map $$S^{-1}\phi:S^{-1}M\to S^{-1}N$$ is a well defined ring homomorphism. 
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & M_1 & M_2 & M_3 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then the following is an exact sequence of $S^{-1}R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & S^{-1}M_1 & S^{-1}M_2 & S^{-1}M_3 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["S^{-1}f", from=1-2, to=1-3]
+	\arrow["S^{-1}g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
 \end{prp}
 
-\begin{prp}{}{} Let $M$ be an $A$-module. Then the $S^{-1}A$ modules $S^{-1}M$ is isomorphic to $S^{-1}A\otimes_AM$. More precisely, there exists a unique isomorphism $f:S^{-1}A\otimes_AM\to S^{-1}M$ such that $$f((a/s)\otimes m)=am/s$$
+\begin{crl}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M$ be an $R$-module. Then the following are true. 
+\begin{itemize}
+\item If $N_1,N_2$ are $R$-submodules of $M$, then $$S^{-1}(N_1+N_2)=S^{-1}N_1+S^{-1}N_2$$ as $S^{-1}R$-submodules of $S^{-1}M$. 
+\item If $N_1,N_2$ are $R$-submodules of $M$, then $$S^{-1}(N_1\cap N_2)=S^{-1}N_1\cap S^{-1}N_2$$ as $S^{-1}R$-submodules of $S^{-1}M$. 
+\item If $N$ is an $R$-submodule of $M$, then $$S^{-1}\frac{M}{N}\cong\frac{S^{-1}M}{S^{-1}N}$$ as $S^{-1}R$-modules. 
+\item If $N$ is an $R$-module, then $$S^{-1}(M\oplus N)\cong S^{-1}M\oplus S^{-1}N$$ as $S^{-1}R$-modules. 
+\end{itemize}
+\end{crl}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Then there is an isomorphism $$S^{-1}M\cong S^{-1}R\otimes_RM$$ of $S^{-1}R$-modules given by $\frac{m}{s}\mapsto\frac{1}{s}\otimes m$. 
 \end{prp}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Then the following are true. 
+\begin{itemize}
+\item Localization commutes with kernels: $$S^{-1}\ker(\phi)\cong\ker(S^{-1}\phi)$$
+\item Localization commutes with images: $$S^{-1}(\im\phi)\cong\im(S^{-1}\phi)$$
+\item Localization commutes with cokernels: $$S^{-1}\frac{N}{\im(\phi)}\cong\frac{S^{-1}N}{\im(S^{-1}\phi)}$$
+\end{itemize}
+\end{lmm}
+
+\subsection{Local Properties}
+\begin{defn}{Local Properties}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. 
+\begin{itemize}
+\item A property of $R$-modules is local if the following is true. $M$ has the property if and only if $M_P$ has the property for all prime ideals $P$. 
+\item A property of an element of $M$ is local if the following is true. $m\in M$ has the property if and only if $m\in M_P$ has the property. 
+\end{itemize}
+\end{defn}
+
+More local properties: zero, nilpotent, injective, surjective, isomorphic\\
+Non-local properties: freeness, domain
+
+\begin{prp}{Exactness is Local}{} Let $R$ be a commutative ring. Let $M_1,M_2,M_3$ be $R$-modules. Let $f:M_1\to M_2$ and $g:M_2\to M_3$ be $R$-module homomorphisms. Then the following conditions are equivalent. 
+\begin{itemize}
+\item The following sequence is exact: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & M_1 & M_2 & M_3 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+\item The following sequence is exact: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & (M_1)_P & (M_2)_P & (M_3)_P & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f_P", from=1-2, to=1-3]
+	\arrow["g_P", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+for all prime ideals $P$ of $R$. 
+\item The following sequence is exact: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & (M_1)_m & (M_2)_m & (M_3)_m & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f_m", from=1-2, to=1-3]
+	\arrow["g_m", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+for all maximal ideals $m$ of $R$. 
+\end{itemize}
+\end{prp}
+
+\subsection{Ideals of a Localization}
+\begin{defn}{Ideals Closed Under Division}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. We say that $I$ is closed under division by $s$ if for all $s\in S$ and $a\in R$ such that $sa\in I$, we have $a\in I$. 
+\end{defn}
+
+\begin{lmm} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Let $\iota:R\hookrightarrow S^{-1}R$ be the inclusion homomorphism. Then we have $$I^e=S^{-1}I$$
+\end{lmm}
+
+\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Let $\iota:R\hookrightarrow S^{-1}R$ be the inclusion homomorphism. Then there is a one-to-one bijection $$\{J\;|\;J\text{ is an ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;|\;\substack{I\text{ is an ideal of }R\text{ and }\\I\text{ is closed under division by }S}\right\}$$ given by $J\mapsto J^c$
+\end{thm}
 
 \pagebreak
 \section{Primary Decomposition}
