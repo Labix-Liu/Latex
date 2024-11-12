@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  26 OCT 2024 21:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  12 NOV 2024 22:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1089,27 +1089,27 @@ la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 \openout5 = `"Algebraic Geometry 1.toc"'.
 
  [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
-[13]
+[13] [14]
 Underfull \hbox (badness 10000) in paragraph at lines 386--387
 
  []
 
-[14] [15] [16] [17] [18]
+[15] [16] [17] [18] [19]
 Underfull \hbox (badness 10000) in paragraph at lines 514--528
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 514--528
-
- []
-
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
 
  []
 
 [20]
+Underfull \hbox (badness 10000) in paragraph at lines 569--570
+
+ []
+
+[21]
 Underfull \hbox (badness 10000) in paragraph at lines 588--589
 
  []
@@ -1119,28 +1119,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 588--589
 
  []
 
-[21] [22] [23]
-Underfull \hbox (badness 1152) in paragraph at lines 659--660
-\T1/qpl/m/n/10 The new func-tion $\OML/cmm/m/it/10 F$ \T1/qpl/m/n/10 is ho-moge
--nous of de-gree $\OML/cmm/m/it/10 d$\T1/qpl/m/n/10 , not di-vis-ble by $\OML/c
-mm/m/it/10 x[]$\T1/qpl/m/n/10 . This map from 
+[22] [23] [24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
+
  []
 
-[24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
-[39] [40] (Algebraic Geometry 1.aux)
+[26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40]
+[41] [42] [43] [44] (Algebraic Geometry 1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Algebraic Geometry 1".out' has not changed.
 
-(rerunfilecheck)             Checksum: 61DCBD54A49358A91C9BE6943D1B1A45;8753.
+(rerunfilecheck)             Checksum: 07F2FC7EBC642AEBB02B59652E0B8A51;9823.
  ) 
 Here is how much of TeX's memory you used:
- 32957 strings out of 474424
- 648817 string characters out of 5741739
+ 32990 strings out of 474424
+ 649325 string characters out of 5741739
  1962496 words of memory out of 5000000
- 54524 multiletter control sequences out of 15000+600000
+ 54539 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,17n,120p,1209b,1439s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1162,9 +1160,9 @@ nts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Geometry 1.pdf" (40 pages, 547403 bytes).
+Output written on "Algebraic Geometry 1.pdf" (44 pages, 564408 bytes).
 PDF statistics:
- 764 PDF objects out of 1000 (max. 8388607)
- 261 named destinations out of 1000 (max. 500000)
- 373 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 823 PDF objects out of 1000 (max. 8388607)
+ 279 named destinations out of 1000 (max. 500000)
+ 413 words of extra memory for PDF output out of 10000 (max. 10000000)
 

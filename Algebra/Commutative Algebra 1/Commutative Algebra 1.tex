@@ -762,8 +762,11 @@ for all maximal ideals $m$ of $R$.
 \begin{lmm} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Let $\iota:R\hookrightarrow S^{-1}R$ be the inclusion homomorphism. Then we have $$I^e=S^{-1}I$$
 \end{lmm}
 
-\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Let $\iota:R\hookrightarrow S^{-1}R$ be the inclusion homomorphism. Then there is a one-to-one bijection $$\{J\;|\;J\text{ is an ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;|\;\substack{I\text{ is an ideal of }R\text{ and }\\I\text{ is closed under division by }S}\right\}$$ given by $J\mapsto J^c$
+\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Let $\iota:R\hookrightarrow S^{-1}R$ be the inclusion homomorphism. Then there is a one-to-one bijection $$\{J\;|\;J\text{ is an ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;|\;\substack{I\text{ is an ideal of }R\text{ and }\\I\text{ is closed under division by }S}\right\}$$ given by $J\mapsto J^c$. 
 \end{thm}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then the above bijection restricts to the following bijection $$\{J\;|\;J\text{ is a prime ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;\bigg{|}\;\substack{I\text{ is a prime ideal of }R\text{ and }\\I\cap S=\emptyset}\right\}$$
+\end{prp}
 
 \pagebreak
 \section{Primary Decomposition}
@@ -819,8 +822,8 @@ We want to express ideal $I$ in $R$ as $I=P_1^{e_1}\cdots P_n^{e_n}$ similar to 
 \begin{prp}{}{} Let $B$ be a ring and let $A\subseteq B$. Let $b\in B$. Then the following are equivalent. 
 \begin{itemize}
 \item $b$ is integral over $A$
-\item The subring $A[b]\subseteq B$ is finite over $A$
-\item There exists an $A$ sub-algebra $A'\subseteq B$ such that $A[b]\subseteq A'$ and $A'$ is finite over $A$. 
+\item $A[b]\subseteq B$ is finitely generated $A$-submodule. 
+\item There exists an $A$ sub-algebra $A'\subseteq B$ such that $A[b]\subseteq A'$ and $A'$ is finitely generated as an $A$-module. 
 \end{itemize}
 \end{prp}
 
@@ -833,7 +836,7 @@ We want to express ideal $I$ in $R$ as $I=P_1^{e_1}\cdots P_n^{e_n}$ similar to 
 \begin{lmm}{}{} Let $A\subseteq B\subseteq C$ be rings. If $C$ is integral over $B$ and $B$ is integral over $A$, then $C$ is integral over $A$. 
 \end{lmm}
 
-\begin{defn}{Integral Closure}{} Let $B$ be an $A$-algebra. Define the subring $$\overline{A}=\{b\in B|b\text{ is integral over }A\}$$ to be the integral closure of $A$ in $B$. If $\overline{A}=A$, then we say that $A$ is integrally closed in $B$. 
+\begin{defn}{Integral Closure}{} Let $B$ be an $A$-algebra. Define the subring $$\overline{A}=\{b\in B\;|\;b\text{ is integral over }A\}$$ to be the integral closure of $A$ in $B$. If $\overline{A}=A$, then we say that $A$ is integrally closed in $B$. 
 \end{defn}
 
 \begin{lmm}{}{} Let $B$ be a ring and let $A\subseteq B$ be a subring. Then $\overline{A}$ is an integral extension of $A$. 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  7 NOV 2024 17:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  12 NOV 2024 01:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1064,137 +1064,129 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 \openout5 = `"Topological Manifolds.toc"'.
 
  [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
+Underfull \hbox (badness 10000) in paragraph at lines 55--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
+Underfull \hbox (badness 10000) in paragraph at lines 55--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 55--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 55--69
 
  []
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
-
- []
-
-[5] [6] [7]
+[4] [5] [6]
 LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 1
-49.
+66.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
-[8{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [9] [10] [11] [12]
-<Image 1.png, id=203, 440.64626pt x 570.13pt>
+[7{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+enc}] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--243
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--243
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
+
+ []
+
+[10] [11] [12] [13] [14]
+<Image 1.png, id=237, 440.64626pt x 570.13pt>
 File: Image 1.png Graphic file (type png)
 <use Image 1.png>
-Package pdftex.def Info: Image 1.png  used on input line 278.
+Package pdftex.def Info: Image 1.png  used on input line 393.
 (pdftex.def)             Requested size: 352.51747pt x 456.10463pt.
- [13]
-Underfull \hbox (badness 10000) in paragraph at lines 281--282
+ [15]
+Underfull \hbox (badness 10000) in paragraph at lines 396--397
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--282
+Underfull \hbox (badness 10000) in paragraph at lines 396--397
 
  []
 
-<Image 2.png, id=214, 517.935pt x 485.815pt>
+<Image 2.png, id=247, 517.935pt x 485.815pt>
 File: Image 2.png Graphic file (type png)
 <use Image 2.png>
-Package pdftex.def Info: Image 2.png  used on input line 286.
+Package pdftex.def Info: Image 2.png  used on input line 401.
 (pdftex.def)             Requested size: 155.38168pt x 145.74562pt.
-[14 <./Image 1.png>]
-<Image 3.png, id=220, 532.99126pt x 471.7625pt>
+[16 <./Image 1.png>]
+<Image 3.png, id=253, 532.99126pt x 471.7625pt>
 File: Image 3.png Graphic file (type png)
 <use Image 3.png>
-Package pdftex.def Info: Image 3.png  used on input line 297.
+Package pdftex.def Info: Image 3.png  used on input line 412.
 (pdftex.def)             Requested size: 159.8986pt x 141.52983pt.
-
-Overfull \hbox (0.32242pt too wide) in paragraph at lines 315--316
-\T1/qpl/m/n/10 over, ev-ery com-pact sur-face is home-o-mor-phic to ei-ther $\O
-T1/cmr/m/n/10 ^^F[] = \U/msb/m/n/10 T\OT1/cmr/m/n/10 # [] #\U/msb/m/n/10 T$ \T1
-/qpl/m/n/10 for $\OML/cmm/m/it/10 g \OMS/cmsy/m/n/10 ^^U \OT1/cmr/m/n/10 0$ \T1
-/qpl/m/n/10 or $\OML/cmm/m/it/10 N[] \OT1/cmr/m/n/10 = \U/msb/m/n/10 RP[]\OT1/c
-mr/m/n/10 # [] #\U/msb/m/n/10 RP[]$
- []
-
-[15 <./Image 2.png> <./Image 3.png>]
-<Image 4.png, id=230, 522.95375pt x 480.79625pt>
+<Image 4.png, id=254, 522.95375pt x 480.79625pt>
 File: Image 4.png Graphic file (type png)
 <use Image 4.png>
-Package pdftex.def Info: Image 4.png  used on input line 326.
+Package pdftex.def Info: Image 4.png  used on input line 439.
 (pdftex.def)             Requested size: 156.88733pt x 144.23997pt.
- [16 <./Image 4.png>]
-<Image 5.png, id=237, 519.9425pt x 483.8075pt>
+ [17 <./Image 2.png> <./Image 3.png>] [18 <./Image 4.png>]
+[19]
+<Image 5.png, id=278, 519.9425pt x 483.8075pt>
 File: Image 5.png Graphic file (type png)
 <use Image 5.png>
-Package pdftex.def Info: Image 5.png  used on input line 379.
+Package pdftex.def Info: Image 5.png  used on input line 519.
 (pdftex.def)             Requested size: 155.98395pt x 145.14337pt.
- [17 <./Image 5.png>]
-[18] [19] [20] (Topological Manifolds.aux)
+ [20 <./Image 5.png>] [21] [22] (Topological Manifolds.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Topological Manifolds".out' has not changed
 .
-(rerunfilecheck)             Checksum: 80361197D69C878305B34A36844A28F3;3323.
+(rerunfilecheck)             Checksum: 0567DABA48BBAE5FEFCEAF304A47DA32;4246.
  ) 
 Here is how much of TeX's memory you used:
- 32942 strings out of 474424
- 651031 string characters out of 5741739
+ 33350 strings out of 474424
+ 661172 string characters out of 5741739
  1966496 words of memory out of 5000000
- 54686 multiletter control sequences out of 15000+600000
+ 55083 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,18n,120p,1090b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,18n,120p,981b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/li
-ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/
-Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/m
-sbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-
-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/tex-gyre/qplri.pfb>
-Output written on "Topological Manifolds.pdf" (20 pages, 823934 bytes).
+fonts/cmextra/cmex7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/User
+s/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+msy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on "Topological Manifolds.pdf" (22 pages, 861399 bytes).
 PDF statistics:
- 341 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 174 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 385 PDF objects out of 1000 (max. 8388607)
+ 95 named destinations out of 1000 (max. 500000)
+ 198 words of extra memory for PDF output out of 10000 (max. 10000000)
 

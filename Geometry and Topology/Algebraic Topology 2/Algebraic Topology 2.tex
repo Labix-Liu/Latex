@@ -659,6 +659,60 @@ and so we conclude.
 
 Combining with the induced map in homology, we thus have that given a map of $\Delta$-sets, it induces a map in homology. 
 
+\subsection{Barycentric Subdivision}
+Barycentric subdivisions is the main ingredient for proving one of the major results of singular homology. It is defined first through $\Delta$-set, and then passed on to singular $n$-simplexes, which we will see in the next chapter. 
+
+\begin{defn}{Barycenter}{} Let $\Delta^n=[v_0,\dots,v_n]$ be a standard $n$-simplex. The barycenter of $\Delta^n$ is the point $$b=\frac{1}{n+1}\sum_{i=0}^nv_i$$
+\end{defn}
+
+In fact, we can find the barycenter inductively. Knowing the barycenter $b_i$ on the $i$th face $[v_0,\dots,\hat{v}_i,\dots,v_n]$, let $l_i$ be the line connecting $b_i$ and $v_i$. Then $b$ is the intersection of all these lines $l_i$. 
+
+\begin{defn}{Barycentric Cone}{} Let $[w_1,\dots,w_n]\subseteq\Delta^n$ be an $(n-1)$-simplex. Define its barycentric cone to be $$\mB[w_1,\dots,w_n]=[b,w_1,\dots,w_n]\subseteq\Delta^n$$ where $b$ is the barycenter of $\Delta^n$. This definition is extended linearly to linear combinations of $(n-1)$-simplices. 
+\end{defn}
+
+Intuitively, this means that given a face of $\Delta^n$ which is an $(n-1)$-simplex, its barycentric cone is the $n$-simplex constructed from the vertices of the face together with the barycenter. \\~\\
+
+Extending it to linearity simply means that if one has a formal linear combination of the faces of $\Delta^n$, say $\sum_{k}m_k\sigma_k$ where each $\sigma_k$ is a face of $\Delta^n$, then we have that $$\mB\sum_km_k\sigma_k=\sum_km_k\mB\sigma_k$$
+
+\begin{defn}{Barycentric Subdivision}{} Let $\Delta^n$ be the standard $n$-simplex. Define inductively the barycentric subdivision $S(\Delta^n)\in C_n(\Delta^n)$ of $\Delta^n$ as
+\begin{itemize}
+\item When $n=0$, $S(\Delta^0)=\Delta^0$
+\item When $n>0$, define $$S(\Delta^n)=\mB S(\partial\Delta^n)=\sum_{i=0}^n(-1)^i\mB S(\partial_i\Delta^n)$$
+\end{itemize}
+\end{defn}
+
+To elicit a few examples, consider the case of $n=1$. Then we have 
+\begin{align*}
+S(\Delta^1)&=\mB S(\partial\Delta^1)\\
+&=\mB S(\partial_0\Delta^1)-\mB S(\partial_1\Delta^1)\\
+&=\mB[v_1]-\mB[v_0]\\
+&=[b,v_1]-[b,v_0]
+\end{align*}
+where $b=\frac{1}{2}(v_0+v_1)$. Intuitively, we are breaking up the $n$-simplex $\Delta^n$ into tiny pieces of $n$-simplexes using the center of mass of each subsimplex in $\Delta^n$. 
+
+\begin{lmm}{}{} Let $\sigma=[w_1,\dots,w_n]\subseteq\Delta^n$ be an $(n-1)$-simplex. Then the following are true. 
+\begin{itemize}
+\item $\partial(\mB(\sigma))+\mB(\partial\sigma)=\sigma$ 
+\item $\partial S(\Delta^n)=S(\partial\Delta^n)$
+\end{itemize} \tcbline
+\begin{proof}
+We have that 
+\begin{align*}
+\partial\mB[w_1,\dots,w_n]&=\partial[b,w_1,\dots,w_n]\\
+&=\sum_{i=0}^n(-1)^i\partial_i[b,w_1,\dots,w_n]\\
+&=[w_1,\dots,w_n]-\mB(\partial[w_1,\dots,w_n])
+\end{align*}
+And thus the first identity is satisfied. \\~\\
+We prove the second item inductively. When $n=0$, we have $0$ on both sides. When $n>0$, we have
+\begin{align*}
+\partial S\Delta^n&=\partial\mB(S(\partial\Delta^n))\\
+&=\text{id}(S\partial\Delta^n)-\mB(\partial(S\partial\Delta^n))\tag{First Identity}\\
+&=S\partial\Delta^n-\mB(S\partial^2\Delta^n)\tag{Induction}\\
+&=S\partial\Delta^n
+\end{align*}
+\end{proof}
+\end{lmm}
+
 \pagebreak
 \section{Introduction to Singular Homology}
 \subsection{Singular n-Simplexes and Singular Homology}
@@ -703,7 +757,33 @@ Being a chain complex means that the group of $n$-cycles and $n$-boundaries are 
 \begin{defn}{The Singular Homology Group}{} Let $X$ be a topological space. Define the singular chain complex of $X$ to be $(C_\bullet,\partial_\bullet)$. The $n$-th singular homology group of $X$ is defined to be $$H_n(X)=H_n(C_\bullet(X))$$
 \end{defn}
 
-One can imagine that in order to deduce the homology groups of a space, the computations involved are highly non-trivial. For instance, one has first work out how the boundary maps are defined in order to deduce their kernel and images. But the set of singular $n$-simplexes of a space is a much larger set than that of $\Delta$-complexes. When the dimension of the space $X$ (whatever this means) is larger, one can also imagine that the singular homology groups $H_n(X)$ are non-trivial in most of $n\in\N$. We will see how to compute them in the next section. \\~\\
+One can imagine that in order to deduce the homology groups of a space, the computations involved are highly non-trivial. For instance, one has first work out how the boundary maps are defined in order to deduce their kernel and images. But the set of singular $n$-simplexes of a space is a much larger set than that of $\Delta$-complexes. When the dimension of the space $X$ (whatever this means) is larger, one can also imagine that the singular homology groups $H_n(X)$ are non-trivial in most of $n\in\N$. We will see how to compute them in the next section. 
+
+\begin{eg}{}{} Let $X=\ast$ be a point. Then the homology of the one point space is $$H_n(\ast)\cong\begin{cases}
+\Z & \text{if } n=0\\
+0 & \text{otherwise}
+\end{cases}$$ \tcbline
+\begin{proof}
+For each $n\geq 0$, there is a unique singular $n$-simplex, $c_n:\Delta^n\to\ast$ the constant map. Thus the singular chain complex becomes \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & \Z & \Z & \Z & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\partial_2}", from=1-2, to=1-3]
+	\arrow["{\partial_1}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Now notice that 
+\begin{align*}
+\partial_n(c_n)&=\sum_{i=0}^n(-1)^nc_n|_{\partial_i\Delta^n}\\
+&=\sum_{i=0}^n(-1)^nc_{n-1}\\
+&=\begin{cases}
+c_{n-1} & \text{if } n>0\text{ is even }\\
+0 & \text{otherwise }
+\end{cases}
+\end{align*}
+This means that $\partial_n$ is an isomorphism when $n$ is even, $\partial_n$ is the zero map when $n$ is odd. When $n\neq 0$ is even, we have that $$H_n(\ast)=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}=\frac{\{0\}}{\{0\}}=0$$ When $n$ is odd, we have that $$H_n(\ast)=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}=\frac{\Z}{\Z}=0$$ Finally when $n=0$, we have that $H_0(\ast)=\Z$. 
+\end{proof}
+\end{eg}
 
 For now, we are concerned with some immediate consequences of this definition, such as functoriality. 
 
@@ -940,59 +1020,14 @@ Suppose that the homotopy equivalence is given by $f:X\to Y$ and $g:Y\to X$. Tha
 
 Homotopy invariance is also true for reduced homology. 
 
-\subsection{Barycentric Subdivision}
-Barycentric subdivisions is the main ingredient for proving one of the major results of singular homology. It is defined first through $\Delta$-set, and then passed on to singular $n$-simplexes, which we will see in the next chapter. 
-
-\begin{defn}{Barycenter}{} Let $\Delta^n=[v_0,\dots,v_n]$ be a standard $n$-simplex. The barycenter of $\Delta^n$ is the point $$b=\frac{1}{n+1}\sum_{i=0}^nv_i$$
-\end{defn}
-
-In fact, we can find the barycenter inductively. Knowing the barycenter $b_i$ on the $i$th face $[v_0,\dots,\hat{v}_i,\dots,v_n]$, let $l_i$ be the line connecting $b_i$ and $v_i$. Then $b$ is the intersection of all these lines $l_i$. 
-
-\begin{defn}{Barycentric Cone}{} Let $[w_1,\dots,w_n]\subseteq\Delta^n$ be an $(n-1)$-simplex. Define its barycentric cone to be $$\mB[w_1,\dots,w_n]=[b,w_1,\dots,w_n]\subseteq\Delta^n$$ where $b$ is the barycenter of $\Delta^n$. This definition is extended linearly to linear combinations of $(n-1)$-simplices. 
-\end{defn}
-
-Intuitively, this means that given a face of $\Delta^n$ which is an $(n-1)$-simplex, its barycentric cone is the $n$-simplex constructed from the vertices of the face together with the barycenter. \\~\\
-
-Extending it to linearity simply means that if one has a formal linear combination of the faces of $\Delta^n$, say $\sum_{k}m_k\sigma_k$ where each $\sigma_k$ is a face of $\Delta^n$, then we have that $$\mB\sum_km_k\sigma_k=\sum_km_k\mB\sigma_k$$
-
-\begin{defn}{Barycentric Subdivision}{} Let $\Delta^n$ be the standard $n$-simplex. Define inductively the barycentric subdivision $S(\Delta^n)\in C_n(\Delta^n)$ of $\Delta^n$ as
-\begin{itemize}
-\item When $n=0$, $S(\Delta^0)=\Delta^0$
-\item When $n>0$, define $$S(\Delta^n)=\mB S(\partial\Delta^n)=\sum_{i=0}^n(-1)^i\mB S(\partial_i\Delta^n)$$
-\end{itemize}
-\end{defn}
-
-To elicit a few examples, consider the case of $n=1$. Then we have 
-\begin{align*}
-S(\Delta^1)&=\mB S(\partial\Delta^1)\\
-&=\mB S(\partial_0\Delta^1)-\mB S(\partial_1\Delta^1)\\
-&=\mB[v_1]-\mB[v_0]\\
-&=[b,v_1]-[b,v_0]
-\end{align*}
-where $b=\frac{1}{2}(v_0+v_1)$. Intuitively, we are breaking up the $n$-simplex $\Delta^n$ into tiny pieces of $n$-simplexes using the center of mass of each subsimplex in $\Delta^n$. 
-
-\begin{lmm}{}{} Let $\sigma=[w_1,\dots,w_n]\subseteq\Delta^n$ be an $(n-1)$-simplex. Then the following are true. 
-\begin{itemize}
-\item $\partial(\mB(\sigma))+\mB(\partial\sigma)=\sigma$ 
-\item $\partial S(\Delta^n)=S(\partial\Delta^n)$
-\end{itemize} \tcbline
+\begin{eg}{}{} Let $X$ be a contractible space. Then $$H_n(X)\cong\begin{cases}
+\Z & \text{if } n=0\\
+0 & \text{otherwise}
+\end{cases}$$ \tcbline
 \begin{proof}
-We have that 
-\begin{align*}
-\partial\mB[w_1,\dots,w_n]&=\partial[b,w_1,\dots,w_n]\\
-&=\sum_{i=0}^n(-1)^i\partial_i[b,w_1,\dots,w_n]\\
-&=[w_1,\dots,w_n]-\mB(\partial[w_1,\dots,w_n])
-\end{align*}
-And thus the first identity is satisfied. \\~\\
-We prove the second item inductively. When $n=0$, we have $0$ on both sides. When $n>0$, we have
-\begin{align*}
-\partial S\Delta^n&=\partial\mB(S(\partial\Delta^n))\\
-&=\text{id}(S\partial\Delta^n)-\mB(\partial(S\partial\Delta^n))\tag{First Identity}\\
-&=S\partial\Delta^n-\mB(S\partial^2\Delta^n)\tag{Induction}\\
-&=S\partial\Delta^n
-\end{align*}
+Follows from the homology of one point space and homotopy invariance. 
 \end{proof}
-\end{lmm}
+\end{eg}
 
 \subsection{Mayer-Vietoris Sequence}
 Seifert-van Kampen theorem allows the fundamental group of a space to be computed by considering appropriate subspaces. There is a similar method for homology provided by the Mayer-Vietoris sequence. \\~\\
@@ -1122,47 +1157,11 @@ The short exact sequence in proposition 4.3.6 induces a long exact sequence by t
 \end{proof}
 \end{thm}
 
-Note that the Mayer-Vietoris sequence also holds for reduced homology. 
-
-\subsection{Computations of the Homology Groups}
-\begin{prp}{}{} Let $X=\ast$ be a point. Then the homology of the one point space is $$H_n(\ast)\cong\begin{cases}
-\Z & \text{if } n=0\\
-0 & \text{otherwise}
-\end{cases}$$ \tcbline
-\begin{proof}
-For each $n\geq 0$, there is a unique singular $n$-simplex, $c_n:\Delta^n\to\ast$ the constant map. Thus the singular chain complex becomes \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & \Z & \Z & \Z & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["{\partial_2}", from=1-2, to=1-3]
-	\arrow["{\partial_1}", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-Now notice that 
-\begin{align*}
-\partial_n(c_n)&=\sum_{i=0}^n(-1)^nc_n|_{\partial_i\Delta^n}\\
-&=\sum_{i=0}^n(-1)^nc_{n-1}\\
-&=\begin{cases}
-c_{n-1} & \text{if } n>0\text{ is even }\\
-0 & \text{otherwise }
-\end{cases}
-\end{align*}
-This means that $\partial_n$ is an isomorphism when $n$ is even, $\partial_n$ is the zero map when $n$ is odd. When $n\neq 0$ is even, we have that $$H_n(\ast)=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}=\frac{\{0\}}{\{0\}}=0$$ When $n$ is odd, we have that $$H_n(\ast)=\frac{\ker(\partial_n)}{\im(\partial_{n+1})}=\frac{\Z}{\Z}=0$$ Finally when $n=0$, we have that $H_0(\ast)=\Z$. 
-\end{proof}
-\end{prp}
-
-\begin{crl}{}{} Let $X$ be a contractible space. Then $$H_n(X)\cong\begin{cases}
-\Z & \text{if } n=0\\
-0 & \text{otherwise}
-\end{cases}$$ \tcbline
-\begin{proof}
-Follows from the homology of one point space and homotopy invariance. 
-\end{proof}
-\end{crl}
+Note that the Mayer-Vietoris sequence also holds for reduced homology. \\
 
 Our first application of the Mayer-Vietoris sequence comes with the computation of the homology groups of the $k$-spheres. 
 
-\begin{thm}{}{} Let $k\in\N$. Then the homology of the $k$-sphere $S^k$ is $$H_n(S^k)\cong\begin{cases}
+\begin{eg}{}{} Let $k\in\N$. Then the homology of the $k$-sphere $S^k$ is $$H_n(S^k)\cong\begin{cases}
 \Z & \text{if } n=k,0\\
 0 & \text{otherwise}
 \end{cases}$$ \tcbline
@@ -1209,11 +1208,11 @@ Again using induction hypothesis, we see that $$H_n(S^k)\cong H_{n-1}(S^{k-1})\c
 \end{cases}$$
 and so we conclude. 
 \end{proof}
-\end{thm}
+\end{eg}
 
 Recall that the torus and the Klein bottle can be expressed by a quotient of $I\times I$. Together with Mayer-Vietoris sequence and homotopy invariance we can compute the singular homology groups of the two. 
 
-\begin{thm}{}{} Let $\T=S^1\times S^1$ denote the torus. Then the homology of the torus $\T$ is $$H_k(\T)=\begin{cases}
+\begin{eg}{}{} Let $\T=S^1\times S^1$ denote the torus. Then the homology of the torus $\T$ is $$H_k(\T)=\begin{cases}
 \Z & \text{if } k=0,2\\
 \Z^2 & \text{if } k=1\\
 0 & \text{otherwise}
@@ -1281,23 +1280,23 @@ we obtain an isomorphism $\tilde{H}_1(T)\cong\Z\oplus\ker(\partial)$. Now $\ker(
 \end{cases}$$
 and so we are done. 
 \end{proof}
-\end{thm}
+\end{eg}
 
 Note that the choice of the orientation of the generators is arbitrary, one can choose the opposite orientation and deduce the same homology groups. 
 
-\begin{thm}{}{} Let $K$ denote the Klein bottle. Then the homology of the Klein bottle $K$ is $$H_k(K)=\begin{cases}
+\begin{eg}{}{} Let $K$ denote the Klein bottle. Then the homology of the Klein bottle $K$ is $$H_k(K)=\begin{cases}
 \Z & \text{if } k=0\\
 \Z\oplus\Z/2\Z & \text{if } k=1\\
 0 & \text{otherwise}
 \end{cases}$$
-\end{thm}
+\end{eg}
 
 \pagebreak
 \section{Applications of Singular Homology}
 \subsection{Brouwer Fixed Point Theorem}
 In Algebraic Topology 1, we have seen Brouwer fixed point theorem for $D$ the unit disc in $\R^2$. Using the sequence homology groups, we can finally state and prove the result for $n$-dimensional discs. 
 
-\begin{crl}{}{} For any $k\in\N$, $S^{k-1}$ is not a retract of $D^k$. \tcbline
+\begin{lmm}{}{} For any $k\in\N$, $S^{k-1}$ is not a retract of $D^k$. \tcbline
 \begin{proof}
 Assume to the contrary that $i:S^{k-1}\hookrightarrow D^k$ admits a retraction $r:D^k\to S^{k-1}$. Then $\text{id}_{S^k}=r\circ i$ so that \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -1313,13 +1312,13 @@ is the identity map. Substituting the homology of $S^{k-1}$ and $D^k$, we have t
 \end{tikzcd}}\\~\\
 is the identity map which is impossible. 
 \end{proof}
-\end{crl}
+\end{lmm}
 
-\begin{crl}{Brouwer Fixed-point Theorem}{} Every continuous map $f:D^k\to D^k$ has a fixed point. \tcbline
+\begin{thm}{Brouwer Fixed-point Theorem}{} Every continuous map $f:D^k\to D^k$ has a fixed point. \tcbline
 \begin{proof}
 Suppose not, then the ray starting at $f(x)$ in the direction of $x$ meets $S^{k-1}$ in exactly one point $g(x)\neq f(x)$. Then $g:D^k\to S^{k-1}$ defines a retraction. By the above corollary, this is a contradiction. 
 \end{proof}
-\end{crl}
+\end{thm}
 
 Using topological properties preserved by homeomorphisms, we are only able to prove that $\R^1$ and $\R^2$ are not homeomorphic using the argument on the number of connected components. Using homology, we can prove the full form of invariance of domain. 
 
@@ -1438,12 +1437,17 @@ Elements of $Z_n(X,A)$ are called relative $n$-cycles, while elements of $B_n(X,
 
 Geometrically, relative $n$-cycles are $n$-cycles in $C_n(X)$ such that $\partial z\in C_{n-1}(A)$ which means that the boundary of $z$ is contained in the subspace $A$. Intuitively, we are treating cycles in the subspace $A$ as $0$ and so the homology groups measure the homology of $X$ without $A$. 
 
-\begin{thm}{}{} Let $X$ be a space and $A\subseteq X$ a subspace of $X$. Then there is an exact sequence \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\begin{thm}{Exact Sequence of Pairs of Spaces}{} Let $(X,A)$ be a pair of spaces. Then there is an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
 \cdots\arrow[r] & H_n(A)\arrow[r, "\iota_\ast"] & H_n(X)\arrow[r, "j_\ast"] & H_n(X,A)\arrow[r, "\partial"] & H_{n-1}(A)\arrow[r] & \cdots
 \end{tikzcd}}\\~\\
-where $\iota:A\to X$ is the inclusion map and $j:X\to X\setminus A$ is the quotient map. \\~\\
-Moreover, the connecting homomorphism $\partial:H_n(X,A)\to H_{n-1}(A)$ is defined by $[z]\mapsto[dz]$ for $z\in C_n(X)$ a relative cycle. \tcbline
+where 
+\begin{itemize}
+\item $\iota:A\to X$ is the inclusion map
+\item $j:X\to X\setminus A$ is the quotient map
+\item The connecting homomorphism $\partial:H_n(X,A)\to H_{n-1}(A)$ is defined by $[z]\mapsto[dz]$ for $z\in C_n(X)$ a relative cycle. 
+\end{itemize}
+Moreover, the exact sequence is natural with respect to maps $f:(X,A)\to(Y,B)$. \tcbline
 \begin{proof}
 Notice that \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -1499,13 +1503,13 @@ Therefore we conclude.
 
 Relative homology also satisfies the homotopy invariance property and has the Mayer-Vietoris sequence. 
 
-\begin{prp}{}{} If two maps $f,g:(X,A)\to (Y,B)$ are homotopic through maps of pairs $(X,A)\to(Y,B)$, then $$f_\ast=g_\ast:H_n(X,A)\to H_n(Y,B)$$ 
-\end{prp}
+\begin{thm}{Homotopy Invariance}{} Let $(X,A),(Y,B)$ be pairs of spaces. Let $f,g:(X,A)\to(Y,B)$ be homotopic maps. Then the induced map on relative homology are the same: $$f_\ast=g_\ast:H_n(X,A)\to H_n(Y,B)$$ 
+\end{thm}
 
 \begin{crl}{}{} Let $f:(X,A)\to (Y,B)$ be a map such that both $f:X\to Y$ and $f|_A:A\to B$ are homotopy equivalences. Then $$f_\ast:H_n(X,A)\to H_n(Y,B)$$ induces an isomorphism for all $n\in\N$. 
 \end{crl}
 
-\begin{prp}{}{} Let $(X,A,B)$ be a triplet of space such that $B\subset A\subset X$. Then \\~\\
+\begin{prp}{Long Exact Sequence of a Triple}{} Let $(X,A,B)$ be a triplet of space such that $B\subset A\subset X$. Then \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	0 & {C_n(A,B)} & {C_n(X,B)} & {C_n(X,A)} & 0
 	\arrow[from=1-1, to=1-2]
@@ -1522,10 +1526,10 @@ is a short exact sequence that gives rise to a long exact sequence \\~\\
 	\arrow[from=1-4, to=1-5]
 	\arrow[from=1-5, to=1-6]
 \end{tikzcd}}\\~\\
-in relative homology. 
+in relative homology. Moreover, the exact sequence is natural with respect to maps $f:(X,A,B)\to(Y,C,D)$. 
 \end{prp}
 
-\begin{prp}{Relative Mayer-Vietoris Sequence}{} Let $(X,Y)$ be a pair of space such that $A,B\subset X$ cover $X$ and $C,D\subset Y$ cover $Y$ with $C\subset A$ and $D\subset B$. Then there is an exact sequence \\~\\
+\begin{thm}{Relative Mayer-Vietoris Sequence}{} Let $(X,Y)$ be a pair of space such that $A,B\subset X$ cover $X$ and $C,D\subset Y$ cover $Y$ with $C\subset A$ and $D\subset B$. Then there is an exact sequence \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	\cdots & {H_n(A\cap B,C\cap D)} && {H_n(A,C)\oplus H_n(B,D)} && {H_n(X,Y)} & \cdots
 	\arrow[from=1-1, to=1-2]
@@ -1534,7 +1538,7 @@ in relative homology.
 	\arrow[from=1-6, to=1-7]
 \end{tikzcd}}\\~\\
 in relative homology. 
-\end{prp}
+\end{thm}
 
 Using the lemma, we have a low degree interpretation for relative homology. 
 
@@ -1548,7 +1552,7 @@ Using the lemma, we have a low degree interpretation for relative homology.
 \subsection{Quotient Spaces and Excision}
 The excision theorem is a powerful theorem for computing relative homology groups. This statement is derived directly from Mayer-Vietoris. 
 
-\begin{thm}{The Excision Theorem}{} Let $X$ be a space and $Z,A$ be subspaces of $X$ such that $\overline{Z}\subseteq A^\circ$. Then the inclusion map $(X\setminus Z,A\setminus Z)\to (X,A)$ induces an isomorphism $$H_n(X\setminus Z,A\setminus Z)\cong H_n(X,A)$$ for all $n$. \tcbline
+\begin{thm}{The Excision Theorem}{} Let $X$ be a space and $Z,A$ be subspaces of $X$ such that $\overline{Z}\subseteq A^\circ$. Then the inclusion map $(X\setminus Z,A\setminus Z)\hookrightarrow (X,A)$ induces an isomorphism $$H_n(X\setminus Z,A\setminus Z)\cong H_n(X,A)$$ for all $n$. Moreover, the excision isomorphism is natural in maps $f:(X,A,Z)\to(Y,B,C)$. \tcbline
 \begin{proof}
 Let $B=X\setminus Z$. Then notice that $A\cap B=A\setminus Z$, $A^\circ\cup B^\circ=A^\circ\cup(X\setminus\overline{Z})=X$. Moreover, we have that 
 \begin{align*}
@@ -1574,7 +1578,7 @@ where the vertical arrows are naturally induced by inclusion. By proposition 8.2
 \end{proof}
 \end{thm}
 
-\begin{lmm}{}{} The Excision Theorem is equivalent to the following version: If $A,B\subset X$ are subspaces such that $X=A^\circ\cup B^\circ$, then the inclusion $(B,A\cap B)\to (X,A)$ induces isomorphisms $H_n(B,A\cap B)\to H_n(X,A)$ for all $n$. 
+\begin{lmm}{}{} The Excision Theorem is equivalent to the following version: If $A,B\subset X$ are subspaces such that $X=A^\circ\cup B^\circ$, then the inclusion $(B,A\cap B)\to (X,A)$ induces isomorphisms $$H_n(B,A\cap B)\overset{\cong}{\longrightarrow} H_n(X,A)$$ for all $n$. 
 \end{lmm}
 
 When $X$ and $A$ in relative homology is nice enough, we can interpret the result from relative homology as the homology groups of the quotient space. The following notation is due to Hatcher. 
@@ -1587,7 +1591,7 @@ It is clear by definition that any CW-complex $X$ and subcomplex $A$ forms a goo
 \begin{lmm}{}{} Both CW-complexes and $\Delta$-complexes are good pairs. 
 \end{lmm}
 
-\begin{prp}{}{} Let $X$ be a space and $A$ a closed subspace of $X$ such that $(X,A)$ is a good pair. Then the quotient map $X\to X/A$ induces an isomorphism $$H_n(X,A)\cong H_n(X/A,A/A)\cong\widetilde{H}_n(X/A)$$ in homology groups. \tcbline
+\begin{prp}{}{} Let $X$ be a space and $A$ a closed subspace of $X$ such that $(X,A)$ is a good pair. Then the quotient map $X\to X/A$ induces a natural isomorphism $$H_n(X,A)\cong H_n(X/A,A/A)\cong\widetilde{H}_n(X/A)$$ in homology groups. \tcbline
 \begin{proof}
 Let $V$ be a open neighbourhood of $A$ satisfying the good pair condition. Then there is an obvious inclusion map $(X,A)\to(X,V)$. Applying the long exact sequence of relative homology for both $(X,A)$ and $(X,V)$, we obtain the following diagram by naturality in theorem 1.4.3: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -1635,26 +1639,26 @@ Since $\Delta^k$ is also a CW-complex, $(\Delta^k,\partial\Delta^k)$ is a good p
 \end{lmm}
 
 \subsection{Local Homology Groups}
-Local homology forgets everything on the space $X$ except for a small neighbourhood around a point. 
+Local homology groups forgets every homological information about the space $X$, under than a small neighbourhood around some subset $A\subseteq X$. 
 
-\begin{defn}{The Local Homology Groups}{} Let $X$ be a space and $x\in X$. Define the local homology group of $X$ to be the homology groups $$H_n(X,X\setminus\{x\})$$ for eacj $n\in\N$. 
+\begin{defn}{The Local Homology Groups}{} Let $X$ be a space. Let $A\subseteq X$ be a subspace. Define the local homology group of $X$ in $A$ to be the homology groups $$H_n(X\;|\;A)=H_n(X,X\setminus A)$$ for each $n\in\N$. 
 \end{defn}
 
 Elements of the local homology group are represented by cycles in $X$ whose boundary lie outside of $x$. It is called local because it only captures local topological data of $X$ surrounding $x$. 
 
-\begin{prp}{}{} For $k\in\N$, the homology group of $\R^k$ relative to $\R^k\setminus\ast$ is given by $$H_n(\R^k,\R^k\setminus\{\ast\})\cong\begin{cases}
+\begin{prp}{}{} For all $n,k\in\N$, there is an isomorphism $$H_n(\R^k\;|\;\{\ast\})\cong\begin{cases}
 \Z & \text{ if } n=k\\
 0 & \text{ if } n\neq k
 \end{cases}$$ \tcbline
 \begin{proof}
-Now if $k=0$, the results are clear. If $k\geq 1$, then the long exact sequence of the pair $(\R^k,\R^k\setminus\ast)$ together with the fact that $\R^k\setminus\ast\simeq S^{k-1}$ and $\R^k\simeq\ast$ gives $$H_n(\R^k,\R^k\setminus\ast)=0$$ for $n>k$ and $n<k$. When $n=k$, we have an exact sequence \\~\\
+Now if $k=0$, the results are clear. If $k\geq 1$, then the long exact sequence of the pair $(\R^k,\R^k\setminus\ast)$ together with the fact that $\R^k\setminus\ast\simeq S^{k-1}$ and $\R^k\simeq\ast$ gives $$H_n(\R^k\;|\;\ast)=0$$ for $n>k$ and $n<k$. When $n=k$, we have an exact sequence \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {H_k(\R^k,\R^k\setminus\ast)} & {H_{k-1}(S^{k-1})} & {H_{k-1}(\R^k)}
+	0 & {H_k(\R^k\;|\;\ast)} & {H_{k-1}(S^{k-1})} & {H_{k-1}(\R^k)}
 	\arrow[from=1-1, to=1-2]
 	\arrow[from=1-2, to=1-3]
 	\arrow[from=1-3, to=1-4]
 \end{tikzcd}}\\~\\
-when $k>1$ since $H_{k-1}(\R^k)=0$. Thus $H_k(\R^k,\R^k\setminus\ast)\cong\Z$. If $k=1$, then the last map $H_0(S^0)\to H_0(\R)$ is given by the matrix $\begin{pmatrix}
+when $k>1$ since $H_{k-1}(\R^k)=0$. Thus $H_k(\R^k\;|\;\ast)\cong\Z$. If $k=1$, then the last map $H_0(S^0)\to H_0(\R)$ is given by the matrix $\begin{pmatrix}
 1 & 1
 \end{pmatrix}:\Z^2\to\Z$ thus also giving isomorphism. 
 \end{proof}
@@ -1664,10 +1668,10 @@ The excision theorem gives the following stronger version of invariance of domai
 
 \begin{crl}{}{} Let $U\subseteq\R^m$ and $V\subseteq\R^n$ be non empty open subsets. If $U\cong V$ then $m=n$. \tcbline
 \begin{proof}
-Let $x\in U$. By excision, we obtain an isomorphism $$H_k(U,U\setminus\{x\})\cong H_k(\R^m,\R^m\setminus\{x\})\cong\begin{cases}
+Let $x\in U$. By excision, we obtain an isomorphism $$H_k(U\;|\;\{x\})\cong H_k(\R^m\;|\;\{x\})\cong\begin{cases}
 \Z & \text{ if } m=k\\
 0 & \text{ if } n\neq k
-\end{cases}$$ and similarly for $H_k(V,V\setminus\{\phi(x)\})$ if $\phi:U\to V$ gives the homeomorphism. Then it is clear that if the homology groups are equal, then $m=n$. 
+\end{cases}$$ and similarly for $H_k(V\;|\;\{\phi(x)\})$ if $\phi:U\to V$ gives the homeomorphism. Then it is clear that if the homology groups are equal, then $m=n$. 
 \end{proof}
 \end{crl}
 
@@ -1678,7 +1682,7 @@ This shows that no connected manifold can have atlases mapping to different dime
 \subsection{Degree of Continuous Maps}
 The degree is a main component of the explicit construction of maps in cellular homology. Therefore we develop some of the basic theory here. Degree theory is also an important subject in its own right. 
 
-\begin{defn}{Degree of a Continuous Map}{} Let $f:S^k\to S^k$ be a continuous map. Let $f_\ast:\widetilde{H}_k(S^k)\cong\Z\to\widetilde{H}_k(S^k)\cong\Z$ be induced by $f$ and let $f_\ast(1)=n$. Define the degree of $f$ to be $\deg(f)=n$. 
+\begin{defn}{Degree of a Continuous Map}{} Let $f:S^k\to S^k$ be a continuous map. Let $$f_\ast:\widetilde{H}_k(S^k)\cong\Z\to\widetilde{H}_k(S^k)\cong\Z$$ be induced by $f$ and let $f_\ast(1)=n$. Define the degree of $f$ to be $\deg(f)=n$. 
 \end{defn}
 
 \begin{lmm}{}{} Let $f,g:S^k\to S^k$ be continuous maps. Then the following are true regarding the degree. 
@@ -1775,7 +1779,7 @@ Assume the contrary. This means that there exists a vector field $v:S^k\to\R^{k+
 \subsection{Local Degree}
 It is not at all obvious that given a map of spheres, how one would compute the degree of the map. We can do this by computing locally what the degree of the map looks like. These are called the local degree of $f$. 
 
-\begin{defn}{Local Degree}{} Let $f:S^k\to S^k$ be a continuous map. Assume that $f^{-1}(y)=\{x_1,\dots,x_n\}$. Let $U_i$ be an open neighbourhood of $x_i$ such that $U_i\cap U_j=\emptyset$ for each $i\neq j$. Define the local degree of $f$ to be the degree of the map $$f|_{x_i}:H_k(U_i,U_i\setminus\{x_i\})\to H_k(S^k,S^k\setminus{y})$$ denoted by $\deg(f|_{x_i})$. 
+\begin{defn}{Local Degree}{} Let $f:S^k\to S^k$ be a continuous map. Assume that $f^{-1}(y)=\{x_1,\dots,x_n\}$. Let $U_i$ be an open neighbourhood of $x_i$ such that $U_i\cap U_j=\emptyset$ for each $i\neq j$. Define the local degree of $f$ to be the degree of the map $$f|_{x_i}:H_k(U_i\;|\;x_i)\to H_k(S^k\;|\;y)$$ denoted by $\deg(f|_{x_i})$. 
 \end{defn}
 
 Notice that this indeed makes sense. Indeed by excision, we have an isomorphism $$H_k(S^k,S^k\setminus\{x_i\})\cong H_k(U_i,U_i\setminus\{x_i\})$$ by excising the piece $S^k\setminus U$. By using excision again, we obtain an isomorphism $$H_k(S^k,S^k\setminus\{x_i\})\cong H_k(\R^k,\R^k\setminus\ast)$$ Indeed $S^k$ is a smooth manifold ans so there exists some $V\subseteq S^k$ which maps homeomorphically to an open subset of $\R^k$. Excision then gives $$H_k\left(S^k\setminus(S^k\setminus V),(S^k\setminus\{x\})\setminus(S^k\setminus V)\right)\cong H_k(S^k,S^k\setminus\{x\})$$ This translates to $H_k(V,V\setminus\{x\})\cong H_n(\R^k,\R^k\setminus\ast)$ so that we now have $$H_k(S^k,S^k\setminus\{x_i\})\cong\Z$$ by proposition 6.2.2. However, there is an obvious isomorphism which makes the definition clearer. 
@@ -2841,7 +2845,7 @@ It is important to note that the above proposition (graded commutativity) is onl
 \end{proof}
 \end{thm}
 
-\begin{lmm}{}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a map. Let $R$ be a ring. Then the induced map $f^\ast:H^n(Y;R)\to H^n(X;R)$ satisfies $f^\ast(\phi\smile\psi)=f^\ast(\phi)\smile f^\ast(\psi)$. 
+\begin{lmm}{}{} Let $X,Y$ be spaces. Let $R$ be a commutative ring. Let $f:X\to Y$ be a map. Then the induced map $$f^\ast:H^\ast(Y;R)\to H^\ast(X;R)$$ is a ring homomorphism. 
 \end{lmm}
 
 \subsection{The Relative Cup Product}
@@ -3143,19 +3147,6 @@ TBA: Unreduced = reduced.
 The Euler characteristic is similar to a notion of size. In set theory we have cardinality, in linear algebra we have dimensions, in abelian groups we have rank. The Euler characteristic acts similar to these quantities. 
 
 \subsection{The Characteristic as an Invariant}
-Recall that the rank of an abelian group is the size of the torsion free part of the group. This is the same as saying how many copies of $\Z$ are in the abelian group. This is immediate from the results of the fundamental theorem of finitely generated abelian groups. 
-
-\begin{lmm}{}{} Let $A,B,C$ be abelian groups such that the following \\~\\
-\adjustbox{scale=1,center}{\begin{tikzcd}
-	0 & A & B & C & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-is a short exact sequence. Then $$\rank(B)=\rank(A)+\rank(C)$$
-\end{lmm}
-
 \begin{crl}{}{} Let $C_\bullet$ be a chain complex with only finitely many non-zero terms, all of which are finitely generated abelian groups. Then $$\sum_{n\in\Z}(-1)^n\rank(C_n)=\sum_{n\in\Z}(-1)^n\rank(H_n(C_\bullet))$$ \tcbline
 \begin{proof}
 We have two short exact sequences for al $n$ given by \\~\\
