@@ -19,15 +19,9 @@
 \contentsline {section}{\numberline {4}Deck Transformations}{35}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Deck Groups}{35}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Regular Covering Spaces}{36}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Regular Covering Spaces and Orbit Spaces}{38}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Topological Groups and G-Spaces}{41}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Topological Groups, Subgroups and Homomorphisms}{41}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}G-Spaces and G-Equivariant Maps}{42}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Homogenous G-Spaces}{44}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Properly Discontinuous Group Actions}{45}{subsection.5.4}%
-\contentsline {section}{\numberline {6}CW Complexes}{47}{section.6}%
-\contentsline {subsection}{\numberline {6.1}CW Complexes as a Topological Space}{47}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Properties of CW Complexes}{49}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Admitting CW-Complex Structures}{49}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}CW Complex Structure of Projective Spaces}{50}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Computation of the Fundamental Group of CW Complexes}{55}{subsection.6.5}%
+\contentsline {section}{\numberline {5}CW Complexes}{39}{section.5}%
+\contentsline {subsection}{\numberline {5.1}CW Complexes as a Topological Space}{39}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Properties of CW Complexes}{41}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Admitting CW-Complex Structures}{41}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}CW Complex Structure of Projective Spaces}{42}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Computation of the Fundamental Group of CW Complexes}{47}{subsection.5.5}%

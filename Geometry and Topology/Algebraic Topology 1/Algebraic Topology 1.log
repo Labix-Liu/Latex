@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  1 NOV 2024 07:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  17 NOV 2024 23:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1353,112 +1353,102 @@ LaTeX Warning: Reference `prp:2.5.1' on page 36 undefined on input line 967.
 
 LaTeX Warning: Reference `thm:3.3.8' on page 38 undefined on input line 1001.
 
-[38] [39] [40] [41] [42] [43] [44] [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1212--1213
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 1027--1029
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1212--1213
+Underfull \hbox (badness 10000) in paragraph at lines 1027--1029
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1027--1029
+
+ []
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 1045--1046
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1045--1046
+
+ []
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
+
+ []
+
+[41] [42] [43]
+Underfull \hbox (badness 10000) in paragraph at lines 1170--1180
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1170--1180
+
+ []
+
+[44] [45]
+Underfull \hbox (badness 10000) in paragraph at lines 1226--1241
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1226--1241
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1226--1241
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1226--1241
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1226--1241
 
  []
 
 [46]
-Underfull \hbox (badness 10000) in paragraph at lines 1236--1238
+Underfull \hbox (badness 10000) in paragraph at lines 1269--1270
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1236--1238
+Underfull \hbox (badness 10000) in paragraph at lines 1269--1270
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1236--1238
-
- []
-
-[47]
-Underfull \hbox (badness 10000) in paragraph at lines 1254--1255
+Underfull \hbox (badness 10000) in paragraph at lines 1271--1273
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1254--1255
+Underfull \hbox (badness 10000) in paragraph at lines 1271--1273
 
  []
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 1303--1304
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1303--1304
-
- []
-
-[49] [50] [51]
-Underfull \hbox (badness 10000) in paragraph at lines 1379--1389
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1379--1389
-
- []
-
-[52] [53]
-Underfull \hbox (badness 10000) in paragraph at lines 1435--1450
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1435--1450
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1435--1450
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1435--1450
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1435--1450
-
- []
-
-[54]
-Underfull \hbox (badness 10000) in paragraph at lines 1478--1479
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1478--1479
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1480--1482
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1480--1482
-
- []
-
-<Image 1.png, id=623, 508.90125pt x 493.845pt>
+<Image 1.png, id=515, 508.90125pt x 493.845pt>
 File: Image 1.png Graphic file (type png)
 <use Image 1.png>
-Package pdftex.def Info: Image 1.png  used on input line 1497.
+Package pdftex.def Info: Image 1.png  used on input line 1288.
 (pdftex.def)             Requested size: 152.67155pt x 148.15463pt.
-[55] [56 <./Image 1.png>] (Algebraic Topology 1.aux)
+[47] [48 <./Image 1.png>] (Algebraic Topology 1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
@@ -1467,20 +1457,15 @@ L3 programming layer <2024-03-14>
 
 LaTeX Warning: There were undefined references.
 
+Package rerunfilecheck Info: File `"Algebraic Topology 1".out' has not changed.
 
-Package rerunfilecheck Warning: File `"Algebraic Topology 1".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Algebraic Topology 1".out':
-(rerunfilecheck)             Before: 18888B69C6187D686F25667248969447;7237
-(rerunfilecheck)             After:  2CB64C55B337885D0F8EA849928CC8EA;7318.
+(rerunfilecheck)             Checksum: 7C8B15D7277022826D46D83CED0149ED;5907.
  ) 
 Here is how much of TeX's memory you used:
- 33637 strings out of 474424
- 665611 string characters out of 5741739
+ 33538 strings out of 474424
+ 664041 string characters out of 5741739
  1969496 words of memory out of 5000000
- 55218 multiletter control sequences out of 15000+600000
+ 55172 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,18n,120p,1385b,1470s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1502,9 +1487,9 @@ nts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Topology 1.pdf" (56 pages, 803198 bytes).
+Output written on "Algebraic Topology 1.pdf" (48 pages, 759656 bytes).
 PDF statistics:
- 763 PDF objects out of 1000 (max. 8388607)
- 247 named destinations out of 1000 (max. 500000)
- 282 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 642 PDF objects out of 1000 (max. 8388607)
+ 194 named destinations out of 1000 (max. 500000)
+ 234 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -341,6 +341,16 @@ Since $V$ is Noetherian, $V$ is compact.
 Since every object we study in algebraic geometry is compact, this becomes not as useful as a notation in topology. However, we can redefine the notion of compactness so that it will give useful insights on varieties. 
 
 \subsection{The Absolute Hilbert's Nullstellensatz}
+Recall from Commutative Algebra 1 that Zariski's lemma says the following: Let $F$ be a field. Let $K$ be a field that is also a finitely generated algebra over $F$. Then $K$ is a finite algebra. In particular, $K$ is a finitely generated vector space over $F$. \\
+
+We used this to show that every maximal ideal of $k[x_1,\dots,x_n]$ of an algebraically closed field $k$ must be of the form $$(x_1-a_1,\dots,x_n-a_n)$$ for $a_1,\dots,a_n\in F$. We can use this to conclude that any proper ideal of $k[x_1,\dots,x_n]$ has non-zero vanishing locus
+
+\begin{lmm}{}{} Let $k$ be an algebraically closed field. Let $I$ be a proper ideal of $k[x_1,\dots,x_n]$. Then we have $$\V(I)\neq\emptyset$$ \tcbline
+\begin{proof}
+Since $I$ is proper, it is contained in some maximal ideal $m$. We have seen from Commutative Algebra 1 that every maximal ideal of $m$ is of the form $$m=(x_1-a_1,\dots,x_n-a_n)$$ for $a_1,\dots,a_n\in F$. Let $f\in I\subseteq m$. Then $f$ is a linear combination of the linear polynomials $x_1-a_1,\dots,x_n-a_n$. But such polynomials vanish on $(a_1,\dots,a_n)$. Hence $f\in\V(m)\subseteq\V(I)$ so that $\V(I)$ is non-empty. 
+\end{proof}
+\end{lmm}
+
 \begin{thm}{Hilbert's Nullstellensatz I}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. Then $$\I(\V(I))=\sqrt{I}$$
 \end{thm}
 
@@ -728,15 +738,24 @@ We use the hat symbol to mean that we omit the element. So $k[x_1,\hat{x}_2,x_3]
 \subsection{Projective Closure}
 In general, for $W$ an affine variety of $\C^n$, considering $\C^n$ in the open cover $U_0$, $W$ may not be closed and so may not be a projective variety. However the closure certainly is. 
 
-\begin{defn}{Projective Closure}{} Let $V$ be an affine variety of $\C^n$. Then define the projective closure of $V$ to be the closure of $V$ when considered inside $\Prj^n$. 
+\begin{defn}{Projective Closure}{} Let $V$ be an affine variety in $\A_\C^n$. Choose an affine piece $U_i\subset\Prj_\C^n$. Define the projective closure of $V$ to be the closure of $V$ considered as a set in the projective space $$V\subseteq U_i\subset\Prj_\C^n$$
 \end{defn}
 
-\begin{prp}{}{} Let $I$ be a radical ideal of $\C[x_1,\dots,x_n]$. Let $W=V(I)\subseteq\A^n$. Denote $\overline{W}$ the projective closure of $W$. Then $$(\{\varphi(f)|f\in I\})=I(\overline{W})$$
-\end{prp}
+Given an affine variety $W\subseteq\A_k^n$, even if we chose an identification $\A_k^n\cong U_i$ of some affine piece of $\Prj^n$, there are still multiple choices of projective varieties $V$ for which $V\cap U_i\cong W$. The projective closure is precisely the smallest of such choice. 
 
-In other words, the homogenization of the radical ideal is precisely the generating set of the projective closure. 
+\begin{eg}{}{} Consider the example $T=\V(y-x^2,z-xy)\subseteq\A_\C^3$. Consider the affine piece $$U_3=\{[x:y:z:1]\;|\;x,y,z\C\}\subset\Prj_\C^3$$ Define $$V=\V((y-x^2)_3^+,(z-xy)_3^+)=\V(wy-x^2,zw-xy)\subset\Prj_\C^3$$ By construction, we have that $U_3\cap V=T$ by setting $w=1$. Now consider $V\setminus U_3=V\cap\V(w)$. We deduce that this is given by $x=0$ and so $V\setminus U_3=\V(x,w)$ which is a line in $\Prj_\C^3$. \\~\\
 
-\begin{prp}{}{} Let $V\subset U_0\cong\A^n$ be an affine variety. Then the closure of $V$ in the Zariski topology of $\A^n$ and are exactly the projective closures of $V$. They coincide. 
+In other words, we took the homgenization of the polynomials of the variety. But we found out that this was way bigger than the original variety $T$. Indeed there is a whole projective line. \\~\\
+
+To obtain the smallest projective variety whose intersection with affine pieces give $T$, we define $$\overline{T}=\V((y-x^2)_3^+,(z-xy)_3^+,(xz-y^2)_3^+)=\V(wy-x^2,wz-xy,xz-y^2)$$ Again we can see that intersecting with $U_3$ returns the original variety $T$. Now quick calculation shows that $$\overline{T}\setminus U_3=\{[0:0:1:0]\}$$ because we set $w=0$ and the extra generator we threw in takes effect. 
+\end{eg}
+
+\begin{prp}{}{} Let $I$ be a radical ideal of $\C[x_0,\dots,\hat{x}_i,\dots,x_n]$. Let $W=\V(I)\subseteq\A^n$. Denote $\overline{W}$ the projective closure of $W$. Then $$(\{(f)_i^+\;|\;f\in I\})=\I^H(\overline{W})$$ \tcbline
+\begin{proof}
+Let $F\in(\{(f)_i^+\;|\;f\in I\})$ be a polynomial. Then we have that $$F=\sum_{i\in I} G_j(f_j)_i^+$$ for some $G_j\in\C[x_0,\dots,x_n]$. Now we have that $$\phi_i(F)=\sum_{i\in I}\phi_i(G_j)\phi_i((f_j)_i^+)=\sum_{i\in I}\phi_i(G_j)f_i$$ Since $f_i\in I$ and $I$ is an ideal, we conclude that $\phi_i(F)\in I$ so that $W\subseteq\V(\phi_i(F))$. Under the identification of an affine piece of the projective space, we deduce that $W\subseteq\V(\phi_i(F))=\V^H(F)$. By property of closure and the fact that $\V^H(F)$ is closed in $\Prj^n$, we conclude that $\overline{W}\subseteq\V^H(F)$. Hence $F$ vanishes on $\overline{W}$ and $F\in\I^H(\overline{W})$. \\~\\
+
+Now suppose that $F\in\I^H(\overline{W})$. Taking the projective vanishing locus on both sides give $\overline{W}\subseteq\V^H(F)$. Since the closure is taken in the projective space, intersecting with an affine piece returns $W$, and so we have $$\overline{W}\cap U_i=W\subset\V(\phi_i(F))$$ Then this means that $\phi_i(F)\in\I(W)=I$. This means that $(\phi_i(f))_i^+\in(\{(f)_i^+\;|\;f\in I\})$ and $F=z_i^d(\phi_i(f))_i^+\in(\{(f)_i^+\;|\;f\in I\})$. Hence we conclude. 
+\end{proof}
 \end{prp}
 
 \subsection{Morphisms of Projective Varieties}
@@ -749,12 +768,19 @@ In other words, the homogenization of the radical ideal is precisely the generat
 
 This defintion ensures that when a morphism of projective varities is restricted to its open covers $\A^n$, it defines a morphism of affine varieties. They are locally affine varieties. 
 
-\begin{defn}{Isomorphism of Projective Varieties}{} A morphism of projective varieties $F:V\to W$ is an isomorphism if there exists a morphism $G:W\to V$ such that $G$ is the inverse of $F$. In this case we say that $V$ and $W$ are isomorphic. \\~\\
-An automophism of a projective variety $V$ is an isomorphism from $V$ to itself. 
+\begin{defn}{Isomorphism of Projective Varieties}{} A morphism of projective varieties $F:V\to W$ is an isomorphism if there exists a morphism $G:W\to V$ such that $G$ is the inverse of $F$. In this case we say that $V$ and $W$ are isomorphic. 
 \end{defn}
 
-\begin{defn}{Projectively Equivalent}{} Two projective varieties are said to be projectively equivalent if there exists a change of coordinates of $\Prj^n$ that defines an isomorphism between them. 
+In general, isomorphic projective varieties does not have isomorphic homogeneous coordinate rings. We remedy this by introducing a stronger notion of equivalence between projective varieties. 
+
+\begin{defn}{Projectively Equivalent}{} Let $k$ be a field. Let $V,W$ be projective varieties in $\Prj_k^n$. We say that $V$ and $W$ are projectively equivalent if there exists an isomorphism $F:\Prj_k^n\to\Prj_k^n$ that induces an isomorphism $$F|_V:V\overset{\cong}{\longrightarrow}W$$ of projective varieties. 
 \end{defn}
+
+\begin{lmm}{}{} Let $V\subseteq\Prj_\C^n$ and $W\subseteq\Prj_\C^n$ be projective varieties. If $V$ and $W$ are projectively equivalent, then their homogeneous coordinate rings are isomorphic. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $F,G\in\C[x,y,z]$ be two irreducible homogeneous polynomials of degree $2$. Then $\V(F)$ and $\V(G)$ are projectively equivalent. 
+\end{lmm}
 
 \pagebreak
 \section{Quasi-Projective Varieties}

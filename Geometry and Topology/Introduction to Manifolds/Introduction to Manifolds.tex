@@ -107,7 +107,9 @@ Notice that it is not possible for a manifold to locally look like both $\R^n$ a
 
 A chart on a real manifold $M$ of dimension $n$ is actually an open set together with $n$ coordinate functions. Indeed if $(U,\phi)$ is a chart of $M$, then $\phi:U\to\R^n$ is a map to $\R^n$. If we are interested in the particular components of $\phi$, we write $\phi=(x^1,\dots,x^n)$ where $x^i:U\to\R$ is the coordinate function sending a point on $U$ to its $i$th coordinate. All the $x^i$s combine to recover $\phi$. If we would like to talk about the actual coordinate on $\R^n$ instead of the coordinate function, we write $x_i$ instead. 
 
-\subsection{Maps that Preserve Structure}
+\pagebreak
+\section{Morphisms Between Manifolds}
+\subsection{Maps that Preserve Differential Structure}
 As usual, for every object or class of objects in mathematics, we also study maps between objects. In our case of manifolds, it turns out that the right kind of maps to consider are maps to preserve their structure, whether it be topological, $C^k$ for $k\geq 1$, smooth, or analytic. \\~\\
 
 The following definition and the entire subsection works when one replaces $C^k$ with analytic. This will be indicated by a bracketed ``analytic'' in both the definitions and theorems. 
@@ -161,21 +163,10 @@ ref: hirsch differential geometry
 \begin{thm}{}{} Any topological manifold of dimension $2$ or $3$ can be endowed with a unique real analytic structure. This means that any two such structures which are homeomorphic are analytically diffeomorphic. 
 \end{thm}
 
-\subsection{Manifolds with Boundaries}
-\begin{defn}{Upper Half Space}{} Define the upper half space of $\R^n$ to be $$H^n=\{(x_1,\dots,x_n)\in\R^n\;|\;x_n\geq 0\}$$ endowed with the subspace topology of $\R^n$. 
-\end{defn}
-
-\begin{defn}{Manifold with Boundary}{} A manifold with boundary is a Hausdorff topological space $M$ that is second countable, together with a fixed complete atlas compatible with $\Gamma_{C^\infty}$ with underlying space $H^n$ instead of $\R^n$. In this case we say that $M$ has dimension $n$. 
-\end{defn}
-
-\begin{defn}{Boundary of a Manifold}{} Let $M$ be a manifold with boundary. Define the boundary of $M$ to be $$\partial M=\left\{p\in M\;|\;\exists(U,\phi=x^1,\dots,x^n)\text{ such that }p\in U, x^n(p)=0\right\}$$
-\end{defn}
-
-\begin{prp}{}{} Let $M$ be a manifold with boundary of dimension $n$ Then $\partial M$ is a manifold of dimension $n-1$ with atlas $$\{(U_\alpha|_{\partial M},\phi_\alpha|_{\partial M})\}$$ for $\{(U_\alpha,\phi_\alpha)\}$ the atlas on $M$. 
-\end{prp}
+\subsection{Maps that Preserve Complex Structures}
 
 \pagebreak
-\section{New Manifolds from Old}
+\section{Unique Properties of Smooth Manifolds}
 \subsection{Submanifolds}
 There are two types of submanifolds, namely immersed submanifolds and embedded submanifolds. We will discuss mainly the notion of embedded submanifolds. 
 
@@ -217,26 +208,59 @@ For example, consider the equation $y^2=x^2-x$. Consider the set $\{(x,y)\in\R^2
 
 Note that this is a slightly weaker statement of the regular level set theorem. In that theorem, instead of using the $C^\infty$ map $F=(f_1,\dots,f_n)$ that maps to $\R^n$, it considers in what situation will a smooth map of manifolds $f:M\to N$ give a submanifolds on a level set $f^{-1}(c)$ for $c\in N$. 
 
-\subsection{Quotient Manifolds}
-\begin{defn}{$\text{Diff}(M)$}{} Denote $\text{Diff}(M)$ the set of all diffeomorphisms from a smooth manifold $M$ to $M$. 
+\subsection{Manifolds with Boundaries}
+\begin{defn}{Upper Half Space}{} Define the upper half space of $\R^n$ to be $$H^n=\{(x_1,\dots,x_n)\in\R^n\;|\;x_n\geq 0\}$$ endowed with the subspace topology of $\R^n$. 
 \end{defn}
 
-\begin{lmm}{}{} For any smooth manifold $M$, $\text{Diff}(M)$ is a group with functional composition. 
-\end{lmm}
+\begin{defn}{Manifold with Boundary}{} A manifold with boundary is a Hausdorff topological space $M$ that is second countable, together with a fixed complete atlas compatible with $\Gamma_{C^\infty}$ with underlying space $H^n$ instead of $\R^n$. In this case we say that $M$ has dimension $n$. 
+\end{defn}
 
-Recall the notion of properly discontinuous group actions in topological groups. A group $G$ acting on $X$ is a properly discontinuous group action if for every $K\subset X$ compact, $(g\cdot K)\cap K\neq\emptyset$ for finitely many $g\in G$. When $X$ in our case is a manifolds, the locally Euclidean property (the charts of $X$) give a useful implication of this definition. 
+\begin{defn}{Boundary of a Manifold}{} Let $M$ be a manifold with boundary. Define the boundary of $M$ to be $$\partial M=\left\{p\in M\;|\;\exists(U,\phi=x^1,\dots,x^n)\text{ such that }p\in U, x^n(p)=0\right\}$$
+\end{defn}
 
-\begin{prp}{}{} Let $G$ be a group acting on a smooth manifold $M$. If $G$ is a properly discontinuous group action on $M$, then for each $p\in M$, there exists an open neighbourhood $U$ of $p$ such that $g\cdot U\cap U=\emptyset$ for all $g\in G\setminus\{1\}$. \tcbline
+\begin{prp}{}{} Let $M$ be a manifold with boundary of dimension $n$ Then $\partial M$ is a manifold of dimension $n-1$ with atlas $$\{(U_\alpha|_{\partial M},\phi_\alpha|_{\partial M})\}$$ for $\{(U_\alpha,\phi_\alpha)\}$ the atlas on $M$. 
+\end{prp}
+
+\subsection{Orientations of a Manifold}
+\begin{defn}{Orientation}{} Let $M$ be an $n$ dimensional manifold. $M$ is said to be orientable if there exists an everywhere non-vanishing $n$-form on it. \\~\\
+If $M$ is orientable, an orientation of $M$ is an equivalence class of non-vanishing $n$-forms on $M$ where $\omega_1\sim\omega_2$ if $\omega_1=f\omega_2$ where $f$ is an everywhere positive smooth function on $M$. \\~\\
+An oriented manifold is an orientable manifold with a fixed choice of orientation. 
+\end{defn}
+
+\begin{prp}{}{} A smooth manifold $M$ is orientable if and only if it has a covering by coordinate charts such that for any two charts $(U,\phi=(x^1,\dots,x^n))$ and $(V,\psi=(y^1,\dots,y^n))$, the transition function $$\det\left(\frac{\partial(y_i\circ\phi^{-1})}{\partial x_j}\right)>0$$ has non zero determinant on the intersection. \tcbline
 \begin{proof}
-Let $U_1\supset U_2\supset\dots$ be a sequence of open neighbourhoods of $p\in M$ such that $\overline{U_i}$ is compact for each $i$. This is possible since locally around $p$, $M$ is homeomorphic to an open subset of $\R^n$. Then each of the sets $$F_m=\{g\in G\;|\;g\cdot U_m\cap U_m\neq\emptyset\}$$ is finite by the assumption that $G$ is properly discontinuous. Moreover, we have that $F_1\supset F_2\supset\dots$. Suppose for a contradiction that each $F_m$ contains an element $g_m\in G$ such that $g_m\neq 1$. Then since each $F_m$ is finite, there will be a $g\in G\setminus\{1\}$ with $g\in F_m$ for all $m$, meaning that $g\cdot U_m\cap U_m\neq\emptyset$ for all $m$ and at the same time, the $U_m$ form a basis of the neighbourhoods of $p$. Hence we conclude that $g\cdot p=p$, contradicting the non-existence of fixed points. 
+Suppose that $M$ is orientable. This means that we have a nowhere vanishing top form $$\omega=f\;dx^1\wedge\cdots\wedge dx^n$$ in a coordinate chart $(U,\phi=(x^1,\dots,x^n))$ on $M$. By replacing $x^1:U\to\R$ with $-x^1:U\to\R$, we can assume that $M$ is covered by such coordinate charts where the function corresponding to $f$ above is positive in each chart. Suppose that $(V,\psi=(y^1,\dots,y^n))$ is another chart on $M$ with non-empty intersection with $U$. Locally on $V$, suppose that $\omega$ takes the form of $$\omega=g\;dy^1\wedge\cdots\wedge dy^n$$ Then on $U\cap V$, we have that 
+\begin{align*}
+g\;dy^1\wedge\cdots\wedge dy^n&=(g\circ\phi^{-1})\;\det\left(\frac{\partial (y^i\circ\phi^{-1})}{\partial x^j}\right)\;dx^1\wedge\cdots\wedge dx^n\\
+&=f\;dx^1\wedge\cdots\wedge dx^n
+\end{align*}
+So if $f>0$ and $g>0$, we must have that the determinant greater than $0$ and so we are done. \\~\\
+
+Conversely, suppose that the determinant is non zero on all intersections of a covering $\{U_\alpha\;|\;\alpha\in i\}$ of $M$. Choose a partition of unity $\{\theta_\alpha\;|\;\alpha\in I\}$ subordinate to the covering. Define a top form on $M$ by $$\omega=\sum_{\alpha\in I}\theta_\alpha\;dy_\alpha^1\wedge\cdots\wedge dy_\alpha^n$$ which is smooth since $\theta_\alpha$ is smooth for each $\alpha\in I$. Let $(U_\beta,\psi=(y^1,\dots,y^n))$ be a a coordinate chart in the covering. Then locally we have that $$\omega|_{U_\beta}=\sum_{i\in I}\theta_\alpha\det\left(\frac{\partial y_\alpha^i}{\partial x_\beta^j}\right)\;dy_\beta^1\wedge\cdots\wedge dy_\beta^n$$ The form $\omega$ is non-negative since $\theta_\alpha>0$ and the determinant is positive by assumption. It is non-zero since at each point, at least one of the functions $\theta_\alpha$ is non-zero, as they all sum to $1$. Thus we are done. 
 \end{proof}
 \end{prp}
 
-\begin{thm}{}{} Let $M$ be a smooth manifold. If $G\subseteq\text{Diff}(M)$ is a properly discontinuous group action on $M$ and is fixed point free, then the orbit space $$M/G=\{\text{Orb}_G(x)\;|\; x\in M\}$$ is a smooth manifold with induced charts. \tcbline
+It is easy to see that a choice of orientation is a choice of coordinate charts such that either the nowhere vanishing form $\omega=f\;dx^1\wedge\cdots\wedge dx^n$ has its coefficient $f$ positive or negative throughout all coordinate charts. Because this way, the determinant of the transition functions will always have positive determinant. 
+
+\begin{prp}{}{} A connected manifold $M$ has exactly two orientations. 
+\end{prp}
+
+\begin{prp}{}{} If a manifold with boundary $M$ is orientable, then $\partial M$ is also orientable. \tcbline
 \begin{proof}
-Since the orbits of $G$ on $M$ is an equivalence relation on $M$, we can endow the quotient topology on $M/G$. Write $\pi:M\to M/G$ for the quotient map. For $p\in M$ write $[p]=\text{Orb}_G(p)$ for its equivalence class in $M/G$. By the above proposition, there exists an open cover $\{U_i\}$ of $M$ such that if $p_1,p_2\in U_i$ are distinct, then $[p_1]\neq[p_2]$. But this means that $\pi(U_i)=\{[p]\in M/G\;|\;p\in U_i\}$ so that the map $\pi|_{U_i}\to\pi(U_i)$ defined by $p\mapsto[p]$ is bijective. We can then give each $\pi(U_i)$ the differentiable structure of $U_i$. This means that if $(V,\psi)$ is a chart on $U_i$, then $(\pi(V),\psi')$ where $\psi'([p])=\psi(p)$ is a chart on $M/G$. Thus we are done. 
+If $\dim(M)=1$, then $\dim(\partial M)=0$ and consists of points so that the result is trivial. Let $n=\dim(M)\geq 2$. Choose a local chart $(U,\phi=(x^1,\dots,x^n))$ such that $\partial M$ is defined by $x_n=0$ locally and on intersections with other charts $\det\left(\left(\frac{\partial y^i}{\partial x^j}\right)_{1\leq i,j\leq n}\right)>0$ Where two local charts with coordinates $(U,\phi=(x^1,\dots,x^n))$ and $(V,\psi=(y^1,\dots,y^n))$ intersect. Since $x^n=0$ and $y^n=0$, the Jacobian matrix for a point $p\in\partial M$ is given by $$\begin{pmatrix}
+\frac{\partial y^1}{\partial x^1}\bigg{|}_p & \cdots & \frac{\partial y^1}{\partial x^{n-1}}\bigg{|}_p & \frac{\partial y^1}{\partial x^n}\bigg{|}_p\\
+\vdots & \ddots & \vdots & \vdots\\
+\frac{\partial y^{n-1}}{\partial x^1}\bigg{|}_p & \cdots & \frac{\partial y^{n-1}}{\partial x^{n-1}}\bigg{|}_p & \vdots\\
+0 & \cdots & 0 & \frac{\partial y^n}{\partial x^n}\bigg{|}_p
+\end{pmatrix}$$
+Now $\psi\circ\phi^{-1}$ maps $x_n>0$ to $y_n>0$. Thus if $x_n=0$, then $y_n=0$ and if $x_n>0$, then $y_n>0$. Thus $$\frac{\partial y^n}{\partial x^n}\bigg{|}_{x_n=0}>0$$ and since the determinant of the above matrix is positive, the determinant of the upper left $(n-1)\times(n-1)$ matrix also has positive determinant. Thus $(U_\alpha|_{\partial M},\phi|_{\alpha}|_{\partial M})$ give an atlas for $\partial M$ whose transition functions have everywhere positive Jacobian. Thus $\partial M$ is orientable. 
 \end{proof}
-\end{thm}
+\end{prp}
+
+In order to complete Stoke's theorem, we need a canonical orientation on the boundary on the manifold that depends on the choice of orientation on the manifold itself. 
+
+\begin{defn}{Induced Orientation}{} Let $M$ be a smooth orientable manifold with boundary of dimension $n$. Let $\omega$ be a nowhere vanishing $1$-form representing an orientation on $M$. Suppose that in local coordinates, $\omega$ on the boundary of $M$ is given by $$\omega=\epsilon\;dx^1\wedge\cdots\wedge dx^n$$ where $\epsilon=\pm1$ and $x^n>0$. Then define the induced orientation $\omega'$ on $\partial M$ locally by $$\omega'=(-1)^n\epsilon\;dx^1\wedge\cdots\wedge dx^{n-1}$$
+\end{defn}
 
 \subsection{Partitions of Unity}
 Smooth partitions of unity is unique to manifold that are locally $\R^n$. Complex manifolds would have a more rigid structure in the sense that they do not have a partition of unity. In our case of smooth manifolds, we can construct a smooth partition of unity. This allows us to piece together functions defined on charts on a manifold. 
@@ -466,76 +490,6 @@ for any choice of $g\in C_{N,f(p)}^\infty$ so that $T_p(V)\subseteq\ker((f_\ast)
 \end{prp}
 
 \pagebreak
-
-\section{Vector Bundles}
-\subsection{Basic Definitions}
-\begin{defn}{Vector Bundles}{} Let $F$ be a field. A vector bundle $(E,B,p)$ consists of two topological spaces $E$ and $B$, a continuous surjection $p:E\to B$ such that
-\begin{itemize}
-\item For every $b\in B$, the fibre $E_b=p^{-1}(b)$ is an $F$-vector space of dimension $k$. 
-\item For every $b\in B$, there exists an open neighbourhood $U\subseteq B$ of $p$ and a homeomorphism $\phi:p^{-1}(U)\to U\times F^k$ such that for $\pi:U\times F^k\to U$ the projection map, the following diagram commutes \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-p^{-1}(U)\arrow[rr, "\phi"]\arrow[rdd, "p"'] & & U\times K^r\arrow[ldd, "\pi"]\\
-&&\\
-& U &
-\end{tikzcd}} \\~\\
-and the map $$E_b\overset{\phi|_{E_b}}{\longrightarrow}\{b\}\times F^k\overset{\pi}{\longrightarrow}F^k$$ is a vector space isomorphism. 
-\end{itemize}
-$B$ is said to be the base space and $E$ the total space. Each $(U,\phi)$ is said to be a local trivialization. 
-\end{defn}
-
-The local trivialization means that locally at a neighbourhood, the vector bundle looks the same the open set times $F^k$. In particular, there is also a notion of trivial bundle which means that the bundle is globally just $B\times\R^r$. 
-
-\begin{defn}{Sections}{} A section of a vector bundle $p:E\to B$ is a map $s:B\to E$ assigning to each $b\in B$ a vector space $s(b)$ in the fiber $p^{-1}(b)$. 
-\end{defn}
-
-\begin{prp}{}{} Let $p:E\to B$ be a vector bundle. Let $s,s_1,s_2$ be sections of $E$. Then $s_1+s_2$ and $\lambda s$ are also vector bundles for any $\lambda\in\R$. Moreover, the set of all sections $s(E)$ is a vector space. 
-\end{prp}
-
-\begin{defn}{Morphism of Vector Bundles}{} Let $p_1:E_1\to B_1$ and $p_2:E_2\to B_2$ be vector bundles. A morphism of these vector bundles is given by is a pair of continuous maps $f:E_1\to E_2$ and $g:B_1\to B_2$ such that the following diagram commutes \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-E_1\arrow[r, "f"]\arrow[d, "p_1"] & E_2\arrow[d, "p_2"]\\
-B_1\arrow[r, "g"] & B_2
-\end{tikzcd}} \\
-If $B=B_1=B_2$  then the diagram collapses: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-E_1\arrow[rr, "f"]\arrow[rd, "p_1"] && E_2\arrow[ld, "p_2"]\\
-&B&
-\end{tikzcd}}
-\end{defn}
-
-\begin{defn}{Isomorphism of Vector Bundles}{} A bundle homomorphism from $E_1$ to $E_2$ is an isomorphism if there exists an inverse bundle homomorphism from $E_2$ to $E_1$. In this case, we say that $E_1$ and $E_2$ are isomorphic. 
-\end{defn}
-
-\subsection{The Cocycle Conditions}
-Given two charts $(U_\alpha,\phi_\alpha)$ and $(U_\beta,\phi_\beta)$ of a vector bundle, $$\phi_\beta\circ\phi_\alpha^{-1}:(U_\alpha\cap U_\beta)\times F^k\to(U_\alpha\cap U_\beta)\times F^k$$ is a well defined function. In particular, by fixing a point in $U_\alpha\cap U_\beta$, we obtain a linear map. 
-
-\begin{defn}{Transition Functions}{} Let $p:E\to B$ be an $F$-vector bundle of rank $r$. Let $(U_\alpha,\phi_\alpha)$ and $(U_\beta,\phi_\beta)$ be local trivialization. For each $x\in U_\alpha\cap U_\beta$, $\phi_\beta\circ\phi_\alpha^{-1}(x,-):F^k\to F^k$ is a linear map. Define $g_{U_\alpha U_\beta}:U_\alpha\cap U_\beta\to\text{GL}(n,F)$ by $$x\mapsto\phi_\beta\circ\phi_\alpha^{-1}(x,-):F^k\to F^k$$ In other words, $g_{U_\alpha U_\beta}$ is such that $$\phi_\beta\circ\phi_\alpha^{-1}(x,v)=(x,g_{U_\alpha U_\beta}(x)v)$$ For $x\in U_\alpha\cap U_\beta$ and $v\in F^k$. 
-\end{defn}
-
-\begin{prp}{}{} Let $p:E\to B$ be a $K$-vector bundle of rank $r$. The transition functions of the vector bundle satisfies the following. 
-\begin{itemize}
-\item Cocycle condition: $g_{\alpha\beta}\circ g_{\beta\gamma}\circ g_{\gamma\alpha}=I_r$ on $U_\alpha\cap U_\beta\cap U_\gamma$
-\item $g_{\alpha\alpha}=I_r$ on $U_\alpha$
-\end{itemize}
-\end{prp}
-
-\subsection{Operations on Vector Bundles}
-\begin{defn}{Whitney Sum}{} Let $p_1:E_1\to B$ and $p_2:E_2\to B$ be two vector bundles. Define the direct sum of the vector bundles to be $$E_1\oplus E_2=\{(v_1,v_2)\in E_1\times E_2\;|\;p_1(v_1)=p_2(v_2)\}$$ together with the projection $p:E_1\oplus E_2\to B$ defined by $(v_1,v_2)\mapsto p_1(v)=p_2(v)$. 
-\end{defn}
-
-\begin{lmm}{}{} The Whitney sum $E_1\oplus E_2$ of two vector bundles is again a vector bundle. 
-\end{lmm}
-
-\begin{prp}{Tensor Product Bundle}{} Let $p_1:E_1\to B$ and $p_2:E_2\to B$ be vector bundles. Define the tensor product bundle of it to be $$E_1\otimes E_2=\{p_1^{-1}(x)\otimes p_2^{-1}(x)|x\in B\}$$ The construction $E_1\otimes E_2$ is a vector bundle over $B$. 
-\end{prp}
-
-\begin{thm}{Pullback Bundle}{} Let $p:E\to Y$ be a vector bundle. Let $f:X\to Y$ be a continuous map. Then there exists $E'$ and $p'$ such that $p':E'\to X$ is a vector bundle. 
-\end{thm}
-
-\begin{thm}{Dual Bundle}{} Let $p:E\to B$ be a $K$-vector bundle. Then the dual bundle $p^\ast:E^\ast\to B$ defined by $$E_b^\ast=\Hom_K(E_b,K)$$ is a vector bundle over $B$. 
-\end{thm}
-
-\pagebreak
 \section{Vector Bundles on Smooth Manifolds}
 While the previous section introduced general vector bundles over an arbitrary topological space, the concept of smooth bundles are exclusive solely to smooth manifolds. Indeed the notion of smoothness exists only in smooth manifolds when we say that the transition maps of the charts are smooth functions from Euclidean spaces. 
 
@@ -683,13 +637,6 @@ Set $\Phi(t,x)=(f_1(t,x),\dots,f_n(t,x))$ for $\abs{t}<\varepsilon_1$ and $x\in 
 For every point $p$, let $U(p)$ be a neighbourhood of $p$ and $\varepsilon(p)>0$ such that there exists a local $1$-parameter group of local diffeomorphisms $\Phi$ defined on $I_{\varepsilon(p)}\times U(p)$ inducing $X$. Since $M$ is compact, finitely many of the $U(p)$, say $U(p_1),\dots,U(p_k)$ cover $M$. Set $\varepsilon=\min\{\varepsilon(p_1),\dots,\varepsilon(p_k)\}$. We see that $\Phi_t(p)$ can be defined on $I_\varepsilon\times M$, hence on all of $\R\times M$. 
 \end{proof}
 \end{prp}
-
-\subsection{Ehresmann's Result on Fibrations}
-\begin{defn}{Proper Maps}{} Let $f:X\to Y$ be a continuous map of topological spaces. We say that $f$ is proper if the preimage of every compact set in the target is compact. 
-\end{defn}
-
-\begin{thm}{}{} Let $\pi:M\to I$ be a proper submersion of manifolds, with $I\subset\R$ and open interval containing $0\in\R$. Then for any two $t_1,t_2\in I$, the fibers $M_{t_1}$ and $M_{t_2}$ are diffeomorphic. 
-\end{thm}
 
 \pagebreak
 \section{Differential Calculus on Manifolds}
@@ -847,47 +794,6 @@ and so we are done.
 \end{defn}
 
 The reason for these names is because in algebraic topology, we can define the cohomology group of this chain of algebras (called a complex). In particular, it is defined by taking the closed $k$-forms and quotienting the exact $k$-forms. 
-
-\subsection{Orientations of a Manifold}
-\begin{defn}{Orientation}{} Let $M$ be an $n$ dimensional manifold. $M$ is said to be orientable if there exists an everywhere non-vanishing $n$-form on it. \\~\\
-If $M$ is orientable, an orientation of $M$ is an equivalence class of non-vanishing $n$-forms on $M$ where $\omega_1\sim\omega_2$ if $\omega_1=f\omega_2$ where $f$ is an everywhere positive smooth function on $M$. \\~\\
-An oriented manifold is an orientable manifold with a fixed choice of orientation. 
-\end{defn}
-
-\begin{prp}{}{} A smooth manifold $M$ is orientable if and only if it has a covering by coordinate charts such that for any two charts $(U,\phi=(x^1,\dots,x^n))$ and $(V,\psi=(y^1,\dots,y^n))$, the transition function $$\det\left(\frac{\partial(y_i\circ\phi^{-1})}{\partial x_j}\right)>0$$ has non zero determinant on the intersection. \tcbline
-\begin{proof}
-Suppose that $M$ is orientable. This means that we have a nowhere vanishing top form $$\omega=f\;dx^1\wedge\cdots\wedge dx^n$$ in a coordinate chart $(U,\phi=(x^1,\dots,x^n))$ on $M$. By replacing $x^1:U\to\R$ with $-x^1:U\to\R$, we can assume that $M$ is covered by such coordinate charts where the function corresponding to $f$ above is positive in each chart. Suppose that $(V,\psi=(y^1,\dots,y^n))$ is another chart on $M$ with non-empty intersection with $U$. Locally on $V$, suppose that $\omega$ takes the form of $$\omega=g\;dy^1\wedge\cdots\wedge dy^n$$ Then on $U\cap V$, we have that 
-\begin{align*}
-g\;dy^1\wedge\cdots\wedge dy^n&=(g\circ\phi^{-1})\;\det\left(\frac{\partial (y^i\circ\phi^{-1})}{\partial x^j}\right)\;dx^1\wedge\cdots\wedge dx^n\\
-&=f\;dx^1\wedge\cdots\wedge dx^n
-\end{align*}
-So if $f>0$ and $g>0$, we must have that the determinant greater than $0$ and so we are done. \\~\\
-
-Conversely, suppose that the determinant is non zero on all intersections of a covering $\{U_\alpha\;|\;\alpha\in i\}$ of $M$. Choose a partition of unity $\{\theta_\alpha\;|\;\alpha\in I\}$ subordinate to the covering. Define a top form on $M$ by $$\omega=\sum_{\alpha\in I}\theta_\alpha\;dy_\alpha^1\wedge\cdots\wedge dy_\alpha^n$$ which is smooth since $\theta_\alpha$ is smooth for each $\alpha\in I$. Let $(U_\beta,\psi=(y^1,\dots,y^n))$ be a a coordinate chart in the covering. Then locally we have that $$\omega|_{U_\beta}=\sum_{i\in I}\theta_\alpha\det\left(\frac{\partial y_\alpha^i}{\partial x_\beta^j}\right)\;dy_\beta^1\wedge\cdots\wedge dy_\beta^n$$ The form $\omega$ is non-negative since $\theta_\alpha>0$ and the determinant is positive by assumption. It is non-zero since at each point, at least one of the functions $\theta_\alpha$ is non-zero, as they all sum to $1$. Thus we are done. 
-\end{proof}
-\end{prp}
-
-It is easy to see that a choice of orientation is a choice of coordinate charts such that either the nowhere vanishing form $\omega=f\;dx^1\wedge\cdots\wedge dx^n$ has its coefficient $f$ positive or negative throughout all coordinate charts. Because this way, the determinant of the transition functions will always have positive determinant. 
-
-\begin{prp}{}{} A connected manifold $M$ has exactly two orientations. 
-\end{prp}
-
-\begin{prp}{}{} If a manifold with boundary $M$ is orientable, then $\partial M$ is also orientable. \tcbline
-\begin{proof}
-If $\dim(M)=1$, then $\dim(\partial M)=0$ and consists of points so that the result is trivial. Let $n=\dim(M)\geq 2$. Choose a local chart $(U,\phi=(x^1,\dots,x^n))$ such that $\partial M$ is defined by $x_n=0$ locally and on intersections with other charts $\det\left(\left(\frac{\partial y^i}{\partial x^j}\right)_{1\leq i,j\leq n}\right)>0$ Where two local charts with coordinates $(U,\phi=(x^1,\dots,x^n))$ and $(V,\psi=(y^1,\dots,y^n))$ intersect. Since $x^n=0$ and $y^n=0$, the Jacobian matrix for a point $p\in\partial M$ is given by $$\begin{pmatrix}
-\frac{\partial y^1}{\partial x^1}\bigg{|}_p & \cdots & \frac{\partial y^1}{\partial x^{n-1}}\bigg{|}_p & \frac{\partial y^1}{\partial x^n}\bigg{|}_p\\
-\vdots & \ddots & \vdots & \vdots\\
-\frac{\partial y^{n-1}}{\partial x^1}\bigg{|}_p & \cdots & \frac{\partial y^{n-1}}{\partial x^{n-1}}\bigg{|}_p & \vdots\\
-0 & \cdots & 0 & \frac{\partial y^n}{\partial x^n}\bigg{|}_p
-\end{pmatrix}$$
-Now $\psi\circ\phi^{-1}$ maps $x_n>0$ to $y_n>0$. Thus if $x_n=0$, then $y_n=0$ and if $x_n>0$, then $y_n>0$. Thus $$\frac{\partial y^n}{\partial x^n}\bigg{|}_{x_n=0}>0$$ and since the determinant of the above matrix is positive, the determinant of the upper left $(n-1)\times(n-1)$ matrix also has positive determinant. Thus $(U_\alpha|_{\partial M},\phi|_{\alpha}|_{\partial M})$ give an atlas for $\partial M$ whose transition functions have everywhere positive Jacobian. Thus $\partial M$ is orientable. 
-\end{proof}
-\end{prp}
-
-In order to complete Stoke's theorem, we need a canonical orientation on the boundary on the manifold that depends on the choice of orientation on the manifold itself. 
-
-\begin{defn}{Induced Orientation}{} Let $M$ be a smooth orientable manifold with boundary of dimension $n$. Let $\omega$ be a nowhere vanishing $1$-form representing an orientation on $M$. Suppose that in local coordinates, $\omega$ on the boundary of $M$ is given by $$\omega=\epsilon\;dx^1\wedge\cdots\wedge dx^n$$ where $\epsilon=\pm1$ and $x^n>0$. Then define the induced orientation $\omega'$ on $\partial M$ locally by $$\omega'=(-1)^n\epsilon\;dx^1\wedge\cdots\wedge dx^{n-1}$$
-\end{defn}
 
 \subsection{Integration of Smooth Differential $k$-forms}
 There are a number of conditions for integration on manifolds. Namely, 

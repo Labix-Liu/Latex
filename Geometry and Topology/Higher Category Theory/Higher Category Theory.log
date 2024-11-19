@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  6 NOV 2024 23:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  17 NOV 2024 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1073,85 +1073,111 @@ LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 4
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
-Underfull \hbox (badness 10000) in paragraph at lines 66--75
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--75
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--75
-
- []
-
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 76--86
+enc}] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 121--130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--86
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 121--130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
-
- []
-
-[5] [6] [7] [8]
-Underfull \hbox (badness 1418) in paragraph at lines 207--208
-[]\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/10 be a space. Then the h
-o-mo-topy cat-e-gory of the sin-gu-lar set of $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/
-10 is equal to 
- []
-
-[9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 285--286
+Underfull \hbox (badness 10000) in paragraph at lines 121--130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--291
+Underfull \hbox (badness 10000) in paragraph at lines 131--141
 
  []
 
-[11] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--141
 
  []
 
-[14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
-[16] [17] (Higher Category Theory.aux)
+[6] [7] [8] [9]
+Underfull \hbox (badness 1596) in paragraph at lines 273--274
+\T1/qpl/m/n/10 Here we iden-tify the ver-tices of $\OT1/cmr/m/n/10 ^^A[]$ \T1/q
+pl/m/n/10 as $\OT1/cmr/m/n/10 0$ \T1/qpl/m/n/10 and $\OT1/cmr/m/n/10 1$\T1/qpl/
+m/n/10 , and we use the iso-mor-phism $\OMS/cmsy/m/n/10 C [] 
+ []
+
+[10] [11] [12] [13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 422--461
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--461
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--461
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--461
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--461
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--461
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--461
+
+ []
+
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
+
+ []
+
+[17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 555--556
+
+ []
+
+[19] [20]
+Underfull \hbox (badness 10000) in paragraph at lines 605--606
+
+ []
+
+[21] [22] (Higher Category Theory.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Higher Category Theory".out' has not change
 d.
-(rerunfilecheck)             Checksum: 11FD9102DAB7B5A2C200DAFB887EFA28;4834.
+(rerunfilecheck)             Checksum: D59C9222DC93D475B2E79B05292224A6;5643.
  ) 
 Here is how much of TeX's memory you used:
- 32816 strings out of 474424
- 648047 string characters out of 5741739
- 1959496 words of memory out of 5000000
- 54547 multiletter control sequences out of 15000+600000
+ 33192 strings out of 474424
+ 657055 string characters out of 5741739
+ 1961496 words of memory out of 5000000
+ 54901 multiletter control sequences out of 15000+600000
  597664 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,18n,120p,769b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,18n,120p,769b,1471s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1167,12 +1193,13 @@ pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Higher Category Theory.pdf" (17 pages, 362152 bytes).
+s/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liula/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
+Output written on "Higher Category Theory.pdf" (22 pages, 403937 bytes).
 PDF statistics:
- 378 PDF objects out of 1000 (max. 8388607)
- 95 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 436 PDF objects out of 1000 (max. 8388607)
+ 117 named destinations out of 1000 (max. 500000)
+ 213 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -207,7 +207,7 @@ In this section, we will attempt to define the notion of homotopies for model ca
 	\arrow["i"', from=1-1, to=2-2]
 	\arrow["\simeq"', from=2-2, to=1-3]
 \end{tikzcd}}\\~\\
-of the codiaongal morphism $\nabla:X\coprod X\to X$ such that $p$ is a weak equivalence. Such a cylinder object $CX$ is said to be 
+of the codiaongal morphism $\nabla:X\coprod X\to X$ such that $p:CX\to X$ is a weak equivalence. Such a cylinder object $CX$ is said to be 
 \begin{itemize}
 \item Good if $i$ is a cofibration
 \item Very good if $i$ is a cofibration and $p$ is a fibration
@@ -342,7 +342,7 @@ Suppose that $f$ is a weak equivalence. By M5 axiom we can factorize it into $X\
 \end{tikzcd}}\\~\\ 
 has a solution $r:Z\to X$. By 2.29, $a^\ast:\pi^r(Z,Z)\to\pi^r(X,Z)$ is a bijection. In particular $$a^\ast([a\circ r])=[a\circ r\circ a]=[a]$$ At the same time, $a^\ast([\text{id}_Z])=[a]$. The bijection implies that $a\circ r\overset{r}{\simeq}\text{id}_Z$. Thus $r$ is a two sided homotopy inverse of $a$. A dual argument shows that $b:Z\to Y$ has a two sided homotopy inverse $s$. Then $r\circ s$ is a two sided homotopy inverse of $f=b\circ a$. \\~\\
 
-Now suppose that $f$ is a weak equivalence. By M5 axiom we can factorize it into $X\overset{a}{\longrightarrow}Z\overset{b}{\longrightarrow}Y$ where $a$ is an acyclic cofibration and $b$ is a fibration. Let $g:Y\to X$ be a homotopy inverse of $f$. Let $H:CY\to Y$ provide the homotopy between $f\circ g$ and $\text{id}_Y$. By M4 axiom, the following lifting problem \\~\\
+Now suppose that $f$ is a homotopy equivalence. By M5 axiom we can factorize it into $X\overset{a}{\longrightarrow}Z\overset{b}{\longrightarrow}Y$ where $a$ is an acyclic cofibration and $b$ is a fibration. Let $g:Y\to X$ be a homotopy inverse of $f$. Let $H:CY\to Y$ provide the homotopy between $f\circ g$ and $\text{id}_Y$. By M4 axiom, the following lifting problem \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	Y & Z \\
 	CY & Y
@@ -635,29 +635,11 @@ Recall that in Simplicial Methods of Topology, we defined the singular functor $
 \end{thm}
 
 \pagebreak
-\section{Model Structures on the Functor Category}
-\subsection{The Case of Cofibrantly Generated Model Categories}
-\begin{thm}{}{} Let $\mJ$ be a small category. Let $\mC$ be a cofibrantly generated model category with generating cofibrations $I$ and generating trivial cofibrations $J$. Then $\mC^\mJ$ is a cofibrantly generated model category with the following data. 
-\begin{itemize}
-\item The generating cofibrations are given as $\{X\Rightarrow Y\in\mC^\mJ\;|\;\}$
-\item The generating trivial cofibrations are ?
-\end{itemize}
-\end{thm}
-
-\begin{prp}{}{} Let $\mJ$ be a small category. Let $\mC$ be a cofibrantly generated model category with generating cofibrations $I$ and generating trivial cofibrations $J$. Then the model category structure of $\mC^\mJ$ consists of the following data: 
-\begin{itemize}
-\item The weak equivalences are the natural transformations $X\Rightarrow Y$ such that $X(C)\to Y(C)$ is a weak equivalence for all $C\in\mC$
-\item The fibrations are the natural transformations $X\Rightarrow Y$ such that $X(C)\to Y(C)$ is a fibration for all $C\in\mC$
-\item The cofibrations are the natural transformations $X\Rightarrow Y$ that is a retract of a transfinite compositions of pushouts of elements of 
-\end{itemize}
-\end{prp}
-
-\pagebreak
 \section{Homotopy Limits and Colimits}
-\subsection{Homotopy Pushouts and Pullbacks}
+\subsection{The Model Structures on Pushout and Pullback Diagrams}
 Pushouts and pullbacks are not generally well-behaved with respect to homotopy. We remedy this by defining the notion of homotopy pushouts and pullbacks. 
 
-\begin{thm}{}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. Then $\mC^\mJ$ has the structure of a model category with the following data: 
+\begin{prp}{}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. Then $\mC^\mJ$ has the structure of a model category with the following data: 
 \begin{itemize}
 \item The weak equivalences are the morphisms \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -705,17 +687,15 @@ such that $f_A$, $f_B$ and $f_C$ are weak equivalences in $\mC$
 by the universal property of pushouts. The cofibrations are such morphisms such that $i_A(f)$, $i_B(f)$ and $i_C(f)$ are cofibrations in $\mC$
 \item The fibrations are the morphisms such that $f_A$, $f_B$ and $f_C$ are fibrations in $\mC$
 \end{itemize}
-\end{thm}
+\end{prp}
 
-Recall that because a model category $\mC$ is complete and cocomplete, the diagonal functor $\Delta:\mC\to\mC^\mJ$ admits a left adjoint $\text{colim}_\mJ(-)$. This means that we have a natural isomorphism $$\Hom_{\mC^\mJ}(\text{colim}_\mJ(-),-)\cong\Hom_\mC(-,\Delta(-))$$
+\begin{prp}{}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. Then the following are true. 
+\begin{itemize}
+\item The fibrant objects of $\mC^\mJ$ are of the form $X\rightarrow Z\leftarrow Y$ where $Z$ is fibrant in $\mC$, and the two arrows are fibrations. 
+\end{itemize}
+\end{prp}
 
-\begin{thm}{}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. The the adjunction $$\text{colim}_\mJ:\mC^\mJ\rightleftarrows\mC:\Delta$$ is a Quillen adjunction, and hence admits total derived functors $$\L\text{colim}_\mJ:\text{Ho}(\mC^\mJ)\rightleftarrows\text{Ho}(\mC):\R\Delta$$
-\end{thm}
-
-\begin{defn}{The Homotopy Pushout Functor}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. Define the homotopy pushout functor to be the total derived functor $$\L\text{colim}_\mJ:\text{Ho}(\mC^\mJ)\to\text{Ho}(\mC)$$ of the functor $\text{colim}_\mJ:\mC^\mJ\to\mC$. 
-\end{defn}
-
-\begin{thm}{}{} Let $\mJ$ be the category $A\rightarrow B\leftarrow C$. Let $\mC$ be a model category. Then $\mC^\mJ$ has the structure of a model category with the following data: 
+\begin{prp}{}{} Let $\mJ$ be the category $A\rightarrow B\leftarrow C$. Let $\mC$ be a model category. Then $\mC^\mJ$ has the structure of a model category with the following data: 
 \begin{itemize}
 \item The weak equivalences are the morphisms \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -763,15 +743,43 @@ such that $f_A$, $f_B$ and $f_C$ are weak equivalences in $\mC$
 \end{tikzcd}}\\~\\
 by the universal property of pullbacks. The fibrations are such morphisms such that $p_A(f)$, $p_B(f)$ and $p_C(f)$ are fibrations in $\mC$
 \end{itemize}
-\end{thm}
+\end{prp}
 
-\begin{thm}{}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. The the adjunction $$\Delta:\mC^\mJ\rightleftarrows\mC:\text{lim}_\mJ$$ is a Quillen adjunction, and hence admits total derived functors $$\L\Delta:\text{Ho}(\mC^\mJ)\rightleftarrows\text{Ho}(\mC):\R\text{lim}_\mJ$$
-\end{thm}
+\subsection{Homotopy Pushout and Homotopy Pullbacks}
+Recall that because a model category $\mC$ is complete and cocomplete, the diagonal functor $\Delta:\mC\to\mC^\mJ$ admits a left adjoint $\text{colim}_\mJ(-)$. This means that we have a natural isomorphism $$\Hom_{\mC^\mJ}(\text{colim}_\mJ(-),-)\cong\Hom_\mC(-,\Delta(-))$$
+
+\begin{prp}{}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. The the adjunction $$\text{colim}_\mJ:\mC^\mJ\rightleftarrows\mC:\Delta$$ is a Quillen adjunction, and hence admits total derived functors $$\L\text{colim}_\mJ:\text{Ho}(\mC^\mJ)\rightleftarrows\text{Ho}(\mC):\R\Delta$$
+\end{prp}
+
+\begin{defn}{The Homotopy Pushout Functor}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. Define the homotopy pushout functor to be the total derived functor $$\L\text{colim}_\mJ:\text{Ho}(\mC^\mJ)\to\text{Ho}(\mC)$$ of the functor $\text{colim}_\mJ:\mC^\mJ\to\mC$. 
+\end{defn}
+
+We have already seen homotopy pushouts in $\bold{Top}$ and $\bold{sSet}$. To show that they coincide with the definition here we need to show that they are weakly equivalent. 
+
+\begin{prp}{}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. The the adjunction $$\Delta:\mC^\mJ\rightleftarrows\mC:\text{lim}_\mJ$$ is a Quillen adjunction, and hence admits total derived functors $$\L\Delta:\text{Ho}(\mC^\mJ)\rightleftarrows\text{Ho}(\mC):\R\text{lim}_\mJ$$
+\end{prp}
 
 \begin{defn}{The Homotopy Pullback Functor}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. Define the homotopy pullback functor to be the total derived functor $$\R\text{lim}_\mJ:\text{Ho}(\mC^\mJ)\to\text{Ho}(\mC)$$ of the functor $\text{lim}_\mJ:\mC^\mJ\to\mC$. 
 \end{defn}
 
-\subsection{Homotopy Limits}
+
+\subsection{Model Structure on General Functor Categories}
+\begin{thm}{}{} Let $\mJ$ be a small category. Let $\mC$ be a cofibrantly generated model category with generating cofibrations $I$ and generating trivial cofibrations $J$. Then $\mC^\mJ$ is a cofibrantly generated model category with the following data. 
+\begin{itemize}
+\item The generating cofibrations are given as $\{X\Rightarrow Y\in\mC^\mJ\;|\;\}$
+\item The generating trivial cofibrations are ?
+\end{itemize}
+\end{thm}
+
+\begin{prp}{}{} Let $\mJ$ be a small category. Let $\mC$ be a cofibrantly generated model category with generating cofibrations $I$ and generating trivial cofibrations $J$. Then the model category structure of $\mC^\mJ$ consists of the following data: 
+\begin{itemize}
+\item The weak equivalences are the natural transformations $X\Rightarrow Y$ such that $X(C)\to Y(C)$ is a weak equivalence for all $C\in\mC$
+\item The fibrations are the natural transformations $X\Rightarrow Y$ such that $X(C)\to Y(C)$ is a fibration for all $C\in\mC$
+\item The cofibrations are the natural transformations $X\Rightarrow Y$ that is a retract of a transfinite compositions of pushouts of elements of 
+\end{itemize}
+\end{prp}
+
+\subsection{Homotopy Limits and Colimits}
 
 \pagebreak
 \section{Pointed Model Categories}

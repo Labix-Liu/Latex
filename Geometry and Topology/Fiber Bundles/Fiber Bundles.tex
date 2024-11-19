@@ -24,111 +24,6 @@
 \tableofcontents
 
 \pagebreak
-\section{The Topology of Fiber Bundles}
-\subsection{Fiber Bundles}
-Fiber bundles serve as somewhat of a generalization of both vector bundles and covering spaces, while being a special case of a fibration. It therefore has the properties of a fibration. 
-
-\begin{defn}{Fiber Bundles}{} Let $E,B,F$ be spaces with $B$ connected, and $p:E\to B$ a continuous map. We say that $p$ is a fiber bundle over $F$ if the following are true. 
-\begin{itemize}
-\item $p^{-1}(b)\cong F$ for all $b\in B$
-\item $p:E\to B$ is surjective
-\item Local Triviality: For every $x\in B$, there is an open neighbourhood $U\subset B$ of $x$ and a homeomorphism $\phi_U:p^{-1}(U)\to U\times F$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{p^{-1}(U)} && {U\times F} \\
-	& U
-	\arrow["{\phi_U}", from=1-1, to=1-3]
-	\arrow["p"', from=1-1, to=2-2]
-	\arrow["\pi", from=1-3, to=2-2]
-\end{tikzcd}}\\~\\
-where $\pi$ is the projection by forgetting the second variable. 
-\end{itemize}
-We say that $B$ is the base space, $E$ the total space. It is denoted as $(F,E,B)$
-\end{defn}
-
-Intuitively, we would like a fiber bundle to locally look like the product $B\times F$. The condition is also equivalent to the following form: There exists an open cover $\{U_i\;|\;i\in I\}$ and a collection of homeomorphisms $\phi_i:p^{-1}(U_i)\to U_i\times F$ for which the same diagram commutes. \\~\\
-
-Vector bundles generalizes vector bundles in the sense that the fibers are no longer vector spaces but instead arbitrary spaces. 
-
-\begin{lmm}{}{} Every vector bundle is a fiber bundle. \tcbline
-\begin{proof}
-Indeed if $p:E\to B$ is a vector bundle, then each fiber $p^{-1}(b)$ is an $n$-dimensional vector spaces over a field $F$. Moreover, by definition the local triviality condition is also satisfied. 
-\end{proof}
-\end{lmm}
-
-A lot of examples of fiber bundles therefore come from vector bundles. Another familiar collection of examples come from covering space theory. 
-
-\begin{lmm}{}{} Every covering space is a fiber bundle. \tcbline
-\begin{proof}
-If $p:\tilde{X}\to X$ is a covering space, then we have seen that $p^{-1}(x)$ remains constant as $x\in X$ varies. Moreover, $p^{-1}(x)$ has the discrete topology with countable fiber since each $p^{-1}(U)$ is a disjoint union for $U\subseteq X$ open. Thus they must all be homeomorphic. \\~\\
-
-Finally, for any $U\subseteq X$, recall that $$p^{-1}(U)=\coprod_{i\in I}V_i$$ where each $V_i\cong U$. It is clear by definition that $\abs{p^{-1}(x)}\abs{I}$ for any $x\in X$. By giving $I$ the discrete topology, we obtain a homeomorphism $p^{-1}(x)\cong I$. The homeomorphism $p^{-1}(U)=\coprod_{i\in I}V_i$ translates to $$p^{-1}(U)=\coprod_{i\in I}V_i\cong\coprod_{i\in I}U\cong U\times I$$ defined by $\tilde{x}\in V_i\mapsto(p(\tilde{x})=x,i)$. It is thus clear that the local triviality condition is satisfied. 
-\end{proof}
-\end{lmm}
-
-\begin{prp}{}{} Every fiber bundle is a Serre fibration. 
-\end{prp}
-
-We can provide a partial converse for the fact that every fiber bundle is a Serre fibration. 
-
-\begin{prp}{}{} Let $p:E\to B$ be a fiber bundle. If $B$ is paracompact, then $p$ is a (Hurewicz) fibration. 
-\end{prp}
-
-We there fore have inclusions $$\substack{\text{Fiber}\\\text{Bundles}}\subset\substack{\text{Serre}\\\text{Fibrations}}\subset\substack{\text{(Hurewicz)}\\\text{Fibrations}}$$
-
-\begin{defn}{Map of Fiber Bundles}{} Let $(F_1,E_1,B_1)$ and $(F_2,E_2,B_2)$ be fiber bundles. A map of fiber bundles is a pair of basepoint preserving continuous maps $(\tilde{f}:E_1\to E_2,f:B_1\to B_2)$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{E_1} & {E_2} \\
-	{B_1} & {B_2}
-	\arrow["{\tilde{f}}", from=1-1, to=1-2]
-	\arrow["{p_1}"', from=1-1, to=2-1]
-	\arrow["{p_2}", from=1-2, to=2-2]
-	\arrow["f"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-Such a map of fiber bundles determine a continuous of the fibers $F_1\cong p_1^{-1}(b_1)\to p_2^{-1}(b_2)\cong F_2$. \\~\\
-
-A map of fiber bundles $(\tilde{f},f)$ is said to be an isomorphism if there is a map $(\tilde{g}:E_2\to E_1,g:B_2\to B_1)$ such that $\tilde{g}$ is the inverse of $\tilde{f}$ and $g$ is the inverse of $f$. 
-\end{defn}
-
-Notice that a morphism of fiber bundles preserves fibers. Indeed, If $p_1^{-1}(b)$ is a fiber of $B$, then using the commutativity of the diagram we have that $$p_2(\overline{f}(p_1^{-1}(b)))=f(p_1(p_1^{-1}(b)))=f(b)$$ which implies that $$p_2^{-1}(f(b))=\overline{f}(p^{-1}(b))$$ or in other words, the fiber at $f(b)$ is the same as the fiber at $b$ applied with $\overline{f}$. 
-
-\begin{defn}{Equivalent Fiber Bundles}{} Let $p:E_1\to B_1$ and $p:E_2\to B_2$ be two fiber bundles. We say that they are equivalent if there exists an isomorphism $(\tilde{f}:E_1\to E_2,f:B_1\to B_2)$ of fiber bundles. 
-\end{defn}
-
-There are two important special cases of fiber bundles that will appear time and time again. 
-
-\begin{defn}{Trivial Bundles}{} We say that a fiber bundle $(F,E,B)$ is trivial if $(F,E,B)$ is isomorphic to the trivial fibration $B\times F\to B$. 
-\end{defn}
-
-\begin{defn}{The Pullback Bundle}{} Let $p:E\to B$ be a fiber bundle with fiber $F$. Let $f:B'\to B$ be a continuous function. Define the pullback of $p$ by $f$ to be the space $$f^\ast(E)=\{(b',e)\in B'\times E\;|\;p(e)=f(b')\}$$
-\end{defn}
-
-\subsection{Sections of a Bundle}
-\begin{defn}{Sections}{} Let $(F,E,B)$ be a fiber bundle. A section on the fiber bundle is a map $s:B\to E$ such that $$p\circ s=\text{id}_B$$
-\end{defn}
-
-\begin{defn}{Local Sections}{} Let $(F,E,B)$ be a fiber bundle. Let $U\subset B$ be an open set. A local section of the fiber bundle on $U$ is a map $s:U\to B$ such that $$p\circ s=\text{id}_U$$
-\end{defn}
-
-\subsection{Sphere Bundles}
-We now consider a special type of fibrations where the fibers are given by $S^1$. When we pick $n=1$ we obtain the classical object of study in algebraic topology called the Hopf fibration. 
-
-\begin{defn}{Sphere Bundles}{} A sphere bundle is a fiber bundle $p:E\to B$ for which its fibers are the $n$-sphere $S^n$. 
-\end{defn}
-
-\begin{thm}{}{} Let $n\in\N$. Consider $S^{2n+1}$ lying inside $\C^{n+1}$. Then canonical map $\C^n\to\C\Prj^{n}$ given by $$(z_0,\dots,z_n)\mapsto[z_0:\cdots:z_n]$$ is a fiber bundle with fiber $S^1$. 
-\end{thm}
-
-\begin{defn}{Hopf Fibration / Hopf Bundle}{} The fiber bundle $p:S^3\to S^2$ with fiber $S^1$ is called the Hopf fibration / Hopf bundle. 
-\end{defn}
-
-\subsection{Homotopy of Fiber Bundles}
-\begin{thm}{}{} Let $p:E\to B$ be a fiber bundle. Suppose that $f,g:X\to B$ are homotopic maps. Then the pull back bundles $$f^\ast(E)\cong g^\ast(E)$$ are equivalent. 
-\end{thm}
-
-\begin{thm}{}{} Let $p:E\to B$ be a fiber bundle. Let $A\subseteq B$. Let $y_0\in E$ and $p(y_0)=x_0$. Then there is an isomorphism $$\pi_n(E,p^{-1}(A),y_0)\cong\pi_n(B,A,x_0)$$ given by the induced map $p_\ast$ for all $n\geq 2$. 
-\end{thm}
-
-\pagebreak
 \section{Fiber Bundles with a Group Structure}
 \subsection{G-Bundles and the Structure Groups}
 We would now like to enrich the structure of a fiber bundle with a group action on the fibers. Recall that a topological group is a group with the structure of a topology such that multiplication $(g_1,g_2)\mapsto g_1g_2$ and the inverse $g\mapsto g^{-1}$ are both continuous maps. \\~\\
@@ -320,11 +215,6 @@ such that $f$ is a homotopy equivalence. In particular, this means that any two 
 
 \begin{defn}{Classifying Space}{} Let $G$ be a topological group. The classifying space $BG$ of $G$ is the homotopy type of the universal principal $G$-bundle. Denote the total space of $BG$ by $EG$. For a principal $G$-bundle $f:Y\to X\in\text{Prin}_G(X)$, define the classifying map to be the associated map $X\to BG$ given in 1.5.3. 
 \end{defn}
-
-For those who have the knowledge of Simplical Methods in Topology: 
-
-\begin{thm}{}{} Let $G$ be a topological group. Then classifying space $BG$ of $G$ precisely coincide with that in simplicial sets. This means that the geometric realization $|N(G)|$ of the nerve of $G$ considered as a groupoid with one object is precisely the representing object of $\text{Prin}_G$. 
-\end{thm}
 
 TBA: Functoriality of $B:\bold{Grp}\to\bold{Top}$. 
 
