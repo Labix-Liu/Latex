@@ -530,6 +530,44 @@ Now since $F$ is reduced and $CX\simeq\ast$, we can further simplify it into \\~
 \begin{thm}{}{} There is an equivalence of categories $$\mH_1(\bold{CGWH}_\ast,\bold{CGWH}_\ast)\cong\Omega\text{Sp}^\N(\bold{CGWH}_\ast)$$ given as follows. For a linear functor $F$, we associate to it the sequence of spaces $\{F(S^n)\;|\;n\in\N\}$, and this defines a spectra. 
 \end{thm}
 
+\subsection{Catalogue of Construction Needed}
+\begin{eg}{}{} $\mP_0(n+1)$ for small values of $n$ is given as follows: 
+\begin{itemize}
+\item When $n=0$, $\mP_0(1)$ consists of only one object \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\{1\}}
+\end{tikzcd}}\\~\\ 
+\item When $n=1$, $\mP_0(2)$ is given by the following diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& {\{1\}} \\
+	{\{0\}} & {\{0,1\}}
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{itemize}
+\end{eg}
+
+\begin{eg}{Joins}{} We consider the join of a space and some finite space with discrete topology. 
+\begin{itemize}
+\item When $n=1$, the join of $X$ and $\{1\}$ is given by $$CX=X\ast\{1\}$$
+\item When $n=2$, the join of $X$ and $\{0,1\}$ is given by $$\Sigma X=X\ast\{0,1\}$$
+\end{itemize}
+\end{eg}
+
+\begin{eg}{}{} Let $F$ be a homotopy functor. We consider the intermediate functors $T_nF$ for a homotopy functor $F$. 
+\begin{itemize}
+\item When $n=0$, $T_0F:\bold{Top}_\ast\to\bold{Top}_\ast$ is a functor defined by $$T_0F(X)=F(CX)\simeq F(\ast)$$ because $F$ is a homotopy functor. If $F$ is reduced then $T_0F(X)\simeq\ast$. 
+\item When $n=1$, $T_1F:\bold{Top}_\ast\to\bold{Top}_\ast$ is a functor defined by $$T_1F(X)\simeq\Omega F(\Sigma X)$$ because $F$ is a homotopy functor. 
+\end{itemize}
+\end{eg}
+
+\begin{eg}{}{} Let $F$ be a homotopy functor. We consider the intermediate functors $P_nF$ for a homotopy functor $F$. 
+\begin{itemize}
+\item When $n=0$, $P_0F:\bold{Top}_\ast\to\bold{Top}_\ast$ is a functor defined by $$P_0F(X)=\hocolim\left(F(X)\to (T_0F)(X)\to (T_0(T_0F))(X)\to\dots\right)\simeq P_0F(\ast)$$ because $F$ is a homotopy functor. If $F$ is reduced then $P_0F(X)\simeq\ast$. 
+\item When $n=1$, $P_1F:\bold{Top}_\ast\to\bold{Top}_\ast$ is a functor defined by $$P_1F(X)\simeq\hocolim_{n\to\infty}\Omega^nF(\Sigma^nX)$$ because $F$ is a homotopy functor. 
+\end{itemize}
+\end{eg}
+
 \subsection{Important Theorems}
 Denote $\text{Sp}$ by the category of spectra. Define a map $\mL(\bold{Top}_\ast,\text{Sp})\to\text{Sp}$ that sends $F:\bold{Top}_\ast\to\text{Sp}$ to the spectra $F(S^0)$. Conversely, define a map $\text{Sp}\to\mL(\bold{Top}_\ast,\text{Sp})$ by sending each spectra $X$ to the functor $X\wedge -$. \\~\\
 
@@ -590,9 +628,68 @@ which we can prove to be commutative. By the two out of three property we easily
 
 We now have maps $\mL(\bold{Top}_\ast)\rightleftarrows\text{Sp}$. This actually gives an equivalence of categories. In fact, one can find out that it is a two step process: $$\mL(\bold{Top}_\ast)\rightleftarrows\mL(\bold{Top}_\ast,\text{Sp})\rightleftarrows\text{Sp}$$
 
+\begin{thm}{}{} There is an equivalence of categories $$\mL(\bold{Top}_\ast,\bold{Sp})\to\bold{Sp}$$ given by $F\mapsto F(S^0)$. \tcbline
+\begin{proof}
+Firstly, note that the above assignment defines a functor. Let $\lambda:F\Rightarrow G$ be a morphism in $\mL(\bold{Top}_\ast,\bold{Sp})$. This means that for any $X\in\bold{Top}_\ast$, we have a map of spectra $\lambda_X:F(X)\to G(X)$. Applying $X=S^0$ gives our map of spectra $F(S^0)\to G(S^0)$. Composition is preserved in this construction, and if $F=G$ then the identity natural transformation $\lambda:F\Rightarrow F$ gives the identity map $F(S^0)\to F(S^0)$ of spectra. \\~\\
 
+Now define a functor $\bold{Sp}\to\mL(\bold{Top}_\ast,\bold{Sp})$ by sending each spectra $X$ to the functor $X\wedge -$. We want to show that $X\wedge -$ sends homotopy pushouts to homotopy pullbacks. Cubical 10.1.9. So let \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X_0} & {X_1} \\
+	{X_2} & {X_{12}}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+be a homotopy pushout in $\bold{Top}_\ast$. 
+\end{proof}
+\end{thm}
 
+\pagebreak
+\section{Stable Infinity Categories}
+\subsection{Stable Infinity Categories}
+\begin{defn}{Zero Objects}{} Let $\mC$ be an infinity category. A zero object of $\mC$ is an object $0$ of $\mC$ such that $0$ is both initial and final. We say that $\mC$ is pointed if it contains a zero object. 
+\end{defn}
 
+\begin{lmm}{}{} Let $\mC$ be an infinity category. Then $\mC$ is pointed if and only if the following are true. 
+\begin{itemize}
+\item $\mC$ has an initial object $\emptyset$
+\item $\mC$ has a final object $\ast$
+\item There exists a morphism $\ast\to\emptyset$ in $\mC$
+\end{itemize}
+\end{lmm}
+
+\begin{defn}{Triangles}{} Let $\mC$ be a pointed infinity category. A triangle in $\mC$ consists of a commutative diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & Y \\
+	0 & Z
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["{\exists!}"', from=1-1, to=2-1]
+	\arrow["g", from=1-2, to=2-2]
+	\arrow["{\exists!}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+where $X,Y,Z$ are objects and $f,g$ are morphisms. 
+\end{defn}
+
+\begin{defn}{Fiber and Cofiber Sequences}{} Let $\mC$ be a pointed infinity category. 
+\begin{itemize}
+\item A triangle in $\mC$ is called a fiber sequence if it is a pullback square
+\item A triangle in $\mC$ is called a cofiber sequence if it is a pushout square. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Stable Infinity Categories}{} Let $\mC$ be an infinity category. We say that $\mC$ is stable if the following are true. 
+\begin{itemize}
+\item $\mC$ has a zero object $0$
+\item Every morphism in $\mC$ admits a fiber and a cofiber
+\item A triangle in $\mC$ is a fiber sequence if and only if it is a cofiber sequence
+\end{itemize}
+\end{defn}
+
+\subsection{}
+Recall that Lurie defined the infinity category of spaces as $\mS=N_\bullet^\text{hc}(\bold{Kan})$. 
+
+\subsection{}
 
 \pagebreak
 \section{Algebras and Coalgebras}
@@ -981,5 +1078,56 @@ is commutative up to homotopy.
 \end{itemize}
 \end{defn}
 
+\pagebreak
+\section{Homological Algebra}
+\subsection{Koszul Complexes}
+The following definitions requires the use of central elements. Recall that when $R$ is commutative, this condition is null and so we can choose any element in $R$. 
 
+\begin{defn}{Koszul Complexes}{} Let $R$ be a ring. Let $x\in R$ be a central element. Define the Koszul complex $K(x)$ of $x$ in $R$ to be the chain complex \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & R & R & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["x", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}} \\~\\
+\end{defn}
+
+\begin{defn}{Generalized Koszul Complexes}{} Let $R$ be a ring. Let $x_1,\dots,x_n\in R$ be central elements. Define the generalized Koszul complex $K(x_1,\dots,x_n)$ of $x_1,\dots,x_n$ in $R$ to be the chain complex given by $$K(x_1,\dots,x_n)=\text{Tot}^\oplus\left(K(x_1)\oplus_R\cdots\oplus_R K(x_n)\right)$$ If $M$ is an $R$-module, define the generalized Koszul complex of $M$ to be $$K(x_1,\dots,x_n;M)=K(x_1,\dots,x_n)\otimes_R M$$
+\end{defn}
+
+\begin{thm}{}{} Let $R$ be a ring. Let $x_1,\dots,x_n\in R$ be central elements. Then the Koszul complex $K(x_1,\dots,x_n)$ is given explicitly as \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\bigwedge_{i=1}^nR^n} & {\bigwedge_{i=1}^{n-}R^n} & \cdots & {R^n} & R & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{d_n}", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{d_1}", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+where the differential $d_k:\bigwedge_{i=1}^kR^n\to\bigwedge_{i=1}^{k-1}R^n$ is given on basis elements by $$d(e_{i_1}\wedge\cdots\wedge e_{i_k})=\sum_{j=0}^k(-1)^{j+1}x_{i_j}e_{i_0}\wedge\cdots\wedge\hat{e}_{i_j}\wedge\cdots\wedge e_{i_k}$$
+\end{thm}
+
+\begin{defn}{Koszul (Co)Homology}{} Let $R$ be a ring. Let $x_1,\dots,x_n\in R$ be central elements. Let $M$ be an $R$-module. Define the Koszul homology of $M$ with respect to $x_1,\dots,x_n$ by $$H_k^\text{Kos}(x_1,\dots,x_n;M)=H_k(K(x_1,\dots,x_n;M))$$ Define the Koszul cohomology of $M$ with respect to the central elements by $$H_\text{Kos}^k(x_1,\dots,x_n;M)=H^k(\Hom_R(K(x_1,\dots,x_n)),M)$$
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $x_1,\dots,x_n\in R$ be central elements. Let $M$ be an $R$-module. Then the following are true. 
+\begin{itemize}
+\item $H_0(x_1,\dots,x_n;M)=\frac{M}{(x_1,\dots,x_n)M}$
+\item $H^0(x_1,\dots,x_n;M)=\text{Ann}_M(\{x_1,\dots,x_n\})$
+\item $H_p(x_1,\dots,x_n;M)\cong H^{n-p}(x_1,\dots,x_n;M)$
+\end{itemize}
+\end{lmm}
+
+\begin{thm}{Kunneth Theorem}{} Let $R$ be a ring. Let $x_1,\dots,x_n\in R$ be central elements. Let $C_\bullet$ be a chain complex of $R$-modules. Then there is an exact sequence given by \\~\\
+\adjustbox{scale=0.9,center}{\begin{tikzcd}
+	0 & {H_0(x_1,\dots,x_n;H_q(C_\bullet))} & {H_q^\text{Tot}(K(x_1,\dots,x_n)\otimes_RC_\bullet)} & {H_1(x_1,\dots,x_n;H_{q-1}(C_\bullet))} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}
+\end{thm}
+
+\pagebreak
 \end{document}

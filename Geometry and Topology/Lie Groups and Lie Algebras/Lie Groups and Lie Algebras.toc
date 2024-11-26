@@ -12,7 +12,7 @@
 \contentsline {subsection}{\numberline {2.4}Engel's Theorem and Lie's Theorem}{10}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Semisimple Lie Algebras}{10}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Simple Lie Algebras}{11}{subsection.2.6}%
-\contentsline {section}{\numberline {3}The Killing Form and Cartan's Criteria}{12}{section.3}%
+\contentsline {section}{\numberline {3}The Killing Form and Jordan Decompositions}{12}{section.3}%
 \contentsline {subsection}{\numberline {3.1}The Jordan-Chevalley Decompositions}{12}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}The Killing Form}{12}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Cartan's Criterion}{13}{subsection.3.3}%

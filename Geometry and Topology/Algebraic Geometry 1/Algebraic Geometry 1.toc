@@ -13,38 +13,40 @@
 \contentsline {subsection}{\numberline {3.3}The Coordinate Ring}{16}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Relation to Reduced and Finitely Generated Algebras}{19}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}The Relative Nullstellensatz}{20}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Rational Functions on a Variety (To be removed)}{22}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Introduction to Projective Varieties}{24}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Homogenous Functions}{24}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}The Projective Vanishing Locus}{24}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Projective Varieties}{25}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}The Projective Nullstellensatz}{25}{subsection.4.4}%
-\contentsline {section}{\numberline {5}The Relation Between Affine and Projective Varieties}{27}{section.5}%
-\contentsline {subsection}{\numberline {5.1}The Affine Cone and Projectivization}{27}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}The Homogeneous Coordinate Ring}{27}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Homogenization and Dehomogenization}{28}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Projective Closure}{29}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Morphisms of Projective Varieties}{30}{subsection.5.5}%
-\contentsline {section}{\numberline {6}Quasi-Projective Varieties}{32}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Quasi-Projective Varieties}{32}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Morphisms of Quasi-Projective Varieties}{32}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Redefining Varieties}{32}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Regular Functions}{33}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Classical Constructions}{35}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Veronese Maps}{35}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Segre Maps}{35}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Grassmannians}{35}{subsection.7.3}%
-\contentsline {section}{\numberline {8}The Tangent Space}{37}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Dimensions}{37}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}The Tangent Space of Affine Varieties}{38}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Smooth Points of an Affine Variety}{39}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Smooth Points of a Variety in General}{40}{subsection.8.4}%
-\contentsline {section}{\numberline {9}Birational Geometry}{41}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Birational Morphisms}{41}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Birational Maps}{41}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Categorical Equivalence with Finitely Generated Field Extensions}{42}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Blowing Ups}{42}{subsection.9.4}%
-\contentsline {section}{\numberline {10}Theory of Divisors}{44}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Divisors of a Variety}{44}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}The Linear System of a Divisor}{45}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Intersection Theory}{46}{section.11}%
+\contentsline {section}{\numberline {4}Functions on a Variety}{23}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Regular Functions on Affine Varieties}{23}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Rational Functions on Affine Varieties}{23}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Introduction to Projective Varieties}{25}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Homogenous Functions}{25}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The Projective Vanishing Locus}{25}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Projective Varieties}{26}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}The Projective Nullstellensatz}{26}{subsection.5.4}%
+\contentsline {section}{\numberline {6}The Relation Between Affine and Projective Varieties}{28}{section.6}%
+\contentsline {subsection}{\numberline {6.1}The Affine Cone and Projectivization}{28}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}The Homogeneous Coordinate Ring}{28}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Homogenization and Dehomogenization}{29}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Projective Closure}{30}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Morphisms of Projective Varieties}{31}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Quasi-Projective Varieties}{33}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Quasi-Projective Varieties}{33}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Morphisms of Quasi-Projective Varieties}{33}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Redefining Varieties}{34}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Regular Functions}{34}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Classical Constructions}{37}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Veronese Maps}{37}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Segre Maps}{37}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Grassmannians}{37}{subsection.8.3}%
+\contentsline {section}{\numberline {9}The Tangent Space}{39}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Dimensions}{39}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}The Tangent Space of Affine Varieties}{40}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Smooth Points of an Affine Variety}{41}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Smooth Points of a Variety in General}{42}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Birational Geometry}{43}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Birational Morphisms}{43}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Birational Maps}{43}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Categorical Equivalence with Finitely Generated Field Extensions}{44}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Blowing Ups}{44}{subsection.10.4}%
+\contentsline {section}{\numberline {11}Theory of Divisors}{46}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Divisors of a Variety}{46}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}The Linear System of a Divisor}{47}{subsection.11.2}%
+\contentsline {section}{\numberline {12}Intersection Theory}{48}{section.12}%

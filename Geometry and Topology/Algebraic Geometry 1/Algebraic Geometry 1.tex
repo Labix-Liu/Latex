@@ -589,7 +589,27 @@ Minimal Prime Ideals of $k[X]$ & Irreducible Components of $X$
 
 All such bijections are moreover given by the construction of $V_X(-)$ and $I_X(-)$. 
 
-\subsection{Rational Functions on a Variety (To be removed)}
+\pagebreak
+\section{Functions on a Variety}
+\subsection{Regular Functions on Affine Varieties}
+The following definition is simply a special case of regular maps, as in regular functions are simply regular maps with codomain $\A^1$. 
+
+\begin{defn}{Regular Functions on Affine Varieties}{} Let $V$ be an affine variety over $\C$. Let $U$ be an open subset of $V$. A complex valued function $f:U\to\C$ is regular at a point $p\in U$ if there exists functions $g,h\in\C[V]$ such that $h(p)\neq 0$ and that $$f(x)=\frac{g(x)}{h(x)}$$ in some neighbourhood of $p$. Moreover, $f$ is said to be regular on $U$ if it is regular at every point of $U$. 
+\end{defn}
+
+\begin{defn}{The Algebra of Regular Functions}{} Let $V$ be an affine variety over $\C$. Let $U$ be an open subset of $V$. Define the $\C$-algebra of regular functions on $U$ to be the set $$\mO_V(U)=\{f:U\to\C\;|\;f\text{ is regular on }U\}$$ together with addition and multiplication of rational functions. 
+\end{defn}
+
+\begin{defn}{Restriction Maps}{} Let $V$ be an affine variety over $\C$. Let $U$ be an open subset of $V$. Define the restriction map to be the $\C$-algebra homomorphism $$\text{res}_U^V:\C[V]\to\mO_V(U)$$ by $f\mapsto\frac{f}{1}$. 
+\end{defn}
+
+\begin{prp}{}{} Let $V$ be an affine variety over $\C$. Let $U$ be an open subset of $V$. Then the following are true. If $U$ is dense in $V$, then the restriction map $$\text{res}_U^V:\C[V]\to\mO_V(U)$$ is injective. 
+\end{prp}
+
+\begin{prp}{}{} Let $V$ be an affine variety over $\C$. Then the restriction map $$\text{res}_V^V:\C[V]\cong\mO_V(V)$$ is an isomorphism of $\C$-algebras. 
+\end{prp}
+
+\subsection{Rational Functions on Affine Varieties}
 While polynomial rings are more than sufficient to classify varieties up to isomorphism, we would still like to enlarge the set of functions on a variety. We will do this by introducing rational functions on a variety. 
 
 \begin{defn}{Function Field}{} Let $V$ be an affine variety over a field $k$. Define the function field of $V$ to be $$k(V)=\text{Frac}(k[V])$$ Elements of $k(V)$ are said to be rational functions on $V$. 
@@ -804,7 +824,7 @@ Let $V\subseteq\Prj^n$ be a projective variety. Then $V$ being closed implies $V
 \end{lmm}
 
 \subsection{Morphisms of Quasi-Projective Varieties}
-\begin{defn}{Morphisms of Quasi-Projective Varities}{} Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasiprojective varieties. A morphism from $X$ to $Y$  is a map $F:X\to Y$ such that for all $p\in X$, there exists an open neighbourhood $U_p$ together with homogenous polynomials $F_0,\dots,F_m\in k[x_0,\dots,x_n]$ of the same degree such that 
+\begin{defn}{Morphisms of Quasi-Projective Varities}{} Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasiprojective varieties. A morphism from $X$ to $Y$ is a map $F:X\to Y$ such that for all $p\in X$, there exists an open neighbourhood $U_p$ of $p$ together with homogenous polynomials $F_0,\dots,F_m\in k[x_0,\dots,x_n]$ of the same degree such that 
 \begin{itemize}
 \item $V(F_0,\dots,F_m)\cap U=\emptyset$
 \item $F|_U$ agrees with $[x_0,\dots,x_n]\to[F_0(x_0,\dots,x_n),\dots,F_m(x_0,\dots,x_n)]$
@@ -814,9 +834,22 @@ Let $V\subseteq\Prj^n$ be a projective variety. Then $V$ being closed implies $V
 \begin{lmm}{}{} Every morphism of affine or projective varieties is a morphism of quasiprojective varieties. 
 \end{lmm}
 
+\begin{prp}{}{} Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasiprojective varieties. A morphism from $X$ to $Y$ is a map $F:X\to Y$ such that for all $p\in X$, there exists an open neighbourhood $U$ of $p$ and an open affine set $V\subseteq W$ containing $F(p)$ such that the following are true. 
+\begin{itemize}
+\item $F(U)\subseteq V$
+\item $F|_U:U\to V$ is a morphism of affine varieties (in the old sense)
+\end{itemize}
+\end{prp}
+
 \subsection{Redefining Varieties}
 \begin{defn}{Extended Definition of Affine Varities}{} A quasiprojective variety is said to be affine if it is isomorphic to a closed subset of affine space. 
 \end{defn}
+
+\begin{defn}{The Coordinate Ring}{} Let $X$ be an affine variety. Choose an isomorphism $F:X\overset{\cong}{\longrightarrow}V$ where $V$ is a closed subset of affine space. Define the coordinate ring of $X$ to be the pullback of the coordinate ring $\C[V]$ of $V$ via $F$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X,Y$ be affine varieties (in the traditional sense). Let $F:X\to Y$ be a map of sets. Then $F$ is a morphism of quasi-projective varieties if and only if $F$ is a morphism of affine varieties in the traditional sense. 
+\end{prp}
 
 \begin{defn}{Extended Definition of Projective Varities}{} A quasiprojective variety is said to be projective if it is isomorphic to a closed subvariety of projective space. 
 \end{defn}
@@ -838,18 +871,30 @@ In other words, $D(f)$ is exactly the points of $V$ where $f$ is not zero. Some 
 \end{prp}
 
 \subsection{Regular Functions}
-The following definition is simply a special case of regular maps, as in regular functions are simply regular maps with codomain $\A^1$. 
-
-\begin{defn}{Regular Functions on Affine Varieties}{} Let $U$ be an open subset of an affine variety $V$. A complex valued function $f:U\to\C$ is regular at a point $p\in U$ if there exists functions $g,h\in\C[V]$ such that $h(p)\neq 0$ and that $$f(x)=\frac{g(x)}{h(x)}$$ in some neighbourhood of $p$. Moreover, $f$ is said to be regular on $U$ if it is regular at every point of $U$. The set of all regular functions is denoted by $$\mathcal{O}_V(U)=\{f:U\to\C\;|\;f\text{ is regular on }U\}$$
+\begin{defn}{Regular Functions on Quasi-Projective Varieties}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. A complex valued function $f:U\to\C$ is regular at a point $p\in U$ if there some affine open set containing $p$ on which $f$ is regular at $p$. 
+$f$ is said to be regular on $U$ if it is regular at every point of $U$. 
 \end{defn}
 
-\begin{defn}{Regular Functions on Quasi-Projective Varities}{} Let $U$ be an open subset of a quasiprojective variety $V$. A complex valued function $f:U\to\C$ is regular at a point $p\in U$ if there some affine open set containing $p$ on which $f$ is regular at $p$. 
-$f$ is said to be regular on $U$ if it is regular at every point of $U$. \\~\\
-The set of all regular functions is denoted by $\mathcal{O}_V(U)$. 
+\begin{defn}{The Algebra of Regular Functions}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. Define the $\C$-algebra of regular functions on $U$ to be the set $$\mO_V(U)=\{f:U\to\C\;|\;f\text{ is regular on }U\}$$ together with addition and multiplication of rational functions. 
 \end{defn}
 
 \begin{lmm}{}{} For any $U\subset V$ open and $V$ a quasiprojective variety, $\mathcal{O}_V(U)$ is a $\C$-algebra. 
 \end{lmm}
+
+\begin{defn}{Restriction Maps}{} Let $V$ be a quasi-projective variety over $\C$. Let $U,W$ be an open subset of $V$ such that $W\subseteq U$. Define the restriction map to be the $\C$-algebra homomorphism $$\text{res}_W^U:\mO_V(U)\to\mO_V(W)$$ by the identity. 
+\end{defn}
+
+\begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $U,W$ be an open subset of $V$ such that $W\subseteq U$. Then the restriction map $$\text{res}_W^U:\mO_V(U)\to\mO_V(W)$$ is injective. 
+\end{prp}
+
+\begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. Then the following are true. 
+\begin{itemize}
+\item Let $W,X$ be open subsets of $V$ such that $X\subseteq W\subseteq U$. Then $$\text{res}_X^V=\text{res}_X^W\circ\text{res}_W^U$$
+\item The identity homomorphism $$\text{res}_U^U:\mO_V(U)\to\mO_V(U)$$ is an isomorphism
+\end{itemize}
+\end{prp}
+
+These information organize well into a sheaf. 
 
 \begin{defn}{Ring of Germs of Regular Functions}{} Let $p$ be a point of a variety $X$. Define the local ring of $p$ on $X$ to be $$\mathcal{O}_{V,p}=\{(U,f)\;|\;U\subseteq X\text{ is open}, p\in U, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. 
 \end{defn}

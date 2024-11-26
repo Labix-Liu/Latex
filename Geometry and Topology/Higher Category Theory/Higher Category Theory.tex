@@ -208,6 +208,8 @@ Recall that two objects in an infinity category $\mC$ is isomorphic if they are 
 \begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. Then $F$ is an equivalence of infinity categories if and only if $$F\circ -:\Hom_\bold{sSet}(K,\mC)\to\Hom_\bold{sSet}(K,\mD)$$ is an equivalence of infinity categories for all simplicial sets $K$. 
 \end{prp}
 
+\subsection{The Core of an Infinity Category}
+
 \pagebreak
 \section{Infinity Categorical Constructions}
 \subsection{Joins and Slices}
@@ -260,6 +262,16 @@ TBA: Adjunction of join and slice.
 
 \pagebreak
 \section{The Joyal Model Structure}
+\subsection{Weak Equivalences in the Joyal Structure}
+\begin{defn}{Categorical Equivalence}{} Let $X,Y$ be simplicial sets. Let $F:X\to Y$ be a morphism. We say that $F$ is a categorical equivalence if the induced functor $$-\circ F:\Hom_\bold{sSet}(Y,\mC)\to\Hom_\bold{sSet}(X,\mC)$$ induces a bijection on isomorphism classes $$\pi_0\left(\Hom_\bold{sSet}(Y,\mC)^\simeq\right)\to\pi_0\left(\Hom_\bold{sSet}(X,\mC)^\simeq\right)$$
+\end{defn}
+
+Kerodon 4.5.3.1\\
+
+Priori: what is $\Hom^\simeq$?? (Core??)
+
+\begin{lmm}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. Then $F$ is a categorical equivalence if and only if $F$ is an equivalence of infinity categories. 
+\end{lmm}
 
 \subsection{Homotopy Pullbacks and Pushouts}
 Because the standard model structure on $\bold{sSet}$ and the Joyal model structure are not Quillen equivalent, there are differences also in homotopy limits and colimits. 

@@ -43,24 +43,27 @@ Notice that while most of the time we exclusively work with left $R$-modules, al
 
 Submodules of a ring $R$ are well known objects. They are just the ideals of $R$. 
 
-\begin{prp}{Submodule Criterion}{} Let $R$ be a ring and let $M$ be an $R$-module. A subset $N$ of $M$ is a submodule of $M$ if and only if
+\begin{prp}{Submodule Criterion}{} Let $R$ be a ring and let $M$ be a left $R$-module. A subset $N$ of $M$ is a left $R$-submodule of $M$ if and only if
 \begin{itemize}
-\item $N\neq\emptyset$
-\item $x+ry\in N$ for all $r\in R$ and all $x,y\in N$
-\end{itemize}
+\item $x+y\in N$ for all $x,y\in N$
+\item $r\cdot x\in N$ for all $x\in N$ and $r\in R$
+\end{itemize} \tcbline
+\begin{proof}
+Suppose that $N$ is a left $R$-submodule. Then the above two conditions are satisfied since $N$ is an $R$-module in its own right. Conversely, the above two conditions imply that the four conditions for the definition of a module is satisfied. 
+\end{proof}
 \end{prp}
 
-\begin{defn}{Sum of Submodules}{} Let $M,N$ be left $R$-submodules of an $R$-module $K$. Define the sum of $M$ and $N$ to be the set $$M+N=\{m+n\;|\;m\in M,n\in N\}$$ together with a ring operation $\cdot:R\times M+N\to M+N$ defined by $$(r,m+n)=r\cdot(m+n)=r\cdot m+r\cdot n$$
+\begin{defn}{Sum of Submodules}{} Let $R$ be a ring. Let $M,N$ be left $R$-submodules of an $R$-module $K$. Define the sum of $M$ and $N$ to be the set $$M+N=\{m+n\;|\;m\in M,n\in N\}$$ together with a ring operation $\cdot:R\times M+N\to M+N$ defined by $$(r,m+n)=r\cdot(m+n)=r\cdot m+r\cdot n$$
 \end{defn}
 
-\begin{lmm}{}{} Let $M$ and $N$ be left $R$-submodules of an $R$-module $K$. Then $M+N$ is an $R$-submodule of $K$. \tcbline
+\begin{lmm}{}{} Let $R$ be a ring. Let $M$ and $N$ be left $R$-submodules of an $R$-module $K$. Then $M+N$ is an $R$-submodule of $K$. \tcbline
 \begin{proof}
 Notice that since the underlying group of $K$ is abelian, we have that $M+N$ is a group. Also it is clear by definition of the ring operation on $M+N$ that the operation is closed. Thus $M+N$ is an $R$-submodule of $K$. 
 \end{proof}
 \end{lmm}
 
-\begin{prp}{Intersection of Modules}{} Let $M,N$ be left $R$-modules. Then the intersection $M\cap N$ is a left $R$-submodule of both $M$ and $N$. 
-\end{prp}
+\begin{lmm}{}{} Let $R$ be a ring. Let $M,N$ be left $R$-modules. Then the intersection $M\cap N$ is a left $R$-submodule of both $M$ and $N$. 
+\end{lmm}
 
 \subsection{Module Homomorphisms}
 \begin{defn}{$R$-Module Homomorphisms}{} Let $R$ be a ring and let $M$ and $N$ be left $R$-modules. A map $\phi:M\to N$ is an $R$-module homomorphism if 
@@ -138,6 +141,11 @@ I claim that $\ker(\phi)=A\cap B$. If $a\in\ker(\phi)$ then $a+B=B$ implies that
 
 There is no different between finite direct sum and finite direct products. However when $I$ is an infinite indexing set, there is a big difference. For instance, a direct product of rings is still a ring but infinite direct product of rings is not a ring. 
 
+\begin{prp}{}{} Let $R$ be a ring. Let $I$ be an indexing set. Let $M_i$ be an $R$-module for each $i\in I$. Then there is an isomorphism $$\bigoplus_{i\in I}M_i\cong\prod_{i\in I}M_i$$ given component-wise if and only if $\abs{I}\in\N$. 
+\end{prp}
+
+Let $R$ be a ring. Given a left $R$-module $M$, how can we recognize that $M$ is isomorphic to a direct sum? We introduce the notion of internal direct sums to identify direct sums. 
+
 \begin{defn}{Internal Direct Sum of Modules}{} Let $I$ be an indexing set and $\{N_i\;|\;i\in I\}$ be a family of submodules of a left $R$-module $M$. Define $$\sum_{i\in I}N_i=\{a_1+\dots+a_n\;|\;a_i\in N_i\}$$ If the external direct product is isomorphic to $$\bigoplus_{i\in I}N_i\cong\sum_{i\in I}N_i$$ then we call $\sum_{i\in I}N_i$ the internal direct sum and denote it with $\bigoplus_{i\in I}N_i$ instead. If $M\cong\bigoplus_{i\in I}N_i$ then we say that $M$ is the internal direct sum. 
 \end{defn}
 
@@ -154,10 +162,9 @@ Firstly, it is clear that $\im(\phi)=\sum_{i\in I}N_i$ by definition of $\phi$. 
 \end{proof}
 \end{lmm}
 
-\begin{prp}{}{} Let $R$ be a ring. Let $I$ be an indexing set. Let $M_i$ be an $R$-module for each $i\in I$. Then there is an isomorphism $$\bigoplus_{i\in I}M_i\cong\prod_{i\in I}M_i$$ given component-wise if and only if $\abs{I}\in\N$. 
-\end{prp}
-
 \subsection{Free Modules}
+Free modules is the module analogue of vector spaces. In general, they can be infinite dimensional. 
+
 \begin{defn}{Basis of a Module}{} Let $R$ be a ring and $M$ a left $R$-module. Let $B\subseteq M$. 
 \begin{itemize}
 \item We say that $B$ is linearly independent if for every $\{b_1,\dots,b_n\}\subseteq B$ such that $$\sum_{i=1}^nr_ib_i=0_M$$ we have that $r_1=\dots=r_n=0_R$
@@ -166,11 +173,11 @@ Firstly, it is clear that $\im(\phi)=\sum_{i\in I}N_i$ by definition of $\phi$. 
 \end{itemize}
 \end{defn}
 
-By considering $r_b$ being dependent on $b\in B$, we can define $$\text{Fun}_f(B,R)=\{f:B\to R\;|\;f(b)=0_R\text{ for all but finitely many }b\in B\}$$ then we can rewrite the definition of generating sets to be if for every $m\in M$, there exists $f\in\text{Fun}_f(B,R)$ such that $m=\sum_{b\in B}f(b)\cdot b$. We can also define linear independence in a similar fashion. \\~\\
+By considering $r_b$ being dependent on $b\in B$, we can define $$\text{Fun}_f(B,R)=\{f:B\to R\;|\;f(b)=0_R\text{ for all but finitely many }b\in B\}$$ then we can rewrite the definition of generating sets to be if for every $m\in M$, there exists $f\in\text{Fun}_f(B,R)$ such that $m=\sum_{b\in B}f(b)\cdot b$. We can also define linear independence in a similar fashion. \\
 
 Basis for a module is similar to a basis for vector spaces. Indeed every field is a ring so one can think of modules as a generalization for vector spaces. However, not every module admits a basis just like the theory in vector spaces. When they do admit a basis, we call the module a free module. 
 
-\begin{defn}{Free R-Module}{} Let $R$ be a ring and $M$ a left $R$-module. We say that $M$ is a free $R$-module if $M$ has a basis. 
+\begin{defn}{Free R-Module}{} Let $R$ be a ring and $M$ a left $R$-module. We say that $M$ is a free $R$-module if $M$ admits a basis. 
 \end{defn}
 
 \begin{eg}{}{} Consider the following abelian groups as $\Z$-modules. 
@@ -183,23 +190,18 @@ Basis for a module is similar to a basis for vector spaces. Indeed every field i
 \end{itemize}
 \end{eg}
 
-\begin{lmm}{}{} For every set $B$ there is a free left $R$-module $$\bigoplus_{b\in B}R=\left\{(r_1,r_2,\dots)\in\prod_{b\in B}R\;|\;\text{ All but finitely many }r_i\text{ is }0\right\}$$ with basis of cardinality $\abs{B}$. \tcbline
-\begin{proof}
-$\prod_{b\in B}R$ inherits the structure of an $R$-module be defining component wise addition and left $R$-action. Notice that $\{(1,0,\dots,),(0,1,0,\dots),\dots\}$ is then a basis with cardinality $B$ since every element in $\bigoplus{b\in B}R$ only has finitely many non zero components so that it is a unique linear combination of the the set. \\~\\
+Notice that while the countable Cartesian product $\prod_{i\in I}R$ is indeed a left $R$-module, it is not a free module. Because in the definition of a generating set elements of the direct sum is a finite sum of elements. But elements in $\prod_{i\in I}R$ can have countably many long components. 
 
-Alternatively, notice that $\prod_{b\in B}R=\text{Fun}(B,R)$ the set of all functions from $B$ to $R$ together with addition and left $R$-action defined on elements. Then $\bigoplus_{b\in B}R=\text{Fun}_f(B,R)$ and that the delta functions $$\delta_b(x)=\begin{cases}
-1 & \text{ if } x=b\\
-0 & \text{ if } x\neq b
-\end{cases}$$ form a basis for $\bigoplus_{b\in B}R$. 
+\begin{lmm}{}{} Let $R$ be a ring. Let $B$ be a set. Then the external direct sum $$\bigoplus_{b\in B}R\cdot b$$ is a free left $R$-module with basis $B$. \tcbline
+\begin{proof}
+Notice that $\{1\cdot b\;|\;b\in B\}$ is a basis with cardinality $B$ since every element in $\bigoplus_{b\in B}R\cdot b$ only has finitely many non zero components so that it is a unique linear combination of the the set. 
 \end{proof}
 \end{lmm}
-
-Notice that while the countable Cartesian product $\prod_{i\in I}R$ is indeed a left $R$-module, it is not a free module. Because in the definition of a generating set elements of the direct sum is a finite sum of elements. But elements in $\prod_{i\in I}R$ can have countably many long components. 
 
 \begin{prp}{}{} Let $R$ be a ring. Let $M$ be a free $R$-module. Then there is an isomorphism $$M\cong\bigoplus_{i\in I}R$$ for some indexing set $I$. 
 \end{prp}
 
-\begin{lmm}{}{} Every left $R$-module is isomorphic to a quotient of a free module. \tcbline
+\begin{lmm}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. If $M$ is free, then $M$ is isomorphic $$M\cong\frac{\bigoplus_{i\in I}R}{J}$$ to a quotient of a free module for some left $R$-submodule $J$. \tcbline
 \begin{proof}
 Let $M$ be an $R$-module. Choose a generating set $B\subseteq M$. This is always possible because trivially we can choose $B=M$. Define a map $\pi_B:\bigoplus_{b\in B}R\to M$ by $$\pi_B(r_1,r_2,\dots)=\sum_{b\in B}r_b\cdot b$$ Note that the sum is finite since elements of $\bigoplus_{b\in B}R$ has finitely many non-zero components. It is clear that it is an $R$-module homomorphism. It is also surjective by definition of a generating set. By the first isomorphism theorem for module, we have that $$\frac{\bigoplus_{b\in B}R}{\ker(\pi_B)}\cong M$$ and so we conclude. 
 \end{proof}
@@ -515,6 +517,8 @@ Consider the homomorphism $\pi:R\to M$ defined by $\pi(r)=rx$. Then $\ker(\pi)=0
 \pagebreak
 \section{Exact Sequences of Modules}
 \subsection{Introduction to Exact Sequences}
+Exact sequences give a compact way of expressing a sequence of homomorphisms and modules. 
+
 \begin{defn}{Long Exact Sequences}{} Let $R$ be a ring. Let $M_k$ be a left $R$-module for each $k\in\Z$. Let $f_k:M_k\to M_{k-1}$ be $R$-module homomorphisms for each $k\in\Z$. We say that the sequence \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	\cdots & {M_1} & {M_k} & {M_{k+1}} & \cdots
@@ -525,6 +529,8 @@ Consider the homomorphism $\pi:R\to M$ defined by $\pi(r)=rx$. Then $\ker(\pi)=0
 \end{tikzcd}}\\~\\
 is exact if $\im(f_{k+1})=\ker(f_k)$ for all $k\in\Z$. 
 \end{defn}
+
+We are particularly interested in a special type of long exact sequences: Those that has $3$ consecutively non-negative terms. 
 
 \begin{defn}{Short Exact Sequences}{} Let $R$ be a ring. A short exact sequence of $R$-modules is a long exact sequence consisting of $3$ consecutive non-zero terms in the sequence. Explicitly, it is given by \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -707,7 +713,7 @@ It remains to show exactness of the sequence.
 	\arrow["g", from=1-3, to=1-4]
 	\arrow[from=1-4, to=1-5]
 \end{tikzcd}}\\~\\
-Then $\rank(B)=\rank(A)+\rank(X)$. 
+Then $\rank(B)=\rank(A)+\rank(C)$. 
 \end{lmm}
 
 \begin{lmm}{}{} Let the following be an exact sequence of vector spaces. \\~\\
@@ -1084,8 +1090,27 @@ The Noetherian property depends on the left / right module structure. For exampl
 \end{itemize}
 \end{prp}
 
-\begin{prp}{}{} Let $N$ be an $R$-submodule of $M$. Then $M$ is Noetherian if and only if $N$ and $M/N$ are Noetherian. 
+\begin{prp}{}{} Let $R$ be a ring. Let $M_1,M_2,M_3$ be $R$-modules. Let $f:M_1\to M_2$ and $g:M_2\to M_3$ be $R$-module homomorphisms such that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is a short exact sequence. Then $M_2$ is Noetherian if and only if $M_1$ and $M_3$ are Noetherian. 
 \end{prp}
+
+\begin{crl}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Then the following are true. 
+\begin{itemize}
+\item If $N$ is an $R$-submodule of $M$, then $M$ is Noetherian if and only if $N$ and $M/N$ is Noetherian
+\item If $N$ is an left $R$-module, then $M\oplus N$ is Noetherian if and only if $M$ and $N$ are Noetherian
+\item If $R$ is Noetherian and $I$ is a left ideal of $R$, then $R/I$ is Noetherian. 
+\end{itemize}
+\end{crl}
+
+\begin{crl}{}{} Let $R$ be a Noetherian ring. Let $M$ be a left $R$-module. Then $M$ is Noetherian if and only if $M$ is a finitely generated $R$-module. 
+\end{crl}
 
 \subsection{Artinian Rings and Modules}
 \begin{defn}{Descending Chain Condition}{} An $R$-module $M$ is said to satisfy the descending chain condition if for any $M_1,M_2,\dots$ submodules of $M$ such that $$M_1\supseteq M_2\supseteq M_3\supseteq\cdots$$ is an ascending chain, then there is a positive integer $n$ such that $M_i=M_n$ for all $i\geq n$. 
@@ -1103,13 +1128,29 @@ An $R$-module or a ring is said to be Artinian if it is both left and right Arti
 \end{itemize}
 \end{prp}
 
-\begin{prp}{}{} Let $N$ be an $R$-submodule of $M$. Then $M$ is Artinian if and only if $N$ and $M/N$ are Artinian. 
+\begin{prp}{}{} Let $R$ be a ring. Let $M_1,M_2,M_3$ be $R$-modules. Let $f:M_1\to M_2$ and $g:M_2\to M_3$ be $R$-module homomorphisms such that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is a short exact sequence. Then $M_2$ is Artinian if and only if $M_1$ and $M_3$ are Artinian. 
 \end{prp}
+
+\begin{crl}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Then the following are true. 
+\begin{itemize}
+\item If $N$ is an $R$-submodule of $M$, then $M$ is Artinian if and only if $N$ and $M/N$ is Artinian
+\item If $N$ is an left $R$-module, then $M\oplus N$ is Artinian if and only if $M$ and $N$ are Artinian
+\item If $R$ is Artinian and $I$ is a left ideal of $R$, then $R/I$ is Artinian. 
+\end{itemize}
+\end{crl}
+
+Recall that an ideal $I$ of a ring is nilpotent if $I^n=0$ for some $n\in\N$. 
 
 \begin{thm}{}{} If $R$ is a left artinian ring, then $J(R)$ is nilpotent. 
 \end{thm}
-
-Recall that an ideal $I$ of a ring is nilpotent if $I^n=0$ for some $n\in\N$. 
 
 \begin{crl}{}{} Let $R$ be a left artinian ring. Then the following are equivalent. 
 \begin{itemize}

@@ -5,10 +5,11 @@
 \contentsline {subsection}{\numberline {2.1}The Category of Chain Complexes}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}The Category of Cochain Complexes}{7}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Exact Sequences}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Chain Homotopy}{10}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Sequences of Chain Complexes}{12}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Double Complexes}{13}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Total Complexes}{14}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.4}Chain Homotopy}{9}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Mapping Cones and Mapping Cylinders}{11}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Sequences of Chain Complexes}{11}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Double Complexes}{13}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Total Complexes}{14}{subsection.2.8}%
 \contentsline {section}{\numberline {3}Derived Functors}{16}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Exact Functors}{16}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Injective and Projective Objects}{17}{subsection.3.2}%
@@ -21,19 +22,18 @@
 \contentsline {subsection}{\numberline {4.3}Flat Modules}{23}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Derived Functors in the Category of R-Modules}{24}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Extensions and Torsions}{25}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Koszul Complexes}{26}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Spectral Sequences}{28}{section.5}%
-\contentsline {subsection}{\numberline {5.1}General Spectral Sequences}{28}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}The Spectral Sequence of Exact Couples}{29}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}The Spectral Sequence of Filtrations}{30}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Convergence}{31}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}The Spectral Sequence of Double Complexes}{31}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Hyperhomology and Hypercohomology}{31}{subsection.5.6}%
-\contentsline {section}{\numberline {6}Triangulated Categories}{35}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Axioms of a Triangulated Category}{35}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Morphisms of Triangulated Categories}{37}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Derived Categories}{38}{section.7}%
-\contentsline {subsection}{\numberline {7.1}The Homotopy Category of Cochain Complexes}{38}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Localization of Categories}{38}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Derived Categories}{39}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Derived Functors of Derived Categories}{40}{subsection.7.4}%
+\contentsline {section}{\numberline {5}Spectral Sequences}{27}{section.5}%
+\contentsline {subsection}{\numberline {5.1}General Spectral Sequences}{27}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The Spectral Sequence of Exact Couples}{28}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The Spectral Sequence of Filtrations}{29}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Convergence}{30}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}The Spectral Sequence of Double Complexes}{30}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Hyperhomology and Hypercohomology}{30}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Triangulated Categories}{34}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Axioms of a Triangulated Category}{34}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Morphisms of Triangulated Categories}{36}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Derived Categories}{37}{section.7}%
+\contentsline {subsection}{\numberline {7.1}The Homotopy Category of Cochain Complexes}{37}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Localization of Categories}{37}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Derived Categories}{38}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Derived Functors of Derived Categories}{39}{subsection.7.4}%

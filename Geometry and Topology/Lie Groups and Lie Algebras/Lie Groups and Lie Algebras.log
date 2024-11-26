@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  19 NOV 2024 01:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  19 NOV 2024 22:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1101,9 +1101,17 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-Package rerunfilecheck Info: File `"Lie Groups and Lie Algebras".out' has not c
-hanged.
-(rerunfilecheck)             Checksum: 3474AE57909564C02901A1942E32996C;5706.
+
+
+Package rerunfilecheck Warning: File `"Lie Groups and Lie Algebras".out' has ch
+anged.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Lie Groups and Lie Algebras".out':
+
+(rerunfilecheck)             Before: 3474AE57909564C02901A1942E32996C;5706
+(rerunfilecheck)             After:  3C201387FB52524313B2F9128D1D1D3E;5726.
  ) 
 Here is how much of TeX's memory you used:
  32525 strings out of 474424
@@ -1129,7 +1137,7 @@ onts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Lie Groups and Lie Algebras.pdf" (21 pages, 393390 bytes).
+Output written on "Lie Groups and Lie Algebras.pdf" (21 pages, 393372 bytes).
 PDF statistics:
  499 PDF objects out of 1000 (max. 8388607)
  164 named destinations out of 1000 (max. 500000)

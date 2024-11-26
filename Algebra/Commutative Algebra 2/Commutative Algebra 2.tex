@@ -46,11 +46,19 @@ It is important to note that $M$-regularity depends on the order of the elements
 \subsection{Depth of an Ideal}
 
 \pagebreak
-\section{Group Completions}
+\section{Filtrations}
+\subsection{Filtrations and Stable Filtrations}
+\begin{defn}{Descending Filtrations}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. A descending filtration of $M$ consists of a sequence of $R$-submodules $M_n$ for $n\in\N$ such that $$M_0\supseteq M_1\supseteq\cdots\supseteq M_n\supseteq\cdots$$
+\end{defn}
+
+\subsection{Artin-Rees Lemma}
+
+\pagebreak
+\section{Completions}
 Let $\mA$ be an abelian category (for example $\bold{Ab}$, $\bold{Ring}$, ${_R\bold{Mod}}$, $\bold{Vect}_k$). Fix $\mJ$ a diagram. Recall that as long as all diagrams $\mJ\to\mC$ admits a limits, then the assignment $$\lim_\mJ:\mC^\mJ\to\mC$$ is a well defined functor. Moreover, it is left exact. 
 
 \subsection{General Completion Methods}
-\begin{defn}{Completion of a Module}{} Let $R$ be a ring and let $M$ be an $R$-module. Let $\{M_i\;|\; i\in I\}$ be an inverse system of submodules of $M$. Define the completion of $M$ with respect to the inverse system to be the $R$-module $$\hat{M}=\varprojlim_i\frac{M}{M_i}$$
+\begin{defn}{Completion of a Module}{} Let $R$ be a ring and let $M$ be an $R$-module. Let $M_0\supset M_1\supset\cdots\supset M_n\supset\cdots$ be a descending filtration of $R$-submodules of $M$. Define the completion of $M$ with respect to the filtration to be the inverse limit $$\hat{M}=\varprojlim_i\frac{M}{M_i}$$
 \end{defn}
 
 \begin{lmm}{}{} Let $R$ be a ring and let $M$ be an $R$-module. Let $\{M_i\;|\; i\in I\}$ be an inverse system of submodules of $M$. Then the inverse system defines a basis of topology for $M$. 

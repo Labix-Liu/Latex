@@ -61,15 +61,62 @@ By the above proposition, we conclude that $M$ is the unique maximal ideal of $k
 
 We will discuss more of local rings in the topic of localizations. 
 
-\subsection{Hilbert's Basis Theorem}
+\subsection{Noetherian Commutative Rings}
+We recall some facts about Noetherian rings. In the following, let $R$ be a commutative ring, although they are also true if $R$ is non-commutative if we take all modules defined below to be left (right) $R$-modules. 
+
+\begin{itemize}
+\item If we have a short exact sequence of $R$-modules: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then $M_2$ is Noetherian if and only if $M_1$ and $M_3$ are Noetherian. 
+\item If $M$ and $N$ are $R$-modules, then $M\oplus N$ is Noetherian if and only if $M$ and $N$ are Noetherian. 
+\item If $M$ is an $R$-module and $N$ is an $R$-submodule of $M$, then $M$ is Noetherian if and only if $N$ and $M/N$ are Noetherian.
+\item If $R$ is Noetherian and $I$ is an ideal of $R$, then $R/I$ is Noetherian. 
+\item Later when once has seen localization, we can also prove that: If $R$ is Noetherian then $S^{-1}R$ is Noetherian for any multiplicative subset $S$ of $R$. 
+\end{itemize}
+
 \begin{thm}{Hilbert's Basis Theorem}{} Let $R$ be a commutative ring. If $R$ is Noetherian, then $$R[x_1,\dots,x_n]$$ is a Noetherian ring. 
 \end{thm}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. If $R$ is Noetherian then $R/I$ is Noetherian. 
-\end{prp}
-
 \begin{prp}{}{} Let $R=\bigoplus_{i=0}^nR_i$ be a graded ring. Then $R$ is Noetherian if and only if $R_0$ is Noetherian and $R$ is finitely generated as an $R_0$-module. 
 \end{prp}
+
+\subsection{Artinian Commutative Rings}
+We recall some facts about Artinian rings. In the following, let $R$ be a commutative ring, although they are also true if $R$ is non-commutative if we take all modules defined below to be left (right) $R$-modules. 
+
+\begin{itemize}
+\item If we have a short exact sequence of $R$-modules: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then $M_2$ is Artinian if and only if $M_1$ and $M_3$ are Artinian. 
+\item If $M$ and $N$ are $R$-modules, then $M\oplus N$ is Artinian if and only if $M$ and $N$ are Artinian. 
+\item If $M$ is an $R$-module and $N$ is an $R$-submodule of $M$, then $M$ is Artinian if and only if $N$ and $M/N$ are Artinian.
+\item If $R$ is Artinian and $I$ is an ideal of $R$, then $R/I$ is Artinian. 
+\end{itemize}
+
+\begin{prp}{}{} Let $R$ be an integral domain. Then $R$ is Artinian if and only if $R$ is a field. 
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. If $R$ is Artinian, then the following are true. 
+\begin{itemize}
+\item Every prime ideal of $R$ is maximal
+\item There is an equality $N(R)=J(R)$
+\item $R$ has only a finite number of maximal ideals
+\end{itemize}
+\end{prp}
+
+\begin{thm}{(Hopkins)}{} Let $R$ be a commutative ring. If $R$ is Artinian then $R$ is Noetherian. 
+\end{thm}
 
 \subsection{Spectra of a Ring}
 \begin{defn}{Max Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the max spectrum of $A$ to be $$\text{maxSpec}(A)=\{m\subseteq A\;|\;m\text{ is a maximal ideal of }A\}$$
@@ -569,13 +616,14 @@ However, one can observe that we did not imply that $M_1\otimes N\to M_2\otimes 
 \begin{defn}{Multiplicative Set}{} Let $R$ be a commutative ring. $S\subseteq R$ is a multiplicative set if $1\in S$ and $S$ is closed under multiplication: $x,y\in S$ implies $xy\in S$
 \end{defn}
 
-\begin{defn}{Localization of a Ring}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set. Define the ring of fractions of $R$ with respect to $S$ by $$S^{-1}R=\left\{\frac{r}{s}|r\in R,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{r}{s}\sim\frac{r'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(ru'-r'u)=0$$ If $S=\{1,f,f^2,\dots\}$ then we write $$S^{-1}R=R_f=R[1/f]$$
+\begin{defn}{Localization of a Ring}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set. Define the ring of fractions of $R$ with respect to $S$ by $$S^{-1}R=\left\{\frac{r}{s}\;\bigg{|}\;r\in R,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{r}{s}\sim\frac{r'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(ru'-r'u)=0$$ If $S=\{1,f,f^2,\dots\}$ then we write $$S^{-1}R=R_f=R[1/f]$$
 \end{defn}
 
 \begin{prp}{}{} Let $S^{-1}R$ be a ring of fractions. 
 \begin{itemize}
 \item $\sim$ as defined in the ring of fractions is an equivalence relation
 \item $(S^{-1}R,+,\times)$ is a ring
+\item The map $k:R\to S^{-1}R$ defined by $r\mapsto r/1$ is a ring homomorphism, called the localization map. 
 \end{itemize}\tcbline
 \begin{proof}~\\
 \begin{itemize}
@@ -585,17 +633,20 @@ However, one can observe that we did not imply that $M_1\otimes N\to M_2\otimes 
 \end{proof}
 \end{prp}
 
-\begin{prp}{Universal Property}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. Let $\iota:R\hookrightarrow S^{-1}R$ be the inclusion. Then the following is true. \\~\\
+\begin{prp}{Universal Property}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. Let $k:R\to S^{-1}R$ be localization map. Then the following is true. \\~\\
 
-For all rings $B$ and ring homomorphisms $\phi:R\to B$ such that $\phi(s)\in B^\times$ for all $s\in S$, there exists a unique ring homomorphism $\psi:S^{-1}R\to B$ such that the following diagram commutes: \\~\\
+For all commutative rings $B$ and ring homomorphisms $\phi:R\to B$ such that $\phi(s)\in B^\times$ for all $s\in S$, there exists a unique ring homomorphism $\psi:S^{-1}R\to B$ such that the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	R & {S^{-1}R} \\
 	& B
-	\arrow["\iota", hook, from=1-1, to=1-2]
+	\arrow["k", from=1-1, to=1-2]
 	\arrow["\phi"', from=1-1, to=2-2]
 	\arrow["{\exists !\psi}", dashed, from=1-2, to=2-2]
 \end{tikzcd}}
 \end{prp}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset of $R$. If $R$ is Noetherian, then $S^{-1}R$ is Noetherian. 
+\end{lmm}
 
 \subsection{Localization at a Prime Ideal}
 \begin{lmm}{}{} Let $R$ be a ring and $P$ a prime ideal of $R$. Then $R\setminus P$ is a multiplicative set. \tcbline
@@ -975,9 +1026,16 @@ We have seen that every ideal is of the form $(t^n)$ for some $n>0$. Thus every 
 
 \pagebreak
 \section{Dimension Theory for Rings}
-\subsection{Dimension and Height}
-\begin{defn}{Krull Dimension}{} Let $R$ be a commutative ring. Define the Krull dimension of $R$ to be $$\dim(R)=\sup\{t\in\N|p_0\subset\dots\subset p_t\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
+\subsection{Krull Dimension and Height}
+\begin{defn}{Krull Dimension}{} Let $R$ be a commutative ring. Define the Krull dimension of $R$ to be $$\dim(R)=\max\{t\in\N\;|\;p_0\subset\dots\subset p_t\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
 \end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Then the following are true. 
+\begin{itemize}
+\item If $R$ is a field, then $\dim(R)=0$
+\item If $R$ is Artinian, then $\dim(R)=0$
+\end{itemize}
+\end{lmm}
 
 \begin{defn}{Height of a Prime Ideal}{} Let $p$ be a prime ideal in a ring $R$. Define the height of $p$ to be $$\text{ht}(p)=\sup\{t\in\N|p_0\subset\dots\subset p_t=p\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
 \end{defn}

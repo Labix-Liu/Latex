@@ -72,23 +72,23 @@ We denote the infinum of $S$ as $\inf(S)=L$
 
 Readers can easily check that the supremum and infinum, should it exists, is unique. One can also think about the criteria for the supremum and infinum to exists. Naturally, since the notion of supremum and infinum involves comparison, there will be no such thing in complex numbers. 
 
-\begin{thm}{}{} Let $S$ be a non-empty subset of $\R$. Then $$-\sup(S)=\inf(-S)$$ where $-S=\{-x|x\in S\}$. \tcbline
+\begin{prp}{}{} Let $S$ be a non-empty subset of $\R$. Then $$-\sup(S)=\inf(-S)$$ where $-S=\{-x|x\in S\}$. \tcbline
 \begin{proof} Since for all $x\in S$ $x\leq\sup(S)$. But this implies that $-\sup(S)\leq-x$ for all $x\in S$ thus for all $-x\in-S$. Then by definition $-\sup(S)=\inf(-S)$. 
 \end{proof}
-\end{thm}
+\end{prp}
 
 The above theorem allows us to translate properties of the supremum to properties of the infinum by simply "inverting" the set. That way to prove things about the infinum we could invert the set, use the proof by the supremum and invert it back to prove it for the infinum. In practise however, we barely use this theorem to prove anything. 
 
 The following property is an important characterization of supremums and infinums that will be used later when we need it. It is called the approximation property because it allows some sort of wiggle room between the supremum and our approximation in the sense that we can always make a better approximation for the supremum. 
 
-\begin{thm}{Approximation Property}{} Let $S$ be a non-empty subset of $\R$. 
+\begin{prp}{Approximation Property}{} Let $S$ be a non-empty subset of $\R$. 
 \begin{itemize}
 \item If $\sup(S)$ exists then for all $\varepsilon>0$ there exists $x\in S$ such that $\sup(S)-\varepsilon<x\leq sup(S)$. 
 \item If $\inf(S)$ exists then for all $\varepsilon>0$ there exists $x\in S$ such that $\inf(S)\leq x<inf(S)+\varepsilon$. 
 \end{itemize}\tcbline
 \begin{proof} Notice that since $\sup(S)$ is the supremum of $S$, we have that $\sup(S)-\varepsilon$ is not the supremum of $S$ Thus there exists some element $x\in S$ such that $\sup(S)-\varepsilon<x$. Mirror the proof for the infinum version. 
 \end{proof}
-\end{thm}
+\end{prp}
 
 We finally reach the goal of this chapter, which is the completeness axiom. 
 
@@ -131,16 +131,14 @@ Since the both sides of the inequality is non-negative, we can take the square r
 \end{proof}
 \end{prp}
 
-These properties will also be used extensively throguhout the entire notes. The reader should be absolutely familiar with its properties so that they can understand the definitions and the proofs more smoothly. The geometric interpretation of the absolute value will serve as an extremely important visualization on limits and convergences. \\~\\
-
-Often we use intervals for our domain of real valued functions. We will see a definition of it below. 
+These properties will also be used extensively throguhout the entire notes. The reader should be absolutely familiar with its properties so that they can understand the definitions and the proofs more smoothly. The geometric interpretation of the absolute value will serve as an extremely important visualization on limits and convergences. 
 
 \begin{defn}{Intervals}{} An interval in $\R$ is a non-empty set $I$ with the property that $a,b\in I$ and $a<x<b\implies x\in I$. An interval containing more than one point is called non-degenerate. We use the following notations to describe intervals. 
 \begin{itemize}
-\item $(a,b)=\{x\in\R|a<x<b\}$
-\item $(a,b]=\{x\in\R|a<x\leq b\}$
-\item $[a,b)=\{x\in\R|a\leq x<b\}$
-\item $[a,b]=\{x\in\R|a\leq x\leq b\}$
+\item $(a,b)=\{x\in\R\;|\;a<x<b\}$
+\item $(a,b]=\{x\in\R\;|\;a<x\leq b\}$
+\item $[a,b)=\{x\in\R\;|\;a\leq x<b\}$
+\item $[a,b]=\{x\in\R\;|\;a\leq x\leq b\}$
 \end{itemize}
 \end{defn}
 
@@ -158,11 +156,11 @@ The Archimedean property, as stated by the name, is given by Archimedes. While t
 
 Before we move on, we also need the floor function in our proof of density, which is formalized below. 
 
-\begin{thm}{Floor Function}{} For each $x\in\R$ there exists a unique integer $\floor{x}$ such that $$\floor{x}\leq x<\floor{x}+1$$ \tcbline
+\begin{prp}{Floor Function}{} For each $x\in\R$ there exists a unique integer $\floor{x}$ such that $$\floor{x}\leq x<\floor{x}+1$$ \tcbline
 \begin{proof} Let $A=\{n\in\Z:n\leq x\}$. By the archimedean property there exists $k>-x$ and thus $-k<x$ with $-k\in A$ hence $A$ is non-empty. Let $a=sup(A)$. We have some $n\in A$ such that $a-1<n\leq a\leq x$ and thus $a+1<n+1\leq a+1\leq x+1$. From this we have $n\leq x$ as well as $n+1$ not in $A$ thus $x<n+1$. \\~\\
 Now suppose that $m\leq x<m+1$ and $n\leq x<n+1$. From these we derive that $m\leq x<n+1$ and $n\leq x<m+1$. Thus $m-n<1$ and $m-n>-1$ and $m-n\in\Z$. and we have $m-n=0$
 \end{proof}
-\end{thm}
+\end{prp}
 
 Now who said that the irrational numbers are not just some fantasy of a mathematician. Let us give birth to the first ever irrational mankind every thought of! Pythagoras and his disciples were quite confused by this phenomenon that they deemed their mathematics must be wrong somewhere. 
 
@@ -185,10 +183,10 @@ Congratulations we showed that irrational numbers do exist! Finally we can move 
 
 Once we have the density in the rationals and irrationals, we now have an infinite number of rationals and irrationals betweena any two real numbers. 
 
-\begin{thm}{}{} Between any pair of distinct real numbers there is an infinite number of rationals and irrationals. \tcbline
+\begin{crl}{}{} Between any pair of distinct real numbers there is an infinite number of rationals and irrationals. \tcbline
 \begin{proof} Recursively apply density of rationals and density of irrationals. 
 \end{proof}
-\end{thm}
+\end{crl}
 
 Beware that there is no pattern as to how the rationals and irrationals line up in the real number line. It is unknown whether a rational or an irrational "follows" a real number. In fact, it may not be possible to define what "the next number" of a real number is. 
 
@@ -209,7 +207,7 @@ We write $a_n\to a$ in this case.
 
 While generally not true in other spaces, one neat property of the real numbers is that we know that if it converges, it will only converge to exactly one number. While we will barely use this theorem anywhere, it is important to know that this is true and the reasoning behind it. This will be very first theorem involving the notion of convergence and therefore it is helpful for us to truely understand what convergence means. 
 
-\begin{thm}{Uniqueness of Limits}{} A sequence in $\R$ cannot converge to more than one limit. \tcbline
+\begin{prp}{Uniqueness of Limits}{} A sequence in $\R$ cannot converge to more than one limit. \tcbline
 \begin{proof} Suppose that $a_n\to a$ and $a_n\to b$. Choose $\varepsilon$ to be $\frac{\abs{a-b}}{10}$. Then there exists $N_1$ and $N_2$ such that $\abs{a_n-a}\varepsilon$ for all $n>N_1$ and $\abs{a_n-b}<\varepsilon$ for all $n>N_2$ respectively. When $n>\max{(N_1,N_2)}$ we have both inequalies hold together. Then 
 \begin{align*}
 \abs{a-b}&\leq\abs{a_n-a}+\abs{a_n-b}\\
@@ -218,7 +216,7 @@ While generally not true in other spaces, one neat property of the real numbers 
 \end{align*}
 Which is a contradiction. 
 \end{proof}
-\end{thm}
+\end{prp}
 
 The main idea here is that since convergence means closeness, if we have two numbers to converge to then there will be two closeness. But then numbers between these two closeness will not be close to each other anymore! \\~\\
 Another important property of convergence sequecnes is that it is bounded. 
@@ -230,15 +228,15 @@ Another important property of convergence sequecnes is that it is bounded.
 
 The next two theorems demonstrate inequalities between convergent sequences. 
 
-\begin{thm}{}{} Let $(a_n)_{n\in\N}$ and $(b_n)_{n\in\N}$ be sequences with $a_n\to a$ and $b_n\to b$. If $\exists N\in\N$ such that $a_n\leq b_n$ for all $n>N$, then $a\leq b$. \tcbline
+\begin{prp}{}{} Let $(a_n)_{n\in\N}$ and $(b_n)_{n\in\N}$ be sequences with $a_n\to a$ and $b_n\to b$. If $\exists N\in\N$ such that $a_n\leq b_n$ for all $n>N$, then $a\leq b$. \tcbline
 \begin{proof} Suppose that $b<a$. Then we have $b<\frac{a+b}{2}<a$. Choosing $\varepsilon=\frac{a-b}{2}$, then whenever $n>N_1$, we have $$b_n-b<\frac{a-b}{2}$$ Similarly, choose $\varepsilon=\frac{b-a}{2}$, then whenever $n>N_2$, we have $$a_n-a<\frac{b-a}{2}$$ Then we have $$b_n<\frac{a+b}{2}<a_n$$ which is a contradiction. 
 \end{proof}
-\end{thm}
+\end{prp}
 
-\begin{thm}{Sandwich Theorem}{} Let $(a_n)_{n\in\N}$, $(b_n)_{n\in\N}$, $(c_n)_{n\in\N}$ be sequences in $\R$ such that $$a_n\leq b_n\leq c_n$$ for all $n$ larger than some $N\in\N$. If $a_n\to L$ and $c_n\to L$ then $b_n\to L$. \tcbline
+\begin{prp}{Sandwich Theorem}{} Let $(a_n)_{n\in\N}$, $(b_n)_{n\in\N}$, $(c_n)_{n\in\N}$ be sequences in $\R$ such that $$a_n\leq b_n\leq c_n$$ for all $n$ larger than some $N\in\N$. If $a_n\to L$ and $c_n\to L$ then $b_n\to L$. \tcbline
 \begin{proof} Suppose $a_n\to L$ and $c_n\to L$. Then choose an $\varepsilon$ that is greater than $0$. Then there exists $N_1$ and $N_2$ such that $\abs{a_n-L}<\varepsilon$ whenever $n>N_1$, and $\abs{c_n-L}<\varepsilon$ whenever $n>N_2$. Then whenever $N=\max{(N_1,N-2)}$, we have $-\varepsilon<a_n-L<b_n-L<c_n-L<\varepsilon$, and thus we have $\abs{b_n-L}<\varepsilon$ whenever $n>N$. 
 \end{proof}
-\end{thm}
+\end{prp}
 
 The sandwich theorem is useful in detecting the convergence to $0$ of a positive sequence. Whenever one is given a very complicated positive sequence that does not have an easily determinable limit, one can use a sequence with larger values that tends to $0$ show that that sequence converges to $0$. This however requires more care and exercise to get familiarize. \\~\\
 
@@ -251,7 +249,7 @@ As one accummulate more examples, it can be made clear that even divergence has 
 \end{itemize}
 \end{defn}
 
-This definition should be much easier to swallow than that of convergence sequences. In practise it is also not hard to prove sequences that tends to infinity. Usually showing that a limit convergences requires you to find out the limit explicitly (except that if you are sandwiching) and that is often harder than simply showing that a sequence blows up. \\~\\
+This definition should be much easier to understand than that of convergence sequences. In practise it is also not hard to prove sequences that tends to infinity. Usually showing that a limit convergences requires you to find out the limit explicitly (except that if you are sandwiching) and that is often harder than simply showing that a sequence blows up. \\~\\
 But in case it is not obvious to know that it diverges to infinity, we can apply a comparison test as stated below. 
 
 \begin{prp}{}{} Let $(a_n)_{n\in\N}$ and $(b_n)_{n\in\N}$ be sequences in $\R$. If $b_n\geq a_n$ for all $n$ larger than some $N\in\N$ and $a_n\to\infty$ then $b_n\to\infty$. \tcbline

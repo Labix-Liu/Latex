@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  17 NOV 2024 20:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  24 NOV 2024 23:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1105,59 +1105,64 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--176
  []
 
 [6] [7] [8] [9]
-Underfull \hbox (badness 1596) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
+
+ []
+
+
+Underfull \hbox (badness 1596) in paragraph at lines 285--286
 \T1/qpl/m/n/10 Here we iden-tify the ver-tices of $\OT1/cmr/m/n/10 ^^A[]$ \T1/q
 pl/m/n/10 as $\OT1/cmr/m/n/10 0$ \T1/qpl/m/n/10 and $\OT1/cmr/m/n/10 1$\T1/qpl/
 m/n/10 , and we use the iso-mor-phism $\OMS/cmsy/m/n/10 C [] 
  []
 
 [10] [11] [12] [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 422--461
+Underfull \hbox (badness 10000) in paragraph at lines 434--473
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--461
+Underfull \hbox (badness 10000) in paragraph at lines 434--473
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--461
+Underfull \hbox (badness 10000) in paragraph at lines 434--473
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--461
+Underfull \hbox (badness 10000) in paragraph at lines 434--473
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--461
+Underfull \hbox (badness 10000) in paragraph at lines 434--473
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--461
+Underfull \hbox (badness 10000) in paragraph at lines 434--473
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--461
+Underfull \hbox (badness 10000) in paragraph at lines 434--473
 
  []
 
 [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 472--473
+Underfull \hbox (badness 10000) in paragraph at lines 484--485
 
  []
 
 [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 555--556
+Underfull \hbox (badness 10000) in paragraph at lines 567--568
 
  []
 
 [19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 605--606
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
 
  []
 
@@ -1166,15 +1171,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 605--606
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-Package rerunfilecheck Info: File `"Higher Category Theory".out' has not change
-d.
-(rerunfilecheck)             Checksum: D59C9222DC93D475B2E79B05292224A6;5643.
+
+
+Package rerunfilecheck Warning: File `"Higher Category Theory".out' has changed
+.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Higher Category Theory".out':
+(rerunfilecheck)             Before: 978A1CD21CA115F84C222C03003726CA;5916
+(rerunfilecheck)             After:  47DFBFA462B906A4FE82FFA6E706DCBB;6149.
  ) 
 Here is how much of TeX's memory you used:
- 33192 strings out of 474424
- 657055 string characters out of 5741739
+ 33199 strings out of 474424
+ 657165 string characters out of 5741739
  1961496 words of memory out of 5000000
- 54901 multiletter control sequences out of 15000+600000
+ 54904 multiletter control sequences out of 15000+600000
  597664 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,18n,120p,769b,1471s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1197,9 +1209,9 @@ s/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liula/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppDat
 a/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Higher Category Theory.pdf" (22 pages, 403937 bytes).
+Output written on "Higher Category Theory.pdf" (22 pages, 406676 bytes).
 PDF statistics:
- 436 PDF objects out of 1000 (max. 8388607)
- 117 named destinations out of 1000 (max. 500000)
- 213 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 446 PDF objects out of 1000 (max. 8388607)
+ 121 named destinations out of 1000 (max. 500000)
+ 221 words of extra memory for PDF output out of 10000 (max. 10000000)
 
