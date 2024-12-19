@@ -353,30 +353,6 @@ We want to show that the map $\pi_k(A,A\cap B)\to(X,B)$ is surjective. Let $f:(I
 \begin{prp}{}{} Let $(X,A)$ be a pair of $r$-connected CW complexes and let $A$ be $s$-connected. Then the map $$p_\ast:\pi_k(X,A)\to\pi_k(X/A)$$ induced by the quotient map $p:X\to X/A$ is an isomorphism for $0\leq k\leq r+s$ and a surjection for $k=r+s+1$. 
 \end{prp}
 
-\subsection{Freudenthal Suspension Theorem}
-\begin{thm}{Freudenthal Suspension Theorem}{} Let $X$ be an $n$-connected CW complex. Then for $0\leq k\leq 2n$, the induced map $$\Sigma_\ast:\pi_k(X)\to\pi_{k+1}(\Sigma X)$$ is an isomorphism. For $k=2n+1$, $\Sigma_\ast$ is a surjection. 
-\end{thm}
-
-We can keep on suspending the space and the maps. Indeed if $X$ is $n$-connected then, by Freudenthal suspension theorem $\Sigma X$ is $(n+1)$-connected. We can then apply the suspension theorem again on $\Sigma X$ and we see that $\Sigma^2X$ is $(n+2)$-connected. \\
-
-The following theorem is also said to be the Freudenthal suspension theorem. 
-
-\begin{thm}{}{} Let $Y$ be $(n-1)$-connected. Consider the reduced suspension functor $\Sigma:\bold{hTop}_\ast\to\bold{hTop}_\ast$. Then $\Sigma:[X,Y]\to[\Sigma X,\Sigma Y]$ is bijective if $\dim(X)<2n-1$. Moreover, it is a surjection if $\dim(X)=2n-1$. 
-\end{thm}
-
-\begin{crl}{}{} There is an isomorphism $$\pi_{n+k}(S^n)\cong\pi_{n+k+1}(S^{n+1})$$ for all $n\geq k+2$. 
-\end{crl}
-
-\begin{prp}{}{} Let $X$ be a space. Let $k\in\N$. Then the the following sequence of suspensions $$\pi_k(X)\to\pi_{k+1}(\Sigma X)\to\pi_{k+2}(\Sigma^2X)\to\cdots$$ are eventually isomorphisms. \tcbline
-\begin{proof}
-Let $X$ be $n$-connected. There are two cases. \\~\\
-
-Let $k\leq 2n$. By Freudenthal suspension theorem, if $k\leq 2n$ then $\pi_k(X)\cong\pi_{k+1}(\Sigma X)$. Then $\Sigma X$ is $(n+1)$-connected hence $\pi_{k+1}(\Sigma X)\cong\pi_{k+2}(\Sigma^2X)$ is an isomorphism since $k+1\leq 2n+2$. More generally, for $r\in\N$, $\Sigma^rX$ is $(r+n)$-connected hence $$\pi_{k+r}(\Sigma^rX)\cong\pi_{k+r+1}(\Sigma^{r+1}X)$$ is an isomorphism since $k+r\leq 2n+2r$. \\~\\
-
-Now if $k>2n$, then there exists $r\in\N$ such that $k+r\leq 2n+2r$. Such an $r$ is given by say $k-2n$. Then by Freudenthal suspension theorem, $$\pi_{k+r}(\Sigma^rX)\cong\pi_{k+r+1}(\Sigma^{r+1}X)$$ is an isomorphism. More generally, for $m\in\N$, $\Sigma^{r+m}X$ is $(r+m+n)$-connected hence $$\pi_{k+r+m}(\Sigma^{r+m}X)\cong\pi_{k+r+m+1}(\Sigma^{r+m+1}X)$$ is an isomorphism since $k+r+m\leq 2n+2r+2m$. 
-\end{proof}
-\end{prp}
-
 \subsection{Hurewicz's Theorem}
 \begin{thm}{Hurewicz's Homomorphism}{} Let $X$ be a path connected space. Then for any $n\in\N$, there is a group homomorphism $$h_n:\pi_n(X)\to H_n(X)$$ called the Hurewicz homomorphism, defined as follows. Let $[u_n]\in H_n(S^n)$ be a canonical generator. Then $h_n([f])=f_\ast(u_n)$. 
 \end{thm}
@@ -434,6 +410,91 @@ We will not prove this here, but we will give the theorem: If $G$ is an abelian 
 	\arrow["\cong", from=1-2, to=2-2]
 	\arrow["{f^\ast}"', from=2-1, to=2-2]
 \end{tikzcd}}\\~\\
+
+\pagebreak
+\section{The Stable Phenomena}
+\subsection{Freudenthal Suspension Theorem}
+\begin{thm}{Freudenthal Suspension Theorem}{} Let $X$ be an $n$-connected CW complex. Then for $0\leq k\leq 2n$, the induced map $$\Sigma_\ast:\pi_k(X)\to\pi_{k+1}(\Sigma X)$$ is an isomorphism. For $k=2n+1$, $\Sigma_\ast$ is a surjection. 
+\end{thm}
+
+We can keep on suspending the space and the maps. Indeed if $X$ is $n$-connected then, by Freudenthal suspension theorem $\Sigma X$ is $(n+1)$-connected. We can then apply the suspension theorem again on $\Sigma X$ and we see that $\Sigma^2X$ is $(n+2)$-connected. \\
+
+The following theorem is also said to be the Freudenthal suspension theorem. 
+
+\begin{thm}{}{} Let $Y$ be $(n-1)$-connected. Consider the reduced suspension functor $\Sigma:\bold{hTop}_\ast\to\bold{hTop}_\ast$. Then $\Sigma:[X,Y]\to[\Sigma X,\Sigma Y]$ is bijective if $\dim(X)<2n-1$. Moreover, it is a surjection if $\dim(X)=2n-1$. 
+\end{thm}
+
+\begin{crl}{}{} There is an isomorphism $$\pi_{n+k}(S^n)\cong\pi_{n+k+1}(S^{n+1})$$ for all $n\geq k+2$. 
+\end{crl}
+
+\begin{prp}{}{} Let $X$ be a space. Let $k\in\N$. Then the the following sequence of suspensions $$\pi_k(X)\to\pi_{k+1}(\Sigma X)\to\pi_{k+2}(\Sigma^2X)\to\cdots$$ are eventually isomorphisms. \tcbline
+\begin{proof}
+Let $X$ be $n$-connected. There are two cases. \\~\\
+
+Let $k\leq 2n$. By Freudenthal suspension theorem, if $k\leq 2n$ then $\pi_k(X)\cong\pi_{k+1}(\Sigma X)$. Then $\Sigma X$ is $(n+1)$-connected hence $\pi_{k+1}(\Sigma X)\cong\pi_{k+2}(\Sigma^2X)$ is an isomorphism since $k+1\leq 2n+2$. More generally, for $r\in\N$, $\Sigma^rX$ is $(r+n)$-connected hence $$\pi_{k+r}(\Sigma^rX)\cong\pi_{k+r+1}(\Sigma^{r+1}X)$$ is an isomorphism since $k+r\leq 2n+2r$. \\~\\
+
+Now if $k>2n$, then there exists $r\in\N$ such that $k+r\leq 2n+2r$. Such an $r$ is given by say $k-2n$. Then by Freudenthal suspension theorem, $$\pi_{k+r}(\Sigma^rX)\cong\pi_{k+r+1}(\Sigma^{r+1}X)$$ is an isomorphism. More generally, for $m\in\N$, $\Sigma^{r+m}X$ is $(r+m+n)$-connected hence $$\pi_{k+r+m}(\Sigma^{r+m}X)\cong\pi_{k+r+m+1}(\Sigma^{r+m+1}X)$$ is an isomorphism since $k+r+m\leq 2n+2r+2m$. 
+\end{proof}
+\end{prp}
+
+\subsection{The Stable Homotopy Groups}
+In Algebraic Topology, we refer to a property or invariant being stable if applying the suspension functor to the space does not change the property (up to possibly a shift in index). The first such example is one we have already encountered. 
+
+\begin{defn}{Stable Homotopy Groups}{} Let $X$ be a space. Let $n\in\N$. Define the $n$th stable homotopy groups of $X$ to be $$\pi_n^s(X)=\colim_{k\to\infty}\pi_{n+k}(\Sigma^kX)$$
+\end{defn}
+
+This is well defined because of the Freudenthal suspension theorem, which states that the groups in the direct limit eventually stabilize. Indeed, the same theorem shows the following. 
+
+\begin{prp}{}{} Let $X$ be a space. Then there is an isomorphism $$\pi_n^s(X)\cong\pi_{n+1}^s(\Sigma X)$$ induced by the suspension functor between stable homotopy groups for any $n\in\N$. \tcbline
+\begin{proof}
+This can be seen by simply unwinding the definitions. We have that 
+\begin{align*}
+\pi_{n+1}^s(\Sigma X)&=\colim_{k\to\infty}\pi_{n+k+1}(\Sigma^{k+1}X)\\
+&=\colim_{k\to\infty}\pi_{n+k}(\Sigma^kX)\\
+&=\pi_n^s(X)
+\end{align*}
+and so we conclude. 
+\end{proof}
+\end{prp}
+
+New: Graded ring structure on $\pi_\ast^s$. \\
+
+Recall that for $n\geq 2$, the set $[\Sigma^2X,Z]$ for any spaces $X$ and $Z$ are abelian. Moreover, the suspension map $\Sigma:[\Sigma^2X,Z]\to[\Sigma^3X,\Sigma Z]$ is a group homomorphism. In particular, we can choose $Z=\Sigma^2Y$. Now since the category $\bold{Ab}$ of abelian groups is cocomplete, the following inverse system \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{[\Sigma^2 X,\Sigma^2Y]} & {[\Sigma^3X,\Sigma^3Y]} & {[\Sigma^4X,\Sigma^4Y]} & \cdots
+	\arrow["\Sigma", from=1-1, to=1-2]
+	\arrow["\Sigma", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}}\\~\\
+has an inverse limit. This leads to the following definition. 
+
+\begin{defn}{Set of Stable Homotopy Classes of Maps}{} Let $X$ and $Y$ be space. The set of stable homotopy classes of maps from $X$ to $Y$ is defined to be the abelian group $$[X,Y]^s=\colim_{n\in\N\setminus\{0,1\}}[\Sigma^nX,\Sigma^nY]$$
+\end{defn}
+
+The following observation is crucial. When $X$ and $Y$ are pointed CW complexes, the abelian groups $[\Sigma^n X,\Sigma^n Y]$ also become stable under suspensions. 
+
+\begin{thm}{}{} Let $X$ and $Y$ be pointed CW complexes. Then the sequence of abelian groups, \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{[\Sigma^nX,\Sigma^nY]} & {[\Sigma^{n+1}X,\Sigma^{n+1}Y]} & \cdots
+	\arrow["\Sigma", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+are isomorphic under the suspension functor for $n>\dim(X)$ and $n\geq 2$. 
+\end{thm}
+
+New: When $X$ is compact, $[X,QY]_\ast=[X,Y]_\ast^s$. 
+
+\begin{thm}{}{} The stable homotopy groups define a collection of functors $\pi_n^s:\bold{CW}_\ast\to\bold{Ab}$ as follows. 
+\begin{itemize}
+\item For $X$ a pointed CW complex, $\pi_n^s(X)$ is the $n$th stable homotopy group of $X$
+\item For $f:X\to Y$ a map, $$\pi_n^s(f):\pi_n^s(X)\to\pi_n^s(Y)$$ is the image of $f$ under the canonical map $[X,Y]\to[X,Y]^s$
+\end{itemize}
+\end{thm}
+
+\begin{thm}{}{} The stable homotopy functors $\pi_n^s:\bold{CW}_\ast\to\bold{Ab}$ for each $n\in\N$ defines a reduced homology theory. 
+\end{thm}
+
+This is untrue for the unstable homotopy groups. In particular, the fundamental group is not necessarily abelian. 
 
 \pagebreak
 \section{Bonus?}

@@ -1,27 +1,37 @@
 \contentsline {section}{\numberline {1}Introduction to Infinity Categories}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Infinity Categories as Simplicial Sets}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Natural Transformations}{4}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}The Homotopy Category of Infinite Categories}{5}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Equivalence of Infinity Categories}{6}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}The Core of an Infinity Category}{7}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Infinity Categorical Constructions}{8}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Joins and Slices}{8}{subsection.2.1}%
-\contentsline {section}{\numberline {3}The Joyal Model Structure}{10}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Weak Equivalences in the Joyal Structure}{10}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Homotopy Pullbacks and Pushouts}{10}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Simplicial Categories as Models for Infinity Categories}{11}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Simplicial Categories}{11}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}The Homotopy Coherent Nerve}{13}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}The Comparison between Simplicial Categories and Infinity Categories}{14}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}The Infinity Category of Spaces}{15}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Space of Morphisms between Vertices}{17}{section.5}%
-\contentsline {subsection}{\numberline {5.1}The Mapping Spaces}{17}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Composition of Morphisms in Infinity Categories}{18}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Limits and Colimits}{19}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Terminal and Initial Objects}{19}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Limits and Colimits}{19}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Equivalent Formulations of the (Co)Limit}{20}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Relation to Model Categories}{21}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Inverting Morphisms in an Infinity Category}{21}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Exhibiting a Model Category as an Infinity Category}{21}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}}{22}{subsection.7.3}%
+\contentsline {subsection}{\numberline {1.2}Natural Transformations}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Homotopies and Compositions}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}The Homotopy Category of an Infinity Category}{7}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}The Core of an Infinity Category}{8}{subsection.1.5}%
+\contentsline {section}{\numberline {2}The Joyal Model Structure}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Weak Equivalences in the Joyal Structure}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Homotopy Pullbacks and Pushouts}{9}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Simplicial Categories as Models for Infinity Categories}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Simplicial Categories}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The Homotopy Coherent Nerve}{12}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}The Comparison between Simplicial Categories and Infinity Categories}{13}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}The Infinity Category of Spaces}{13}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Infinity Categorical Constructions}{15}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The Join of Infinity Categories}{15}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Slice Infinity Categories}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}The Mapping Spaces}{16}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Initial and Final Objects}{18}{subsection.4.4}%
+\contentsline {section}{\numberline {5}More on Infinity Categories}{19}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Sub Infinity Categories}{19}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Natural Isomorphisms of Infinity Categories}{19}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Equivalence of Infinity Categories}{19}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Fully Faithful and Essentially Surjective}{21}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Composition of Morphisms in Infinity Categories}{21}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}The Yoneda Embedding}{22}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Adjunctions in Infinity Categories}{23}{section.6}%
+\contentsline {section}{\numberline {7}Limits and Colimits in Infinity Categories}{24}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Limits and Colimits}{24}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Recognizing (Co)Limits as Homotopy (Co)Limits}{25}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Some Properties of Limits and Colimits}{25}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Infinity Groupoids}{26}{section.8}%
+\contentsline {subsection}{\numberline {8.1}}{26}{subsection.8.1}%
+\contentsline {section}{\numberline {9}Relation to Model Categories}{27}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Inverting Morphisms in an Infinity Category}{27}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Exhibiting a Model Category as an Infinity Category}{27}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}}{28}{subsection.9.3}%

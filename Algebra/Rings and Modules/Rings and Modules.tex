@@ -802,6 +802,62 @@ Consider the set of monomials over elements of $X$. They form a basis of $R\lang
 \end{proof}
 \end{prp}
 
+\subsection{Derivations of Algebras}
+\begin{defn}{Derivations}{2.1.1} Let $A$ be a ring and $B$ an $A$-algebra. Let $M$ be a $B$-module. An $A$-derivation of $B$ into $M$ is an $A$-module homomorphism $d:B\to M$ such that the Leibniz rule holds: $$d(b_1b_2)=b_1d(b_2)+d(b_1)b_2$$ for $b_1,b_2\in B$. Denote the set of all $A$-derivations from $B$ to $M$ by $$\text{Der}_A(B,M)=\{d:B\to M\;|\;d\text{ is an }A\text{ derivation }\}$$
+\end{defn}
+
+This is reminiscent of properties of a derivative. Indeed, from the above definition, take $A=\R$ and $B=M=\R[x_1,\dots,x_n]$. Then the formal partial derivatives $\frac{\partial}{\partial x_i}:\R[x_1,\dots,x_n]\to\R[x_1,\dots,x_n]$ defined by $$\left(f(x)=\sum_{k_1,\dots,k_n}a_{k_1,\dots,k_n}x_1^{k_1}\cdots x_i^{k_i}\cdots x_n^{k_n}\right)\mapsto\left(\frac{\partial f}{\partial x_i}=\sum_{k_1,\dots,k_n}a_{k_1,\dots,k_n}k_ix_1^{k_1}\cdots x_i^{k_i-1}\cdots x_n^{k_n}\right)$$ (provided $k_i\geq 1$, otherwise the derivative is constant on that term) is $\R$-linear and satisfies the Leibniz rule. These are the two fundamental properties that a derivative should possess. 
+
+\begin{defn}{The Module of Derivations}{} Let $A$ be a ring and $B$ an $A$-algebra. Let $M$ be a $B$-module. Define the $B$-module of derivations to be the set $$\text{Der}_A(B,M)=\{d:B\to M\;|\;d\text{ is a derivation of }A\}$$ together with the following operations: 
+\begin{itemize}
+\item Addition is defined by sending $d_1,d_2:B\to M$ to $(d_1+d_2):B\to M$ that maps $b$ to $d_1(b)+d_2(b)$. 
+\item Left action is defined by $\cdot:B\times\text{Der}_A(B,M)\to\text{Der}_A(B,M)$ that sends $b\in B$ and $d:B\to M$ to $(bd):B\to M$ defined by $u\mapsto b\cdot d(u)$.
+\end{itemize}
+\end{defn}
+
+\begin{lmm}{}{2.1.3} Let $A$ be a ring and $B$ an $A$-algebra. Let $M$ be a $B$-module. Then $\text{Der}_A(B,M)$ is indeed a $B$-module with the given operations. \tcbline
+\begin{proof}
+Firstly, $\text{Der}_A(B,M)$ is an abelian group. We check the group axioms. 
+\begin{itemize}
+\item Closure: Let $a\in A$ and $b_1,b_2\in B$. $d_1+d_2:B\to M$ is an $A$-module homomorphism because 
+\begin{align*}
+(d_1+d_2)(ab_1+b_2)&=d_1(ab_1+b_2)+d_2(ab_1+b_2)\\
+&=ad_1(b_1)+d_1(b_2)+ad_2(b_1)+d_2(b_2)\\
+&=a(d_1+d_2)(b_1)+(d_1+d_2)(b_2)
+\end{align*}
+Finally, the Leibniz rule is satisfied because 
+\begin{align*}
+(d_1+d_2)(b_1b_2)&=d_1(b_1b_2)+d_2(b_1b_2)\\
+&=b_1d_1(b_2)+d_1(b_1)b_2+b_1d_2(b_2)+d_2(b_1)b_2\\
+&=b_1(d_1+d_2)(b_2)+(d_1+d_2)(b_1)b_2
+\end{align*}
+\item Associativity: Follows from the fact that $M$ is a group
+\item Identity: The zero map is the identity since for any $d:B\to M$, $d+0:B\to M$ sends $b$ to $d(b)$ and thus $d+0=d$. 
+\item Inverse: For each $d:B\to M$ the maps sending $b$ to $-d(b)$ is an inverse
+\item Abelian: Follows from the fact that $M$ is abelian. 
+\end{itemize}
+Finally, left action is defined by $\cdot:B\times\text{Der}_A(B,M)\to\text{Der}_A(B,M)$ that sends $b\in B$ and $d:B\to M$ to $(bd):B\to M$ defined by $u\mapsto b\cdot d(u)$. Associativity and identity is clear. 
+\end{proof}
+\end{lmm}
+
+Derivatives in analysis also satisfy the quotient rule and the fact that constant maps have $0$ derivative. The following lemma shows that instead of defining derivatives for it so that constant maps have $0$ derivative, it is in fact a consequence of linearity and Leibniz rule. 
+
+\begin{lmm}{}{2.1.2} Let $A$ be a ring and $B$ an $A$-algebra Let $M$ be a $B$-module. Let $d:B\to M$ be an $A$-derivation. Then $d(a)=0$ for all $a\in A$. \tcbline
+\begin{proof}
+Since $d:B\to M$ is an $A$-module homomorphism, $d(a\cdot 1)=a\cdot d(1)$. We also have, by the Leibniz rule that $d(1)=1\cdot d(1)+d(1)\cdot 1=2d(1)$ which implies $d(1)=0$. Thus $d(a\cdot 1)=a\cdot d(1)=0$. 
+\end{proof}
+\end{lmm}
+
+As mentioned above, derivatives in analysis also satisfy the quotient rule. However, one must be careful in the question of existence of the quotient rule given the Leibniz rule because first of all $B$ and $M$ may not formally have quotients since they are not fields. Instead, what one can do is to pass on the derivative to the fraction field so that quotients are well defined. Interested readers are referred to \cite{Zar-Sam}. \\~\\
+
+The set of all derivations itself also has an extra structure of being a $B$-module in its own right. 
+
+We can see that $\text{Der}_\R(\R[x_1,\dots,x_n],\R[x_1,\dots,x_n])$ has more than just the standard partial derivatives from the module structure. For examples, the sum of partial derivatives $$\frac{\partial}{\partial x_i}+\frac{\partial}{\partial x_j}:\R[x_1,\dots,x_n]\to\R[x_1,\dots,x_n]$$ defined by $f\mapsto\frac{\partial f}{\partial x_i}+\frac{\partial f}{\partial x_j}$. \\~\\
+
+However, second order derivatives (which are compositions of the first order partial derivatives) are not derivations! Indeed they satisfy not the Leibniz property but instead, we have that $$\frac{\partial (fg)}{\partial x_ix_j}=\frac{\partial}{\partial x_i}\left(\frac{\partial f}{\partial x_j}g+f\frac{\partial g}{\partial x_j}\right)=\frac{\partial^2 f}{\partial x_ix_j}+\frac{\partial f}{\partial x_j}\frac{\partial g}{\partial x_i}+\frac{\partial f}{\partial x_i}\frac{\partial g}{\partial x_j}+\frac{\partial^2g}{\partial x_ix_j}$$ which is way more complicated! \\~\\
+
+Finally, there is one more example of derivations. While we have done a completely general treatment of partial derivatives above, we can in fact evaluate the derivative at a chosen point and it will again be an $\R$-derivation. Writing $f(p)=\text{ev}_p(f)$ where $\text{ev}$ is the evaluation homomorphism, the $\R$-derivation $\R[x_1,\dots,x_n]\to\R[x_1,\dots,x_n]$ defined by $$f\mapsto \frac{\partial f}{\partial x_i}g(p)+f(p)\frac{\partial g}{\partial x_i}$$ is also a derivation! 
+
 \pagebreak
 \section{Graded Structures}
 \subsection{Graded Rings}

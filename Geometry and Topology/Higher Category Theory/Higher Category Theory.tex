@@ -27,8 +27,6 @@
 \subsection{Infinity Categories as Simplicial Sets}
 We recall some basic facts about simplicial sets. If $S:\Delta\to\bold{Set}$ is a simplicial set, then by Yoneda's emebdding we know that the $n$-simplices of $S$ are given by $$S([n])=\Hom_\bold{sSet}(\Delta^n,S)$$ In other words, specifying an $n$-simplex is the same as specifying a map of simplicial sets $$\Delta^n\to S$$
 
-
-
 The foundations of infinity categories lay on the simpicial sets. Intuitively, any face $\partial_k\Delta$ of an $n$-simplex $\Delta$ captures a homotopy of the faces of $\partial_k\Delta$. 
 
 \begin{defn}{Infinity Categories}{} An infinity category is a simplicial set $C$ such that each inner horn admits a filler. In other words, for all $0<i<n$, the following diagram commutes: \\~\\
@@ -41,12 +39,16 @@ The foundations of infinity categories lay on the simpicial sets. Intuitively, a
 \end{tikzcd}}\\~\\
 \end{defn}
 
-\begin{defn}{Objects and Morphisms}{} Let $\mC$ be an infinity category. Define the following notions for $\mC$. 
-\begin{itemize}
-\item Define the objects of $\mC$ to be the $0$-simplices of $\mC$. 
-\item Define the morphisms of $\mC$ to be the $1$-simplices of $\mC$. 
-\end{itemize}
-\end{defn}
+\begin{lmm}{}{} Every Kan complex is an infinity category. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $\mC$ be a category. Then $N(\mC)$ is an infinity category. 
+\end{lmm}
+
+Recall that the nerve functor $N_\bullet:\bold{Cat}\to\bold{sSet}$ is fully faithful. This is also true when restricted infinity categories because $\infty$-cat is a full subcategory. This means that there is a bijection $$\{\text{Functors from }\mC\text{ to }\mD\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\{\text{Functors from}N_\bullet(\mC)\text{ to }N_\bullet(\mD)\}$$ for any ordinary category $\mC$ and $\mD$. 
+
+\begin{lmm}{}{} Let $X$ be a topological space. Then the singular set $S(X)$ is an infinity category. 
+\end{lmm}
 
 \begin{defn}{Functors}{} Let $\mC,\mD$ be infinity categories. A functor from $\mC$ to $\mD$ is a morphism $F:\mC\to\mD$ of simplicial sets. 
 \end{defn}
@@ -54,31 +56,54 @@ The foundations of infinity categories lay on the simpicial sets. Intuitively, a
 \begin{defn}{The Category of Infinity Categories}{} Define the category $\infty\bold{-Cat}$ of infinity categories to be the full subcategory of $\bold{sSet}$ consisting of infinity categories. 
 \end{defn}
 
+Digression: We began with two pairs of adjoint functors in Simplicial Methods in Topology: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& {\bold{Cat}} \\
+	{\bold{sSet}} \\
+	& {\bold{Top}}
+	\arrow["{N_\bullet}", shift left, from=1-2, to=2-1]
+	\arrow["h", shift left, from=2-1, to=1-2]
+	\arrow["{\abs{\;\cdot\;}}", shift left, from=2-1, to=3-2]
+	\arrow["{S_\bullet}", shift left, from=3-2, to=2-1]
+\end{tikzcd}}\\~\\
+We have introduced the notion of Kan complexes and $\infty$-categories, which are also simplicial sets. We also saw that the two pairs of adjunction descend to these special simplicial sets: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\bold{sSet}} \\
+	\\
+	{\infty-\bold{Cat}} && {\bold{Cat}} \\
+	{\bold{Kan}} && {\bold{Top}}
+	\arrow["{\text{full}}", hook, from=3-1, to=1-1]
+	\arrow["h", shift left, from=3-1, to=3-3]
+	\arrow["{N_\bullet}", shift left, from=3-3, to=3-1]
+	\arrow["{\text{full}}", hook, from=4-1, to=3-1]
+	\arrow["{\abs{\;\cdot\;}}", shift left, from=4-1, to=4-3]
+	\arrow["{S_\bullet}", shift left, from=4-3, to=4-1]
+\end{tikzcd}}\\~\\
+
+\begin{defn}{Objects and Morphisms}{} Let $\mC$ be an infinity category. Define the following notions for $\mC$. 
+\begin{itemize}
+\item Define the objects of $\mC$ to be the $0$-simplices of $\mC$. 
+\item Define the morphisms of $\mC$ to be the $1$-simplices of $\mC$. 
+\end{itemize}
+\end{defn}
+
 \begin{lmm}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. Then the following are true. 
 \begin{itemize}
 \item $F$ sends an object of $\mC$ to an object of $\mD$. 
 \item $F$ sends a morphism in $\mC$ to a morphism in $\mD$. 
 \item $F$ sends the identity morphism of $X\in\mC$ to the identity morphism of $F(X)\in\mD$. 
-\item If $f:X\to Y$ and $g:Y\to Z$ are morphisms in $\mC$, then $F(g\circ f)=F(g)\circ F(f)$
 \end{itemize}
 \end{lmm}
 
-Explicitly, morphisms of infinity categories behave exactly what we want it to be like: A generalization of functors between ordinary categories. However, note that it is not enough to specify a morphism of infinity categories just from specifying it on objects. This is because we also need to tell the functor where to map the $n$-simplices. In other words, we need to tell the functor where to send the homotopy data. 
+Explicitly, morphisms of infinity categories behave exactly what we want it to be like: A generalization of functors between ordinary categories. However, note that it is not enough to specify a morphism of infinity categories just from specifying it on objects. This is because we also need to tell the functor where to map the $n$-simplices. In other words, we need to tell the functor where to send the homotopy data. \\~\\
 
-\begin{prp}{}{} Let $\mC$ be a category. Then the nerve $N_\bullet(\mC)$ of $\mC$ is an infinity category. 
-\end{prp}
-
-In other words, the nerve functor $N_\bullet(-)$ actually lands in $N_\bullet$. 
-
-\begin{prp}{}{} The nerve functor $N_\bullet:\bold{Cat}\to\infty\bold{-Cat}$ is fully faithful. This means that there is a bijection $$\{\text{Functors from }\mC\text{ to }\mD\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\{\text{Functors from}N_\bullet(\mC)\text{ to }N_\bullet(\mD)\}$$ given by $N_\bullet$. 
-\end{prp}
-
-Recall that $\bold{sSet}$ is closed monoidal. Moreover, we can identify functors from two infinity categories $\mC$ to $\mD$ as the zero simplicies of the simplicial set $\Hom_\bold{sSet}(\mC,\mD)$ defined by $$[n]\mapsto\Hom\bold{sSet}(\mC\times\Delta^n,\mD)$$
-
-In fact, we can show that $\Hom_\bold{sSet}(\mC,\mD)$ is an infinity category. 
+Recall that $\bold{sSet}$ is closed monoidal. Moreover, we can identify functors from two infinity categories $\mC$ to $\mD$ as the zero simplicies of the simplicial set $\Hom_\bold{sSet}(\mC,\mD)$ defined by $$[n]\mapsto\Hom\bold{sSet}(\mC\times\Delta^n,\mD)$$ In fact, we can show that $\Hom_\bold{sSet}(\mC,\mD)$ is an infinity category. 
 
 \begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Then $$\text{Hom}_\bold{sSet}(\mC,\mD)$$ is an infinity category. 
 \end{prp}
+
+\begin{defn}{}{} Let $\mC,\mD$ be infinity categories. Define the functor infinity category by $$\text{Func}(\mC,\mD)=\Hom_\bold{sSet}(\mC,\mD)$$
+\end{defn}
 
 \subsection{Natural Transformations}
 \begin{defn}{Natural Transformations}{} Let $\mC,\mD$ be infinity categories. Let $F,G:\mC\to\mD$ be functors. A natural transformation from $F$ to $G$ is a morphism $\mC\times\Delta^1\to\mD$ such that the following diagram commutes: \\~\\
@@ -105,10 +130,7 @@ In fact, we can show that $\Hom_\bold{sSet}(\mC,\mD)$ is an infinity category.
 \begin{lmm}{}{} Let $\mC,\mD$ be categories. Let $F,G:\mC\to\mD$ be functors. Then $\alpha:F\Rightarrow G$ is a natural transformation if and only if $N(\alpha):N(\mC)\to N(\mD)$ is a natural transformation of infinity categories. 
 \end{lmm}
 
-\begin{defn}{Natural Isomorphisms}{} Let $\mC,\mD$ be infinity categories. Let $F,G:\mC\to\mD$ be functors. We say that $F$ and $G$ are naturally isomorphic if 
-\end{defn}
-
-\subsection{The Homotopy Category of Infinite Categories}
+\subsection{Homotopies and Compositions}
 \begin{defn}{Homotopic Morphisms}{} Let $\mC$ be an infinity category. Two morphisms $f,g:C\to D$ are said to be homotopic if there exists a $2$-simplex $\sigma$ in $\mC$ such that 
 \begin{itemize}
 \item $d_0(\sigma)=\text{id}_D$
@@ -142,14 +164,50 @@ By definition of an infinity category, every inner horn admits a filler. This me
 \begin{lmm}{}{} Let $\mC$ be an infinity category. Then the relation of homotopic between morphisms is an equivalence relation. 
 \end{lmm}
 
-QUESTION: IS THE FOLLOWING TRUE (Kerodon 1.4.3.7)
+Kerodon 1.4.3.7
 
-\begin{prp}{}{} Let $\mC$ be an infinity category. Let $f,g:X\to Y$ be morphisms in $\mC$. Then $f$ and $g$ are homotopic if and only if $\Delta^1\overset{f,g}{\longrightarrow}\mC$ are homotopic as morphisms of simplicial sets. 
+\begin{prp}{}{} Let $\mC$ be an infinity category. Let $f,g:X\to Y$ be morphisms in $\mC$. Then $f$ and $g$ are homotopic if and only if there exists a homotopy from $f:\Delta^1\to\mC$ to $g:\Delta^1\to\mC$ and a homotopy from $g:\Delta^1\to\mC$ to $f:\Delta^1\to\mC$. 
 \end{prp}
 
-\begin{prp}{}{} Let $C$ be an infinity category. Let $f,f':C\to D$ and $g,g':D\to E$ be morphisms in $C$. If $f\simeq f'$ and $g\simeq g'$, then $$g\circ f\simeq g'\circ f'$$
+\begin{defn}{Composition of Morphisms}{} Let $\mC$ be an infinity category. Let $X,Y,Z\in\mC$ be objects. Let $f:X\to Y$ and $g:Y\to Z$ be morphisms. We say that a morphism $h:X\to Z$ is the composition of $f$ and $g$ if there exists a $2$-simplex $\sigma$ of $\mC$ such that $$d_0^2(\sigma)=g\;\;\;\;\;\;d_1^2(\sigma)=h\;\;\;\;\;\;d_2^2(\sigma)=f$$ Explicitly, the $2$-simplex is of the following form: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& Y \\
+	X && Z
+	\arrow["g", from=1-2, to=2-3]
+	\arrow["f", from=2-1, to=1-2]
+	\arrow["h"', from=2-1, to=2-3]
+\end{tikzcd}}\\~\\
+We denote $h$ by $g\circ f$ if such a morphism exists. 
+\end{defn}
+
+It is a non-trivial fact that such a composition always exists. Moreover, composition is only unique up to homotopy. 
+
+\begin{prp}{}{} Let $\mC$ be an infinity category. Let $X,Y,Z\in\mC$ be objects. Let $f:X\to Y$ and $g:Y\to Z$ be morphisms. Then the following are true. 
+\begin{itemize}
+\item There exists a morphism $h:X\to Z$ in $\mC$ that is a composition of $f$ and $g$
+\item Let $h:X\to Z$ be a composition of $f$ and $g$. Then $h':X\to Z$ is a composition of $f$ and $g$ if and only if $h$ is homotopic to $h'$. 
+\end{itemize}
 \end{prp}
 
+This gives a map of sets sending every pair of morphisms $f:X\to Y$ and $g:Y\to Z$ to a map $h:X\to Z$. We will later see that this is a morphism of simplicial sets, and in fact a morphism of Kan complexes. 
+
+\begin{prp}{}{} Let $\mC$ be an infinity category. Let $X,Y,Z\in\mC$ be objects. Let $f,f':X\to Y$ and $g,g':Y\to Z$ be morphisms. If $f\simeq f'$ and $g\simeq g'$ then $g\circ f\simeq g'\circ f'$. 
+\end{prp}
+
+\begin{lmm}{}{} Let $\mC,\mD$ be infinity categories. Let $X,Y,Z\in\mC$ be objects. Let $f:X\to Y$ and $g:Y\to Z$ be morphisms. Let $F:\mC\to\mD$ be a functor. Then $F(g\circ f)$ is a composition of $F(f)$ and $F(g)$. 
+\end{lmm}
+
+\begin{thm}{(Joyal)}{} Let $S$ be a simplicial set. Then $S$ is an infinity category if and only if the induced morphism $$-\circ\iota:\Hom_\bold{sSet}(\Delta^2,S)\to\Hom_\bold{sSet}(\Lambda_1^2,S)$$ of the inclusion $\iota:\Lambda_1^2\to\Delta^2$ is a trivial Kan fibration. 
+\end{thm}
+
+The following corollary is an importance consequence. 
+
+\begin{crl}{}{} Let $X$ be an infinity category. Then the pullback $$\Hom_\bold{sSet}(\Delta^2,X)\times_{\Hom_\bold{sSet}(\Lambda_1^2,X)}\Delta^0$$ is a contractible Kan complex, where the map $\Delta^0\to\Hom_\bold{sSet}(\Lambda_1^2,X)$ identifies the object $(f,g)$ in $\Hom_\bold{sSet}(\Lambda_1^2,X)$. 
+\end{crl}
+
+We can think of ??????? as the space of parameters of all $2$-simplicies $\sigma$ whose $0$th face is $g$ and $2$nd face if $f$. 
+
+\subsection{The Homotopy Category of an Infinity Category}
 We can explicitly write out the homotopy category of an infinity category as follows. 
 
 \begin{prp}{}{} Let $\mC$ be an infinity category. Then the homotopy category $h(\mC)$ is isomorphic (as categories) to the category defined as follows. 
@@ -160,105 +218,30 @@ We can explicitly write out the homotopy category of an infinity category as fol
 \end{itemize}
 \end{prp}
 
-\begin{defn}{Isomorphisms in Infinity Categories}{} Let $\mC$ be an infinity category. Let $f:X\to Y$ be a morphism in $\mC$. We say that $f$ is an isomorphism if $[f]$ is an isomorphism in $h(\mC)$. Equivalently, $f$ is an isomorphism if there exists a morphism $g:Y\to X$ such that $g\circ f\simeq\text{id}_X$ and $f\circ g\simeq\text{id}_Y$. 
+Let $\mC$ be an infinity category. $\mC$ and $h(\mC)$ has the same objects and morphisms, except that we declare two morphisms to be equal respectively if they are homotopic or truly equal in the ordinary sense. Moreover, the homotopy should be considered as additional data for declaring two morphisms to be equal. \\
+
+Given a diagram in $h(\mC)$, we may lift it to a homotopy commutative diagram in $\mC$. This means that if $X$ and $Y$ are two objects in the digram and $f$ and $g$ are two paths from $X$ to $Y$ in the digram, then $f$ and $g$ should be homotopic. However, because every homotopy should also remember the data of the homotopy itself, this notion is not as useful. \\
+
+This is echoed as follows. If $\mJ$ is an ordinary category, then a diagram of shape $\mJ$ in the infinity category $\mC$ is defined to be a functor $N(\mJ)\to\mC$. Keeping track of higher homotopies becomes the data of the higher simplicies. 
+
+\begin{defn}{Equivalences in Infinity Categories}{} Let $\mC$ be an infinity category. Let $f:X\to Y$ be a morphism in $\mC$. We say that $f$ is an equivalence if $[f]$ is an isomorphism in $h(\mC)$. Equivalently, $f$ is an equivalence if there exists a morphism $g:Y\to X$ such that $g\circ f\simeq\text{id}_X$ and $f\circ g\simeq\text{id}_Y$. 
 \end{defn}
+
+Kerodon says this as isomorphisms. 
 
 Because the data of a functor between infinity categories carry $2$-simplicies to $2$-simplicies, we can easily deduce the following. 
 
 \begin{lmm}{}{} Let $\mC,\mD$ be infinity category. Let $F:\mC\to\mD$ be a functor. Then the following are true. 
 \begin{itemize}
 \item If $f\simeq g$ are homotopic in $\mC$, then $F(f)\simeq F(g)$ are homotopic in $\mD$. 
-\item If $f$ is an isomorphism in $\mC$, then $F(f)$ is an isomorphism in $\mD$. 
+\item If $f$ is an equivalence in $\mC$, then $F(f)$ is an equivalence in $\mD$. 
 \end{itemize}
 \end{lmm}
 
-When $\mC,\mD$ are ordinary categories, we can talk about diagrams of shape $\mC$ in $\mD$. This just means that we only care about the shape of $\mC$, and we consider this shape inside $\mD$. This was the foundations for limits and colimits of a category. We can also do this for infinity categories, but recall that a functor between infinity categories carries much more data than just the shape of the domain infinity category: it also carries homotopy information. \\
+When $\mJ,\mC$ are ordinary categories, we can talk about diagrams of shape $\mJ$ in $\mC$. This just means that we only care about the shape of $\mJ$, and we consider this shape inside $\mC$. This was the foundations for limits and colimits of a category. We can also do this for infinity categories, but recall that a functor between infinity categories carries much more data than just the shape of the domain infinity category: it also carries homotopy information. 
 
-\subsection{Equivalence of Infinity Categories}
-\begin{defn}{Natural Isomorphisms}{} Let $\mC,\mD$ be infinity categories. Let $F,G:\mC\to\mD$ be functors. Let $\eta$ be a natural transformation from $F$ to $G$. We say that $\eta$ is a natural isomorphism if $\eta$ is an isomorphism as a morphism in $\Hom_\bold{sSet}(\mC,\mD)$. \\~\\
-
-We say that $F$ and $G$ are naturally isomorphic if there exists a natural isomorphism from $F$ to $G$. 
-\end{defn}
-
-Kerodon 4.4.4.1
-
-\begin{defn}{Homotopy Inverses}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ an $G:\mC\to\mD$ be functors. We say that $G$ is a homotopy inverse of $F$ 
-\begin{itemize}
-\item $G\circ F$ is naturally isomorphic to $\text{id}_\mC$ in $\Hom_\bold{sSet}(\mC,\mC)$
-\item $F\circ G$ is naturally isomorphic to $\text{id}_\mD$ in $\Hom_\bold{sSet}(\mD,\mD)$
-\end{itemize}
-\end{defn}
-
-Kerodon 4.5.1.10
-
-\begin{defn}{Equivalence of Infinity Categories}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. We say that $F$ is an equivalence of infinity categories if $F$ admits a homotopy inverse. In this case, we say that $\mC$ and $\mD$ are equivalent. 
-\end{defn}
-
-Recall that two objects in an infinity category $\mC$ is isomorphic if they are isomorphic in $h(\mC)$ in the ordinary sense. In our case, this means that we consider $G\circ F$ and $\text{id}_\mC$ to be objects of the infinity category $\Hom_\bold{sSet}(\mC,\mC)$, and they are isomorphic if $[G\circ F]=[\text{id}_\mC]$. This is the same as saying that $G\circ F$ and $\text{id}_\mC$ are homotopic. (It is also the same as saying $\mC$ and $\mD$ are homotopy equivalent as simplicial sets)
-
-\begin{lmm}{}{} Let $\mC,\mD$ be infinity categories. If $\mC$ and $\mD$ are naturally isomorphic, then $\mC$ and $\mD$ are equivalent. 
-\end{lmm}
-
-\begin{prp}{}{} Let $\mC,\mD$ be ordinary categories. Let $F:\mC\to\mD$ be functor. Then $F:\mC\to\mD$ induces an equivalence of categories if and only if $N(F):N(\mC)\to N(\mD)$ induces an equivalence of categories. 
-\end{prp}
-
-\begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. If $F$ is an equivalence of infinity categories, then $h(F):h(\mC)\to h(\mD)$ is an equivalence of ordinary categories. 
-\end{prp}
-
-\begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. Then $F$ is an equivalence of infinity categories if and only if $$F\circ -:\Hom_\bold{sSet}(K,\mC)\to\Hom_\bold{sSet}(K,\mD)$$ is an equivalence of infinity categories for all simplicial sets $K$. 
-\end{prp}
 
 \subsection{The Core of an Infinity Category}
-
-\pagebreak
-\section{Infinity Categorical Constructions}
-\subsection{Joins and Slices}
-We begin by rewriting the definition of a simplex category as follows. Instead of having distinguished names $[n]$ for the objects, we instead just think of the simplex category with objects as finite and totally ordered sets. Indeed any of these sets will be in bijection to $[n]$ for some $n\in\N$. This language will help us define the join. 
-
-\begin{defn}{}{} Let $J$ be a finite and totally ordered set. A cut of $J$ consists of two subsets $I,I'\subseteq J$ such that $$J=I\amalg I'$$ and $i<i'$ for all $i\in I$ and $i'<I'$. 
-\end{defn}
-
-\begin{defn}{Joins}{} Let $X,Y$ be simplicial sets. Define the join of $X$ and $Y$ to be the simplicial set $X\ast Y$ as follows. 
-\begin{itemize}
-\item Denote $J\neq\emptyset$ any finite and totally ordered set. Define $$X\ast Y(J)=\coprod_{\substack{I\amalg I'=J\\i<i'\text{ for }i\in I,i'\in I'}}X(I)\times Y(I')\coprod_{I,I'\text{ cuts of }J}X(I)\times Y(I')$$ where by convention, $X(\emptyset)=Y(\emptyset)=\ast$. 
-\item For two finite and totally ordered sets $J$ and $J'$ and a morphism $J\to J'$ preserving order, the map $$(X\ast Y)[J']\to(X\ast Y)[J]$$ is defined as follows. Let $K,K'$ be a cut of $J'$. Then $\alpha$ restricts to two well defined maps $$\alpha|_{\alpha^{-1}(K)}:\alpha^{-1}(K)\to K\;\;\;\;\text{ and }\;\;\;\;\alpha|_{\alpha^{-1}(K')}:\alpha^{-1}(K')\to K'$$ In particular these are order preserving, and each are morphisms in the simplex category $\Delta$. Thus this gives us a unique morphism $$X(K)\times X(K')\to X(\alpha^{-1}(K))\times X(\alpha^{-1}(K'))$$ By taking the product of these maps, we thus obtain a morphism $(X\ast Y)[J']\to(X\ast Y)[J]$, turning the above definition into a simplicial set. 
-\end{itemize}
-\end{defn}
-
-Concrete examples: 
-\begin{itemize}
-\item When $J=[0]$, we have that 
-\begin{align*}
-(X\ast Y)[0]&=X[0]\times Y(\emptyset)\amalg X(\emptyset)\times Y[0]\\
-&=X_0\amalg Y_0
-\end{align*}
-which means that the vertices of $X\ast Y$ are the vertices of $X$ and $Y$ combined disjointly. 
-\item When $J=[1]$, we have that 
-\begin{align*}
-(X\ast Y)[1]&=X[1]\times Y(\emptyset)\amalg X(\{0\})\times Y(\{1\}) \amalg X(\emptyset)\times Y[1]\\
-&=X_1\amalg X_0\times Y_0\amalg Y_1
-\end{align*}
-\end{itemize}
-
-TBA: The join of ordinary categories. 
-
-\begin{lmm}{}{} Let $X$ and $Y$ be simplicial sets. Then $N(X\ast Y)\cong N(X)\ast N(Y)$
-\end{lmm}
-
-TBA: functoriality of join
-
-\begin{prp}{}{} Let $X,Y$ be simplicial sets. Then $X\ast Y$ is an infinity category if and only if $X$ and $Y$ are infinity categories. 
-\end{prp}
-
-Recall that the over category $\mC/X$ consists of pairs $(Y,f:Y\to X)$ and morphism are given by commutative diagrams. Let us rephrase the definition as follows. The over category is the unique category such that if $\mD$ is another category, there is a bijection $$\Hom_\bold{CAT}(\mD,\mC/X)\cong\Hom_X(\mD\ast[0],\mC)$$ where the right hand side indicates that we only consider morphisms $\mD\ast[0]\to\mC$ in which $[0]$ is mapped to $X$. This characterization is due to the fact that a morphism $[0]\to\mC$ is essentially a choice of object in $\mC$, in which case we choose to be $X$. 
-
-\begin{defn}{Over Category for Infinity Categories}{} Let $K,X$ be simplicial sets. Let $f:K\to X$ be a map. Define the over category (which is a simplicial set) $$f/X:\Delta\to\bold{Set}$$ as follows. 
-\begin{itemize}
-\item For each $n$, we have $$(f/X)_n=\Hom_{K/\bold{sSet}}(K\ast\Delta^n,X)$$
-\end{itemize}
-\end{defn}
-
-TBA: Adjunction of join and slice. 
 
 \pagebreak
 \section{The Joyal Model Structure}
@@ -412,13 +395,12 @@ Kerodon 2.4.4.3
 Infinity categorise are fibrant objects of the Joyal model structure. In order to show that simplicial categories also give a theory of infinity categories, we need to show that all of its homotopy data and constructions are equivalent. We show this using a Quillen equivalence type theorem. 
 
 \subsection{The Infinity Category of Spaces}
-\begin{defn}{The Category of Kan Complexes}{} Define the category of Kan complexes $$\bold{Kan}$$ to be the full subcategory of $\bold{sSet}$ consisting of Kan complexes. Explicitly, it consists of the following data. 
+Recall that the category of Kan complexes $$\bold{Kan}$$ is defined to be the full subcategory of $\bold{sSet}$ consisting of Kan complexes. Explicitly, it consists of the following data. 
 \begin{itemize}
 \item The objects are the Kan complexes
 \item For $X,Y$ two Kan complexes, a morphism $f:X\to Y$ is a morphism of simplicial sets
 \item Composition is given by the composition of morphisms of simplicial sets
 \end{itemize}
-\end{defn}
 
 \begin{lmm}{}{} The category $\bold{Kan}$ is a simplicial category. Moreover, $\Hom_\bold{Kan}(X,Y)$ is a Kan complex. 
 \end{lmm}
@@ -431,30 +413,7 @@ Lurie def vs Dwyer-Kan def is different.
 \begin{lmm}{}{} The $\infty$-category of spaces $\mS$ is an $\infty$-category. 
 \end{lmm}
 
-Digression: We began with two pairs of adjoint functors in Simplicial Methods in Topology: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	& {\bold{Cat}} \\
-	{\bold{sSet}} \\
-	& {\bold{Top}}
-	\arrow["{N_\bullet}", shift left, from=1-2, to=2-1]
-	\arrow["h", shift left, from=2-1, to=1-2]
-	\arrow["{\abs{\;\cdot\;}}", shift left, from=2-1, to=3-2]
-	\arrow["{S_\bullet}", shift left, from=3-2, to=2-1]
-\end{tikzcd}}\\~\\
-We have introduced the notion of Kan complexes and $\infty$-categories, which are also simplicial sets. We also saw that the two pairs of adjunction descend to these special simplicial sets: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\bold{sSet}} \\
-	\\
-	{\infty-\bold{Cat}} && {\bold{Cat}} \\
-	{\bold{Kan}} && {\bold{Top}}
-	\arrow["{\text{full}}", hook, from=3-1, to=1-1]
-	\arrow["h", shift left, from=3-1, to=3-3]
-	\arrow["{N_\bullet}", shift left, from=3-3, to=3-1]
-	\arrow["{\text{full}}", hook, from=4-1, to=3-1]
-	\arrow["{\abs{\;\cdot\;}}", shift left, from=4-1, to=4-3]
-	\arrow["{S_\bullet}", shift left, from=4-3, to=4-1]
-\end{tikzcd}}\\~\\
-Finally in the last section we introduced another pair of adjunction from simplicial categories. Together with the forgetful functor sending a simplicial category $\mC$ to $\mC_0$ we obtain: \\~\\
+In the last section we introduced another pair of adjunction from simplicial categories. Together with the forgetful functor sending a simplicial category $\mC$ to $\mC_0$ we obtain: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	{\bold{sSet}} && {\bold{Cat}_\bold{sSet}} \\
 	\\
@@ -472,7 +431,68 @@ Finally in the last section we introduced another pair of adjunction from simpli
 \end{tikzcd}}\\~\\
 
 \pagebreak
-\section{Space of Morphisms between Vertices}
+\section{Infinity Categorical Constructions}
+\subsection{The Join of Infinity Categories}
+We begin by rewriting the definition of a simplex category as follows. Instead of having distinguished names $[n]$ for the objects, we instead just think of the simplex category with objects as finite and totally ordered sets. Indeed any of these sets will be in bijection to $[n]$ for some $n\in\N$. This language will help us define the join. 
+
+\begin{defn}{Cut of Totally Ordered Sets}{} Let $J$ be a finite and totally ordered set. A cut of $J$ consists of two subsets $I,I'\subseteq J$ such that $$J=I\amalg I'$$ and $i<i'$ for all $i\in I$ and $i'<I'$. 
+\end{defn}
+
+\begin{defn}{Joins}{} Let $X,Y$ be simplicial sets. Define the join of $X$ and $Y$ to be the simplicial set $X\ast Y$ as follows. 
+\begin{itemize}
+\item Denote $J\neq\emptyset$ any finite and totally ordered set. Define $$X\ast Y(J)=\coprod_{\substack{I\amalg I'=J\\i<i'\text{ for }i\in I,i'\in I'}}X(I)\times Y(I')\coprod_{I,I'\text{ cuts of }J}X(I)\times Y(I')$$ where by convention, $X(\emptyset)=Y(\emptyset)=\ast$. 
+\item For two finite and totally ordered sets $J$ and $J'$ and a morphism $J\to J'$ preserving order, the map $$(X\ast Y)[J']\to(X\ast Y)[J]$$ is defined as follows. Let $K,K'$ be a cut of $J'$. Then $\alpha$ restricts to two well defined maps $$\alpha|_{\alpha^{-1}(K)}:\alpha^{-1}(K)\to K\;\;\;\;\text{ and }\;\;\;\;\alpha|_{\alpha^{-1}(K')}:\alpha^{-1}(K')\to K'$$ In particular these are order preserving, and each are morphisms in the simplex category $\Delta$. Thus this gives us a unique morphism $$X(K)\times X(K')\to X(\alpha^{-1}(K))\times X(\alpha^{-1}(K'))$$ By taking the product of these maps, we thus obtain a morphism $(X\ast Y)[J']\to(X\ast Y)[J]$, turning the above definition into a simplicial set. 
+\end{itemize}
+\end{defn}
+
+Concrete examples: 
+\begin{itemize}
+\item When $J=[0]$, we have that 
+\begin{align*}
+(X\ast Y)[0]&=X[0]\times Y(\emptyset)\amalg X(\emptyset)\times Y[0]\\
+&=X_0\amalg Y_0
+\end{align*}
+which means that the vertices of $X\ast Y$ are the vertices of $X$ and $Y$ combined disjointly. 
+\item When $J=[1]$, we have that 
+\begin{align*}
+(X\ast Y)[1]&=X[1]\times Y(\emptyset)\amalg X(\{0\})\times Y(\{1\}) \amalg X(\emptyset)\times Y[1]\\
+&=X_1\amalg X_0\times Y_0\amalg Y_1
+\end{align*}
+\end{itemize}
+
+TBA: The join of ordinary categories. 
+
+\begin{lmm}{}{} Let $X$ and $Y$ be simplicial sets. Then $N(X\ast Y)\cong N(X)\ast N(Y)$
+\end{lmm}
+
+TBA: functoriality of join
+
+\begin{prp}{}{} Let $X,Y$ be simplicial sets. Then $X\ast Y$ is an infinity category if and only if $X$ and $Y$ are infinity categories. 
+\end{prp}
+
+Recall that the over category $\mC/X$ consists of pairs $(Y,f:Y\to X)$ and morphism are given by commutative diagrams. Let us rephrase the definition as follows. The over category is the unique category such that if $\mD$ is another category, there is a bijection $$\Hom_\bold{CAT}(\mD,\mC/X)\cong\Hom_X(\mD\ast[0],\mC)$$ where the right hand side indicates that we only consider morphisms $\mD\ast[0]\to\mC$ in which $[0]$ is mapped to $X$. This characterization is due to the fact that a morphism $[0]\to\mC$ is essentially a choice of object in $\mC$, in which case we choose to be $X$. \\
+
+Technical Lemma (Kerodon 4.3.6.18): 
+
+\begin{prp}{}{} Let $n,m\in\N$. Consider the pushout of the following diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\partial\Delta^p\star\partial\Delta^q} & {\Delta^p\star\partial\Delta^q} \\
+	{\partial\Delta^p\star\Delta^q}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+\end{tikzcd}}\\~\\
+It it induces a morphism of simplicial sets from the pushout to $\Delta^p\star\Delta^q$. Then this morphism is isomorphic to the boundary inclusion $\partial\Delta^{p+1+q}\hookrightarrow\Delta^{p+1+q}$. 
+\end{prp}
+
+\subsection{Slice Infinity Categories}
+\begin{defn}{Over Category for Infinity Categories}{} Let $K,X$ be simplicial sets. Let $f:K\to X$ be a map. Define the over category (which is a simplicial set) $$f/X:\Delta\to\bold{Set}$$ as follows. 
+\begin{itemize}
+\item For each $n$, we have $$(f/X)_n=\Hom_{K/\bold{sSet}}(K\ast\Delta^n,X)$$
+\end{itemize}
+\end{defn}
+
+TBA: Adjunction of join and slice. \\
+
 \subsection{The Mapping Spaces}
 For an ordinary category $\mC$, we have the notion of Hom sets (at least for locally small categories). We would like to reproduce this notion for infinity categories. 
 
@@ -503,6 +523,150 @@ These two notions are equivalent up to homotopy (Land) Also pullbacks (Land)
 \item The right mapping space is isomorphic to the pullback $$\Hom_\mC^R(x,y)\cong\{x\}\times_{\Hom_\bold{sSet}(\{0\},\mC)}\mC/y$$
 \item The left mapping space is isomorphic to the pullback $$\Hom_\mC^L(x,y)\cong x/\mC\times_{\Hom_\bold{sSet}(\{1\},\mC)}\{y\}$$
 \end{itemize}
+\end{prp}
+
+\subsection{Initial and Final Objects}
+\begin{defn}{Initial and Final Objects}{} Let $\mC$ be an infinity category. Let $x\in\mC$ be an object. 
+\begin{itemize}
+\item We say that $x$ is initial if for all objects $y\in\mC$, there is a homotopy equivalence $$\Hom_\mC(x,y)\simeq\Delta^0$$ (the mapping space is a contractible Kan complex)
+\item Dually, we say that $x$ is final if for all objects $y\in\mC$, there is a homotopy equivalence $$\Hom_\mC(y,x)\simeq\Delta^0$$ (the mapping space is a contractible Kan complex)
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $\mC$ be an infinity category. Let $X\in\mC$ be an object. Then the following are equivalent. 
+\begin{itemize}
+\item $X$ is initial
+\item The functor $\mC_{X/}\to\mC$ is a trivial Kan fibration. 
+\item For all $n\geq 1$, every lifting problem of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\{0\}} & {\partial\Delta^n} & \mC \\
+	& {\Delta^n}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow["p"', from=1-2, to=1-3]
+	\arrow["X", bend left = 20, from=1-1, to=1-3]
+	\arrow[hook, from=1-2, to=2-2]
+	\arrow["\exists"', dashed, from=2-2, to=1-3]
+\end{tikzcd}}\\~\\
+has a solution. 
+\end{itemize} \tcbline
+\begin{proof}
+Notice that we can identify $\partial\Delta^n$ as the pushout of the following diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\emptyset\star\partial\Delta^{n-1}} & {\Delta^0\star\partial\Delta^{n-1}} \\
+	{\emptyset\star\Delta^{n-1}}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+\end{tikzcd}}\\~\\
+By prp4.1.5, the inclusion $\partial\Delta^n\hookrightarrow\Delta^n$ is equivalent to the morphism from the pushout to $\Delta^{n-1}\star\Delta^0$. Hence the given lifting problem translates to the following lifting problem: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\partial\Delta^{n-1}} & {\mC_{X/}} \\
+	{\Delta^{n-1}} & \mC
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["\exists"', dashed, from=2-1, to=1-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+(Why ????) Such a lifting problem admits a solution if and only if $\mC_{X/}\to\mC$ is a trivial Kan fibration. ????
+\end{proof}
+\end{prp}
+
+initial / terminal carries over by equivalence\\
+
+initial in i-cat imply initial in hCat
+
+\pagebreak
+\section{More on Infinity Categories}
+\subsection{Sub Infinity Categories}
+
+\subsection{Natural Isomorphisms of Infinity Categories}
+\begin{defn}{Natural Isomorphisms}{} Let $\mC,\mD$ be infinity categories. Let $F,G:\mC\to\mD$ be functors. Let $\eta$ be a natural transformation from $F$ to $G$. We say that $\eta$ is a natural isomorphism if $\eta$ is an equivalence as a morphism in $\Hom_\bold{sSet}(\mC,\mD)$. \\~\\
+
+We say that $F$ and $G$ are naturally isomorphic if there exists a natural isomorphism from $F$ to $G$. 
+\end{defn}
+
+Kerodon 4.4.4.1\\
+
+Explicitly, $\eta:F\to G$ is a natural isomorphism if there exists a natural transformation $\mu:G\to F$ such that $\mu\circ\eta\simeq\text{id}_F$ and $\eta\circ\mu\simeq\text{id}_G$. 
+
+\begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Let $F,G:\mC\to\mD$ be functors. Let $\eta$ be a natural transformation from $F$ to $G$. Then $\eta$ is a natural isomorphism if and only if the image of $\eta$ in the morphism $$\text{ev}_x:\Hom_\bold{sSet}(\mC,\mD)\to\Hom_\bold{sSet}(\{x\},\mD)\cong\mD$$ given by $\text{ev}_x(\eta):F(x)\to G(x)$ is an isomorphism in $\mD$ for all objects $x\in\mC$. 
+\end{prp}
+
+\subsection{Equivalence of Infinity Categories}
+\begin{defn}{Homotopy Inverses}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ an $G:\mD\to\mC$ be functors. We say that $G$ is a homotopy inverse of $F$ if the following are true. 
+\begin{itemize}
+\item $G\circ F$ is isomorphic to $\text{id}_\mC$ as objects in $\Hom_\bold{sSet}(\mC,\mC)$
+\item $F\circ G$ is isomorphic to $\text{id}_\mD$ as objects in $\Hom_\bold{sSet}(\mD,\mD)$
+\end{itemize}
+\end{defn}
+
+Kerodon 4.5.1.10\\
+
+\begin{defn}{Equivalence of Infinity Categories}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. We say that $F$ is an equivalence of infinity categories if $F$ admits a homotopy inverse. In this case, we say that $\mC$ and $\mD$ are equivalent. 
+\end{defn}
+
+Unwinding the definitions, $F:\mC\to\mD$ is an equivalence of infinity categories if there exists a functor $G:\mD\to\mC$ for which the following are true. 
+\begin{itemize}
+\item There exists morphisms $\lambda:G\circ F\Rightarrow\text{id}_\mC$ and $\eta:\text{id}_\mC\Rightarrow G\circ F$ such that there exists two $2$-simplicies in $\text{Func}(\mC,\mC)$ of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& {\text{id}_\mC} &&&& {G\circ F} \\
+	{G\circ F} && {G\circ F} && {\text{id}_\mC} && {\text{id}_\mC}
+	\arrow["\eta", from=1-2, to=2-3]
+	\arrow["\lambda", from=1-6, to=2-7]
+	\arrow["\lambda", from=2-1, to=1-2]
+	\arrow["{\text{id}_{G\circ F}}"', from=2-1, to=2-3]
+	\arrow["\eta", from=2-5, to=1-6]
+	\arrow["{\text{id}_{\text{id}_\mC}}"', from=2-5, to=2-7]
+\end{tikzcd}}\\~\\
+\item There exists morphisms $\alpha:F\circ G\Rightarrow\text{id}_\mD$ and $\beta:\text{id}_\mD\Rightarrow F\circ G$ such that there exists two $2$-simplicies in $\text{Func}(\mD,\mD)$ of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& {\text{id}_\mD} &&&& {F\circ G} \\
+	{F\circ G} && {F\circ G} && {\text{id}_\mD} && {\text{id}_\mD}
+	\arrow["\beta", from=1-2, to=2-3]
+	\arrow["\alpha", from=1-6, to=2-7]
+	\arrow["\alpha", from=2-1, to=1-2]
+	\arrow["{\text{id}_{F\circ G}}"', from=2-1, to=2-3]
+	\arrow["\beta", from=2-5, to=1-6]
+	\arrow["{\text{id}_{\text{id}_\mD}}"', from=2-5, to=2-7]
+\end{tikzcd}}\\~\\
+\end{itemize}
+
+Notice that this vastly different from saying that $G\circ F$ and $\text{id}_\mC$ are homotopic as morphisms from $\mC$ to $\mC$ in the sense of there exists a morphism $\eta:\mC\times\Delta^1$ and a commutative diagram \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\mC & {\mC\times\Delta^1} & \mC \\
+	& \mC
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow["{G\circ F}"', from=1-1, to=2-2]
+	\arrow["\eta", dashed, from=1-2, to=2-2]
+	\arrow[hook', from=1-3, to=1-2]
+	\arrow["{\text{id}_\mC}", from=1-3, to=2-2]
+\end{tikzcd}}\\~\\
+
+\begin{lmm}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. Then $F$ is an equivalence of categories if and only if $F$ is a categorical equivalence. 
+\end{lmm}
+
+Upshot: Equivalence of infinity categories are the weak equivalences in the Joyal model structure. 
+
+\begin{lmm}{}{} Let $\mC,\mD$ be infinity categories. If $\mC$ and $\mD$ are naturally isomorphic, then $\mC$ and $\mD$ are equivalent. 
+\end{lmm}
+
+\begin{prp}{}{} Let $\mC,\mD$ be ordinary categories. Let $F:\mC\to\mD$ be functor. Then $F:\mC\to\mD$ induces an equivalence of categories if and only if $N(F):N(\mC)\to N(\mD)$ induces an equivalence of categories. 
+\end{prp}
+
+\begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. If $F$ is an equivalence of infinity categories, then $h(F):h(\mC)\to h(\mD)$ is an equivalence of ordinary categories. 
+\end{prp}
+
+\begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. Then $F$ is an equivalence of infinity categories if and only if $$F\circ -:\Hom_\bold{sSet}(K,\mC)\to\Hom_\bold{sSet}(K,\mD)$$ is an equivalence of infinity categories for all simplicial sets $K$. 
+\end{prp}
+
+\subsection{Fully Faithful and Essentially Surjective}
+\begin{defn}{Fully Faithful Functors}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. We say that $F$ is fully faithful if for all objects $X,Y\in\mC$, the induced map of morphism spaces $$\Hom_\mC(X,Y)\to\Hom_\mD(F(X),F(Y))$$ is a homotopy equivalence of Kan complexes. 
+\end{defn}
+
+\begin{defn}{Essentially Surjective Functors}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. We say that $F$ is essentially surjective if the full sub category spanned by objects $D\in\mD$ for which there exists $C\in\mC$ such that $F(C)=D$ is equal to $\mD$. 
+\end{defn}
+
+\begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ be a functor. Then $F$ is an equivalence of infinity categories if and only if $F$ is fully faithful and essentially surjective. 
 \end{prp}
 
 \subsection{Composition of Morphisms in Infinity Categories}
@@ -537,61 +701,124 @@ where $k$ is a choice of the homotopy inverse of $d_0\times d_2:\text{Map}_\mC(x
 
 Upshot: Composition of morphisms are only well defined up to an equivalence class of homotopic maps. 
 
+\subsection{The Yoneda Embedding}
+
 \pagebreak
-\section{Limits and Colimits}
-\subsection{Terminal and Initial Objects}
-\begin{defn}{Initial and Terminal Objects}{} Let $\mC$ be an infinity category. Let $x\in\mC$ be an object. 
+\section{Adjunctions in Infinity Categories}
+\begin{defn}{Unit and Counits}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ and $G:\mD\to\mC$ be functors. 
 \begin{itemize}
-\item We say that $x$ is initial if for all objects $y\in\mC$, there is a homotopy equivalence $$\Hom_\mC(x,y)\simeq\Delta^0$$
-\item Dually, we say that $x$ is terminal if for all objects $y\in\mC$, there is a homotopy equivalence $$\Hom_\mC(y,x)\simeq\Delta^0$$
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $\mC$ be an infinity category. Let $x\in\mC$ be an object. Then the following are equivalent. 
-\begin{itemize}
-\item $x$ is terminal. 
-\item For all $n\geq 1$, every lifting problem of the form \\~\\
+\item Let $\eta:\text{id}_\mC\Rightarrow G\circ F$ be a natural transformation. We say that $\eta$ is a unit of adjunction if there exists a natural transformation $\mu:F\circ G\Rightarrow\text{id}_\mD$ such that there exists a $2$-simplex in $\text{Func}(\mC,\mD)$ where \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\Delta^{\{n\}}} & {\partial\Delta^n} & \mC \\
-	& {\Delta^n}
-	\arrow[hook, from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow["x", bend left = 20, from=1-1, to=1-3]
-	\arrow[from=1-2, to=2-2]
-	\arrow[dashed, from=2-2, to=1-3]
+	& {F\circ G\circ F} \\
+	{F\circ\text{id}_\mC} && {\text{id}_\mD\circ F}
+	\arrow["{\mu\circ F}", from=1-2, to=2-3]
+	\arrow["{F\circ\eta}", from=2-1, to=1-2]
+	\arrow["{\text{id}_F}"', from=2-1, to=2-3]
 \end{tikzcd}}\\~\\
-has a solution. 
+In other words, the composite of $F\circ\eta$ with $\mu\circ F$ gives $\text{id}_F$ in the functor category. 
+\item Let $\mu:F\circ G\Rightarrow\text{id}_\mD$ be a natural transformation. We say that $\mu$ is a counit of adjunction if there exists a natural transformation $\mu:\text{id}_\mC\Rightarrow G\circ F$ such that there exists a $2$-simplex in $\text{Func}(\mD,\mC)$ where \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& {G\circ F\circ G} \\
+	{\text{id}_\mC\circ G} && {G\circ\text{id}_\mD}
+	\arrow["{G\circ\eta}", from=1-2, to=2-3]
+	\arrow["{\mu\circ G}", from=2-1, to=1-2]
+	\arrow["{\text{id}_G}"', from=2-1, to=2-3]
+\end{tikzcd}}\\~\\
+In other words, the composite of $\mu\circ G$ with $G\circ\eta$ gives $\text{id}_G$ in the functor category. 
 \end{itemize}
-\end{prp}
-
-initial / terminal carries over by equivalence\\
-
-initial in i-cat imply initial in hCat
-
-\subsection{Limits and Colimits}
-\begin{defn}{Functor of Constant Diagrams}{} Let $K$ be a simplicial set. Let $\mC$ be an infinity category. Define the functor of constant diagram $$\Delta:\mC\to\Hom_\bold{sSet}(K,\mC)$$ to be the morphism of simplicial sets defined by $$\mC_n\cong\Hom_\bold{sSet}(\Delta^n,\mC)\longrightarrow\Hom_\bold{sSet}(K\times\Delta^n,\mC)$$ induced by the projection map $K\times\Delta^n\to\Delta^n$. 
 \end{defn}
 
-In particular, notice that for $X\in\mC$ an object, $\Delta X$ is precisely the unique morphism from $K$ to the simplicial set $\{X\}$. 
+\begin{lmm}{}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC\to\mD$ and $G:\mD\to\mC$ be functors. Then $\eta$ is a unit of adjunction exhibited with $\mu$ if and only if $\mu$ is a counit of adjunction exhibited with $\eta$. 
+\end{lmm}
 
-\begin{defn}{Limits in Infinity Categories}{} Let $K,\mC$ be infinity categories. Let $F:K\to\mC$ be a morphism. We say that $X$ is the limit of $F$ exhibited by $u:\Delta X\Rightarrow F$ if for all $Z\in\mC$, the following composite: \\~\\
+\begin{defn}{Adjoint Functors}{} Let $\mC,\mD$ be infinity categories. Let $F:\mC,\mD$ and $G:\mD\to\mC$ be functors. We say that $F$ is a left adjoint of $G$ or $G$ is a right adjoint of $F$ if there exists a natural transformation $\eta:\text{id}_\mC\Rightarrow G\circ F$ that is a unit of adjunction. 
+\end{defn}
+
+Recall that $F:\mC\to\mD$ are an equivalence of categories if there exists a functor $G:\mD\to\mC$ together with $2$-simplicies witnessing an equivalence of vertices $\text{id}_\mC$ and $G\circ F$ in $\text{Func}(\mC,\mC)$ and similarly with $F\circ G$ and $\text{id}_\mD$ in $\text{Func}(\mD,\mD)$. It is easy to see that adjunction is a weaker notion than equivalence of infinity categories. Indeed, if $\eta:\text{id}_\mC\Rightarrow G\circ F$ is an equivalence for the two objects in $\text{Func}(\mC,\mC)$, 
+
+\pagebreak
+\section{Limits and Colimits in Infinity Categories}
+\subsection{Limits and Colimits}
+Limit in infinity categories = final object of over category. \\
+Colimits in infinity categories = initial object of under category. \\
+
+Unique up to a contractible Kan complex (similar to limits in ordinary category are unique up to isomorphism)\\
+
+If $\mC$ is a topological category then limit / colimit in $N(\mC)$ = homotopy limit / colimit in $\mC$
+
+
+
+
+
+
+\begin{defn}{Functor of Constant Diagrams}{} Let $K$ be a simplicial set. Let $\mC$ be an infinity category. Define the functor of constant diagram to be the induced map of $K\to\{0\}$ given by $$\Delta:\mC\simeq\text{Func}(\{0\},\mC)\to\text{Func}(K,\mC)$$
+\end{defn}
+
+Explicitly, the functor sends $n$-simplicies in the following way: $$\Hom_\bold{sSet}(\Delta^n,\mC)\to\Hom_\bold{sSet}(K\times\Delta^n,\mC)$$ induced by the projection map $K\times\Delta^n\to\Delta^n$. In particular, notice that for $X\in\mC$ an object, $\Delta X$ is precisely the unique morphism from $K$ to the simplicial set $\{X\}$. 
+
+\begin{defn}{Limits in Infinity Categories}{} Let $K,\mC$ be infinity categories. Let $F:K\to\mC$ be a morphism. Let $X\in\mC$ be an object. We say that $X$ is the limit of $F$ if there exists a natural transformation $u:\Delta X\Rightarrow F$ such that there is a homotopy equivalence of Kan complexes \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{\Hom_\mC(X,Y)} & {\Hom_{\Hom_\bold{sSet}(K,\mC)}(\Delta X,\Delta Y)} & {\Hom_{\Hom_\bold{sSet}(K,\mC)}(\Delta X,F)}
+	{\Hom_\mC(Z,X)} & {\Hom_{\text{Func}(K,\mC)}(\Delta Z,\Delta X)} & {\Hom_{\text{Func}(K,\mC)}(\Delta Z,F)}
 	\arrow["\Delta", from=1-1, to=1-2]
 	\arrow["{[u]\circ -}", from=1-2, to=1-3]
 \end{tikzcd}}\\~\\
-is a homotopy equivalence of simplicial sets. 
+for all objects $Z\in\mC$. 
 \end{defn}
 
 TBA: If $K,\mC$ are nerves of ordinary category, then the above definition recovers the usual notion of limits. 
 
-\subsection{Equivalent Formulations of the (Co)Limit}
-\begin{prp}{}{} Let $K$ be a Kan complex. Let $\mC$ be an infinity category. Let $F:K\to\mC$ be a functor. Let $X\in\mC$ be an object. 
+\begin{defn}{Colimits in Infinity Categories}{} Let $K$ be a simplicial set. Let $\mC$ be an infinity category. Let $F:K\to\mC$ be a morphism. Let $Y\in\mC$ be an object. We say that $Y$ is the colimit of $F$ if there exists a natural transformation $u:F\Rightarrow\Delta Y$ such that there is a homotopy equivalence of Kan complexes \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\Hom_\mC(Y,Z)} & {\Hom_{\text{Func}(K,\mC)}(\Delta Y,\Delta Z)} & {\Hom_{\text{Func}(K,\mC)}(F,\Delta Z)}
+	\arrow["\Delta", from=1-1, to=1-2]
+	\arrow["{-\circ[u]}", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+for all objects $Z\in\mC$. 
+\end{defn}
+
+\begin{prp}{}{} Let $K$ be a simplicial set. Let $\mC$ be an infinity category. Let $F:K\to\mC$ be a morphism. Then then following are true. 
 \begin{itemize}
-\item $X$ the limit of $F$ exhibited by $u:\Delta X\Rightarrow F$ if and only if $u$ is the final object in $$\mC\times_{\Hom_\bold{sSet}(\{0\},\Hom_\bold{sSet}(K,\mC))}\Hom_\bold{sSet}(\Delta^1,\Hom_\bold{sSet}(K,\mC))\times_{\Hom_\bold{sSet}(\{1\},\Hom_\bold{sSet}(K,\mC))}\{u\}$$
+\item Suppose that $X\in\mC$ is a limit of $F$. An object $Z\in\mC$ is a limit of $F$ if and only if $X$ and $Z$ are isomorphic. 
+\item Suppose that $Y\in\mC$ is a colimit of $F$. An object $Z\in\mC$ is a colimit of $F$ if and only if $Y$ and $Z$ are isomorphic. 
 \end{itemize}
 \end{prp}
 
+It follows that limits and colimits of a functor $F:K\to\mC$ is unique up to isomorphism. 
+
+\begin{prp}{}{} Let $K$ be a Kan complex. Let $\mC$ be an infinity category. Let $F:K\to\mC$ be a functor. Let $X\in\mC$ be an object. 
+\begin{itemize}
+\item $X$ is a limit of $F$ exhibited by $u:\Delta X\Rightarrow F$ if and only if $u$ is the final object in the pullback of the diagram $$\mC\times_{\text{Func}(\{0\},\text{Func}(K,\mC))}\text{Func}(\Delta^1,\text{Func}(K,\mC))\times_{\text{Func}(\{1\},\text{Func}(K,\mC))}\{F\}$$
+\end{itemize}
+\end{prp}
+
+\subsection{Recognizing (Co)Limits as Homotopy (Co)Limits}
+\begin{prp}{}{} Let $\mJ$ be a small category. Let $F:\mJ\to\bold{Kan}$ be a diagram of Kan complexes. Then $X\in\bold{Kan}$ is a the homotopy limit of $F$ if and only if $N_\bullet^\text{hc}(X)$ is the (infinity categorical) limit of the diagram $N_\bullet^\text{hc}(F)$ in $\mS=N_\bullet^\text{hc}(\bold{Kan})$. 
+\end{prp}
+
+Kerodon 7.5.4.5 (Unsure which model structure)
+
+\subsection{Some Properties of Limits and Colimits}
+\begin{prp}{}{} The infinity categories $\mS$ and $\bold{Cat}_\infty$ is complete and cocomplete. 
+\end{prp}
+
+Fabian I.35
+
+\begin{prp}{}{} Let $\mC,\mD,\mE$ be infinity categories. Let $F:\mD\to\mE$ be a functor. Then the induced functor $$-\circ F:\text{Func}(\mE,\mC)\to\text{Func}(\mD,\mC)$$ preserves limits and colimits. 
+\end{prp}
+
+In particular, by choosing the inclusion functor $\{d\}\hookrightarrow\mD$, we obtain the (co)limit preserving functor $$\text{ev}_d:\text{Func}(\mD,\mC)\to\text{Func}(\{d\},\mC)\simeq\mC$$ Now given any diagram $X:K\to\text{Func}(\mD,\mC)$ that admits a limit, we can compute the value $\left(\lim_K X\right)(d)$ because we have $$\left(\lim_K X\right)(d)=\text{ev}_d\left(\lim_KX\right)=\lim_K(\text{ev}_d\circ X)$$ where the limit on the right is now a limit in $\mC$, whose diagram is given by $F(d)$ for all $F$ in the image of $X$. (I.39 Fabian)
+
+\pagebreak
+\section{Infinity Groupoids}
+\subsection{}
+Let $\mC$ be an ordinary category. Recall that $\mC$ is said to be a groupoid if every morphism in $\mC$ is an isomorphism. 
+
+\begin{defn}{Infinity Groupoids}{} Let $\mC$ be an infinity category. We say that $\mC$ is an infinity groupoid if $h(\mC)$ is a groupoid. 
+\end{defn}
+
+\begin{prp}{}{} Let $\mC$ be an infinity category. $\mC$ is an infinity groupoid if and only if $\mC$ is a Kan complex. 
+\end{prp}
+Ref: HTT1.2.5.1
 
 \pagebreak
 \section{Relation to Model Categories}

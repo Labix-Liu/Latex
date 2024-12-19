@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  26 NOV 2024 17:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  10 DEC 2024 04:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -950,7 +950,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 253.
+Package hyperref Info: Option `colorlinks' set `true' on input line 255.
 ) (Algebraic Geometry 1.aux)
 \openout1 = `"Algebraic Geometry 1.aux"'.
 
@@ -1114,36 +1114,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 579--580
 
  []
 
-[21] [22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 618--619
+[21] [22] [23] [24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 618--619
-
- []
-
-[24] [25] [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 725--726
-
- []
-
-[28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]
-[43] [44] [45] [46] [47] [48] (Algebraic Geometry 1.aux)
+[26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40]
+[41] [42] [43] [44] [45] [46] [47] [48] [49] (Algebraic Geometry 1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Algebraic Geometry 1".out' has not changed.
 
-(rerunfilecheck)             Checksum: 6C3368770B4AA52B1D91401974EB36AB;10190.
+(rerunfilecheck)             Checksum: 796BC6A8979453DC7A9632ADB4465D71;10774.
  ) 
 Here is how much of TeX's memory you used:
- 33024 strings out of 474424
- 649871 string characters out of 5741739
+ 33021 strings out of 474424
+ 649795 string characters out of 5741739
  1965496 words of memory out of 5000000
- 54553 multiletter control sequences out of 15000+600000
+ 54554 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,17n,120p,1209b,1439s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1165,9 +1155,9 @@ nts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Geometry 1.pdf" (48 pages, 583035 bytes).
+Output written on "Algebraic Geometry 1.pdf" (49 pages, 589703 bytes).
 PDF statistics:
- 869 PDF objects out of 1000 (max. 8388607)
- 299 named destinations out of 1000 (max. 500000)
- 429 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 874 PDF objects out of 1000 (max. 8388607)
+ 295 named destinations out of 1000 (max. 500000)
+ 437 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -10,21 +10,26 @@
 \contentsline {subsection}{\numberline {2.2}The Singular Functor}{9}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Normalized Chain Complexes}{10}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Bar Resolutions}{11}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Kan Complexes}{12}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Horns, Fillers and Kan Complexes}{12}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Kan Fibrations}{12}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Anodyne Morphisms}{13}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}$\text {Ex}^\infty $ and the Subdivision Functor}{13}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Weak Factorization}{13}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}(Co)Fibrant Replacements}{13}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Simplicial Homotopy Theory}{14}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Homotopy of Simplicial Sets}{14}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Homotopy between Vertices}{15}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}The Simplicial Homotopy Groups}{15}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Homotopy Limits and Colimits}{17}{section.5}%
-\contentsline {subsection}{\numberline {5.1}The Standard Homotopy Pullback and Pushout}{17}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Homotopy Pullback and Pushout Squares}{17}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Recognizing Homotopy Pullbacks and Pushouts}{17}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Constructing a Category from Simplicial Sets}{19}{section.6}%
-\contentsline {subsection}{\numberline {6.1}The Nerve of a Category}{19}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}The Homotopy Category of a Simplicial Set}{19}{subsection.6.2}%
+\contentsline {section}{\numberline {3}Introduction to Kan Complexes}{13}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Horns and Fillers}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Kan Complexes}{13}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Lifting Properties}{14}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Kan Fibrations}{14}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Simplicial Homotopy Theory}{15}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Homotopy of Simplicial Sets}{15}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Homotopy between Vertices}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}The Simplicial Homotopy Groups}{16}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Homotopy Limits and Colimits}{18}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The Standard Homotopy Pullback and Pushout}{18}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Homotopy Pullback and Pushout Squares}{18}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Recognizing Homotopy Pullbacks and Pushouts}{18}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Topics in Kan Complexes}{20}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Anodyne Morphisms}{20}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Trivial Kan Fibrations}{20}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Trivial Kan Fibrations and Contractible Kan Complexes}{21}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}$\text {Ex}^\infty $ and the Subdivision Functor}{21}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Weak Factorization}{21}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}(Co)Fibrant Replacements}{21}{subsection.6.6}%
+\contentsline {section}{\numberline {7}Constructing a Category from Simplicial Sets}{23}{section.7}%
+\contentsline {subsection}{\numberline {7.1}The Nerve of a Category}{23}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}The Homotopy Category of a Simplicial Set}{24}{subsection.7.2}%

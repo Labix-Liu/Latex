@@ -33,12 +33,12 @@ Potentially good books: Humphreys, Erdmann and Wildson
 
 Consider the cross product $\times:\R^3\times\R^3\to\R^3$ in $\R^3$. It is easy to see that it is a Lie bracket. 
 
-\begin{defn}{Lie Algebras}{} A Lie algebra is a vector space $V$ over a field $K$ together with a Lie bracket $[-,-]:V\times V\to V$. 
+\begin{defn}{Lie Algebras}{} A Lie algebra is a vector space $V$ over a field $K$ together with a Lie bracket $$[-,-]:V\times V\to V$$
 \end{defn}
 
 For $k$ a field, $M_n(k)$ for any $n\geq 1$ is a Lie algebra with Lie bracket defined as $[A,B]=AB-BA$ for $A,B\in M_n(k)$. 
 
-\begin{lmm}{}{} Let $L$ be a Lie Algebra. Then for all $x,y\in L$, we have that $$[x,y]=-[y,x]$$ In other words, the Lie bracket is anti-commutative. 
+\begin{lmm}{}{} Let $L$ be a Lie Algebra. Then for all $x,y\in L$, we have that $$[x,y]=-[y,x]$$ In other words, the Lie bracket is anti-commutative. \tcbline
 \begin{proof}
 We have that 
 \begin{align*}
@@ -54,15 +54,25 @@ Lie Algebras are not algebras (in the sense of Rings and Modules) because the Li
 
 While Lie Algebras are not in general algebras, every associative algebra can be equipped with a Lie algebra. For $A$ an associative algebra over a field, we can define a bilinear map on $A$ by $$[a,b]=ab-ba$$ for all $a,b\in A$. There may also be more than one way to equip an algebra with a Lie algebra structure. One should not think that Lie Algebras encompasses associative algebras because of the different Lie algebras one can equip. Instead, we think of the Lie bracket as an extra structure on associative algebras such that they become Lie algebras. 
 
+\begin{eg}{}{} Let $V$ be a vector space. Then map $[-,-]:GL(V)\times GL(V)\to GL(V)$ defined by $$[A,B]=AB-BA$$ gives $GL(V)$ the structure of a Lie algebra. \tcbline
+\begin{proof}
+Let $A\in GL(V)$. Then $[A,A]=A^2-A^2=0$ so that the alternating property is satisfied. For the Jacobi identity, we have that 
+\begin{align*}
+[[A,B],C]+[[B,C],A]+[[C,A],B]&=[A,B]C-C[A,B]+[B,C]A-A[B,C]+[C,A]B-B[C,A]\\
+&=ABC-BAC-CAB+CBA+BCA-CBA\\
+&\;\;\;\;-ABC+ACB+CAB-ACB-BCA+BAC\\
+&=0
+\end{align*}
+for all $A,B,C\in GL(V)$. 
+\end{proof}
+\end{eg}
+
 \begin{defn}{Structure Constants}{} Let $L$ be a Lie algebra such that its underlying vector space has basis $e_1,\dots,e_n$. Define the structure constants of $L$ to be the elements $c_{ij}^k\in\F$ such that $$[e_i,e_j]=\sum_{k=1}^nc_{ij}^ke_k$$ for all $1\leq i,j\leq n$. 
 \end{defn}
 
 The structure constants are useful in the following sense. Let $L$ be a Lie algebra and let $a=\sum_{k=1}^na_ke_k$ and $b=\sum_{k=1}^nb_ke_k$ be elements of $L$. Then there Lie bracket can be written as $$[a,b]=\sum_{1\leq i<j\leq n}(a_ib_j-a_jb_i)[e_i,e_j]$$ by bilinearity. Plugging in the structure constants, we obtain $$[a,b]=\sum_{1\leq i<j\leq n}(a_ib_j-a_jb_i)\sum_{k=1}^nc_{ij}^ke_k$$ Thus we can write $[a,b]$ in terms of the basis $e_1,\dots,e_n$ using structure constants. 
 
-\subsection{Homomorphisms and Ideals}
-\begin{defn}{Homomorphism of Lie algebra}{} Let $V$ and $W$ be Lie algebras over $K$. A homomorphism from $V$ to $W$ is an $K$-linear map $F:V\to W$ such that $$[F(a),F(b)]=[a,b]$$ for all $a,b\in V$. 
-\end{defn}
-
+\subsection{Lie Subalgebras and Ideals}
 \begin{defn}{Lie Subalgebra}{} Let $V$ be a Lie algebra over $K$. A lie subalgebra of $V$ is a subset $W\subseteq V$ such that 
 \begin{itemize}
 \item $W$ is a vector subspace of $V$
@@ -70,7 +80,10 @@ The structure constants are useful in the following sense. Let $L$ be a Lie alge
 \end{itemize}
 \end{defn}
 
-It is clear that a Lie subalgebra is also a Lie algebra in its own right. Moreover, the inclusion $map W\to V$ is a Lie algebra homomorphism. 
+It is clear that a Lie subalgebra is also a Lie algebra in its own right. 
+
+\begin{eg}{}{} Let $V$ be a vector space. Then $SL(V)$ is a Lie subalgebra of $GL(V)$. 
+\end{eg}
 
 \begin{defn}{Ideal}{} Let $V$ be a Lie algebra over $K$. Let $I$ be a subset of $V$. Then $I$ is an ideal of $V$ if the following are true. 
 \begin{itemize}
@@ -85,57 +98,57 @@ It is clear from definitions that every ideal of a Lie algebra is a Lie subalgeb
 \begin{itemize}
 \item The intersection $I\cap J$
 \item The sum $I+J=\{i+j\;|\;i\in I\text{ and }j\in J\}$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item It is clear that $I\cap J$ is a vector subspace of $V$. Since $I$ is an ideal, $[V,I\cap J]\subseteq [V,I]\subseteq I$. Similarly, $[V,I\cap J]\subseteq[V,J]\subseteq J$. Hence $[V,I\cap J]\subseteq I\cap J$. 
+\item It is clear that $I+J$ is a vector subspace of $V$. Let $i+j\in I+J$. Let $v\in V$. Then we have $$[v,i+j]=[v,i]+[v,j]\in I+J$$ Hence $I+J$ is an ideal of $V$. 
 \end{itemize}
+\end{proof}
 \end{prp}
 
 \begin{defn}{The Lie Bracket}{} Let $V$ be a Lie algebra. Let $I,J$ be ideals of $V$. Define the Lie bracket of $I$ and $J$ to be $$[I,J]=\langle[i,j]\;|\;i\in I\text{ and }j\in J\rangle$$
 \end{defn}
 
-\begin{lmm}{}{} Let $V$ be a Lie algebra. Let $I,J$ be ideals of $V$. Then the Lie bracket $[I,J]$ is an ideal of $V$. 
+\begin{lmm}{}{} Let $V$ be a Lie algebra. Let $I,J$ be ideals of $V$. Then the Lie bracket $[I,J]$ is an ideal of $V$. \tcbline
+\begin{proof}
+By definition, $[I,J]$ is a vector subspace of $V$. Let $v\in V$ and $\sum_{k=1}^na_k[i_k,j_k]\in[I,J]$. Then we have
+\begin{align*}
+\left[v,\sum_{k=1}^na_k[i_k,j_k]\right]&=\sum_{k=1}^na_k[v,[i_k,j_k]]\\
+&=\sum_{k=1}^na_k[v,[i_k,j_k]]\\
+&=-\sum_{k=1}^na_k[[i_k,j_k],v]\\
+&=-\sum_{k=1}^na_k\left(-[[j_k,v],i_k]-[[v,i_k],j_k]\right)\\
+&=-\sum_{k=1}^na_k\left([[v,j_k],i_k]-[[v,i_k],j_k]\right)\\
+&=\sum_{k=1}^na_k\left([[v,i_k],j_k]-[[v,j_k],i_k]\right)\\
+\end{align*}
+Since $I$ and $J$ are ideals, $s_k=[v,i_k]\in I$ and $t_k=[v,j_k]\in J$. We now have $$\left[v,\sum_{k=1}^na_k[i_k,j_k]\right]=\sum_{k=1}^na_k\left([s_k,j_k]-[t_k,i_k]\right)$$ But $[s_k,j_k],[t_k,i_k]$ are generators of $[I,J]$. Hence the sum also lies in $[I,J]$. 
+\end{proof}
 \end{lmm}
 
-\subsection{Products and Quotients of Lie Algebras}
-\begin{defn}{Direct Sum of Lie Algebras}{} Let $L_1$ and $L_2$ be Lie algebras. Define the direct sum of $L_1$ and $L_2$ by $$L_1\oplus L_2=\{(a_1,a_2)\;|\;a_1\in L_1,a_2\in L_2\}$$ together with component wise addition and scalar multiplication and Lie bracket operation $$[(a_1,a_2),(b_1,b_2)]=([a_1,b_1],[a_2,b_2])$$ which is component wise application of the Lie bracket for $(a_1,a_2),(b_1,b_2)\in L_1\oplus L_2$. 
+\subsection{Lie Algebra Homomorphisms}
+\begin{defn}{Homomorphism of Lie algebra}{} Let $V$ and $W$ be Lie algebras over a field $K$. A homomorphism from $V$ to $W$ is an $K$-linear map $F:V\to W$ such that $$[F(a),F(b)]=F\left([a,b]\right)$$ for all $a,b\in V$. 
 \end{defn}
 
-\begin{prp}{}{} Let $L_1$ and $L_2$ be Lie algebras. Then the following are true. 
-\begin{itemize}
-\item $[L_1\oplus L_2,L_1\oplus L_2]=[L_1,L_1]\oplus[L_2,L_2]$
-\item $\{(x,0)\;|\;x\in L_1\}\cong L_1$ is an ideal of $L_1\oplus L_2$
-\item $\{(0,y)\;|\;y\in L_2\}\cong L_2$ is an ideal of $L_1\oplus L_2$
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Let $V$ be a Lie algebra over $K$ and $U$ an ideal of $V$. Then $V/U$ has a unique Lie algebra structure such that the quotient map $V\to V/U$ is a Lie algebra homomorphism. 
-\end{prp}
-
-\subsection{The Center and Centralizers of a Lie Algebra}
-\begin{defn}{Center of a Lie Algebra}{} Let $L$ be a Lie algebra. Define the center of $L$ by $$Z(L)=\{z\in L\;|\;[z,x]=0\text{ for all }x\in L\}$$
+\begin{defn}{Kernel of a Lie Algebra Homomorphism}{} Let $V$ and $W$ be Lie algebras over a field $K$. Let $F:V\to W$ be a Lie algebra homomorphism. Define the kernel of $F$ to be $$\ker(F)=\{v\in V\;|\;F(v)=0_W\}$$
 \end{defn}
 
-\begin{lmm}{}{} Let $L$ be a Lie algebra. Then $Z(L)$ is an ideal of $L$. 
+\begin{lmm}{}{} Let $V$ and $W$ be Lie algebras over a field $K$. Let $F:V\to W$ be a Lie algebra homomorphism. Then $\ker(F)$ is a Lie subalgebra of $V$. \tcbline
+\begin{proof}
+It is clear that $\ker(F)$ is a vector subspace of $V$. Let $k_1,k_2\in\ker(F)$. Then we have 
+\begin{align*}
+F([k_1,k_2])&=[F(k_1),F(k_2)]\tag{$F$ is a Lie algebra homomorphism}\\
+&=[0,0]\\
+&=0
+\end{align*}
+Hence $[k_1,k_2]\in\ker(F)$ and $\ker(F)$ is a Lie subalgebra of $V$. 
+\end{proof}
 \end{lmm}
 
-\begin{prp}{}{} Let $L_1,L_2$ be Lie algebras over the same field $K$. Then $$Z(L_1\oplus L_2)=Z(L_1)\oplus Z(L_2)$$
-\end{prp}
-
-\begin{defn}{The Centralizer of a Subset}{} Let $L$ be a Lie algebra. Let $A\subseteq L$ be a subset. Define the centralizer of $A$ in $L$ to be the set $$C_L(A)=\{x\in L\;|\;[x,a]=0\text{ for all }a\in A\}$$
+\begin{defn}{Isomorphisms of Lie Algebras}{} Let $V$ and $W$ be Lie algebras over a field $K$. Let $F:V\to W$ be a Lie algebra homomorphism. We say that $F$ is a Lie algebra isomorphism if $F$ is an isomorphism of underlying vector spaces and the inverse of $F$ is a Lie algebra homomorphism. 
 \end{defn}
 
-\begin{lmm} Let $L$ be a Lie algebra. Let $A\subseteq L$ be a subset. Then $C_L(A)$ is a Lie subalgebra of $L$. 
-\end{lmm}
-
-\subsection{The Adjoint Homomorphism}
-\begin{defn}{The Adjoint Homomorphism}{} Let $V$ be a Lie algebra. Define the adjoint homomorphism $\text{ad}:V\to GL(V)$ to be the map given by $$\text{ad}(x)(y)=[x,y]$$
+\begin{defn}{Isomorphisms of Lie Algebras}{} Let $V$ and $W$ be Lie algebras over a field $K$. We say that $V$ and $W$ are isomorphic Lie algebras if there exists an isomorphism of Lie algebras $F:V\to W$. 
 \end{defn}
-
-\begin{lmm}{}{} Let $V$ be a Lie algebra. Then then the adjoint homomorphism $\text{ad}:V\to GL(V)$ is a Lie algebra homomorphism. 
-\end{lmm}
-
-\begin{lmm}{}{} Let $V$ be a Lie algebra. Then the kernel of the adjoint homomorphism is equal to $$\ker(\text{ad})=Z(V)$$ the center of $V$. 
-\end{lmm}
-
-\subsection{The Isomorphism Theorems}
 \begin{thm}{First Isomorphism Theorem}{} Let $\phi:L_1\to L_2$ be a homomorphism of Lie algebras. Then the following are true. 
 \begin{itemize}
 \item $\ker(\phi)$ is an ideal of $L_1$
@@ -158,15 +171,90 @@ Moreover, we have an isomorphism $$\frac{I+J}{J}\cong\frac{I}{I\cap J}$$
 \begin{thm}{Correspondence Theorem}{} Let $L$ be a Lie algebra with ideal $I$. Then there exists a bijective correspondence $$\{J\;|\;J\text{ is an ideal of }L\text{ and }I\subseteq J\}\;\;\;\;\overset{1:1}{\longleftrightarrow}\;\;\;\;\{K\;|\;K\text{ is an ideal of }L/I\}$$
 \end{thm}
 
+\subsection{Products and Quotients of Lie Algebras}
+\begin{defn}{Direct Sum of Lie Algebras}{} Let $L_1$ and $L_2$ be Lie algebras. Define the direct sum of $L_1$ and $L_2$ by $$L_1\oplus L_2=\{(a_1,a_2)\;|\;a_1\in L_1,a_2\in L_2\}$$ together with component wise addition and scalar multiplication and Lie bracket operation $$[(a_1,a_2),(b_1,b_2)]=([a_1,b_1],[a_2,b_2])$$ which is component wise application of the Lie bracket for $(a_1,a_2),(b_1,b_2)\in L_1\oplus L_2$. 
+\end{defn}
+
+\begin{prp}{}{} Let $L_1$ and $L_2$ be Lie algebras. Then the following are true. 
+\begin{itemize}
+\item $[L_1\oplus L_2,L_1\oplus L_2]=[L_1,L_1]\oplus[L_2,L_2]$
+\item $\{(x,0)\;|\;x\in L_1\}\cong L_1$ is an ideal of $L_1\oplus L_2$
+\item $\{(0,y)\;|\;y\in L_2\}\cong L_2$ is an ideal of $L_1\oplus L_2$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $V$ be a Lie algebra and $U$ an ideal of $V$. Then $V/U$ has a unique Lie algebra structure such that the quotient map $V\to V/U$ is a Lie algebra homomorphism. 
+\end{prp}
+
+\begin{defn}{Quotient Lie Algebra}{} Let $V$ be a Lie algebra. Let $U$ be an ideal of $V$. Define the quotient Lie algebra to be the set $$V/U=\{v+U\;|\;v\in V\}$$ together with the Lie bracket defined by $[v+U,w+U]=[v,w]+U$. 
+\end{defn}
+
+\subsection{The Centers and Centralizers of Lie Algebras}
+\begin{defn}{Center of a Lie Algebra}{} Let $L$ be a Lie algebra. Define the center of $L$ by $$Z(L)=\{z\in L\;|\;[z,x]=0\text{ for all }x\in L\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Then $Z(L)$ is an ideal of $L$. 
+\end{lmm}
+
+\begin{prp}{}{} Let $L_1,L_2$ be Lie algebras over the same field $K$. Then $$Z(L_1\oplus L_2)=Z(L_1)\oplus Z(L_2)$$
+\end{prp}
+
+\begin{defn}{The Centralizer of a Subset}{} Let $L$ be a Lie algebra. Let $A\subseteq L$ be a subset. Define the centralizer of $A$ in $L$ to be the set $$C_L(A)=\{x\in L\;|\;[x,a]=0\text{ for all }a\in A\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Let $A\subseteq L$ be a subset. Then $C_L(A)$ is a Lie subalgebra of $L$. 
+\end{lmm}
+
+\subsection{The Adjoint Homomorphism}
+\begin{defn}{The Adjoint Homomorphism}{} Let $V$ be a Lie algebra. Define the adjoint homomorphism $\text{ad}:V\to GL(V)$ to be the map given by $$\text{ad}(x)(y)=[x,y]$$
+\end{defn}
+
+\begin{lmm}{}{} Let $V$ be a Lie algebra. Then then the adjoint homomorphism $\text{ad}:V\to GL(V)$ is a Lie algebra homomorphism. \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Linearity: Let $x,y\in V$ and let $a,b\in F$. For any $z\in V$, we have
+\begin{align*}
+\text{ad}(ax+by)(z)&=[ax+by,z]\\
+&=a[x,z]+b[y,z]\\
+&=a\text{ad}(x)(z)+b\text{ad}(y)(z)\\
+&=\left(a\text{ad}(x)+b\text{ad}(y)\right)(z)
+\end{align*}
+so that $\text{ad}:V\to GL(V)$ is a linear map. 
+\item Preserving the Lie bracket: Let $x,y\in V$. For any $z\in V$, we have
+\begin{align*}
+[\text{ad}(x),\text{ad}(y)](z)&=\left(\text{ad}(x)\text{ad}(y)-\text{ad}(y)\text{ad}(x)\right)(z)\\
+&=\text{ad}(x)\left(\text{ad}(y)(z)\right)-\text{ad}(y)\left(\text{ad}(x)(z)\right)\\
+&=\text{ad}(x)([y,z])-\text{ad}(y)([x,z])\\
+&=[x,[y,z]]-[y,[x,z]]\\
+&=-[[y,z],x]+[[x,z],y]\\
+&=-[[y,z],x]-[[z,y],x]-[[y,x],z]\\
+&=-[[y,z],x]+[[y,z],x]-[[y,x],z]\\
+&=[[x,y],z]\\
+&=\text{ad}([x,y])(z)
+\end{align*}
+Thus we have showed that $[\text{ad}(x),\text{ad}(y)]=\text{ad}([x,y])$. 
+\end{itemize}
+\end{proof}
+\end{lmm}
+
+\begin{lmm}{}{} Let $V$ be a Lie algebra. Then the kernel of the adjoint homomorphism is equal to $$\ker(\text{ad})=Z(V)$$ the center of $V$. \tcbline
+\begin{proof}
+Let $k\in\ker(\text{ad})$. Let $v\in V$. Then $[k,v]=\text{ad}(k)(v)=0$ since $\text{ad}(k)=0\in GL(V)$. Hence $k\in Z(V)$. Conversely, if $z\in Z(V)$ then we have $$\text{ad}(z)(v)=[z,v]=0$$ for all $v\in V$. Hence $\text{ad}(z)=0\in GL(V)$ and $z\in\ker(\text{ad})$. 
+\end{proof}
+\end{lmm}
+
 \pagebreak
 \section{Types of Lie Algebras}
 \subsection{Abelian Lie Algebras}
 Lie algebras that are Abelian are the simplest Lie algebra there is to study. 
 
-\begin{defn}{Abelian Lie Algebras}{} Let $(L,[-,-])$ be a Lie algebra. We say that $L$ is abelian if $$[x,y]=0$$ for all $x,y\in L$. 
+\begin{defn}{Abelian Lie Algebras}{} Let $L$ be a Lie algebra. We say that $L$ is abelian if $$[x,y]=0$$ for all $x,y\in L$. 
 \end{defn}
 
-\begin{lmm}{}{} Let $L$ be a Lie algebra. Let $I$ be an ideal of $L$. Then $L/I$ is abelian if and only if $[L,L]\subseteq I$
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Let $I$ be an ideal of $L$. Then $L/I$ is abelian if and only if $$[L,L]\subseteq I$$ \tcbline
+\begin{proof}
+Let $L/I$ be abelian. Let $v,w\in L$. Since $L/I$ is abelian, we have that $[v+I,w+I]=I$. But $[v+I,w+I]=[v,w]+I$ implies that $[v,w]\in I$. Conversely, suppose that $[L,L]\subseteq I$. Then for any $v+I,w+I\in L/I$, $[v+I,w+I]=[v,w]+I=I$. Hence $L/I$ is abelian. 
+\end{proof}
 \end{lmm}
 
 \begin{crl}{}{} Let $L$ be a Lie algebra. Then the smallest ideal $I$ such that $L/I$ is abelian is given by $$I=[L,L]$$
@@ -188,7 +276,10 @@ Let $L$ be a Lie algebra. We have seen that $\text{rad}(L)$ is soluble and $L/\t
 \begin{defn}{Soluble Lie Algebras}{} Let $L$ be a Lie algebra. We say that $L$ is soluble if there exists $n\in\N$ such that $$L^{(n)}=0$$
 \end{defn}
 
-\begin{lmm}{}{} Let $L$ be a Lie algebra. If $L$ is abelian, then $L$ is soluble. 
+\begin{lmm}{}{} Let $L$ be a Lie algebra. If $L$ is abelian, then $L$ is soluble. \tcbline
+\begin{proof}
+Let $L$ be abelian. Then $[L,L]=0$. Hence $L^{(1)}=[L,L]=0$ so that $L$ is soluble. 
+\end{proof}
 \end{lmm}
 
 \begin{eg}{}{} Consider the following Lie lalgebras. 
@@ -273,7 +364,7 @@ By induction, we conclude.
 \end{lmm}
 
 \subsection{Engel's Theorem and Lie's Theorem}
-\begin{defn}{Ad-Nilpotency}{} Let $L$ be a Lie algebra. Let $x\in L$. We say that $x$ is ad-nilpotent if there exists $n\in\N$ such that $$\text{ad}(x)^n=0\in GL(L)$$
+\begin{defn}{Ad-Nilpotency}{} Let $L$ be a Lie algebra. Let $x\in L$. We say that $x$ is ad-nilpotent if $\text{ad}(x)$ is a nilpotent in $GL(V)$. 
 \end{defn}
 
 \begin{lmm}{}{} Let $L$ be Lie algebra. If $L$ is nilpotent, then all elements $x\in L$ are ad-nilpotent. 
@@ -290,16 +381,13 @@ We induct on the dimension of $L$.
 
 \begin{thm}{Engel's Theorem}{} Let $V$ be a vector space. Let $L$ be a Lie subalgebra of $GL(V)$. Suppose that for all $x\in L$, $x$ is ad-nilpotent. Then the following are true. 
 \begin{itemize}
-\item There exists a basis $B$ of $V$ such that every $T\in L$ is upper triangular. 
+\item There exists a basis $B$ of $V$ such that every $T\in L$ is strictly upper triangular. 
 \item $L$ is nilpotent. 
 \end{itemize}
 \end{thm}
 
 \begin{thm}{Lie's Theorem}{} Let $V$ be a vector space over $\C$. Let $L$ be a Lie subalgebra of $GL(V)$. If $L$ is soluble, then there exists a basis $B$ of $V$ such that every $T\in L$ is upper triangular. 
 \end{thm}
-
-\begin{crl}{}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is soluble if and only if $[L,L]$ is nilpotent. 
-\end{crl}
 
 \begin{crl}{}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is soluble if and only if $[L,L]$ is nilpotent. 
 \end{crl}
@@ -311,7 +399,7 @@ We induct on the dimension of $L$.
 \begin{defn}{Radical Ideals}{} Let $L$ be a Lie algebra. Define the radical ideal $\text{rad}(L)\subseteq L$ of $L$ to be the unique soluble ideal of $L$ that contains all other soluble ideals. 
 \end{defn}
 
-\begin{defn}{Semisimple Lie Algebras}{}{} Let $L$ be a Lie algebra. We say that $L$ is semisimple if $$\frac{L}{\text{rad}(L)}=\{0\}$$
+\begin{defn}{Semisimple Lie Algebras}{}{} Let $L$ be a Lie algebra. We say that $L$ is semisimple if $$\text{rad}(L)=\{0\}$$
 \end{defn}
 
 \begin{eg}{}{} Consider the following Lie algebras. 
@@ -328,6 +416,26 @@ Let $K$ be a soluble ideal of $L/\text{rad}(L)$. By the correspondence theorem, 
 \end{proof}
 \end{lmm}
 
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Then $L$ is not semisimple if and only if $L$ contains a non-trivial abelian ideal. \tcbline
+\begin{proof}
+If $L$ is not semisimple, then $\text{rad}(L)\neq\{0\}$ is a non-trivial soluble ideal. This means that there exists a smallest $n\in\N$ such that $\text{rad}(L)^{(n)}=0$. But this is the same as saying that $$[\text{rad}(L)^{(n-1)},\text{rad}(L)^{(n-1)}]=\text{rad}(L)^{(n)}=0$$ This means that $\text{rad}(L)^{(n-1)}$ is an abelian ideal. In particular, it is non-trivial since $n$ is the smallest number for which $\text{rad}(L)^{(n)}$ is zero. \\~\\
+
+If $L$ contains a non-trivial abelian ideal $I$, then by lmm 2.2.4 we have that $I$ is soluble. Hence $I\subseteq\text{rad}(L)$ and $\text{rad}(L)$ is non-zero. Hence $L$ is not semisimple. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $L$ be a Lie algebra. If $L$ is semisimple, then $\dim(L)\geq 3$. \tcbline
+\begin{proof}
+Let $L$ be a $1$-dimensional Lie algebra. Let $x\in L$ be non-zero. Then $L=\langle x\rangle$. For $ax,bx\in\langle x\rangle=L$, we have that $$[ax,bx]=ab[x,x]=0$$ hence $L$ is abelian. By the above lemma, $L$ is not semisimple. \\~\\
+
+Let $L$ be a $2$-dimensional Lie algebra. Suppose that $\{x,y\}$ is a basis for $L$. Then for $ax+by$ and $cx+dy$ in $L$, we have that 
+\begin{align*}
+[ax+by,cx+dy]&=ac[x,x]+ad[x,y]+bc[y,x]+bd[y,y]\\
+&=(ad-bc)[x,y]
+\end{align*}
+\end{proof}
+\end{prp}
+
 \subsection{Simple Lie Algebras}
 \begin{defn}{Simple Lie Algebras}{} Let $L$ be a Lie algebra. We say that $L$ is simple if $L$ is non-abelian and has no proper non-zero ideals. 
 \end{defn}
@@ -339,42 +447,89 @@ Let $K$ be a soluble ideal of $L/\text{rad}(L)$. By the correspondence theorem, 
 \end{defn}
 
 \pagebreak
-\section{The Killing Form and Jordan Decompositions}
-\subsection{The Jordan-Chevalley Decompositions}
-\begin{defn}{Jordan-Chevalley Decompositions}{} Let $k$ be a field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. A Jordan-Chevalley decomposition of $V$ consists of $D,S\in\text{End}(V)$ such that the following are true. 
+\section{Classification of Lie Algebras of Small Dimensions}
+\subsection{1-Dimensional Lie Algebras}
+\begin{prp}{}{} Let $L$ be a Lie algebra of dimension $1$. Then $L$ is abelian. \tcbline
+\begin{proof}
+If $L$ is $1$-dimensional over a field $k$, let $x$ be a spanning element of $L$. Then for $s,t\in L$, there exists $a,b\in k$ such that $s=ax$ and $t=bx$. Now we have that $$[ax,bx]=ab[x,x]=0$$ Hence $L$ is abelian. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $L$ be a Lie algebra over a field $k$ such that $\dim(L)=1$. Then $L$ is isomorphic to $k$ equipped with the trivial Lie bracket. 
+\end{prp}
+
+\subsection{2-Dimensional Lie Algebras}
+\begin{prp}{}{} Let $L$ be a Lie algebra of dimension $2$. Then $L$ is soluble. \tcbline
+\begin{proof}
+If $L$ is abelian, then lmm 2.2.4 implies that $L$ is soluble. So suppose that $L$ is non-abelian. Then $L^{(1)}=[L,L]\neq 0$. Suppose for a contradiction that $[L,L]=L$. Let $v,w\in L$ be non-zero. Define $x=[v,w]$ and extend it to a basis $\{x,y\}$ of $L$. Suppose that $v=ax+by$ and $w=cx+dy$. Then we have that $$x=[v,w]=[ax+by,cx+dy]=(ad-bc)[x,y]$$ Since $[L,L]=L$, there exists $f,g\in L$ such that $[f,g]=y$. Let $f=px+qy$ and $g=rx+sy$. Then we have that $$y=[f,g]=[px+qy,rx+sy]=(ps-qr)[x,y]$$ Then we have that $$\frac{1}{ad-bc}x=[x,y]=\frac{1}{(ps-qr)}y$$ which means that $x$ and $y$ are linearly dependent. This is a contradiction. Hence $[L,L]\neq L$. \\~\\
+
+Since $[L,L]$ is a Lie subalgebra of $L$, $[L,L]$ must be $1$-dimensional. By the classification of $1$-dimensional Lie algebras, $L^{(1)}=[L,L]$ is abelian. Hence $L^{(2)}=[L^{(1)},L^{(1)}]=0$. Thus $L$ is soluble. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $L$ be a Lie algebra over a field $k$ such that $\dim(L)=2$. Then $L$ is isomorphic to one of the following. 
+\begin{itemize}
+\item The vector space $k^2$ together with the trivial Lie bracket $[x,y]=0$. 
+\item The vector space $k^2$ together with the Lie bracket defined by 
+\end{itemize}
+\end{prp}
+
+\subsection{3-Dimensional Lie Algebras}
+
+\pagebreak
+\section{The Killing Form of a Lie Algebra}
+\subsection{The Killing Form}
+Let $A=(a_{i,j})$ be an $n\times n$ matrix. Recall that the trace of $A$ is defined as $$\text{tr}(A)=\sum_{k=1}^na_{k,k}$$ Now let $T:V\to V$ be a linear map. Then we can also define the trace of $T$ abstractly so that any choice of representation of $T$ with a matrix gives coinciding trace. This is also given in Linear Algebra. The formula is $$\text{tr}(T)=\sum_{i=1}^n\langle T(e_i),e_i\rangle$$
+
+\begin{defn}{The Killing Form}{} Let $L$ be a Lie algebra over $\C$. Define the killing form of $L$ to be the function $$k:L\times L\to\C$$ given by $k(x,y)=\text{tr}(\text{ad}(x)\circ\text{ad}(y))$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $\F$ be a field. Let $L$ be a Lie algebra over $\C$. Then the killing form on $L$ is a symmetric bilinear form. \tcbline
+\begin{proof}
+\end{proof}
+\end{lmm}
+
+\begin{lmm}{}{} Let $L$ be a finite dimensional Lie algebra. Let $I$ be an ideal of $L$. If $k$ is the killing form of $L$ and $k|_I$ is the killing form of $I$, then $$k|_I=k|_{I\times I}$$ \tcbline
+\begin{proof}
+Let $I$ be an ideal of $L$ so that $I$ is also a Lie subalgebra of $L$. Let $B_I$ be a basis for $I$. Extend it to a basis $B_L$ of $L$. Let $x\in I$. Then we have a Lie algebra homomorphism $\text{ad}(x):L\to I$ since $[x,z]\in I$ for all $z\in L$. We can then represent $\text{ad}(x)$ in the basis $B$ using the matrix $$T=\begin{pmatrix}
+A_x & B_x\\
+0 & 0
+\end{pmatrix}$$ where $A_x$ is the matrix representing the linear map $\text{ad}(x)|_I:I\to I$. For any $x,y\in I$, we have that 
+\begin{align*}
+k(x,y)&=\text{tr}(\text{ad}(x)\circ\text{ad}(y))\\
+&=\text{tr}\left(\begin{pmatrix}
+A_x & B_x\\
+0 & 0
+\end{pmatrix}\begin{pmatrix}
+A_y & B_y\\
+0 & 0
+\end{pmatrix}\right)\\
+&=\text{tr}\left(\begin{pmatrix}
+A_xA_y & A_xB_y\\
+0 & 0
+\end{pmatrix}\right)\\
+&=\text{tr}(A_xA_y)\\
+&=k_I(x,y)
+\end{align*}
+\end{proof}
+\end{lmm}
+
+\subsection{Cartan's Two Criteria}
+Let $k$ be a field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Recall that a Jordan-Chevalley decomposition of $V$ consists of $D,S\in\text{End}(V)$ such that the following are true. 
 \begin{itemize}
 \item $T=D+S$
 \item $D$ is diagonalizable
 \item $S$ is nilpotent
 \item $SD=DS$
 \end{itemize}
-\end{defn}
 
-We note here that if we consider vector spaces as a $k$-module, then saying $V$ semisimple is the same as saying $V$ is diagonalizable. 
-
-\begin{prp}{}{} Let $k$ be a field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Then $T$ admits a unique Jordan-Chevalley decomposition. 
-\end{prp}
-
-\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Let $D,S\in\text{End}(V)$ be the Jordan-Chevalley decomposition of $T$. Then there exists $p,q\in k[x]$ such that $p(T)=D$ and $q(T)=S$. 
-\end{prp}
-
-\begin{lmm}{}{} Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Let $D,S\in\text{End}(V)$ be the Jordan-Chevalley decomposition of $T$. Then $$\text{ad}(T)=\text{ad}(D)+\text{ad}(S)$$ is the Jordan decomposition of $\text{ad}(T)$. 
+\begin{lmm}{}{} Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Let $D,S\in\text{End}(V)$ be the Jordan-Chevalley decomposition of $T$. Then $$\text{ad}(T)=\text{ad}(D)+\text{ad}(S)$$ is the Jordan decomposition of $\text{ad}(T)$ in $\text{End}(\text{End}(V))$. 
 \end{lmm}
 
-\subsection{The Killing Form}
-\begin{defn}{The Killing Form}{} Let $L$ be a Lie algebra over $\C$. Define the killing form of $L$ to be the function $$k:L\times L\to\C$$ given by $k(x,y)=\text{tr}(\text{ad}(x)\circ\text{ad}(y))$. 
-\end{defn}
-
-\begin{lmm}{}{} Let $\F$ be a field. Let $L$ be a Lie algebra over $\C$. Then the killing form on $L$ is a symmetric bilinear form. 
-\end{lmm}
-
-Recall from Linear algebra that $L$ is now an inner product space when equipped with the killing form. 
-
-\begin{lmm}{}{} Let $L$ be a Lie algebra. Let $I$ be an ideal of $L$. If $k$ is the killing form of $L$ and $k|_I$ is the killing form of $I$, then $$k|_I=k|_{I\times I}$$
-\end{lmm}
-
-\subsection{Cartan's Criterion}
-\begin{prp}{}{} Let $V$ be a finite dimensional vector space over $\C$. Let $L$ be a Lie subalgebra of $GL(V)$. If $\text{tr}(xy)=0$ for all $x,y\in L$, then $L$ is soluble. 
+\begin{prp}{}{} Let $V$ be a finite dimensional vector space over $\C$. Let $L$ be a Lie subalgebra of $GL(V)$. If $\text{tr}(xy)=0$ for all $x,y\in L$, then $L$ is soluble. \tcbline
+\begin{proof}
+Let $x\in [L,L]$. 
+\end{proof}
 \end{prp}
 
 \begin{thm}{Cartan's First Criterion}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is soluble if and only if $k(x,y)=0$ for all $x\in L$ and $y\in[L,L]$. 
@@ -385,30 +540,51 @@ Let $L$ be a Lie algebra. The killing form allows $L$ to be an inner product spa
 \begin{lmm}{}{} Let $L$ be a Lie algebra over $\C$. Let $I$ be an ideal of $I$. Then $I^\perp$ is an ideal of $L$. 
 \end{lmm}
 
-Recall from Linear Algebra that a bilinear form is non-degenerate if  if $$\{v\in V\;|\;\tau(v,w)=0\text{ for all }w\in V\}=0$$ Because the killing form is symmetric bilinear, this is the same as saying the orthogonal complement $V^\perp=0$. 
+Recall from Linear Algebra that a bilinear form is non-degenerate if  if $$V^\perp=\{v\in V\;|\;\tau(v,w)=0\text{ for all }w\in V\}=0$$ Because the killing form is symmetric bilinear, this is the same as saying the orthogonal complement $V^\perp=0$. 
 
-\begin{thm}{Cartan's Second Criterion}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is semisimple if and only if $k$ is non-degenerate. 
+\begin{thm}{Cartan's Second Criterion}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is semisimple if and only if $k$ is non-degenerate. \tcbline
+\begin{proof}
+Assume that $k$ is degenerate. Then $L^\perp\neq\{0\}$ and hence a non-trivial ideal of $L$. Let $x\in L^\perp$ and $y\in[L^\perp,L^\perp]\subseteq L$. Then $k(x,y)=0$ by definition of $L^\perp$. Then $k_{L^\perp}=0$. By Cartan's first criterion, $L^\perp$ is soluble. Hence $L^\perp\subseteq\text{rad}(L)$ and $L$ is not semisimple. \\~\\
+
+Now suppose that $L$ is not semisimple. Then $L$ contains a non-trivial abelian ideal $I$. Let $x\in L$ and $i\in I$. Then we have that $$\left(\text{ad}(i)\circ\text{ad}(x)\circ\text{ad}(i)\right)(y)=[i,[x,[i,y]]]=0$$ for any $y\in L$ because $[x,[i,y]]\in I$ and $I$ is abelian. Applying $\text{ad}(x)$ on both sides show that $$\left(\text{ad}(x)\circ\text{ad}(i)\right)^2=0$$ Thus $\text{ad}(x)\circ\text{ad}(i)$ is nilpotent in $\text{End}(L)$. By Engel's theorem, we can find a basis of $L$ such that $\text{ad}(x)\circ\text{ad}(i)$ is strictly upper triangular. This means that $k(x,i)=\text{tr}(\text{ad}(x)\circ\text{ad}(i))=0$. But this means that $I\subseteq L^\perp$ since $i\in I\subseteq L$ is such that $k(i,x)=0$ for all $x\in L$. Since $I$ is non-trivial, $L^\perp$ is non-trivial. Thus $k$ is degenerate. 
+\end{proof}
 \end{thm}
 
 \begin{lmm}{}{} Let $L$ be a Lie algebra over $\C$. Let $I$ be an ideal of $L$. If $L$ is semisimple, then the following are true. 
 \begin{itemize}
+\item $I\cap I^\perp=\{0\}$
 \item $L=I\oplus I^\perp$ as Lie algebras
-\item $I$ and $I^\perp$ are semisimple. 
+\item $I$ and $I^\perp$ are semisimple
 \end{itemize}
 \end{lmm}
 
-\begin{thm}{}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is semisimple if and only if there exists simple ideals $I_1,\dots,I_k$ of $L$ such that $$L=I_1\oplus\cdots\oplus I_k$$
+\begin{thm}{}{} Let $L$ be a Lie algebra over $\C$. Then $L$ is semisimple if and only if there exists simple ideals $I_1,\dots,I_k$ of $L$ such that $$L=I_1\oplus\cdots\oplus I_k$$ \tcbline
+\begin{proof}
+Suppose that $L$ is semisimple. We induct on the dimension of $L$. We have seen that $1$-dimensional and $2$-dimensional Lie algebras cannot be semisimple. So we begin with the base case $\dim(L)=3$. If $L$ has a proper non-trivial ideal $I$, then $I$ is either $1$-dimensional or $2$-dimensional. Then $I$ is soluble by the classification theorems. This means that $I\subseteq\text{rad}(L)$ is non-zero. This is a contradiction since we assumed that $L$ is semisimple. Hence $L$ has no proper non-trivial ideals. Hence $L$ is simple. \\~\\
+
+Now suppose the result holds for all Lie algebras of dimension $<n$. Let $\dim(L)=n$. Let $I$ be a non-zero minimal ideal of $L$. By lmm 4.2.6, $L=I\oplus I^\perp$ where $I$ and $I^\perp$ are both semisimple. If $L=I$ then we are done. If $L\neq I$ then $I$ has dimension strictly less than $n$. By inductive hypothesis, there exists simple ideals $I_1,\dots,I_k$ of $I$ and simple ideals $J_1,\dots,J_s$ such that $$I=\bigoplus_{i=1}^k I_i\;\;\;\;\text{ and }\;\;\;\;I^\perp=\bigoplus_{j=1}^sJ_j$$ Now we want to show that $I_i$ and $J_j$ are ideals of $L$. Let $x\in L$. Then $x=a+b$ for $a\in I$ and $b\in I^\perp$. If $z\in I_i$, then $$[x,z]=[a,z]+[b,z]=[a,z]\in I_i$$ since $[b,z]\in I\cap I^\perp=\{0\}$. Similarly, one can show that $[x,r]\in J_j$ whenever $r\in J_j$. Thus $I_i$ and $J_j$ are ideals of $L$. Hence we obtain a direct sum decomposition $$L=I\oplus I^\perp=\bigoplus_{i=1}^kI_i\oplus\bigoplus_{j=1}^sJ_j$$ Thus the induction is complete. \\~\\
+
+Now let $L=\bigoplus_{j=1}^kI_j$. Assume that $\text{rad}(L)\neq\{0\}$. This means that $R_j=\text{rad}(L)\cap I_j$ is a soluble ideal of $L$ and $I_j$. Since $I_j$ is simple, $I_j$ is semisimple. Hence $R_j=\{0\}$ so that $$[R,I_j]\subseteq R\cap I_j=R_j=\{0\}$$ Let $x\in R$ and $y\in L$. Then we can write $y$ as $y=y_1+\dots+y_k$ for $y_j\in I_j$. Since $[R,I_j]=\{0\}$, we have that $[x,y_j]=0$ so that $[x,y]=0$. Thus $x\in Z(L)$. This means that $R\subseteq Z(L)$. But $Z(L)$ is abelian so $Z(L)\subseteq R$. Hence $R=Z(L)$. By prp 1.5.3, we have that $$Z(L)=\bigoplus_{j=1}^kZ(I_j)=\{0\}\oplus\cdots\oplus\{0\}=\{0\}$$ Hence $R=\{0\}$ and $L$ is semisimple. 
+\end{proof}
 \end{thm}
 
-\subsection{Derivations of Lie Algebras}
+Given a Lie algebra $L$ over $\C$, the following are now equivalent. 
+\begin{itemize}
+\item $L$ is semisimple ($\text{rad}(L)=\{0\}$)
+\item $L$ contains no non-zero abelian ideals. 
+\item The killing form $k:L\times L\to L$ is non-degenerate. 
+\item $L$ decomposes into a finite direct sum of simple Lie algebras. 
+\end{itemize}
+
+
+\pagebreak
+\section{Special Subalgebras of a Lie Algebra}
+\subsection{Derivations of Lie Algebras and Abstract Jordan Decomposition}
 \begin{defn}{Derivations}{} Let $L$ be a Lie algebra over $\F$. Let $\phi:L\to L$ be a Lie algebra homomorphism. We say that $\phi$ is a derivation if $$\phi([a,b])=[a,\phi(b)]+[\phi(a),b]$$ for all $a,b\in L$. 
 \end{defn}
 
 \begin{defn}{The Lie Subalgebra of All Derivations}{} Let $L$ be a Lie algebra over $\F$. Define the Lie subalgebra of derivations $$\text{Der}_\F(L)=\{\phi:L\to L\;|\;\phi\text{ is a derivation }\}$$ of $GL(L)$ to be the set of all derivations of $L$ together with pointwise addition and composition. 
 \end{defn}
-
-\begin{lmm}{}{} Let $L$ be a Lie algebra. Then the adjoint homomorphism $\text{ad}(x):L\to L$ for each $x\in L$ is a derivation. 
-\end{lmm}
 
 Recall the we have seen from Linear Algebra the following fact: If $T\in GL(V)$ is a linear map on $V$ with minimal polynomial factorizing as $$\mu_T=(x-\lambda_1)^{a_1}\cdots(x-\lambda_k)^{a_k}$$ where the eigenvalues $\lambda_i$ are distinct and $a_i\geq 1$, then $V$ decomposes as a direct sum of $T$-invariant subspaces $$V=V_1\oplus\cdots\oplus V_k$$ where $V_i=\ker(T-\lambda_i I)^{a_i}$ is the generalized eigenspace. 
 
@@ -416,7 +592,7 @@ Recall the we have seen from Linear Algebra the following fact: If $T\in GL(V)$ 
 \end{prp}
 
 \subsection{Abstract Jordan Decomposition}
-\begin{defn}{}{} Let $L$ be a semisimple Lie algebra over $\C$. Let $x\in L$. Define an abstract Jordan decomposition of $x$ to be a pair of elements $d,n\in L$ such that the following are true. 
+\begin{defn}{Abstract Jordan Decomposition}{} Let $L$ be a semisimple Lie algebra over $\C$. Let $x\in L$. Define an abstract Jordan decomposition of $x$ to be a pair of elements $d,n\in L$ such that the following are true. 
 \begin{itemize}
 \item $x=d+n$
 \item $\text{ad}(d)\in GL(L)$ is diagonalizable and $\text{ad}(n)\in GL(L)$ is nilpotent. 
@@ -429,31 +605,22 @@ Recall the we have seen from Linear Algebra the following fact: If $T\in GL(V)$ 
 
 Overloading notation: notes says that $x\in L$ is nilpotent if $\text{ad}(x)\in GL(L)$ is nilpotent. Similarly for semisimplicity (which equals diagonalizable in $GL(L)$). 
 
-\pagebreak
-\section{Introduction to Lie Groups}
-\subsection{Lie Groups}
-\begin{defn}{Lie Groups}{} A Lie group $G$ is a smooth manifold which is also a group such that the multiplication map $G\times G\to G$ given by $(g,h)\mapsto gh$ and the inverse map $i:G\to G$ given by $g\mapsto g^{-1}$ are smooth maps. 
+\subsection{Cartan Subalgebras}
+\begin{defn}{Cartan Subalgebra}{} Let $L$ be a Lie algebra. Let $H\leq L$ be a Lie subalgebra of $L$. We say that $H$ is a Cartan subalgebra of $L$ if the following are true. 
+\begin{itemize}
+\item $H$ is abelian
+\item For each $h\in H$, the abstract Jordan decomposition $h=d+n$ of $h$ is such that $n=0$ (In other words $\text{ad}(h)$ is semisimple????)
+\item $H$ is maximal with respect to these two properties
+\end{itemize}
 \end{defn}
 
-\begin{prp}{}{} Let $G$ be a Lie group. A subgroup $H$ of $G$ has the unique structure of a Lie subgroup if $H$ is closed in $G$. 
-\end{prp}
+The reason we would like to consider such a subalgebra is due to the following result in Linear Algebra: 
 
-\subsection{Relation between Lie Groups and Lie Algebras}
-For a group $G$, denote the left multiplication map of $h\in G$ by $l_h$. If $G$ is a Lie group, we have seen that $l_h$ is a smooth map, and so it induces a differential $(l_h)_\ast$. 
+\begin{lmm}{}{} Let $V$ be a vector space over $k$. Suppose that $T_1,\dots,T_n\in GL(V)$ is diagonalizable. Then there exists a basis of $GL(V)$ such that $T_1,\dots,T_n$ are diagonal if and only if $T_1,\dots,T_n$ pairwise commute. 
+\end{lmm}
 
-\begin{defn}{Left Invariant Vector Field}{} Let $G$ be a Lie group and $X$ a vector field on $G$. We say that $X$ is left invariant if $$(l_h)_\ast(X_g)=X_{hg}$$ for all $X_g\in T_g(G)$. 
-\end{defn}
-
-\begin{prp}{}{} Let $G$ be a Lie group. The vector space of left invariant vector fields of $G$ is a Lie algebra of dimension $\dim(G)$. Moreover, if $X_e\in T_e(G)$ is a tangent vector at $e$ the identity, then there is a unique left invariant vector field $X$ on $G$ such that its identity is $X_e$. 
-\end{prp}
-
-\begin{defn}{Lie Algebra of a Lie Group}{} Let $G$ be a Lie group. Define the Lie algebra $V$ of $G$ to be the vector space $T_e(G)$. 
-\end{defn}
-
-Recall that given a homomorphism of Lie groups $\phi:G\to H$, it induces a differential $\phi_\ast:T_g(G)\to T_{\phi(g)}(H)$. 
-
-\begin{prp}{}{} Let $\phi:G\to H$ be a homomorphism of Lie groups with Lie algebras $V$ and $W$ respectively. Then the induced map from the differential $\phi_\ast:V\to W$ is a Lie algebra homomorphism. 
-\end{prp}
+\begin{lmm}{}{} Let $L$ be a semisimple Lie algebra over $\C$. Then there exists a non-trivial Cartan subalgebra. 
+\end{lmm}
 
 \pagebreak
 \section{Representation Theory of Lie Algebras}
@@ -517,25 +684,82 @@ We use the existence of a linear map $\lambda:M\to k$, conditional on $v\in V$, 
 \end{lmm}
 
 \pagebreak
-\section{Root Systems}
-\subsection{Cartan Subalgebras}
-\begin{defn}{Cartan Subalgebra}{} Let $L$ be a Lie algebra. Let $H\leq L$ be a Lie subalgebra of $L$. We say that $H$ is a Cartan subalgebra of $L$ if the following are true. 
+\section{Introduction to Lie Groups}
+\subsection{Lie Groups}
+\begin{defn}{Lie Groups}{} A Lie group $G$ is a smooth manifold which is also a group such that the multiplication map $G\times G\to G$ given by $(g,h)\mapsto gh$ and the inverse map $i:G\to G$ given by $g\mapsto g^{-1}$ are smooth maps. 
+\end{defn}
+
+\begin{prp}{}{} Let $G$ be a Lie group. A subgroup $H$ of $G$ has the unique structure of a Lie subgroup if $H$ is closed in $G$. 
+\end{prp}
+
+\subsection{Relation between Lie Groups and Lie Algebras}
+For a group $G$, denote the left multiplication map of $h\in G$ by $l_h$. If $G$ is a Lie group, we have seen that $l_h$ is a smooth map, and so it induces a differential $(l_h)_\ast$. 
+
+\begin{defn}{Left Invariant Vector Field}{} Let $G$ be a Lie group and $X$ a vector field on $G$. We say that $X$ is left invariant if $$(l_h)_\ast(X_g)=X_{hg}$$ for all $X_g\in T_g(G)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $G$ be a Lie group. The vector space of left invariant vector fields of $G$ is a Lie algebra of dimension $\dim(G)$. Moreover, if $X_e\in T_e(G)$ is a tangent vector at $e$ the identity, then there is a unique left invariant vector field $X$ on $G$ such that its identity is $X_e$. 
+\end{prp}
+
+\begin{defn}{Lie Algebra of a Lie Group}{} Let $G$ be a Lie group. Define the Lie algebra $V$ of $G$ to be the vector space $T_e(G)$. 
+\end{defn}
+
+Recall that given a homomorphism of Lie groups $\phi:G\to H$, it induces a differential $\phi_\ast:T_g(G)\to T_{\phi(g)}(H)$. 
+
+\begin{prp}{}{} Let $\phi:G\to H$ be a homomorphism of Lie groups with Lie algebras $V$ and $W$ respectively. Then the induced map from the differential $\phi_\ast:V\to W$ is a Lie algebra homomorphism. 
+\end{prp}
+
+\pagebreak
+\section{Root Systems of Vector Spaces}
+\subsection{Root Systems}
+\begin{defn}{Root Systems of an Inner Product Space over $\R$}{} Let $E$ be a finite dimensional inner product space over $\R$. Let $R\subseteq E$. We say that $R$ is a root system in $E$ if the following are true. 
 \begin{itemize}
-\item $H$ is abelian
-\item For each $h\in H$, the abstract Jordan decomposition $h=d+n$ of $h$ is such that $n=0$ (In other words $\text{ad}(h)$ is semisimple????)
-\item $H$ is maximal with respect to these two properties
+\item $R$ is finite and $0\notin R$
+\item $\R\langle R\rangle=E$ ($R$ spans $E$)
+\item If $a\in R$, the $ca\in R$ if and only if $c=\pm1$
+\item If $a,b\in R$, then $$\sigma_a(b)=b-2\frac{\langle a,b\rangle}{\langle a,a\rangle}a\in R$$
+\item If $a,b\in R$, then $\langle a,b\rangle\in\Z$
 \end{itemize}
 \end{defn}
 
-The reason we would like to consider such a subalgebra is due to the following result in Linear Algebra: 
+\begin{defn}{Isomorphic Root Systems}{} Let $E,F$ be a finite dimensional inner product spaces over $\R$. Let $R$ and $S$ be root systems of $E$ and $F$ respectively. We say that $E$ and $F$ are isomorphic if there exists an isomorphism $$\phi:E\to F$$ of vector spaces such that the following are true. 
+\begin{itemize}
+\item $\phi(R)=S$
+\item For all $a,b\in R$, $\langle\phi(a),\phi(b)\rangle=\langle a,b\rangle$. 
+\end{itemize}
+\end{defn}
 
-\begin{lmm}{}{} Let $V$ be a vector space over $k$. Suppose that $T_1,\dots,T_n\in GL(V)$ is diagonalizable. Then there exists a basis of $GL(V)$ such that $T_1,\dots,T_n$ are diagonal if and only if $T_1,\dots,T_n$ pairwise commute. 
-\end{lmm}
+\subsection{Bases for Root Systems}
+\begin{defn}{Bases for Root Systems}{} Let $E$ be a finite dimensional inner product space over $\R$. Let $R$ be a root system of $E$. Let $B\subseteq R$. We say that $B$ is a base of $R$ if the following are true. 
+\begin{itemize}
+\item $B$ is a basis for $E$
+\item For any $r\in R$, there is a decomposition $$r=\sum_{b\in B}k_b\cdot b$$ where $k_b\in\Z$ and either all $k_b$ are positive or negative. 
+\end{itemize}
+\end{defn}
 
-\begin{lmm}{}{} Let $L$ be a semisimple Lie algebra over $\C$. Then there exists a non-trivial Cartan subalgebra. 
-\end{lmm}
+\begin{prp}{}{} Let $E$ be a finite dimensional inner product space over $\R$. Let $R$ be a root system of $E$. Then $R$ admits a base. 
+\end{prp}
 
-\subsection{Roots and Root Systems}
+\subsection{The Weyl Group of a Root System}
+Recall that $\sigma_a(b)=b-2\frac{\langle a,b\rangle}{\langle a,a\rangle}a$ for any $a,b$ in a root system $R$ of a finite dimensional inner product space $E$. In particular, they are elements of the general linear group $GL(E)$. 
+
+\begin{defn}{The Weyl Group of a Root System}{} Let $E$ be a finite dimensional inner product space over $\R$. Let $R$ be a root system of $E$. Define the Weyl group of $R$ to be the subgroup $$W(R)=\langle\sigma_a\;|\;a\in R\rangle\leq GL(E)$$
+\end{defn}
+
+\subsection{Dynkin Diagrams}
+\begin{defn}{The Dynkin Diagram of a Root System}{} Let $E$ be a finite dimensional inner product space over $\R$. Let $R$ be a root system of $E$. Let $B$ be a base of $R$. Define a graph $\Delta(R)$ as follows. 
+\begin{itemize}
+\item There is one vertex $v_b$ for each $b\in B$
+\item For any two vertices $v_a$ and $v_b$, there are $d_{a,b}=\langle a,b\rangle\langle b,a\rangle$ number of undirected edges between $v_a$ and $v_b$. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $E,F$ be a finite dimensional inner product spaces over $\R$. Let $R$ and $S$ be root systems of $E$ and $F$ respectively. Then $R\cong S$ if and only if $\Delta(R)\cong\Delta(S)$. 
+\end{prp}
+
+\pagebreak
+\section{Classification of Semisimple Lie Algebras over $\C$}
+\subsection{Roots Systems Arising from Cartan Subalgebras}
 Let $V$ be a vector space. We denote the dual space of $V$ by $V^\ast$. \\
 
 Let $L$ be semisimple over $\C$. Let $H$ be a Cartan subalgebra. By lmm 5.1.2, we can choose a basis $v_1,\dots,v_m$ of $GL(V)$ such that $\text{ad}(h)$ is diagonal for all $h\in H$. In particular, such a basis consists of common eigenvectors of $\text{ad}(h)$. Fix such a common eigenvector $v$ and write its eigenvalue by $\alpha(\text{ad}(h))$ (dependent on $h$). Then we have $$\text{ad}(h)(v)=\alpha(\text{ad}(h))(v)$$ and in particular $\alpha:\text{ad}(H)\to\C$ is a weight of $\text{ad}(H)$. Since $L$ is semisimple, we have an isomorphism $\text{ad}(H)\cong H$. So we can think of the weight as an element $$\alpha:H\cong\text{ad}(H)\to\C$$ of the dual space $H^\ast$. This motivates the following definition. 
@@ -562,29 +786,8 @@ Note that $\Psi$ is finite since we assume that $L$ is finite dimensional.
 \begin{prp}{}{} Let $L$ be a semisimple Lie algebra over $\C$. Let $H\leq L$ be a Lie subalgebra of $L$. Then $$H=C_L(H)$$
 \end{prp}
 
-\begin{lmm}{}{} Let $L$ be a semisimple Lie algebra over $\C$. Let $H\leq L$ be a Lie subalgebra of $L$. Then the following are true. 
-\begin{itemize}
-\item $\Psi$ span $H^\ast$. 
-\item If $\alpha\in\Psi$, then $-\alpha\in\Psi$. 
-\end{itemize}
-\end{lmm}
-
-\begin{lmm}{}{} Let $L$ be a semisimple Lie algebra over $\C$. Let $H\leq L$ be a Lie subalgebra of $L$. Then the following are true. 
-\begin{itemize}
-\item For each $\alpha\in\Psi$, there exists $t_\alpha\in H\setminus\{0\}$ such that $$[x,y]=k(x,y)t_\alpha$$ for all $x\in L_\alpha$ and $y\in L_{-\alpha}$. Moreover, $k(t_\alpha,h)=\alpha(h)$ for all $h\in H$. 
-\item For each $\alpha\in\Psi$, $[L_\alpha,L_{-\alpha}]=\C\langle t_\alpha\rangle$. 
-\item For each $\alpha\in\Psi$, $\alpha(t_\alpha)\neq 0$. 
-\end{itemize}
-\end{lmm}
-
-
-\pagebreak
-\section{Classification of Semisimple Lie Algebras over $\C$}
-
-
-
-
-
+\begin{prp}{}{} Let $L$ be a semi-simple Lie algebra over $\C$. Let $H$ be a Cartan subalgebra of $L$. Let $\Psi$ be the set of roots relative to $H$. Then $\Psi$ is a root system. 
+\end{prp}
 
 
 

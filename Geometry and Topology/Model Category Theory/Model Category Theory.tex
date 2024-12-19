@@ -636,7 +636,7 @@ Recall that in Simplicial Methods of Topology, we defined the singular functor $
 
 \pagebreak
 \section{Homotopy Limits and Colimits}
-\subsection{The Model Structures on Pushout and Pullback Diagrams}
+\subsection{A Try-Out with Homotopy Pushouts and Pullbacks}
 Pushouts and pullbacks are not generally well-behaved with respect to homotopy. We remedy this by defining the notion of homotopy pushouts and pullbacks. 
 
 \begin{prp}{}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. Then $\mC^\mJ$ has the structure of a model category with the following data: 
@@ -745,7 +745,6 @@ by the universal property of pullbacks. The fibrations are such morphisms such t
 \end{itemize}
 \end{prp}
 
-\subsection{Homotopy Pushout and Homotopy Pullbacks}
 Recall that because a model category $\mC$ is complete and cocomplete, the diagonal functor $\Delta:\mC\to\mC^\mJ$ admits a left adjoint $\text{colim}_\mJ(-)$. This means that we have a natural isomorphism $$\Hom_{\mC^\mJ}(\text{colim}_\mJ(-),-)\cong\Hom_\mC(-,\Delta(-))$$
 
 \begin{prp}{}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. The the adjunction $$\text{colim}_\mJ:\mC^\mJ\rightleftarrows\mC:\Delta$$ is a Quillen adjunction, and hence admits total derived functors $$\L\text{colim}_\mJ:\text{Ho}(\mC^\mJ)\rightleftarrows\text{Ho}(\mC):\R\Delta$$
@@ -761,7 +760,6 @@ We have already seen homotopy pushouts in $\bold{Top}$ and $\bold{sSet}$. To sho
 
 \begin{defn}{The Homotopy Pullback Functor}{} Let $\mJ$ be the category $A\leftarrow B\rightarrow C$. Let $\mC$ be a model category. Define the homotopy pullback functor to be the total derived functor $$\R\text{lim}_\mJ:\text{Ho}(\mC^\mJ)\to\text{Ho}(\mC)$$ of the functor $\text{lim}_\mJ:\mC^\mJ\to\mC$. 
 \end{defn}
-
 
 \subsection{Model Structure on General Functor Categories}
 \begin{thm}{}{} Let $\mJ$ be a small category. Let $\mC$ be a cofibrantly generated model category with generating cofibrations $I$ and generating trivial cofibrations $J$. Then $\mC^\mJ$ is a cofibrantly generated model category with the following data. 
@@ -779,7 +777,111 @@ We have already seen homotopy pushouts in $\bold{Top}$ and $\bold{sSet}$. To sho
 \end{itemize}
 \end{prp}
 
-\subsection{Homotopy Limits and Colimits}
+\pagebreak
+\section{Simplicial Model Categories}
+\subsection{Simplicial Model Categories}
+\begin{defn}{Simplicial Model Categories}{} Let $\mC$ be a model category. We say that $\mC$ is a simplicial model category if the following are true. 
+\begin{itemize}
+\item $\mC$ is enriched over $\bold{sSet}$
+\item For every cofibration $i:A\to B$ and every fibration $p:X\to Y$ in $\mC$, the morphism of simplicial sets $$\Hom_\mC(B,X)\overset{-\circ i\times p\circ -}{\longrightarrow}\Hom_\mC(A,X)\times_{\Hom_\mC(A,Y)}\Hom_\mC(B,Y)$$ is a Kan fibration. Moreover, if $i$ or $p$ is acyclic, then the Kan fibration is acyclic. 
+\end{itemize}
+\end{defn}
+
+\subsection{Coends and Ends}
+
+\subsection{A Local Definition for Homotopy Colimits}
+\begin{defn}{Homotopy Colimits}{} Let $\mC$ be a simplicial model category. Let $\mJ$ be a small category. Let $X:\mJ\to\mC$ be a diagram. Define the homotopy colimit of $X$ to be the coequalizer of the maps \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\coprod_{(\sigma:\alpha\to\alpha')\in\mJ}X(\alpha)\otimes N(\alpha'/\mJ)^\text{op}} && {\coprod_{\alpha\in\mJ}X(\alpha)\otimes N(\alpha/\mJ)^\text{op}}
+	\arrow["\phi", shift left, from=1-1, to=1-3]
+	\arrow["\psi"', shift right, from=1-1, to=1-3]
+\end{tikzcd}}\\~\\
+where $\phi$ and $\psi$ are given as follows. 
+\begin{itemize}
+\item The map $\phi$ is defined as follows. On each summand $X_\alpha\otimes N(\alpha'/\mJ)^\text{op}$ in the domain, $\phi$ is the composition of the map \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X(\alpha)\otimes N(\alpha'/\mJ)^\text{op}} && {X(\alpha')\otimes N(\alpha'/\mJ)^\text{op}} && {\coprod_{\alpha\in\mJ}X(\alpha)\otimes N(\alpha/\mJ)^\text{op}}
+	\arrow["{X(\sigma)\otimes\text{id}_{{N(\alpha'/\mJ)}^\text{op}}}", from=1-1, to=1-3]
+	\arrow["{\text{incl.}}", hook, from=1-3, to=1-5]
+\end{tikzcd}}\\~\\
+\item The map $\psi$ is defined as follows. On each summand $X_\alpha\otimes N(\alpha'/\mJ)^\text{op}$ in the domain, $\psi$ is the composition of the map \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X(\alpha)\otimes N(\alpha'/\mJ)^\text{op}} && {X(\alpha)\otimes N(\alpha/\mJ)^\text{op}} && {\coprod_{\alpha\in\mJ}X(\alpha)\otimes N(\alpha/\mJ)^\text{op}}
+	\arrow["{\text{id}_{X(\alpha)}\otimes N(\sigma/\mJ)^\text{op}}", from=1-1, to=1-3]
+	\arrow["{\text{incl.}}", hook, from=1-3, to=1-5]
+\end{tikzcd}}\\~\\
+\end{itemize}
+We denote the homotopy colimit as $$\text{Hocolim}_\mJ X$$
+\end{defn}
+
+Ref: NOTES ON HOMOTOPY COLIMITS AND HOMOTOPY LIMITS (A WORK IN PROGRESS) PHILIP S. HIRSCHHORN\\
+
+Some computational aspects???\\
+
+Transferring homotopy colimits???
+
+\begin{prp}{}{} Let $\mC$ be a simplicial model category. Let $\mJ$ be a small category. Let $X:\mJ\to\mC$ be object-wise cofibrant in $\mC$. Then there exists the following: 
+\begin{itemize}
+\item A natural object-wise cofibrant diagram $\widetilde{X}:\mJ\to\mC$ in $\mC$
+\item A natural isomorphism $R:\colim_\mJ\widetilde{X}\overset{\cong}{\longrightarrow}\text{Hocolim}_\mJ X$
+\item A natural object-wise equivalence $p:\widetilde{X}\to X$
+\end{itemize}
+such that the induced map the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\colim_\mJ\widetilde{X}} && {\colim_\mJ X} \\
+	{\text{Hocolim}_\mJ X} & {X\otimes N(-/\mC)^\text{op}} & {X\otimes P}
+	\arrow["{\colim_\mJ(p)}", from=1-1, to=1-3]
+	\arrow["{R,\cong}", from=1-1, to=2-1]
+	\arrow["{=}", from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow["\cong", from=2-3, to=1-3]
+\end{tikzcd}}\\~\\
+where $P$ is the constant diagram in $\mJ^\text{op}$ at a point. 
+\end{prp}
+
+Prp 10.10 Hirschhorn notes. 
+
+\begin{prp}{}{} Let $\mC$ be a simplicial model category. Let $\mJ$ be a small category. Let $X:\mJ\to\mC$ and $K:\mJ^\text{op}\to\bold{sSet}$ be diagrams. Then there is a natural isomorphism of sets $$\Hom_\mC(X\otimes_\mJ K,Z)\cong\Hom_{\bold{sSet}^{\mJ^\text{op}}}(K,\Hom_\mC(X,Z))$$ for any object $Z\in\mC$. 
+\end{prp}
+
+Hirschhorn: Model Categories and their Localizations 18.3.10\\
+
+Note: We have $\text{Hocolim}_\mJ X=X\otimes_\mJ N(-/\mC)^\text{op}$. Plugging this in gives $$\Hom_\mC(\text{Hocolim}_\mJ X,Z)\cong\Hom_{\bold{sSet}^{\mJ^\text{op}}}(N(-/\mC)^\text{op},\Hom_\mC(X,Z))$$ This means that given a morphism of simplicial sets $K\to\Hom_\mC(X,Z)$, we obtain a map $$\text{Hocolim}_\mJ X\to Z$$ (This is the universal property of the homotopy colimit?)
+
+\subsection{A Local Definition for Homotopy Limits}
+
+\pagebreak
+\section{Cofibrantly Generated Model Categories}
+\subsection{Cofibrantly Generated Model Categories}
+
+\subsection{A Global Definition of Homotopy Colimits}
+\begin{defn}{Projective Model Structure}{} Let $M$ be a cofibrantly generated model category. Let $I$ be a smll category. 
+\end{defn}
+
+Recall that we write $\Delta:\mC\to\mC^\mJ$ for the constant functor. 
+
+\begin{prp}{}{} Let $M$ be a cofibrantly generated model category. Let $\mJ$ be a small category. Then the categorical adjunction $$\colim_\mJ:\mC^\mJ\leftrightarrows\mC:\Delta$$ is a Quillen adjunction where $\mC^\mJ$ is given the projective model structure. 
+\end{prp}
+
+\begin{defn}{Homotopy Colimits for Cofibrantly Generated Model Categories}{} Let $\mC$ be a cofibrantly generated model category. Let $\mJ$ be a small category. Let $X:\mJ\to\mC$ be a diagram in $\mC$. Define the homotopy colimit of $X$ in $\mC$ to be $$\left(\L\colim_\mJ\right)(X)\in\text{Ho}(\mC)$$ where $\L\colim_\mJ:\text{Ho}(\mC^\mJ)\to\text{Ho}(\mC)$ is the total left derived functor of $\colim:\mC^\mJ\to\mC$. 
+\end{defn}
+
+P.91 A primer on homotopy colimits
+
+\subsection{Combinatorial Model Categories}
+\begin{defn}{Injective Model Structure}{} Let $M$ be a combinatorial model category. Let $I$ be a smll category. 
+\end{defn}
+
+Recall that we write $\Delta:\mC\to\mC^\mJ$ for the constant functor. 
+
+\begin{prp}{}{} Let $M$ be a combinatorial model category. Let $\mJ$ be a small category. Then the categorical adjunction $$\Delta:\mC\leftrightarrows\mC^\mJ:\lim_\mJ$$ is a Quillen adjunction where $\mC^\mJ$ is given the projective model structure. 
+\end{prp}
+
+\begin{defn}{Homotopy Limits for Combinatorial Model Categories}{} Let $\mC$ be a combinatorial model category. Let $\mJ$ be a small category. Let $X:\mJ\to\mC$ be a diagram in $\mC$. Define the homotopy limit of $X$ in $\mC$ to be $$\left(\R\lim_\mJ\right)(X)\in\text{Ho}(\mC)$$ where $\R\lim_\mJ:\text{Ho}(\mC^\mJ)\to\text{Ho}(\mC)$ is the total right derived functor of $\lim:\mC^\mJ\to\mC$. 
+\end{defn}
+
+P.91 A primer on homotopy colimits
+
 
 \pagebreak
 \section{Pointed Model Categories}

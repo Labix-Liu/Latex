@@ -590,47 +590,6 @@ Minimal Prime Ideals of $k[X]$ & Irreducible Components of $X$
 All such bijections are moreover given by the construction of $V_X(-)$ and $I_X(-)$. 
 
 \pagebreak
-\section{Functions on a Variety}
-\subsection{Regular Functions on Affine Varieties}
-The following definition is simply a special case of regular maps, as in regular functions are simply regular maps with codomain $\A^1$. 
-
-\begin{defn}{Regular Functions on Affine Varieties}{} Let $V$ be an affine variety over $\C$. Let $U$ be an open subset of $V$. A complex valued function $f:U\to\C$ is regular at a point $p\in U$ if there exists functions $g,h\in\C[V]$ such that $h(p)\neq 0$ and that $$f(x)=\frac{g(x)}{h(x)}$$ in some neighbourhood of $p$. Moreover, $f$ is said to be regular on $U$ if it is regular at every point of $U$. 
-\end{defn}
-
-\begin{defn}{The Algebra of Regular Functions}{} Let $V$ be an affine variety over $\C$. Let $U$ be an open subset of $V$. Define the $\C$-algebra of regular functions on $U$ to be the set $$\mO_V(U)=\{f:U\to\C\;|\;f\text{ is regular on }U\}$$ together with addition and multiplication of rational functions. 
-\end{defn}
-
-\begin{defn}{Restriction Maps}{} Let $V$ be an affine variety over $\C$. Let $U$ be an open subset of $V$. Define the restriction map to be the $\C$-algebra homomorphism $$\text{res}_U^V:\C[V]\to\mO_V(U)$$ by $f\mapsto\frac{f}{1}$. 
-\end{defn}
-
-\begin{prp}{}{} Let $V$ be an affine variety over $\C$. Let $U$ be an open subset of $V$. Then the following are true. If $U$ is dense in $V$, then the restriction map $$\text{res}_U^V:\C[V]\to\mO_V(U)$$ is injective. 
-\end{prp}
-
-\begin{prp}{}{} Let $V$ be an affine variety over $\C$. Then the restriction map $$\text{res}_V^V:\C[V]\cong\mO_V(V)$$ is an isomorphism of $\C$-algebras. 
-\end{prp}
-
-\subsection{Rational Functions on Affine Varieties}
-While polynomial rings are more than sufficient to classify varieties up to isomorphism, we would still like to enlarge the set of functions on a variety. We will do this by introducing rational functions on a variety. 
-
-\begin{defn}{Function Field}{} Let $V$ be an affine variety over a field $k$. Define the function field of $V$ to be $$k(V)=\text{Frac}(k[V])$$ Elements of $k(V)$ are said to be rational functions on $V$. 
-\end{defn}
-
-Notice that functions in $k(V)$ are not well defined on all of $V$. Some functions may have poles on $V$. But by restricting to a certain open set in $V$ (namely by removing the poles from the domain), we obtain a well defined rational function. \\~\\
-
-The remaining section constructs a sheaf of rational functions on varieties. Sheaves will not be formally in these notes. 
-
-\begin{defn}{Regular Functions}{} Let $V$ be an affine algebraic variety over a field $k$. Then $f\in k(V)$ is said to be a regular function at $p\in V$ if $$f(x)=\frac{g(x)}{h(x)}$$ for $g,h\in k[V]$ and $h(p)\neq 0$. Let $U$ be an open subset of $V$. We say that $f\in k(V)$ is regular at $U$ if $f$ is regular at all $p\in U$. 
-\end{defn}
-
-\begin{defn}{Set of Regular Functions}{} Let $V$ be an affine algebraic variety over a field $k$. Denote $$\mO_V(U)=\{f\in k(V)\;|\;f\text{ is regular at }U\}$$ the set of all regular functions on $U$. 
-\end{defn}
-
-\begin{defn}{Local Ring}{} Let $V$ be an affine variety over a field $k$. Let $p\in V$. Define the local ring of $V$ at $p$ to be $$\mO_{V,p}=\{f\in k(V)\;|\;f\text{ is regular at }p\}$$ the set of all regular functions at $p$. 
-\end{defn}
-
-It is natural to ask that given a regular map between two varieties. How does all these regular functions and local rings transfer from one to another. In the case of polynomial functions (coordinate rings), the transferral comes from the opposite direction. The case for regular functions are similar. However we will not continue the exposition here since the language of sheaves will make definitions easier. 
-
-\pagebreak
 \section{Introduction to Projective Varieties}
 \subsection{Homogenous Functions}
 \begin{defn}{Homogenous Polynomials}{} Let $k$ be a field. Let $f\in k[x_1,\dots,x_n]$ be a polynomial. We say that $f$ is homogenous of degree $d\in\N$ if each term of $f$ has total degree $d$. Denote $$k_d[x_1,\dots,x_n]=\{f\in k[x_1,\dots,x_n]\;|\;f\text{ is homogenous}\}$$ the subring of all homogenous polynomials of degree $d$ over $k$. 
@@ -870,7 +829,9 @@ In other words, $D(f)$ is exactly the points of $V$ where $f$ is not zero. Some 
 \begin{prp}{}{} Every quasiprojective variety is locally affine. 
 \end{prp}
 
-\subsection{Regular Functions}
+\pagebreak
+\section{The Algebra of Regular Functions}
+\subsection{Regular Functions on Quasi-Projective Varieties}
 \begin{defn}{Regular Functions on Quasi-Projective Varieties}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. A complex valued function $f:U\to\C$ is regular at a point $p\in U$ if there some affine open set containing $p$ on which $f$ is regular at $p$. 
 $f$ is said to be regular on $U$ if it is regular at every point of $U$. 
 \end{defn}
@@ -878,8 +839,11 @@ $f$ is said to be regular on $U$ if it is regular at every point of $U$.
 \begin{defn}{The Algebra of Regular Functions}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. Define the $\C$-algebra of regular functions on $U$ to be the set $$\mO_V(U)=\{f:U\to\C\;|\;f\text{ is regular on }U\}$$ together with addition and multiplication of rational functions. 
 \end{defn}
 
-\begin{lmm}{}{} For any $U\subset V$ open and $V$ a quasiprojective variety, $\mathcal{O}_V(U)$ is a $\C$-algebra. 
+\begin{lmm}{}{} Let $V$ be quasi-projective variety over $\C$. Let $U\subseteq V$ be open. Then $\mO_V(U)$ is a $\C$-algebra. 
 \end{lmm}
+
+\begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $f\in\C[V]$. Then there is an isomorphism $$\mO_V(D(f))\cong\C[V][1/f]=\left\{\frac{g}{f^n}\;\bigg{|}\;g\in\C[V],n\in\N\right\}$$
+\end{prp}
 
 \begin{defn}{Restriction Maps}{} Let $V$ be a quasi-projective variety over $\C$. Let $U,W$ be an open subset of $V$ such that $W\subseteq U$. Define the restriction map to be the $\C$-algebra homomorphism $$\text{res}_W^U:\mO_V(U)\to\mO_V(W)$$ by the identity. 
 \end{defn}
@@ -902,38 +866,33 @@ These information organize well into a sheaf.
 \begin{prp}{}{} Let $X$ be a variety and $p\in X$. Then the ring of germs $\mathcal{O}_{X,p}$ is a local ring. 
 \end{prp}
 
-\begin{defn}{Function Field}{} Let $X$ be a variety. Define the function field of $X$ to be $$K(X)=\{(U,f)|U\subseteq X\text{ is open}, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. Elements of $K(X)$ are called rational functions on $X$. 
+\subsection{The Function Field}
+\begin{defn}{Function Field}{} Let $X$ be a variety. Define the function field of $X$ to be $$K(X)=\{(U,f)\;|\;U\subseteq X\text{ is open}, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. Elements of $K(X)$ are called rational functions on $X$. 
 \end{defn}
 
 \begin{lmm}{}{} Let $X$ be a variety. Then the function field $K(X)$ of $X$ is a field. 
 \end{lmm}
 
-\begin{lmm}{}{} Let $X$ be a variety. For any point $p$, there are natural injective maps $\mathcal{O}_X(X)\to\mathcal{O}_{X,p}\to K(X)$. 
+\begin{lmm}{}{} Let $V$ be a variety over $\C$. Then the following are true. 
+\begin{itemize}
+\item The map $\mO_V(V)\to\mO_{V,p}$ given by $f\mapsto(V,f)$ is injective for any $p\in V$. 
+\item The map $\mO_{V,p}\to k(V)$ given by $(V,f)\mapsto(V,f)$ is injective for any $p\in V$. 
+\end{itemize}
 \end{lmm}
 
-\begin{prp}{}{} Let $X$ and $Y$ be isomorphic varieties. Then $\mathcal{O}_X(X)\cong\mathcal{O}_Y(Y)$, $K(X)\cong K(Y)$ and if $p\in X$ maps to $q\in Y$, then $\mathcal{O}_{X,p}\cong\mathcal{O}_{Y,q}$. 
+\subsection{Regular Functions on Affine Varieties}
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Then there is an isomorphism $$\C[V]\cong\mO_V(V)$$ given by the map $f\mapsto\frac{f}{1}$. 
 \end{prp}
 
-\begin{thm}{}{} Let $V$ be an affine variety. Let $U$ be an open subset of $V$. 
-\begin{itemize}
-\item There is a $\C$-algebra homomorphism $\C[V]\to\mathcal{O}_V(U)$ given by restriction of functions
-\item The above map is injective if $U$ is dense in $V$
-\item If $V$ is an irreducible affine variety, then the map is surjective and an isomorphsim. 
-\end{itemize}
-\end{thm}
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Let $p\in V$ and let $m_p$ be the maximal ideal corresponding to $p$ under Hilbert's nullstellensatz. Then there is an isomorphism $$\mO_{V,p}\cong\C[V]_{m_p}$$
+\end{prp}
 
-\begin{thm}{}{} Let $V\subseteq\A^n$ be an affine variety. Let $p\in V$ be a point. Then the following are true. 
-\begin{itemize}
-\item $\mathcal{O}_V(V)\cong\C[V]$
-\item Let $m_p=\{f\in\C[V]|f(p)=0\}$ be the ideal of functions that vanish at $p$. Then the map $p\mapsto m_p$ gives a one to one correspondence between points of $V$ and the maximal ideals of $\C[V]$
-\item For each $p\in V$, $\mathcal{O}_{V,p}\cong\C[V]_{m_p}$ and $\dim(\mathcal{O}_{V,p})=\dim(X)$
-\item $K(X)\cong\text{Frac}(\C[V])$ and $K(X)$ is a finitely generated extension field of $\C$. 
-\end{itemize}
-\end{thm}
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Then there is an isomorphism $$K(V)\cong\text{Frac}(\C[V])$$ Moreover, $K(V)$ is a finitely generated field extension of $\C$. 
+\end{prp}
 
+\subsection{Regular Functions on Projective Varieties}
 \begin{thm}{}{} Let $X\subseteq\Prj^n$ be a projective variety. Let $p\in V$. Then the following are true. 
 \begin{itemize}
-\item $\mathcal{O}_V(V)\cong\C$
 \item Let $m_p=\{f\in\C[V]|f\text{ is homogenous and }f(p)=0\}$ be the ideal of functions that vanish at $p$. Then $\mathcal{O}_{V,p}=\C[V]_{m_p}$
 \item $K(X)\cong\C[V]_{(0)}$
 \end{itemize}
@@ -942,30 +901,84 @@ These information organize well into a sheaf.
 \pagebreak
 \section{Classical Constructions}
 \subsection{Veronese Maps}
-\begin{defn}{Veronese Maps}{} The $d$th veronese map of $\Prj^n$ is the morphism $\nu_d:\Prj^n\to\Prj^m$ defined by $$\nu_d([x_0:\cdots:x_n])=[x_0^d:x_0^{d-1}x_1:\cdots:x_n^d]$$ where $m=\binom{d+n}{n}-1$. 
+\begin{defn}{Veronese Maps}{} Let $n,d\in\N\setminus\{0\}$. Define the $d$th veronese map of $\Prj^n$ to be the morphism $\nu_d:\Prj^n\to\Prj^m$ given by $$\nu_d([x_0:\cdots:x_n])=[x_0^d:x_0^{d-1}x_1:\cdots:x_n^d]$$ where $m=\binom{d+n}{n}-1$. 
 \end{defn}
+
+When $n=1$ and $d=2$, the Veronese map $\nu_2:\Prj^1\to\Prj^2$ is defined by $$\nu_2([s:t])=[s^2:st:t^2]$$
 
 \begin{prp}{}{} The veronese mapping $\nu_d$ defines an isomorphism of $\Prj^n$ onto its image. 
 \end{prp}
 
-\subsection{Segre Maps}
-\begin{defn}{General Segre Maps}{} Define the general Segre map $\sum_{m,n}:\Prj^m\times\Prj^n\to\Prj^{(m+1)(n+1)-1}$ by $$\sum_{m,n}([x_0:\cdots:x_m],[y_0:\cdots:y_n])=[x_0y_0:x_0y_1:\cdots:x_iy_j:\cdots:x_my_n]$$
+\subsection{The Segre Map}
+We have seen that the product of two affine varieties is also an affine variety. However the same is no longer true with projective varieties. The Segre map is an embedding of sets of $\Prj^m\times\Prj^n$ to $\Prj^{(m+1)(n+1)-1}$ so that we can give the we can give a correct notion of product Zariski topologies, and hence products of projective varieties. 
+
+\begin{defn}{The Segre Map}{} Define the general Segre map $\Sigma_{m,n}:\Prj^m\times\Prj^n\to\Prj^{(m+1)(n+1)-1}$ by $$\Sigma_{m,n}([x_0:\cdots:x_m],[y_0:\cdots:y_n])=[x_0y_0:x_0y_1:\cdots:x_iy_j:\cdots:x_my_n]$$
 \end{defn}
 
-\subsection{Grassmannians}
-\begin{defn}{Grassmannians}{} Let $n\in\N^+$. Let $k\in\N$ with $0\leq k\leq n$. Denote $G(k,n)$ the set of all $k$-dimensional linear subspaces of $\C^n$. 
+When $n=m=1$, the Segre map $\Sigma_{1,1}:\Prj^1\times\Prj^1\to\Prj^3$ is defined by $$([s:t],[u:v])\mapsto[su:sv:tu:tv]$$
+
+\begin{prp}{}{} Let $m,n\in\N$. Then the following are true regarding the Segre map $$\Sigma_{m,n}:\Prj^m\times\Prj^n\to\Prj^{(m+1)(n+1)-1}$$
+\begin{itemize}
+\item $\Sigma_{m,n}$ is a well defined map of projective space
+\item $\im(\Sigma_{m,n})$ is a projective subvariety
+\item $\Prj^m\times\Prj^n$ is in bijection as a set to $\im(\Sigma_{m,n})$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Firstly, notice that 
+\begin{align*}
+([\lambda x_0:\cdots:\lambda x_m],[\mu y_0,\dots,y_n])&\mapsto[\lambda\mu x_0y_0:\lambda\mu x_0y_1:\cdots:\lambda\mu x_iy_j:\cdots:\lambda\mu x_my_n]\\
+&=[x_0y_0:x_0y_1:\cdots:x_iy_j:\cdots:x_my_n]
+\end{align*} so that the Segre map is well defined with respect to homogeneous coordinates. Moreover, every point $[x_0:\cdots:x_m]$ in $\Prj^m$ must have at least one coordinate $x_i$ non-zero. Similarly every point $[y_0:\cdots:y_n]$ in $\Prj^n$ must have at least one coordinate $y_j$ non-zero. Then $x_iy_j$ is non-zero so that $\Sigma_{m,n}$ never maps points in $\Prj^m\times\Prj^n$ to $[0:\cdots:0]$. It is clear that every coordinate is globally expressed as a polynomial in $x_0,\dots,x_n,y_0,\dots,y_m$ so that $\Sigma_{m,n}$ is a well defined morphism of quasi-projective varieties. 
+\item Write the projective coordinates of $\Prj^{(m+1)(n+1)-1}$ in matrix form as $$\begin{bmatrix}
+z_{0,0} & \cdots & z_{0,n}\\
+\vdots & \ddots & \vdots\\
+z_{m,0} & \cdots & z_{m,n}
+\end{bmatrix}$$
+We can now rewrite the coordinates in the target of the Segre map as a matrix in the following way: $$([x_0:\cdots:x_n],[y_0:\cdots:y_m])=\begin{bmatrix}
+x_0y_0 & \cdots & x_0y_n\\
+\vdots & \ddots & \vdots\\
+x_my_0 & \cdots & x_my_n
+\end{bmatrix}$$ I claim that $\im(\Sigma_{m,n})=\V(\{z_{ij}z_{kl}-z_{il}z_{kj}\;|\;1\leq i,k\leq m\text{ and }1\leq j,l\leq n\text{ and }i\neq k\text{ and }j\neq l\})$. Firstly, notice that if $\begin{bmatrix}
+x_0y_0 & \cdots & x_0y_n\\
+\vdots & \ddots & \vdots\\
+x_my_0 & \cdots & x_my_n
+\end{bmatrix}\in\im(\Sigma_{m,n})$ then it vanishes on $z_{ij}z_{kl}-z_{il}z_{kj}$ for $1\leq i\neq k\leq m$ and $1\leq j\neq l\leq n$. Indeed, the $(i,j)$th term on the matrix is given by $x_iy_j$. Hence $z_{ij}z_{kl}-z_{il}z_{kj}=x_iy_jx_ky_l-x_iy_lx_ky_j=0$. Hence $\im(\Sigma_{m,n})\subseteq\V(\{z_{ij}z_{kl}-z_{il}z_{kj}\})$. On the other hand, notice that the set of polynomials in the vanishing locus form a matrix $(z_{ij})$ whose all $2\times 2$ sub-determinants vanish. Thus every point in the vanishing locus is a an equivalence class of rank $1$ matrices that is equivalent up to scaling. By linear algebra*, every matrix $A$ of rank $1$ can be written as $$A=\begin{pmatrix}
+a_0 \\ \vdots \\ a_m
+\end{pmatrix}\begin{pmatrix}
+b_0 & \cdots & b_n
+\end{pmatrix}=\begin{pmatrix}
+a_0b_0 & \cdots & a_0b_n\\
+\vdots & \ddots & \vdots\\
+a_mb_0 & \cdots & a_mb_n
+\end{pmatrix}$$ which is in the image of $\Sigma_{m,n}$. Hence the image of the Segre map is a projective subvariety of $\Prj^{(m+1)(n+1)-1}$. 
+
+\item We just have to show that $\Sigma_{m,n}$ is injective. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{defn}{Zariski Topology on Products of Projective Spaces}{} Let $m,n\in\N$. Define the Zariski topology on $\Prj^m\times\Prj^n$ by transferring the Zariski topology of $\im(\Sigma_{m,n})$ in $\Prj^{(m+1)(n+1)-1}$ through the bijection of sets that is the Segre map $\Sigma_{m,n}$. 
 \end{defn}
 
-Similar to how $G(1,n)=\Prj^{n-1}$, $G(k,n)$ is essentially the $k-1$ dimensional projective subspaces of $\Prj^{n-1}$. 
+\subsection{The Grassmannians Manifolds}
+\begin{defn}{The Grassmannians}{} Let $n,k\in\N\setminus\{0\}$ and $k\leq n$. Let $\F$ be a field. Define the the Grassmannian of $k$-planes in $\F^n$ to be the set $$\Gr_k(\F^n)=\{V\subseteq\F^n\;|\;V\text{ is a }k\text{-dimensional vector subspace of }\F^n\}$$
+\end{defn}
 
-\begin{lmm}{}{} $G(k,n)$ can be identified with the set $$G=\frac{\{M\in M_{k\times n}(\C)|M\text{ has full rank }\}}{\text{ Orbits of }GL(k)}$$ \tcbline
+Notice that $\Gr_1(\F^{n+1})=\F\Prj^n$. 
+
+\begin{lmm}{}{} Let $n,k\in\N\setminus\{0\}$ and $k\leq n$. Let $\F$ be a field. Then there is a bijection of sets $$\Gr_k(\F^n)\cong\frac{\{M\in M_{k\times n}(\F)\;|\;\rank(M)=k\}}{\sim}$$ where we say that $A\sim B$ if there exists $P\in\GL(k,\F)$ such that $PA=B$. This bijection is given as follows. For $V\in\Gr_k(\F^n)$ a $k$-dimensional subspace, choose a basis $e_1,\dots,e_k$ of $V$. Then $V$ is mapped to the equivalent class of the matrix $\begin{pmatrix}
+\vdots &&\vdots\\
+e_1 & \cdots & e_k\\
+\vdots &&\vdots
+\end{pmatrix}$. \tcbline
 \begin{proof}
 Let $V$ be a $k$-dimensional vector subspace of $\C^n$. Choose basis vectors $(a_{j1},\dots,a_{jn})$ where $j=1,\dots,k$ for $V$. Form the row matrix of basis vectors $$A=\begin{pmatrix}a_{11} & \cdots & a_{1n}\\\vdots & \ddots & \vdots\\ a_{n1} & \cdots & a_{nn}\end{pmatrix}$$
 This matrix is formed by a basis thus the rows must be linearly independent, which means it achieves full rank. Two matrices span the same subspace if and only if there exists an invertible matrix of dimension $k$ such that $(a_{ij})=g(b_{ij})$. So we can quotient out extra elements in $M_{k\times n}(\C)$ that represent the same vector subspace to get an identification of $G(k,n)$: $$G=\frac{\{M\in M_{k\times n}(\C)|M\text{ has full rank }\}}{\text{ Orbits of }GL(k)}$$ 
 \end{proof}
 \end{lmm}
 
-\begin{defn}{Plucker Embedding}{} Denote $\Delta_{i_1,\dots,i_k}$ the $k\times k$ subdeterminant of $A\in M_{k\times n}(\C)$. formed by the columns $i_1,\dots,i_k$ in $A$. The Plucker embedding is the map $\phi:G\to\Prj^{\binom{n}{k}-1}$ given by $$\phi\left(\begin{pmatrix}a_{11} & \cdots & a_{1n}\\\vdots & \ddots & \vdots\\ a_{n1} & \cdots & a_{nn}\end{pmatrix}\right)=[\Delta_{1,\dots,k}:\dots:\Delta_{i_1,\dots,i_k}:\dots:\Delta_{n-k+1,\dots,n}]$$ 
+\begin{defn}{Plucker Embedding}{} Denote $\Delta_{i_1,\dots,i_k}$ the $k\times k$ subdeterminant of $A\in M_{k\times n}(\C)$. formed by the columns $i_1,\dots,i_k$ in $A$. The Plucker embedding is the map $\phi:\Gr_k(\C^n)\to\C\Prj^{\binom{n}{k}-1}$ given by $$\phi\left(\begin{pmatrix}a_{11} & \cdots & a_{1n}\\\vdots & \ddots & \vdots\\ a_{n1} & \cdots & a_{nn}\end{pmatrix}\right)=[\Delta_{1,\dots,k}:\dots:\Delta_{i_1,\dots,i_k}:\dots:\Delta_{n-k+1,\dots,n}]$$ 
 \end{defn}
 
 \begin{prp}{}{} The Plucker embedding is well defined and is injective. \tcbline
@@ -984,10 +997,9 @@ The transition maps between two open cover is given by the rational functions $\
 \begin{thm}{}{} The Grassmannians $G(k,n)$ is a projective algebraic variety. 
 \end{thm}
 
-
 \pagebreak
 \section{The Tangent Space}
-\subsection{Dimensions}
+\subsection{Dimension Theory for Varieties}
 \begin{defn}{Dimension (Topological)}{} Let $k$ be a field. Let $X$ be a variety of $\A_k^n$. Define the dimension of $X$ to be $$\dim(X)=\sup_{\substack{Z_0,\dots,Z_n\subseteq X\\\text{irreducible varieties}}}\{n\in\N\;|\;Z_0\subset Z_1\subset\dots\subset Z_n\}$$
 \end{defn}
 
@@ -1028,11 +1040,16 @@ Suppose that $Z_0\subset\cdots\subset Z_n$ is a maximal chain of irreducibles of
 \end{proof}
 \end{prp}
 
-\begin{lmm}{}{} $\dim(\Prj^n)=\dim(A^n)=n$. 
+\begin{lmm}{}{} Let $n\in\N$. Then $\dim(\Prj^n)=\dim(A^n)=n$. 
 \end{lmm}
 
-\begin{thm}{}{} Let $X\subset\A^n$ be an affine variety. Then $$\dim(X)=\dim(k[X])$$
-\end{thm}
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Then the following are true. 
+\begin{itemize}
+\item $\dim(V)=\dim(\C[V])$
+\item For any $p\in V$, $\dim(\mO_{V,p})=\dim(V)$
+\item $\text{tr}\dim_\C(K(V))=\dim(V)$. 
+\end{itemize}
+\end{prp}
 
 \begin{prp}{}{} A variety $V$ in $\A^n$ has dimension $n-1$ if and only of it is the zero set of a single nonconstant irreducible polynomial in $k[x_1,\dots,x_n]$. 
 \end{prp}
@@ -1056,7 +1073,7 @@ Recall that we have the notion of a differential in manifolds. Since all our fun
 
 In particular, the tangent space is a vector space by identifying the point $p$ as the origin and each differential $\frac{\partial F}{\partial x_1}\bigg{|}_p,\dots,\frac{\partial F}{\partial x_n}\bigg{|}_p$ as the standard basis. 
 
-\begin{prp}{}{} Let $V\subseteq\C^n$ be an affine algebraic variety. Let $x\in V$. Denote $m_x=\{f\in\C[V]|f(x)=0\}$ a maximal ideal of $\C[V]$. Then $$\dim(m_x/m_x^2)=\dim(T_p(X))$$
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Let $p\in V$. Denote $m_p$ the corresponding maximal ideal under Hilbert's nullstellensatz. Then $$\dim_{\C[V]/m_p}(m_p/m_p^2)=\dim(T_pV)$$
 \end{prp}
 
 \subsection{Smooth Points of an Affine Variety}

@@ -924,6 +924,26 @@ Suppose that $A$ is a commutative ring together with a ring homomorphism $f:R\to
 
 Under the correspondence of associative algebra, the above proposition gives a another correspondence between the first one. $$\left\{(A,R)\;\bigg{|}\;\substack{A\text{ is a commutative }\\R\text{-algebra}}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\phi:R\to A\;\bigg{|}\;\substack{\phi\text{ is a ring homomorphism}\\\text{ such that }f(R)\subseteq Z(A)=A}\right\}\;\;$$ In particular, the construction above are inverses of each other so that it gives the one-to-one correspondence. 
 
+\begin{prp}{}{} Let $B$ be an $A$-algebra. Let $S$ be a multiplicative set of $B$. Let $M$ be an $S^{-1}(B)$-module. Then for any $A$-derivation $d:B\to M$, there exists one unique way of extending the derivation to $d:S^{-1}B\to M$, defined by the formula: $$d\left(\frac{b}{s}\right)=\frac{sd(b)-bd(s)}{s^2}$$ \tcbline
+\begin{proof}
+Temporarily denote a derivation from $S^{-1}B$ to $M$ by $D$. Suppose that $b\in B$ and $s\in S$. Notice that $D$ has to satisfy the following: $$d(b)=D(b)=D\left(s\frac{b}{s}\right)=\frac{b}{s}D(s)+sD\left(\frac{b}{s}\right)$$ Now multiply both sides by $s^{-1}$ to obtain $$D\left(\frac{b}{s}\right)=\frac{sD(b)-bD(s)}{s^2}$$ Thus any $A$-derivation $S^{-1}B$ to $M$ must satisfy the above formula. This shows that there can only be one unique way of extending it. \\~\\
+
+For existence, we just have to show that it is a well defined map. Suppose that $\frac{a}{r}=\frac{b}{s}$. This means that there exists $q\in S$ such that $q(sa-rb)=0$. The goal is to show that $$\frac{rd(a)-ad(r)}{r^2}=\frac{sd(b)-bd(s)}{s^2}$$ or in other words, there exists $p\in S$ such that $p\left(s^2(rd(a)-ad(r))-r^2sd(b)-bd(s)\right)=0$. I claim that $p=q^2$ does the job. Indeed we have that
+\begin{align*}
+q^2\left(s^2(rd(a)-ad(r))-r^2sd(b)-bd(s)\right)&=q^2(sad(rs)-rsd(as)-rbd(rs)+rsd(br))\\
+&=q^2((sa-rb)d(rs)+rs(d(br-as)))\\
+&=rsq^2d(br-as)
+\end{align*}
+Now in fact, $q^2d(br-as)=0$ because 
+\begin{align*}
+q^2d(br-as)&=q(qd(br-as))\\
+&=q(d(q(br-as))-(br-as)d(q))\\
+&=0
+\end{align*}
+Thus we conclude. 
+\end{proof}
+\end{prp}
+
 \subsection{Finitely Generated Algebra}
 \begin{defn}{Finitely Generated Algebras}{} Let $R$ be a commutative ring. Let $A$ be an $R$-algebra. We say that $A$ is finitely generated if there exists $a_1,\dots,a_n\in A$ such that every element $a\in A$ can be written as a polynomial in $a_1,\dots,a_n$. This means that $$a=\sum_{i_1,\dots,i_n}r_{i_1,\dots,i_n}a_1^{i_1}\cdots a_n^{i_n}$$
 \end{defn}
@@ -968,68 +988,12 @@ Trivial since $\Z$ is a principal ideal domain.
 \end{crl}
 
 \pagebreak
-\section{Discrete Valuation Rings}
-\subsection{Discrete Valuation Rings}
-\begin{defn}{Totally Ordered Group}{} A totally ordered group is a group $G$ with a total order "$\leq$" such that it is
-\begin{itemize}
-\item a left ordered group: $a\leq b$ implies $ca\leq cb$ for all $a,b,c\in G$
-\item a right ordered group: $a\leq b$ implies $ac\leq bc$ for all $a,b,c\in G$
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Valuation on a Field}{} Let $K$ be a field. Let $G$ be a totally ordered abelian group. A valuation on $K$ with values in $G$ is a map $v:K\setminus\{0\}\to G$ such that for all $x,y\in K^\ast$, we have 
-\begin{itemize}
-\item $v(xy)=v(x)+v(y)$
-\item $v(x+y)\geq\min\{v(x),v(y)\}$
-\end{itemize}
-We use the convention that $v(0)=\infty$. \\~\\
-$v$ is said to be a discrete valuation if $G=\Z$. 
-\end{defn}
-
-\begin{prp}{}{} Let $K$ be a field and $v:K\to\Z$ a discrete valuation. Then $$\{x\in K|v(x)\geq 0\}$$ is a subring of $K$. 
-\end{prp}
-
-\begin{defn}{Discrete Valuation Rings}{} The discrete valuation ring of a discrete valuation $v:K\to\Z$ is the subset $$A=\{x\in K|v(x)\geq 0\}$$
-Alternatively, any ring isomorphic to a discrete valuation ring of some discrete valuation is also called a discrete valuation. 
-\end{defn}
-
-\begin{prp}{}{} Let $R$ be a discrete valuation ring with respect to the valuation $v$. Let $t\in R$ be such that $v(t)=1$. Then the following are true. 
-\begin{itemize}
-\item A nonzero element $u\in R$ is a unit if and only if $v(u)=0$
-\item Every non-zero ideal of $R$ is a principal ideal of the form $(t^n)$ for some $n\geq 0$
-\item Every $r\in R\setminus\{0\}$ can be written in the form $r=ut^n$ for some unit $u$ and $n\geq 0$. 
-\end{itemize}\tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item Let $R$ be a discrete valuation ring. Suppose that $x\in R$ is a unit. Then $v(x^{-1})=-v(x)$. Then $-v(x),v(x)\geq 0$ implies $v(x)=0$. Now if $v(y)>0$ , suppose for contradiction that $u\in R$ is an inverse of $y$, then $$0=v(1)=v(uy)=v(u)+v(y)$$ But $v(y)>0$ implies that $v(u)<0$ which implies that $u\notin R$, a contradiction. 
-\item Let $t\in R$ such that $v(t)=1$. Let $x\in m$ where $v(x)=n>0$. Then $v(x)=nv(t)=v(t^n)$ means that every $x\in m$ is of the form $t^n$. Thus $m=(t)$. Since every ideal $I$ is a subset of this maximal ideal, any ideal is of the form $I=(t^n)$ for some $n>0$. 
-\item Follows from the fact that $(t^n)$ is the unique maximal ideal. 
-\end{itemize}
-\end{proof}
-\end{prp}
-
-\begin{prp}{}{} Let $R$ be an integral domain. Then the following are equivalent. 
-\begin{itemize}
-\item $R$ is a discrete valuation ring
-\item $R$ is a UFD with a unique irreducible element up to multiplication of a unit
-\item $R$ is a Noetherian local ring with a principal maximal ideal
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item $(1)\implies(3)$: We have seen that the set of non-units is precisely the set $m=\{x\in K|v(x)>0\}$. We show that this is an ideal. Clearly $x,y\in m$ implies $v(x+y)=\min\{v(x),v(y)\}>0$. Let $u\in R$. Then $v(ux)=v(u)+v(x)>0$ since $v(x)>0$ and $v(u)\geq 0$. \\~\\
-We have seen that every ideal is of the form $(t^n)$ for some $n>0$. Thus every ascending chains of ideal must be of the form $$(t^{n_1})\subset(t^{n_2})\subset\dots$$ for $n_1>n_2>\dots$. Since $n_1,n_2,\dots$ is strictly decreasing, the chain must eventually stabilizes. This proves that $R$ is Noetherian and has principal maximal ideal. 
-\item $(1)\implies(3)$:
-\end{itemize}
-\end{proof}
-\end{prp}
-
-
-\pagebreak
-\section{Dimension Theory for Rings}
-\subsection{Krull Dimension and Height}
+\section{Introduction to Dimension Theory for Rings}
+\subsection{Krull Dimension}
 \begin{defn}{Krull Dimension}{} Let $R$ be a commutative ring. Define the Krull dimension of $R$ to be $$\dim(R)=\max\{t\in\N\;|\;p_0\subset\dots\subset p_t\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
 \end{defn}
 
+\subsection{Structure Theorem for Artinian Rings}
 \begin{lmm}{}{} Let $R$ be a commutative ring. Then the following are true. 
 \begin{itemize}
 \item If $R$ is a field, then $\dim(R)=0$
@@ -1037,7 +1001,13 @@ We have seen that every ideal is of the form $(t^n)$ for some $n>0$. Thus every 
 \end{itemize}
 \end{lmm}
 
-\begin{defn}{Height of a Prime Ideal}{} Let $p$ be a prime ideal in a ring $R$. Define the height of $p$ to be $$\text{ht}(p)=\sup\{t\in\N|p_0\subset\dots\subset p_t=p\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
+\begin{prp}{}{} Let $R\neq 0$ be a commutative ring. Then $R$ is Artinian if and only if $R$ is Noetherian and $\dim(R)=0$. 
+\end{prp}
+
+\begin{thm}{Structure Theorem for Commutative Artinian Rings}{} Let $R$ be an Artinian commutative ring. Then there exists Artinian local rings $A_1,\dots,A_k$ such that $$R\cong\bigoplus_{i=1}^kA_i$$ Moreover, the decomposition is unique up to reordering of the direct product. 
+\end{thm}
+\subsection{Height of Prime Ideals}
+\begin{defn}{Height of a Prime Ideal}{} Let $p$ be a prime ideal in a ring $R$. Define the height of $p$ to be $$\text{ht}(p)=\sup\{t\in\N\;|\;p_0\subset\dots\subset p_t=p\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
 \end{defn}
 
 \begin{lmm}{}{} Let $p$ be a prime ideal in a ring $R$. Then $$\text{ht}(p)=\dim(R_p)$$ 
@@ -1090,8 +1060,409 @@ The following is a generalization of Krull's principal ideal theorem. Both of th
 \begin{thm}{}{} Let $(R,m)$ be a Noetherian local ring and let $k=R/m$ be the residue field. Then $$\dim(R)\leq\dim_k(m/m^2)$$
 \end{thm}
 
-\subsection{Global Dimension of a Ring}
+\pagebreak
+\section{Valuation and Valuation Rings}
+\subsection{Valuation Rings}
+\begin{defn}{Valuation Rings}{} Let $R$ be an integral domain. We say that $R$ is a valuation ring if for all $x\in\text{Frac}(R)$ and $x\neq 0$, then either $x$ or $x^{-1}$ is in $R$. 
+\end{defn}
 
+\begin{lmm}{}{} Let $R$ be a valuation ring. Then the following are true. 
+\begin{itemize}
+\item $R$ is a local ring
+\item $R$ is integrally closed
+\end{itemize}
+\end{lmm}
+
+\subsection{Valuations on a Field}
+\begin{defn}{Totally Ordered Group}{} Let $G$ be an abelian group. We say that $G$ is a totally ordered group if there is a total order "$\leq$" on $G$ such that $a\leq b$ implies $ca\leq cb$ for all $a,b,c\in G$. 
+\end{defn}
+
+\begin{defn}{Valuation on a Field}{} Let $K$ be a field. Let $G$ be a totally ordered abelian group. A valuation on $K$ with values in $G$ is a group homomorphism $v:K^\times\to G$ such that for all $x,y\in K^\ast$, we have 
+\begin{itemize}
+\item $v(xy)=v(x)+v(y)$
+\item $v(x+y)\geq\min\{v(x),v(y)\}$
+\end{itemize}
+We use the convention that $v(0)=\infty$. 
+\end{defn}
+
+\begin{defn}{Associated Valuation Ring}{} Let $K$ be a field and $v:K\to\Z$ a discrete valuation. Define the associated valuation ring of $K$ to be the subring $$R_v=\{x\in K\;|\;v(x)\geq 0\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $K$ be a field. Let $v$ be a discrete valuation on $K$. Then $R_v$ is a valuation ring. 
+\end{lmm}
+
+\subsection{Discrete Valuations and Normalizations}
+\begin{defn}{Discrete Valuations}{} Let $K$ be a field. A discrete valuation on $K$ is a valuation $v:K^\times\to\Z$. 
+\end{defn}
+
+\begin{defn}{Normalized Discrete Valuations}{} Let $(K,v)$ be a discrete valuation ring. We say that it is normalized if $v$ is surjective. 
+\end{defn}
+
+\begin{lmm}{}{} Let $K$ be a field with a discrete valuation $v$. Then $v(K^\times)=n\Z$ for some $n\in\N$. 
+\end{lmm}
+
+\begin{lmm}{Normalization of a Discrete Valuation}{} Let $K$ be a field with a discrete valuation $v$ such that $v(K^\times)=n\Z$ for some $n\in\N$. Define the normalization of $v$ to be the valuation $v_N:K^\times\to\Z$ defined by $$v_N(k)=\frac{1}{n}v(k)$$ for all $k\in K^\times$. 
+\end{lmm}
+
+Therefore we always work on normalized discrete valuation rings. 
+
+\subsection{Discrete Valuation Rings}
+\begin{defn}{Discrete Valuation Rings}{} Let $R$ be a commutative ring. We say that $R$ is a discrete valuation ring if there exists a field $K$ and a discrete valuation $v$ on $K$ such that $$R=R_v$$ is the associated valuation ring of $K$. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a discrete valuation ring with valuation $v$. Let $t\in R$ be such that $v(t)=1$. Then the following are true. 
+\begin{itemize}
+\item A nonzero element $u\in R$ is a unit if and only if $v(u)=0$
+\item $\dim(R)=1$
+\end{itemize}\tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $R$ be a discrete valuation ring. Suppose that $x\in R$ is a unit. Then $v(x^{-1})=-v(x)$. Then $-v(x),v(x)\geq 0$ implies $v(x)=0$. Now if $v(y)>0$ , suppose for contradiction that $u\in R$ is an inverse of $y$, then $$0=v(1)=v(uy)=v(u)+v(y)$$ But $v(y)>0$ implies that $v(u)<0$ which implies that $u\notin R$, a contradiction. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{defn}{Uniformizing Parameter}{} Let $R$ be a discrete valuation ring with valuation $v$. A uniformizing parameter for $R$ is an element $t\in R$ such that $v(t)=1$. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a discrete valuation ring with valuation $v$. Let $t\in R$ be a uniformizing parameter of $R$. Then the following are true. 
+\begin{itemize}
+\item Every non-zero ideal of $R$ is a principal ideal of the form $(t^n)$ for some $n\geq 0$
+\item Every $r\in R\setminus\{0\}$ can be written in the form $r=ut^n$ for some unit $u$ and $n\geq 0$. 
+\end{itemize}\tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $t\in R$ such that $v(t)=1$. Let $x\in m$ where $v(x)=n>0$. Then $v(x)=nv(t)=v(t^n)$ means that every $x\in m$ is of the form $t^n$. Thus $m=(t)$. Since every ideal $I$ is a subset of this maximal ideal, any ideal is of the form $I=(t^n)$ for some $n>0$. 
+\item Follows from the fact that $(t^n)$ is the unique maximal ideal. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be an integral domain. Then the following are equivalent. 
+\begin{itemize}
+\item $R$ is a discrete valuation ring
+\item $R$ is a UFD with a unique irreducible element up to multiplication of a unit
+\item $R$ is a Noetherian local ring with a principal maximal ideal
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $(1)\implies(3)$: We have seen that the set of non-units is precisely the set $m=\{x\in K|v(x)>0\}$. We show that this is an ideal. Clearly $x,y\in m$ implies $v(x+y)=\min\{v(x),v(y)\}>0$. Let $u\in R$. Then $v(ux)=v(u)+v(x)>0$ since $v(x)>0$ and $v(u)\geq 0$. \\~\\
+We have seen that every ideal is of the form $(t^n)$ for some $n>0$. Thus every ascending chains of ideal must be of the form $$(t^{n_1})\subset(t^{n_2})\subset\dots$$ for $n_1>n_2>\dots$. Since $n_1,n_2,\dots$ is strictly decreasing, the chain must eventually stabilizes. This proves that $R$ is Noetherian and has principal maximal ideal. 
+\item $(1)\implies(3)$:
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a Noetherian local integral domain such that $\dim(R)=1$. Let $m$ be its unique maximal ideal. Then the following are equivalent. 
+\begin{itemize}
+\item $R$ is a discrete valuation ring. 
+\item $R$ is integrally closed
+\item $m$ is a principal ideal
+\item $\dim_{R/m}(m/m^2)=1$
+\item For ideal $I\neq 0$ of $R$, $I=m^k$ for some $k\in\N$
+\item There exists $t\in R$ such that every ideal $I\neq 0$ of $R$ is of the form $I=(t^n)$ for some $n\in\N$. 
+\end{itemize}
+\end{prp}
+
+
+\pagebreak
+\section{Four Important Rings}
+In this section we will investigate four particular types of Noetherian local rings. Therefore it is important to revise on what we know about Noetherian local rings as of now. 
+\begin{itemize}
+\item Noetherian means that the supremum of the set of all ascending chains of terminate at a largest ideal. 
+\item Locality means that the ring has a unique maximal ideal. 
+\end{itemize}
+Noetherian local rings enjoy the fundamental theorem of dimension theory, which says that the different definitions of dimensions coincide. The definitions of the four types of rings depends heavily on the notion of dimension. 
+
+\subsection{Regular Local Rings}
+Regularity is an important concept in algebraic geometry to detecting singularities. We motivate the definition by the following proposition. 
+
+\begin{defn}{Regular Local Rings}{} A Noetherian local ring $(R,m)$ is said to be regular if $$\dim_k(m/m^2)=\dim(R)$$ for $k=R/m$ the residue field of $R$. 
+\end{defn}
+
+\begin{thm}{}{} Let $(R,m)$ be a Noetherian local ring. Let $n$ be the minimal number of elements needed to generate $m$. Then $R$ is regular if and only if $n=\dim(R)$. 
+\end{thm}
+
+\begin{thm}{}{} Let $A$ be a Noetherian local ring of dimension $1$ with maximal ideal $m$. Then the following are equivalent: 
+\begin{itemize}
+\item $A$ is regular
+\item $m$ is principal
+\item $A$ is an integral domain, and all ideals are of the form $m^n$ for $n\geq 0$ or $(0)$
+\item $A$ is a principal ideal domain
+\end{itemize}
+\end{thm}
+
+\subsection{Complete Intersection Rings}
+\begin{defn}{Complete Intersection Rings}{} Let $(R,m)$ be a Noetherian local ring. We say that $R$ is a complete intersection ring if there exists a regular local ring $(A,q)$ and an ideal $I$ generated by a regular sequence such that $$\hat{R}\cong\frac{A}{I}$$
+\end{defn}
+
+\subsection{Gorenstein Rings}
+\begin{defn}{Gorenstein Rings}{}
+\end{defn}
+
+\begin{defn}{Injective Dimension}{}
+\end{defn}
+
+\subsection{Cohen-Macauley Rings}
+
+$$\substack{\text{Regular}\\\text{Local Rings}}\subset\substack{\text{Complete}\\\text{Intersection Rings}}\subset\substack{\text{Gorenstein}\\\text{Rings}}\subset\substack{\text{Cohen-Macauley}\\\text{Rings}}$$
+
+\pagebreak
+\section{Kähler Differentials}
+The goal of this section is to define the derivations and the module of Kähler differentials, as well as seeing some first consequences such as the two exact sequences. To show existence of the module of Kähler differentials, we will see two different constructions of the module. 
+
+\subsection{Kähler Differentials}
+We now define the module of Kähler Differentials which is the main object of study. For each $A$-derivation $d$ from an $A$-algebra $B$ to a $B$-module $M$, $d$ factors through a universal object no matter what $d$ we choose. This is the content of the following definition. 
+
+\begin{defn}{Kähler Differentials}{} A $B$-module $\Omega_{B/A}^1$ together with an $A$-derivation $d:B\to\Omega_{B/A}^1$ is said to be a module Kähler Differentials of $B$ over $A$ if it satisfies the following universal property: \\~\\
+For any $B$-module $M$, and for any $A$-derivation $d':B\to M$, there exists a unique $B$-module homomorphism $f:\Omega_{B/A}^1\to M$ such that $d'=f\circ d$. In other words, the following diagram commutes: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+B\arrow[r, "d"]\arrow[rd, "d'"'] & \Omega_{B/A}^1\arrow[d, "\exists!f", dashed]\\
+& M
+\end{tikzcd}}
+\end{defn}
+
+The above definition merely shows what properties we would like a module of Kähler differentials to satisfy. Notice that we have yet to show its existence. The above construction is also universal in the following sense. 
+
+\begin{lmm}{}{2.2.2} Let $A$ be a ring and $B$ an $A$-algebra. Let $M$ be a $B$-module. Then there is a canonical $B$-module isomorphism $$\text{Hom}_B(\Omega_{B/A}^1,M)\cong\text{Der}_A(B,M)$$ \tcbline
+\begin{proof}
+Fix $M$ a $B$-module. Let $d'\in\text{Der}_A(B,M)$. By the universal property of $\Omega_{B/A}^1(M)$, there exists a unique $B$-module homomorphism $f:\Omega_{B/A}^1\to M$ such that $d'=f\circ d$. This gives a map $\phi:\text{Der}_A(B,M)\to\Hom_B(\Omega_{B/A}^1,M)$ defined by $\phi(d')=f$. \\~\\
+Conversely, given a map $g\in\Hom_B(\Omega_{B/A}^1,M)$, pre-composition with $d$ gives a pull back map $d^\ast:\Hom_B(\Omega_{B/A}^1,M)\to\text{Der}_A(B,M)$ defined by $d^\ast(g)=g\circ d$. These map are inverses of each other: 
+\begin{align*}
+(d^\ast\circ\phi)(d')&=d^\ast(f)\\
+&=f\circ d\\
+&=d'\tag{By universal property}
+\end{align*} and 
+$(\phi\circ d^\ast)(g)=\phi(g\circ d)=g$. 
+Thus these map is a bijective map of sets. \\~\\
+
+It remains to show that $d^\ast$ is a $B$-module homomorphism. Let $f,g\in\Hom_B(\Omega_{B/A}^1,M)$. 
+\begin{itemize}
+\item $d^\ast(f+g)=(f+g)\circ d$ is a map $$b\overset{d}{\mapsto}d(b)\overset{f+g}{\mapsto}f(d(b))+g(d(b))$$ for $b\in B$. $d^\ast(f)+d^\ast(g)=f\circ d+g\circ d$ is a map $$b\mapsto f(d(b))+g(d(b))$$ thus addition is preserved by $d^\ast$. 
+\item Let $u\in B$. We want to show that $d^\ast(u\cdot f)=u\cdot d^\ast(f)$. The left hand side sends an element $b\in B$ by $$b\overset{d}{\mapsto}d(b)\overset{u\cdot f}{\mapsto}u\cdot f(d(b))$$ The right hand side sends $b\mapsto u\cdot f(d(b))$. Thus proving they are the same. 
+\end{itemize}
+And so we have reached the conclusion. 
+\end{proof}
+\end{lmm}
+
+The definition of the module and the above lemma shows the following: The functor $M\mapsto\text{Der}_A(B,M)$ between the category of $B$-modules is representable. Indeed, one may recall that a functor is said to be representable if it is naturally isomorphic to the $\Hom$ functor together with a fixed object, which is precisely the content of the above lemma. \\~\\
+
+Let us now see an explicit construction of the module to prove the existence of the module of Kähler Differentials. 
+
+\begin{prp}{}{} Let $A$ be a ring and $B$ be an $A$-algebra. Let $F$ be the free $B$-module generated by the symbols $\{d(b)\;|\;b\in B\}$. Let $R$ be the submodule of $F$ generated by the following relations: 
+\begin{itemize}
+\item $d(a_1b_1+a_2b_2)-a_1d(b_1)-a_2d(b_2)$ for all $b_1,b_2\in B$ and $a_1,a_2\in A$
+\item $d(b_1b_2)-b_1d(b_2)-b_2d(b_1)$ for all $b_1,b_2\in B$
+\end{itemize}
+Then $F/R$ is a module of Kähler Differentials for $B$ over $A$. \tcbline
+\begin{proof}
+Clearly $F/R$ is a $B$-module. Moreover, define $d:B\to F/R$ by $b\mapsto d(b)+R$. This map is an $A$-derivation since the following are satisfied: 
+\begin{itemize}
+\item $d$ is an $A$-module homomorphism: Let $b_1,b_2\in B$ and $a_1,a_2\in A$. Then $a_1b_1+a_2b_2$ is mapped to $d(a_1b_1+a_2b_2)+R$. We know from the relations that $d(a_1b_1+a_2b_2)+R=a_1d(b_1)+a_2d(b_2)+R$. Thus $d$ is $A$-linear. 
+\item $d$ satisfies the Leibniz rule: Let $b_1,b_2\in B$. Then $b_1b_2$ is mapped to $d(b_1b_2)+R$. Since $d(b_1b_2)+R=b_1d(b_2)+d(b_1)b_2$, we have that $b_1b_2$ is mapped to $b_1d(b_2)+d(b_1)b_2+R$. 
+\end{itemize}
+This shows that $d:B\to F/R$ is an $A$ derivation. \\~\\
+
+It remains to show that $(F/R,d)$ has the universal property. Let $M$ be a $B$-module and $d':B\to M$ an $A$-derivation. Define a map $f:F\to M$ on generators by $d(b)\mapsto d'(b)$ and extending from generators to the entire module. This is a $B$-module homomorphism by definition. Clearly $f\circ d=d'$. It also unique since $f$ is defined on the generators of $F$. \\~\\
+
+Finally we want to show that $f$ projects to a map $\bar{f}:F/R\to M$. This requires us to check that $f(d(a_1b_1+a_2b_2))=f(a_1d(b_1)+a_2d(b_2))$ and $f(d(b_1b_2))=f(b_1d(b_2)+d(b_1)b_2)$. But this is clear. Since $f:F\to R$ is a $B$-module homomorphism, we have $$f(d(a_1b_1+a_2b_2))-f(a_1d(b_1)+a_2d(b_2))=0$$ and $$f(d(b_1b_2))-f(b_1d(b_2)+d(b_1)b_2)=0$$ implying $f$ sends $d(a_1b_1+a_2b_2)-a_1d(b_1)-a_2d(b_2)$ and $d(b_1b_2)-b_1d(b_2)-d(b_1)b_2$ to $0$. Since we checked them on generators of $R$ this result extends to all of $R$. Thus we are done. 
+\end{proof}
+\end{prp}
+
+Aside from the construction through quotients, we can also express the module explicitly via the kernel of a diagonal morphism. Using the universal property, we see that all these constructions are the same. 
+
+\begin{prp}{}{} Let $A$ be a ring and $B$ be an $A$-algebra. Let $f:B\otimes_A B\to B$ be a function defined to be $f(b_1\otimes_A b_2)=b_1b_2$. Let $I$ be the kernel of $f$. Then $(I/I^2,d)$ is a module of Kähler Differentials of $B$ over $A$, where the derivation is the homomorphism $d:B\to I/I^2$ defined by $db=1\otimes b-b\otimes1\;(\bmod\;I^2)$. \tcbline
+\begin{proof}
+We break down the proof in 3 main steps. \\~\\
+Step 1: Show that $\ker(f)=\langle 1\otimes b-b\otimes 1\;|\;b\in B\rangle$. \\
+Write $I=\langle 1\otimes b-b\otimes 1\;|\;b\in B\rangle$. For any generator $1\otimes b-b\otimes 1$ of $I$, we see that $$f(1\otimes b-b\otimes 1)=0$$ Thus $I\subseteq\ker(f)$. Now suppose that $\sum_{i,j} b_i\otimes b_j\in\ker(f)$. Then using the identity $$b_i\otimes b_j=b_ib_j\otimes 1+(b_i\otimes 1)(1\otimes b_j-b_j\otimes 1)$$ and the fact that $b_ib_j=0$ (because $0=f(b_i\otimes b_j)=b_ib_j$) we see that $$\sum_{i,j} b_i\otimes b_j=\sum_{i,j}(b_i\otimes 1)(1\otimes b_j-b_j\otimes 1)$$ Since each $1\otimes b_j-b_j\otimes 1$ lies in $\ker(f)$, we conclude that $\sum_{i,j}b_i\otimes b_j$ so that $I=\ker(f)$. \\~\\
+Step 2: Check that $d:B\to I/I^2$ is an $A$-derivation. \\
+\begin{itemize}
+\item $d:B\to I/I^2$ is an $A$-module homomorphism: Let $a_1a_2\in A$ and $b_1,b_2\in B$. Then we have 
+\begin{align*}
+d(a_1b_1+a_2b_2)&=1\otimes (a_1b_2+a_2b_2)-(a_1b_2+a_2b_2)\otimes 1+I^2\\
+&=a_1(1\otimes b_1)+a_2(1\otimes b_2)-a_1(b_1\otimes 1)-a_2(b_2\otimes 1)+I^2\\
+&=a_1d(b_1b_2)+a_2d(b_1b_2)+I^2
+\end{align*}
+Thus we are done. (Notice that we did not use the fact that all the expressions are taken modulo $I^2$)
+\item $d$ satisfies the Leibniz rule: Let $b_1,b_2\in B$. Then we have $d(b_1b_2)=1\otimes b_1b_2-b_1b_2\otimes 1+I^2$ on one hand. On the other hand we have $$b_1d(b_2)+b_2d(b_1)=b_1(1\otimes b_2-b_2\otimes 1)+b_2(1\otimes b_1-b_1\otimes 1)+I^2$$ Subtracting them gives 
+\begin{align*}
+d(b_1b_2)-b_1d(b_2)-b_2d(b_1)&=1\otimes b_1b_2-b_1\otimes b_2-b_2\otimes b_1+b_2b_1\otimes 1\\
+&=(1\otimes b_1-b_1\otimes 1)(1\otimes b_2-b_2\otimes 1)+I^2
+\end{align*}
+But $(1\otimes b_1-b_1\otimes 1)(1\otimes b_2-b_2\otimes 1)$ lies in $I^2$ thus subtraction gives $0$. 
+\end{itemize}
+Thus $d$ is an $A$-derivation. \\~\\
+
+Step 3: Show that the universal property is satisfied. \\
+Let $M$ be a $B$-module and $d':B\to M$ an $A$-derivation. We want to find a unique $\tilde{\phi}:B\to M$ such that $d'=\tilde{\phi}\circ d$. \\~\\
+
+Step 3.1: Construct a homomorphism of $A$-algebra from $B\otimes B$ to $B\ltimes M$ \\
+Define $\phi:B\otimes B\to B\ltimes M$ (Refer to \ref{defn:7.1.7} for definition of $B\ltimes M$) by $$\phi(b_1\otimes b_2)=(b_1b_2,b_1d'(b_2))$$ and extend it linearly so that $\phi(b_1\otimes b_2+b_3\otimes b_4)=\phi(b_1\otimes b_2)+\phi(b_3\otimes b_4)$. This is a homomorphism of $A$-algebra since 
+\begin{itemize}
+\item Addition is preserved: This is by definition. 
+\item $\phi(ab_1\otimes b_2)=\phi(b_1\otimes ab_2)=a\phi(b_1\otimes b_2$: Let $a\in A$ and $b_1\otimes b_2\in B\otimes_A B$. Then 
+\begin{align*}
+\phi(ab_1\otimes b_2)&=(ab_1b_2,ab_1d'(b_2))\\
+&=a\cdot\phi(b_1\otimes b_2)\\
+\phi(b_1\otimes ab_2)&=(ab_1b_2,b_1d'(ab_2))\\
+&=(ab_1b_2,ab_1d'(b_2))
+\end{align*}
+Thus we are done. 
+\item Product is preserved: For $u_1,u_2,v_1,v_2\in B$, we have
+\begin{align*}
+\phi((u_1\otimes u_2)\cdot\phi(v_1\otimes v_2))&=(u_1u_2,u_1d'(u_2))\cdot(v_1v_2,v_1d'(v_2))\\
+&=(u_1u_2v_1v_2,u_1u_2v_1d'(v_2)+v_1v_2u_1d'(u_2))\\
+&=(u_1v_1u_2v_2,u_1v_1d'(u_2v_2)\\
+&=\phi(u_1v_1\otimes u_2v_2)
+\end{align*}
+\end{itemize}
+Thus $\phi$ is a homomorphism of $A$-algebra. \\~\\
+
+Step 3.2: Construct $\tilde{\phi}$ from $\phi$. \\
+Since $\phi$ is a map $B\otimes B$ to $B\ltimes M$, we can restrict this map to $I$ a result in a new map $\bar{\phi}:I\to B\ltimes M$. Notice that for $1\otimes b-b\otimes 1$ a generator of $I$, we have 
+\begin{align*}
+\bar{\phi}(1\otimes b-b\otimes 1)&=\bar{\phi}(1\otimes b)-\bar{\phi}(b\otimes 1)\\
+&=(b,d'(b))-(b,d'(1))\\
+&=(b,d'(b))-(b,0)\\
+&=(0,d'(b))
+\end{align*}
+Thus we actually have a map $\bar{\phi}:I\to M$. Finally, notice that for $(1\otimes u-u\otimes 1)(1\otimes v-v\otimes 1)$ a generator of $I^2$, we have 
+\begin{align*}
+\bar{\phi}(x)&=\phi(1\otimes u-u\otimes 1)\phi(1\otimes v-v\otimes 1)\\
+&=\sum(0,d'(u))(0,d'(v))\\
+&=\sum(0,0)\tag{Mult. in Trivial Extension}\\
+&=(0,0)
+\end{align*}
+which shows $\bar{\phi}$ kills of $I^2$ and thus $\bar{\phi}$ factors through $I/I^2$ so that we get a map $\tilde{\phi}:I/I^2\to M$. \\~\\
+
+Step 3.3: Show that $\tilde{\phi}$ satisfies all the required properties. \\
+For $b\in B$, we have that $$\tilde{\phi}(d(b))=\tilde{\phi}(1\otimes b-b\otimes 1+I^2)=d'(b)$$ and thus $d'=\tilde{\phi}\circ d$. Moreover, this map is unique since it is defined on the generators of $I$, namely the $d(b)$ for $b\in B$. \\~\\
+
+This concludes the proof. \\
+Materials referenced: \cite{Rav}, \cite{Ern}, \cite{Mat}
+\end{proof}
+\end{prp}
+
+This version of the module of Kähler Differentials generalizes well to the theory of schemes. Interested readers are referred to \cite{Har}. \\~\\
+
+Our first step towards computing the module of Kähler Differentials for coordinate rings comes from a computation of the polynomial ring. 
+
+\begin{lmm}{}{} Let $A$ be a ring and $B=A[x_1,\dots,x_n]$ so that $B$ is an $A$-algebra. Then $$\Omega_{B/A}^1=\bigoplus_{i=1}^nBd(x_i)$$ 
+is a finitely generated $B$-module. \tcbline
+\begin{proof}
+I claim that  $\Omega_{B/A}^1$ has basis $d(x_1),\dots,d(x_n)$. 
+We proceed by induction. \\~\\
+
+When $n=1$, a general polynomial in $A[x]$ is of the form $$f(x)=\sum_{i=0}^nc_ix^i$$ for $c_i\in A$. Applying $d$ subject to the conditions of quotienting gives $$d(f)=\sum_{i=0}^nc_id(x^i)$$ But $d(x^i)=xd(x^{i-1})+x^{i-1}d(x)$. Repeating this allows us to reduce $d(x^i)=g_i(x)d(x)$. Doing this for each $x^i$ in the sum in fact gives us $f(x)=\frac{df}{dx}d(x)$. Thus we see that $\Omega_{A[x]/A}^1$ is a $A[x]$ module with basis $d(x)$. \\~\\
+
+Now suppose that $\Omega_{A[x_1,\dots,x_{n-1}]/A}^1=\bigoplus_{i=1}^{n-1}Bd(x_i)$. Then for every $f\in A[x_1,\dots,x_n]$, we can write the function as $$f(x_1,\dots,x_n)=\sum_{i=0}^sg_i(x_1,\dots,x_{n-1})x_n^i$$ and then we can apply the same process again: $$d(f)=\sum_{i=0}^s(x_n^id(g_i)+g_id(x_n^i))$$ except that now $d(g_i)$ by induction hypothesis can be written in terms of the basis $d(x_1),\dots,d(x_{n-1})$. As a side note: by doing some multiplication, one can easily see that $$d(f)=\sum_{i=0}^s\frac{\partial f}{\partial x_i}d(x_i)$$~\\
+
+By \ref{prp:7.1.6}, since $\Omega_{B/A}^1$ is a $B$-module, there exists a free $B$ module $\bigoplus_{i=1}^mB$ such that the map $\psi:\bigoplus_{i=1}^mB$ is surjective. In fact, by choosing $m=n$ and mapping each basis $e_i$ of $\bigoplus_{i=1}^nB$ to $d(x_i)$, we obtain a surjective map. \\~\\
+
+Now consider the map $\partial:B\to\bigoplus_{i=1}^nB$ (No calculus involved, just notation!) defined by $$f\mapsto\left(\frac{\partial f}{\partial x_1},\dots,\frac{\partial f}{\partial x_n}\right)$$ It is clear that this map is an $A$-derivation. By the universal property of $\Omega_{B/A}^1$, the derivation factors through $d:A\to\Omega_{B/A}^1$. This leaves us with a $B$-module homomorphism $\phi:\Omega_{B/A}^1\to\bigoplus_{i=1}^nB$ defined by $$d(f)\mapsto\left(\frac{\partial f}{\partial x_1},\dots,\frac{\partial f}{\partial x_n}\right)$$ This map is surjective. Notice that for each monomial $x_i$ in $B$, we have $\partial(x_i)=e_i$. Since $\partial=\phi\circ d$, $d(x_i)\in\Omega_{A/k}^1$ maps to $e_i$ and thus $\phi$ is surjective. \\~\\
+
+It is clear that $\phi$ and $\psi$ are inverses of each other since the basis elements that they map to and from are the same. 
+\end{proof}
+\end{lmm}
+
+\subsection{Transfering the System of Differentials}
+This section aims to develop the necessary machinery in order to compute the module of Kähler Differentials for coordinate rings. We will see explicit calculation of the cuspidal cubic, an ellipse and the double cone to demonstrate how the two exact sequences can be used along with the Jacobian of the defining equations of the variety to compute the module of Kähler Differentials. 
+
+\begin{thm}{First Exact Sequence}{2.3.1} Let $B,C$ be $A$-algebras and let $\phi:B\to C$ be an $A$-algebra homomorphism. Then the following sequence is an exact sequence of $C$-modules: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\Omega_{B/A}^1\otimes_BC\arrow[r, "f"] & \Omega_{C/A}^1\arrow[r, "g"] & \Omega_{C/B}^1\arrow[r] & 0
+\end{tikzcd}} \\~\\
+where $f$ and $g$ is defined respectively as $$f(d_{B/A}(b)\otimes c)=c\cdot d_{C/A}(\phi(b))$$ and $$g(d_{C/A}(c))=d_{C/B}(c)$$ and extended linearly. \tcbline
+\begin{proof}
+Denote $d_{B/A},d_{C/A},d_{C/B}$ the derivations for $\Omega_{B/A}^1,\Omega_{C/A}^1,\Omega_{C/B}^1$ respectively. Clearly $g$ is surjective since for any $c_1d_{C/B}(c_2)\in\Omega_{C/B}^1$, just choose $c_1d_{C/A}(c_2)\in\Omega_{C/A}^1$. We just have to show that $\ker(g)=\im(f)$. It is enough to show that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \Hom_C(\Omega_{C/B}^1,N)\arrow[r] & \Hom_C(\Omega_{C/A}^1,N)\arrow[r] & \Hom_C(\Omega_{B/A}^1\otimes_BC,N)
+\end{tikzcd}}\\~\\
+is exact by \ref{thm:7.1.2}. Using the fact that $\Hom_C(\Omega_{B/A}^1\otimes_BC,N)=\Hom_B(\Omega_{B/A}^1,N)$ (\ref{thm:7.1.3}) and the fact that $\Hom(\Omega_{B/A}^1,N)\cong\text{Der}_A(B,N)$, we can transform the sequence into \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \text{Der}_B(C,N)\arrow[r, "u"] & \text{Der}_A(C,N)\arrow[r, "v"] & \text{Der}_A(B,N)
+\end{tikzcd}}\\~\\
+Notice that $u$ is just the inclusion map and $v$ is just the restriction map. In particular, an $A$-derivation is a $B$-derivation if and only if its restriction to $B$ is trivial. Hence we conclude that $\im(u)=\ker(v)$. 
+Materials Referenced: \cite{Liu}, \cite{CRing}
+\end{proof}
+\end{thm}
+
+\begin{thm}{Second Exact Sequence}{2.3.2} Let $A$ be a ring and $B$ an $A$-algebra. Let $I$ be an ideal of $B$ and $C=B/I$. Then the following sequence is an exact sequence of $C$-modules: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+I/I^2\arrow[r] & \Omega_{B/A}^1\otimes_B C\arrow[r, "\delta"] & \Omega_{C/A}^1\arrow[r, "f"] & 0
+\end{tikzcd}}\\~\\
+where $\delta$ and $f$ is defined respectively as $$\delta(i+I^2)=d(i)\otimes 1$$ and $$f(d(b)\otimes c)=c\cdot d(\phi(b))$$ and then extended linearly. \tcbline
+\begin{proof}
+Notice that $\delta$ is well defined. Indeed, if $i+I^2=j+I^2$, then there exists $h_1,h_2\in I$ such that $i-j=h_1h_2$. Now we have that 
+\begin{align*}
+\delta(i-j)&=d(h_1h_2)\otimes 1\\
+&=h_1d(h_2)\otimes 1+h_2d(h_1)\otimes 1\\
+&=d(h_2)\otimes h_1+I+d(h_1)\otimes h_2+I\\
+&=d(h_2)\otimes 0+d(h_1)\otimes 0\\
+&=0
+\end{align*}
+We can see that $f$ is surjective. Indeed for any $d(b+I)\in\Omega_{C/A}^1$, just choose $d(b)\otimes 1\in\Omega_{B/A}^1\otimes_BC$. Then $f(d(b)\otimes 1)=d(b+I)$. \\~\\
+
+It remains to show that $\im(\delta)=\ker(f)$. Notice that to prove the exactness of the sequence in question, we just have to show the exactness of the following sequence (by \ref{thm:7.1.2}): \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \Hom_C(\Omega_{C/A}^1,N)\arrow[r] & \Hom_C(\Omega_{B/A}^1\otimes_B\frac{B}{I})\arrow[r] & \Hom_C(I/I^2,N)
+\end{tikzcd}}\\~\\
+Using the fact that $I/I^2\cong I\otimes_B\frac{B}{I}$ (by \ref{prp:7.1.4}) and $\Hom_C(\Omega_{B/A}^1\otimes_BB/I,N)=\Hom_B(\Omega_{B/A}^1,N)$ (by \ref{thm:7.1.3}) we can transform this sequence into \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \Hom_C(\Omega_{C/A}^1,N)\arrow[r] & \Hom_B(\Omega_{B/A}^1,N)\arrow[r] & \Hom_B(I,N)
+\end{tikzcd}}\\~\\
+and further using $\text{Der}_A(B,N)\cong\Hom_B(\Omega_{B/A}^1,N)$ (by \ref{lmm:2.2.2}), transform into \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \text{Der}_A(B/I,N)\arrow[r, "f_\ast"] & \text{Der}_A(B,N)\arrow[r, "\delta_\ast"] & \Hom_B(I,N)
+\end{tikzcd}}\\~\\
+There is no need to prove the second arrow to be injective. We need to show exactness between the second and third arrow. \\~\\
+
+Notice that any $\phi\in\text{Der}_A(B/I,N)$ can be extended naturally to an $A$-linear derivation from $B$ to $N$: just pre-compose it with the projection map $p:B\to B/I$. This map is $A$-linear hence $\phi\circ p$ is $A$-linear. Moreover, $p$ is $B$-linear and $\phi$ is a derivation so that it satisfies the Leibniz rule. Also, a natural map from $\text{Der}_A(B,N)$ to $\Hom_B(I,N)$ is given just by restricting $\psi\in\text{Der}_A(B,N)$ to $I$. The new map under restriction will naturally become a homomorphism from $I$ to $N$. The kernel of the third arrow is just any derivation in $\text{Der}_A(B,N)$ that is identically $0$ on $I$. \\~\\
+But these derivations are precisely those of $\text{Der}_A(B/I,N)$! 
+\end{proof}
+\end{thm}
+
+A very nice application towards computing the module of differential forms is given by the second exact sequence. For $B=A[x_1,\dots,x_n]$ and $C=\frac{B}{I=(f_1,\dots,f_r)}$, we can use \ref{prp:7.1.5} to see that $\Omega_{B/A}^1\otimes C\cong\bigoplus_{i=1}^nCdx_i$. By the second exact sequence \ref{thm:2.3.2}, we see that $$\Omega_{C/A}^1\cong\text{coker}\left(\frac{I}{I^2}\to\bigoplus_{i=1}^nCdx_i\right)$$ Since $I/I^2$ is a $C$-module, by \ref{prp:7.1.6} there exists a surjective map $\bigoplus_{i=1}^mCde_i\twoheadrightarrow I/I^2$. In fact $m=r$ since $I$ is finitely generated by $f_1,\dots,f_r$ and thus the map sends $e_i$ to $f_i$ for $1\leq i\leq r$. \\~\\
+
+Now consider the map $$J:\bigoplus_{i=1}^rCde_i\twoheadrightarrow\frac{I}{I^2}\rightarrow\bigoplus_{i=1}^nCdx_i$$ This is a map from a free module of rank $r$ to a free module of rank $n$. So we can write this in an $n\times r$ matrix. Since the map $I/I^2\to\bigoplus_{i=1}^nCdx_i$ sends $f_i$ to $d(f_i)=\sum_{k=1}^n\frac{\partial f_i}{\partial x_k}dx_k$ (by second exact sequence \ref{thm:2.3.2}) and $e_i$ is sent $f_i$, we have that $J$ is the matrix $$\begin{pmatrix}
+\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_r}{\partial x_1}\\
+\vdots & \ddots & \vdots\\
+\frac{\partial f_1}{\partial x_n} & \cdots & \frac{\partial f_r}{\partial x_n}
+\end{pmatrix}$$~\\
+
+Finally, since $\im(A\twoheadrightarrow B\to C)=\im(B\to C)$, we thus have $$\text{coker}(J)\cong\Omega_{C/A}^1$$ which means that $\Omega_{C/A}^1$ is just the cokernel of the matrix. This exposition can be found in \cite{Dav}. 
+
+\subsection{Characterization for Separability}
+The module of Kähler differentials give a necessary and sufficient condition for a finite extension to be separable. Before the main proposition, we will need a lemma. 
+
+\begin{lmm}{}{3.1.1} Let $L/K$ be a finite field extension and $\Omega_{L/K}^1$ the module of Kähler Differentials. Let $f(b)=c_0+c_1b+\dots+c_nb^n\in L$ for $c_0,\dots,c_n\in K$ and $b\in L$. Then $d(f(b))=f'(b)d(b)$ where $f'(b)$ is the derivative of $f(b)$ with respect to $b$ in the sense of calculus. \tcbline
+\begin{proof}
+Since $f(b)$ is a finite sum, we apply linearity and Leibniz rule of $d$ to get $$f'(b)=d(c_0)+bd(c_1)+c_1d(b)+\dots+b^nd(c_n)+c_nd(b^n)$$ Since each $c_0,\dots,c_n\in K$, we obtain $f'(b)=c_1d(b)+\dots+c_n\cdot nb^{n-1}d(b)$. Thus factoring out $d(b)$ in the sum, we obtain precisely the standard derivative in calculus, and that $d(f(b))=f'(b)d(b)$
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{3.1.2} Let $K$ be a field and $L/K$ a finite field extension. Then $L/K$ is separable if and only if $\Omega_{L/K}^1=0$. \tcbline
+\begin{proof}
+Suppose that $L/K$ is separable. Suppose that $b\in L$ has minimal polynomial $f\in K[x]$. $f$ is separable since $L/K$ is separable. By \ref{lmm:3.1.1}, we have that $d(f(b))=f'(b)d(b)$. But the fact that $f$ is separable implies that $f'(b)\neq 0$. At the same time we have $f(b)=0$ since $f$ is the minimal polynomial of $b$. This implies that $d(f(b))=0$ in $\Omega_{L/K}^1=0$. Since $L$ is a field, and $f'(b)\neq 0$, we must have $d(b)=0$ for all $b\in L$. This means that $\Omega_{L/K}^1=0$. \\~\\
+
+If $L/K$ is inseparable, then there exists an intermediate field $E$ such that $L/E$ is a simple inseparable extension. Since $L/K$ is finite, $L/E$ is finite and thus is algebraic which means that there exists some polynomial $p\in E[t]$ for which $L=\frac{E[t]}{(p(t))}$. In this case, we have already seen that $$\Omega_{L/E}^1\cong\frac{Ldt}{(p'(t)dt)}\cong\frac{L}{(p'(t))}$$ Since $p'(t)=0$, we have that $\Omega_{L/E}^1\cong L\neq 0$. By the first exact sequence \ref{thm:2.3.1}, we have that $\Omega_{L/K}^1$ maps surjectively onto $\Omega_{L/E}^1\neq 0$ which proves that $\Omega_{L/K}^1$ is non-zero. \\
+Materials referenced: \cite{Per}, \cite{Liu}
+\end{proof}
+\end{prp}
+
+This gives a very nice characterization of separability. Readers can find more in \cite{Har} and \cite{Liu}. To extend this equivalence under the assumption that $L/K$ is algebraic instead of finite, one can show that $\Omega^1$ preserves colimits in the sense in $\cite{Dav}$. Namely that the functor $F:\text{Algebra}_R\to\text{Mod}_T$ from the category of $R$-algebra to the category of $T$-modules where $T$ is a colimit of a diagram in the category of $R$-algerba preserves colimits. Then observe that an algebraic extension is the colimit of the finite subextensions. \\~\\
+
+Analogous to the above result, there is a similar proposition for $\text{Der}_K(L)$ for when $L/K$ is algebraic and separable. This is given by \cite{Pat}. 
+
+\begin{prp}{}{3.1.3} Let $L/K$ be an algebraic field extension that is separable. Then $\text{Der}_K(L)=0$. \tcbline
+\begin{proof}
+Suppose that $D\in\text{Der}_K(L)$. If $a\in L$, let $p$ be the minimal polynomial of $a$. Then $$0=D(p(a))=p'(a)D(a)$$ by \ref{lmm:3.1.1}. Since $p$ is separable over $K$, $p'(a)\neq 0$. Thus $D(a)=0$ and so we are done. \\
+Materials referenced: \cite{Pat}
+\end{proof}
+\end{prp}
+
+This proposition will be of use at \ref{eg:4.1.7}. 
 
 
 

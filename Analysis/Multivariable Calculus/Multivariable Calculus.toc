@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {2.1}Frechet Derivative}{11}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Jacobian Matrix and Directional Derivatives}{13}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Properties of the Derivative}{15}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Mean Value Inequality}{16}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.4}Mean Value Inequality}{17}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Conditions for Differentiability}{17}{subsection.2.5}%
 \contentsline {section}{\numberline {3}More Properties of Differentiability}{20}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Inverse Function Theorem}{20}{subsection.3.1}%

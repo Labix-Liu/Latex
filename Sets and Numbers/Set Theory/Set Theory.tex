@@ -717,7 +717,7 @@ Thus by the principle of induction, we have the commutative law.
 Now that we have the natural numbers, we can also extend the numbers into integers, rationals, real numbers and even complex numbers. Most of them without the use of set theoretic language. However, this is another topic unrelated to set theory mostly. 
 
 \pagebreak
-\section{Ordering and Cardinality}
+\section{Ordering}
 \subsection{Total and Partial Orders}
 \begin{defn}{Partial Order}{} Let $X$ be a set. Let $R$ be a relation on $X$. We say that $R$ is a partial order on $X$ if the following are true. 
 \begin{itemize}
@@ -768,38 +768,6 @@ As we will see later, even comparisons have different types, namely total orders
 \end{prp}
 
 It is worth noting here that $<$ is neither reflexive nor symmetric which the readers can check. 
-
-\subsection{Cardinality of Sets}
-We begin not from the definition of cardinality, but rather by introducing a way to compare the size of two sets. Cardinality can be thought of as the number of elements in a set (for the finite case). 
-
-\begin{defn}{Cardinality of a Set}{} Two sets $A$ and $B$ have the same cardinality if there exists a bijection between $A$ and $B$. In this case, we write $$\abs{A}=\abs{B}$$ where $\abs{A}$ stands for the cardinality of $A$. \\~\\
-We say that $A$ has cardinality strictly less than $B$ if there exists an injective function from $A$ to $B$, but no bijective function exists. In this case, we write $\abs{A}<\abs{B}$. 
-\end{defn}
-
-Basically we compare the size of two sets simply by attempting to define a bijective function between of them. Naturally, we have the following proposition. 
-
-\begin{prp}{}{} Every natural number has cardinality strictly less than $\abs{\N}$. 
-\end{prp}
-
-\begin{defn}{Finite Sets}{} A set $A$ is called finite if it has the same cardinality as a natural number represented as a set. In that case, the cardinality of $A$ is precisely the natural number. 
-\end{defn}
-
-For example, if $A=\{a,b,c,d\}$, then it has cardinality $4$ and we write it as $\abs{A}=4$. From the finiteness of the sets, we can perform the usual addition and multiplication on cardinality, provided it makes sense. 
-
-\begin{prp}{}{} Let $E,F$ be sets with finite cardinality. 
-\begin{itemize}
-\item If $E,F$ are disjoint, then $\abs{E\cup F}=\abs{E}+\abs{F}$
-\item $\abs{E\times F}=\abs{E}\cdot\abs{F}$
-\end{itemize}
-\end{prp}
-
-\begin{defn}{Countably Infinite Sets}{} We say that a set $A$ is countably infinite if it has cardinality equal to $\N$. In other words, if $$\abs{A}=\abs{\N}$$
-\end{defn}
-
-In particular, mathematicians also say that a set is countable if it is either finite or countably infinite. This is due to the fact that there is also a notion of uncountability. 
-
-\begin{defn}{Uncountable Sets}{} We say that a set $A$ is uncountable if it has cardinality strictly greater than $\N$. In other words, if $$\abs{A}>\abs{\N}$$
-\end{defn}
 
 \pagebreak
 \section{Equivalent Formations of Zorn's Lemma}
@@ -875,47 +843,54 @@ In particular, mathematicians also say that a set is countable if it is either f
 \begin{thm}{}{} A well ordered set is never similar to one of its initial segments. 
 \end{thm}
 
-\begin{thm}{}{}[Compatibility Theorem] Let $X$ and $Y$ be well ordered sets. Either $X$ and $Y$ are similar or one of them is similar to an initial segment of the other. 
+\begin{thm}{Compatibility Theorem}{} Let $X$ and $Y$ be well ordered sets. Either $X$ and $Y$ are similar or one of them is similar to an initial segment of the other. 
 \end{thm}
 
 \pagebreak
 \section{Counting Beyond Infinity}
 \subsection{Ordinal Numbers}
-\begin{defn}{$\omega$ Successor Function}{} Let $f$ be a function from strict predecessors of some natural number $n$, and $f(0)=\omega$ and $f(m^+)=f(m)^+$ whenever $m^+<n$. Then this function is an $\omega$ Successor Function. 
+
+\subsection{Cardinality of a Set}
+\begin{defn}{Cardinality of a Set}{} Let $X$ be a set. Define the cardinality $\abs{X}$ of $X$ to be the smallest ordinal number $\alpah$ such that $X$ and $\alpha$ are bijective. 
 \end{defn}
 
-\begin{axm}{Axiom of Substitution}{} If $S(a,b)$ is a sentence such that for each $a$ in a set $A$ the set $\{b:S(a,b)\}$ can be formed, then there exists a function $F$ with domain $A$ such that $F(a)=\{b:S(a,b)\}$ for each $a$ in $A$. 
-\end{axm}
+For example, if $A=\{a,b,c,d\}$, then it has cardinality $4$ and we write it as $\abs{A}=4$. From the finiteness of the sets, we can perform the usual addition and multiplication on cardinality, provided it makes sense. 
 
-\begin{defn}{}{} An ordinal number is defined as the well ordered set $\alpha$ such that $s(\xi)=\xi$ for all $\xi\in\alpha$, where $s(\xi)=\{\eta\in\alpha:\eta<\xi\}$
+\begin{prp}{}{} Let $X,Y$ be sets. Then $\abs{X}\leq\abs{Y}$ if and only if there exists an injection $X\to Y$. 
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y$ be sets. Then $\abs{X}=\abs{Y}$ if and only if there exists a bijection $X\to Y$. 
+\end{prp}
+
+\begin{prp}{Cantor's Diagonality Argument}{} Let $X$ be a set. Then $\abs{X}<\abs{\mP(X)}$. 
+\end{prp}
+
+\begin{defn}{Finite Sets}{} Let $X$ be a set. We say that $X$ is finite if $\abs{X}\in\N$. 
 \end{defn}
 
-\begin{thm}{}{} If $\alpha$ is an ordinal number, $\alpha^+$ is also an ordinal number. 
-\end{thm}
+\begin{lmm}{}{} Let $X$ be a set. Let $n\in\N$. Then $X$ contains $n$ elements if and only if $\abs{X}=n$. 
+\end{lmm}
 
-\begin{defn}{Ordinal Numbers after $\omega$}{} Define $F$ from the axiom of substitution such that $F(0)=\omega$ and $F(n^+)=F(n)^+$ for each natural number $n$. We write $F(n)=\omega+n$ and $\omega^2$ as the set consisting of all $n$ and all $\omega+n$ with $n\in\omega$. 
+\begin{prp}{}{} Let $E,F$ be sets with finite cardinality. 
+\begin{itemize}
+\item If $E,F$ are disjoint, then $\abs{E\cup F}=\abs{E}+\abs{F}$
+\item $\abs{E\times F}=\abs{E}\cdot\abs{F}$
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Countably Infinite Sets}{} We say that a set $A$ is countably infinite if it has cardinality equal to $\N$. In other words, if $$\abs{A}=\abs{\N}$$
 \end{defn}
 
-\begin{thm}{}{} If $\xi$ is an element of an ordinal number $\alpha$, $\xi$ is also an ordinal number. 
-\end{thm}
+In particular, mathematicians also say that a set is countable if it is either finite or countably infinite. This is due to the fact that there is also a notion of uncountability. 
 
-\begin{thm}{}{} If two ordinal numbers are similar, than they are equal. 
-\end{thm}
+\begin{defn}{Uncountable Sets}{} We say that a set $A$ is uncountable if it has cardinality strictly greater than $\N$. In other words, if $$\abs{A}>\abs{\N}$$
+\end{defn}
 
-\begin{thm}{}{} Every set of ordinal numbers is totally ordered. Every set of ordinal numbers is well ordered. 
-\end{thm}
+\subsection{Cardinal Numbers}
+\begin{defn}{Cardinal Numbers}{} A cardinal number is an ordinal number $\kappa$ of the form $\abs{X}$ for some set $X$. 
+\end{defn}
 
-\begin{thm}{Transfinite Ordinal Numbers}{} The natural numbers are finite ordinal numbers, the others are called transfinite. Each finite ordinal numbers other than $0$ has an immediate predecessor. Transfinite ordinal numbers that do not have a predecessor is called limit numbers. 
-\end{thm}
-
-\begin{thm}{Supremum of Ordinal Numbers}{} Every set of ordinal numbers have a supremum. 
-\end{thm}
-
-\begin{thm}{Burali-Forti Paradox}{} No set contains all ordinal numbers. 
-\end{thm}
-
-\begin{thm}{Counting Theorem}{} Each well ordered set is similar to a unique ordinal number. 
-\end{thm}
-
-
+\begin{defn}{Finite Cardinals}{} Let $\kappa$ be a cardinal number. We say that $\kappa$ is finite if it has the cardinality of a finite set. 
+\end{defn}
+ 
 \end{document}

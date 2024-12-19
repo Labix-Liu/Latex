@@ -38,5 +38,8 @@
 \contentsline {section}{\numberline {9}Orthgonality in $\mathbb {R}^n$}{42}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Reduction of Quadratic Forms over $\mathbb {R}$}{42}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Reduction of Inner Products}{43}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Adjoints}{45}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.3}Adjoints of a Linear Map}{45}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}Singular Value Decomposition}{47}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Operators on Vector Spaces}{48}{section.10}%
+\contentsline {subsection}{\numberline {10.1}The Jordan-Chevalley Decompositions}{48}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}The Trace of a Linear Map}{48}{subsection.10.2}%

@@ -743,7 +743,7 @@ We will define exterior derivatives which generalizes total differentials by def
 \end{itemize}
 \end{defn}
 
-\begin{thm}{}{} Let $M$ be a smooth manifold. Then the exterior derivative exists and is unique. Moreover, if $(U,\phi)$ is a local chart on $M$ and $\omega=\sum_Ia_Idx^I\in\Omega^k(M)$ is a differential $k$-form, then locally on the chart $$d\omega=\sum_I(da_I)\wedge dx^I=\sum_I\sum_{k=1}^n\frac{\partial a_I}{\partial x^k}dx^k\wedge dx^I$$ \tcbline
+\begin{prp}{}{} Let $M$ be a smooth manifold. Then the exterior derivative exists and is unique. Moreover, if $(U,\phi)$ is a local chart on $M$ and $\omega=\sum_Ia_Idx^I\in\Omega^k(M)$ is a differential $k$-form, then locally on the chart $$d\omega=\sum_I(da_I)\wedge dx^I=\sum_I\sum_{k=1}^n\frac{\partial a_I}{\partial x^k}dx^k\wedge dx^I$$ \tcbline
 \begin{proof}
 Locally on each chart define $d:\Omega^\bullet(M)\to\Omega^\bullet(M)$ by the formula given. Then using a partition of unity subordinate to the open cover of $M$ via the charts, patch it up globally. Now we check the above criteria for the exterior derivative. 
 
@@ -770,7 +770,7 @@ d(dy^I)&=d^2y^I-dy^{i_1}\wedge d(dy^{i_2}\wedge\cdots\wedge dy^{i_k})\\
 \end{align*}
 so that $d\omega=\sum_Id(g_I)\;dy^I=d'\omega$ and we conclude. 
 \end{proof}
-\end{thm}
+\end{prp}
 
 \begin{prp}{}{} Let $f:M\to N$ be a smooth map of smooth manifolds. Let $\omega\in\Omega^k(N)$. Then $$d(f^\ast\omega)=f^\ast(d\omega)$$ \tcbline
 \begin{proof}

@@ -38,13 +38,26 @@
 \contentsline {subsection}{\numberline {7.5}Dedekind Domains}{32}{subsection.7.5}%
 \contentsline {section}{\numberline {8}Algebra Over a Commutative Ring}{33}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Commutative Algebras}{33}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Finitely Generated Algebra}{33}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Finite Algebras}{34}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Zariski's Lemma}{34}{subsection.8.4}%
-\contentsline {section}{\numberline {9}Discrete Valuation Rings}{35}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Discrete Valuation Rings}{35}{subsection.9.1}%
-\contentsline {section}{\numberline {10}Dimension Theory for Rings}{37}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Krull Dimension and Height}{37}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Length of a Module}{37}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}The Hilbert Polynomial}{38}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Global Dimension of a Ring}{39}{subsection.10.4}%
+\contentsline {subsection}{\numberline {8.2}Finitely Generated Algebra}{34}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Finite Algebras}{35}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Zariski's Lemma}{35}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Introduction to Dimension Theory for Rings}{36}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Krull Dimension}{36}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Structure Theorem for Artinian Rings}{36}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Height of Prime Ideals}{36}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Length of a Module}{37}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}The Hilbert Polynomial}{37}{subsection.9.5}%
+\contentsline {section}{\numberline {10}Valuation and Valuation Rings}{39}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Valuation Rings}{39}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Valuations on a Field}{39}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Discrete Valuations and Normalizations}{39}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Discrete Valuation Rings}{40}{subsection.10.4}%
+\contentsline {section}{\numberline {11}Four Important Rings}{42}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Regular Local Rings}{42}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Complete Intersection Rings}{42}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Gorenstein Rings}{42}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Cohen-Macauley Rings}{43}{subsection.11.4}%
+\contentsline {section}{\numberline {12}Kähler Differentials}{44}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Kähler Differentials}{44}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Transfering the System of Differentials}{49}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Characterization for Separability}{51}{subsection.12.3}%

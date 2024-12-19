@@ -25,7 +25,6 @@ References:
 \pagebreak
 \tableofcontents
 \pagebreak
-
 \section{Categorical Viewpoint of Classical Algebraic Geometry}
 \subsection{The Category of Affine Algebraic Varieties}
 Recall that coordinate rings are finitely generated algebras over $k$ the ground field. 
@@ -55,23 +54,23 @@ Reduced = non-nilpotent
 
 The goal is now to remove the non-nilpotent condition. For example, we would like to distinguish between the variety $V(x=0)$ and the variety $V(x^2=0)$. 
 
-\subsection{Affine Varieties as a Ringed Space}
+\subsection{The Sheaf of Regular Functions}
 Recall that given an affine algebraic variety $V$ and an open set $U$ of $V$, we can equip a ring of rational functions over $U$. We can sort these rings into a sheaf. 
 
-\begin{defn}{Structure Sheaf}{} Let $X$ be an affine algebraic variety over a field $k$. Define the structure sheaf of $X$ on rings $\mO_X:\bold{Open}(X)\to\bold{Rings}$ as follows. 
+\begin{defn}{Structure Sheaf}{} Let $X$ be a quasi-projective variety over $\C$. Define the structure sheaf of $X$ of $\C$-algebras $$\mO_X:\bold{Open}(X)\to\bold{Rings}$$ as follows. 
 \begin{itemize}
-\item On objects, $\mO_X(U)=\{f\in k(X)\;|\;f\text{ is regular over }U\}$ for each $U\subseteq X$ open. 
+\item On objects, $$\mO_X(U)=\{f\in k(X)\;|\;f\text{ is regular over }U\}$$ for each $U\subseteq X$ open. 
 \item If $V\subseteq U$, then there is a unique morphism $\iota:V\to U$ given by the inclusion. Define a ring homomorphism $$\mO_X(\iota):\mO_X(U)\to\mO_X(V)$$ in $\bold{Rings}$ that sends $f\in\mO_X(U)$ to its restriction $f|_V\in\mO_X(V)$. 
 \end{itemize}
 \end{defn}
 
-\begin{thm}{}{} Let $X$ be an affine algebraic variety over a field $k$. Then the structure sheaf $$\mO_X(U)=\{f\in k(X)\;|\;f\text{ is regular over }U\}$$ defined above is a sheaf on $X$. \tcbline
+\begin{prp}{}{} Let $X$ be a quasi-projective variety over $\C$. Then the structure sheaf $$\mO_X(U)=\{f\in k(X)\;|\;f\text{ is regular over }U\}$$ defined above is a sheaf on $X$. \tcbline
 \begin{proof}
 We have seen from sheaf theory that this formula precisely gives the stalks of a sheaf as a colimit. 
 \end{proof}
-\end{thm}
+\end{prp}
 
-\begin{lmm}{}{} Let $X$ be an affine algebraic variety over a field $k$. Then for each $p\in X$, the ring of germs of regular functions is given by $$\mO_{X,p}=\{(U,f)\;|\;U\subseteq X\text{ is open}, p\in U, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. \tcbline
+\begin{lmm}{}{} Let $X$ be a quasi-projective variety over $\C$. Then for each $p\in X$, the ring of germs of regular functions is given by $$\mO_{X,p}=\{(U,f)\;|\;U\subseteq X\text{ is open}, p\in U, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. \tcbline
 \begin{proof}
 It is clear by definition that $\mO_X(-)$ is a functor from $\bold{Open}(X)$ to $\bold{Rings}$. Hence $\mO_X(-)$ is indeed a presheaf. We check the identity and gluing axiom. 
 \begin{itemize}
@@ -83,6 +82,10 @@ We conclude that $\mO_X$ is indeed a sheaf on $X$.
 \end{lmm}
 
 Unfortunately one big problem in classical algebraic geometry is that the ringed space $(V,\mO_V)$ for a variety $V$ is not necessarily a locally ringed space. Ideally, we would want rational functions on a point $p$ to be exactly the local ring $\C[V]_{m_p}$ where $m_p$ is the maximal ideal corresponding to the point $p$ by Hilbert's nullstellensatz. We remedy this by using the spectrum of a ring as a topological space instead of a variety. 
+
+\subsection{Morphisms of the Sheaf of Regular Functions}
+\begin{defn}{Morphism of Varieties}{} Let $X,Y$ be quasi-projective varieties over $\C$. A morphism from $X$ to $Y$ is a morphism of ringed spaces $$(F:X\to Y,F^\#:\mO_Y\to\mO_X)$$ Explicitly, this consists of specifying a morphism $F:X\to Y$ of varieties. $F^\#$ is determined by the $\C$-algebra homomorphism $$F^\#(U):\mO_Y(U)\to\mO_X(F^{-1}(U))$$ given by the map $f\mapsto f\circ F$ for each open set $U\subseteq Y$. 
+\end{defn}
 
 \pagebreak
 \section{The Construction of Schemes}
@@ -926,82 +929,6 @@ When $X$ is integral, Cartier divisors and the Picard group is entirely the same
 
 \begin{crl}{}{} Let $X=\Prj_k^n$ be the projective space over some field $k$. Then every invertible sheaf on $X$ is isomorphic to $\mO_X(m)$ for some $m\in\Z$. 
 \end{crl}
-
-\pagebreak
-\section{Derived Categories in Algebraic Geometry}
-\subsection{Derived Categories of Schemes}
-\begin{defn}{Derived Category of a Scheme}{} Let $X$ be a scheme. Define the derived category to be $$D^\ast(X)=D^\ast(\bold{Coh}(X))$$ where $\ast$ can be $b,+,-$ or null. 
-\end{defn}
-
-\begin{defn}{Derived Equivalences}{} Let $X,Y$ be a schemes over a field $k$. We say that $X$ and $Y$ are derived equivalent if there exists a $k$-linear exact equivalence $$D^b(X)\cong D^n(Y)$$
-\end{defn}
-
-Let $X$ be a scheme. Then there is a natural inclusion of categories $$\bold{Coh}(X)\subset\bold{QCoh}(X)\subset\bold{Mod}_{O_X}$$
-
-\begin{prp}{}{} Let $X$ be a noetherian scheme. Suppose that $\ast=b,+,-$. Then there are natural equivalences $$D^\ast(\bold{QCoh}(X))\cong D_{\bold{QCoh}(X)}^\ast(\bold{Mod}_{O_X})$$
-\end{prp}
-
-\begin{prp}{}{} Let $X$ be a noetherian scheme. Then the inclusion functor induces $$D^b(X)\to D^b(\bold{QCoh}(X))$$ which defines an equivalence of categories between $D^b(X)$ and $D_{\bold{Coh}(X)}^b(\bold{QCoh}(X))$. 
-\end{prp}
-
-\pagebreak
-\section{Intersection Theory}
-Scheme = scheme + morphism of finite type to $\text{Spec}(k)$
-Variety = Irreducible variety
-subvariety = closed subscheme of a variety which is a variety
-point = closed point
-
-\subsection{The Order of Zeroes and Poles}
-Recall that when we defined the notion of Weil divisors, we restricted ourselves to the case where $X$ is a Noetherian separated scheme that is regular in codimension $1$. This is because we wanted to make use of the fact that $\mO_{X,\eta}$ is a discrete valuation ring for $\eta$ a generic point of any irreducible subscheme of codimension $1$ of $X$. In general when $X$ is Noetherian, $\mO_{X,\eta}$ is only a local Noetherian ring. In order to define a notion of order for every element in $K(X)=\mO_{X,\eta}$, we need a new definition. 
-
-\begin{defn}{Order of Functions in the Function Field}{} Let $X$ be an irreducible variety. Let $Y$ be a subvariety of codimension $1$ and let $\eta$ be its generic point. For every $r\in\mO_{X,\eta}$, define $$\text{ord}_Y(r)=\text{length}_{\mO_{X,\eta}}\left(\frac{\mO_{X,\eta}}{(r)}\right)$$ For every $r=ab^{-1}\in\text{Frac}(\mO_{X,\eta})=K(X)$, define $$\text{ord}_Y(r)=\text{ord}_Y(a)-\text{ord}_Y(b)$$
-\end{defn}
-
-Beware that $\mO_{X,\eta}$ is not the function field of $X$. This is because $\eta$ is the generic point of $Y$, not the generic point of $X$. And generic points do not coincide for subvarieties and varieties. 
-
-\begin{lmm}{}{} Let $X$ be an irreducible variety. Let $Y$ be a subvariety of codimension $1$ and let $\eta$ be its generic point. Then the function $\text{ord}_Y:K(X)^\ast\to\Z$ is a group homomorphism. 
-\end{lmm}
-
-\begin{defn}{k-Cycles on a Variety}{} Let $X$ be an irreducible variety. Define the group of $k$-cycles to be free abelian group $$Z_k(X)=\Z\langle V\;|\;V\text{ is a }k\text{-dimensional subvariety of }X\rangle$$ generated by $k$-dimensional subvarieties of $X$. 
-\end{defn}
-
-\begin{defn}{Divisors of a Function}{} Let $X$ be an irreducible variety. Let $W$ be a $(k+1)$-dimensional subvariety of $X$. For any $r\in K(X)$, define $$\text{div}(r)=\sum_{\text{codim}_W(V)=1}\text{ord}_V(r)\cdot[V]$$ where $\text{ord}_V:K(W)^\ast\to\Z$. 
-\end{defn}
-
-\begin{defn}{Rational Equivalence}{} Let $X$ be an irreducible variety. Let $\alpha$ and $\beta$ be $k$-cycles. We say that $\alpha$ and $\beta$ are rationally equivalent, denoted by $\alpha\sim_{\text{rat}}\beta$ if there exists a finite number of $(k+1)$-dimensional subvarieties $W_i$ of $X$ and $r_i\in K(W_i)^\ast$ such that $$\alpha-\beta=\sum_i[\text{div}(r_i)]\cdot W_i$$
-\end{defn}
-
-\begin{thm}{}{} Let $X$ be an irreducible variety. Let $\alpha$ and $\beta$ be $k$-cycles. Then $\alpha$ and $\beta$ are rationally equivalent if and only if there are $(k+1)$-dimensional subvarieties $V_1,\dots,V_t$ of the Cartesian product $X\times\Prj^1$ such that the projections $f_i:V_i\to\Prj^1$ are dominant and $$\alpha-\beta=\sum_{k=1}^t[V_i(0)]-[V_i(\infty)]$$ in $Z_k(X)$. Here, $V_i(P)$ is the subscheme of $X$ where the projection $X\times\{P\}\to X$ maps the subscheme $f^{-1}(P)$ isomorphically to, for $P$ a point in $\Prj^1$. 
-\end{thm}
-
-\begin{defn}{The Chow Group}{} Let $X$ be an irreducible variety. Define $$\text{CH}_k(X)=\frac{Z_k(X)}{\sim_\text{rat}}$$ for each $k\in\N$. Also define $$Z_\ast(X)=\bigoplus_{k=0}^{\dim(X)}Z_k(X)\;\;\;\;\text{ and }\;\;\;\;\text{CH}_\ast(X)=\bigoplus_{k=0}^{\dim(X)}A_k(X)$$
-\end{defn}
-
-\subsection{The Induced Map}
-\begin{defn}{Degree of Subvariety}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a proper morphism. Let $V$ be a subvariety of $X$ and let $W=f(V)$ be the corresponding subvariety of $Y$. Define the degree of $V$ over $W$ by $$\deg(V/W)=\begin{cases}
-[k(V):k(W)] & \text{ if } \dim(W)=\dim(V)\\
-0 & \text{ if } \dim(W)<\dim(V)
-\end{cases}$$
-\end{defn}
-
-Notice that this definition makes sense. Since $f:X\to Y$ is proper, $W=f(V)$ becomes a subvariety of $Y$. Such a map induces a map of fields $k(W)\to k(V)$ which is necessarily injective. From field theory we know that such a map is injective and in particular $k(V)$ is a vector space over $k(W)$. 
-
-\begin{defn}{The Pushfoward Map}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a proper morphism. Define the pushforward of $f$ by $f_\ast:Z_k(X)\to Z_k(Y)$ where $$f_\ast([V])=\deg(V/W)[W]$$ for $V$ a closed subvariety of $X$ and $W=f(V)$. 
-\end{defn}
-
-\begin{lmm}{Functorial Properties of the Pushforward Map}{} Let $X,Y,Z$ be irreducible varieties. Let $f:X\to Y$ and $g:Y\to Z$ be proper morphisms. Then the following are true. 
-\begin{itemize}
-\item $(g\circ f)_\ast=g_\ast\circ f_\ast$
-\item $(\text{id}_X)_\ast=\text{id}_{Z_k(X)}$
-\end{itemize}
-\end{lmm}
-
-TBA: $Z_\ast:\text{IrrVar}_k\to\bold{GrAb}$ is a covariant functor. 
-
-\begin{thm}{}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a proper morphism. Let $\alpha$ be a $k$-cycle on $X$ that is rationally equivalent to $0$. Then $f_\ast(\alpha)$ is also rationally equivalent to $0$. 
-\end{thm}
-
-TBA: $A_\ast:\text{IrrVar}_k\to\bold{GrAb}$ is a covariant functor. 
 
 
 

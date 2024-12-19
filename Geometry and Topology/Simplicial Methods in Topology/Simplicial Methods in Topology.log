@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  18 NOV 2024 01:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  14 DEC 2024 03:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -950,7 +950,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 253.
+Package hyperref Info: Option `colorlinks' set `true' on input line 255.
 ) (Simplicial Methods in Topology.aux)
 \openout1 = `"Simplicial Methods in Topology.aux"'.
 
@@ -1090,112 +1090,150 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 227.
 
-[8] [9] [10] [11]
-Overfull \hbox (1.42563pt too wide) in paragraph at lines 396--397
+[8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
+
+ []
+
+[10] [11] [12] [13]
+Overfull \hbox (1.42563pt too wide) in paragraph at lines 438--439
 []\T1/qpl/m/n/10 Closed un-der re-tracts, pull-backs, fil-tered col-im-its, pro
 d-ucts with stan-dard sim-pli-cies, com-po-si-tion 
  []
 
-[12]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 401.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 401.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\infty' on input line 401.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 401.
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 432--433
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 
  []
 
-[14] [15] [16]
-Underfull \hbox (badness 1596) in paragraph at lines 546--547
+[15] [16] [17]
+Underfull \hbox (badness 1596) in paragraph at lines 556--557
 \T1/qpl/m/n/10 Here we iden-tify the ver-tices of $\OT1/cmr/m/n/10 ^^A[]$ \T1/q
 pl/m/n/10 as $\OT1/cmr/m/n/10 0$ \T1/qpl/m/n/10 and $\OT1/cmr/m/n/10 1$\T1/qpl/
 m/n/10 , and we use the iso-mor-phism $\OMS/cmsy/m/n/10 C [] 
  []
 
-[17] [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+[18] [19] [20]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 669.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 669.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 669.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 669.
+
+[21] [22]
+Underfull \hbox (badness 10000) in paragraph at lines 721--729
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 721--729
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 729--739
 
  []
 
-[20] (Simplicial Methods in Topology.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 729--739
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 739--749
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 739--749
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 783--784
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 783--784
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 830--840
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 830--840
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 830--840
+
+ []
+
+[25] (Simplicial Methods in Topology.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Simplicial Methods in Topology".out' has
- changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Simplicial Methods in Topology".ou
-t':
-(rerunfilecheck)             Before: 51D601CD4C44740EC0996718D69B3610;6345
-(rerunfilecheck)             After:  ED893A45F780FAB4FAF32D27258E4624;6176.
+Package rerunfilecheck Info: File `"Simplicial Methods in Topology".out' has no
+t changed.
+(rerunfilecheck)             Checksum: 80AE5E8AD5FFBA4ADB95924C9D8D14B0;7141.
  ) 
 Here is how much of TeX's memory you used:
- 33700 strings out of 474424
- 670155 string characters out of 5741739
- 1971496 words of memory out of 5000000
- 55394 multiletter control sequences out of 15000+600000
+ 34023 strings out of 474424
+ 677920 string characters out of 5741739
+ 1966496 words of memory out of 5000000
+ 55693 multiletter control sequences out of 15000+600000
  607092 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,18n,120p,784b,1469s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{subsection.6.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-bx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmbx5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/l
-iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:
-/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.
-pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/liula/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liula/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Use
-rs/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:
-/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb
-><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr
-i.pfb>
-Output written on "Simplicial Methods in Topology.pdf" (20 pages, 472737 bytes)
+<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmbx5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users
+/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
+5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/liula/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liula/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/U
+sers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><
+C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.p
+fb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qp
+lri.pfb>
+Output written on "Simplicial Methods in Topology.pdf" (25 pages, 499000 bytes)
 .
 PDF statistics:
- 488 PDF objects out of 1000 (max. 8388607)
- 128 named destinations out of 1000 (max. 500000)
- 261 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 553 PDF objects out of 1000 (max. 8388607)
+ 152 named destinations out of 1000 (max. 500000)
+ 293 words of extra memory for PDF output out of 10000 (max. 10000000)
 
