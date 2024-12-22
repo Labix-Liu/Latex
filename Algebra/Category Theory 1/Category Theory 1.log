@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  13 OCT 2024 19:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  22 DEC 2024 17:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -897,6 +897,9 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \c@nlinenum=\count337
 \TeXr@lab=\toks52
 )
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgpagella.sty
 Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
 ) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
@@ -947,7 +950,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 249.
+Package hyperref Info: Option `colorlinks' set `true' on input line 255.
 ) (Category Theory 1.aux)
 \openout1 = `"Category Theory 1.aux"'.
 
@@ -1142,89 +1145,138 @@ Underfull \hbox (badness 10000) in paragraph at lines 490--491
  []
 
 [14] [15] [16] [17] [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 702--703
+Underfull \hbox (badness 10000) in paragraph at lines 705--710
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 704--709
+Underfull \hbox (badness 10000) in paragraph at lines 705--710
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 704--709
+Underfull \hbox (badness 10000) in paragraph at lines 705--710
+
+ []
+
+[20] [21] [22]
+Underfull \hbox (badness 10000) in paragraph at lines 806--807
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 704--709
+Underfull \hbox (badness 10000) in paragraph at lines 806--807
 
  []
 
-[20] [21] [22] [23] [24]
-Underfull \hbox (badness 10000) in paragraph at lines 871--876
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 871--876
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 852--857
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 871--876
-
- []
-
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 901--907
+Underfull \hbox (badness 10000) in paragraph at lines 852--857
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 901--907
+Underfull \hbox (badness 10000) in paragraph at lines 852--857
 
  []
 
-[26] [27] [28] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1023--1024
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1024--1033
+[24] [25] [26]
+Underfull \hbox (badness 10000) in paragraph at lines 927--934
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1024--1033
-
- []
-
-[30] [31] [32] [33] [34] [35] [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1227--1250
+Underfull \hbox (badness 10000) in paragraph at lines 927--934
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1227--1250
+Underfull \hbox (badness 10000) in paragraph at lines 927--934
+
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 964--971
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1227--1250
+Underfull \hbox (badness 10000) in paragraph at lines 964--971
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1227--1250
+Underfull \hbox (badness 10000) in paragraph at lines 964--971
 
  []
 
-[37] [38] [39
+[28] [29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 1044--1053
 
-] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49]
-(Category Theory 1.aux)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1044--1053
+
+ []
+
+[31] [32] [33] [34]
+Underfull \hbox (badness 10000) in paragraph at lines 1156--1161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1156--1161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1156--1161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1165--1175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1165--1175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1165--1175
+
+ []
+
+[35] [36] [37] [38]
+Underfull \hbox (badness 10000) in paragraph at lines 1284--1307
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1284--1307
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1284--1307
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1284--1307
+
+ []
+
+[39] [40] [41
+
+] [42] [43] [44] [45] [46] [47] [48] [49] (Category Theory 1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
@@ -1233,17 +1285,23 @@ L3 programming layer <2024-03-14>
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `"Category Theory 1".out' has not changed.
-(rerunfilecheck)             Checksum: A0E898037E6C5A0A93FF34A990E4BE5F;7410.
+
+Package rerunfilecheck Warning: File `"Category Theory 1".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Category Theory 1".out':
+(rerunfilecheck)             Before: A1620A0E5C29EA284C4C06A37440A0AC;8044
+(rerunfilecheck)             After:  51C6C290404D79AD706B6F7BA3F35F9B;7869.
  ) 
 Here is how much of TeX's memory you used:
- 35381 strings out of 474424
- 710628 string characters out of 5741739
+ 35344 strings out of 474424
+ 708956 string characters out of 5741739
  1979496 words of memory out of 5000000
- 56983 multiletter control sequences out of 15000+600000
+ 56944 multiletter control sequences out of 15000+600000
  600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,19n,120p,936b,1471s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,19n,120p,936b,1470s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1264,9 +1322,9 @@ Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liu
 la/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users
 /liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Category Theory 1.pdf" (49 pages, 622310 bytes).
+Output written on "Category Theory 1.pdf" (49 pages, 616463 bytes).
 PDF statistics:
- 741 PDF objects out of 1000 (max. 8388607)
- 226 named destinations out of 1000 (max. 500000)
- 341 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 745 PDF objects out of 1000 (max. 8388607)
+ 225 named destinations out of 1000 (max. 500000)
+ 349 words of extra memory for PDF output out of 10000 (max. 10000000)
 

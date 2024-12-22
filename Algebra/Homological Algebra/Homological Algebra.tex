@@ -73,6 +73,114 @@ In particular, these notions coincide that of epics and monics in an abelian cat
 \end{itemize}
 \end{prp}
 
+\subsection{Short Exact Sequences}
+\begin{defn}{Short Exact Sequence}{} Let $\mA$ be an abelian category. A short exact sequence in $\mA$ consists of three objects $A,B,C\in\mA$ and two morphisms $f:A\to B$ and $g:B\to C$ in $\mA$ written in diagram form as \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\~\\
+such that the following are true: 
+\begin{itemize}
+\item $f$ is a monomorphism
+\item $g$ is an epimorphism
+\item $\im(f)=\ker(g)$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Split Exact Sequence}{} Let $\mA$ be an abelianc category. Let $A,B,C\in\mA$ such that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\~\\
+is a short exact sequence. We say that it is split exact if $B\cong A\oplus C$. 
+\end{defn}
+
+The following is an important equivalent characterization of split exact sequence. 
+
+\begin{thm}{The Splitting Lemma}{1.2.6} Let $\mA$ be an abelianc category. Let $A,B,C\in\mA$. Then the following are equivalent for a short exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
+\end{tikzcd}}\\
+\begin{itemize}
+\item The short exact sequence is split exact sequence
+\item There exists a morphism $p:B\to A$ such that $p\circ f=\text{id}_A$
+\item There exists a morphism $s:C\to B$ such that $g\circ s=\text{id}_C$
+\end{itemize} 
+\end{thm}
+
+\begin{lmm}{Five Lemma}{} Consider the commutative diagram \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+A\arrow[r, "f"]\arrow[d, "l"] & B\arrow[r, "g"]\arrow[d, "m"] & C\arrow[r, "h"]\arrow[d, "n"] & D\arrow[r, "j"]\arrow[d, "p"] & E\arrow[d, "q"]\\
+A'\arrow[r, "r"] & B'\arrow[r, "s"] & C'\arrow[r, "t"] & D'\arrow[r, "u"] & E'
+\end{tikzcd}}\\~\\
+where all the objects lie in an abelian group $\mA$. If the two rows are exact, $m:B\to B',p:D\to D'$ are isomorphisms, $l:A\to A'$ is an epimorphism and $q:E\to E'$ is an monomorphism, then $n$ is an isomorphism. 
+\end{lmm}
+
+\begin{lmm}{Snake Lemma}{} Consider the commutative diagram \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+ & A\arrow[r, "f"]\arrow[d, "a"] & B\arrow[r, "g"]\arrow[d, "b"] & C\arrow[r]\arrow[d, "c"] & 0\\
+0\arrow[r] & A'\arrow[r, "f'"] & B'\arrow[r, "g'"] & C' & 
+\end{tikzcd}}\\~\\
+where all the objects lie in an abelian group $\mA$. If the two rows are exact, then there is an exact sequence relating the kernels and cokernels of $a,b,c$ \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\ker(a)\arrow[r] & \ker(b)\arrow[r] & \ker(c)\arrow[r, "d"] & \coker(a)\arrow[r] & \coker(b)\arrow[r] & \coker(c)
+\end{tikzcd}}\\~\\
+where $d$ is called the connecting homomorphism. 
+\end{lmm}
+
+\subsection{Exact Functors}
+\begin{defn}{Additive Functors}{} Let $\mA,\mB$ be abelian categories. We say that a functor $F:\mA\to\mB$ is additive if for every $X,Y\in\mA$, the map $$\Hom_\mA(X,Y)\to\Hom_\mB(F(X),F(Y))$$ is a homomorphism of abelian groups. 
+\end{defn}
+
+\begin{prp}{}{} Let $F:\mA\to\mB$ be an additive functor. Then $F$ preserves split exact sequences. 
+\end{prp}
+
+\begin{defn}{Exact Functors}{} Let $\mA,\mB$ be abelian categories. Let $F:\mA\to\mB$ be an additive functor. Let $0\to A\to B\to C\to 0$ be an exact sequence in $\mA$. We say that $F$ is exact if the sequence $$0\to F(A)\to F(B)\to F(C)\to 0$$ is exact. 
+\end{defn}
+
+\begin{lmm}{}{} Let $\mA,\mB$ be abelian categories. Let $F:\mA\to\mB$ be a functor. If $F$ is an equivalence of categories, then $F$ is an exact functor. 
+\end{lmm}
+
+\begin{defn}{Left and Right Exact Functors}{} Let $\mA,\mB$ be abelian categories. Let $F:\mA\to\mB$ be an additive functor. Let $0\to A\to B\to C\to 0$ be an exact sequence in $\mA$. 
+\begin{itemize}
+\item We say that $F$ is right exact if the sequence $$F(A)\to F(B)\to F(C)\to 0$$ is exact. 
+\item We say that $F$ is left exact if the sequence $$0\to F(A)\to F(B)\to F(C)$$ is exact. 
+\end{itemize}
+\end{defn}
+
+\begin{lmm} Let $\mA,\mB$ be abelian categories. Let $F:\mA\to\mB$ be an additive functor. Then $F$ is exact if and only if $F$ is left exact and right exact. 
+\end{lmm}
+
+\begin{prp}{}{} Let $\mA,\mB$ be abelian categories. Let $F:\mA\to\mB$ be a functor. Then the following are true. 
+\begin{itemize}
+\item $F$ is additive and left exact if and only if $F$ preserves all finite limits. 
+\item $F$ is additive and right exact if and only if $F$ preserves all finite colimits. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $\mA$ be an abelian category. Let $M\in\mA$. Then the following are true. 
+\begin{itemize}
+\item The covariant functor $\Hom(M,-):\mA\to\bold{Ab}$ is left exact. 
+\item The contravariant functor $\Hom(-,M):\mA\to\bold{Ab}$ is right exact. 
+\end{itemize}
+\end{prp}
+
+Let $\mC$ be a category and let $\mJ$ be a diagram. Recall that if $\mC$ is complete, then the limit can be thought of as a functor $\lim_\mJ:\mC^\mJ\to\mC$. Dually, if $\mC$ is cocomplete, the colimit can be thought of as a functor $\colim_\mJ:\mC^\mJ\to\mC$. If $\mC$ is an abelian category, it makes sense to ask whether these two functors preserve exact sequences. 
+
+\begin{prp}{}{} Let $\mA$ be an abelian category. Let $\mJ$ be a small category. Then the following are true. 
+\begin{itemize}
+\item If $\mA$ is complete, then the functor $\lim_\mJ:\mC^\mJ\to\mC$ is left exact
+\item If $\mA$ is cocomplete, then the functor $\colim_\mJ:\mC^\mJ\to\mC$ is right exact
+\end{itemize}
+\end{prp}
+
+\subsection{Freyd-Mitchell Embedding Theorem}
+\begin{thm}{Freyd-Mitchell Embedding Theorem}{} Let $\mA$ be a small abelian category. Then there exists a ring $R$ and an exact, fully faithful functor $F:\mA\to{_R\bold{Mod}}$. This means that there is an isomorphism of sets $$\Hom_{\mA}(M,N)\cong\Hom_R(F(M),F(N))$$ 
+\end{thm}
+
+Such a functor allows us think about diagrams in $\mA$ as if they were diagrams in ${_R\bold{Mod}}$
+
+\begin{lmm}{}{} The Freyd-Mitchell embedding preserves kernels and cokernels. Moreover, it maps the zero object to the zero object. 
+\end{lmm}
+
 \pagebreak
 \section{Chain Complexes in an Abelian Category}
 \subsection{The Category of Chain Complexes}
@@ -186,64 +294,6 @@ The construction of cohomology groups are functorial because the homology groups
 \item For each chain map $f^\bullet:(C^\bullet,\delta^\bullet)\to(D^\bullet,\delta^\bullet)$, the induced map $$f^\ast:H^n(C^\bullet,\delta^\bullet)\to H^n(C^\bullet,\delta^\bullet)$$ is defined by $[z]\mapsto[f^n(z)]$. 
 \end{itemize}
 \end{defn}
-
-\subsection{Exact Sequences}
-\begin{defn}{Exact Sequence}{} Let $\mA$ be an abelian category. A chain complex $(C_\bullet,\partial_\bullet)$ over $\mA$ is said to be exact if $\im(\partial_{n+1})=\ker(\partial_n)$ for all $n$. 
-\end{defn}
-
-\begin{defn}{Short Exact Sequence}{} Let $\mA$ be an abelian category. Let $A,B,C\in\mA$. A short exact sequence is an exact sequence of the form \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
-\end{tikzcd}}\\~\\
-where $f:A\to B$ and $g:B\to C$ are morphisms in $\mA$. 
-\end{defn}
-
-\begin{prp}{}{} Let $\mA$ be an abelianc category. Let $A,B,C\in\mA$ and $f:A\to B$ and $g:B\to C$ be morphisms in $\mA$. A chain complex \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
-\end{tikzcd}}\\~\\
-is short exact if and only if $f$ is a monomorphism, $g$ is epimorphism and $\ker(g)=\im(f)$. 
-\end{prp}
-
-\begin{defn}{Split Exact Sequence}{} Let $\mA$ be an abelianc category. Let $A,B,C\in\mA$ such that \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
-\end{tikzcd}}\\~\\
-is a short exact sequence. We say that it is split exact if $B\cong A\oplus C$. 
-\end{defn}
-
-The following is an important equivalent characterization of split exact sequence. 
-
-\begin{thm}{The Splitting Lemma}{1.2.6} Let $\mA$ be an abelianc category. Let $A,B,C\in\mA$. Then the following are equivalent for a short exact sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & A\arrow[r, "f"] & B\arrow[r, "g"] & C\arrow[r] & 0
-\end{tikzcd}}\\
-\begin{itemize}
-\item The short exact sequence is split exact sequence
-\item There exists a morphism $p:B\to A$ such that $p\circ f=\text{id}_A$
-\item There exists a morphism $s:C\to B$ such that $g\circ s=\text{id}_C$
-\end{itemize} 
-\end{thm}
-
-\begin{lmm}{Five Lemma}{} Consider the commutative diagram \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-A\arrow[r, "f"]\arrow[d, "l"] & B\arrow[r, "g"]\arrow[d, "m"] & C\arrow[r, "h"]\arrow[d, "n"] & D\arrow[r, "j"]\arrow[d, "p"] & E\arrow[d, "q"]\\
-A'\arrow[r, "r"] & B'\arrow[r, "s"] & C'\arrow[r, "t"] & D'\arrow[r, "u"] & E'
-\end{tikzcd}}\\~\\
-where all the objects lie in an abelian group $\mA$. If the two rows are exact, $m:B\to B',p:D\to D'$ are isomorphisms, $l:A\to A'$ is an epimorphism and $q:E\to E'$ is an monomorphism, then $n$ is an isomorphism. 
-\end{lmm}
-
-\begin{lmm}{Snake Lemma}{} Consider the commutative diagram \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
- & A\arrow[r, "f"]\arrow[d, "a"] & B\arrow[r, "g"]\arrow[d, "b"] & C\arrow[r]\arrow[d, "c"] & 0\\
-0\arrow[r] & A'\arrow[r, "f'"] & B'\arrow[r, "g'"] & C' & 
-\end{tikzcd}}\\~\\
-where all the objects lie in an abelian group $\mA$. If the two rows are exact, then there is an exact sequence relating the kernels and cokernels of $a,b,c$ \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-\ker(a)\arrow[r] & \ker(b)\arrow[r] & \ker(c)\arrow[r, "d"] & \coker(a)\arrow[r] & \coker(b)\arrow[r] & \coker(c)
-\end{tikzcd}}\\~\\
-where $d$ is called the connecting homomorphism. 
-\end{lmm}
 
 \subsection{Chain Homotopy}
 \begin{defn}{Chain Homotopy}{} Let $\mA$ be an abelian category. Let $a_\bullet,b_\bullet:C_\bullet\to C_\bullet'$ be two chain maps in $\bold{Ch}(\mA)$. Then a chain homotopy from $a$ to $b$ is a collection of morphisms $$\eta_n:C_n\to C_{n+1}'$$ in $\mA$ such that $$b_n-a_n=\partial_{n+1}'\eta_n+\eta_{n-1}\partial_n$$ for all $n\in\Z$. In this case, $a$ and $b$ are said to be chain homotopic. \\~\\
@@ -518,52 +568,13 @@ Note that this is different from the tensor product double complex of two chain 
 
 \pagebreak
 \section{Derived Functors}
-\subsection{Exact Functors}
-\begin{defn}{Additive Functors}{} Let $\mA,\mB$ be abelian categories. We say that a functor $F:\mA\to\mB$ is additive if for every $X,Y\in\mA$, the map $$\Hom_\mA(X,Y)\to\Hom_\mB(F(X),F(Y))$$ is a homomorphism of abelian groups. 
-\end{defn}
-
-\begin{defn}{Exact Functors}{} Let $F:\mA\to\mB$ be an additive functor of abelian categories. Let $0\to A\to B\to C\to 0$ be an exact sequence in $\mA$. 
-\begin{itemize}
-\item We say that $F$ is exact if the sequence $$0\to F(A)\to F(B)\to F(C)\to 0$$ is exact. 
-\item We say that $F$ is right exact if the sequence $$F(A)\to F(B)\to F(C)\to 0$$ is exact. 
-\item We say that $F$ is left exact if the sequence $$0\to F(A)\to F(B)\to F(C)$$ is exact. 
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $F:\mA\to\mB$ be an additive functor. Then $F$ preserves split exact sequences. 
-\end{prp}
-
-\begin{thm}{Freyd-Mitchell Embedding Theorem}{} Let $\mA$ be a small abelian category. Then there exists a ring $R$ and an exact, fully faithful functor $F:\mA\to{_R\bold{Mod}}$. This means that there is an isomorphism of sets $$\Hom_{\mA}(M,N)\cong\Hom_R(F(M),F(N))$$ 
-\end{thm}
-
-Such a functor allows us think about diagrams in $\mA$ as if they were diagrams in ${_R\bold{Mod}}$
-
-\begin{lmm}{}{} The Freyd-Mitchell embedding preserves kernels and cokernels. Moreover, it maps the zero object to the zero object. 
-\end{lmm}
-
-\begin{thm}{}{} Let $\mA$ be an abelian category. Let $M\in\mA$. Then the following are true. 
-\begin{itemize}
-\item The covariant functor $\Hom(M,-):\mA\to\bold{Ab}$ is left exact. 
-\item The contravariant functor $\Hom(-,M):\mA\to\bold{Ab}$ is right exact. 
-\end{itemize}
-\end{thm}
-
-Let $\mC$ be a category and let $\mJ$ be a diagram. Recall that if $\mC$ is complete, then the limit can be thought of as a functor $\lim_\mJ:\mC^\mJ\to\mC$. Dually, if $\mC$ is cocomplete, the colimit can be thought of as a functor $\colim_\mJ:\mC^\mJ\to\mC$. If $\mC$ is an abelian category, it makes sense to ask whether these two functors preserve exact sequences. 
-
-\begin{thm}{}{} Let $\mA$ be an abelian category. Let $\mJ$ be a small category. Then the following are true. 
-\begin{itemize}
-\item If $\mA$ is complete, then the functor $\lim_\mJ:\mC^\mJ\to\mC$ is left exact
-\item If $\mA$ is cocomplete, then the functor $\colim_\mJ:\mC^\mJ\to\mC$ is right exact
-\end{itemize}
-\end{thm}
-
 \subsection{Injective and Projective Objects}
 Injectivity and Projectivity objects are created just for the sake of allowing the $\Hom$ functor to be exact. Therefore its definition is also direct. 
 
-\begin{defn}{Projective and Injective Objects}{} Let $\mA$ be an abelian category. 
+\begin{defn}{Projective and Injective Objects}{} Let $\mA$ be an abelian category. Let $Y\in\mA$ be an object. 
 \begin{itemize}
-\item We say that an object $Y$ of $\mA$ is injective if the functor $\Hom(-,Y):\mA\to\bold{Ab}$ is exact. 
-\item We say that an object $Y$ of $\mA$ is projective if the functor $\Hom(Y,-):\mA\to\bold{Ab}$ is exact. 
+\item We say that $Y$ is injective if the functor $\Hom(-,Y):\mA\to\bold{Ab}$ is exact. 
+\item We say that $Y$ is projective if the functor $\Hom(Y,-):\mA\to\bold{Ab}$ is exact. 
 \end{itemize}
 \end{defn}
 
@@ -582,8 +593,8 @@ There are in general, four types of resolutions. Namely injective resolutions, p
 where each $I^k$ is injective. 
 \end{defn}
 
-\begin{thm}{}{} Let $\mA$ be an abelian category. Then $\mA$ has enough injectives if and only if every object of $\mA$ has an injective resolution. 
-\end{thm}
+\begin{prp}{}{} Let $\mA$ be an abelian category. Then $\mA$ has enough injectives if and only if every object of $\mA$ has an injective resolution. 
+\end{prp}
 
 \begin{prp}{}{} Let $\phi:A\to A'$ be a morphism in an abelian category $\mA$. Suppose that there are injective resolutions \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -628,8 +639,8 @@ Moreover, any two such chain maps are homotopic.
 where each $P_k$ is projective. 
 \end{defn}
 
-\begin{thm}{}{} Let $\mA$ be an abelian category. Then $\mA$ has enough projectives if and only if every object of $\mA$ has a projective resolution. 
-\end{thm}
+\begin{prp}{}{} Let $\mA$ be an abelian category. Then $\mA$ has enough projectives if and only if every object of $\mA$ has a projective resolution. 
+\end{prp}
 
 \begin{prp}{}{} Let $\phi:A\to A'$ be a morphism in an abelian category $\mA$. Suppose that there are projective resolutions \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -675,8 +686,8 @@ Moreover, any two such chain maps are homotopic.
 \end{itemize}
 \end{defn}
 
-\begin{thm}{}{} Let $F:\mA\to\mB$ be a left exact functor. The $n$th right derived functor $R^nF$ is an additive functor from $\mA$ to $\mB$. 
-\end{thm}
+\begin{prp}{}{} Let $F:\mA\to\mB$ be a left exact functor. The $n$th right derived functor $R^nF$ is an additive functor from $\mA$ to $\mB$. 
+\end{prp}
 
 \begin{lmm}{}{} Let $A$ be an injective object, then $R^nF(A)=0$ for $n\neq 0$. 
 \end{lmm}
@@ -709,8 +720,8 @@ there is a canonical long exact sequence \\~\\
 \end{itemize}
 \end{defn}
 
-\begin{thm}{}{} Let $F:\mA\to\mB$ be a right exact functor. The $n$th left derived functor $L_nF$ is an additive functor from $\mA$ to $\mB$. 
-\end{thm}
+\begin{prp}{}{} Let $F:\mA\to\mB$ be a right exact functor. The $n$th left derived functor $L_nF$ is an additive functor from $\mA$ to $\mB$. 
+\end{prp}
 
 \begin{lmm}{}{} Let $A$ be a projective object, then $L_nF(A)=0$ for $n\neq 0$. 
 \end{lmm}
@@ -789,39 +800,23 @@ the following diagram commutes: \\~\\
 \pagebreak
 \section{A Second Course on Modules}
 \subsection{The Hom and Tensor Functor}
-Let $R$ be a ring. Recall from category theory that the $\Hom_{_R\bold{Mod}}(A,B)=\Hom(A,B)$ is a functorial in both variables $A,B\in{_R\bold{Mod}}$. Given that ${_R}\bold{Mod}$ is an abelian category, it is natural to ask whether $\Hom$ is an exact functor. \\~\\
-
-The answer is that in general, it is not exact. 
-
-\begin{thm}{}{} Let $R$ be a ring and let $M$ be an $R$-module. Then both $$\Hom(M,-):{_R\bold{Mod}}\to{_R\bold{Mod}}\;\;\;\;\text{ and }\;\;\;\;\Hom(-,M):{_R\bold{Mod}}\to{_R\bold{Mod}}$$ are left exact functors. 
-\end{thm}
-
-The same goes for the tensor product. 
-
-\begin{thm} Let $R$ be a ring and let $M$ be an $R$-module. Then both $$-\otimes_R M:{_R\bold{Mod}}\to{_R\bold{Mod}}\;\;\;\;\text{ and }\;\;\;\;M\otimes_R-:{_R\bold{Mod}}\to{_R\bold{Mod}}$$ are right exact functors. 
-\end{thm}
-
-These two functors are related by the famous tensor-hom adjunction. 
-
 \begin{thm}{Tensor-Hom Adjunction}{} Let $R$ be a ring and let $M$ be an $R$-module. Then there is an adjunction $-\otimes_RM:{_R\bold{Mod}}\rightleftarrows{_R\bold{Mod}}:\Hom(M,-)$. Explicitly, there is a natural isomorphism $$\Hom_{_R\bold{Mod}}(-\otimes_RM,-)\cong\Hom_{_R\bold{Mod}}(-,\Hom_{_R\bold{Mod}}(M,-))$$ 
 \end{thm}
 
-We find it important to notice the relation between all four functor here. Notice that because there is a canonical isomorphism $M\otimes_RN\cong N\otimes_RM$, we can replace $-\otimes_RM$ in the natural isomorphism $$\Hom_{_R\bold{Mod}}(-\otimes_RM,-)\cong\Hom_{_R\bold{Mod}}(-,\Hom_{_R\bold{Mod}}(M,-))$$ with $M\otimes_R-$. This leaves us with the question: What is the functor $\Hom(-,M)$ adjoint to? The answer is itself! $$\Hom_R(A,\Hom_R(B,C))\cong\Hom(B,\Hom(A,C))$$ Therefore it is more often to discuss $\Hom(M,-)$ in conjunction with $-\otimes_RM$, while $\Hom(-,M)$ is often left behind. \\~\\
-
 More generally, the tensor-hom adjunction is a phenomena that exhibits ${_R}\bold{Mod}$  as a closed monoidal category. 
 
-\begin{thm}{}{} Let $R$ be a ring. Then $({_R}\bold{Mod},\otimes_R,R)$ is a symmetric monoidal category. Moreover, it is a closed monoidal category with internal hom given by the usual hom functor $\text{HOM}_{{_R}\bold{Mod}}(-,-)=\Hom_R(-,-)$. 
-\end{thm}
+\begin{prp}{}{} Let $R$ be a ring. Then $({_R}\bold{Mod},\otimes_R,R)$ is a symmetric monoidal category. Moreover, it is a closed monoidal category with internal hom given by the usual hom functor $\text{HOM}_{{_R}\bold{Mod}}(-,-)=\Hom_R(-,-)$. 
+\end{prp}
 
-\subsection{Projective, Injective and Flat Modules}
-In the third chapter we discussed the notion of projective and injective objects, which are core to the definition of existence of left derived functors and right derived functors respectively. We will now define projective and injective modules with a universal property and exhibit that the two notions coincide. 
+We have seen that the left and right Hom functors $$\Hom(M,-):{_R\bold{Mod}}\to{_R\bold{Mod}}\;\;\;\;\text{ and }\;\;\;\;\Hom(-,M):{_R\bold{Mod}}\to{_R\bold{Mod}}$$ are left exact functors. Using the tensor-hom adjunction, we can deduce the following. 
 
-\begin{defn}{Projective Modules}{} An $R$-module $M$ is said to be projective if for every surjective homomorphism $f:N\twoheadrightarrow M$ and every module homomorphism $g:P\to M$, there exists a module homomorphism $h:P\to N$ such that $f\circ h=g$. In other words, the following diagram commutes: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-& N\arrow[d, "f", twoheadrightarrow]\\
-P\arrow[ru, "\exists h", dashed]\arrow[r, "g"'] & M
-\end{tikzcd}} \\
-\end{defn}
+\begin{prp}{}{} Let $R$ be a ring and let $M$ be an $R$-module. Then both $$-\otimes_R M:{_R\bold{Mod}}\to{_R\bold{Mod}}\;\;\;\;\text{ and }\;\;\;\;M\otimes_R-:{_R\bold{Mod}}\to{_R\bold{Mod}}$$ are right exact functors. 
+\end{prp}
+
+We find it important to notice the relation between all four functor here. Notice that because there is a canonical isomorphism $M\otimes_RN\cong N\otimes_RM$, we can replace $-\otimes_RM$ in the natural isomorphism $$\Hom_{_R\bold{Mod}}(-\otimes_RM,-)\cong\Hom_{_R\bold{Mod}}(-,\Hom_{_R\bold{Mod}}(M,-))$$ with $M\otimes_R-$. This leaves us with the question: What is the functor $\Hom(-,M)$ adjoint to? The answer is itself! $$\Hom_R(A,\Hom_R(B,C))\cong\Hom(B,\Hom(A,C))$$ Therefore it is more often to discuss $\Hom(M,-)$ in conjunction with $-\otimes_RM$, while $\Hom(-,M)$ is often left behind. \\~\\
+
+\subsection{Projective and Injective Modules}
+Let $R$ be a ring. Recall that an $R$-module $P$ is projective if $\Hom(P,-)$ is an exact functor. 
 
 \begin{lmm}{}{} Every free module is projective. \tcbline
 \begin{proof}
@@ -838,11 +833,14 @@ so that $f\circ h=g$. Thus $F$ is projective.
 \end{proof}
 \end{lmm}
 
-\begin{thm}{}{} Let $P$ be an $R$-module. Then the following are equivalent. 
+\begin{prp}{}{} Let $R$ be a ring. Let $P$ be an $R$-module. Then the following are equivalent. 
 \begin{itemize}
 \item $P$ is projective 
-\item For every short exact sequence $0\to A\overset{f}{\to}B\overset{g}{\to}C\to 0$ we have that $$0\to \Hom(P,A)\overset{f}{\to}\Hom(P,B)\overset{g}{\to}\Hom(P,C)\to 0$$
-is exact. 
+\item For every surjective homomorphism $f:N\twoheadrightarrow M$ and every $R$-module homomorphism $g:P\to M$, there exists a module homomorphism $h:P\to N$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+& N\arrow[d, "f", twoheadrightarrow]\\
+P\arrow[ru, "\exists h", dashed]\arrow[r, "g"'] & M
+\end{tikzcd}} \\
 \item $P\oplus Q$ is a free $R$-module for some $R$-module $Q$. 
 \end{itemize} \tcbline
 \begin{proof}~\\
@@ -850,55 +848,38 @@ is exact.
 \item $(3)\implies(1)$: Suppose that there exists a module $Q$ such that $P\oplus Q$ is free. Let $f:N\to M$ be a surjective $R$-module homomorphism and let $g:P\to M$ be an $R$-module homomorphism. 
 \end{itemize}
 \end{proof}
-\end{thm}
-
-\begin{prp}{}{} A direct sum $\oplus_{i\in I}P_i$ is projective if and only if each $P_i$ is. 
 \end{prp}
 
-\begin{prp}{}{} Let $P$ be a module. Then $P$ is projective if and only if every exact sequence of the following form splits: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-0\arrow[r] & A\arrow[r] & B\arrow[r] & P\arrow[r] & 0
-\end{tikzcd}} \\
+\begin{prp}{}{} Let $R$ be a ring. Let $P_i$ be an $R$-module for each $i\in I$. Then the direct sum $\bigoplus_{i\in I}P_i$ is projective if and only if each $P_i$ is projective. 
 \end{prp}
 
-\begin{defn}{Injective Modules}{} An $R$-module $M$ is said to be projective if for every injective homomorphism $f:N\rightarrowtail M$ and every module homomorphism $g:N\to I$, there exists a module homomorphism $h:M\to I$ such that $f\circ h=g$. In other words, the following diagram commutes: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
+Now recall that an $R$-module $I$ is injective if $\Hom(-,I)$ is an exact functor. 
+
+\begin{prp}{}{} Let $R$ be a ring. Let $I$ be an $R$-module. Then $I$ is injective if and only if for every injective homomorphism $f:N\rightarrowtail M$ and every module homomorphism $g:N\to I$, there exists a module homomorphism $h:M\to I$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
 N\arrow[d, "f"', rightarrowtail]\arrow[rd, "g"''] &\\
 M\arrow[r, "\exists h"', dashed] & I
-\end{tikzcd}} \\
-\end{defn}
-
-\begin{thm}{}{} An $R$-module $I$ is injective if and only if for every short exact sequence $0\to A\overset{f}{\to}B\overset{g}{\to}C\to 0$ we have that $$0\to \Hom(A,I)\overset{f}{\to}\Hom(B,I)\overset{g}{\to}\Hom(C,I)\to 0$$
-is exact. 
-\end{thm}
-
-\begin{prp}{}{} Let $E$ be a module. Then $E$ is injective if and only if every exact sequence of the following form splits: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-0\arrow[r] & E\arrow[r] & B\arrow[r] & C\arrow[r] & 0
 \end{tikzcd}} \\
 \end{prp}
 
 \subsection{Flat Modules}
-While projective modules allows the exactness of $\Hom(M,-)$. The left adjoint of this functor, $-\otimes_RM$ is exact when $M$ is flat. 
+While projective modules allows the exactness of $\Hom(M,-)$, flat modules allows the exactness of $-\otimes_RM$. 
 
 \begin{defn}{Flat Modules}{} Let $R$ be a ring. An $R$-module $M$ is said to be flat if for every injective linear map $\phi:K\to L$ of $R$-modules, the map $$\phi\otimes\text{id}_M:K\otimes_RM\to L\otimes_RM$$ is also injective. 
 \end{defn}
 
-\begin{thm}{}{} Let $R$ be a ring and $M$ an $R$-module. Let $0\to K\to L\to J\to 0$ be an exact sequence, then the sequence $$K\otimes_RM\to L\otimes_RM\to J\otimes_RM\to 0$$ is also exact. 
-\end{thm}
+\begin{prp}{}{} Let $R$ be a ring and $M$ an $R$-module. Then $M$ is a flat module if and only if for every short exact sequence $0\to K\to L\to J\to 0$, the sequence $$0\to K\otimes_RM\to L\otimes_RM\to J\otimes_RM\to 0$$ is also exact. 
+\end{prp}
 
-\begin{thm}{}{} Let $R$ be a ring and $M$ an $R$-module. Then $M$ is a flat module if and only if for every short exact sequence $0\to K\to L\to J\to 0$, the sequence $$0\to K\otimes_RM\to L\otimes_RM\to J\otimes_RM\to 0$$ is also exact. 
-\end{thm}
-
-\begin{thm}{}{} Let $R$ be a ring. Then the following are true. 
+\begin{prp}{}{} Let $R$ be a ring. Then the following are true. 
 \begin{itemize}
 \item Product: If $A$ and $B$ are flat over $R$ then $A\otimes_R B$ is flat over $R$
 \item Base Change: Let $S$ be an $R$-algebra ($R\to S$ a ring hom). Then $M\otimes_RS$ is flat over $S$ for any flat $R$-module $M$
 \item Transitivity: Let $S$ be an $R$-algebra such that $S$ is flat over $R$. If $C$ is flat over $S$ then $C$ is flat over $R$. 
 \end{itemize}
-\end{thm}
+\end{prp}
 
-We have the following inclusion of modules $$\text{Free Modules}\subset\text{Projective Modules}\subset\text{Flat Modules}\subset\text{Torsion Free Modules}$$ It is important to note that the duality between projective and injective modules is given from the bifunctor $\Hom(-,-)$ while the sense of duality given between projective and injective modules is given by the tensor hom adjunction. 
+We have the following inclusion of modules $$\text{Free Modules}\subset\text{Projective Modules}\subset\text{Flat Modules}\subset\text{Torsion Free Modules}$$ It is important to note that the ``duality'' between projective and injective modules is given from the bifunctor $\Hom(-,-)$ while the ``duality'' given between projective and flat modules is given by the tensor-hom adjunction. 
 
 \subsection{Derived Functors in the Category of R-Modules}
 \begin{defn}{The Ext Functor}{} Let $R$ be a ring and let $A$ be an $R$-module. Define the right derived functor of the left exact functor $\Hom(A,-):{_R\bold{Mod}}\to\bold{Ab}$ to be $$\text{Ext}_R^i(A,-)=R^i(\Hom(A,-)):{_R\bold{Mod}}\to\bold{Ab}$$ 

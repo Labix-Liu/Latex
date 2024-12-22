@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  26 NOV 2024 06:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  22 DEC 2024 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -950,7 +950,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 253.
+Package hyperref Info: Option `colorlinks' set `true' on input line 255.
 ) (Homological Algebra.aux)
 \openout1 = `"Homological Algebra.aux"'.
 
@@ -1075,59 +1075,31 @@ Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
 d on input line 28.
 
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+enc}] [4] [5] [6] [7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  []
 
-[6] [7]
-Underfull \hbox (badness 1142) in paragraph at lines 191--192
-[]\T1/qpl/m/n/10 Let $\OMS/cmsy/m/n/10 A$ \T1/qpl/m/n/10 be an abelian cat-e-go
-ry. A chain com-plex $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C[]; @[]\OT1/cmr/m/n/10
- )$ \T1/qpl/m/n/10 over $\OMS/cmsy/m/n/10 A$ \T1/qpl/m/n/10 is said to be ex-ac
-t if 
- []
-
-[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19]
+[9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 739.
+(hyperref)                removing `math shift' on input line 750.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\delta' on input line 739.
+(hyperref)                removing `\delta' on input line 750.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 739.
+(hyperref)                removing `math shift' on input line 750.
 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 792--793
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 792--793
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 809--810
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 809--810
-
- []
-
-
-Underfull \hbox (badness 1028) in paragraph at lines 813--814
+[21]
+Underfull \hbox (badness 1028) in paragraph at lines 808--809
 []\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 R$ \T1/qpl/m/n/10 be a ring. Then $\OT1/
 cmr/m/n/10 ([][]\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 
 []\OML/cmm/m/it/10 ; R\OT1/cmr/m/n/10 )$ \T1/qpl/m/n/10 is a sym-met-ric monoid
@@ -1135,39 +1107,49 @@ al cat-e-gory. More-over,
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 813--814
+Underfull \hbox (badness 1331) in paragraph at lines 808--809
 \T1/qpl/m/n/10 it is a closed monoidal cat-e-gory with in-ter-nal hom given by 
 the usual hom func-tor 
  []
 
-[21] [22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 907--908
+
+Underfull \hbox (badness 10000) in paragraph at lines 816--817
 
  []
 
-[24] [25] [26]
-Overfull \hbox (3.34154pt too wide) in paragraph at lines 1018--1019
+
+Underfull \hbox (badness 10000) in paragraph at lines 816--817
+
+ []
+
+[22] [23] [24]
+Underfull \hbox (badness 10000) in paragraph at lines 888--889
+
+ []
+
+[25] [26]
+Overfull \hbox (3.34154pt too wide) in paragraph at lines 999--1000
 []\T1/qpl/m/n/10 Notice that co-ho-mo-log-i-cal spec-tral se-quences are re-all
 y the same thing as ho-mo-log-i-cal spec-tral se-quences,
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1043--1052
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1033
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1043--1052
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1033
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1043--1052
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1033
 
  []
 
 [28] [29] [30] [31] [32] [33]
-Underfull \hbox (badness 1117) in paragraph at lines 1255--1256
+Underfull \hbox (badness 1117) in paragraph at lines 1236--1237
 []\T1/qpl/m/n/10 Define sim-i-larly the ho-mo-topy cat-e-gories $\OML/cmm/m/it/
 10 K[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A\OT1/cmr/m/n/10 )$\T1/qpl/m/n/10 , $\O
 ML/cmm/m/it/10 K[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A\OT1/cmr/m/n/10 )$ \T1/qpl
@@ -1182,13 +1164,13 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `"Homological Algebra".out' has not changed.
-(rerunfilecheck)             Checksum: 4AFF4653CD47A95C8BC9F7DD252E78C4;7527.
+(rerunfilecheck)             Checksum: CB9FDC443F2E9D008F6FB094D581F4DF;7751.
  ) 
 Here is how much of TeX's memory you used:
- 37870 strings out of 474424
- 776571 string characters out of 5741739
- 2033496 words of memory out of 5000000
- 59460 multiletter control sequences out of 15000+600000
+ 37716 strings out of 474424
+ 772555 string characters out of 5741739
+ 2030496 words of memory out of 5000000
+ 59309 multiletter control sequences out of 15000+600000
  601492 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,17n,120p,654b,1471s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1214,9 +1196,9 @@ s/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/
 Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri
 .pfb>
-Output written on "Homological Algebra.pdf" (40 pages, 574789 bytes).
+Output written on "Homological Algebra.pdf" (40 pages, 573020 bytes).
 PDF statistics:
- 714 PDF objects out of 1000 (max. 8388607)
- 232 named destinations out of 1000 (max. 500000)
- 325 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 716 PDF objects out of 1000 (max. 8388607)
+ 229 named destinations out of 1000 (max. 500000)
+ 333 words of extra memory for PDF output out of 10000 (max. 10000000)
 

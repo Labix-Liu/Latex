@@ -1,25 +1,26 @@
 \contentsline {section}{\numberline {1}Abelian Categories and its Properties}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Additive Categories}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Abelian Categories}{3}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Chain Complexes in an Abelian Category}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}The Category of Chain Complexes}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}The Category of Cochain Complexes}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Exact Sequences}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Chain Homotopy}{9}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Mapping Cones and Mapping Cylinders}{11}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Sequences of Chain Complexes}{11}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Double Complexes}{13}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Total Complexes}{14}{subsection.2.8}%
-\contentsline {section}{\numberline {3}Derived Functors}{16}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Exact Functors}{16}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Injective and Projective Objects}{17}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Resolutions of Objects}{17}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Derived Functors}{19}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}$\delta $-Functors}{20}{subsection.3.5}%
-\contentsline {section}{\numberline {4}A Second Course on Modules}{21}{section.4}%
-\contentsline {subsection}{\numberline {4.1}The Hom and Tensor Functor}{21}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Projective, Injective and Flat Modules}{22}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Flat Modules}{23}{subsection.4.3}%
+\contentsline {subsection}{\numberline {1.3}Short Exact Sequences}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Exact Functors}{5}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Freyd-Mitchell Embedding Theorem}{6}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Chain Complexes in an Abelian Category}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The Category of Chain Complexes}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The Category of Cochain Complexes}{10}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Chain Homotopy}{11}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Mapping Cones and Mapping Cylinders}{13}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Sequences of Chain Complexes}{13}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Double Complexes}{15}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Total Complexes}{16}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Derived Functors}{18}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Injective and Projective Objects}{18}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Resolutions of Objects}{18}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Derived Functors}{19}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}$\delta $-Functors}{21}{subsection.3.4}%
+\contentsline {section}{\numberline {4}A Second Course on Modules}{22}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The Hom and Tensor Functor}{22}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Projective and Injective Modules}{22}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Flat Modules}{24}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Derived Functors in the Category of R-Modules}{24}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Extensions and Torsions}{25}{subsection.4.5}%
 \contentsline {section}{\numberline {5}Spectral Sequences}{27}{section.5}%
