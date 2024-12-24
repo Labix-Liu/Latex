@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  28 OCT 2024 07:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.16)  24 DEC 2024 00:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -950,7 +950,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@thm=\count338
-Package hyperref Info: Option `colorlinks' set `true' on input line 253.
+Package hyperref Info: Option `colorlinks' set `true' on input line 255.
 ) (Number Systems.aux)
 \openout1 = `"Number Systems.aux"'.
 
@@ -1064,40 +1064,15 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 \openout5 = `"Number Systems.toc"'.
 
  [2]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 3
-9.
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 6
+1.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
-[3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
-[19] [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 670--674
-\T1/qpl/m/n/10 ble row re-duced form.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 670--674
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 670--674
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 670--674
-\OT1/cmr/m/n/10 0$\T1/qpl/m/n/10 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 670--674
-
- []
-
-[22] [23] [24] [25] (Number Systems.aux)
+[3] [4{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-
+ts1.enc}] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
+(Number Systems.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
@@ -1109,41 +1084,35 @@ Package rerunfilecheck Warning: File `"Number Systems".out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `"Number Systems".out':
-(rerunfilecheck)             Before: 6CAFB7970EE13A9899A3D17FA286F7E0;4234
-(rerunfilecheck)             After:  37EF131FB6CDFD90F2B7BD2A0FA63841;3999.
+(rerunfilecheck)             Before: 77A4309F585F54E0D92E4EE843026BA1;2729
+(rerunfilecheck)             After:  32684390B4799365D5D817C6E814F2C1;2793.
  ) 
 Here is how much of TeX's memory you used:
- 32562 strings out of 474424
- 640038 string characters out of 5741739
- 1962496 words of memory out of 5000000
- 54202 multiletter control sequences out of 15000+600000
- 600564 words of font info for 78 fonts, out of 8000000 for 9000
+ 32413 strings out of 474424
+ 637722 string characters out of 5741739
+ 1959496 words of memory out of 5000000
+ 54132 multiletter control sequences out of 15000+600000
+ 599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,13n,120p,986b,1186s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{subsection.3.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-bx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liul
-a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/U
-sers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.p
-fb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
-s/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Number Systems.pdf" (25 pages, 438060 bytes).
+ 88i,13n,120p,711b,1184s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/li
+ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/
+Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/m
+sbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-
+gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/tex-gyre/qplri.pfb>
+Output written on "Number Systems.pdf" (16 pages, 353698 bytes).
 PDF statistics:
- 527 PDF objects out of 1000 (max. 8388607)
- 185 named destinations out of 1000 (max. 500000)
- 229 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 343 PDF objects out of 1000 (max. 8388607)
+ 109 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
