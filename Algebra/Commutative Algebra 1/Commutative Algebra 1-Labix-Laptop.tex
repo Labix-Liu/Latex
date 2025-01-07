@@ -1,0 +1,1524 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Commutative Algebra 1}
+\rfoot{\thepage}
+
+\title{Commutative Algebra 1}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\pagebreak
+\section{Basic Notions of Commutative Rings}
+\subsection{Local Rings}
+\begin{defn}{Local Rings}{} Let $R$ be a commutative ring. We say that $R$ is a local ring if it has a unique maximal ideal $m$. In this case, we say that $R/m$ is the residue field of $R$. 
+\end{defn}
+
+\begin{eg}{}{} Consider the following commutative rings. 
+\begin{itemize}
+\item $\Z/6\Z$ is not a local ring. 
+\item $\Z/8\Z$ is a local ring. 
+\item $\Z/24\Z$ is not a local ring. 
+\item $\R[x]$ is not a local ring. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item The only ideals of $\Z/6\Z$ are $(2+6\Z)$ and $(3+6\Z)$. They do not contain each other and so they are both maximal. 
+\item The only ideals of $\Z/8\Z$ are $(2+8\Z)$ and $(4+8\Z)$. But $(2+8\Z)\supseteq(4+8\Z)$. Hence $\Z/8\Z$ has a unique maximal ideal. 
+\item A similar proof as above ensues. 
+\item Any irreducible polynomial $f\in\R[x]$ is such that $(f)$ is a maximal ideal. Indeed the evaluation homomorphism gives an isomorphism $\frac{\R[x]}{(f)}\cong\R$. 
+\end{itemize}
+\end{proof}
+\end{eg}
+
+\begin{prp}{}{} Let $R$ be a ring and $I$ an ideal of $R$. Then $I$ is the unique maximal ideal of $R$ if and only if $I$ is the set containing all non-units of $R$. \tcbline
+\begin{proof}
+Let $I$ be the unique maximal ideal of $R$. Clearly $I$ does not contain any unit else $I=R$. Now suppose that $r$ is a non-unit. Suppose that $r\notin I$. Define $J=\{sr|s\in R\}$ Clearly $J$ is an ideal. It must be contained in some maximal ideal. Since $I$ is the unique maximal ideal, $J\subseteq I$. But this means that $r\in I$, a contradiction. Thus every non-unit is in $I$. \\~\\
+Suppose that $I$ contains all non-units of $R$. Let $r\notin I$. Then there exists $s\notin I$ such that $rs=1$. Then $(r+I)(s+I)=1+I$ in $R/I$. This means that every element of $R/I$ has a multiplicative inverse which means that $R/I$ is a field and thus $I$ is a maximal ideal. Now let $J\neq I$ be another maximal ideal. Then $J$ contains some unit $r$. This implies that $J=R$ and thus $I$ is the unique maximal ideal. 
+\end{proof}
+\end{prp}
+
+\begin{eg}{}{} Let $k$ be a field. Then the ring of power series $k[[x]]$ is a local ring. \tcbline
+\begin{proof}
+Let $M$ be the set of all non-units of $k[[x]]$. I first show that $f\in M$ if and only if the constant term of $f$ is non-zero. Let $g$ be a power series. Then the $n$th coefficient of $f\cdot g$ is given by $$c_n=\sum_{k=0}^na_kb_{n-k}$$ If the constant term of $f$ is $0$, then $c_0=0$ and so $f\cdot g\neq 1$. Now if the constant term of $f$ is $a_0\neq 0$, then set $b_0=\frac{1}{a_0}$. Now we can use the formula $0=c_n$ to deduce $$b_n=-\frac{\sum_{k=1}^na_kb_{n-k}}{a_0}$$. This is such that $a_n\cdot b_n=0$. Define $g=\sum_{k=0}^\infty b_kx^k$. Then $f\cdot g=1$. Thus $f$ is a unit. \\~\\
+
+By the above proposition, we conclude that $M$ is the unique maximal ideal of $k[[x]]$. 
+\end{proof}
+\end{eg}
+
+We will discuss more of local rings in the topic of localizations. 
+
+\subsection{Noetherian Commutative Rings}
+We recall some facts about Noetherian rings. In the following, let $R$ be a commutative ring, although they are also true if $R$ is non-commutative if we take all modules defined below to be left (right) $R$-modules. 
+
+\begin{itemize}
+\item If we have a short exact sequence of $R$-modules: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then $M_2$ is Noetherian if and only if $M_1$ and $M_3$ are Noetherian. 
+\item If $M$ and $N$ are $R$-modules, then $M\oplus N$ is Noetherian if and only if $M$ and $N$ are Noetherian. 
+\item If $M$ is an $R$-module and $N$ is an $R$-submodule of $M$, then $M$ is Noetherian if and only if $N$ and $M/N$ are Noetherian.
+\item If $R$ is Noetherian and $I$ is an ideal of $R$, then $R/I$ is Noetherian. 
+\item Later when once has seen localization, we can also prove that: If $R$ is Noetherian then $S^{-1}R$ is Noetherian for any multiplicative subset $S$ of $R$. 
+\end{itemize}
+
+\begin{thm}{Hilbert's Basis Theorem}{} Let $R$ be a commutative ring. If $R$ is Noetherian, then $$R[x_1,\dots,x_n]$$ is a Noetherian ring. 
+\end{thm}
+
+\begin{prp}{}{} Let $R=\bigoplus_{i=0}^nR_i$ be a graded ring. Then $R$ is Noetherian if and only if $R_0$ is Noetherian and $R$ is finitely generated as an $R_0$-module. 
+\end{prp}
+
+\subsection{Artinian Commutative Rings}
+We recall some facts about Artinian rings. In the following, let $R$ be a commutative ring, although they are also true if $R$ is non-commutative if we take all modules defined below to be left (right) $R$-modules. 
+
+\begin{itemize}
+\item If we have a short exact sequence of $R$-modules: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then $M_2$ is Artinian if and only if $M_1$ and $M_3$ are Artinian. 
+\item If $M$ and $N$ are $R$-modules, then $M\oplus N$ is Artinian if and only if $M$ and $N$ are Artinian. 
+\item If $M$ is an $R$-module and $N$ is an $R$-submodule of $M$, then $M$ is Artinian if and only if $N$ and $M/N$ are Artinian.
+\item If $R$ is Artinian and $I$ is an ideal of $R$, then $R/I$ is Artinian. 
+\end{itemize}
+
+\begin{prp}{}{} Let $R$ be an integral domain. Then $R$ is Artinian if and only if $R$ is a field. 
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. If $R$ is Artinian, then the following are true. 
+\begin{itemize}
+\item Every prime ideal of $R$ is maximal
+\item There is an equality $N(R)=J(R)$
+\item $R$ has only a finite number of maximal ideals
+\end{itemize}
+\end{prp}
+
+\begin{thm}{(Hopkins)}{} Let $R$ be a commutative ring. If $R$ is Artinian then $R$ is Noetherian. 
+\end{thm}
+
+\subsection{Spectra of a Ring}
+\begin{defn}{Max Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the max spectrum of $A$ to be $$\text{maxSpec}(A)=\{m\subseteq A\;|\;m\text{ is a maximal ideal of }A\}$$
+\end{defn}
+
+\begin{defn}{Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the spectrum of $A$ to be $$\text{Spec}(A)=\{p\subseteq A\;|\;p\text{ is a prime ideal of }A\}$$
+\end{defn}
+
+\begin{eg}{}{} Consider the following commutative rings. 
+\begin{itemize}
+\item $\text{Spec}(\Z/6\Z)=\{(2+6\Z),(3+6\Z)\}$
+\item $\text{Spec}(\Z/8\Z)=\{(2+8\Z)\}$
+\item $\text{Spec}(\Z/24\Z)=\{(2+24\Z),(3+24\Z)\}$
+\item $\text{Spec}(\R[x])=\{(f)\;|\;f\text{ is irreducible }\}$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item The only ideals of $\Z/6\Z$ are $(2+6\Z)$ and $(3+6\Z)$. We need to find which ones are prime ideals. Now $\Z/6\Z\setminus(2+6\Z)$ consists of $1+6\Z$, $3+6\Z$ and $5+6\Z$. No multiplication of these elements give an element of $(2+6\Z)$. So any two elements in $\Z/6\Z$ which multiply to an element of $(2+6\Z)$ must contain one element that lie in $(2+6\Z)$. Hence $(2+6\Z)$ is prime. This is similar for $(3+6\Z)$. Hence $\text{Spec}(\Z/6\Z)=\{(2+6\Z),(3+6\Z)\}$. 
+\item The only ideals of $\Z/8\Z$ are $(2+8\Z)$ and $(4+8\Z)$. A similar argument as above shows that $(2+8\Z)$ is a prime ideal. However, $6+8\Z\notin(4+8\Z)$ while $(6+8\Z)^2=4+8\Z\in(4+8\Z)$ which shows that $(4+8\Z)$ is not a prime ideal. 
+\item A similar proof as above ensues. 
+\item Recall that $\R[x]$ is a principal ideal domain. Let $I=(f)$ be a prime ideal of $\R[x]$. Then $f$ is irreducible. Thus every prime ideal of $\R[x]$ is of the form $(f)$ for $f$ an irreducible polynomial. 
+\end{itemize}
+\end{proof}
+\end{eg}
+
+\begin{lmm}{}{} Let $R,S$ be commutative rings. Let $f_1:R\times S\to R$ and $f_2:R\times S\to S$ denote the projection maps. Then the map $$f_1^\ast\amalg f_2^\ast:\text{Spec}(R)\amalg\text{Spec}(S)\to\text{Spec}(R\times S)$$ is a bijection. \tcbline
+\begin{proof}
+The core of the proof is the fact that $P$ is a prime ideal of $R\times S$ if and only if $P=R\times Q$ or $P=V\times S$ for either a prime ideal $Q$ of $P$ or a prime ideal $V$ of $S$. It is clear that if $Q$ is a prime ideal of $S$ and $V$ is a prime ideal of $R$, then $R\times Q$ and $V\times S$ are both prime ideals of $R\times S$. \\~\\
+
+So suppose that $P$ is a prime ideal in $R\times S$. Let $e_1=(1,0)$ and $e_2=(0,1)$. Since $P\neq R$, at least one of $e_1$ or $e_2$ is not in $P$. Without loss of generality assume that $e_1\notin P$. But $e_1e_2=0\in P$ and $P$ being prime implies that $e_2\in P$. Since $e_2$ is the identity of $\{0\}\times S\cong S$, we conclude that $\{0\}\times S\subseteq P$. By the correspondence theorem, the projection map $f_1:R\times S\to R$ gives a bijection between prime ideals of $R\times S$ that contain $\{0\}\times S$ and prime ideals of $R$. So $f_1(P)$ is a prime ideal of $R$. Thus $P=f_1(P)\times S$ which is exactly what we wanted. \\~\\
+
+Now the bijection is clear. $f_1^\ast\amalg f_2^\ast$ sends a prime ideal $P$ of $R$ to $P\times S$ and it sends a prime ideal $Q$ of $S$ to $R\times Q$. This map is surjective by the above argument. It is injective by inspection. 
+\end{proof}
+\end{lmm}
+
+\pagebreak
+\section{Ideals Of a Commutative Ring}
+\subsection{Operations on Ideals}
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $S,T\subseteq R$ be subsets of $R$. Then $$\langle S\cup T\rangle=\langle S\rangle +\langle T\rangle$$
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I,J$ be ideals of $R$. Suppose that $I\subseteq J$. Let $\overline{J}$ denote the ideal of $R/I$ corresponding to $J$ under the correspondence theorem. Then there is an isomorphism $$\frac{R/I}{\overline{J}}\cong\frac{R}{I+J}$$ given by the formula $(r+I)+\overline{J}\mapsto r+(I+J)$. 
+\end{prp}
+
+\begin{eg}{}{} There is an isomorphism given by $$\frac{\Z[x]}{(x+1,x^2+2)}\cong\Z/3\Z$$ \tcbline
+\begin{proof}
+Using the above propositions, we have that 
+\begin{align*}
+\frac{\Z[x]}{(x+1,x^2+2)}&=\frac{\Z[x]}{(x+1)+(x^2+2)}\\
+&\cong\frac{\Z[x]/(x+1)}{(3)}
+\end{align*}
+Indeed, the ideal $(x^2+2)$ corresponds to the ideal $(3)$ in $\frac{\Z[x]}{(x+1)}$ because the remainder of $x^2+2$ divided by $(x+1)$ is $(3)$. Now $\Z[x]/(x+1)\cong\Z$ by the evaluation homomorphism. Thus quotieting by the ideal $(3)$ gives the field $\Z/3\Z$. 
+\end{proof}
+\end{eg}
+
+Some more important results from Groups and Rings and Rings and Modules include: 
+\begin{itemize}
+\item If $I$ and $J$ are coprime, then $IJ=I\cap J$
+\item Chinese Remainder Theorem: If $I$ and $J$ are coprime, then there is an isomorphism $$\frac{R}{I\cap J}\cong\frac{R}{I}\times\frac{R}{J}$$
+\end{itemize}
+
+\subsection{Radical Ideals}
+The radical of an ideal is a very different notion from the radical of module. 
+
+\begin{defn}{Radical of an Ideal}{} Let $I$ be an ideal of a ring $R$. Define the radical of $I$ to be $$\sqrt{I}=\{r\in R|r^n\in I\text{ for some }n\in\N\}$$
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then the following are true. 
+\begin{itemize}
+\item $I\subseteq\sqrt{I}$
+\item $\sqrt{\sqrt{I}}=\sqrt{I}$
+\item $\sqrt{I^m}=\sqrt{I}$ for all $m\geq 1$
+\item $\sqrt{I}=R$ if and only if $I=R$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $r\in I$. Then $r^1\in I$ Thus by choosing $n=1$ we shows that $r^n\in I$. Thus $r\in\sqrt{I}$. 
+\item By the above, we already know that $\sqrt{I}\subseteq\sqrt{\sqrt{I}}$. So let $r\in\sqrt{\sqrt{I}}$. Then there exists some $n\in\N$ such that $r^n\in\sqrt{I}$. But $r^n\in\sqrt{I}$ means that there exists some $m\in\N$ such that $(r^n)^m\in I$. But $nm\in\N$ is a natural number such that $r^{nm}\in I$. Hence $r\in\sqrt{I}$ and so we conclude. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I,J$ be ideals of $R$. Then the following are true. 
+\begin{itemize}
+\item If $I\subseteq J$ then $\sqrt{I}\subseteq\sqrt{J}$
+\item $\sqrt{IJ}=\sqrt{I\cap J}$
+\item $\sqrt{I+J}=\sqrt{\sqrt{I}+\sqrt{J}}$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $x\in\sqrt{IJ}$. Then $x^n\in IJ$. This means that there exists $i\in I$ and $j\in J$ such that $x^n=ij$. Since $I$ and $J$ are two sided ideals, we can conclude that $x^n=ij\in I,J$. Hence $x^n=ij\in I\cap J$. We conclude that $x\in\sqrt{I\cap J}$. Now let $x\in\sqrt{I\cap J}$. Then there exists $n\in\N$ such that $x^n\in I\cap J$. Then $x^n\in I$ and $x^n\in J$ implies that $x^{2n}=x^n\cdot x^n\in IJ$. We conclude that $x\in\sqrt{IJ}$. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then $$\sqrt{I}=\bigcap_{\substack{p\text{ a prime ideal}\\I\subseteq p\subseteq R}}p$$
+\end{prp}
+
+\begin{defn}{Radical Ideals}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. We say that $I$ is radical if $$\sqrt{I}=I$$
+\end{defn}
+
+In particular, by the above lemma it follows that the radical of an ideal is a radical ideal. 
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $P$ be a prime ideal of $R$. Then $P$ is radical. 
+\end{lmm}
+
+We conclude that there is an inclusion of types of ideal in which each inclusion is strict: $$\substack{\text{Maximal}\\\text{ideals}}\subset\substack{\text{Prime}\\\text{ideals}}\subset\substack{\text{Radical}\\\text{ideals}}$$
+
+\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Denote $\varphi$ to be the inclusion preserving one-to-one bijection $$\left\{\substack{\text{Ideals of }R\\\text{containing }I}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\text{Ideals of }R/I\right\}$$ from the correspondence theorem for rings. In other words, $\varphi(A)=A/I$. Let $J\subseteq R$ be an ideal containing $I$. Then the following are true. 
+\begin{itemize}
+\item $J$ is a radical ideal if and only if $\varphi(J)=J/I$ is a radical ideal. 
+\item $J$ is a prime ideal if and only if $\varphi(J)=J/I$ is a prime ideal. 
+\item $J$ is a maximal ideal if and only if $\varphi(J)=J/I$ is a maximal ideal. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $J$ be a radical ideal. Suppose that $r+I\in\sqrt{J/I}$. This means that $(r+I)^n=r^n+I\in J/I$ for some $n\in\N$. But this means that $r^n\in J$. This implies that $r\in\sqrt{J}=J$. Thus $r+I\in J/I$ and we conclude that $\sqrt{J/I}\subseteq J/I$. Since we also have $J/I\subseteq\sqrt{J/I}$, we conclude. \\~\\
+
+Now suppose that $J/I$ is a radical ideal. Let $r\in\sqrt{J}$. This means that $r^n\in J$ for some $n\in\N$. Now $r^n+I=(r+I)^n\in J/I$ implies that $r+I\in\sqrt{J/I}=J/I$. Hence $r\in J$ and so $\sqrt{J}\subseteq J$. Since we also have that $J\subseteq\sqrt{J}$, we conclude. 
+
+\item Let $J$ be a prime ideal. Then $R/J$ is an integral domain. By the second isomorphism theorem, we have that $R/J\cong(R/I)/(J/I)$ and hence $(R/I)/(J/I)$ is also an integral domain. Hence $J/I$ is a prime ideal. The converse is also true. 
+
+\item Let $J$ be a maximal ideal. Then $R/J$ is a field. By the second isomorphism theorem, we have that $R/J\cong(R/I)/(J/I)$ and hence $(R/I)/(J/I)$ is also a field. Hence $J/I$ is a maximal ideal. The converse is also true. 
+\end{itemize}
+\end{proof}
+\end{thm}
+
+Another way to write the bijections is via spectra: $$\text{Spec}(R/I)\;\;\overset{1:1}{\longleftrightarrow}\;\;\{P\in\text{Spec}(R)\;|\;I\subseteq P\}$$ and $$\text{maxSpec}(R/I)\;\;\overset{1:1}{\longleftrightarrow}\;\;\{m\in\text{maxSpec}(R)\;|\;I\subseteq m\}$$
+
+\subsection{Nilradical and Jacobson Ideals}
+Let $R$ be a ring. Recall that an element $r\in R$ is nilpotent if $r^n=0_R$ for some $n\in\N$. When $R$ is commutative, we can form an ideal out of nilpotent elements. 
+
+\begin{defn}{Nilradicals}{} Let $R$ be a ring. Define the nilradical of $R$ to be $$N(R)=\{r\in R\;|\;r\text{ is nilpotent}\}$$
+\end{defn}
+
+Note that this is different from nilpotent ideals, as nilpotency is a property of an ideal. However the Nilradical ideal is a nil ideal and every sub-ideal of the nilradical is a nil ideal. 
+
+\begin{prp}{}{} Let $R$ be a ring and $N(R)$ its nilradical. Then the following are true. 
+\begin{itemize}
+\item $N(R)$ is an ideal of $R$
+\item $N(R/N(R))=0$
+\end{itemize}\tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Suppose that $r,s$ are nilpotent, meaning that $r^n=0$ and $s^m=0$. Then $(r+s)^{n+m}=0$. Moreover, if $t\in R$ then $t\cdot r$ is also nilpotent
+\item Let $r\notin N(R)$. Every element $r+N(R)\in R/N(R)$ has the property that $r^n\neq 0$. Consider $(r+N(R))^n=r^n+N(R)$. If $r^n\in N(R)$ then $r^n=u$ for some nilpotent $u$, which means that $r^n$ is nilpotent and thus $r$ is nilpotent, a contradiction. This means that $r+N(R)\notin N(R/N(R))$ for all $r\notin N(R)$ and thus $N(R/N(R))=0$
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. The nilradical of $R$ is the intersection of all prime ideals of $R$. \tcbline
+\begin{proof}
+We want to show that $$N(R)=\bigcap_{P\in\text{Spec}(R)}P$$
+Trivially $N(R)$ is a prime ideal. Now suppose that $r\in R$ is in the intersection of all prime ideals. Then $r^n$ also lies in every prime ideal. 
+\end{proof}
+\end{prp}
+
+\begin{eg}{}{} Consider the ring $$R=\frac{\C[x,y]}{(x^2-y,xy)}$$ Then its nilradical is given by $N(R)=(x,y)$. \tcbline
+\begin{proof}
+Notice that in the ring $R$, $x^3=x(x^2)=xy=0$ and $y^3=x^6=(x^3)^2=0$ and hence $x$ and $y$ are both nilpotent elements of $R$. By definition of the nilradical, we conclude that $(x,y)\subseteq N(R)$. Now $(x,y)$ is a maximal ideal of $\C[x,y]$ because $\C[x,y]/(x,y)\cong\C$. Also notice that $(x,y)\supseteq(x^2-y,xy)$ because for any element $f(x)(x^2-y)+g(x)(xy)\in(x^2-y,xy)$, we have that 
+\begin{align*}
+f(x)(x^2-y)+g(x)(xy)\in(x^2-y,xy)&=(xf(x))x-f(x)y+(g(x)x)y\\
+&=(xf(x))x+(xg(x)-f(x))y\in (x,y)
+\end{align*}
+By the correspondence theorem, $(x,y)/(x^2-y)$ is an maximal ideal of $R$. In particular, $(x,y)$ is also a prime ideal. But the $N(R)$ is the intersection of all prime ideals and hence $N(R)\subseteq(x,y)$. We conclude that $N(R)=(x,y)$. 
+\end{proof}
+\end{eg}
+
+\begin{defn}{Reduced Rings}{} Let $R$ be a commutative ring. We say that $R$ is reduced if $N(R)=0$. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Then $R/I$ is reduced if and only if $I$ is a radical ideal. 
+\end{prp}
+
+So radical, prime and maximal ideals all have characterizations using the quotient ring: 
+\begin{itemize}
+\item $I$ is maximal if and only if $R/I$ is a field. 
+\item $I$ is prime if and only if $R/I$ is an integral domain. 
+\item $I$ is radical if and only if $R/I$ is reduced. 
+\end{itemize}
+
+Recall the notion of the Jacobson radical from Rings and Modules. Let $R$ be a ring. The Jacobson radical of $R$ is the radical $$J(R)=\text{rad}(R)=\bigcap_{\substack{S\trianglelefteq R\\R\text{ is cosimple}}}S$$ of $R$ considered as a left $R$-module. But when $R$ is a commutative ring, this description can be simplified. 
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Then $$J(R)=\bigcap_{m\in\text{maxSpec}(R)}m$$ \tcbline
+\begin{proof}
+Submodules of $R$ are precisely ideals of $R$ and cosimple ideals are ideals $I$ of $R$ for which $R/I$ is simple. But if $R/I$ is simple, then $R/I$ contains no ideals which means that $R/I$ is a field. So $I$ is a maximal ideal. 
+\end{proof}
+\end{prp}
+
+Recall some properties of the Jacobson radical from Rings and Modules. For a (not necessarily commutative ring $R$), 
+\begin{itemize}
+\item $J(R/J(R))=0$
+\end{itemize}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Then $x\in J(R)$ if and only if $1-xy\in R^\times$ for all $y\in R$. \tcbline
+\begin{proof}
+\end{proof}
+\end{prp}
+
+\subsection{Extensions and Contractions of Ideals}
+\begin{defn}{Extension of Ideals}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $I$ be an ideal of $R$. Define the extension $I^e$ of $I$ to $S$ to be the ideal $$I^e=\langle f(i)\;|\;i\in I\rangle$$
+\end{defn}
+
+\begin{prp}{}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $I,I_1,I_2$ be an ideal of $R$. Then the following are true regarding the extension of ideals. 
+\begin{itemize}
+\item Closed under sum: $(I_1+I_2)^e=I_1^e+I_2^e$
+\item $(I_1\cap I_2)^e\subseteq I_1^e\cap I_2^e$
+\item Closed under products: $(I_1I_2)^e=I_1^eI_2^e$
+\item $(I_1/I_2)^e\subseteq I_1^e/I_2^e$
+\item $\text{rad}(I)^e\subseteq\text{rad}(I^e)$
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Contraction of Ideals}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $J$ be an ideal of $S$. Define the contraction $J^c$ of $J$ to $R$ to be the ideal $$J^c=f^{-1}(J)$$
+\end{defn}
+
+\begin{prp}{}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $J,J_1,J_2$ be an ideal of $S$. Then the following are true regarding the extension of ideals. 
+\begin{itemize}
+\item $(J_1+J_2)^e\supseteq J_1^e+J_2^e$
+\item Closed under intersections: $(J_1\cap J_2)^e=J_1^e\cap J_2^e$
+\item $(J_1J_2)^e\supseteq J_1^eJ_2^e$
+\item $(J_1/J_2)^e\subseteq J_1^e/J_2^e$
+\item Closed under taking radicals: $\text{rad}(J)^e=\text{rad}(J^e)$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $I$ be an ideal of $R$ and let $J$ be an ideal of $S$. Then the following are true. 
+\begin{itemize}
+\item $I\subseteq I^{ec}$
+\item $J^{ce}\subseteq J$
+\item $I^e=I^{ece}$
+\item $J^c=J^{cec}$
+\end{itemize}
+\end{prp}
+
+\subsection{Revisiting the Polynomial Ring}
+\begin{prp}{}{} Let $R$ be a commutative ring. Then we have $$N(R[x])=N(R)[x]$$ \tcbline
+\begin{proof}
+Let $f=\sum_{k=0}^na_kx^k\in N(R)[x]$. Then each $a_k$ is nilpotent in $R$, and there exists $n_k\in\N$ such that $a_k^{n_k}=0$. This also proves that $a_kx^k$ is nilpotent. Since the sum of nilpotents is a nilpotent, we conclude that $f$ is nilpotent. \\~\\
+
+Now suppose that $f\in N(R[x])$. We induct on the degree of $f$. Let $\deg(f)=0$. Then $f$ is nilpotent and $f$ lies in $R$. Thus $f\in N(R)[x]$. Now suppose that the claim is true for $\deg(f)\leq n-1$. Let $\deg(g)=n$ with leading coefficient $b_n$. Since $g$ is nilpotent in $R[x]$, there exists $m\in\N$ such that $g^m=0$. Then in particular, $b_n^m=0$ so that $b_n$ is nilpotent. Then $b_nx^n$ is also nilpotent. Now since $N(R[x])$ is an ideal of $R[x]$, we have that $g-b_nx^n\in N(R[x])$. By inductive hypothesis, $g-b_nx^n\in N(R)[x]$. Since $N(R)$ is an ideal of $R$, we have that $N(R)[x]$ is an ideal of $R[x]$. So $g=(g-b_nx^n)+b_nx^n\in N(R)[x]$. Thus we are done. 
+\end{proof}
+\end{prp}
+
+Some more important results from Groups and Rings and Rings and Modules include: 
+\begin{itemize}
+\item If $R$ is an integral domain, then $R[x]$ is an integral domain. 
+\item $R$ is a UFD if and only if $R[x]$ is a UFD
+\item If $F$ is a field, then $F[x]$ is an Euclidean domain, a PID and a UFD
+\item If $F$ is a field, then the ideal generated by $p$ is maximal if and only if $p$ is irreducible. 
+\end{itemize}
+
+Regarding ideals of the polynomial ring, the following maybe useful: 
+\begin{itemize}
+\item $I[x]$ is an ideal of $R$
+\item There is an isomorphism $\frac{R[x]}{I[x]}\cong\frac{R}{I}[x]$ given by the map $$\left(f=\sum_{k=0}^na_kx^k+I[x]\right)\mapsto\left(\sum_{k=0}^n(a_k+I)x^k\right)$$
+\item If $I$ is a prime ideal of $R$, then $I[x]$ is a prime ideal of $R[x]$. 
+\end{itemize}
+
+\pagebreak
+\section{Simplifying Generators of an Ideal}
+\subsection{Ordering on the Monomials}
+Recall that a monomial in $R[x_1,\dots,x_n]$ is an element in the polynomial ring of the form $x_1^{a_1}\cdots x_n^{a_n}$. For simplicity we write this as $x^{(a_1,\dots,a_n)}$. 
+
+\begin{defn}{Monomial Ordering}{} A monomial ordering on a polynomial ring $k[x_1,\dots,x_n]$ is a relation $>$ on $\N^n$. This means that the following are true. 
+\begin{itemize}
+\item $>$ is a total ordering on $\N^n$
+\item If $a>b$ and $c\in\N^n$ then $a+c>b+c$
+\item $>$ is a well ordering on $\N^n$ (any nonempty subset of $\N^n$ has a smallest element)
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Lexicographical Order}{} Let $a=(a_1,\dots,a_n)$ and $b=(b_1,\dots,b_n)$ in $\N^n$. We say that $a>_{\text{lex}}b$ if in the first nonzero entry of $a-b$ is positive. 
+\end{defn}
+
+In practise this means that the we value more powers of $x_1$
+
+\begin{defn}{Graded Lex Order}{} Let $a=(a_1,\dots,a_n)$ and $b=(b_1,\dots,b_n)$ in $\N^n$. We say that $a>_{\text{grlex}}b$ if either of the following holds. 
+\begin{itemize}
+\item $\abs{a}=\sum_{k=1}^na_k>\sum_{k=1}^nb_k=\abs{b}$
+\item $\abs{a}=\abs{b}$ and $a>_{\text{lex}}b$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Graded Lex Order}{} Let $a=(a_1,\dots,a_n)$ and $b=(b_1,\dots,b_n)$ in $\N^n$. We say that $a>_{\text{grlex}}b$ if either of the following holds. 
+\begin{itemize}
+\item $\abs{a}=\sum_{k=1}^na_k>\sum_{k=1}^nb_k=\abs{b}$
+\item $\abs{a}=\abs{b}$ and the last nonzero entry of $a-b$ is negative. 
+\end{itemize}
+\end{defn}
+
+In practise we value lower powers of the last variable $x_n$. 
+
+\begin{prp}{}{} The above three orders are all monomial orderings of $k[x_1,\dots,x_n]$. 
+\end{prp}
+
+\begin{defn}{Multidegree}{} Let $f\in k[x_1,\dots,x_n]$ be a polynomial in the form $f=\sum_{v\in\N^n}c_vx^v$. Define the multidegree of $f$ to be $$\text{multideg}(f)=\max_>\{v\in\N^n|a_v\neq 0\}$$ where $>$ is a monomial ordering on $k[x_1,\dots,x_n]$. 
+\end{defn}
+
+\begin{defn}{Leading Objects}{} Let $f\in k[x_1,\dots,x_n]$ be a polynomial in the form $f=\sum_{v\in\N^n}c_vx^v$. 
+\begin{itemize}
+\item Define the leading coefficient of $f$ to be $\text{LC}(f)=c_\text{multideg(f)}\in k$
+\item Define the leading monomial of $f$ to be $\text{LM}(f)=c_\text{multideg(f)}\in k$
+\item Define the leading term of $f$ to be $\text{LT}=\text{LC}(f)\cdot\text{LM}(f)$
+\end{itemize}
+\end{defn}
+
+\begin{prp}{Division Algorithm in $k[x_1,\dots,x_n]$}{}
+\end{prp}
+
+\subsection{Monomial Ideals}
+\begin{defn}{Monomial Ideals}{} An ideal $I\subset k[x_1,\dots,x_n]$ is said to be a monomial ideal if $I$ is generated by a set of monomials $\{x^v|v\in A\}$ for some $A\subset\N^n$. In this case we write $$I=\langle x^v|v\in A\rangle$$
+\end{defn}
+
+\begin{lmm}{}{} Let $I=\langle x^v|v\in A\rangle$ be an ideal of $k[x_1,\dots,x_n]$. Then a monomial $x^w$ lies in $I$ if and only if $x^v|x^w$ for some $v\in A$. Moreover, if $f=\sum_{w\in\N^n}c_wx^w\in k[x_1,\dots,x_n]$ lies in $I$, then each $x^w$ is divisible by $x^v$ for some $v\in A$. 
+\end{lmm}
+
+\begin{thm}{Dickson's Lemma}{} Every monomial ideal is finitely generated. In particular, every monomial ideal $I=\langle x^v|v\in A\rangle$ is of the form $$I=\langle x^{v_1},\dots,x^{v_n}\rangle$$ where $v_1,\dots,v_n\in A$. 
+\end{thm}
+
+\subsection{Groebner Bases}
+
+\pagebreak
+\section{Modules over a Commutative Ring}
+Recall from Rings and Modules that a module consists of an abelian group $M$ and a ring $R$ such that there is a binary operation $\cdot:R\times M\to M$ that mimic the notion of a group action: 
+\begin{itemize}
+\item For $r,s\in R$, $s\cdot(r\cdot m)=(sr)\cdot m$ for all $m\in M$. 
+\item For $1_R\in R$ the multiplicative identity, $1_R\cdot m=m$ for all $m\in M$. 
+\end{itemize}
+
+When $R$ is a commutative ring, the first axiom is relaxed so that the resulting element of $M$ makes no difference whether you apply $r$ first or $s$ first. This makes module act even more similarly than fields (although one still need the notion of a basis, which appears in free modules). Therefore the first section concerns transferring techniques in linear algebra such as the Cayley Hamilton theorem to module over a ring that mimic the notion of vector spaces. 
+
+\subsection{Cayley-Hamilton Theorem}
+\begin{defn}{Characteristic Polynomial}{} Let $R$ be a commutative ring. Let $A\in M_{n\times n}(R)$ be a matrix. Define the characteristic polynomial of $A$ to be the polynomial $$c_A(x)=\det(A-xI)$$
+\end{defn}
+
+\begin{thm}{Cayley-Hamilton Theorem}{} Let $R$ be a commutative ring. Let $A\in M_{n\times n}(R)$ be a matrix. Then $c_A(A)=0$. 
+\end{thm}
+
+\begin{crl}{}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. Let $\varphi\in\text{End}_R(M)$. If $\varphi(M)\subseteq IM$, then there exists $a_1,\dots,a_n\in I$ such that $$\varphi^n+a_1\varphi^{n-1}+\dots+a_{n-1}\varphi+\text{id}_M=0:M\to M$$ \tcbline
+\begin{proof}
+Suppose that $M$ is generated by $x_1,\dots,x_n$. There exists a surjective map $\rho:R^n\to M$ given by $(r_1,\dots,r_n)\mapsto\sum_{k=1}^nr_kx_n$. Since $\varphi(M)\subseteq IM$, we havt that $$\varphi(x_k)=\sum_{i=1}^nr_{ki}x_i$$ for some $r_{ki}\in I$. Write $A$ to be the matrix $A=(a_{ki})$. We now have a commutative diagram: \\~\\
+In other words, we have the diagram: \\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{R^n} & M \\
+	{R^n} & M
+	\arrow["\rho", two heads, from=1-1, to=1-2]
+	\arrow["A"', from=1-1, to=2-1]
+	\arrow["\varphi", from=1-2, to=2-2]
+	\arrow["\rho"', two heads, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+By Cayley-Hamilton theorem, we have that $c_A(A)=0$ is the zero function. For all $x\in R^n$, we have that 
+\begin{align*}
+c_A(A)(x)&=0\\
+c_A(Ax)&=0\\
+\rho(c_A(Ax))&=\rho(0)\\
+c_A(\rho(Ax))&=0\tag{$\rho$ is $R$-linear}\\
+c_A(\varphi(\rho(x)))&=0\tag{Diagram is commutative}
+\end{align*}
+Since $\rho$ is surjective, we conclude that for any $m\in M$, the above calculation gives $c_A(\varphi(m))=0$ so that $c_A(\varphi)$ is the zero map. 
+\end{proof}
+\end{crl}
+
+\subsection{Nakayama's Lemma}
+\begin{lmm}{Nakayama's Lemma I}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. If $IM=M$, then there exists $r\in R$ such that $rM=0$ and $r-1\in I$. \tcbline
+\begin{proof}
+Choose $\varphi=\text{id}_M$. Then $\varphi$ is surjective so that $M=\varphi(M)\subseteq IM$. By crl 4.1.3, there exists $r_1,\dots,r_n\in I$ such that $(1+r_1+\dots+r_n)M=0$. By choosing $r=1+r_1+\dots+r_n$, we see that $rM=0$ and $r-1\in I$ so that we conclude. 
+\end{proof}
+\end{lmm}
+
+\begin{lmm}{Nakayama's Lemma II}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$ such that $I\subseteq J(R)$ and $IM=M$. Then $M=0$. \tcbline
+\begin{proof}
+By Nakayama's lemma I, there exists $r\in R$ such that $rM=0$ and $r-1\in I\subseteq J(R)$. By 2.3.8, we have that $1-(r-1)(-1)=r\in R^\times$. This means that $r$ is invertible. Hence $rM=0$ implies $M=r^{-1}rM=0$. 
+\end{proof}
+\end{lmm}
+
+\begin{crl}{}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$ such that $I\subseteq J(R)$. Let $N$ be an $R$-submodule of $M$. If $$M=IM+N$$ then $M=N$. \tcbline
+\begin{proof}
+Since quotients of finitely generated modules are finitely generated, we know that $M/N$ is finitely generated. Define the map $$\phi:IM+N\to I\frac{M}{N}$$ by $\phi(im+n)=i(m+N)$. This map is clearly surjective. Now I claim that $\ker(\phi)=N$. For any $im+n\in\ker(\phi)$, we see that $i(m+N)=N$ means that $im\in N$. Hence $im+n\in N$. On the other hand, if $im+n\in N$ then $im\in N$. But this means that $im+N=N$. Hence $im+n\in\ker(\phi)$. By the first isomorphism theorem for modules, we conclude that $$\frac{M}{N}=\frac{IM+N}{N}\cong I\frac{M}{N}$$ We can now apply Nakayama's lemma II to conclude that $M/N=0$ so that $M=N$. 
+\end{proof}
+\end{crl}
+
+\begin{crl}{}{} Let $(R,m)$ be a local ring. Let $M$ be a finitely generated $R$-module. Then the following are true. 
+\begin{itemize}
+\item $M/mM$ is a finite dimensional vector space over $R/m$. 
+\item $a_1,\dots,a_n\in M$ generates $M$ as an $R$-module if and only if $a_1+mM,\dots,a_n+mM$ generates $M/mM$ as a $R/m$ vector space. 
+\end{itemize} \tcbline
+\begin{proof}
+For the first part, we already know that $M/mM$ is an $R$-module. We notice that for any $k\in m$ and $t+mM\in M/mM$ we have that $k(t+mM)=kt+kmM$. But $kt\in m$ means that $kt+kmM=mM$. Hence $M/mM$ is well defined as an $R/m$-module. Now suppose that $M$ is finitely generated by the elements $a_1,\dots,a_n$. Let $x+mM\in M/mM$. Then there exists $r_k\in R$ such that $x=r_1a_1+\dots+r_na_n$. But this means that $$x+mM=r_1(a_1+mM)+\dots+r_n(a_n+mM)$$ This means that $M/mM$ is generated by $a_1+mM,\dots,a_n+mM$. We conclude that $M/mM$ is finite dimensional. \\~\\
+
+Suppose that $a_1,\dots,a_n\in M$ generates $M$ as an $R$-module. By the same argument as above, we can see that $a_1+mM,\dots,a_n+mM$ is a set of generators for $M/mM$. For the other direction, suppose that $a_1+mM,\dots,a_n+mM$ generates $M/mM$ as an $R/m$-vector space. Define $N=Ra_1+\dots+Ra_n\leq M$. Set $I=J(R)=m$. We want to show that $M=IM+N$. It is clear that $IM+N\leq M$. If $x\in M$, then there exists $r_k\in R$ such that $x+mM=r_1(a_1+mM)+\dots+r_n(a_n+M)$. In particular, this means that $$x-\sum_{k=1}^nr_ka_k\in mM$$ Hence $x\in IM+N$. We can now apply the above corollary to deduce that $M=N=Ra_1+\dots+Ra_n$ so that $M$ is generated by $a_1,\dots,a_n$. And so we are done. 
+\end{proof}
+\end{crl}
+
+\subsection{Change of Rings}
+\begin{defn}{Extension of Scalars}{} Let $R,S$ be commutative rings. Let $\varphi:R\to S$ be a ring homomorphism. Let $M$ be an $R$-module. Define the extension of $M$ to the ring $S$ to be the $S$-module $$S\otimes_R M$$
+\end{defn}
+
+\begin{defn}{Restriction of Scalars}{} Let $R,S$ be commutative rings. Let $\varphi:R\to S$ be a ring homomorphism. Let $M$ be an $S$-module. Define the restriction of $M$ to the ring $R$ to be the $R$-module $M$ equipped with the action $$r\cdot_R m=\varphi(r)\cdot_S m$$ for all $r\in R$. 
+\end{defn}
+
+\begin{thm}{}{} Let $R,S$ be commutative rings. Let $\varphi:R\to S$ be a ring homomorphism. Then there is an isomorphism $$\Hom_S(S\otimes_R M,N)\cong\Hom_R(M,N)$$ for any $R$-module $M$ and $S$-module $N$ given as follows. 
+\begin{itemize}
+\item For $f\in\Hom_S(S\otimes_R M,N)$, define the map $f^+\in\Hom_R(M,N)$ by $$f^+(m)=f(1\otimes m)$$
+\item For $g\in\Hom_R(M,N)$, define the map $g^-\in\Hom_S(S\otimes_RM,N)$ by $$g^-(s\otimes m)=s\cdot g(m)$$
+\end{itemize}
+\end{thm}
+
+\subsection{Properties of the Hom Set}
+Let $R$ be a ring. Let $M,N$ be $R$-modules. Recall that in Rings and Modules that $\Hom_R(M,N)$ is a $Z(R)$-modules. When $R$ is commutative, $Z(R)=R$ so that the Hom set becomes an $R$-module. 
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M,N$ be $R$-modules. Then $$\Hom_R(M,N)$$ is an $R$-module with the following binary operations. 
+\begin{itemize}
+\item For $\phi,\varphi:M\to N$ two $R$-module homomorphisms, define $\phi+\varphi:M\to N$ by $(\phi+\varphi)(m)=\phi(m)+\varphi(m)$ for all $m\in M$
+\item For $\phi:M\to N$ an $R$-module homomorphism and $r R$, define $r\phi:M\to N$ by $(r\phi)(m)=r\cdot\phi(m)$ for all $m\in M$. 
+\end{itemize} 
+In particular, it is an abelian group. \tcbline
+\begin{proof}
+We first show that the addition operation gives the structure of a group. 
+\begin{itemize}
+\item Since $M$ is associative as an additive group, associativity follows
+\item Clearly the zero map $0\in\Hom_R(M,N)$ acts as the additive inverse since for any $\phi\in\Hom_R(M,N)$, we have that $\phi(m)+0=0+\phi(m)=\phi(m)$ since $0$ is the additive identity for $M$
+\item For every $\phi\in\Hom_R(M,N)$, the map taking $m$ to $-\phi(m)$ also lies in $\Hom_R(M,N)$. Since $-\phi(m)$ is the inverse of $\phi(m)$ in $M$ for each $m\in M$, we have that $-\phi$ is the inverse of $\phi$
+\end{itemize}
+We now show that 
+\begin{itemize}
+\item Let $r,s\in R$, we have that $((sr)\phi)(m)=(sr)\cdot\phi(m)=s\cdot(r\cdot\phi(m))=s(r(\phi))(m)$ and hence we showed associativity. 
+\item It is clear that $1_R\in R$ acts as the identity of the operation. 
+\end{itemize}
+Thus we are done. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $I$ be an indexing set. Let $M_i,N$ be $R$-modules for $i\in I$. Then the following are true. 
+\begin{itemize}
+\item There is an isomorphism $$\Hom\left(\bigoplus_{i\in I}M_i,N\right)\cong\bigoplus_{i\in I}\Hom(M_i,N)$$
+\item There is an isomorphism $$\Hom\left(\prod_{i\in I}M_i,N\right)\cong\prod_{i\in I}\Hom(M_i,N)$$
+\end{itemize} \tcbline
+\end{prp}
+
+\begin{defn}{Induced Map of Hom}{} Let $R$ be a commutative ring. Let $M_1,M_2,N$ be $R$-modules. Let $f:M_1\to M_2$ be an $R$-module homomorphism. Define the induced map $$f^\ast:\Hom_R(M_2,N)\to\Hom(M_1,N)$$ by the formula $\varphi\mapsto\varphi\circ f$
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $M_1,M_2,N$ be $R$-modules. Let $f:M_1\to M_2$ be an $R$-module homomorphism. Then the induced map $$f^\ast:\Hom(M_2,N)\to\Hom(M_1,N)$$ is an $R$-module homomorphism. 
+\end{lmm}
+
+\subsection{Applying Hom and Tensor to Exact Sequences}
+\begin{prp}{}{} Let $R$ be a commutative ring. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & M_1 & M_2 & M_3 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\ Let $N$ be an $R$-module. Then the following two sequences \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	0 & {\Hom_R(M_3,N)} & {\Hom_R(M_2,N)} & {\Hom_R(M_1,N)} & 0 \\
+	0 & {\Hom_R(N,M_1)} & {\Hom_R(N,M_2)} & {\Hom_R(N,M_3)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}} \\~\\ 
+are exact. \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item We first show that $g^\ast$ is injective. Let $\phi,\rho\in\Hom(C,G)$ such that $g^\ast(\phi)=g^\ast(\rho)$. This means that $\phi\circ g=\rho\circ g$. Let $c\in C$. Since $g$ is surjective, there exists $b\in B$ such that $g(b)=c$. Then $$\phi(c)=\phi(g(b))=\rho(g(b))=\rho(c)$$ Hence $\phi=\rho$. \\~\\
+
+Now we show that $\im(g^\ast)\subseteq\ker(f^\ast)$. Let $g^\ast(\phi)\in\Hom(B,G)$ for $\phi\in\Hom(C,G)$. We want to show that $f^\ast(g^\ast(\phi))=0$. But we have that $$(\phi\circ g\circ f)(a)=\phi(g(f(a))=\phi(0)=0$$ since $\im(f)=\ker(g)$. Thus we conclude. \\~\\
+
+Finally we show that $\ker(f^\ast)\subseteq\im(g^\ast)$. Let $f^\ast(\phi)=0$ for $\phi\in\Hom(B,G)$. This means that $\phi\circ f=0$ or in other words, $\im(f)\subseteq\ker(\phi)$.
+Since $\phi(k)=0$ for all $k\in\im(f)$, $\phi$ descends to a map $\overline{\phi}:\frac{B}{\im(f)}\to G$. But $\im(f)=\ker(g)$ hence this is equivalent to a map $\overline{\phi}:\frac{B}{\ker(g)}\to G$. But by the first isomorphism theorem and the fact that $g$ is surjective, we conclude that $\overline{g}:\frac{B}{\ker(g)}\overset{g}{\cong} C$, where $b+\ker(g)\mapsto g(b)$. Thus we have constructed a map $\overline{\phi}\circ\overline{g}^{-1}:C\to G$ given by $g(b)\mapsto b+\ker(g)\mapsto\phi(b)$. But now $g^\ast(\overline{\phi}\circ\overline{g}^{-1})$ is the map defined by $$b\mapsto g(b)\mapsto b+\ker(g)\mapsto\phi(b)$$ and so this map is exactly $\phi$. Thus $\phi\in\im(g^\ast)$. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & M_1 & M_2 & M_3 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\ Let $N$ be an $R$-module. Then the following sequence \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{M_1\otimes N} & {M_2\otimes N} & {M_3\otimes N} & 0
+	\arrow["{f\otimes\text{id}_N}", from=1-1, to=1-2]
+	\arrow["{g\otimes\text{id}_N}", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}} \\~\\
+is exact. 
+\end{prp}
+
+However, one can observe that we did not imply that $M_1\otimes N\to M_2\otimes N$ is injective. Indeed, this is because tensoring does not preserve injections. 
+
+\subsection{Projective and Injective Modules}
+\begin{defn}{Projective Modules}{} Let $R$ be a commutative ring. Let $P$ be an $R$-module. We say that $P$ is projective if for any short exact sequence of $R$-modules \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & M_1 & M_2 & M_3 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+the following sequence is exact: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	0 & {\Hom_R(P,M_1)} & {\Hom_R(P,M_2)} & {\Hom_R(P,M_3)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}} \\~\\ 
+\end{defn}
+
+\pagebreak
+\section{Localization}
+\subsection{Localization of a Ring}
+\begin{defn}{Multiplicative Set}{} Let $R$ be a commutative ring. $S\subseteq R$ is a multiplicative set if $1\in S$ and $S$ is closed under multiplication: $x,y\in S$ implies $xy\in S$
+\end{defn}
+
+\begin{defn}{Localization of a Ring}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set. Define the ring of fractions of $R$ with respect to $S$ by $$S^{-1}R=\left\{\frac{r}{s}\;\bigg{|}\;r\in R,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{r}{s}\sim\frac{r'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(ru'-r'u)=0$$ If $S=\{1,f,f^2,\dots\}$ then we write $$S^{-1}R=R_f=R[1/f]$$
+\end{defn}
+
+\begin{prp}{}{} Let $S^{-1}R$ be a ring of fractions. 
+\begin{itemize}
+\item $\sim$ as defined in the ring of fractions is an equivalence relation
+\item $(S^{-1}R,+,\times)$ is a ring
+\item The map $k:R\to S^{-1}R$ defined by $r\mapsto r/1$ is a ring homomorphism, called the localization map. 
+\end{itemize}\tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Trivial
+\item Define addition by $\frac{r}{s}+\frac{r'}{s'}=\frac{rs'+r's}{ss'}$ and multiplication by $\frac{r}{s}\cdot\frac{r'}{s'}=\frac{rr'}{ss'}$. Clearly addition is abelian, and has identity $\frac{0}{1}$ and inverse $\frac{-r}{s}$ for any $\frac{r}{s}\in S^{-1}R$. Multiplication also has identity $\frac{1}{1}$. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{Universal Property}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. Let $k:R\to S^{-1}R$ be localization map. Then the following is true. \\~\\
+
+For all commutative rings $B$ and ring homomorphisms $\phi:R\to B$ such that $\phi(s)\in B^\times$ for all $s\in S$, there exists a unique ring homomorphism $\psi:S^{-1}R\to B$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	R & {S^{-1}R} \\
+	& B
+	\arrow["k", from=1-1, to=1-2]
+	\arrow["\phi"', from=1-1, to=2-2]
+	\arrow["{\exists !\psi}", dashed, from=1-2, to=2-2]
+\end{tikzcd}}
+\end{prp}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset of $R$. If $R$ is Noetherian, then $S^{-1}R$ is Noetherian. 
+\end{lmm}
+
+\subsection{Localization at a Prime Ideal}
+\begin{lmm}{}{} Let $R$ be a ring and $P$ a prime ideal of $R$. Then $R\setminus P$ is a multiplicative set. \tcbline
+\begin{proof}
+By definition, $xy\in P$ implies $x\in P$ or $y\in P$, since $R\setminus P$ removes all these elements, we have that $x\notin P$ and $y\notin P$ implies that $xy\notin P$. 
+\end{proof}
+\end{lmm}
+
+\begin{defn}{Localization on Prime Ideals}{} Let $R$ be a commutative ring. Let $P$ be a prime ideal. Denote $$R_p=(R\setminus P)^{-1}R$$ the localization of $R$ at $P$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be an integral domain. Then we have $$\text{Frac}(R)=R_{(0)}$$
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a commutative ring and let $p$ be a prime ideal of $R$. Then $R_p$ is a local ring with unique maximal ideal given by $$PR_p=\left\{\frac{r}{s}\;|\;r\in P,s\notin P\right\}$$ \tcbline
+\begin{proof}
+Let $I$ be the set of all non-units of $R_p$. It is sufficient to show that $I$ is an ideal by the above lemma. Clearly if $i\in I$ then $r\cdot i$ is also not invertible. Explicitly, we have $$I=\left\{\frac{r}{s}\in R_p\bigg{|}r\in p\right\}$$ Let $\frac{r_1}{s_1},\frac{r_2}{s_2}\in I$, then $\frac{r_1}{s_1}+\frac{r_2}{s_2}=\frac{r_1s_2+r_2s_1}{s_1s_2}$ is in $I$ since $r_1,r_2\in P$ and $P$ being an ideal implies $r_1s_2+r_2s_1\in P$. 
+\end{proof}
+\end{prp}
+
+Be wary that in general localizations does not result in a local ring. This happens only when we are localizing with respect to a prime ideal. The importance of prime ideals is not explicit in the above because only using prime ideals $P$ can $R\setminus P$ be a multiplicative set which ultimately allows localization to make sense. 
+
+\subsection{Localization of a Module}
+\begin{defn}{Localization of a Module}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set Let $M$ be a $R$-module. Define the ring of fractions of $M$ with respect to $S$ by $$S^{-1}M=\left\{\frac{m}{s}|m\in M,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{m}{s}\sim\frac{m'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(mu'-m'u)=0$$ If $S=\{1,f,f^2,\dots\}$ then we write $$S^{-1}M=M_f=M[1/f]$$
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $S\subseteq R$ be a multiplicative subset. Then $S^{-1}M$ is an $S^{-1}R$-module with operation given by $$\left(\frac{r}{s_1},\frac{m}{s_2}\right)\mapsto\frac{r\cdot m}{s_1s_2}$$
+\end{lmm}
+
+\begin{defn}{Induced Map of Localization}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Define the induced map $$S^{-1}\phi:S^{-1}M\to S^{-1}N$$ by the formula $\frac{m}{s}\mapsto\frac{\phi(n)}{s}$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Then the induced map $$S^{-1}\phi:S^{-1}M\to S^{-1}N$$ is a well defined ring homomorphism. 
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & M_1 & M_2 & M_3 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then the following is an exact sequence of $S^{-1}R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & S^{-1}M_1 & S^{-1}M_2 & S^{-1}M_3 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["S^{-1}f", from=1-2, to=1-3]
+	\arrow["S^{-1}g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+\end{prp}
+
+\begin{crl}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M$ be an $R$-module. Then the following are true. 
+\begin{itemize}
+\item If $N_1,N_2$ are $R$-submodules of $M$, then $$S^{-1}(N_1+N_2)=S^{-1}N_1+S^{-1}N_2$$ as $S^{-1}R$-submodules of $S^{-1}M$. 
+\item If $N_1,N_2$ are $R$-submodules of $M$, then $$S^{-1}(N_1\cap N_2)=S^{-1}N_1\cap S^{-1}N_2$$ as $S^{-1}R$-submodules of $S^{-1}M$. 
+\item If $N$ is an $R$-submodule of $M$, then $$S^{-1}\frac{M}{N}\cong\frac{S^{-1}M}{S^{-1}N}$$ as $S^{-1}R$-modules. 
+\item If $N$ is an $R$-module, then $$S^{-1}(M\oplus N)\cong S^{-1}M\oplus S^{-1}N$$ as $S^{-1}R$-modules. 
+\end{itemize}
+\end{crl}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Then there is an isomorphism $$S^{-1}M\cong S^{-1}R\otimes_RM$$ of $S^{-1}R$-modules given by $\frac{m}{s}\mapsto\frac{1}{s}\otimes m$. 
+\end{prp}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Then the following are true. 
+\begin{itemize}
+\item Localization commutes with kernels: $$S^{-1}\ker(\phi)\cong\ker(S^{-1}\phi)$$
+\item Localization commutes with images: $$S^{-1}(\im\phi)\cong\im(S^{-1}\phi)$$
+\item Localization commutes with cokernels: $$S^{-1}\frac{N}{\im(\phi)}\cong\frac{S^{-1}N}{\im(S^{-1}\phi)}$$
+\end{itemize}
+\end{lmm}
+
+\subsection{Local Properties}
+\begin{defn}{Local Properties}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. 
+\begin{itemize}
+\item A property of $R$-modules is local if the following is true. $M$ has the property if and only if $M_P$ has the property for all prime ideals $P$. 
+\item A property of an element of $M$ is local if the following is true. $m\in M$ has the property if and only if $m\in M_P$ has the property. 
+\end{itemize}
+\end{defn}
+
+More local properties: zero, nilpotent, injective, surjective, isomorphic\\
+Non-local properties: freeness, domain
+
+\begin{prp}{Exactness is Local}{} Let $R$ be a commutative ring. Let $M_1,M_2,M_3$ be $R$-modules. Let $f:M_1\to M_2$ and $g:M_2\to M_3$ be $R$-module homomorphisms. Then the following conditions are equivalent. 
+\begin{itemize}
+\item The following sequence is exact: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & M_1 & M_2 & M_3 & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+\item The following sequence is exact: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & (M_1)_P & (M_2)_P & (M_3)_P & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f_P", from=1-2, to=1-3]
+	\arrow["g_P", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+for all prime ideals $P$ of $R$. 
+\item The following sequence is exact: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & (M_1)_m & (M_2)_m & (M_3)_m & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f_m", from=1-2, to=1-3]
+	\arrow["g_m", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+for all maximal ideals $m$ of $R$. 
+\end{itemize}
+\end{prp}
+
+\subsection{Ideals of a Localization}
+\begin{defn}{Ideals Closed Under Division}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. We say that $I$ is closed under division by $s$ if for all $s\in S$ and $a\in R$ such that $sa\in I$, we have $a\in I$. 
+\end{defn}
+
+\begin{lmm} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Let $\iota:R\hookrightarrow S^{-1}R$ be the inclusion homomorphism. Then we have $$I^e=S^{-1}I$$
+\end{lmm}
+
+\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Let $\iota:R\hookrightarrow S^{-1}R$ be the inclusion homomorphism. Then there is a one-to-one bijection $$\{J\;|\;J\text{ is an ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;|\;\substack{I\text{ is an ideal of }R\text{ and }\\I\text{ is closed under division by }S}\right\}$$ given by $J\mapsto J^c$. 
+\end{thm}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then the above bijection restricts to the following bijection $$\{J\;|\;J\text{ is a prime ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;\bigg{|}\;\substack{I\text{ is a prime ideal of }R\text{ and }\\I\cap S=\emptyset}\right\}$$
+\end{prp}
+
+\pagebreak
+\section{Primary Decomposition}
+\subsection{Support of a Module}
+\begin{defn}{Support of a Module}{} Let $A$ be a commutative ring. Let $M$ be an $A$-module. The support of $M$ is the subset $$\text{Supp}(M)=\{P\text{ a prime ideal of }A\;|\;M_P\neq 0\}$$
+\end{defn}
+
+\subsection{Associated Prime}
+\begin{defn}{Associated Prime}{} Let $M$ be an $A$-module. An associated prime $P$ of $M$ is a prime ideal of $A$ such that there exists some $m\in M$ such that $P=\text{Ann}(m)$. 
+\end{defn}
+
+\subsection{Primary Ideals}
+\begin{defn}{Primary Ideals}{} Let $R$ be a commutative ring. Let $Q$ be a proper ideal of $R$. We say that $Q$ is a primary ideal of $R$ if $fg\in Q$ implies $f\in Q$ or $g^m\in Q$ for some $m>0$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $A$ be a commutative ring. Let $Q$ be a primary ideal of $A$. Then $\sqrt{Q}$ is the smallest prime ideal containing $Q$. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $R$ be a Noetherian ring and $I$ be a proper ideal that is not primary. Then $$I=J_1\cap J_2$$ for some ideals $J_1,J_2\neq I$. 
+\end{lmm}
+
+\begin{defn}{P-Primary Ideals}{} Let $A$ be a commutative ring. Let $P$ be a prime ideal. Let $Q$ be an ideal. We say that $Q$ is a $P$-primary ideal of $A$ if $$Q=\sqrt{P}$$
+\end{defn}
+
+\begin{thm}{}{} Let $A$ be a Noetherian ring and $Q$ an ideal of $A$. Then $Q$ is $P$-primary if and only if $\text{Ann}(A/Q)=\{P\}$. 
+\end{thm}
+
+\subsection{Primary Decomposition}
+We want to express ideal $I$ in $R$ as $I=P_1^{e_1}\cdots P_n^{e_n}$ similar to a factorization of natural numbers, for some prime ideals $P_1,\dots,P_n$. However this notion fails and thus we have the following new type of ideal. 
+
+\begin{defn}{Primary Decompositions}{} Let $A$ be a commutative ring. Let $I$ be an ideal of $A$. A primary decomposition $I$ consists of primary ideals $Q_1,\dots,Q_r$ of $A$ such that $$I=Q_1\cap\cdots\cap Q_r$$
+\end{defn}
+
+\begin{defn}{Minimal Primary Decompositions}{} Let $A$ be a commutative ring. Let $I$ be an ideal of $A$. Let $$I=Q_1\cap\cdots\cap Q_r$$ be a primary decomposition of $I$. We say that the decomposition is minimal if the following are true. 
+\begin{itemize}
+\item Each $\sqrt{Q_i}$ are distinct for $1\leq i\leq r$
+\item Removing a primary ideal changes the intersection. This means that for any $i$, $I\neq\bigcap_{j\neq i}Q_j$
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} Every proper ideal in a Noetherian ring has a primary decomposition. 
+\end{thm}
+
+\begin{lmm}{}{} Let $\phi:R\to S$ be a ring homomorphism and $Q$ be a primary ideal in $S$. Then $\phi^{-1}(Q)$ is primary in $R$. 
+\end{lmm}
+
+\pagebreak
+\section{Integral Dependence}
+\subsection{Integral Elements}
+\begin{defn}{Integral Elements}{} Let $B$ be a commutative ring and let $A\subseteq B$ be a subring. Let $b\in B$. We say that $b$ is integral over $A$ if there exists a monic polynomial $p(x)=x^n+a_{n-1}x^{n-1}+\dots+a_0\in A[x]$ such that $p(b)=0$. 
+\end{defn}
+
+When $A$ and $B$ are field, this is a familiar notion in Field and Galois theory. 
+
+\begin{lmm}{}{} Let $K$ be a field. Let $F\subseteq K$ be a subfield. Let $k\in K$. Then $k$ is integral over $F$ if and only if $k$ is algebraic over $F$. 
+\end{lmm}
+
+\begin{prp}{}{} Let $B$ be a commutative ring and let $A\subseteq B$. Let $b\in B$. Then the following are equivalent. 
+\begin{itemize}
+\item $b$ is integral over $A$
+\item $A[b]\subseteq B$ is finitely generated $A$-submodule. 
+\item There exists an $A$ sub-algebra $A'\subseteq B$ such that $A[b]\subseteq A'$ and $A'$ is finitely generated as an $A$-module. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $B$ be a commutative ring and let $A\subseteq B$ be a subring. Let $b_1,b_2\in B$ be integral over $A$. Then $b_1+b_2$ and $b_1b_2$ are both integral over $A$. 
+\end{prp}
+
+\subsection{Integral Extensions}
+\begin{defn}{Integral Extensions}{} Let $B$ be a commutative ring and let $A\subseteq B$ be a subring. We say that $B$ is integral over $A$ if all elements of $B$ are integral over $A$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $A\subseteq B\subseteq C$ be commutative rings. If $C$ is integral over $B$ and $B$ is integral over $A$, then $C$ is integral over $A$. 
+\end{lmm}
+
+\begin{prp}{}{} Let $A,B$ be commutative rings such that $A\subset B$ is an integral extension. Let $J$ be an ideal of $B$. Then $\frac{B}{J}$ is integral over $\frac{A}{J\cap A}$. 
+\end{prp}
+
+\begin{prp}{}{} Let $A,B$ be commutative rings such that $A\subset B$ is an integral extension. Let $S$ be a multiplicative subset of $B$. Then $S^{-1}B$ is integral over $S^{-1}A$. 
+\end{prp}
+
+\begin{lmm}{}{} Let $A,B$ be integral domains such that $A\subset B$ is an integral extension. Then $A$ is a field if and only if $B$ is a field. 
+\end{lmm}
+
+\begin{defn}{Integral Closure}{} Let $B$ be a commutative ring. Let $A\subseteq B$ be a subring. Define the subring $$\overline{A}=\{b\in B\;|\;b\text{ is integral over }A\}$$ to be the integral closure of $A$ in $B$. If $\overline{A}=A$, then we say that $A$ is integrally closed in $B$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $B$ be a ring and let $A\subseteq B$ be a subring. Then $\overline{A}$ is an integral extension of $A$. 
+\end{lmm}
+
+\subsection{The Going-Up and Going-Down Theorems}
+We want to compare prime ideals between integral extensions. 
+
+\begin{prp}{}{} Let $A,B$ be rings such that $A\subset B$ is an integral extension. Let $Q$ be a prime ideal of $B$. Then $Q\cap A$ is a maximal ideal of $A$ if and only if $Q$ is a maximal ideal of $B$. 
+\end{prp}
+
+\begin{prp}{}{} Let $A,B$ be rings such that $A\subset B$ is an integral extension. Let $P$ be a prime ideal of $A$. Then the following are true. 
+\begin{itemize}
+\item There exists a prime ideal $Q$ of $B$ such that $P=Q\cap A$
+\item If $Q_1,Q_2$ are prime ideals of $B$ such that $Q_1\cap A=P=Q_2\cap B$ and $Q_1\subseteq Q_2$, then $Q_1=Q_2$. 
+\end{itemize}
+\end{prp}
+
+\begin{thm}{The Going-Up Theorem}{} Let $A,B$ be rings such that $A\subset B$ is an integral extension. Let $0\leq m<n$. Consider the following situation \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	B & {Q_1\subseteq\cdots\subseteq Q_m} && {(\text{Prime ideals of }B)} \\
+	A & {P_1\subseteq\cdots\subseteq P_m} & {\subseteq P_{m+1}\subseteq\cdots\subseteq P_n} & {(\text{Prime ideals of }A)}
+	\arrow[hook, from=2-1, to=1-1]
+\end{tikzcd}}\\~\\
+where $Q_i\cap A=P_i$ for $1\leq i\leq m$. Then there exists prime ideals $Q_{m+1},\dots,Q_n$ of $B$ such that the following are true. 
+\begin{itemize}
+\item $Q_{m+1}\subseteq\cdots\subseteq Q_n$
+\item $Q_i\cap A=P_i$ for $m+1\leq i\leq n$
+\end{itemize}
+\end{thm}
+
+\subsection{Normal Domains}
+\begin{defn}{Normal Domains}{} Let $R$ be a domain. We say that $R$ is normal (intergrally closed) if $A$ is integrally closed in its field of fractions. \\~\\
+The integral closure of $R$ in $\text{Frac}(R)$ is called the normalization of $R$. 
+\end{defn}
+
+\pagebreak
+\section{Algebra Over a Commutative Ring}
+\subsection{Commutative Algebras}
+\begin{defn}{Commutative Algebras}{} Let $R$ be a commutative ring. A commutative $R$-algebra is an $R$-algebra $A$ that is commutative. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Then the following are equivalent characterizations of a commutative $R$-algebra. 
+\begin{itemize}
+\item $A$ is a commutative $R$-algebra
+\item $A$ is a commutative ring together with a ring homomorphism $f:R\to A$
+\end{itemize}\tcbline
+\begin{proof}
+Suppose that $A$ is an $R$-algebra. Then define a map $f:R\to A$ by $f(r)=r\cdot 1$ where $r\cdot 1$ is the module operation on $A$. Then clearly this is a ring homomorphism. \\~\\
+Suppose that $A$ is a commutative ring together with a ring homomorphism $f:R\to A$. Define an action $\cdot:R\times A\to A$ by $r\cdot a=f(r)a$. Then this action clearly allows $A$ to be an $R$-module. 
+\end{proof}
+\end{prp}
+
+Under the correspondence of associative algebra, the above proposition gives a another correspondence between the first one. $$\left\{(A,R)\;\bigg{|}\;\substack{A\text{ is a commutative }\\R\text{-algebra}}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\phi:R\to A\;\bigg{|}\;\substack{\phi\text{ is a ring homomorphism}\\\text{ such that }f(R)\subseteq Z(A)=A}\right\}\;\;$$ In particular, the construction above are inverses of each other so that it gives the one-to-one correspondence. 
+
+\begin{prp}{}{} Let $B$ be an $A$-algebra. Let $S$ be a multiplicative set of $B$. Let $M$ be an $S^{-1}(B)$-module. Then for any $A$-derivation $d:B\to M$, there exists one unique way of extending the derivation to $d:S^{-1}B\to M$, defined by the formula: $$d\left(\frac{b}{s}\right)=\frac{sd(b)-bd(s)}{s^2}$$ \tcbline
+\begin{proof}
+Temporarily denote a derivation from $S^{-1}B$ to $M$ by $D$. Suppose that $b\in B$ and $s\in S$. Notice that $D$ has to satisfy the following: $$d(b)=D(b)=D\left(s\frac{b}{s}\right)=\frac{b}{s}D(s)+sD\left(\frac{b}{s}\right)$$ Now multiply both sides by $s^{-1}$ to obtain $$D\left(\frac{b}{s}\right)=\frac{sD(b)-bD(s)}{s^2}$$ Thus any $A$-derivation $S^{-1}B$ to $M$ must satisfy the above formula. This shows that there can only be one unique way of extending it. \\~\\
+
+For existence, we just have to show that it is a well defined map. Suppose that $\frac{a}{r}=\frac{b}{s}$. This means that there exists $q\in S$ such that $q(sa-rb)=0$. The goal is to show that $$\frac{rd(a)-ad(r)}{r^2}=\frac{sd(b)-bd(s)}{s^2}$$ or in other words, there exists $p\in S$ such that $p\left(s^2(rd(a)-ad(r))-r^2sd(b)-bd(s)\right)=0$. I claim that $p=q^2$ does the job. Indeed we have that
+\begin{align*}
+q^2\left(s^2(rd(a)-ad(r))-r^2sd(b)-bd(s)\right)&=q^2(sad(rs)-rsd(as)-rbd(rs)+rsd(br))\\
+&=q^2((sa-rb)d(rs)+rs(d(br-as)))\\
+&=rsq^2d(br-as)
+\end{align*}
+Now in fact, $q^2d(br-as)=0$ because 
+\begin{align*}
+q^2d(br-as)&=q(qd(br-as))\\
+&=q(d(q(br-as))-(br-as)d(q))\\
+&=0
+\end{align*}
+Thus we conclude. 
+\end{proof}
+\end{prp}
+
+\subsection{Finitely Generated Algebra}
+\begin{defn}{Finitely Generated Algebras}{} Let $R$ be a commutative ring. Let $A$ be an $R$-algebra. We say that $A$ is finitely generated if there exists $a_1,\dots,a_n\in A$ such that every element $a\in A$ can be written as a polynomial in $a_1,\dots,a_n$. This means that $$a=\sum_{i_1,\dots,i_n}r_{i_1,\dots,i_n}a_1^{i_1}\cdots a_n^{i_n}$$
+\end{defn}
+
+Finitely generated algebras are also called algebra of finite type. 
+
+\begin{thm}{}{} Let $A$ be a commutative algebra over a ring $R$. Then the following are equivalent. 
+\begin{itemize}
+\item $A$ is a finitely generated algebra over $R$
+\item There exists elements $a_1,\dots,a_n\in A$ such that the evaluation homomorphism $$\phi:R[x_1,\dots,x_n]\to A$$ given by $\phi(f)=f(a_1,\dots,a_n)$ is a surjection
+\item There is an isomorphism $$A\cong\frac{R[x_1,\dots,x_n]}{I}$$ for some ideal $I$
+\end{itemize}
+\end{thm}
+
+\begin{defn}{Finitely Presented Algebra}{} Let $R$ be a ring. Let $A=R[x_1,\dots,x_n]/I$ be a finitely generated algebra over $R$ for some ideal $I$. We say that $A$ is finitely presented if $I$ is finitely generated. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a ring, considered as an algebra over $\Z$. If $R$ is finitely generated over $\Z$, then $R$ is finitely presented. \tcbline
+\begin{proof}
+Trivial since $\Z$ is a principal ideal domain. 
+\end{proof}
+\end{lmm}
+
+\subsection{Finite Algebras}
+\begin{defn}{Finite Algebras}{} Let $R$ be a commutative ring. Let $A$ be an $R$-algebra. We say that $A$ is finite if $A$ is finitely generated as an $R$-module. 
+\end{defn}
+
+\begin{eg}{}{} Let $R$ be a commutative ring. Then $R[x]$ is a finitely generated algebra over $R$ but is not a finite $R$-algebra. 
+\end{eg}
+
+\subsection{Zariski's Lemma}
+\begin{lmm}{}{} Let $F$ be a field. Let $f\in F[x]$. Then the localization $F[x]_f$ is not a field. 
+\end{lmm}
+
+\begin{thm}{Zariski's Lemma}{} Let $F$ be a field. Let $K$ be a field that is also a finitely generated algebra over $F$. Then $K$ is a finite algebra. In particular, $K$ is a finitely generated vector space over $F$. 
+\end{thm}
+
+\begin{crl}{}{} Let $F$ be an algebraically closed field. Let $K$ be a field that is also a finitely generated algebra over $F$. Then the inclusion homomorphism $F\hookrightarrow K$ is an $F$-algebra isomorphism. 
+\end{crl}
+
+\begin{crl}{}{} Let $F$ be an algebraically closed field. Then every maximal ideal of $F[x_1,\dots,x_n]$ is of the form $(x_1-a_1,\dots,x_n-a_n)$ for some $a_1,\dots,a_n\in F$. 
+\end{crl}
+
+\pagebreak
+\section{Introduction to Dimension Theory for Rings}
+\subsection{Krull Dimension}
+\begin{defn}{Krull Dimension}{} Let $R$ be a commutative ring. Define the Krull dimension of $R$ to be $$\dim(R)=\max\{t\in\N\;|\;p_0\subset\dots\subset p_t\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
+\end{defn}
+
+\subsection{Structure Theorem for Artinian Rings}
+\begin{lmm}{}{} Let $R$ be a commutative ring. Then the following are true. 
+\begin{itemize}
+\item If $R$ is a field, then $\dim(R)=0$
+\item If $R$ is Artinian, then $\dim(R)=0$
+\end{itemize}
+\end{lmm}
+
+\begin{prp}{}{} Let $R\neq 0$ be a commutative ring. Then $R$ is Artinian if and only if $R$ is Noetherian and $\dim(R)=0$. 
+\end{prp}
+
+\begin{thm}{Structure Theorem for Commutative Artinian Rings}{} Let $R$ be an Artinian commutative ring. Then there exists Artinian local rings $A_1,\dots,A_k$ such that $$R\cong\bigoplus_{i=1}^kA_i$$ Moreover, the decomposition is unique up to reordering of the direct product. 
+\end{thm}
+
+\subsection{Height of Prime Ideals}
+\begin{defn}{Height of a Prime Ideal}{} Let $p$ be a prime ideal in a ring $R$. Define the height of $p$ to be $$\text{ht}(p)=\sup\{t\in\N\;|\;p_0\subset\dots\subset p_t=p\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $p$ be a prime ideal in a ring $R$. Then $$\text{ht}(p)=\dim(R_p)$$ 
+\end{lmm}
+
+\begin{thm}{Krull's Principal Ideal Theorem}{} Let $R$ be a Noetherian ring. Let $I$ be a proper and principal ideal of $R$. Let $p$ be the smallest prime ideal containing $I$. Then $$\text{ht}_R(p)\leq 1$$
+\end{thm}
+
+\subsection{Length of a Module}
+\begin{defn}{Length of a Module}{} Let $R$ be a ring and let $M$ be an $R$-module. Define the length of $M$ to be $$l_R(M)=\text{sup}\{n\in\N\;|\;0=M_0\subset M_1\subset\cdots\subset M_n=M\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $0\to M'\to M\to M''\to 0$ be a short exact sequence of $R$-modules. Then $$l_R(M)=l_R(M')+l_R(M'')$$
+\end{lmm}
+
+\begin{lmm}{}{} Let $(A,m)$ be a local ring and let $M$ be an $A$-module. If $mM=0$, then $$l_A(M)=\dim_{A/m}(M)$$
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a ring and let $M$ be an $R$-module. Then the following are equivalent. 
+\begin{itemize}
+\item $M$ is simple
+\item $l_R(M)=1$
+\item $M\cong A/m$ for some maximal ideal $m$ of $A$
+\end{itemize}
+\end{prp}
+
+\subsection{The Hilbert Polynomial}
+\begin{defn}{The Hilbert Polynomial}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a Noetherian graded ring. Let $M=\bigoplus_{k=0}^\infty M_k$ be a graded $R$-module. Define the Hilbert function $H_M:\N\to\N$ of $R$ to be the function defined by $$H_M(n)=l_{R_0}(M_n)$$
+\end{defn}
+
+\begin{defn}{The Hilbert Series}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a Noetherian graded ring. Let $M=\bigoplus_{k=0}^\infty M_k$ be a graded $R$-module. Define the Hilbert series $HS_M\in\Z[[t]]$ of $M$ to be the formal series $$HS_M(t)=\sum_{k=0}^\infty H_M(k)t^k=\sum_{k=0}^\infty l_{R_0}(M_k)t^k$$
+\end{defn}
+
+\begin{thm}{}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a Noetherian graded ring such that $R_0$ is Artinian. Let $M=\bigoplus_{k=0}^\infty M_k$ be a graded $R$-module. Let $\lambda:\{M_i\;|\;i\in I\}\to\Z$ be an additive function Then the function $$g(t)=\sum_{k=0}^\infty\lambda(M_k)t^k$$ is a rational function and can be written in the form $$g(t)=\frac{f(t)}{\prod_{i=1}^r(1-t^{d_i})}$$ for some $f(t)\in\Z[t]$ and $d_i\in\N$. 
+\end{thm}
+
+\begin{thm}{The Fundamental Theorem of Dimension Theory}{} Let $(R,m)$ be a local Noetherian ring. Let $I$ be an $m$-primary ideal. Then the following numbers are equal. 
+\begin{itemize}
+\item Let $J=\bigoplus_{k=0}^\infty\frac{I^k}{I^{k+1}}$. The order of the pole at $1$ of the rational function $HS_J$. 
+\item The minimum number of elements of $R$ that can generate an $m$-primary ideal of $R$
+\item The dimension $\dim_{R/m}(R)$
+\end{itemize}
+\end{thm}
+
+The following is a generalization of Krull's principal ideal theorem. Both of the theorems can actually be deduced directly from the fundamental theorem. 
+
+\begin{thm}{Krull's Height Theorem}{} Let $R$ be a Noetherian ring. Let $I$ be a proper ideal generated by $n$ elements. Let $p$ be the smallest prime ideal containing $I$. Then $$\text{ht}_R(p)\leq n$$
+\end{thm}
+
+\begin{thm}{}{} Let $(R,m)$ be a Noetherian local ring and let $k=R/m$ be the residue field. Then $$\dim(R)\leq\dim_k(m/m^2)$$
+\end{thm}
+
+\pagebreak
+\section{Valuation and Valuation Rings}
+\subsection{Valuation Rings}
+\begin{defn}{Valuation Rings}{} Let $R$ be an integral domain. We say that $R$ is a valuation ring if for all $x\in\text{Frac}(R)$ and $x\neq 0$, then either $x$ or $x^{-1}$ is in $R$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a valuation ring. Then the following are true. 
+\begin{itemize}
+\item $R$ is a local ring
+\item $R$ is integrally closed
+\end{itemize}
+\end{lmm}
+
+\subsection{Valuations on a Field}
+\begin{defn}{Totally Ordered Group}{} Let $G$ be an abelian group. We say that $G$ is a totally ordered group if there is a total order "$\leq$" on $G$ such that $a\leq b$ implies $ca\leq cb$ for all $a,b,c\in G$. 
+\end{defn}
+
+\begin{defn}{Valuation on a Field}{} Let $K$ be a field. Let $G$ be a totally ordered abelian group. A valuation on $K$ with values in $G$ is a group homomorphism $v:K^\times\to G$ such that for all $x,y\in K^\ast$, we have 
+\begin{itemize}
+\item $v(xy)=v(x)+v(y)$
+\item $v(x+y)\geq\min\{v(x),v(y)\}$
+\end{itemize}
+We use the convention that $v(0)=\infty$. 
+\end{defn}
+
+\begin{defn}{Associated Valuation Ring}{} Let $K$ be a field and $v:K\to\Z$ a discrete valuation. Define the associated valuation ring of $K$ to be the subring $$R_v=\{x\in K\;|\;v(x)\geq 0\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $K$ be a field. Let $v$ be a discrete valuation on $K$. Then $R_v$ is a valuation ring. 
+\end{lmm}
+
+\subsection{Discrete Valuations and Normalizations}
+\begin{defn}{Discrete Valuations}{} Let $K$ be a field. A discrete valuation on $K$ is a valuation $v:K^\times\to\Z$. 
+\end{defn}
+
+\begin{defn}{Normalized Discrete Valuations}{} Let $(K,v)$ be a discrete valuation ring. We say that it is normalized if $v$ is surjective. 
+\end{defn}
+
+\begin{lmm}{}{} Let $K$ be a field with a discrete valuation $v$. Then $v(K^\times)=n\Z$ for some $n\in\N$. 
+\end{lmm}
+
+\begin{lmm}{Normalization of a Discrete Valuation}{} Let $K$ be a field with a discrete valuation $v$ such that $v(K^\times)=n\Z$ for some $n\in\N$. Define the normalization of $v$ to be the valuation $v_N:K^\times\to\Z$ defined by $$v_N(k)=\frac{1}{n}v(k)$$ for all $k\in K^\times$. 
+\end{lmm}
+
+Therefore we always work on normalized discrete valuation rings. 
+
+\subsection{Discrete Valuation Rings}
+\begin{defn}{Discrete Valuation Rings}{} Let $R$ be a commutative ring. We say that $R$ is a discrete valuation ring if there exists a field $K$ and a discrete valuation $v$ on $K$ such that $$R=R_v$$ is the associated valuation ring of $K$. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a discrete valuation ring with valuation $v$. Let $t\in R$ be such that $v(t)=1$. Then the following are true. 
+\begin{itemize}
+\item A nonzero element $u\in R$ is a unit if and only if $v(u)=0$
+\item $\dim(R)=1$
+\end{itemize}\tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $R$ be a discrete valuation ring. Suppose that $x\in R$ is a unit. Then $v(x^{-1})=-v(x)$. Then $-v(x),v(x)\geq 0$ implies $v(x)=0$. Now if $v(y)>0$ , suppose for contradiction that $u\in R$ is an inverse of $y$, then $$0=v(1)=v(uy)=v(u)+v(y)$$ But $v(y)>0$ implies that $v(u)<0$ which implies that $u\notin R$, a contradiction. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{defn}{Uniformizing Parameter}{} Let $R$ be a discrete valuation ring with valuation $v$. A uniformizing parameter for $R$ is an element $t\in R$ such that $v(t)=1$. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a discrete valuation ring with valuation $v$. Let $t\in R$ be a uniformizing parameter of $R$. Then the following are true. 
+\begin{itemize}
+\item Every non-zero ideal of $R$ is a principal ideal of the form $(t^n)$ for some $n\geq 0$
+\item Every $r\in R\setminus\{0\}$ can be written in the form $r=ut^n$ for some unit $u$ and $n\geq 0$. 
+\end{itemize}\tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $t\in R$ such that $v(t)=1$. Let $x\in m$ where $v(x)=n>0$. Then $v(x)=nv(t)=v(t^n)$ means that every $x\in m$ is of the form $t^n$. Thus $m=(t)$. Since every ideal $I$ is a subset of this maximal ideal, any ideal is of the form $I=(t^n)$ for some $n>0$. 
+\item Follows from the fact that $(t^n)$ is the unique maximal ideal. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be an integral domain. Then the following are equivalent. 
+\begin{itemize}
+\item $R$ is a discrete valuation ring
+\item $R$ is a UFD with a unique irreducible element up to multiplication of a unit
+\item $R$ is a Noetherian local ring with a principal maximal ideal
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $(1)\implies(3)$: We have seen that the set of non-units is precisely the set $m=\{x\in K|v(x)>0\}$. We show that this is an ideal. Clearly $x,y\in m$ implies $v(x+y)=\min\{v(x),v(y)\}>0$. Let $u\in R$. Then $v(ux)=v(u)+v(x)>0$ since $v(x)>0$ and $v(u)\geq 0$. \\~\\
+We have seen that every ideal is of the form $(t^n)$ for some $n>0$. Thus every ascending chains of ideal must be of the form $$(t^{n_1})\subset(t^{n_2})\subset\dots$$ for $n_1>n_2>\dots$. Since $n_1,n_2,\dots$ is strictly decreasing, the chain must eventually stabilizes. This proves that $R$ is Noetherian and has principal maximal ideal. 
+\item $(1)\implies(3)$:
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a Noetherian local integral domain such that $\dim(R)=1$. Let $m$ be its unique maximal ideal. Then the following are equivalent. 
+\begin{itemize}
+\item $R$ is a discrete valuation ring. 
+\item $R$ is integrally closed
+\item $m$ is a principal ideal
+\item $\dim_{R/m}(m/m^2)=1$
+\item For ideal $I\neq 0$ of $R$, $I=m^k$ for some $k\in\N$
+\item There exists $t\in R$ such that every ideal $I\neq 0$ of $R$ is of the form $I=(t^n)$ for some $n\in\N$. 
+\end{itemize}
+\end{prp}
+
+\pagebraek
+\section{Dedekind Domains}
+\subsection{Fractional and Invertible Ideals}
+\begin{defn}{Fractional Ideals}{} Let $R$ be an integral domain. Let $I$ be an ideal of $\text{Frac}(R)$. We say that $I$ is a fractional ideal of $R$ if there exists $r\in R$ such that $rI\subseteq R$. 
+\end{defn}
+
+\begin{defn}{Invertible Ideals}{} Let $R$ be an integral domain. Let $I$ be a fractional ideal of $R$. We say that $I$ is invertible if $I^{-1}I=R$, where $$I^{-1}=\{s\in\text{Frac}(R)\;|\;sI\subseteq R\}$$
+\end{defn}
+
+TBA: Projective modules
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be a fractional ideal of $R$. Then the following are equivalent. 
+\begin{itemize}
+\item $I$ is invertible. 
+\item $I$ is a projective $R$-module
+\item $I$ is finitely generated, and for every maximal ideal $m$ of $R$, $IR_m$ is a principal ideal of $R_m$. 
+\end{itemize}
+\end{prp}
+
+\subsection{Dedekind Domains}
+\begin{defn}{Dedekind Domains}{} Let $R$ be a commutative ring. We say that $R$ is a dedekind domain if the following are true. 
+\begin{itemize}
+\item $R$ is an integral domain
+\item $R$ is an integrally closed
+\item $R$ is Noetherian
+\item Every non-zero prime ideal of $R$ is maximal ($R$ has dimension $1$)
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be an integral domain. Then the following are equivalent. 
+\begin{itemize}
+\item $R$ is a Dedekind domain
+\item Every non-zero ideal $I$ of $R$ is invertible ($I^{-1}I=R$)
+\item Every non-zero ideal of $R$ can be written uniquely as a product of finitely many prime ideals. 
+\end{itemize}
+\end{prp}
+
+\pagebreak
+\section{Four Important Rings}
+In this section we will investigate four particular types of Noetherian local rings. Therefore it is important to revise on what we know about Noetherian local rings as of now. 
+\begin{itemize}
+\item Noetherian means that the supremum of the set of all ascending chains of terminate at a largest ideal. 
+\item Locality means that the ring has a unique maximal ideal. 
+\end{itemize}
+Noetherian local rings enjoy the fundamental theorem of dimension theory, which says that the different definitions of dimensions coincide. The definitions of the four types of rings depends heavily on the notion of dimension. 
+
+\subsection{Regular Local Rings}
+Regularity is an important concept in algebraic geometry to detecting singularities. We motivate the definition by the following proposition. 
+
+\begin{defn}{Regular Local Rings}{} A Noetherian local ring $(R,m)$ is said to be regular if $$\dim_k(m/m^2)=\dim(R)$$ for $k=R/m$ the residue field of $R$. 
+\end{defn}
+
+\begin{thm}{}{} Let $(R,m)$ be a Noetherian local ring. Let $n$ be the minimal number of elements needed to generate $m$. Then $R$ is regular if and only if $n=\dim(R)$. 
+\end{thm}
+
+\begin{thm}{}{} Let $A$ be a Noetherian local ring of dimension $1$ with maximal ideal $m$. Then the following are equivalent: 
+\begin{itemize}
+\item $A$ is regular
+\item $m$ is principal
+\item $A$ is an integral domain, and all ideals are of the form $m^n$ for $n\geq 0$ or $(0)$
+\item $A$ is a principal ideal domain
+\end{itemize}
+\end{thm}
+
+\subsection{Complete Intersection Rings}
+\begin{defn}{Complete Intersection Rings}{} Let $(R,m)$ be a Noetherian local ring. We say that $R$ is a complete intersection ring if there exists a regular local ring $(A,q)$ and an ideal $I$ generated by a regular sequence such that $$\hat{R}\cong\frac{A}{I}$$
+\end{defn}
+
+\subsection{Gorenstein Rings}
+\begin{defn}{Gorenstein Rings}{}
+\end{defn}
+
+\begin{defn}{Injective Dimension}{}
+\end{defn}
+
+\subsection{Cohen-Macauley Rings}
+
+$$\substack{\text{Regular}\\\text{Local Rings}}\subset\substack{\text{Complete}\\\text{Intersection Rings}}\subset\substack{\text{Gorenstein}\\\text{Rings}}\subset\substack{\text{Cohen-Macauley}\\\text{Rings}}$$
+
+\pagebreak
+\section{Kähler Differentials}
+The goal of this section is to define the derivations and the module of Kähler differentials, as well as seeing some first consequences such as the two exact sequences. To show existence of the module of Kähler differentials, we will see two different constructions of the module. 
+
+\subsection{Kähler Differentials}
+We now define the module of Kähler Differentials which is the main object of study. For each $A$-derivation $d$ from an $A$-algebra $B$ to a $B$-module $M$, $d$ factors through a universal object no matter what $d$ we choose. This is the content of the following definition. 
+
+\begin{defn}{Kähler Differentials}{} A $B$-module $\Omega_{B/A}^1$ together with an $A$-derivation $d:B\to\Omega_{B/A}^1$ is said to be a module Kähler Differentials of $B$ over $A$ if it satisfies the following universal property: \\~\\
+For any $B$-module $M$, and for any $A$-derivation $d':B\to M$, there exists a unique $B$-module homomorphism $f:\Omega_{B/A}^1\to M$ such that $d'=f\circ d$. In other words, the following diagram commutes: \\~\\
+\adjustbox{scale=1.1,center}{\begin{tikzcd}
+B\arrow[r, "d"]\arrow[rd, "d'"'] & \Omega_{B/A}^1\arrow[d, "\exists!f", dashed]\\
+& M
+\end{tikzcd}}
+\end{defn}
+
+The above definition merely shows what properties we would like a module of Kähler differentials to satisfy. Notice that we have yet to show its existence. The above construction is also universal in the following sense. 
+
+\begin{lmm}{}{2.2.2} Let $A$ be a ring and $B$ an $A$-algebra. Let $M$ be a $B$-module. Then there is a canonical $B$-module isomorphism $$\text{Hom}_B(\Omega_{B/A}^1,M)\cong\text{Der}_A(B,M)$$ \tcbline
+\begin{proof}
+Fix $M$ a $B$-module. Let $d'\in\text{Der}_A(B,M)$. By the universal property of $\Omega_{B/A}^1(M)$, there exists a unique $B$-module homomorphism $f:\Omega_{B/A}^1\to M$ such that $d'=f\circ d$. This gives a map $\phi:\text{Der}_A(B,M)\to\Hom_B(\Omega_{B/A}^1,M)$ defined by $\phi(d')=f$. \\~\\
+Conversely, given a map $g\in\Hom_B(\Omega_{B/A}^1,M)$, pre-composition with $d$ gives a pull back map $d^\ast:\Hom_B(\Omega_{B/A}^1,M)\to\text{Der}_A(B,M)$ defined by $d^\ast(g)=g\circ d$. These map are inverses of each other: 
+\begin{align*}
+(d^\ast\circ\phi)(d')&=d^\ast(f)\\
+&=f\circ d\\
+&=d'\tag{By universal property}
+\end{align*} and 
+$(\phi\circ d^\ast)(g)=\phi(g\circ d)=g$. 
+Thus these map is a bijective map of sets. \\~\\
+
+It remains to show that $d^\ast$ is a $B$-module homomorphism. Let $f,g\in\Hom_B(\Omega_{B/A}^1,M)$. 
+\begin{itemize}
+\item $d^\ast(f+g)=(f+g)\circ d$ is a map $$b\overset{d}{\mapsto}d(b)\overset{f+g}{\mapsto}f(d(b))+g(d(b))$$ for $b\in B$. $d^\ast(f)+d^\ast(g)=f\circ d+g\circ d$ is a map $$b\mapsto f(d(b))+g(d(b))$$ thus addition is preserved by $d^\ast$. 
+\item Let $u\in B$. We want to show that $d^\ast(u\cdot f)=u\cdot d^\ast(f)$. The left hand side sends an element $b\in B$ by $$b\overset{d}{\mapsto}d(b)\overset{u\cdot f}{\mapsto}u\cdot f(d(b))$$ The right hand side sends $b\mapsto u\cdot f(d(b))$. Thus proving they are the same. 
+\end{itemize}
+And so we have reached the conclusion. 
+\end{proof}
+\end{lmm}
+
+The definition of the module and the above lemma shows the following: The functor $M\mapsto\text{Der}_A(B,M)$ between the category of $B$-modules is representable. Indeed, one may recall that a functor is said to be representable if it is naturally isomorphic to the $\Hom$ functor together with a fixed object, which is precisely the content of the above lemma. \\~\\
+
+Let us now see an explicit construction of the module to prove the existence of the module of Kähler Differentials. 
+
+\begin{prp}{}{} Let $A$ be a ring and $B$ be an $A$-algebra. Let $F$ be the free $B$-module generated by the symbols $\{d(b)\;|\;b\in B\}$. Let $R$ be the submodule of $F$ generated by the following relations: 
+\begin{itemize}
+\item $d(a_1b_1+a_2b_2)-a_1d(b_1)-a_2d(b_2)$ for all $b_1,b_2\in B$ and $a_1,a_2\in A$
+\item $d(b_1b_2)-b_1d(b_2)-b_2d(b_1)$ for all $b_1,b_2\in B$
+\end{itemize}
+Then $F/R$ is a module of Kähler Differentials for $B$ over $A$. \tcbline
+\begin{proof}
+Clearly $F/R$ is a $B$-module. Moreover, define $d:B\to F/R$ by $b\mapsto d(b)+R$. This map is an $A$-derivation since the following are satisfied: 
+\begin{itemize}
+\item $d$ is an $A$-module homomorphism: Let $b_1,b_2\in B$ and $a_1,a_2\in A$. Then $a_1b_1+a_2b_2$ is mapped to $d(a_1b_1+a_2b_2)+R$. We know from the relations that $d(a_1b_1+a_2b_2)+R=a_1d(b_1)+a_2d(b_2)+R$. Thus $d$ is $A$-linear. 
+\item $d$ satisfies the Leibniz rule: Let $b_1,b_2\in B$. Then $b_1b_2$ is mapped to $d(b_1b_2)+R$. Since $d(b_1b_2)+R=b_1d(b_2)+d(b_1)b_2$, we have that $b_1b_2$ is mapped to $b_1d(b_2)+d(b_1)b_2+R$. 
+\end{itemize}
+This shows that $d:B\to F/R$ is an $A$ derivation. \\~\\
+
+It remains to show that $(F/R,d)$ has the universal property. Let $M$ be a $B$-module and $d':B\to M$ an $A$-derivation. Define a map $f:F\to M$ on generators by $d(b)\mapsto d'(b)$ and extending from generators to the entire module. This is a $B$-module homomorphism by definition. Clearly $f\circ d=d'$. It also unique since $f$ is defined on the generators of $F$. \\~\\
+
+Finally we want to show that $f$ projects to a map $\bar{f}:F/R\to M$. This requires us to check that $f(d(a_1b_1+a_2b_2))=f(a_1d(b_1)+a_2d(b_2))$ and $f(d(b_1b_2))=f(b_1d(b_2)+d(b_1)b_2)$. But this is clear. Since $f:F\to R$ is a $B$-module homomorphism, we have $$f(d(a_1b_1+a_2b_2))-f(a_1d(b_1)+a_2d(b_2))=0$$ and $$f(d(b_1b_2))-f(b_1d(b_2)+d(b_1)b_2)=0$$ implying $f$ sends $d(a_1b_1+a_2b_2)-a_1d(b_1)-a_2d(b_2)$ and $d(b_1b_2)-b_1d(b_2)-d(b_1)b_2$ to $0$. Since we checked them on generators of $R$ this result extends to all of $R$. Thus we are done. 
+\end{proof}
+\end{prp}
+
+Aside from the construction through quotients, we can also express the module explicitly via the kernel of a diagonal morphism. Using the universal property, we see that all these constructions are the same. 
+
+\begin{prp}{}{} Let $A$ be a ring and $B$ be an $A$-algebra. Let $f:B\otimes_A B\to B$ be a function defined to be $f(b_1\otimes_A b_2)=b_1b_2$. Let $I$ be the kernel of $f$. Then $(I/I^2,d)$ is a module of Kähler Differentials of $B$ over $A$, where the derivation is the homomorphism $d:B\to I/I^2$ defined by $db=1\otimes b-b\otimes1\;(\bmod\;I^2)$. \tcbline
+\begin{proof}
+We break down the proof in 3 main steps. \\~\\
+Step 1: Show that $\ker(f)=\langle 1\otimes b-b\otimes 1\;|\;b\in B\rangle$. \\
+Write $I=\langle 1\otimes b-b\otimes 1\;|\;b\in B\rangle$. For any generator $1\otimes b-b\otimes 1$ of $I$, we see that $$f(1\otimes b-b\otimes 1)=0$$ Thus $I\subseteq\ker(f)$. Now suppose that $\sum_{i,j} b_i\otimes b_j\in\ker(f)$. Then using the identity $$b_i\otimes b_j=b_ib_j\otimes 1+(b_i\otimes 1)(1\otimes b_j-b_j\otimes 1)$$ and the fact that $b_ib_j=0$ (because $0=f(b_i\otimes b_j)=b_ib_j$) we see that $$\sum_{i,j} b_i\otimes b_j=\sum_{i,j}(b_i\otimes 1)(1\otimes b_j-b_j\otimes 1)$$ Since each $1\otimes b_j-b_j\otimes 1$ lies in $\ker(f)$, we conclude that $\sum_{i,j}b_i\otimes b_j$ so that $I=\ker(f)$. \\~\\
+Step 2: Check that $d:B\to I/I^2$ is an $A$-derivation. \\
+\begin{itemize}
+\item $d:B\to I/I^2$ is an $A$-module homomorphism: Let $a_1a_2\in A$ and $b_1,b_2\in B$. Then we have 
+\begin{align*}
+d(a_1b_1+a_2b_2)&=1\otimes (a_1b_2+a_2b_2)-(a_1b_2+a_2b_2)\otimes 1+I^2\\
+&=a_1(1\otimes b_1)+a_2(1\otimes b_2)-a_1(b_1\otimes 1)-a_2(b_2\otimes 1)+I^2\\
+&=a_1d(b_1b_2)+a_2d(b_1b_2)+I^2
+\end{align*}
+Thus we are done. (Notice that we did not use the fact that all the expressions are taken modulo $I^2$)
+\item $d$ satisfies the Leibniz rule: Let $b_1,b_2\in B$. Then we have $d(b_1b_2)=1\otimes b_1b_2-b_1b_2\otimes 1+I^2$ on one hand. On the other hand we have $$b_1d(b_2)+b_2d(b_1)=b_1(1\otimes b_2-b_2\otimes 1)+b_2(1\otimes b_1-b_1\otimes 1)+I^2$$ Subtracting them gives 
+\begin{align*}
+d(b_1b_2)-b_1d(b_2)-b_2d(b_1)&=1\otimes b_1b_2-b_1\otimes b_2-b_2\otimes b_1+b_2b_1\otimes 1\\
+&=(1\otimes b_1-b_1\otimes 1)(1\otimes b_2-b_2\otimes 1)+I^2
+\end{align*}
+But $(1\otimes b_1-b_1\otimes 1)(1\otimes b_2-b_2\otimes 1)$ lies in $I^2$ thus subtraction gives $0$. 
+\end{itemize}
+Thus $d$ is an $A$-derivation. \\~\\
+
+Step 3: Show that the universal property is satisfied. \\
+Let $M$ be a $B$-module and $d':B\to M$ an $A$-derivation. We want to find a unique $\tilde{\phi}:B\to M$ such that $d'=\tilde{\phi}\circ d$. \\~\\
+
+Step 3.1: Construct a homomorphism of $A$-algebra from $B\otimes B$ to $B\ltimes M$ \\
+Define $\phi:B\otimes B\to B\ltimes M$ (Refer to \ref{defn:7.1.7} for definition of $B\ltimes M$) by $$\phi(b_1\otimes b_2)=(b_1b_2,b_1d'(b_2))$$ and extend it linearly so that $\phi(b_1\otimes b_2+b_3\otimes b_4)=\phi(b_1\otimes b_2)+\phi(b_3\otimes b_4)$. This is a homomorphism of $A$-algebra since 
+\begin{itemize}
+\item Addition is preserved: This is by definition. 
+\item $\phi(ab_1\otimes b_2)=\phi(b_1\otimes ab_2)=a\phi(b_1\otimes b_2$: Let $a\in A$ and $b_1\otimes b_2\in B\otimes_A B$. Then 
+\begin{align*}
+\phi(ab_1\otimes b_2)&=(ab_1b_2,ab_1d'(b_2))\\
+&=a\cdot\phi(b_1\otimes b_2)\\
+\phi(b_1\otimes ab_2)&=(ab_1b_2,b_1d'(ab_2))\\
+&=(ab_1b_2,ab_1d'(b_2))
+\end{align*}
+Thus we are done. 
+\item Product is preserved: For $u_1,u_2,v_1,v_2\in B$, we have
+\begin{align*}
+\phi((u_1\otimes u_2)\cdot\phi(v_1\otimes v_2))&=(u_1u_2,u_1d'(u_2))\cdot(v_1v_2,v_1d'(v_2))\\
+&=(u_1u_2v_1v_2,u_1u_2v_1d'(v_2)+v_1v_2u_1d'(u_2))\\
+&=(u_1v_1u_2v_2,u_1v_1d'(u_2v_2)\\
+&=\phi(u_1v_1\otimes u_2v_2)
+\end{align*}
+\end{itemize}
+Thus $\phi$ is a homomorphism of $A$-algebra. \\~\\
+
+Step 3.2: Construct $\tilde{\phi}$ from $\phi$. \\
+Since $\phi$ is a map $B\otimes B$ to $B\ltimes M$, we can restrict this map to $I$ a result in a new map $\bar{\phi}:I\to B\ltimes M$. Notice that for $1\otimes b-b\otimes 1$ a generator of $I$, we have 
+\begin{align*}
+\bar{\phi}(1\otimes b-b\otimes 1)&=\bar{\phi}(1\otimes b)-\bar{\phi}(b\otimes 1)\\
+&=(b,d'(b))-(b,d'(1))\\
+&=(b,d'(b))-(b,0)\\
+&=(0,d'(b))
+\end{align*}
+Thus we actually have a map $\bar{\phi}:I\to M$. Finally, notice that for $(1\otimes u-u\otimes 1)(1\otimes v-v\otimes 1)$ a generator of $I^2$, we have 
+\begin{align*}
+\bar{\phi}(x)&=\phi(1\otimes u-u\otimes 1)\phi(1\otimes v-v\otimes 1)\\
+&=\sum(0,d'(u))(0,d'(v))\\
+&=\sum(0,0)\tag{Mult. in Trivial Extension}\\
+&=(0,0)
+\end{align*}
+which shows $\bar{\phi}$ kills of $I^2$ and thus $\bar{\phi}$ factors through $I/I^2$ so that we get a map $\tilde{\phi}:I/I^2\to M$. \\~\\
+
+Step 3.3: Show that $\tilde{\phi}$ satisfies all the required properties. \\
+For $b\in B$, we have that $$\tilde{\phi}(d(b))=\tilde{\phi}(1\otimes b-b\otimes 1+I^2)=d'(b)$$ and thus $d'=\tilde{\phi}\circ d$. Moreover, this map is unique since it is defined on the generators of $I$, namely the $d(b)$ for $b\in B$. \\~\\
+
+This concludes the proof. \\
+Materials referenced: \cite{Rav}, \cite{Ern}, \cite{Mat}
+\end{proof}
+\end{prp}
+
+This version of the module of Kähler Differentials generalizes well to the theory of schemes. Interested readers are referred to \cite{Har}. \\~\\
+
+Our first step towards computing the module of Kähler Differentials for coordinate rings comes from a computation of the polynomial ring. 
+
+\begin{lmm}{}{} Let $A$ be a ring and $B=A[x_1,\dots,x_n]$ so that $B$ is an $A$-algebra. Then $$\Omega_{B/A}^1=\bigoplus_{i=1}^nBd(x_i)$$ 
+is a finitely generated $B$-module. \tcbline
+\begin{proof}
+I claim that  $\Omega_{B/A}^1$ has basis $d(x_1),\dots,d(x_n)$. 
+We proceed by induction. \\~\\
+
+When $n=1$, a general polynomial in $A[x]$ is of the form $$f(x)=\sum_{i=0}^nc_ix^i$$ for $c_i\in A$. Applying $d$ subject to the conditions of quotienting gives $$d(f)=\sum_{i=0}^nc_id(x^i)$$ But $d(x^i)=xd(x^{i-1})+x^{i-1}d(x)$. Repeating this allows us to reduce $d(x^i)=g_i(x)d(x)$. Doing this for each $x^i$ in the sum in fact gives us $f(x)=\frac{df}{dx}d(x)$. Thus we see that $\Omega_{A[x]/A}^1$ is a $A[x]$ module with basis $d(x)$. \\~\\
+
+Now suppose that $\Omega_{A[x_1,\dots,x_{n-1}]/A}^1=\bigoplus_{i=1}^{n-1}Bd(x_i)$. Then for every $f\in A[x_1,\dots,x_n]$, we can write the function as $$f(x_1,\dots,x_n)=\sum_{i=0}^sg_i(x_1,\dots,x_{n-1})x_n^i$$ and then we can apply the same process again: $$d(f)=\sum_{i=0}^s(x_n^id(g_i)+g_id(x_n^i))$$ except that now $d(g_i)$ by induction hypothesis can be written in terms of the basis $d(x_1),\dots,d(x_{n-1})$. As a side note: by doing some multiplication, one can easily see that $$d(f)=\sum_{i=0}^s\frac{\partial f}{\partial x_i}d(x_i)$$~\\
+
+By \ref{prp:7.1.6}, since $\Omega_{B/A}^1$ is a $B$-module, there exists a free $B$ module $\bigoplus_{i=1}^mB$ such that the map $\psi:\bigoplus_{i=1}^mB$ is surjective. In fact, by choosing $m=n$ and mapping each basis $e_i$ of $\bigoplus_{i=1}^nB$ to $d(x_i)$, we obtain a surjective map. \\~\\
+
+Now consider the map $\partial:B\to\bigoplus_{i=1}^nB$ (No calculus involved, just notation!) defined by $$f\mapsto\left(\frac{\partial f}{\partial x_1},\dots,\frac{\partial f}{\partial x_n}\right)$$ It is clear that this map is an $A$-derivation. By the universal property of $\Omega_{B/A}^1$, the derivation factors through $d:A\to\Omega_{B/A}^1$. This leaves us with a $B$-module homomorphism $\phi:\Omega_{B/A}^1\to\bigoplus_{i=1}^nB$ defined by $$d(f)\mapsto\left(\frac{\partial f}{\partial x_1},\dots,\frac{\partial f}{\partial x_n}\right)$$ This map is surjective. Notice that for each monomial $x_i$ in $B$, we have $\partial(x_i)=e_i$. Since $\partial=\phi\circ d$, $d(x_i)\in\Omega_{A/k}^1$ maps to $e_i$ and thus $\phi$ is surjective. \\~\\
+
+It is clear that $\phi$ and $\psi$ are inverses of each other since the basis elements that they map to and from are the same. 
+\end{proof}
+\end{lmm}
+
+\subsection{Transfering the System of Differentials}
+This section aims to develop the necessary machinery in order to compute the module of Kähler Differentials for coordinate rings. We will see explicit calculation of the cuspidal cubic, an ellipse and the double cone to demonstrate how the two exact sequences can be used along with the Jacobian of the defining equations of the variety to compute the module of Kähler Differentials. 
+
+\begin{thm}{First Exact Sequence}{2.3.1} Let $B,C$ be $A$-algebras and let $\phi:B\to C$ be an $A$-algebra homomorphism. Then the following sequence is an exact sequence of $C$-modules: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+\Omega_{B/A}^1\otimes_BC\arrow[r, "f"] & \Omega_{C/A}^1\arrow[r, "g"] & \Omega_{C/B}^1\arrow[r] & 0
+\end{tikzcd}} \\~\\
+where $f$ and $g$ is defined respectively as $$f(d_{B/A}(b)\otimes c)=c\cdot d_{C/A}(\phi(b))$$ and $$g(d_{C/A}(c))=d_{C/B}(c)$$ and extended linearly. \tcbline
+\begin{proof}
+Denote $d_{B/A},d_{C/A},d_{C/B}$ the derivations for $\Omega_{B/A}^1,\Omega_{C/A}^1,\Omega_{C/B}^1$ respectively. Clearly $g$ is surjective since for any $c_1d_{C/B}(c_2)\in\Omega_{C/B}^1$, just choose $c_1d_{C/A}(c_2)\in\Omega_{C/A}^1$. We just have to show that $\ker(g)=\im(f)$. It is enough to show that \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \Hom_C(\Omega_{C/B}^1,N)\arrow[r] & \Hom_C(\Omega_{C/A}^1,N)\arrow[r] & \Hom_C(\Omega_{B/A}^1\otimes_BC,N)
+\end{tikzcd}}\\~\\
+is exact by \ref{thm:7.1.2}. Using the fact that $\Hom_C(\Omega_{B/A}^1\otimes_BC,N)=\Hom_B(\Omega_{B/A}^1,N)$ (\ref{thm:7.1.3}) and the fact that $\Hom(\Omega_{B/A}^1,N)\cong\text{Der}_A(B,N)$, we can transform the sequence into \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \text{Der}_B(C,N)\arrow[r, "u"] & \text{Der}_A(C,N)\arrow[r, "v"] & \text{Der}_A(B,N)
+\end{tikzcd}}\\~\\
+Notice that $u$ is just the inclusion map and $v$ is just the restriction map. In particular, an $A$-derivation is a $B$-derivation if and only if its restriction to $B$ is trivial. Hence we conclude that $\im(u)=\ker(v)$. 
+Materials Referenced: \cite{Liu}, \cite{CRing}
+\end{proof}
+\end{thm}
+
+\begin{thm}{Second Exact Sequence}{2.3.2} Let $A$ be a ring and $B$ an $A$-algebra. Let $I$ be an ideal of $B$ and $C=B/I$. Then the following sequence is an exact sequence of $C$-modules: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+I/I^2\arrow[r] & \Omega_{B/A}^1\otimes_B C\arrow[r, "\delta"] & \Omega_{C/A}^1\arrow[r, "f"] & 0
+\end{tikzcd}}\\~\\
+where $\delta$ and $f$ is defined respectively as $$\delta(i+I^2)=d(i)\otimes 1$$ and $$f(d(b)\otimes c)=c\cdot d(\phi(b))$$ and then extended linearly. \tcbline
+\begin{proof}
+Notice that $\delta$ is well defined. Indeed, if $i+I^2=j+I^2$, then there exists $h_1,h_2\in I$ such that $i-j=h_1h_2$. Now we have that 
+\begin{align*}
+\delta(i-j)&=d(h_1h_2)\otimes 1\\
+&=h_1d(h_2)\otimes 1+h_2d(h_1)\otimes 1\\
+&=d(h_2)\otimes h_1+I+d(h_1)\otimes h_2+I\\
+&=d(h_2)\otimes 0+d(h_1)\otimes 0\\
+&=0
+\end{align*}
+We can see that $f$ is surjective. Indeed for any $d(b+I)\in\Omega_{C/A}^1$, just choose $d(b)\otimes 1\in\Omega_{B/A}^1\otimes_BC$. Then $f(d(b)\otimes 1)=d(b+I)$. \\~\\
+
+It remains to show that $\im(\delta)=\ker(f)$. Notice that to prove the exactness of the sequence in question, we just have to show the exactness of the following sequence (by \ref{thm:7.1.2}): \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \Hom_C(\Omega_{C/A}^1,N)\arrow[r] & \Hom_C(\Omega_{B/A}^1\otimes_B\frac{B}{I})\arrow[r] & \Hom_C(I/I^2,N)
+\end{tikzcd}}\\~\\
+Using the fact that $I/I^2\cong I\otimes_B\frac{B}{I}$ (by \ref{prp:7.1.4}) and $\Hom_C(\Omega_{B/A}^1\otimes_BB/I,N)=\Hom_B(\Omega_{B/A}^1,N)$ (by \ref{thm:7.1.3}) we can transform this sequence into \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \Hom_C(\Omega_{C/A}^1,N)\arrow[r] & \Hom_B(\Omega_{B/A}^1,N)\arrow[r] & \Hom_B(I,N)
+\end{tikzcd}}\\~\\
+and further using $\text{Der}_A(B,N)\cong\Hom_B(\Omega_{B/A}^1,N)$ (by \ref{lmm:2.2.2}), transform into \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+0\arrow[r] & \text{Der}_A(B/I,N)\arrow[r, "f_\ast"] & \text{Der}_A(B,N)\arrow[r, "\delta_\ast"] & \Hom_B(I,N)
+\end{tikzcd}}\\~\\
+There is no need to prove the second arrow to be injective. We need to show exactness between the second and third arrow. \\~\\
+
+Notice that any $\phi\in\text{Der}_A(B/I,N)$ can be extended naturally to an $A$-linear derivation from $B$ to $N$: just pre-compose it with the projection map $p:B\to B/I$. This map is $A$-linear hence $\phi\circ p$ is $A$-linear. Moreover, $p$ is $B$-linear and $\phi$ is a derivation so that it satisfies the Leibniz rule. Also, a natural map from $\text{Der}_A(B,N)$ to $\Hom_B(I,N)$ is given just by restricting $\psi\in\text{Der}_A(B,N)$ to $I$. The new map under restriction will naturally become a homomorphism from $I$ to $N$. The kernel of the third arrow is just any derivation in $\text{Der}_A(B,N)$ that is identically $0$ on $I$. \\~\\
+But these derivations are precisely those of $\text{Der}_A(B/I,N)$! 
+\end{proof}
+\end{thm}
+
+A very nice application towards computing the module of differential forms is given by the second exact sequence. For $B=A[x_1,\dots,x_n]$ and $C=\frac{B}{I=(f_1,\dots,f_r)}$, we can use \ref{prp:7.1.5} to see that $\Omega_{B/A}^1\otimes C\cong\bigoplus_{i=1}^nCdx_i$. By the second exact sequence \ref{thm:2.3.2}, we see that $$\Omega_{C/A}^1\cong\text{coker}\left(\frac{I}{I^2}\to\bigoplus_{i=1}^nCdx_i\right)$$ Since $I/I^2$ is a $C$-module, by \ref{prp:7.1.6} there exists a surjective map $\bigoplus_{i=1}^mCde_i\twoheadrightarrow I/I^2$. In fact $m=r$ since $I$ is finitely generated by $f_1,\dots,f_r$ and thus the map sends $e_i$ to $f_i$ for $1\leq i\leq r$. \\~\\
+
+Now consider the map $$J:\bigoplus_{i=1}^rCde_i\twoheadrightarrow\frac{I}{I^2}\rightarrow\bigoplus_{i=1}^nCdx_i$$ This is a map from a free module of rank $r$ to a free module of rank $n$. So we can write this in an $n\times r$ matrix. Since the map $I/I^2\to\bigoplus_{i=1}^nCdx_i$ sends $f_i$ to $d(f_i)=\sum_{k=1}^n\frac{\partial f_i}{\partial x_k}dx_k$ (by second exact sequence \ref{thm:2.3.2}) and $e_i$ is sent $f_i$, we have that $J$ is the matrix $$\begin{pmatrix}
+\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_r}{\partial x_1}\\
+\vdots & \ddots & \vdots\\
+\frac{\partial f_1}{\partial x_n} & \cdots & \frac{\partial f_r}{\partial x_n}
+\end{pmatrix}$$~\\
+
+Finally, since $\im(A\twoheadrightarrow B\to C)=\im(B\to C)$, we thus have $$\text{coker}(J)\cong\Omega_{C/A}^1$$ which means that $\Omega_{C/A}^1$ is just the cokernel of the matrix. This exposition can be found in \cite{Dav}. 
+
+\subsection{Characterization for Separability}
+The module of Kähler differentials give a necessary and sufficient condition for a finite extension to be separable. Before the main proposition, we will need a lemma. 
+
+\begin{lmm}{}{3.1.1} Let $L/K$ be a finite field extension and $\Omega_{L/K}^1$ the module of Kähler Differentials. Let $f(b)=c_0+c_1b+\dots+c_nb^n\in L$ for $c_0,\dots,c_n\in K$ and $b\in L$. Then $d(f(b))=f'(b)d(b)$ where $f'(b)$ is the derivative of $f(b)$ with respect to $b$ in the sense of calculus. \tcbline
+\begin{proof}
+Since $f(b)$ is a finite sum, we apply linearity and Leibniz rule of $d$ to get $$f'(b)=d(c_0)+bd(c_1)+c_1d(b)+\dots+b^nd(c_n)+c_nd(b^n)$$ Since each $c_0,\dots,c_n\in K$, we obtain $f'(b)=c_1d(b)+\dots+c_n\cdot nb^{n-1}d(b)$. Thus factoring out $d(b)$ in the sum, we obtain precisely the standard derivative in calculus, and that $d(f(b))=f'(b)d(b)$
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{3.1.2} Let $K$ be a field and $L/K$ a finite field extension. Then $L/K$ is separable if and only if $\Omega_{L/K}^1=0$. \tcbline
+\begin{proof}
+Suppose that $L/K$ is separable. Suppose that $b\in L$ has minimal polynomial $f\in K[x]$. $f$ is separable since $L/K$ is separable. By \ref{lmm:3.1.1}, we have that $d(f(b))=f'(b)d(b)$. But the fact that $f$ is separable implies that $f'(b)\neq 0$. At the same time we have $f(b)=0$ since $f$ is the minimal polynomial of $b$. This implies that $d(f(b))=0$ in $\Omega_{L/K}^1=0$. Since $L$ is a field, and $f'(b)\neq 0$, we must have $d(b)=0$ for all $b\in L$. This means that $\Omega_{L/K}^1=0$. \\~\\
+
+If $L/K$ is inseparable, then there exists an intermediate field $E$ such that $L/E$ is a simple inseparable extension. Since $L/K$ is finite, $L/E$ is finite and thus is algebraic which means that there exists some polynomial $p\in E[t]$ for which $L=\frac{E[t]}{(p(t))}$. In this case, we have already seen that $$\Omega_{L/E}^1\cong\frac{Ldt}{(p'(t)dt)}\cong\frac{L}{(p'(t))}$$ Since $p'(t)=0$, we have that $\Omega_{L/E}^1\cong L\neq 0$. By the first exact sequence \ref{thm:2.3.1}, we have that $\Omega_{L/K}^1$ maps surjectively onto $\Omega_{L/E}^1\neq 0$ which proves that $\Omega_{L/K}^1$ is non-zero. \\
+Materials referenced: \cite{Per}, \cite{Liu}
+\end{proof}
+\end{prp}
+
+This gives a very nice characterization of separability. Readers can find more in \cite{Har} and \cite{Liu}. To extend this equivalence under the assumption that $L/K$ is algebraic instead of finite, one can show that $\Omega^1$ preserves colimits in the sense in $\cite{Dav}$. Namely that the functor $F:\text{Algebra}_R\to\text{Mod}_T$ from the category of $R$-algebra to the category of $T$-modules where $T$ is a colimit of a diagram in the category of $R$-algerba preserves colimits. Then observe that an algebraic extension is the colimit of the finite subextensions. \\~\\
+
+Analogous to the above result, there is a similar proposition for $\text{Der}_K(L)$ for when $L/K$ is algebraic and separable. This is given by \cite{Pat}. 
+
+\begin{prp}{}{3.1.3} Let $L/K$ be an algebraic field extension that is separable. Then $\text{Der}_K(L)=0$. \tcbline
+\begin{proof}
+Suppose that $D\in\text{Der}_K(L)$. If $a\in L$, let $p$ be the minimal polynomial of $a$. Then $$0=D(p(a))=p'(a)D(a)$$ by \ref{lmm:3.1.1}. Since $p$ is separable over $K$, $p'(a)\neq 0$. Thus $D(a)=0$ and so we are done. \\
+Materials referenced: \cite{Pat}
+\end{proof}
+\end{prp}
+
+This proposition will be of use at \ref{eg:4.1.7}. 
+
+
+
+
+
+
+\end{document}
