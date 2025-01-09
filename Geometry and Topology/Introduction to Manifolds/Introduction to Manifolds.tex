@@ -45,12 +45,12 @@ By convention, $C^0(U,V)$ is the set of all continuous maps from $U$ to $V$ and 
 \begin{prp}{}{} The following are all pseudogroups of transformations on $\R^n$. 
 \begin{itemize}
 \item $\Gamma_{C^0}=\{f:U\to V\;|\;f\text{ is a homeomorphism}, U,V\subseteq\R^n\text{ open }\}$
-\item $\Gamma_{C^r}\{f\in C^r(U,V)\;|\;f\text{ is a homeomorphism}, U,V\subseteq\R^n\text{ open}, f^{-1}\in C^r\}$
-\item $\Gamma_{C^\infty}=\{f\in C^\infty(U,V)\;|\;f\text{ is a homeomorphism}U,V\subseteq\R^n\text{ open},f^{-1}\in C^\infty\}$
+\item $\Gamma_{C^r}=\{f\in C^r(U,V)\;|\;f\text{ is a homeomorphism}, U,V\subseteq\R^n\text{ open}, f^{-1}\in C^r\}$ for all $r\in\N$. 
+\item $\Gamma_{C^\infty}=\{f\in C^\infty(U,V)\;|\;f\text{ is a homeomorphism}, U,V\subseteq\R^n\text{ open},f^{-1}\in C^\infty\}$
 \end{itemize}
 \end{prp}
 
-\begin{prp}{}{} The set $\Gamma_{\mO}\{f:U\to V|f,f^{-1}\text{ is holomorphic}, U,V\subseteq\C^n\text{ open}\}$ is a pseudogroup of transformations on $\C^n$. 
+\begin{prp}{}{} Let $n\in\N\setminus\{0\}$. The set $\Gamma_{\mO}=\{f:U\to V|f,f^{-1}\text{ is holomorphic}, U,V\subseteq\C^n\text{ open}\}$ is a pseudogroup of transformations on $\C^n$. 
 \end{prp}
 
 \subsection{Manifolds and their Structures}
@@ -106,6 +106,35 @@ Notice that it is not possible for a manifold to locally look like both $\R^n$ a
 \end{lmm}
 
 A chart on a real manifold $M$ of dimension $n$ is actually an open set together with $n$ coordinate functions. Indeed if $(U,\phi)$ is a chart of $M$, then $\phi:U\to\R^n$ is a map to $\R^n$. If we are interested in the particular components of $\phi$, we write $\phi=(x^1,\dots,x^n)$ where $x^i:U\to\R$ is the coordinate function sending a point on $U$ to its $i$th coordinate. All the $x^i$s combine to recover $\phi$. If we would like to talk about the actual coordinate on $\R^n$ instead of the coordinate function, we write $x_i$ instead. 
+
+\subsection{Manifolds with Boundary}
+\begin{defn}{Upper Half Space}{} Define the upper half space of $\R^n$ to be $$H^n=\{(x_1,\dots,x_n)\in\R^n\;|\;x_n\geq 0\}$$ endowed with the subspace topology of $\R^n$. 
+\end{defn}
+
+\begin{prp}{}{} The following are all pseudogroups of transformations on $H^n$. 
+\begin{itemize}
+\item $\Gamma_{C^0}^{{H^n}}=\{f:U\to V\;|\;f\text{ is a homeomorphism}, U,V\subseteq H^n\text{ open }\}$
+\item $\Gamma_{C^r}^{{H^n}}=\{f\in C^r(U,V)\;|\;f\text{ is a homeomorphism}, U,V\subseteq H^n\text{ open}, f^{-1}\in C^r\}$ for all $r\in\N$. 
+\item $\Gamma_{C^\infty}^{{H^n}}=\{f\in C^\infty(U,V)\;|\;f\text{ is a homeomorphism}, U,V\subseteq H^n\text{ open},f^{-1}\in C^\infty\}$
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Manifold with Boundary}{} A manifold with boundary is a Hausdorff topological space $M$ that is second countable, together with a fixed complete atlas compatible with $H^n$. In paticular, 
+\begin{itemize}
+\item If $\Gamma=\Gamma_{C^0}^{{H^n}}$, $M$ is called a topological manifold with boundary
+\item If $\Gamma=\Gamma_{C^r}^{{H^n}}$, $M$ is called a differentiable manifold of class $C^r$ with boundary
+\item If $\Gamma=\Gamma_{C^\infty}^{{H^n}}$, $M$ is called a smooth manifold or a differentiable manifold with boundary. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} The following are true between manifolds and manifolds with boundary. 
+\begin{itemize}
+\item If $M$ is a topological manifold, then $M$ is a topological manifold with boundary. 
+\item If $M$ is a differentiable manifold of class $C^r$, then $M$ is a differentiable manifold with boundary of class $C^r$
+\item If $M$ is a smooth manifold, then $M$ is a smooth manifold with boundary. 
+\end{itemize}
+\end{prp}
+
 
 \pagebreak
 \section{Morphisms Between Manifolds}
@@ -166,17 +195,26 @@ ref: hirsch differential geometry
 \subsection{Maps that Preserve Complex Structures}
 
 \pagebreak
-\section{Unique Properties of Smooth Manifolds}
-\subsection{Submanifolds}
-There are two types of submanifolds, namely immersed submanifolds and embedded submanifolds. We will discuss mainly the notion of embedded submanifolds. 
+\section{New Smooth Manifolds from Old}
+\subsection{Subsets of a Manifold}
+Let $M$ be a smooth manifold. We may ask the conditions for a subset $S$ of $M$ to be a smooth manifold itself, whose smooth structure comes inherited from that of $M$. When $S$ is open, the answer is simple. 
 
-\begin{defn}{Embedded Submanifolds}{} Let $M$ be a smooth manifold of dimension $m$. We say that $N\subset M$ is a submanifold of dimension $n$ if for every $p\in N$ there exists a chart $(U,\phi)$ on $M$ with $p\in U$ such that $$\phi(U\cap N)=\phi(U)\cap\R^n$$ 
-In this case we say that $Y$ has codimension $m-n$. 
+\begin{prp}{}{} Let $M$ be a smooth manifold. Let $N\subseteq M$ be an open subset. Then $N$ is a smooth manifold and $\dim(N)=\dim(M)$. \tcbline
+\begin{proof}
+It is easy to see that $N$ is second countable and Hausdorff. Moreover, if $\{(U_i,\phi_i)\;|\;i\in I\}$ is a complete atlas of $M$, then it is easy to see that $\{(U_i\cap N,\phi_i|_{U_i\cap N})\}$ is a complete atlas of $N$. 
+\end{proof}
+\end{prp}
+
+Let $M$ be a smooth manifold. Even when $S\subseteq M$ is not open, there are still ways for $S$ to be smooth manifold itself that inherits the smooth structure from $M$. This motivates the following definition. 
+
+\begin{defn}{Embedded Submanifolds}{} Let $M$ be a smooth manifold of dimension $m$. We say that $N\subseteq M$ is a submanifold of dimension $n$ if for every $p\in N$ there exists a chart $(U,\phi)$ on $M$ with $p\in U$ such that $$\phi(U\cap N)=\{(x_1,\dots,x_m)\in\phi(U)\;|\;m-n\text{ out of the }m\text{ coordinate functions vanish }\}$$ In this case we say that $Y$ has codimension $m-n$. 
 \end{defn}
 
-In other words, we require that $$\phi(U\cap N)=\{(x_1,\dots,x_m)\in\phi(U)\;|\;m-n\text{ out of the }m\text{ coordinate functions vanish }\}$$ By renumbering the coordinate functions, the condition translates to $$\phi(U\cap N)=\{(x_1,\dots,x_m)\in\phi(U)\;|\;x_{n+1}=x_{n+2}=\dots=x_m=0\}$$ Embedded submanifolds are also called regular submanifolds. 
+By renumbering the coordinate functions, the condition translates to $$\phi(U\cap N)=\{(x_1,\dots,x_m)\in\phi(U)\;|\;x_{n+1}=x_{n+2}=\dots=x_m=0\}$$ Embedded submanifolds are also called regular submanifolds. \\
 
-\begin{prp}{}{} Let $M$ be a smooth manifold with atlas $\{(U_i,\phi_i)\;|\;i\in I\}$ and $Y$ a submanifold of $M$. Then $Y$ is also a manifold in its own right with atlas $$\{(U_i\cap Y,\phi|_{U_i\cap Y})\;|\;i\in I\}$$\tcbline
+We need to show that such a definition indeed gives a smooth manifold in its own right. 
+
+\begin{prp}{}{} Let $M$ be a smooth manifold with atlas $\{(U_i,\phi_i)\;|\;i\in I\}$. Let $Y\subseteq M$ be an embedded submanifold of $M$. Then $Y$ is also a smooth manifold in its own right with atlas $$\{(U_i\cap Y,\phi|_{U_i\cap Y})\;|\;i\in I\}$$\tcbline
 \begin{proof}
 It is clear that the given set covers $Y$. Each of them are also charts since $\phi_{U_i\cap Y}:U_i\cap Y\to\R^n$ is a diffeomorphism since it is the restriction of a diffeomorphism. Assume that two charts on $M$ $(U,\phi=(x^1,\dots,x^m))$ and $(V,\psi=(y^1,\dots,y^m))$ intersect. Relabel $\phi$ and $\psi$ so that on $U$ and $V$, the last $n-k$ coordinates vanish on $Y$. Then for $p\in U\cap V\cap Y$, we have $\phi_{U\cap Y}(p)=(x^1,\dots,x^k)$ and $\psi_{V\cap Y}(p)=(y^1,\dots,y^k)$. Therefore $$\psi_{V\cap Y}\circ(\phi_{U\cap Y})^{-1}(x^1,\dots,x^k)=(y^1,\dots,y^k)$$ $\psi\circ\phi^{-1}$ is $C^\infty$ so $y^1,\dots,y^k$ each are $C^\infty$ functions of $x^1,\dots,x^k$ so that $\psi_{V\cap Y}\circ(\phi_{U\cap Y})^{-1}$ is $C^\infty$. Hence any two charts are compatible on $Y$. 
 \end{proof}
@@ -184,7 +222,7 @@ It is clear that the given set covers $Y$. Each of them are also charts since $\
 
 Below is a criterion to check whether charts of a subset of a manifold satisfy the condition for $Y$ to be a submanifold. 
 
-\begin{thm}{}{} Let $f:M\to \R^n$ be a smooth map where $M$ is an $m$ dimensional manifold, with components $f=(f_1,\dots,f_n)$. Let $p\in f^{-1}(0)$ be arbitrary. Let $(U,\phi)$ be any chart of $M$ at $p$. If the following $n\times m$ matrix $$\begin{pmatrix}
+\begin{prp}{}{} Let $f:M\to \R^n$ be a smooth map where $M$ is an $m$ dimensional manifold, with components $f=(f_1,\dots,f_n)$. Let $p\in f^{-1}(0)$ be arbitrary. Let $(U,\phi)$ be any chart of $M$ at $p$. If the following $n\times m$ matrix $$\begin{pmatrix}
 \frac{\partial(f_1\circ\phi^{-1})}{\partial x_1}|_{\phi(p)} & \cdots & \frac{\partial(f_1\circ\phi^{-1})}{\partial x_m}|_{\phi(p)}\\
 \vdots & \ddots & \vdots\\
 \frac{\partial(f_n\circ\phi^{-1})}{\partial x_1}_{\phi(p)} & \cdots & \frac{\partial(f_n\circ\phi^{-1})}{\partial x_m}_{\phi(p)}\\
@@ -202,66 +240,23 @@ Since the given matrix $M$ has rank $n$, we can relabel the $f_i$ and the $x_j$ 
 
 In the chart $(U,(f_1,\dots,f_n,x^{n+1},\dots,x^m))$, the set $Y=f^{-1}(0)$ is obtained by setting the the vanishing of the first $m$ coordinate functions $f_1,\dots,f_n$. Thus $\phi(U\cap Y)$ is now equal to $\phi(U)\cap\R^{m-n}$ so that $Y$ is an embedded submanifold. 
 \end{proof}
-\end{thm}
+\end{prp}
 
-For example, consider the equation $y^2=x^2-x$. Consider the set $\{(x,y)\in\R^2\;|\;y^2-x^2+x=0\}$. To show that this is a submanifold of $\R^2$, we use the above theorem by setting $f(x,y)=y^2-x^2+x$.Then our set becomes $$f^{-1}(0)=\{(x,y)\in\R^2\;|\;y^2-x^2+x=0\}$$ The gradient of $f$ is $(-2x+1,2y)$, which vanishes only at $(1/2,0)$, outside of the curve. Thus by the above theorem, $y^2=x^2-x$ is a submanifold. \\~\\
+For example, consider the equation $y^2=x^2-x$. Consider the set $\{(x,y)\in\R^2\;|\;y^2-x^2+x=0\}$. To show that this is a submanifold of $\R^2$, we use the above theorem by setting $f(x,y)=y^2-x^2+x$.Then our set becomes $$f^{-1}(0)=\{(x,y)\in\R^2\;|\;y^2-x^2+x=0\}$$ The gradient of $f$ is $(-2x+1,2y)$, which vanishes only at $(1/2,0)$, outside of the curve. Thus by the above theorem, $y^2=x^2-x$ is a submanifold. \\
 
-Note that this is a slightly weaker statement of the regular level set theorem. In that theorem, instead of using the $C^\infty$ map $F=(f_1,\dots,f_n)$ that maps to $\R^n$, it considers in what situation will a smooth map of manifolds $f:M\to N$ give a submanifolds on a level set $f^{-1}(c)$ for $c\in N$. 
+Note that this is a slightly weaker statement of the preimage theorem 4.3.3. In that theorem, instead of using the $C^\infty$ map $F=(f_1,\dots,f_n)$ that maps to $\R^n$, it considers in what situation will a smooth map of manifolds $f:M\to N$ give a submanifolds on a level set $f^{-1}(c)$ for $c\in N$. 
 
-\subsection{Manifolds with Boundaries}
-\begin{defn}{Upper Half Space}{} Define the upper half space of $\R^n$ to be $$H^n=\{(x_1,\dots,x_n)\in\R^n\;|\;x_n\geq 0\}$$ endowed with the subspace topology of $\R^n$. 
-\end{defn}
+\subsection{Quotient Manifolds}
 
-\begin{defn}{Manifold with Boundary}{} A manifold with boundary is a Hausdorff topological space $M$ that is second countable, together with a fixed complete atlas compatible with $\Gamma_{C^\infty}$ with underlying space $H^n$ instead of $\R^n$. In this case we say that $M$ has dimension $n$. 
-\end{defn}
-
+\subsection{The Boundary of a Manifold with Boundary}
 \begin{defn}{Boundary of a Manifold}{} Let $M$ be a manifold with boundary. Define the boundary of $M$ to be $$\partial M=\left\{p\in M\;|\;\exists(U,\phi=x^1,\dots,x^n)\text{ such that }p\in U, x^n(p)=0\right\}$$
 \end{defn}
 
 \begin{prp}{}{} Let $M$ be a manifold with boundary of dimension $n$ Then $\partial M$ is a manifold of dimension $n-1$ with atlas $$\{(U_\alpha|_{\partial M},\phi_\alpha|_{\partial M})\}$$ for $\{(U_\alpha,\phi_\alpha)\}$ the atlas on $M$. 
 \end{prp}
 
-\subsection{Orientations of a Manifold}
-\begin{defn}{Orientation}{} Let $M$ be an $n$ dimensional manifold. $M$ is said to be orientable if there exists an everywhere non-vanishing $n$-form on it. \\~\\
-If $M$ is orientable, an orientation of $M$ is an equivalence class of non-vanishing $n$-forms on $M$ where $\omega_1\sim\omega_2$ if $\omega_1=f\omega_2$ where $f$ is an everywhere positive smooth function on $M$. \\~\\
-An oriented manifold is an orientable manifold with a fixed choice of orientation. 
-\end{defn}
-
-\begin{prp}{}{} A smooth manifold $M$ is orientable if and only if it has a covering by coordinate charts such that for any two charts $(U,\phi=(x^1,\dots,x^n))$ and $(V,\psi=(y^1,\dots,y^n))$, the transition function $$\det\left(\frac{\partial(y_i\circ\phi^{-1})}{\partial x_j}\right)>0$$ has non zero determinant on the intersection. \tcbline
-\begin{proof}
-Suppose that $M$ is orientable. This means that we have a nowhere vanishing top form $$\omega=f\;dx^1\wedge\cdots\wedge dx^n$$ in a coordinate chart $(U,\phi=(x^1,\dots,x^n))$ on $M$. By replacing $x^1:U\to\R$ with $-x^1:U\to\R$, we can assume that $M$ is covered by such coordinate charts where the function corresponding to $f$ above is positive in each chart. Suppose that $(V,\psi=(y^1,\dots,y^n))$ is another chart on $M$ with non-empty intersection with $U$. Locally on $V$, suppose that $\omega$ takes the form of $$\omega=g\;dy^1\wedge\cdots\wedge dy^n$$ Then on $U\cap V$, we have that 
-\begin{align*}
-g\;dy^1\wedge\cdots\wedge dy^n&=(g\circ\phi^{-1})\;\det\left(\frac{\partial (y^i\circ\phi^{-1})}{\partial x^j}\right)\;dx^1\wedge\cdots\wedge dx^n\\
-&=f\;dx^1\wedge\cdots\wedge dx^n
-\end{align*}
-So if $f>0$ and $g>0$, we must have that the determinant greater than $0$ and so we are done. \\~\\
-
-Conversely, suppose that the determinant is non zero on all intersections of a covering $\{U_\alpha\;|\;\alpha\in i\}$ of $M$. Choose a partition of unity $\{\theta_\alpha\;|\;\alpha\in I\}$ subordinate to the covering. Define a top form on $M$ by $$\omega=\sum_{\alpha\in I}\theta_\alpha\;dy_\alpha^1\wedge\cdots\wedge dy_\alpha^n$$ which is smooth since $\theta_\alpha$ is smooth for each $\alpha\in I$. Let $(U_\beta,\psi=(y^1,\dots,y^n))$ be a a coordinate chart in the covering. Then locally we have that $$\omega|_{U_\beta}=\sum_{i\in I}\theta_\alpha\det\left(\frac{\partial y_\alpha^i}{\partial x_\beta^j}\right)\;dy_\beta^1\wedge\cdots\wedge dy_\beta^n$$ The form $\omega$ is non-negative since $\theta_\alpha>0$ and the determinant is positive by assumption. It is non-zero since at each point, at least one of the functions $\theta_\alpha$ is non-zero, as they all sum to $1$. Thus we are done. 
-\end{proof}
-\end{prp}
-
-It is easy to see that a choice of orientation is a choice of coordinate charts such that either the nowhere vanishing form $\omega=f\;dx^1\wedge\cdots\wedge dx^n$ has its coefficient $f$ positive or negative throughout all coordinate charts. Because this way, the determinant of the transition functions will always have positive determinant. 
-
-\begin{prp}{}{} A connected manifold $M$ has exactly two orientations. 
-\end{prp}
-
-\begin{prp}{}{} If a manifold with boundary $M$ is orientable, then $\partial M$ is also orientable. \tcbline
-\begin{proof}
-If $\dim(M)=1$, then $\dim(\partial M)=0$ and consists of points so that the result is trivial. Let $n=\dim(M)\geq 2$. Choose a local chart $(U,\phi=(x^1,\dots,x^n))$ such that $\partial M$ is defined by $x_n=0$ locally and on intersections with other charts $\det\left(\left(\frac{\partial y^i}{\partial x^j}\right)_{1\leq i,j\leq n}\right)>0$ Where two local charts with coordinates $(U,\phi=(x^1,\dots,x^n))$ and $(V,\psi=(y^1,\dots,y^n))$ intersect. Since $x^n=0$ and $y^n=0$, the Jacobian matrix for a point $p\in\partial M$ is given by $$\begin{pmatrix}
-\frac{\partial y^1}{\partial x^1}\bigg{|}_p & \cdots & \frac{\partial y^1}{\partial x^{n-1}}\bigg{|}_p & \frac{\partial y^1}{\partial x^n}\bigg{|}_p\\
-\vdots & \ddots & \vdots & \vdots\\
-\frac{\partial y^{n-1}}{\partial x^1}\bigg{|}_p & \cdots & \frac{\partial y^{n-1}}{\partial x^{n-1}}\bigg{|}_p & \vdots\\
-0 & \cdots & 0 & \frac{\partial y^n}{\partial x^n}\bigg{|}_p
-\end{pmatrix}$$
-Now $\psi\circ\phi^{-1}$ maps $x_n>0$ to $y_n>0$. Thus if $x_n=0$, then $y_n=0$ and if $x_n>0$, then $y_n>0$. Thus $$\frac{\partial y^n}{\partial x^n}\bigg{|}_{x_n=0}>0$$ and since the determinant of the above matrix is positive, the determinant of the upper left $(n-1)\times(n-1)$ matrix also has positive determinant. Thus $(U_\alpha|_{\partial M},\phi|_{\alpha}|_{\partial M})$ give an atlas for $\partial M$ whose transition functions have everywhere positive Jacobian. Thus $\partial M$ is orientable. 
-\end{proof}
-\end{prp}
-
-In order to complete Stoke's theorem, we need a canonical orientation on the boundary on the manifold that depends on the choice of orientation on the manifold itself. 
-
-\begin{defn}{Induced Orientation}{} Let $M$ be a smooth orientable manifold with boundary of dimension $n$. Let $\omega$ be a nowhere vanishing $1$-form representing an orientation on $M$. Suppose that in local coordinates, $\omega$ on the boundary of $M$ is given by $$\omega=\epsilon\;dx^1\wedge\cdots\wedge dx^n$$ where $\epsilon=\pm1$ and $x^n>0$. Then define the induced orientation $\omega'$ on $\partial M$ locally by $$\omega'=(-1)^n\epsilon\;dx^1\wedge\cdots\wedge dx^{n-1}$$
-\end{defn}
-
+\pagebreak
+\section{Basic Properties of Smooth Manifolds}
 \subsection{Partitions of Unity}
 Smooth partitions of unity is unique to manifold that are locally $\R^n$. Complex manifolds would have a more rigid structure in the sense that they do not have a partition of unity. In our case of smooth manifolds, we can construct a smooth partition of unity. This allows us to piece together functions defined on charts on a manifold. 
 
@@ -305,8 +300,50 @@ For each $i\geq 1$, choose a finite set of points $p\in M$ whose neighbourhoods 
 
 This tool will be useful for us to patch up local expression and normalize it so that the output is a globally defined object on the manifold, provided that they agree on intersections. 
 
+\subsection{The Whitney Embedding Theorem}
 \begin{thm}{The (Strong) Whitney Embedding Theorem}{} Any smooth manifold of dimension $m$ can be smoothly embedded into $\R^{2m}$. 
 \end{thm}
+
+\subsection{Orientation of Smooth Manifold}
+\begin{defn}{Orientation}{} Let $M$ be an $n$ dimensional manifold. $M$ is said to be orientable if there exists an everywhere non-vanishing $n$-form on it. \\~\\
+If $M$ is orientable, an orientation of $M$ is an equivalence class of non-vanishing $n$-forms on $M$ where $\omega_1\sim\omega_2$ if $\omega_1=f\omega_2$ where $f$ is an everywhere positive smooth function on $M$. \\~\\
+An oriented manifold is an orientable manifold with a fixed choice of orientation. 
+\end{defn}
+
+\begin{prp}{}{} A smooth manifold $M$ is orientable if and only if it has a covering by coordinate charts such that for any two charts $(U,\phi=(x^1,\dots,x^n))$ and $(V,\psi=(y^1,\dots,y^n))$, the transition function $$\det\left(\frac{\partial(y_i\circ\phi^{-1})}{\partial x_j}\right)>0$$ has non zero determinant on the intersection. \tcbline
+\begin{proof}
+Suppose that $M$ is orientable. This means that we have a nowhere vanishing top form $$\omega=f\;dx^1\wedge\cdots\wedge dx^n$$ in a coordinate chart $(U,\phi=(x^1,\dots,x^n))$ on $M$. By replacing $x^1:U\to\R$ with $-x^1:U\to\R$, we can assume that $M$ is covered by such coordinate charts where the function corresponding to $f$ above is positive in each chart. Suppose that $(V,\psi=(y^1,\dots,y^n))$ is another chart on $M$ with non-empty intersection with $U$. Locally on $V$, suppose that $\omega$ takes the form of $$\omega=g\;dy^1\wedge\cdots\wedge dy^n$$ Then on $U\cap V$, we have that 
+\begin{align*}
+g\;dy^1\wedge\cdots\wedge dy^n&=(g\circ\phi^{-1})\;\det\left(\frac{\partial (y^i\circ\phi^{-1})}{\partial x^j}\right)\;dx^1\wedge\cdots\wedge dx^n\\
+&=f\;dx^1\wedge\cdots\wedge dx^n
+\end{align*}
+So if $f>0$ and $g>0$, we must have that the determinant greater than $0$ and so we are done. \\~\\
+
+Conversely, suppose that the determinant is non zero on all intersections of a covering $\{U_\alpha\;|\;\alpha\in i\}$ of $M$. Choose a partition of unity $\{\theta_\alpha\;|\;\alpha\in I\}$ subordinate to the covering. Define a top form on $M$ by $$\omega=\sum_{\alpha\in I}\theta_\alpha\;dy_\alpha^1\wedge\cdots\wedge dy_\alpha^n$$ which is smooth since $\theta_\alpha$ is smooth for each $\alpha\in I$. Let $(U_\beta,\psi=(y^1,\dots,y^n))$ be a a coordinate chart in the covering. Then locally we have that $$\omega|_{U_\beta}=\sum_{i\in I}\theta_\alpha\det\left(\frac{\partial y_\alpha^i}{\partial x_\beta^j}\right)\;dy_\beta^1\wedge\cdots\wedge dy_\beta^n$$ The form $\omega$ is non-negative since $\theta_\alpha>0$ and the determinant is positive by assumption. It is non-zero since at each point, at least one of the functions $\theta_\alpha$ is non-zero, as they all sum to $1$. Thus we are done. 
+\end{proof}
+\end{prp}
+
+It is easy to see that a choice of orientation is a choice of coordinate charts such that either the nowhere vanishing form $\omega=f\;dx^1\wedge\cdots\wedge dx^n$ has its coefficient $f$ positive or negative throughout all coordinate charts. Because this way, the determinant of the transition functions will always have positive determinant. 
+
+\begin{prp}{}{} A connected manifold $M$ has exactly two orientations. 
+\end{prp}
+
+\begin{prp}{}{} If a manifold with boundary $M$ is orientable, then $\partial M$ is also orientable. \tcbline
+\begin{proof}
+If $\dim(M)=1$, then $\dim(\partial M)=0$ and consists of points so that the result is trivial. Let $n=\dim(M)\geq 2$. Choose a local chart $(U,\phi=(x^1,\dots,x^n))$ such that $\partial M$ is defined by $x_n=0$ locally and on intersections with other charts $\det\left(\left(\frac{\partial y^i}{\partial x^j}\right)_{1\leq i,j\leq n}\right)>0$ Where two local charts with coordinates $(U,\phi=(x^1,\dots,x^n))$ and $(V,\psi=(y^1,\dots,y^n))$ intersect. Since $x^n=0$ and $y^n=0$, the Jacobian matrix for a point $p\in\partial M$ is given by $$\begin{pmatrix}
+\frac{\partial y^1}{\partial x^1}\bigg{|}_p & \cdots & \frac{\partial y^1}{\partial x^{n-1}}\bigg{|}_p & \frac{\partial y^1}{\partial x^n}\bigg{|}_p\\
+\vdots & \ddots & \vdots & \vdots\\
+\frac{\partial y^{n-1}}{\partial x^1}\bigg{|}_p & \cdots & \frac{\partial y^{n-1}}{\partial x^{n-1}}\bigg{|}_p & \vdots\\
+0 & \cdots & 0 & \frac{\partial y^n}{\partial x^n}\bigg{|}_p
+\end{pmatrix}$$
+Now $\psi\circ\phi^{-1}$ maps $x_n>0$ to $y_n>0$. Thus if $x_n=0$, then $y_n=0$ and if $x_n>0$, then $y_n>0$. Thus $$\frac{\partial y^n}{\partial x^n}\bigg{|}_{x_n=0}>0$$ and since the determinant of the above matrix is positive, the determinant of the upper left $(n-1)\times(n-1)$ matrix also has positive determinant. Thus $(U_\alpha|_{\partial M},\phi|_{\alpha}|_{\partial M})$ give an atlas for $\partial M$ whose transition functions have everywhere positive Jacobian. Thus $\partial M$ is orientable. 
+\end{proof}
+\end{prp}
+
+In order to complete Stoke's theorem, we need a canonical orientation on the boundary on the manifold that depends on the choice of orientation on the manifold itself. 
+
+\begin{defn}{Induced Orientation}{} Let $M$ be a smooth orientable manifold with boundary of dimension $n$. Let $\omega$ be a nowhere vanishing $1$-form representing an orientation on $M$. Suppose that in local coordinates, $\omega$ on the boundary of $M$ is given by $$\omega=\epsilon\;dx^1\wedge\cdots\wedge dx^n$$ where $\epsilon=\pm1$ and $x^n>0$. Then define the induced orientation $\omega'$ on $\partial M$ locally by $$\omega'=(-1)^n\epsilon\;dx^1\wedge\cdots\wedge dx^{n-1}$$
+\end{defn}
 
 \pagebreak
 \section{The Tangent Space}
@@ -417,7 +454,7 @@ Using the differential, we can give an alternate proof for the basis of the vect
 
 For each $\phi:U\to\R^n$ a chart on $M$, $\phi$ is a diffeomorphism onto its image so that the differential $\phi_\ast:T_p(M)\to T_{\phi(p)}(\R^n)$ is an isomorphism. In particular, the tangent vector $\frac{\partial}{\partial x^k}\bigg{|}_p$ is sent to $$\phi_\ast\left(\frac{\partial}{\partial x^k}\bigg{|}_p\right)(g)=\frac{\partial(g\circ\text{id}_{\phi(U)})}{\partial x_k}\bigg{|}_{\phi(p)}=\frac{\partial g}{\partial x_k}\bigg{|}_{\phi(p)}$$ for any choice $g\in C_{\R^n,\phi(p)}^\infty$. Notice that the differential changed operator because $x^k$ refers to coordinates on the manifold while $x_k$ refers to coordinates on $\R^n$. Now the isomorphism $\phi_\ast$ carries basis to basis and in multivariable calculus we have already seen that elements of the latter form a basis for $T_p(\R^n)$. 
 
-\subsection{Preimage Theorem}
+\subsection{The Preimage Theorem}
 \begin{defn}{Regular Values}{} Let $f:M\to N$ be a smooth map of smooth manifolds. We say that $q\in N$ is a regular value if for $p\in f^{-1}(q)$, $(f_\ast)_p$ is surjective. Otherwise it is said to be a critical value. 
 \end{defn}
 
@@ -426,10 +463,23 @@ For each $\phi:U\to\R^n$ a chart on $M$, $\phi$ is a diffeomorphism onto its ima
 
 The preimage theorem is a variation of the inverse function theorem, except that it is applied to a manifold instead of $\R^n$. 
 
-\begin{thm}{Preimage Theorem}{} Let $f:M\to N$ be a smooth map of smooth manifolds where $\dim(M)=m$ and $\dim(N)=n$. Let $q\in N$. If $f^{-1}(q)$ is a non empty regular level set, then $f^{-1}(q)$ is an embedded submanifold of $N$ of dimension $m-n$. 
+\begin{thm}{The Preimage Theorem}{} Let $f:M\to N$ be a smooth map of smooth manifolds where $\dim(M)=m$ and $\dim(N)=n$. Let $q\in N$. If $f^{-1}(q)$ is a non empty regular level set, then $f^{-1}(q)$ is an embedded submanifold of $N$ of dimension $m-n$. 
 \end{thm}
 
 Note the similarities of the preimage theorem and proposition 2.2.3. Proposition 2.2.3 is actually a special case of the preimage theorem. By choosing $N=\R^c$, we obtain proposition 2.2.3. In particular, the condition on the Jacobian being non-zero is the same as requiring that $(f_\ast)_p$ to be surjective. 
+
+\begin{prp}{}{} Let $f:M\to N$ be a smooth map of manifolds such that $V=f^{-1}(c)$ is a regular level set. Then $$T_p(V)=\ker((f_\ast)_p)$$ for any $p\in V$. \tcbline
+\begin{proof}
+Let $X_{\gamma,p}\in T_p(V)$. Then we have that 
+\begin{align*}
+(f_\ast)_p(X_{\gamma,p})(g)&=X_{\gamma,p}(g\circ f)\\
+&=\frac{d(g\circ f\circ\gamma)}{dt}\bigg{|}_{t=0}\\
+&=\frac{dg(q)}{dt}\bigg{|}_{t=0}\\
+&=0
+\end{align*}
+for any choice of $g\in C_{N,f(p)}^\infty$ so that $T_p(V)\subseteq\ker((f_\ast)_p)$. Since $c$ is a regular value, $(f_\ast)_p$ is surjective and so the rank of the linear map is $n=\dim(N)$. By rank nullity theorem, the kernel $\ker((f_\ast)_p)$ has dimension $m-n$. The preimage theorem also tells us that $T_p(V)$ has dimension $m-n$ and so we are done. 
+\end{proof}
+\end{prp}
 
 \begin{thm}{Sard's Theorem}{} Let $M$ and $N$ be smooth manifolds. Let $f:M\to N$ be a smooth map. Then the set of critical values of $f$ has measure $0$ in $N$. 
 \end{thm}
@@ -449,7 +499,7 @@ Suppose that $(f_\ast)_p$ is surjective. Let $(U,\phi)$ and $(V,\psi)$ be charts
 \end{proof}
 \end{thm}
 
-\begin{crl}{}{} Let $f:M\to N$ be a smooth map of smooth manifolds where $\dim(M)=m$ and $\dim(N)=n$. If $(f_\ast)_p$ is bijective, then there are charts $(U,\phi)$ and $(V,\psi)$ of $p$ and $f(p)$ respectively such that $\psi\circ f\circ\phi^{-1}:\R^m\cong\R^n$ is a homeomorphism. In particular, this means that $m=n$. \tcbline
+\begin{crl}{}{} Let $f:M\to N$ be a smooth map of smooth manifolds where $\dim(M)=m$ and $\dim(N)=n$. If $(f_\ast)_p$ is bijective, then there are charts $(U,\phi)$ and $(V,\psi)$ of $p$ and $f(p)$ respectively such that $\psi\circ f\circ\phi^{-1}:\phi(U)\subseteq\R^m\to\psi(V)\subseteq\R^n$ is a homeomorphism. In particular, this means that $m=n$. \tcbline
 \begin{proof}
 Combine the immersion theorem and submersion theorem for the result. 
 \end{proof}
@@ -469,23 +519,31 @@ Note that the definition of submersions and regular values are slightly differen
 \begin{defn}{Embeddings}{} Let $f:M\to N$ be a smooth map of manifolds. We say that $f$ is an embedding of $M$ into $N$ if $f$ is injective, is an immersion and is homeomorphic to its image $f(M)$. 
 \end{defn}
 
-\begin{thm}{}{} Let $M$ be a manifold and $Y$ a subset of $M$. If $Y$ is an embedded submanifold of $M$, then $\iota:Y\to M$ is an embedding. If $\iota:Y\to M$ is an embedding, then $Y\cong\iota(Y)$ is an embedded submanifold of $M$. 
-\end{thm}
+\begin{prp}{}{} Let $M$ be a smooth manifold. Let $N$ be a subset of $M$. Then $N$ is an embedded submanifold of $M$ if and only if the inclusion map $\iota:N\to M$ is an embedding. 
+\end{prp}
 
-Note that the condition on homeomorphism is necessary for $f(M)$ to be an embedded submanifold of $N$ in the definition of embeddings only when $M$ is not compact. This can be seen with the example of embedding a line to a torus. Consider $$\varphi:\R\to L\subseteq\R^2\to\frac{\R^2}{\Z^2}\cong T^2$$ where $L$ is a line passing throught the origin of $\R^2$ with irrational slope. Then $\varphi(\R)$ is dense in the torus $T^2$. \\~\\
+Note that the condition on homeomorphism is necessary for $f(M)$ to be an embedded submanifold of $N$ in the definition of embeddings only when $M$ is not compact. This can be seen with the example of embedding a line to a torus. Consider $$\varphi:\R\to L\subseteq\R^2\to\frac{\R^2}{\Z^2}\cong T^2$$ where $L$ is a line passing throught the origin of $\R^2$ with irrational slope. Then $\varphi(\R)$ is dense in the torus $T^2$. 
 
-One can also show that if $M$ is compact, then $f:M\to N$ just have to be injective and an immersion for $f(M)$ to be an embedded submanifold of $N$. 
+\pagebreak
+\section{Some Examples of Smooth Manifolds}
+\subsection{Manifolds in the Set of Real Matrices}
+\begin{prp}{}{} Let $n\in\N\setminus\{0\}$. Then the following are smooth submanifolds of $M_n(\R)\cong\R^{n^2}$. 
+\begin{itemize}
+\item The general linear group $\GL(n,\R)$
+\item The orthogonal group $O(n,\R)$
+\item The special linear group $SL(n,\R)$
+\item The special orthogonal group $SO(n,\R)$. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Notice that the determinant map $M_n(\R)\to\R$ defined by $A\mapsto\det(A)$ is smooth. Indeed the determinant is a degree $n$ polynomial in each entry of an $n\times n$ matrix and polynomials $\R^2\to\R$ are smooth. Then $\GL(n,\R)$ is precisely the set $\det^{-1}(\R\setminus\{0\})$ so that $\GL(n,\R)$ is an open subset of $M_n(\R)$. By prp3.1.3, $\GL(n,\R)$ is a smooth manifold of dimension $n^2$. 
+\end{itemize}
+\end{proof}
+\end{prp}
 
-\begin{prp}{}{} Let $f:M\to N$ be a smooth map of manifolds such that $V=f^{-1}(c)$ is a regular level set. Then $$T_p(V)=\ker((f_\ast)_p)$$ for any $p\in V$. \tcbline
+\begin{prp}{}{} Let $n\in\N\setminus\{0\}$. Then $SL(n,\R),O(n,\R),SO(n,\R)$ are embedded submanifolds of $\GL(n,\R)$ and $M_n(\R)$. \tcbline
 \begin{proof}
-Let $X_{\gamma,p}\in T_p(V)$. Then we have that 
-\begin{align*}
-(f_\ast)_p(X_{\gamma,p})(g)&=X_{\gamma,p}(g\circ f)\\
-&=\frac{d(g\circ f\circ\gamma)}{dt}\bigg{|}_{t=0}\\
-&=\frac{dg(q)}{dt}\bigg{|}_{t=0}\\
-&=0
-\end{align*}
-for any choice of $g\in C_{N,f(p)}^\infty$ so that $T_p(V)\subseteq\ker((f_\ast)_p)$. Since $c$ is a regular value, $(f_\ast)_p$ is surjective and so the rank of the linear map is $n=\dim(N)$. By rank nullity theorem, the kernel $\ker((f_\ast)_p)$ has dimension $m-n$. The preimage theorem also tells us that $T_p(V)$ has dimension $m-n$ and so we are done. 
+We first consider $SL(n,\R)$. Consider the determinant map $\det:\GL(n,\R)\to\R$ defined by $M\mapsto\det(M)$. Consider the differential of the map at $1\in\R$. 
 \end{proof}
 \end{prp}
 

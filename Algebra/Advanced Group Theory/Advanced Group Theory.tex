@@ -24,28 +24,55 @@ Leading off from Groups and Rings, these notes deal with the more advanced objec
 
 \section{Free Groups and Free Product of Groups}
 \subsection{Free Groups}
-\begin{defn}{Free Groups}{} Let $F$ be a group and $S\subseteq F$ be a subset. We say that $F$ is free on $S$ if the following universal property holds. For any maps of sets $f:S\to G$, there exists a unique homomorphism $\phi:F\to G$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-S\arrow[r, "\iota"]\arrow[rd, "f"'] & F\arrow[d, "\exists!\phi", dashed]\\
-& G
-\end{tikzcd}}
-where $\iota:S\to F_S$ is the inclusion map. 
+\begin{defn}{The Words of a Set}{} Let $S$ be a set. Let $T=S\times\{0,1\}$. A word of $S$ of length $n\in\N\setminus\{0\}$ is a map of sets $\omega:\{1,\dots,n\}\to T$. Such a word is denoted by $$s_1,\dots,s_n$$ where $s_k=\omega(k)$. Define the empty word to be the unique map $\emptyset\to T$. 
 \end{defn}
 
-\begin{prp}{}{} Let $F_1$ be free on $S_1$ and $F_2$ be free on $S_2$. Then $F_1\cong F_2$ if and only if $\abs{S_1}=\abs{S_2}$. 
+We think of $S\times\{0\}$ as the original copy of $S$, and $S\times\{1\}$ as formally adjoining inverse elements so that we can form a group. 
+
+\begin{defn}{Reduced Words}{} Let $S$ be a set. Define the projection maps $p_S:S\times\{0,1\}\to S$ and $p_{\{0,1\}}:S\times\{0,1\}\to\{0,1\}$ by $p_S(s,i)=s$ and $p_{\{0,1\}}(s,i)=i$ respectively. Let $s=s_1\cdots s_n$ be a word of length $n$. We say that $s$ is reduced if for $1\leq i<n$, $p_S(s_i)=p_S(s_{i+1})$ implies that $p_{\{0,1\}}(s_i)=p_{\{0,1\}}(s_{i+1})$. By convention the empty word is reduced. 
+\end{defn}
+
+Intuitively, since $(s,1)$ for $s\in S$ represents the inverse of $(s,0)$, saying that $s_1\cdots s_n$ is reduced means that no element is next to its inverse. 
+
+\begin{defn}{Set of Reduced Words}{} Let $S$ be a set. Define the set of reduced words by $$F_S=\{w\;|\;w\text{ is a reduced word of }S\}$$
+\end{defn}
+
+\begin{prp}{}{} Let $S$ be a set. Recursively define a product $\ast:F_S\times F_S\to F_S$ on the set of reduced words as follows $$(s_1\cdots s_m)\ast(t_1\cdots t_n)=\begin{cases}
+s\cdots s_{m-1}\ast t_2\cdots t_n & \text{ if }p_S(s_m)=p_S(t_1)\text{ and }p_{\{0,1\}}(s_m)\neq p_{\{0,1\}}(t_1)\\
+s_1\cdots s_mt_1\cdots t_n& \text{ otherwise }
+\end{cases}$$
+Then $F_S$ is a group whose binary operation is given by the above product. \tcbline
+\begin{proof}
+We clearly have the identity $1$ and the inverse of $g=g_1\cdots g_n$ to be $g_n^{-1}\cdots g_1^{-1}$. We just have to check associativity and closure. By definition of the free product, the free product of reduced words is again a reduced word by definition and finiteness of the length of a reduced word. \\~\\
+For any $g\in G_i$, define the action of left multiplication by $L_g(h)=g\ast h$ for any $h\in\ast_iG_i$. We clearly have $L_{g_1}\circ L_{g_2}=L_{g_1g_2}$ and $L_{g^{-1}}=L_g^{-1}$ and thus $L_g\in\text{Sym}(\ast_iG_i)$. For any word $g=g_1\cdots g_m$, the map $L:\ast_iG_i\to\text{Sym}(\ast_iG_i)$ is injective since for any $g\in\ast_iG_i$, we have $L_g(1)=g$ which means that $g\neq h$ implies $L_g\neq L_h$. Thus we have embedded the set into the group $\text{Sym}(\ast_iG_i)$ so that associativity follows. 
+\end{proof}
 \end{prp}
 
-\begin{thm}{}{} For any set $S$, there is a free group on $S$. 
-\end{thm}
-
-\begin{defn}{Free Group on a Set}{} Let $S$ be a set. Define the free group constructed above to be the free group on $S$, denoted $F_S$. 
+\begin{defn}{The Free Group on a Set}{} Let $S$ be a set. Define the free group on $S$ to be the set of reduced words $$F_S=\{w\;|\;w\text{ is a reduced word of }S\}$$ together with the binary operation given by the above product. 
 \end{defn}
 
-\begin{prp}{}{} Any group $G$ is isomorphic to a quotient group of a free group. 
+\begin{prp}{Universal Property of Free Groups}{} Let $S$ be a set. Then the free group $F_S$ and the inclusion map $\iota:S\to F_S$ satisfies the following universal property. For any group $G$ and any map of sets $\psi:S\to G$, there exists a unique group homomorphism $\phi:F_S\to G$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	S & {F_S} \\
+	& G
+	\arrow["\iota", hook, from=1-1, to=1-2]
+	\arrow["\psi"', from=1-1, to=2-2]
+	\arrow["{\exists!\phi}", dashed, from=1-2, to=2-2]
+\end{tikzcd}} \\~\\
+Moreover, $F_S$ is the unique group (up to unique isomorphism) that has such a property. \tcbline
+\end{prp}
+
+\begin{prp}{}{} Let $S,T$ be sets. Then $F_S\cong F_T$ as groups if and only if $S$ and $T$ are in bijection. 
+\end{prp}
+
+\begin{defn}{Free Group of Rank n}{} Let $n\in\N$. Define the free group of rank $n$ to be the free group $F_n$ on the set $\{1,\dots,n\}$. 
+\end{defn}
+
+\begin{prp}{}{} Let $G$ be a group. Then there exists a set $S$ and a normal subgroup $N$ of $F_S$ such that there is a group isomorphism $G\cong F_S/N$. 
 \end{prp}
 
 \subsection{Free Products of Groups}
-\begin{defn}{Word}{} Let $\{G_i|i\in I\}$ be a collection of groups. A word on these groups is a finite sequence $g_1\cdots g_m$ where $g_k\in G_i$ for some $i\in I$ and $k\in\{1,\dots,m\}$. $m$ is said to be the word length. The product of two words is defined to be $$(g_1\cdots g_m)\cdot(h_1\cdots h_n)=g_1\cdots g_mh_1\cdots h_n$$
+\begin{defn}{The Words of a Collection of Groups}{} Let $\{G_i\;|\;i\in I\}$ be a collection of groups. A word on these groups is a finite sequence $g_1\cdots g_m$ where $g_k\in G_i$ for some $i\in I$. We say that such a word has length $m$. 
 \end{defn}
 
 \begin{defn}{Reduced Words}{} A word $g_1\cdots g_m$ is said to be reduced if 
@@ -53,73 +80,138 @@ where $\iota:S\to F_S$ is the inclusion map.
 \item $g_k\neq 1_i$ for any $i\in I$ and for $k\in\{1,\dots,m\}$
 \item For any two consecutive letters $g_i$ and $g_{i+1}$, they are not in the same group
 \end{itemize}
-The set of all reduced words of $\{G_i|i\in I\}$ is denoted $$\ast_iG_i=\{\text{ reduced words on }\{G_i|i\in I\}\}$$
 \end{defn}
 
 The motrivation for reduced words is to allow us to work with less amount of words since every word can be reduced by removing the identities and replacing two consecutive elements in the same group with their product in that group. 
 
-\begin{prp}{Free Product}{} Let $\{G_i|i\in I\}$ be a collection of groups. Define a product on the set of reduced words as follows. $$g\ast h=\begin{cases}
-g \cdot h & \text{ if $g_m,h_1$ are not in the same group }\\
-g\cdots g_{m-1}\ast g_{m+1}\ast h_2\cdots h_n & \text{ if $g_m,h_1\in G_i$ for some $i\in I$ and $g_mh_1=g_{m+1}\neq 1$}\\
+\begin{prp}{}{} Let $\{G_i\;|\;i\in I\}$ be a collection of groups. Recursively define a product on the set of reduced words as follows. $$(g_1\cdots g_m)\ast(h_1\cdots h_n)=\begin{cases}
+g_1\cdots g_mh_1\cdots h_n& \text{ if $g_m,h_1$ are not in the same group }\\
+g\cdots g_{m-1}\ast g_{m+1}\ast h_2\cdots h_n & \substack{\text{ if }g_m,h_1\in G_i \text{ for some }i\in I\\\text{and }g_mh_1=g_{m+1}\neq 1}\\
 g_1\cdots g_{m-1}\ast h_2,\cdots h_n & \text{ if $g_mh_1\in G_i$ for some $i\in I$ and $g_mh_1=1$}
 \end{cases}$$
-Then $\ast_iG_i$ is a group. \tcbline
+Then $F_S$ is a group with the above operation. \tcbline
 \begin{proof}
 We clearly have the identity $1$ and the inverse of $g=g_1\cdots g_n$ to be $g_n^{-1}\cdots g_1^{-1}$. We just have to check associativity and closure. By definition of the free product, the free product of reduced words is again a reduced word by definition and finiteness of the length of a reduced word. \\~\\
 For any $g\in G_i$, define the action of left multiplication by $L_g(h)=g\ast h$ for any $h\in\ast_iG_i$. We clearly have $L_{g_1}\circ L_{g_2}=L_{g_1g_2}$ and $L_{g^{-1}}=L_g^{-1}$ and thus $L_g\in\text{Sym}(\ast_iG_i)$. For any word $g=g_1\cdots g_m$, the map $L:\ast_iG_i\to\text{Sym}(\ast_iG_i)$ is injective since for any $g\in\ast_iG_i$, we have $L_g(1)=g$ which means that $g\neq h$ implies $L_g\neq L_h$. Thus we have embedded the set into the group $\text{Sym}(\ast_iG_i)$ so that associativity follows. 
 \end{proof}
 \end{prp}
 
-Note: If $\{G_i\}$ is just a collection of two groups then we write the free product as $G_1\ast G_2$. 
+The motivation is that we want to continue reducing the product of the word so that it can be fully reduced again. 
 
-The motivation is that we want to continue reducing the product of the word so that it could be fully reduced again. 
-\begin{prp}{}{} Let $\{G_i|i\in I\}$ be a collection of groups. Then $G_i\leq\ast_iG_i$ for any $i\in I$. \tcbline
+\begin{defn}{The Free Product of Groups}{} Let $\{G_i\;|\;i\in I\}$ be a collection of groups. Define the free product of groups to be the set $$\ast_i G_i=\{w\;|\;w\text{ is a reduced word of }\{G_i\;|\;i\in I\}\}$$ together with the above product $\ast$. 
+\end{defn}
+
+Note: If $\{G_i\}$ is just a collection of two groups then we write the free product as $G_1\ast G_2$. \\
+
+\begin{prp}{}{} Let $\{G_i\;|\;i\in I\}$ be a collection of groups. Then $G_k\leq\ast_iG_i$ for any $k\in I$. \tcbline
 \begin{proof}
 Clearly every element of $G_i$ is in $\ast_iG_i$ since we can just treat each element as a word. 
 \end{proof}
 \end{prp}
 
-\begin{lmm}{}{} Let $\{G_i|i\in I\}$ be a collection of groups. Let $\{\phi_i:G_i\to H\}$ be a collection of group homomorphisms to some group $G$. Let $\iota_i:G_i\to\ast_iG_i$ be the inclusion map. Then there exists a unique map $$\ast_i\phi_i:\ast_i G_i\to H$$ such that $(\ast_i\phi_i)\circ j_i=\phi_i$. In other words, the following diagram commutes: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-G_i\arrow[r, "\iota_i"]\arrow[rd, "\phi_i"'] & \ast_iG_i\arrow[d, "\exists!\ast_i\phi_i"]\\
+\begin{prp}{Universal Property of The Free Product}{} Let $\{G_i\;|\;i\in I\}$ be a collection of groups. Then the free product $\ast_i G_i$ and the inclusion maps $\iota_k:G_k\to\ast_i G_i$ satisfies the following universal property. For any collection of group homomorphisms $\{\phi_i:G_i\to H\;|\;i\in I\}$, there exists a unique map $$\ast_i\phi_i:\ast_i G_i\to H$$ and such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+G_k\arrow[r, "\lambda_k"]\arrow[rd, "\phi_k"'] & \ast_i G_i\arrow[d, "\exists!\ast_i\phi_i"]\\
 & H
-\end{tikzcd}} \tcbline
+\end{tikzcd}} \\~\\
+Moreover, $\ast_i G_i$ is the unique group (up to unique isomorphism) that has such a property. \tcbline
 \begin{proof}
-Define $\ast_i\phi_i:\ast_iG_i\to H$ by $\ast_i\phi_i(g_1\cdots g_m)=\phi_{i_1}(g_1)\cdots\phi_{i_m}(g_m)$ where we assume that each $g_k\in G_{i_k}$. Then clearly we have that $(\ast_i\phi_i)\circ j_i=\phi_i$. Moreover, since $\phi_i$ are group homomorphisms, we have that $\phi_i(g_k)\phi_i(g_{k+1})=\phi_i(g_kg_{k+1})$ and $\phi_i(1)=1$ and thus $\phi_i$ is compatible with reduced words. This means that $\ast_i\phi_i$ is a group homomorphism. 
+Define $\ast_i\phi_i:\ast_iG_i\to H$ by $\ast_i\phi_i(g_1\cdots g_m)=\phi_{i_1}(g_1)\cdots\phi_{i_m}(g_m)$ where we assume that each $g_k\in G_{i_k}$. Then clearly we have that $(\ast_i\phi_i)\circ j_i=\phi_i$. Moreover, since $\phi_i$ are group homomorphisms, we have that $\phi_i(g_k)\phi_i(g_{k+1})=\phi_i(g_kg_{k+1})$ and $\phi_i(1)=1$ and thus $\phi_i$ is compatible with reduced words. This means that $\ast_i\phi_i$ is a group homomorphism and thus proving the existence part of the statement. \\~\\
+
+Now suppose that $A$ is such a group that satisfies the above property. Consider the following two diagrams: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& {\ast_i G_i} &&& {\ast_iG_i} \\
+	{G_k} & A && {G_k} \\
+	& {\ast_iG_i} &&& {\ast_iG_i}
+	\arrow["{\exists!\ast_i\lambda_i}", dashed, from=1-2, to=2-2]
+	\arrow["{\exists!=\text{id}}", dashed, from=1-5, to=3-5]
+	\arrow["{\iota_k}", from=2-1, to=1-2]
+	\arrow["{\lambda_k}"', from=2-1, to=2-2]
+	\arrow["{\iota_k}"', from=2-1, to=3-2]
+	\arrow["{\exists!\psi}", dashed, from=2-2, to=3-2]
+	\arrow["{\iota_k}", from=2-4, to=1-5]
+	\arrow["{\iota_k}"', from=2-4, to=3-5]
+\end{tikzcd}} \\~\\
+Since all the constructed maps are unique such that the diagram commutes, we conclude that $\psi\circ\ast_i\lambda_i=\text{id}$. Similarly, by considering the following diagrams: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& A &&& A \\
+	{G_k} & {\ast_iG_i} && {G_k} \\
+	& A &&& A
+	\arrow["{\exists!\psi}", dashed, from=1-2, to=2-2]
+	\arrow["{\exists!=\text{id}}", dashed, from=1-5, to=3-5]
+	\arrow["{\lambda_k}", from=2-1, to=1-2]
+	\arrow["{\iota_k}"', from=2-1, to=2-2]
+	\arrow["{\lambda_k}"', from=2-1, to=3-2]
+	\arrow["{\exists!\ast_i\lambda_i}", dashed, from=2-2, to=3-2]
+	\arrow["{\lambda_k}", from=2-4, to=1-5]
+	\arrow["{\lambda_k}"', from=2-4, to=3-5]
+\end{tikzcd}} \\~\\
+We conclude that $\ast_i\lambda_i\circ\psi=\text{id}$. Hence $\ast_iG_i$ and $A$ are isomorphic. Moreover, the isomorphism is unique since all maps constructed are unique such that their respective diagrams commute. 
 \end{proof}
+\end{prp}
+
+\subsection{Normal Closure}
+\begin{defn}{Normal Closure}{} Let $G$ be a group. Let $S\subseteq G$ be a subset of $G$. Define the normal closure of $S$ in $G$ to be the subgroup $$\langle S^G\rangle=\langle g^{-1}sg\;|\;\text{ for all }s\in S\text{ and }g\in G\rangle$$
+\end{defn}
+
+\begin{lmm}{}{} Let $G$ be a group. Let $S\subseteq G$ be a subset of $G$. Then $\langle S^G\rangle$ is a normal subgroup of $G$. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $G$ be a group. Let $S\subseteq G$ be a subset of $G$. Then $$\langle S^G\rangle=\bigcap_{S\subseteq N\trianglelefteq G}N$$
+\end{lmm}
+
+\begin{lmm}{}{} Let $G$ be a group. Let $N\trianglelefteq G$ be a normal subgroup of $G$. Then $\langle N^G\rangle=N$. 
 \end{lmm}
 
 \subsection{Presentations of a Group}
-\begin{defn}{Presentations on a Free Group}{} Let $S$ be a set and $F(S)$ be the free group on $S$. Let $R$ be a set of words on $S$. Let $N$ be the smallest normal subgroup that contains $R$. Define the group with presentations $\langle S|R\rangle$ to be $$\langle S|R\rangle=\frac{F(S)}{N}$$ Elements of $S$ are called generators and elements of $R$ are called relations. \\~\\
-A group $G$ is said to have a presentation if $G\cong\langle S|R\rangle$ for some $S$ and $R$. 
+\begin{defn}{Group of Generators and Relations}{} Let $S$ be a set. Let $F_S$ be the free group on $S$. Let $R$ be a set of words on $S$. Define the group with generators $S$ and relations $R$ to be the quotient $$\langle S\;|\;R\rangle=\frac{F_S}{\langle R^{F_S}\rangle}$$ Elements of $S$ are called generators and elements of $R$ are called relations. 
 \end{defn}
 
-\begin{thm}{}{} Every group has a presentation. \tcbline
+\begin{prp}{Universal Property of the Group of Generators and Relations}{} Let $S$ be a set. Let $R$ be a set of words on $S$. Then the group $\langle S\;|\;R\rangle$ and the inclusion map $\iota:S\hookrightarrow\langle S\;|\;R\rangle$ satisfies the following universal property. \\~\\
+
+For any group $G$ and any map of sets $f:S\to G$ for which the induced map $\overline{f}:F_S\to G$ by the universal property of free groups is such that $f(r)=1_G$ for all $r\in R$, there exists a unique group homomorphism $\phi:\langle S\;|\;R\rangle\to G$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	S & {\langle S\;|\;R\rangle} \\
+	& G
+	\arrow["\iota", from=1-1, to=1-2]
+	\arrow["f"', from=1-1, to=2-2]
+	\arrow["{\exists!\phi}", dashed, from=1-2, to=2-2]
+\end{tikzcd}} \\~\\
+Moreover, $\langle S\;|\;R\rangle$ is the unique group (up to unique isomorphism) that has such a property. 
+\end{prp}
+
+\begin{defn}{Presentations of a Group}{} Let $G$ be a group. A presentation of $G$ is a group isomorphism $$G\cong\langle S\;|\;R\rangle$$ for some set $S$ and some set of words $R$ of $S$. 
+\end{defn}
+
+\begin{prp}{}{} Every group has a presentation. \tcbline
 \begin{proof}
 This follows from the fact that every group is the quotient of a free group. 
 \end{proof}
-\end{thm}
+\end{prp}
 
-\begin{thm}{}{} Let $G=\langle S|R\rangle$ for $S=\{s_1,\dots,s_n\}$ a finite set of generators and $R$ is a set of relations. Let $H$ be a group and let $h_1,\dots,h_n$ be elements of $H$. Then there exists a homomorphism $\phi:G\to H$ satisfying $\phi(s_i)=h_i$ for $1\leq i\leq n$ if and only if every relation $r\in R$ holds with each $s_i$ replaced by $h_i$. \\~\\
-In this case, the homomorphism $\phi$ is unique. 
-\end{thm}
+\begin{prp}{}{} Let $S=\{s_1,\dots,s_n\}$ be a finite set. Let $R$ be a set of words of $S$. Let $G$ be a group. Let $g_1,\dots,g_n\in G$. Then there exists a group homomorphism $$\phi:G\to H\;\;\;\;\text{ such that }\;\;\;\;\phi(s_i)=g_i$$ for a$1\leq i\leq n$ if and only if for each $r_1\cdots r_k\in R$, $g_1\cdots g_k=1_G$. Such a homomorphism is unique if it exists. 
+\end{prp}
 
 \subsection{Amalgamated Products}
+\begin{defn}{Amalgamted Products}{} Let $G,H,K$ be groups. Let $\phi:K\to G$ and $\psi:K\to H$ be injective group homomorphisms. Define the amalgamated product of $G$ and $H$ over $K$ to be the quotient of the free product $$G\ast_KH=\frac{G\ast H}{\langle\{\phi(k)(\psi(k))^{-1}\;|\;k\in K\}^G\rangle}$$
+\end{defn}
 
 \pagebreak
 \section{Groups and Generators}
 \subsection{Generated Groups}
 Generated Subgroups generalizes the notion of cyclic subgroups in the sense that there are now more than one generators for constructing the group. 
 
-\begin{defn}{Subgroups Generated by a Set}{} Let $G$ be a group and $A$ a subset of $G$. Define the subgroup generated by $A$ to be $$\langle A\rangle=\{a_1^{e_1}\cdots a_n^{e_n}|n\in\N^+, a_1,\dots,a_n\in A, e_1,\dots,e_n\in\{\pm1\}\}$$ the subgroup of all elements of $G$ that can be expressed as the finite product of elements in $S$ and their inverses. 
+\begin{defn}{Subgroups Generated by a Set}{} Let $G$ be a group and $A$ a subset of $G$. Define the subgroup generated by $A$ to be $$\langle A\rangle=\{a_1^{e_1}\cdots a_n^{e_n}|n\in\N^+, a_1,\dots,a_n\in A, e_1,\dots,e_n\in\{\pm1\}\}$$ the subgroup of all elements of $G$ that can be expressed as the finite product of elements in $A$ and their inverses. 
 \end{defn}
 
-If $A=\{a_1,\dots,a_r\}$, we often write the generated subgroup as $\langle A\rangle=\langle a_1,\dots,a_r\rangle$, omitting the brackets. \\~\\
+If $A=\{a_1,\dots,a_r\}$ is finite, we often write the generated subgroup as $\langle A\rangle=\langle a_1,\dots,a_r\rangle$, omitting the brackets. \\
 
 Recall that the cyclic subgroup is the smallest subgroup containing the generator. Then generated subgroups also generalizes this particular property. In particular, we have the following identity. 
 
-\begin{prp}{}{} Let $G$ be a group and $A$ a subset of $G$. Then we have that $$\langle A\rangle=\bigcap_{A\subseteq H\leq G}H$$ which means that the generated subgroup is the smallest subgroup of $G$ containing $A$. 
+\begin{prp}{}{} Let $G$ be a group and $A$ a subset of $G$. Then we have that $$\langle A\rangle=\bigcap_{A\subseteq H\leq G}H$$
 \end{prp}
+
+This means that the generated subgroup is the smallest subgroup of $G$ containing $A$. 
 
 \begin{defn}{Generating Set of a Group}{} Let $G$ be a group and $S$ a subset of $G$. We say that $S$ is a generating set of $G$ if $G=\langle S\rangle$. 
 \end{defn}
@@ -128,121 +220,20 @@ Recall that the cyclic subgroup is the smallest subgroup containing the generato
 \begin{defn}{Finitely Generated Groups}{} A group $G$ is finitely generated if there is a finite subset $A=\{g_1,\dots,g_n\}$ of $G$ such that $G=\langle A\rangle$. 
 \end{defn}
 
-\begin{lmm}{}{} Every finitely generated group is a free group. 
-\end{lmm}
-
-\begin{prp}{}{} Every quotient of a finitely generated group is finitely generated. 
+\begin{prp}{}{} Let $G$ be a finitely generated group. Let $N$ be a normal subgroup of $G$. Then $G/N$ is finitely generated. 
 \end{prp}
 
-\subsection{Free Abelian Groups}
-\begin{defn}{Basis of a Group}{} Let $G$ be an abelian group. Let $B\subset G$. 
-\begin{itemize}
-\item We say that elements of $B$ are linearly independent if $\sum_{b\in B}n_b\cdot b=0$ implies $n_b=0$ for each $b\in B$
-\item We say that $B$ is a basis of $G$ if it is linearly independent and generate $G$. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Free Abelian Group}{} A free abelian group is an abelian group $G$ that has a basis. 
-\end{defn}
-
-Notice that $k_1,\dots,k_n$ are unique for each element $g\in G$. This contrasts the fact that in finitely generated abelian groups, $k_1,\dots,k_n$ are not necessarily unique. \\~\\
-Another comparison, every free group is not finite, but again there is none of this restriction on finitely generated abelian groups. 
-
-\begin{defn}{Free Abelian Group Generated by a Set}{} Let $X$ be a countable set. Define the free abelian group on $X$ to be $$G(X)=\left\{\sum_{x\in X}n_x\cdot x|n_x\in\Z\right\}$$ If $\abs{X}$ is not finite we require that each element is sum of a finite number of nonzero $n_x$. 
-\end{defn}
-
-The following proposition shows that they are essentially the same construction. 
-
-\begin{prp}{}{} Let $G$ be a free group with basis $B$. Then $G=G(B)$. Let $X$ be a set. Then $G(X)$ is a free group with basis $X$. 
+\begin{prp}{}{} Let $G$ be a group. Then $G$ is finitely generated if and only if there exists $n\in\N$ such that $G$ is isomorphic to the quotient of the free group $F_n$ of rank $n$ with a normal subgroup $N$ of $F_n$, written as $$G\cong\frac{F_n}{N}$$
 \end{prp}
-
-\begin{thm}{The Universal Property}{} Let $G$ be a free abelian group with basis $B$. Let $A$ be an arbitrary abelian group. Let $f:B\to A$ be a function (of sets). Then there exists a unique group homomorphism $F$ from $G$ to $A$ such $F|_B=f$. In other words, the following diagram commutes: \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-B\arrow[r, "\iota"]\arrow[rd, "f"'] & G\arrow[d, "\exists !F", dashed]\\
-& A
-\end{tikzcd}}
-\end{thm}
-
-\begin{prp}{}{} Let $G$ be an abelian group and $g_1,\dots,g_n\in G$. Denote $e_k$ the element of $\Z^n$ with $1$ at the $k$th position and $0$ at all others. Define a function $\phi:\Z^n\to G$ by $\phi(e_k)=g_k$. Then
-\begin{itemize}
-\item by defining $\phi(a_1,\dots,a_n)=\sum_{k=1}^na_kg_k$, $\phi$ is a group homomorphism
-\item $g_1,\dots,g_n$ are linearly independent if and only if $\phi$ is injective
-\item $g_1,\dots,g_n$ generate $G$ if and only if $\phi$ is surjective
-\item $g_1,\dots,g_n$ form a basis of $G$ if and only if $\phi$ is an isomorphism
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Let $G$ be a free abelian group with finite basis $B$ of cardinality $n$. Then $$G\cong\Z^n$$ In this case, we say that the free group $G$ is free of rank $n$. 
-\end{prp}
-
-\subsection{Unimodular Smith Normal Form}
-\begin{defn}{Unimodular Elementary Operations}{} We define unimodular elementary operations on $A\in M_{m\times n}(\Z)$ as follows: 
-\begin{itemize}
-\item (UR1): Replace row $r_i$ with $r_i+tr_j$ where $j\neq i$ and $t\in\Z$
-\item (UR2): Interchange two rows $r_i$ and $r_j$
-\item (UR3): Replace row $r_i$ by $-r_i$
-\item (UC1): Replace column $c_i$ with $c_i+tc_j$ where $j\neq i$ and $t\in\Z$
-\item (UC2): Interchange two columns $c_i$ and $c_j$
-\item (UC3): Replace columns $r_i$ by $-r_i$
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Unimodular Elementary Matrices}{} Define three elementary matrices as follows: 
-\begin{itemize}
-\item Recombine Matrix: The $n\times n$ recombine matrix $R_{i,j,a}$ is given the zero matrix except the diagonal is all $1$ and the $i$th row and $j$th column has the value $a\in\Z$. 
-\item Scale Matrix: The $n\times n$ scale matrix $R_{i}(-1)$ is given by  the zero matrix except the diagonal is all $1$, and the $i,i$th element is $-1$. 
-\item Transposition Matrix: The $n\times n$ transposition matrix $R_{i,j}$ is given by the zero matrix except the diagonal is all $1$, the $i,i$th element and $j,j$th element is $0$ and the $i,j$th and $j,i$th element is $1$
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} The unimodular elementary operations are exactly equivalent to performing left and right matrix multiplications with unimodular elementary matrices. \\~\\
-In particular, left multiplication corresponds to row operations and right multiplication corresponds to column operations. 
-\end{prp}
-
-\begin{thm}{}{} Let $A\in\Z_{m\times n}$ with rank $r$. Then there exists a sequence of unimodular elementary row and column operations such that $A$ is reduced to $$\begin{pmatrix}
-d_1 & 0 & \cdots & 0\\
-0 & d_2 & \cdots & 0\\
-\vdots & \vdots & \ddots & 0\\
-0 & 0 & \cdots & 0
-\end{pmatrix}$$ where the $d_r$ is the last non zero diagonal entry. The diagonal also satisfies $d_i>0$ for $1\leq i\leq r$ and $d_i|d_{i+1}$ for $1\leq i<r$. The $d_1,\dots,d_r$ are also uniquely determined by $A$. \tcbline
-\begin{proof}
-\end{proof}
-\end{thm}
-
-\begin{defn}{Unimodular Smith Normal Form}{} Let $A\in M_{n\times n}(\Z)$ be a matrix with coefficients in $\Z$. Define the smith normal form of $A$ to be the unique matrix above, denoted $\text{SNF}(A)$. 
-\end{defn}
-
-\begin{lmm}{}{} Let $A\in\Z_{m\times n}$ has unimodular smith normal form $S$ with rank $r$. Then the greatest common divisor of all entries of $A$ is equal to $d_1$ where we require $\gcd(r,0)=r$ for $r\geq 1$. 
-\end{lmm}
 
 \pagebreak
 \section{More Types of Groups}
-\subsection{Torsion Groups}
+\subsection{Torsion and Torsion-Free Groups}
 \begin{defn}{Torsion Group}{} A group $G$ is said to be a torsion group if every element of $G$ has finite order. A group $G$ is called torsion free if every element of $G$ except the identity has infinite order. 
 \end{defn}
 
 \begin{defn}{Torsion Subgroup}{} Let $G$ be an abelian group. The torsion subgroup of $G$ is the subgroup of $G$ consisting of all elements of finite order. 
 \end{defn}
-
-\begin{prp}{}{} Let $A$ be an abelian group and $B$ a subgroup of $A$. If $A/B$ is a free abelian group, then $$A\cong B\times A/B$$ \tcbline
-\begin{proof}
-Denote the quotient map $f:A\to A/B$. Since $A/B$ is free abelian, there exists $K=\{a_1+B,\dots,a_n+B,\dots\}$ such that $K$ is a basis of $A/B$. Now consider $L=\langle a_1,\dots,a_n,\dots\rangle$. I claim that this is isomorphic to $A/B$. In fact, this is given by $f|_L$. Clearly $f|_K(a_i)=a_i+B$ for each $i$. Suppose that $a\in\ker(f|_K)$. Write $a=\sum_{i=1}^nk_ia_i$. Then we have 
-\begin{align*}
-f|_L\left(\sum_{i=1}^nk_ia_i\right)&=B\\
-\sum_{i=1}^nk_if|_L(a_i)&=B\\
-\sum_{i=1}^nk_i(a_i+B)&=B\\
-\end{align*}
-By property of the basis, we have that $k_1=\dots=k_n=0$. This generalizes well to the countable case since every element is written in a finite sum. Thus we have that $\ker(f|_L)=0$. For surjectivity, if $\sum k_i(a_i+B)$ is a finite sum in $A/B$ then just choose $\sum k_ia_i\in L$. Thus we have shown bijectivity. \\~\\
-Finally, we show that $A\cong B\times L$. Define $\phi:B\times L\to A$ by $$\phi\left(b,\sum k_ia_i\right)=\sum k_ia_i+b$$ We first show injectivity. We have that 
-\begin{align*}
-\sum k_ia_i+b&=0\\
-\sum k_ia_i&=-b\\
-\sum k_if|_L(a_i)&=0\\
-\sum k_i(a_i+B)&=0
-\end{align*}
-This implies that $k_i=0$ and thus $b=0$. Thus $\ker(\phi)=0$. Now suppose that $a\in A$. Consider the element $a+B\in A/B$. Since $A/B$ has the basis $K$, we have that $$a+B=\sum k_i(a_i+B)=\left(\sum k_ia_i\right)+B$$ This implies that $a-\sum k_ia_i\in B$ Then choosing $b=a-\sum k_ia_i$ and $\sum k_ia_i\in L$, we are done with surjectivity. This makes sense even if $\sum k_ia_i\in B$ because in this case, $\sum k_ia_i=0$ and we can choose $b=a\in B$. 
-\end{proof}
-\end{prp}
 
 \subsection{$p$-groups}
 \begin{defn}{$p$-groups}{} A group of order $p^k$ for some $k>0$ is called a p-group. Subgroups of any group that is a p-group are called p-subgroups. 
@@ -300,12 +291,76 @@ It suffices to show that $G$ is abelian if and only if $[G,G]=1$. We know that i
 \end{proof}
 \end{prp}
 
-\begin{defn}{Perfect Groups}{} A group is perfect if $G=[G,G]$. 
+\begin{defn}{Perfect Groups}{} Let $G$ be a group. We say that $G$ is perfect if $[G,G]=G$. 
 \end{defn}
 
+\pagebreak
+\section{Free Abelian Groups}
+\subsection{Direct Sums of Abelian Groups}
+\begin{defn}{Direct Sum of Abelian Groups}{} Let $\{G_i\;|\;i\in I\}$ be a collection of abelian group. Define the direct sum of the abelian groups to be the set $$\bigoplus_{i\in I}G_i=\{(g_i)_{i\in I}\in\prod_{i\in I}G_i\;|\;\text{Only finitely many }g_i\text{ is non-zero}\}$$ together with the product of their binary operations. 
+\end{defn}
+
+\begin{lmm}{}{} Let $\{G_i\;|\;i\in I\}$ be a collection of abelian group. Then $\bigoplus_{i\in I}G_i$ is a subgroup of $\prod_{i\in I}G_i$. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $G_1,\dots,G_n$ be a finite collection of abelian groups. Then the identity map of sets give a group isomorphism $$\bigoplus_{i=1}^nG_i\cong\prod_{i=1}^nG_i$$
+\end{lmm}
+
+\subsection{Free Abelian Groups}
+\begin{defn}{Basis of an Abelian Group}{} Let $G$ be an abelian group. Let $B\subset G$. 
+\begin{itemize}
+\item We say that elements of $B$ are linearly independent if $\sum_{b\in B}n_b\cdot b=0$ implies $n_b=0$ for each $b\in B$
+\item We say that $B$ is a basis of $G$ if it is linearly independent and generate $G$. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Free Abelian Group}{} Let $G$ be an abelian group. We say that $G$ is free abelian if $G$ admits a basis. 
+\end{defn}
+
+Notice that $k_1,\dots,k_n$ are unique for each element $g\in G$. This contrasts the fact that in finitely generated abelian groups, $k_1,\dots,k_n$ are not necessarily unique. \\
+Another comparison, every free group is not finite, but again there is none of this restriction on finitely generated abelian groups. 
+
+\begin{prp}{}{} Let $A$ be an abelian group and $B$ a subgroup of $A$. If $A/B$ is a free abelian group, then $$A\cong B\times A/B$$ \tcbline
+\begin{proof}
+Denote the quotient map $f:A\to A/B$. Since $A/B$ is free abelian, there exists $K=\{a_1+B,\dots,a_n+B,\dots\}$ such that $K$ is a basis of $A/B$. Now consider $L=\langle a_1,\dots,a_n,\dots\rangle$. I claim that this is isomorphic to $A/B$. In fact, this is given by $f|_L$. Clearly $f|_K(a_i)=a_i+B$ for each $i$. Suppose that $a\in\ker(f|_K)$. Write $a=\sum_{i=1}^nk_ia_i$. Then we have 
+\begin{align*}
+f|_L\left(\sum_{i=1}^nk_ia_i\right)&=B\\
+\sum_{i=1}^nk_if|_L(a_i)&=B\\
+\sum_{i=1}^nk_i(a_i+B)&=B\\
+\end{align*}
+By property of the basis, we have that $k_1=\dots=k_n=0$. This generalizes well to the countable case since every element is written in a finite sum. Thus we have that $\ker(f|_L)=0$. For surjectivity, if $\sum k_i(a_i+B)$ is a finite sum in $A/B$ then just choose $\sum k_ia_i\in L$. Thus we have shown bijectivity. \\~\\
+Finally, we show that $A\cong B\times L$. Define $\phi:B\times L\to A$ by $$\phi\left(b,\sum k_ia_i\right)=\sum k_ia_i+b$$ We first show injectivity. We have that 
+\begin{align*}
+\sum k_ia_i+b&=0\\
+\sum k_ia_i&=-b\\
+\sum k_if|_L(a_i)&=0\\
+\sum k_i(a_i+B)&=0
+\end{align*}
+This implies that $k_i=0$ and thus $b=0$. Thus $\ker(\phi)=0$. Now suppose that $a\in A$. Consider the element $a+B\in A/B$. Since $A/B$ has the basis $K$, we have that $$a+B=\sum k_i(a_i+B)=\left(\sum k_ia_i\right)+B$$ This implies that $a-\sum k_ia_i\in B$ Then choosing $b=a-\sum k_ia_i$ and $\sum k_ia_i\in L$, we are done with surjectivity. This makes sense even if $\sum k_ia_i\in B$ because in this case, $\sum k_ia_i=0$ and we can choose $b=a\in B$. 
+\end{proof}
+\end{prp}
+
+Just as free groups are unique up to the cardinality of the underlying set, free abelian groups are unique up to the cardinality of its basis. 
+
+\begin{prp}{}{} Let $G$ be a free abelian group with basis $B$. Then $G$ is isomorphic to a direct sum $$G\cong\bigoplus_{i\in I}\Z$$ for $\abs{I}=\abs{B}$. 
+\end{prp}
+
+\begin{prp}{Universal Property of Free Abelian Groups}{} Let $G$ be a free abelian group with basis $B$. Then $G$ and the inclusion $\iota:B\hookrightarrow G$ satisfies the following universal property. For any abelian group $H$ and any map of sets $f:B\to H$, there exists a unique group homomorphism $F:G\to H$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	B & G \\
+	& H
+	\arrow["\iota", hook, from=1-1, to=1-2]
+	\arrow["f"', from=1-1, to=2-2]
+	\arrow["{\exists!F}", dashed, from=1-2, to=2-2]
+\end{tikzcd}} \\~\\
+Moreover, $G$ is the unique group (up to unique isomorphism) that has such a property. 
+\end{prp}
+
+\begin{prp}{}{} Let $G$ be a free abelian group. Then there exists a set $S$ such that there is an isomorphism $$G\cong(F_S)^\text{ab}$$
+\end{prp}
 
 \pagebreak
-\section{The Theory of Abelian Groups}
+\section{Finite and Finitely Generated Abelian Groups}
 \subsection{Finite Abelian Groups}
 \begin{defn}{Finite Abelian Groups}{} A group $G$ is said to be a finite abelian group if it is finite and abelian. 
 \end{defn}
@@ -322,25 +377,23 @@ It suffices to show that $G$ is abelian if and only if $[G,G]=1$. We know that i
 \begin{lmm}{}{} Let $G$ be a finite abelian $p$ group and suppose that $g\in G$ is an element in $G$ with the highest order. Then $G$ is isomorphic to $\langle g\rangle\times H$ for some subgroup $H$ of $G$. 
 \end{lmm}
 
-\begin{thm}{The Fundamental Theorem for Finite Abelian Group}{} Let $G$ be a finite abelian group. Then $G$ can be decomposed into $$G\cong\Z/k_1\Z\times\dots\times\Z/k_u\Z$$ in one of the following canonical forms: 
-\begin{itemize}
-\item $k_{i+1}|k_i$ for $1\leq i\leq u-1$
-\item $k_1,\dots,k_u$ are powers of primes that are not necessarily distinct
-\end{itemize}
+\begin{thm}{The Fundamental Theorem for Finite Abelian Group (Primary Decomposition)}{} Let $G$ be a finite abelian group. Then $G$ can be decomposed into a direct product of cyclic groups $$G\cong\Z/k_1\Z\times\dots\times\Z/k_n\Z$$ where $k_1,\dots,k_n\in\N$ are such that $k_{i+1}|k_i$ for $1\leq i\leq n-1$. 
+\end{thm}
+
+\begin{thm}{Invariant Factor Decomposition}{} Let $G$ be a finite abelian group. Then $G$ can be decomposed into a direct product of cyclic groups $$G\cong\Z/k_1\Z\times\dots\times\Z/k_n\Z$$ where $k_1,\dots,k_n\in\N$ are such that $k_1,\dots,k_n$ are powers of primes that are not necessarily distinct. 
 \end{thm}
 
 \subsection{Finitely Generated Abelian Groups}
 \begin{defn}{Finitely Generated Abelian Groups}{} A group $G$ is said to be finitely generated abelian if it is finitely generated and abelian. 
 \end{defn}
 
-\begin{lmm}{}{} Let $A$ be a subset of an abelian group $(G,+)$. Then $$\langle A\rangle=\left\{\sum_{g\in A}k_g\cdot g|k\in\Z\right\}$$\tcbline
+\begin{lmm}{}{} Let $G$ be an abelian group. If $G$ is finite, then $G$ is finitely generated. \tcbline
 \begin{proof}
-Using the above proposition and the fact that $G$ is abelian means that we only need one copy of $g$ in the sum (compare this to the nonabelian case). 
+A finite choice of generators for $G$ in this case would be the set $G$. 
 \end{proof}
 \end{lmm}
 
-\begin{lmm}{}{} Every finite abelian group is finitely generated. 
-\end{lmm}
+Contrasting finitely generated groups, finitely generated abelian groups allow for a more simple description of subgroups generated by a subset because we can collect like terms by commuting elements. In particular, if $G$ is an abelian group and $A\subseteq G$ is a subset, then $$\langle A\rangle=\left\{\sum_{g\in A}k_g\cdot g|k\in\Z\right\}$$
 
 \begin{prp}{}{} Subgroups of a finitely generated abelian group is finitely generated. \tcbline
 \begin{proof}
@@ -350,38 +403,50 @@ Suppose that $H$ is not a subgroup of $K$. Then there exists elements of the for
 \end{proof}
 \end{prp}
 
-\subsection{Relation of with Free Abelian Groups}
-\begin{lmm}{}{} Every free abelian group of finite rank is a finitely generated abelian group. 
-\end{lmm}
+\begin{prp}{}{} Let $G$ be a finitely generated abelian group generated by the elements $g_1,\dots,g_n\in G$. Then there exists a surjective group homomorphism $\phi:\Z^n\to G$ given by sending $(0,\dots,0,1,0,\dots,0)$ with non-zero entry at the $k$th column to $g_k$. 
+\end{prp}
 
-\begin{thm}{}{} A finitely generated abelian group is a free abelian group if and only if it is torison free. \\~\\
-In the case that a finitely generated abelian group $G$ is a free abelian group of rank $n$, we say that $G$ is free of rank $n$. 
-\end{thm}
+A free abelian group is in some sense freely generated by its set of basis whose only restriction is for it to be abelian. On the other hand, finitely generated abelian groups may have extra relations between basis elements preventing them from being free. Therefore every finitely generated abelian group can be thought of as a free abelian group, then quotient some non-trivial relations. 
 
-Recall that any subgroup of a finitely generated abelian group is finitely generated. 
-
-\begin{thm}{}{} Every finitely generated abelian group is the quotient group of a free abelian group. \tcbline
+\begin{prp}{}{} Let $G$ be a finitely generated abelian group generated by $n$ elements. Then the following are true. 
+\begin{itemize}
+\item There exists a finitely generated subgroup $H=\langle v_1,\dots,v_m\rangle$ of $\Z^n$ such that there is an isomorphism $$G\cong\frac{\Z^n}{H}$$
+\item $G$ has the presentation of $G\cong\langle x_1,\dots,x_n\;|\;v_1,\dots,v_m\rangle$ where $x_1,\dots,x_n$ are the standard basis of $\Z^n$ (as a subgroup of $\Z^n$ so that the commutating relations are hidden)
+\end{itemize} \tcbline
 \begin{proof}
-If $G$ is a finitely generated abelian group, it has a surjective homomorphism $\phi:\Z^n\to G$. Using the first isomorphism theorem, we have that $$G=\im(\phi)\cong\frac{\Z^n}{\ker(\phi)}$$
+Let $G$ be a finitely generated abelian group. Then there exists $g_1,\dots,g_n\in G$ such that $G=\langle g_1,\dots,g_n\rangle$. Define a function $\phi:\Z^n\to G$ by sending $(0,\dots,0,1,0,\dots,0)$ where the $k$th position is non-zero, to the element $g_k$. By the universal property of free abelian groups, 
 \end{proof}
-\end{thm}
+\end{prp}
 
-\begin{defn}{Presentations}{} Let $G$ be a finitely generated abelian group given by the quotient of a free abelian group $\Z^n$ with $\ker(\phi)=\langle v_1,\dots,v_m\in\Z^m\rangle$. We represent $G$ in the form $$G=\frac{\Z^n}{\ker(\phi)}=\langle x_1,\dots,x_n|v_1,\dots,v_m\rangle$$ following the conventions of presentations on a general free group. 
-\end{defn}
+We can compare some of the similarities between free groups and free abelian groups. 
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{p{8cm}|p{8cm}}
+Free Groups                                                                               & Free Abelian Groups                                                                                       \\[1.5ex] \hline\hline
+Groups with the least relations                                                           & Abelian groups with the least relations                                                                   \\[1.5ex]\hline
+\multirow{2}{*}{Unique up to cardinality of underying set}                                & Unique up to cardinality of basis                                                                         \\
+                                                                                          & (which is its underlying set)                                                                             \\\hline
+Free product of one point sets                                                            & Direct sum of copies of $\Z$                                                                              \\[1.5ex]\hline
+It is finitely generated if and only if it is isomorphic to $F_n$                         & It is finitely generated if and only if it is isomorphic to $\Z^n$                                        \\[1.5ex]\hline
+Every finitely generated group is isomorphic to a quotient of a free group of finite rank & Every finitely generated abelian group is isomorphic to a quotient of a free abelian group of finite rank
+\end{tabular}
+\end{table}
+
+A more surprising result would be the following, which says that if there are no elements in the finitely generated group $G$ with finite order, then it means that no extra relations are imposed on $G$ so that $G$ is a free abelian group. 
+
+\begin{prp}{}{} Let $G$ be a finitely generated abelian group. Then $G$ is a free abelian group if and only if $G$ is torsion-free. 
+\end{prp}
 
 In particular, this representation means that $v_1=0,\dots,v_m=0$ in $\Z^n$. The question remaining is to how to transform the kernel $\ker(\phi)$ into the generators $v_1,\dots,v_m\in\Z^n$. 
 
-\begin{prp}{}{} Let $H$ be a subgroup of $\Z^n$. Then there exists a basis $B=\{b_1,\dots,b_n\}$ of $\Z^n$ such that $$H=\langle d_1b_1,\dots,d_mb_m\rangle$$ where $d_1,\dots,d_n\in\N$ and $d_i|d_{i+1}$ for $1\leq i\leq m-1$. 
-\end{prp}
-
-\begin{prp}{}{} Let $\langle x_1,\dots,x_n|v_1,\dots,v_m\rangle$ be a finitely generated abelian group. Then there exists a set of relations such that this group can be rewritten into $$\langle b_1,\dots,b_n|d_1x_1,\dots,d_mx_m\rangle$$ where $d_1,\dots,d_n>0$ and $d_i|d_{i+1}$ for $1\leq i\leq m-1$. \tcbline
+\begin{prp}{}{} Let $G$ be a finitely generated abelian group. Then there exists a basis $\{b_1,\dots,b_n\}$ of $\Z^n$ such that there is an isomorphism $$G=\langle b_1,\dots,b_n\;|\;d_1b_1,\dots,d_mb_m\rangle$$ where $d_1,\dots,d_m\in\N\setminus\{0\}$ are such that $d_i|d_{i+1}$ for $1\leq i\leq m-1$. \tcbline
 \begin{proof}
 Suppose that $G=\langle x_1,\dots,x_n|v_1,\dots,v_m\rangle=\frac{\Z^n}{K}$. Since $K$ is a subgroup of $\Z^n$, we know that it is also a free group. 
 \end{proof}
 \end{prp}
 
-\subsection{Fundamental Theorem for Finitely Generated Abelian Groups}
-\begin{thm}{Invariant Factor Decomposition}{} Let $G$ be a finitely generated abelian group. Then $G$ can be decomposed into $$G\cong \Z/n_1\Z\times\cdots\times\Z/n_s\Z\times\mathbb{Z}^r$$ where 
+\begin{thm}{Fundamental Theorem of Finitely Generated Abelian Groups (Invariant Factor Decomposition)}{} Let $G$ be a finitely generated abelian group. Then $G$ can be decomposed into $$G\cong \Z/n_1\Z\times\cdots\times\Z/n_s\Z\times\mathbb{Z}^r$$ where 
 \begin{itemize}
 \item (free rank / Betti number) $r\geq 0$ and $n_j\geq 2$ for all $j$
 \item (invariant factors) $n_{i+1}|n_i$ for $1\leq i\leq s-1$
@@ -409,6 +474,46 @@ This expression is unique up to reordering of the indices.
 \item $n=n'$ and $m=m'$
 \end{itemize}
 \end{thm}
+
+\subsection{Unimodular Smith Normal Form}
+\begin{defn}{Unimodular Elementary Operations}{} We define unimodular elementary operations on $A\in M_{m\times n}(\Z)$ as follows: 
+\begin{itemize}
+\item (UR1): Replace row $r_i$ with $r_i+tr_j$ where $j\neq i$ and $t\in\Z$
+\item (UR2): Interchange two rows $r_i$ and $r_j$
+\item (UR3): Replace row $r_i$ by $-r_i$
+\item (UC1): Replace column $c_i$ with $c_i+tc_j$ where $j\neq i$ and $t\in\Z$
+\item (UC2): Interchange two columns $c_i$ and $c_j$
+\item (UC3): Replace columns $r_i$ by $-r_i$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Unimodular Elementary Matrices}{} Define three elementary matrices as follows: 
+\begin{itemize}
+\item Recombine Matrix: The $n\times n$ recombine matrix $R_{i,j,a}$ is given the zero matrix except the diagonal is all $1$ and the $i$th row and $j$th column has the value $a\in\Z$. 
+\item Scale Matrix: The $n\times n$ scale matrix $R_{i}(-1)$ is given by  the zero matrix except the diagonal is all $1$, and the $i,i$th element is $-1$. 
+\item Transposition Matrix: The $n\times n$ transposition matrix $R_{i,j}$ is given by the zero matrix except the diagonal is all $1$, the $i,i$th element and $j,j$th element is $0$ and the $i,j$th and $j,i$th element is $1$
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} The unimodular elementary operations are exactly equivalent to performing left and right matrix multiplications with unimodular elementary matrices. \\~\\
+In particular, left multiplication corresponds to row operations and right multiplication corresponds to column operations. 
+\end{prp}
+
+\begin{thm}{}{} Let $A\in\Z_{m\times n}$ with rank $r$. Then there exists a sequence of unimodular elementary row and column operations such that $A$ is reduced to $$\begin{pmatrix}
+d_1 & 0 & \cdots & 0\\
+0 & d_2 & \cdots & 0\\
+\vdots & \vdots & \ddots & 0\\
+0 & 0 & \cdots & 0
+\end{pmatrix}$$ where the $d_r$ is the last non zero diagonal entry. The diagonal also satisfies $d_i>0$ for $1\leq i\leq r$ and $d_i|d_{i+1}$ for $1\leq i<r$. The $d_1,\dots,d_r$ are also uniquely determined by $A$. \tcbline
+\begin{proof}
+\end{proof}
+\end{thm}
+
+\begin{defn}{Unimodular Smith Normal Form}{} Let $A\in M_{n\times n}(\Z)$ be a matrix with coefficients in $\Z$. Define the smith normal form of $A$ to be the unique matrix above, denoted $\text{SNF}(A)$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $A\in\Z_{m\times n}$ has unimodular smith normal form $S$ with rank $r$. Then the greatest common divisor of all entries of $A$ is equal to $d_1$ where we require $\gcd(r,0)=r$ for $r\geq 1$. 
+\end{lmm}
 
 \pagebreak
 \section{The Sylow Theorems and its Consequences}

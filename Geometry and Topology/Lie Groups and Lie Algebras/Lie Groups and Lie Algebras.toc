@@ -24,15 +24,20 @@
 \contentsline {subsection}{\numberline {5.2}Abstract Jordan Decomposition}{21}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Cartan Subalgebras}{22}{subsection.5.3}%
 \contentsline {section}{\numberline {6}Representation Theory of Lie Algebras}{23}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Representations and Modules}{23}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Weights}{24}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Introduction to Lie Groups}{26}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Lie Groups}{26}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Relation between Lie Groups and Lie Algebras}{26}{subsection.7.2}%
+\contentsline {subsection}{\numberline {6.1}Modules over Lie Algebras}{23}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Reducibility of Modules over Lie Algebras}{23}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Basic Representation Theory of Lie Algebras}{24}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}The Case of $\text {SL}(2,\mathbb {C})$}{24}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Introduction to Lie Groups}{25}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Lie Groups}{25}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Relation between Lie Groups and Lie Algebras}{25}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}The Exponential Map}{26}{subsection.7.3}%
 \contentsline {section}{\numberline {8}Root Systems of Vector Spaces}{27}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Root Systems}{27}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Bases for Root Systems}{27}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}The Weyl Group of a Root System}{27}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Dynkin Diagrams}{28}{subsection.8.4}%
-\contentsline {section}{\numberline {9}Classification of Semisimple Lie Algebras over $\mathbb {C}$}{29}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Roots Systems Arising from Cartan Subalgebras}{29}{subsection.9.1}%
+\contentsline {subsection}{\numberline {8.2}Bases for Root Systems}{28}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}The Weyl Group of a Root System}{28}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Dynkin Diagrams}{29}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Classification of Semisimple Lie Algebras over $\mathbb {C}$}{30}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Weights of Lie Sub-Algebras of GL(V)}{30}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Roots Systems Arising from Cartan Subalgebras}{30}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Simple Lie Algebras and Irreducible Dynkin Diagrams}{32}{subsection.9.3}%

@@ -25,7 +25,7 @@ References:
 
 \pagebreak
 
-\section{The Category of Simplicial Sets}
+\section{Simplicial Sets and Simplicial Objects}
 \subsection{The Simplex Category}
 Recall the simplex category in Category Theory 1. 
 
@@ -214,50 +214,9 @@ Hence a simplicial object in $\bold{Set}$ is just simplical sets.
 
 \begin{lmm}{}{} Let $S$ be a set. Then $S$ is a semisimplicial set if and only if $S$ is a $\Delta$-set (in the sense of Algebraic Topology 2). 
 \end{lmm}
-\subsection{Completeness and Cocompleteness}
-\begin{defn}{Product of Simplicial Sets}{} Let $S,T$ be simplicial sets. Define the product of $S$ and $T$ to be the simplicial set $$S\times T:\Delta\to\bold{Set}$$ by the formula $$[n]\mapsto S_n\times T_n$$
-\end{defn}
-
-\begin{prp}{}{} Let $S,T$ be simplicial sets. Then the categorical product of $S$ and $T$ is precisely $S\times T$. 
-\end{prp}
-
-\begin{lmm}{}{} Let $S,T$ be simplicial sets. Then there is a canonical homeomorphism $$\abs{S\times T}\cong\abs{S}\times\abs{T}$$ given by geometric realization. 
-\end{lmm}
-
-\subsection{The Closed Monoidal Structure of $\bold{sSet}$}
-\begin{defn}{Internal Hom of Simplicial Sets}{} Let $S,T$ be simplicial sets. Define the simplicial set $$[S,T]:\Delta\to\bold{Set}$$ by the formula $$[n]\mapsto\Hom_\bold{sSet}(\Delta^n\times S\to T)$$ By the Yoneda embedding this is well defined. 
-\end{defn}
-
-We can easily identify morphisms of simplicial sets as the vertices of the internal hom. 
-
-\begin{defn}{Evaluation Morphism}{} Let $S,T$ be simplicial sets. Define the evaluation morphism $$\text{Ev}:[S,T]\times S\to T$$ as follows. For $f\in[S,T]$ and $n$-simplex and $\sigma\in S$ an $n$-simplex, define an $n$-simplex in $T$ by $$\Delta^n\overset{\delta}{\rightarrow}\Delta^n\times\Delta^n\overset{\text{id}\times\sigma}{\rightarrow}\Delta^n\times S\overset{f}{\rightarrow}T$$
-\end{defn}
-
-\begin{thm}{The Closed Monoidal Adjunction}{} Let $S,T,U$ be simpplicial sets. Then there is a natural isomorphism $$\Hom_\bold{sSet}(S\times T,U)\cong\Hom_\bold{sSet}(S,[T,U])$$ induced by the post composition of the evaluation momorphism (in the opposite way). Moreover $\bold{sSet}$ is a closed monoidal category. 
-\end{thm}
 
 \pagebreak
-\section{Simplicial Homological Algebra}
-\subsection{Chain Complexes of Simplicial Objects}
-\begin{defn}{Associated Chain Complex}{} Let $\mA$ be an abelian category. Let $A$ be a (semi)-simplicial object in $\mA$. Define the associated chain complex of $A$ to be \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {C_{n+1}(A)} & {C_n(A)} & {C_{n-1}(A)} & \cdots & {C_0(A)}
-	\arrow[from=1-1, to=1-2]
-	\arrow["{\partial_{n+1}}", from=1-2, to=1-3]
-	\arrow["{\partial_n}", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-	\arrow[from=1-5, to=1-6]
-\end{tikzcd}}\\~\\
-where $C_n(A)=A_n$ and the boundary operator given by $$\partial_n=\sum_{i=0}^n(-1)^id_i^n:A_n\to A_{n-1}$$
-\end{defn}
-
-TBA: Functoriality of associated chain complex
-
-\begin{defn}{Simplicial Homology}{} Let $R$ be a ring. Let $X$ be a (semi)-simplicial set. Define the simplicial homology of $X$ with coefficients in $R$ to be the homology groups $$H_n^\Delta(X;R)=H_n(C_\bullet(R[X]))$$
-\end{defn}
-
-Notice that this definition coincides with that in Algebraic Topology 2. Recall that in AT2 we defined the simplicial homology of a $\Delta$-set, but in $\Z$ coefficients. 
-
+\section{The Category of Simplicial Sets}
 \subsection{The Singular Functor}
 \begin{defn}{Singular Functor}{} The singular functor $S:\text{Top}\to\text{sSet}$ is defined as follows. 
 \begin{itemize}
@@ -281,68 +240,27 @@ In particular, it is easy to see that $S(X)[0]$ recovers the set of points of $X
 \begin{thm}{}{} The singular functor $S:\text{Top}\to\text{sSet}$ is right adjoint to the geometric realization functor $\abs{\;\cdot\;}:\text{sSet}\to\text{Top}$. This means that there is a natural bijection $$\Hom_\text{Top}(\abs{X},Y)\cong\Hom_\text{sSet}(X,S(Y))$$ for any space $Y$ and any simplicial set $X$. 
 \end{thm}
 
-\subsection{Normalized Chain Complexes}
-\begin{defn}{Normalized Chain Complexes}{} Let $\mA$ be an abelian category or the category $\bold{Grp}$. Let $A$ be a simplicial object in $\mA$. Define the normalized chain complex of $A$ to be the chain complex: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {N_{k+1}(A)} & {N_k(A)} & {N_{k-1}(A)} & \cdots & {N_1(A)}
-	\arrow[from=1-1, to=1-2]
-	\arrow["{\partial_{k+1}}", from=1-2, to=1-3]
-	\arrow["{\partial_k}", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-	\arrow[from=1-5, to=1-6]
-\end{tikzcd}}\\~\\
-where $$N_k(A)=\bigcap_{i=1}^k\ker(d_i^k:A_k\to A_{k-1})$$ and the differential given by $\partial_k=d_0^K|_{N_k(A)}$. We denote the normalized chain complex by $(N_\bullet(G),\partial_\bullet)$
+\subsection{Completeness and Cocompleteness}
+\begin{defn}{Product of Simplicial Sets}{} Let $S,T$ be simplicial sets. Define the product of $S$ and $T$ to be the simplicial set $$S\times T:\Delta\to\bold{Set}$$ by the formula $$[n]\mapsto S_n\times T_n$$
 \end{defn}
 
-nLab: We may think of the elements of the complex in degree $k$ as being $k$-dimensional disks in $G$ all of whose boundary is captured by a single face. 
+\begin{prp}{}{} Let $S,T$ be simplicial sets. Then the categorical product of $S$ and $T$ is precisely $S\times T$. 
+\end{prp}
 
-\begin{lmm}{}{} Let $G$ be a simplicial group. Consider the normalized chain complex $(N_\bullet(G),\partial_\bullet)$. Then $\partial_n N_n(G)$ is a normal subgroup of $N-{n-1}(G)$. 
+\begin{lmm}{}{} Let $S,T$ be simplicial sets. Then there is a canonical homeomorphism $$\abs{S\times T}\cong\abs{S}\times\abs{T}$$ given by geometric realization. 
 \end{lmm}
 
-Because of this lemma, it now makes sense to take the homology group of the normalized chain complex even if we take a simplicial object in $\bold{Grp}$. 
-
-\begin{defn}{Normalized Chain Complex Functor}{} Let $\mA$ be an abelian category. Define the normalized chain complex functor $N$
+\subsection{The Closed Monoidal Structure of $\bold{sSet}$}
+\begin{defn}{Internal Hom of Simplicial Sets}{} Let $S,T$ be simplicial sets. Define the simplicial set $$[S,T]:\Delta\to\bold{Set}$$ by the formula $$[n]\mapsto\Hom_\bold{sSet}(\Delta^n\times S\to T)$$ By the Yoneda embedding this is well defined. 
 \end{defn}
 
-\begin{defn}{Degenerate Chain Complex}{} Let $\mA$ be an abelian category. Let $A$ be a simplicial object in $\mA$. Define the degenerate chain complex $D_\bullet(A)$ of $A$ to be the subcomplex of the associated chain complex $C_\bullet(A)$ defined by $$D_n(A)=\langle s_i^n:A_n\to A_{n+1}\;|\;s_i\text{ is the degenerate maps}\rangle$$
+We can easily identify morphisms of simplicial sets as the vertices of the internal hom. 
+
+\begin{defn}{Evaluation Morphism}{} Let $S,T$ be simplicial sets. Define the evaluation morphism $$\text{Ev}:[S,T]\times S\to T$$ as follows. For $f\in[S,T]$ and $n$-simplex and $\sigma\in S$ an $n$-simplex, define an $n$-simplex in $T$ by $$\Delta^n\overset{\delta}{\rightarrow}\Delta^n\times\Delta^n\overset{\text{id}\times\sigma}{\rightarrow}\Delta^n\times S\overset{f}{\rightarrow}T$$
 \end{defn}
 
-\begin{prp}{}{} Let $\mA$ be an abelian category. Let $A$ be a simplicial object in $\mA$. Then there is a splitting $$C_\bullet(A)\cong N_\bullet(A)\oplus D_\bullet(A)$$ in the abelian category of chain complexes of $\mA$. 
-\end{prp}
-
-\begin{thm}{Eilenberg-Maclane}{} Let $\mA$ be an abelian category. Let $A$ be a simplicial object in $A$. Then the inclusion $$N_\bullet(A)\hookrightarrow C_\bullet(A)$$ is a natural chain homotopy equivalence. In other words, $D_\bullet(A)$ is null homotopic. 
+\begin{thm}{The Closed Monoidal Adjunction}{} Let $S,T,U$ be simpplicial sets. Then there is a natural isomorphism $$\Hom_\bold{sSet}(S\times T,U)\cong\Hom_\bold{sSet}(S,[T,U])$$ induced by the post composition of the evaluation momorphism (in the opposite way). Moreover $\bold{sSet}$ is a closed monoidal category. 
 \end{thm}
-
-\begin{thm}{The Dold-Kan Correspondence}{} Consider the abelian category $\bold{Ab}$ of abelian groups. The normalized chain complex functor $$N:\text{s}\bold{Ab}\overset{\cong}{\longrightarrow}\text{Ch}_{\geq 0}(\bold{Ab})$$ gives an equivalence of categories, with inverse as the simplicialization functor $$\Gamma:\text{Ch}_{\geq 0}(\bold{Ab})\to\text{s}\bold{Ab}$$
-\end{thm}
-
-\subsection{Bar Resolutions}
-\begin{defn}{Bar Construction}{} Let $A$ be an algebra over a ring $R$. Let $M$ be an $A$-algebra. Define the maps $d_i^n:M\otimes A^{\otimes n}\to M\otimes A^{\otimes n-1}$ by the following formulas: 
-\begin{itemize}
-\item If $i=0$, then $$d_i^n(m\otimes a_1\otimes\cdots\otimes a_n)=ma_1\otimes a_2\otimes\cdots\otimes a_n$$
-\item If $0<i<n$, then $$d_i^n(m\otimes a_1\otimes\cdots\otimes a_n)=m\otimes a_1\otimes\cdots a_{i-1}\otimes a_ia_{i+1}\otimes a_{i+2}\otimes\cdots\otimes a_n$$
-\item If $i=n$, then $$d_i^n(m\otimes a_1\otimes\cdots\otimes a_n)=ma_n\otimes a_1\otimes a_2\otimes\cdots\otimes a_{n-1}$$
-\end{itemize}
-\end{defn}
-
-Highly related: Cotriple homology / cotriple constructions
-
-\begin{prp}{}{} Let $A$ be an algebra over a ring $R$. Let $M$ be an $A$-algebra. Then the collection $$\{M\otimes A^{\otimes n},d_i^n\;|\;n\in\N\}$$ is a simplicial object. 
-\end{prp}
-
-\begin{defn}{Bar Resolutions}{} Let $A$ be an algebra over a ring $R$. Let $M$ be an $A$-algebra. Define the bar resolution of $M$ to be the associated chain complex of the simplicial object $$\{M\otimes A^{\otimes n},d_i^n\;|\;n\in\N\}$$ Explicitly, it is the chain complex \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {A^{\otimes n+1}\otimes M} & {A^{\otimes n}\otimes M} & {A^{\otimes n-1}\otimes M} & \cdots & A\otimes M &M & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-	\arrow[from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-	\arrow[from=1-7, to=1-8]
-\end{tikzcd}}\\~\\
-with the boundary map $\partial:A^{\otimes n}\otimes M\to A^{\otimes n-1}\otimes M$ given by $$\partial=\sum_{i=0}^n(-1)^id_i^n$$
-\end{defn}
 
 \pagebreak
 \section{Introduction to Kan Complexes}
@@ -545,6 +463,149 @@ defines a horn $\Lambda_i^{n+1}\to X$. Such a map extends to a map $\theta:\Delt
 \end{thm}
 
 \pagebreak
+\section{Constructing a Category from Simplicial Sets}
+\subsection{The Nerve of a Category}
+Let $P$ be a partially ordered set with partial ordering $\leq$. Recall that we defined a category associated to $P$ to consist of the following. 
+\begin{itemize}
+\item The objects are the elements of $P$
+\item For any two elements $x,y\in P$, we define $$\Hom_P(x,y)=\begin{cases}
+\ast & \text{ if }x\leq y\\
+\emptyset & \text{ otherwise }
+\end{cases}$$
+\end{itemize}
+
+This also applies to the totally ordered set $[n]=\{0,\dots,n\}$. There is a morphism $i\to j$ if and only if $i\leq j$. In this case. 
+
+\begin{defn}{Nerve of a Category}{} Let $\mC$ be a category. Define the nerve of the category $N(C)\in\bold{sSet}$ as follows. 
+\begin{itemize}
+\item For each $n\in\N$, the set of $n$-simplicies is given by the Yoneda embedding as $$N(C)[n]=\Hom_\bold{Cat}([n],\mC)$$ where we view $[n]$ as a category. 
+\item For each non-decreasing morphism $\alpha:[m]\to[n]$ there is a pre-composition map $$-\circ\alpha:\Hom_\bold{Cat}([n],\mC)\to\Hom_\bold{Cat}([m],\mC)$$ where we consider $\alpha:[m]\to[n]$ to be the associated functor between the categories $[m]$ and $[n]$. 
+\end{itemize}
+\end{defn}
+
+Let $\mC$ be a category. We can explicitly write out the $n$-simplicies and face / degeneracy maps in the following way. 
+\begin{itemize}
+\item For $n\in\N$, $N(C)[n]$ consists of paths of morphisms with $n$ compositions: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{c_0} & {c_1} & {c_2} & \cdots & {c_n}
+	\arrow["{f_1}", from=1-1, to=1-2]
+	\arrow["{f_2}", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\
+\item The face map $d_i:N(C)[n]\to N(C)[n-1]$ sends the above element to \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{c_0} & {c_1} & \cdots & {c_i} & {c_i} & \cdots & {c_n}
+	\arrow["{f_1}", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{\text{id}_{c_i}}", from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\
+\item The degeneracy map $s^i:N(C)[n]\to N(C)[n+1]$ sends the above element to \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{c_0} & {c_1} & \cdots & {c_{i-1}} & {c_{i+1}} & \cdots & {c_n}
+	\arrow["{f_0}", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{f_i\circ f_{i-1}}", from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\
+\end{itemize}
+
+\begin{defn}{Nerve Functor}{} The nerve functor $N:\text{Cat}\to\text{sSet}$ is defined as follows. 
+\begin{itemize}
+\item Each $\mC\in\text{Cat}$ is sent to the nerve $N(C)$
+\item Every functor $F:\mC\to\mD$ in $\text{Cat}$ is sent to the morphism of presheaves $N(F):N(C)\to N(D)$ defined by $N(F)_n:N(C)([n])\to N(D)([n])$, of which is defined as the map \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{c_0} & {c_1} & {c_2} & \cdots & {c_n} \\
+	{F(c_0)} & {F(c_1)} & {F(c_2)} & \cdots & {F(c_n)}
+	\arrow["{f_1}", from=1-1, to=1-2]
+	\arrow["{f_2}", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{F(f_1)}", from=2-1, to=2-2]
+	\arrow["{F(f_2)}", from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}}\\~\\
+from the upper path in $\mC$ to the lower path in $\mD$, such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{N(C)[n]} & {N(C)[m]} \\
+	{N(D)[n]} & {N(D)[m]}
+	\arrow["{N(C)(f)}", from=1-1, to=1-2]
+	\arrow["{N(F)_n}"', from=1-1, to=2-1]
+	\arrow["{N(F)_m}", from=1-2, to=2-2]
+	\arrow["{N(D)(f)}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+where $f:[m]\to[n]$ is a morphism in $\Delta$. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} The nerve functor $N:\bold{Cat}\to\bold{sSet}$ is fully faithful. 
+\end{prp}
+
+In particular, the nerve of a category is a complete invariant of categories. This means that given a simplicial set which we know is the nerve of some category, we can reconstruct a category whose nerve is the simplicial set, up to isomorphism. \\~\\
+
+While $N:\bold{Cat}\to\bold{sSet}$ is fully faithful, it is not essentially surjective. We can find the image of the functor through the following characterization. 
+
+\begin{prp}{}{} Let $S$ be a simplicial set. Then $S$ is isomorphic to the nerve of some category $\mC$ if and only if every inner horn admits a filler. 
+\end{prp}
+
+In particular, every Kan complex lies in the essential image of the nerve functor $N:\bold{Cat}\to\bold{sSet}$. 
+
+\begin{lmm}{}{} Let $\mC$ be a category. Then $\mC$ is a groupoid if and only if $N(\mC)$ is a Kan complex. 
+\end{lmm}
+
+\subsection{The Homotopy Category of a Simplicial Set}
+\begin{defn}{Homotopy Category of Simplicial Sets}{} Let $S\in\bold{sSet}$ be a simplicial set. Define the homotopy category $$h(S)$$ of $S$ to consist of the following data. 
+\begin{itemize}
+\item The objects consists of the vertices of $S$
+\item Each edge $e$ of $S$ determines a unique morphism $[e]:d_1^1(e)\to d_0^1(e)$
+\item The collection of morphisms are generated by all morphisms of the form $[e]$ for $e$ an edge, quotient by the relations $$[s_0^0(x)]=\text{id}_x\;\;\;\;\text{ and }\;\;\;\;[d_1^2(\sigma)]=[d_0^2(\sigma)]\circ[d_2^2(\sigma)]$$ for any $x\in S$ a vertex. 
+\item Composition is defined through the generator and relations above. 
+\end{itemize}
+\end{defn}
+
+The quotient relation means that given a $2$-simplex, going through any two directed edges gives the same map as going through the third edge. 
+
+\begin{prp}{}{} Let $S$ be a simplicial set. Then $h(S)$ satisfies the following universal property. For any category $\mC$, (what is $k_S$?) and any morphism of simplicial sets $F:S\to N(\mC)$, there exists a unique functor $u:h(S)\to\mC$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	S & {N(h(S))} \\
+	& {N(\mC)}
+	\arrow["k_S", from=1-1, to=1-2]
+	\arrow["F"', from=1-1, to=2-2]
+	\arrow["{\exists!N(u)}", dashed, from=1-2, to=2-2]
+\end{tikzcd}}\\~\\
+Moreover, if $\mD$ is any other category satisfying the above, then there exists a unique isomorphism $h(S)\cong\mD$. 
+\end{prp}
+
+Recall that the nerve functor is fully faithful. We can rewrite the universal property to mean the following: For any category $\mC$, precomposition with $-\circ k_S$ gives a bijection of sets $$\Hom_\bold{Cat}(h(S),\mC)\overset{\cong}{\rightarrow}\Hom_\bold{sSet}(N(h(S),N(\mC))\overset{-\circ k_S}{\rightarrow}\Hom_\bold{sSet}(S,N(\mC))$$
+
+\begin{defn}{The Homotopy Functor}{} Define the homotopy functor $h:\text{sSet}\to\text{Cat}$ as follows. 
+\begin{itemize}
+\item On objects, $h$ sends a simplicial set $S:\Delta\to\text{Set}$ to $h(S)$. 
+\item For $f:S\to T$ a morphism of simplicial sets, $h(f):h(S)\to h(T)$ is the unique morphism of simpicial sets corresponding to the functor $k_T\circ F:S\to N(h(T))$ under the universal property of $h(S)$. 
+\end{itemize}
+\end{defn}
+
+\begin{thm}{}{} The homotopy functor $h$ is left adjoint $$h:\bold{sSet}\rightleftarrows\bold{Cat}:N$$ to the nerve functor $N$. This means that there is a natural bijection $$\Hom_\text{Cat}(h(C),D)\cong\Hom_\text{sSet}(C,N(D))$$
+\end{thm}
+
+We have now constructed two pairs of adjoint functors: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& {\bold{Cat}} \\
+	{\bold{sSet}} \\
+	& {\bold{Top}}
+	\arrow["{N_\bullet}", shift left, from=1-2, to=2-1]
+	\arrow["h", shift left, from=2-1, to=1-2]
+	\arrow["{\abs{\;\cdot\;}}", shift left, from=2-1, to=3-2]
+	\arrow["{S_\bullet}", shift left, from=3-2, to=2-1]
+\end{tikzcd}}\\~\\
+
+\pagebreak
 \section{Homotopy Limits and Colimits}
 \subsection{The Standard Homotopy Pullback and Pushout}
 \begin{defn}{The Standard Homotopy Pullbacks}{} Let the following be a diagram of simplicial sets and morphisms. \\~\\
@@ -694,149 +755,6 @@ Secret: these are just the fibrant replacements in model category.
 \item $\text{Ex}^\infty(X)$
 \end{itemize}
 \end{lmm}
-
-\pagebreak
-\section{Constructing a Category from Simplicial Sets}
-\subsection{The Nerve of a Category}
-Let $P$ be a partially ordered set with partial ordering $\leq$. Recall that we defined a category associated to $P$ to consist of the following. 
-\begin{itemize}
-\item The objects are the elements of $P$
-\item For any two elements $x,y\in P$, we define $$\Hom_P(x,y)=\begin{cases}
-\ast & \text{ if }x\leq y\\
-\emptyset & \text{ otherwise }
-\end{cases}$$
-\end{itemize}
-
-This also applies to the totally ordered set $[n]=\{0,\dots,n\}$. There is a morphism $i\to j$ if and only if $i\leq j$. In this case. 
-
-\begin{defn}{Nerve of a Category}{} Let $\mC$ be a category. Define the nerve of the category $N(C)\in\bold{sSet}$ as follows. 
-\begin{itemize}
-\item For each $n\in\N$, the set of $n$-simplicies is given by the Yoneda embedding as $$N(C)[n]=\Hom_\bold{Cat}([n],\mC)$$ where we view $[n]$ as a category. 
-\item For each non-decreasing morphism $\alpha:[m]\to[n]$ there is a pre-composition map $$-\circ\alpha:\Hom_\bold{Cat}([n],\mC)\to\Hom_\bold{Cat}([m],\mC)$$ where we consider $\alpha:[m]\to[n]$ to be the associated functor between the categories $[m]$ and $[n]$. 
-\end{itemize}
-\end{defn}
-
-Let $\mC$ be a category. We can explicitly write out the $n$-simplicies and face / degeneracy maps in the following way. 
-\begin{itemize}
-\item For $n\in\N$, $N(C)[n]$ consists of paths of morphisms with $n$ compositions: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{c_0} & {c_1} & {c_2} & \cdots & {c_n}
-	\arrow["{f_1}", from=1-1, to=1-2]
-	\arrow["{f_2}", from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\
-\item The face map $d_i:N(C)[n]\to N(C)[n-1]$ sends the above element to \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{c_0} & {c_1} & \cdots & {c_i} & {c_i} & \cdots & {c_n}
-	\arrow["{f_1}", from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow["{\text{id}_{c_i}}", from=1-4, to=1-5]
-	\arrow[from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-\end{tikzcd}}\\
-\item The degeneracy map $s^i:N(C)[n]\to N(C)[n+1]$ sends the above element to \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{c_0} & {c_1} & \cdots & {c_{i-1}} & {c_{i+1}} & \cdots & {c_n}
-	\arrow["{f_0}", from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow["{f_i\circ f_{i-1}}", from=1-4, to=1-5]
-	\arrow[from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-\end{tikzcd}}\\
-\end{itemize}
-
-\begin{defn}{Nerve Functor}{} The nerve functor $N:\text{Cat}\to\text{sSet}$ is defined as follows. 
-\begin{itemize}
-\item Each $\mC\in\text{Cat}$ is sent to the nerve $N(C)$
-\item Every functor $F:\mC\to\mD$ in $\text{Cat}$ is sent to the morphism of presheaves $N(F):N(C)\to N(D)$ defined by $N(F)_n:N(C)([n])\to N(D)([n])$, of which is defined as the map \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{c_0} & {c_1} & {c_2} & \cdots & {c_n} \\
-	{F(c_0)} & {F(c_1)} & {F(c_2)} & \cdots & {F(c_n)}
-	\arrow["{f_1}", from=1-1, to=1-2]
-	\arrow["{f_2}", from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-	\arrow["{F(f_1)}", from=2-1, to=2-2]
-	\arrow["{F(f_2)}", from=2-2, to=2-3]
-	\arrow[from=2-3, to=2-4]
-	\arrow[from=2-4, to=2-5]
-\end{tikzcd}}\\~\\
-from the upper path in $\mC$ to the lower path in $\mD$, such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{N(C)[n]} & {N(C)[m]} \\
-	{N(D)[n]} & {N(D)[m]}
-	\arrow["{N(C)(f)}", from=1-1, to=1-2]
-	\arrow["{N(F)_n}"', from=1-1, to=2-1]
-	\arrow["{N(F)_m}", from=1-2, to=2-2]
-	\arrow["{N(D)(f)}"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-where $f:[m]\to[n]$ is a morphism in $\Delta$. 
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} The nerve functor $N:\bold{Cat}\to\bold{sSet}$ is fully faithful. 
-\end{prp}
-
-In particular, the nerve of a category is a complete invariant of categories. This means that given a simplicial set which we know is the nerve of some category, we can reconstruct a category whose nerve is the simplicial set, up to isomorphism. \\~\\
-
-While $N:\bold{Cat}\to\bold{sSet}$ is fully faithful, it is not essentially surjective. We can find the image of the functor through the following characterization. 
-
-\begin{prp}{}{} Let $S$ be a simplicial set. Then $S$ is isomorphic to the nerve of some category $\mC$ if and only if every inner horn admits a filler. 
-\end{prp}
-
-In particular, every Kan complex lies in the essential image of the nerve functor $N:\bold{Cat}\to\bold{sSet}$. 
-
-\begin{lmm}{}{} Let $\mC$ be a category. Then $\mC$ is a groupoid if and only if $N(\mC)$ is a Kan complex. 
-\end{lmm}
-
-\subsection{The Homotopy Category of a Simplicial Set}
-\begin{defn}{Homotopy Category of Simplicial Sets}{} Let $S\in\bold{sSet}$ be a simplicial set. Define the homotopy category $$h(S)$$ of $S$ to consist of the following data. 
-\begin{itemize}
-\item The objects consists of the vertices of $S$
-\item Each edge $e$ of $S$ determines a unique morphism $[e]:d_1^1(e)\to d_0^1(e)$
-\item The collection of morphisms are generated by all morphisms of the form $[e]$ for $e$ an edge, quotient by the relations $$[s_0^0(x)]=\text{id}_x\;\;\;\;\text{ and }\;\;\;\;[d_1^2(\sigma)]=[d_0^2(\sigma)]\circ[d_2^2(\sigma)]$$ for any $x\in S$ a vertex. 
-\item Composition is defined through the generator and relations above. 
-\end{itemize}
-\end{defn}
-
-The quotient relation means that given a $2$-simplex, going through any two directed edges gives the same map as going through the third edge. 
-
-\begin{prp}{}{} Let $S$ be a simplicial set. Then $h(S)$ satisfies the following universal property. For any category $\mC$, (what is $k_S$?) and any morphism of simplicial sets $F:S\to N(\mC)$, there exists a unique functor $u:h(S)\to\mC$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	S & {N(h(S))} \\
-	& {N(\mC)}
-	\arrow["k_S", from=1-1, to=1-2]
-	\arrow["F"', from=1-1, to=2-2]
-	\arrow["{\exists!N(u)}", dashed, from=1-2, to=2-2]
-\end{tikzcd}}\\~\\
-Moreover, if $\mD$ is any other category satisfying the above, then there exists a unique isomorphism $h(S)\cong\mD$. 
-\end{prp}
-
-Recall that the nerve functor is fully faithful. We can rewrite the universal property to mean the following: For any category $\mC$, precomposition with $-\circ k_S$ gives a bijection of sets $$\Hom_\bold{Cat}(h(S),\mC)\overset{\cong}{\rightarrow}\Hom_\bold{sSet}(N(h(S),N(\mC))\overset{-\circ k_S}{\rightarrow}\Hom_\bold{sSet}(S,N(\mC))$$
-
-\begin{defn}{The Homotopy Functor}{} Define the homotopy functor $h:\text{sSet}\to\text{Cat}$ as follows. 
-\begin{itemize}
-\item On objects, $h$ sends a simplicial set $S:\Delta\to\text{Set}$ to $h(S)$. 
-\item For $f:S\to T$ a morphism of simplicial sets, $h(f):h(S)\to h(T)$ is the unique morphism of simpicial sets corresponding to the functor $k_T\circ F:S\to N(h(T))$ under the universal property of $h(S)$. 
-\end{itemize}
-\end{defn}
-
-\begin{thm}{}{} The homotopy functor $h$ is left adjoint $$h:\bold{sSet}\rightleftarrows\bold{Cat}:N$$ to the nerve functor $N$. This means that there is a natural bijection $$\Hom_\text{Cat}(h(C),D)\cong\Hom_\text{sSet}(C,N(D))$$
-\end{thm}
-
-We have now constructed two pairs of adjoint functors: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	& {\bold{Cat}} \\
-	{\bold{sSet}} \\
-	& {\bold{Top}}
-	\arrow["{N_\bullet}", shift left, from=1-2, to=2-1]
-	\arrow["h", shift left, from=2-1, to=1-2]
-	\arrow["{\abs{\;\cdot\;}}", shift left, from=2-1, to=3-2]
-	\arrow["{S_\bullet}", shift left, from=3-2, to=2-1]
-\end{tikzcd}}\\~\\
 
 
 

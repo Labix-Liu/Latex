@@ -624,13 +624,7 @@ The reason we would like to consider such a subalgebra is due to the following r
 
 \pagebreak
 \section{Representation Theory of Lie Algebras}
-\subsection{Representations and Modules}
-\begin{defn}{Representations of a Lie Algebra}{} Let $L$ be a Lie algebra. Let $V$ be a vector space. A representation of $L$ is a Lie algebra homomorphism $$\rho:L\to GL(V)$$
-\end{defn}
-
-\begin{lmm}{}{} Let $L$ be a Lie algebra. Then the adjoint homomorphism $$\text{ad}:L\to GL(L)$$ is a representation of $L$. 
-\end{lmm}
-
+\subsection{Modules over Lie Algebras}
 \begin{defn}{Modules over Lie Algebras}{} Let $L$ be a Lie algebra over $k$. An $L$-module consists of a vector space $V$ over $k$ together with an action $$\cdot:L\times V\to V$$ such that the following are true. 
 \begin{itemize}
 \item Linearity in $L$: For all $a,b\in k$ and $x,y\in L$, we have that $$(ax+by)\cdot v=a(x\cdot v)+b(y\cdot v)$$ for all $v\in V$. 
@@ -639,7 +633,36 @@ The reason we would like to consider such a subalgebra is due to the following r
 \end{itemize}
 \end{defn}
 
-The third item may seem unnatural. Indeed the first two axioms are the usual ones for a module over an associative algebra. We think about the third axiom in the following way: Giving a map $\cdot:L\times V\to V$ is the same as giving a map $L\to GL(V)$ (curling / internal hom adjunction). The third item then means that the map $L\to GL(V)$ commutes with the Lie bracket. This is the content of the following lemma. 
+\begin{defn}{Submodule of Modules over Lie Algebras}{} Let $L$ be a Lie algebra. Let $V$ be an $L$-module. A submodule of $V$ is a vector subspace $W$ that is a module over $L$ in its own right. 
+\end{defn}
+
+\begin{defn}{L-Module Homomorphisms}{} Let $L$ be a Lie algebra. Let $V,W$ be $L$-modules. An $L$-module homomorphism is a linear transformation $\phi:V\to W$ such that $$\phi(x\cdot v)=x\cdot\phi(v)$$ for all $x\in L$ and $v\in V$. 
+\end{defn}
+
+\begin{defn}{L-Module Isomorphisms}{} Let $L$ be a Lie algebra. Let $V,W$ be $L$-modules. Let $\phi:V\to W$ be an $L$-module homomorphism. We say that $\phi$ is an $L$-module isomorphism if $\phi$ is an isomorphism of vector spaces. 
+\end{defn}
+
+\subsection{Reducibility of Modules over Lie Algebras}
+\begin{defn}{Direct Sum of Modules over Lie Algebras}{} Let $L$ be a Lie algebra. Let $V$ be an $L$-module. Let $U$ and $W$ be vector subspaces of $V$. We say that $V$ is the direct sum of $U$ and $W$ if $$V=U\oplus W$$ as vector spaces and $U$ and $W$ are $L$-submodules of $V$. 
+\end{defn}
+
+\begin{defn}{Simple Modules over Lie Algebras}{} Let $L$ be a Lie algebra. Let $V$ be an $L$-module. We say that $V$ is simple if $V$ has no proper non-trivial $L$-submodules. 
+\end{defn}
+
+\begin{defn}{Completely Reducible}{} Let $L$ be a Lie algebra. Let $V$ be an $L$-module. We say that $V$ is completely reducible if for all $L$-submodules $W$, there exists an $L$-submodule $U$ of $V$ such that $$V=W\oplus U$$
+\end{defn}
+
+Simple modules are thus vacuously completely reducible. 
+
+\begin{thm}{Weyl's Theorem}{} Let $L$ be a semi-simple Lie algebra over $\C$. Let $V$ be an $L$-module. Then $V$ is completely reducible. 
+\end{thm}
+
+\subsection{Basic Representation Theory of Lie Algebras}
+\begin{defn}{Representations of a Lie Algebra}{} Let $L$ be a Lie algebra. Let $V$ be a vector space. A representation of $L$ is a Lie algebra homomorphism $$\rho:L\to GL(V)$$
+\end{defn}
+
+\begin{lmm}{}{} Let $L$ be a Lie algebra. Then the adjoint homomorphism $$\text{ad}:L\to GL(L)$$ is a representation of $L$. 
+\end{lmm}
 
 \begin{prp}{}{} Let $L$ be a Lie algebra over $k$. Then representations of $L$ and $L$-modules are in bijection $$\{\cdot:L\times V\to V\text{ an }L\text{-module}\}\;\;\overset{1:1}{\leftrightarrow}\;\;\{L\to GL(V)\text{ a Lie algebra representation}\}$$ This bijection is given by sending an $L$-module $\cdot:L\times V\to V$ to the Lie algebra homomorphism $\phi:L\to GL(V)$ defined by $\phi(l)(v)=l\cdot v$. 
 \end{prp}
@@ -648,49 +671,32 @@ These two ways two think about the same thing is natural. Recall that a represen
 
 Idea???? This bijection is a ???-homomorphism. 
 
-\begin{defn}{Submodule of Modules over Lie Algebras}{}
-\end{defn}
-
-\begin{defn}{L-Module Homomorphisms}{}
-\end{defn}
-
-\begin{defn}{L-Module Isomorphisms}{}
-\end{defn}
-
-\begin{defn}{Completely Reducible}{}
-\end{defn}
-
-\begin{thm}{Weyl's Theorem}{} Every non-trivial semisimple Lie algebra over $\C$ is completely reducible. 
-\end{thm}
-
-\subsection{Weights}
-\begin{defn}{Eigenvectors of GL(V)}{} Let $V$ be a vector space over a field $k$. Let $M$ be a Lie subalgebra of $GL(V)$. We say that $v\in V$ is an eigenvector of $M$ if for all $T\in M$, $v$ is an eigenvector of $T$ in the sense of Linear Algebra. 
-\end{defn}
-
-This notion of eigenvectors for Lie algebras is different to the standard notion of eigenvectors in linear algebra. Notice that an eigenvector of a Lie algebra $M$ is a vector $v\in V$ that is simultaneously an eigenvector of all linear maps $T\in M\leq GL(V)$. Now we can rephrase this in another way. 
-
-\begin{lmm}{}{} Let $V$ be a vector space over a field $k$. Let $M$ be a Lie subalgebra of $GL(V)$. Then $v\in V$ is an eigenvector of $M$ if and only if there exists a linear map $\lambda:M\to k$ such that $$T(v)=\lambda(T)v$$ for all $T\in M$. 
-\end{lmm}
-
-We use the existence of a linear map $\lambda:M\to k$, conditional on $v\in V$, to determine whether $v$ is an eigenvector of $M$. 
-
-\begin{defn}{Subspace of Eigenvectors of GL(V)}{} Let $V$ be a vector space over a field $k$. Let $M$ be a Lie subalgebra of $GL(V)$. Define the subspace of eigenvectors of $M$ by $$V_\lambda=\{v\in V\;|\;T(v)=\lambda(T)v\text{ for all }T\in M\}$$
-\end{defn}
-
-\begin{defn}{Weights}{} Let $V$ be a vector space over a field $k$. Let $M$ be a Lie subalgebra of $GL(V)$. We say that a linear map $\lambda:M\to k$ is a weight of $M$ if $V_\lambda\neq 0$. 
-\end{defn}
-
-\begin{lmm}{}{} Let $V$ be a vector space over a field $k$. Let $M$ be a Lie subalgebra of $GL(V)$. Let $I$ be an ideal of $M$. Let $W=\{w\in V\;|\;T(w)=0\text{ for all }T\in I\}$. Then $W$ is an $M$-invariant subspace of $V$. 
-\end{lmm}
+\subsection{The Case of $\text{SL}(2,\C)$}
 
 \pagebreak
 \section{Introduction to Lie Groups}
 \subsection{Lie Groups}
-\begin{defn}{Lie Groups}{} A Lie group $G$ is a smooth manifold which is also a group such that the multiplication map $G\times G\to G$ given by $(g,h)\mapsto gh$ and the inverse map $i:G\to G$ given by $g\mapsto g^{-1}$ are smooth maps. 
+\begin{defn}{Lie Groups}{} A Lie group $G$ is a group $G$ that is also a smooth manifold such that the following are true. 
+\begin{itemize}
+\item The multiplication map $\cdot:G\times G\to G$ defined by $$(g,h)\mapsto gh$$ is a smooth map of manifolds. 
+\item The inverse map $(-)^{-1}:G\times G$ defined by $$g\mapsto g^{-1}$$ is a smooth map of manifolds. 
+\end{itemize}
 \end{defn}
 
-\begin{prp}{}{} Let $G$ be a Lie group. A subgroup $H$ of $G$ has the unique structure of a Lie subgroup if $H$ is closed in $G$. 
+Some immediate examples of Lie groups include the following: 
+\begin{itemize}
+\item Any finite group is discrete and hence are zero-dimensional manifolds. So they are Lie groups. 
+\item $(\R^n,+)$ and $(\R^n\setminus\{0\},\times)$. 
+\item The torus $(\R^n/\Z^n,+)$. 
+\item $\GL(V)$ for any finite dimensional real vector space $V$. 
+\item $U(n), SU(n), O(n), SO(n), SL(n), PSL(n)$ for any $n\in\N$. 
+\end{itemize}
+
+\begin{prp}{}{} Let $G$ be a Lie group. Let $H$ be a subgroup of $G$. If $H$ is closed in $G$, then $H$ inherits the structure of a Lie group from $G$. 
 \end{prp}
+
+\begin{defn}{Lie Group Homomorphism}{} Let $G,H$ be Lie groups. A Lie group homomorphism is a map of sets $$\phi:G\to H$$ that is a group homomorphism and a smooth map. 
+\end{defn}
 
 \subsection{Relation between Lie Groups and Lie Algebras}
 For a group $G$, denote the left multiplication map of $h\in G$ by $l_h$. If $G$ is a Lie group, we have seen that $l_h$ is a smooth map, and so it induces a differential $(l_h)_\ast$. 
@@ -709,6 +715,10 @@ Recall that given a homomorphism of Lie groups $\phi:G\to H$, it induces a diffe
 \begin{prp}{}{} Let $\phi:G\to H$ be a homomorphism of Lie groups with Lie algebras $V$ and $W$ respectively. Then the induced map from the differential $\phi_\ast:V\to W$ is a Lie algebra homomorphism. 
 \end{prp}
 
+In other words, we constructed a functor from Lie groups to Lie algebras sending a Lie group to the tangent space at the identity. 
+
+\subsection{The Exponential Map}
+
 \pagebreak
 \section{Root Systems of Vector Spaces}
 \subsection{Root Systems}
@@ -721,6 +731,55 @@ Recall that given a homomorphism of Lie groups $\phi:G\to H$, it induces a diffe
 \item If $a,b\in R$, then $\langle a,b\rangle\in\Z$
 \end{itemize}
 \end{defn}
+
+We can see some first examples in low dimensions. \\
+
+Let $E=\R^1$ with the standard inner product. For any $\alpha\in\R\setminus\{0\}$, $\{\alpha,-\alpha\}$ is clearly a root system. \\
+
+Let $E=\R^2$ again with the standard inner product. Notice that any root system must span $\R^2$ and hence must contain at least two linearly independent vectors and their additive inverses. So choose $\alpha$ and $\beta$ in $\R^2$ that are linearly independent, and WLOG choose $\|\alpha\|\leq\|\beta\|$. Let $\theta$ be the angle between $\alpha$ and $\beta$. WLOG we can assume that $\theta\geq\frac{\pi}{2}$ because otherwise we can take the negative of $\alpha$ or $\beta$ in the root system to get an obtuse angle. Let us consider some cases of $\theta$. 
+
+\begin{itemize}
+\item If $\theta=\frac{\pi}{2}$, then $R=\{\pm\alpha,\pm\beta\}$ is a root system. We draw the following diagram to indicate the root system: 
+\item If $\theta=\frac{2\pi}{3}$, then if $R=\{\pm\alpha,\pm\beta,\pm(\alpha+\beta)\}$ is a root system provided that $\|\alpha\|=\|\beta\|$. 
+\end{itemize}
+
+It is not true that any choice of $\theta$ gives a root system, which we explain through the following. 
+
+\begin{lmm}{}{} Let $E$ be a finite dimensional inner product space over $\R$. Let $R$ be a root system of $E$. Let $\alpha,\beta\in R$. Then the following are true. 
+\begin{itemize}
+\item The value of $\langle\alpha,\beta\rangle\langle\beta,\alpha\rangle$ must lie in the set $\{0,1,2,3\}$
+\item The angle between $\alpha$ and $\beta$ must lie in the set $$\left\{\frac{\pi}{2},\frac{\pi}{3},\frac{2\pi}{3},\frac{\pi}{4},\frac{3\pi}{4},\frac{\pi}{6},\frac{5\pi}{6}\right\}$$
+\end{itemize}
+\end{lmm}
+
+We can draw a table of the possible values of $\langle\alpha,\beta\rangle$ and the corresponding angle between $\alpha$ and $\beta$: 
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+$\langle\alpha,\beta\rangle\langle\beta,\alpha\rangle$ & $\langle\alpha,\beta\rangle$ & $\langle\beta,\alpha\rangle$ & $\theta$         \\ \hline
+$0$                                                    & $0$                          & $0$                          & $\frac{\pi}{2}$  \\[1.5ex] \hline
+\multirow{2}{*}{$1$}                                   & $1$                          & $1$                          & $\frac{\pi}{3}$  \\[1.5ex] \cline{2-4} 
+                                                       & $-1$                         & $-1$                         & $\frac{2\pi}{3}$ \\[1.5ex] \hline
+\multirow{2}{*}{$2$}                                   & $1$                          & $2$                          & $\frac{\pi}{4}$  \\[1.5ex] \cline{2-4} 
+                                                       & $-1$                         & $-2$                         & $\frac{3\pi}{4}$ \\[1.5ex] \hline
+\multirow{2}{*}{$3$}                                   & $1$                          & $3$                          & $\frac{\pi}{6}$  \\[1.5ex] \cline{2-4} 
+                                                       & $-1$                         & $-3$                         & $\frac{5\pi}{6}$ \\[1.5ex] \hline
+\end{tabular}
+\end{table}
+
+Here we assume $\|\alpha\|\leq\|\beta\|$ so we exclude for instance the case $\langle\alpha,\beta\rangle=2$ and $\langle\beta,\alpha\rangle=1$. 
+
+\begin{defn}{Irreducible Root Systems}{} Let $E$ be a finite dimensional inner product space over $\R$. Let $R$ be a root system of $E$. We say that $R$ is reducible if there exists two disjoint root systems $R_1$ and $R_2$ of $E$ such that $\langle r_1,r_2\rangle=0$ for $r_1\in R_1$ and $r_2\in R_2$. Otherwise, we say that $R$ is irreducible. 
+\end{defn}
+
+\begin{prp}{}{} Let $E$ be a finite dimensional inner product space over $\R$. Let $R$ be a root system of $E$. Then the following are true. 
+\begin{itemize}
+\item There is a decomposition $$R=R_1\amalg\cdots\amalg R_k$$ where each $R_i$ is an irreducible root system of $E_i=\R\langle R_i\rangle$
+\item There is a decomposition $$E=E_1\oplus\cdots\oplus E_k$$ where $E_i$ is orthogonal to $E_j$ for $i\neq j$. 
+\end{itemize}
+\end{prp}
 
 \begin{defn}{Isomorphic Root Systems}{} Let $E,F$ be a finite dimensional inner product spaces over $\R$. Let $R$ and $S$ be root systems of $E$ and $F$ respectively. We say that $E$ and $F$ are isomorphic if there exists an isomorphism $$\phi:E\to F$$ of vector spaces such that the following are true. 
 \begin{itemize}
@@ -757,8 +816,31 @@ Recall that $\sigma_a(b)=b-2\frac{\langle a,b\rangle}{\langle a,a\rangle}a$ for 
 \begin{prp}{}{} Let $E,F$ be a finite dimensional inner product spaces over $\R$. Let $R$ and $S$ be root systems of $E$ and $F$ respectively. Then $R\cong S$ if and only if $\Delta(R)\cong\Delta(S)$. 
 \end{prp}
 
+\begin{prp}{}{} Let $E$ be a finite dimensional inner product space. Let $R$ be a root system of $E$. Then $R$ is irreducible if and only if $\Delta(R)$ is a connected graph. 
+\end{prp}
+
 \pagebreak
 \section{Classification of Semisimple Lie Algebras over $\C$}
+\subsection{Weights of Lie Sub-Algebras of GL(V)}
+\begin{defn}{Eigenvectors of GL(V)}{} Let $V$ be a vector space over a field $k$. Let $M$ be a Lie subalgebra of $GL(V)$. We say that $v\in V$ is an eigenvector of $M$ if for all $T\in M$, $v$ is an eigenvector of $T$ in the sense of Linear Algebra. 
+\end{defn}
+
+This notion of eigenvectors for Lie algebras is different to the standard notion of eigenvectors in linear algebra. Notice that an eigenvector of a Lie algebra $M$ is a vector $v\in V$ that is simultaneously an eigenvector of all linear maps $T\in M\leq GL(V)$. Now we can rephrase this in another way. 
+
+\begin{lmm}{}{} Let $V$ be a vector space over a field $k$. Let $M$ be a Lie subalgebra of $GL(V)$. Then $v\in V$ is an eigenvector of $M$ if and only if there exists a linear map $\lambda:M\to k$ such that $$T(v)=\lambda(T)v$$ for all $T\in M$. 
+\end{lmm}
+
+We use the existence of a linear map $\lambda:M\to k$, conditional on $v\in V$, to determine whether $v$ is an eigenvector of $M$. 
+
+\begin{defn}{Subspace of Eigenvectors of GL(V)}{} Let $V$ be a vector space over a field $k$. Let $M$ be a Lie subalgebra of $GL(V)$. Define the subspace of eigenvectors of $M$ by $$V_\lambda=\{v\in V\;|\;T(v)=\lambda(T)v\text{ for all }T\in M\}$$
+\end{defn}
+
+\begin{defn}{Weights}{} Let $V$ be a vector space over a field $k$. Let $M$ be a Lie subalgebra of $GL(V)$. We say that a linear map $\lambda:M\to k$ is a weight of $M$ if $V_\lambda\neq 0$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $V$ be a vector space over a field $k$. Let $M$ be a Lie subalgebra of $GL(V)$. Let $I$ be an ideal of $M$. Let $W=\{w\in V\;|\;T(w)=0\text{ for all }T\in I\}$. Then $W$ is an $M$-invariant subspace of $V$. 
+\end{lmm}
+
 \subsection{Roots Systems Arising from Cartan Subalgebras}
 Let $V$ be a vector space. We denote the dual space of $V$ by $V^\ast$. \\
 
@@ -788,6 +870,59 @@ Note that $\Psi$ is finite since we assume that $L$ is finite dimensional.
 
 \begin{prp}{}{} Let $L$ be a semi-simple Lie algebra over $\C$. Let $H$ be a Cartan subalgebra of $L$. Let $\Psi$ be the set of roots relative to $H$. Then $\Psi$ is a root system. 
 \end{prp}
+
+\begin{prp}{}{} Let $L$ be a semi-simple Lie algebra over $\C$. Let $H$ and $K$ be two Cartan subalgebras of $L$. Let $\Psi_H$ and $\Psi_K$ be the set of roots relative to $H$ and $K$ respectively. Then $\Psi_H\cong\Psi_K$. 
+\end{prp}
+
+This proves that although the set of roots come from a chosen Cartan subalgebra of the Lie algebra $L$, it is an invariant of $L$ and not the Cartan subalgebra. Up until this point, we have constructed an invariant for Lie algebras following the below schematic: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	&&& \begin{array}{c} \substack{\text{Associated}\\\text{Weyl Group}} \end{array} \\
+	\begin{array}{c} \substack{\text{Semi-Simple}\\\text{Lie Algebras}} \end{array} & \begin{array}{c} \substack{\text{Set of Cartan}\\\text{Sub-Algebras}} \end{array} & \begin{array}{c} \substack{\text{Associated}\\\text{Root System}} \end{array} \\
+	&&& \begin{array}{c} \substack{\text{Dynkin}\\\text{Diagram}} \end{array}
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=1-4]
+	\arrow[from=2-3, to=3-4]
+\end{tikzcd}} \\
+
+We will now show that Simple Lie algebras give rise to irreducible Dynkin diagrams and vice versa. 
+
+\subsection{Simple Lie Algebras and Irreducible Dynkin Diagrams}
+We now want to enrich the above diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	&&& \begin{array}{c} \substack{\text{Associated}\\\text{Weyl Group}} \end{array} \\
+	\begin{array}{c} \substack{\text{Semi-Simple}\\\text{Lie Algebras}} \end{array} & \begin{array}{c} \substack{\text{Set of Cartan}\\\text{Sub-Algebras}} \end{array} & \begin{array}{c} \substack{\text{Associated}\\\text{Root System}} \end{array} \\
+	&&& \begin{array}{c} \substack{\text{Dynkin}\\\text{Diagram}} \end{array} \\
+	\begin{array}{c} \substack{\text{Simple}\\\text{Lie Algebras}} \end{array} && \begin{array}{c} \substack{\text{Irreducible}\\\text{Root System}} \end{array} & \begin{array}{c} \substack{\text{Connected}\\\text{Dynkin Diagram}} \end{array}
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=1-4]
+	\arrow[from=2-3, to=3-4]
+	\arrow[from=4-1, to=4-3]
+	\arrow[from=4-3, to=4-4]
+\end{tikzcd}} \\
+
+\begin{prp}{}{} Let $L$ be a simple Lie algebra over $\C$. Let $H$ be a Cartan sub-algebra of $L$. Let $\Psi$ be the root system associated to $H$. Then $\Psi$ is irreducible. 
+\end{prp}
+
+\begin{thm}{Serre's Theorem}{} Let $R$ be a root system with base $B=\{\alpha_1,\dots,\alpha_l\}$. Let $L$ be the Lie algebra defined by $$L=\C\langle e_i,f_i,h_i, 1\leq i\leq l\;|\;S\rangle$$ where $S$ are the following relations: 
+\begin{itemize}
+\item $[h_s,h_t]=0$ for $1\leq s,t\leq l$. 
+\item $[h_s,e_t]=\langle\alpha_t,\alpha_s\rangle e_t$ for $1\leq s,t\leq l$. 
+\item $[h_s,f_t]=-\langle\alpha_t,\alpha_s\rangle f_t$ for $1\leq s,t\leq l$. 
+\item $[e_s,f_t]=\begin{cases}
+h_s & \text{ if } s=t\\
+0 & \text{otherwise}
+\end{cases}$
+\item $\left(\text{ad}(e_s)\right)^{1-\langle\alpha_t,\alpha_s\rangle}(e_t)=0=\left(\text{ad}(f_s)\right)^{1-\langle\alpha_t,\alpha_s\rangle}(f_t)$ for $1\leq s,t\leq l$. 
+\end{itemize}
+Then the following are true. 
+\begin{itemize}
+\item $L$ is finite dimensional and semi-simnple. 
+\item $H=\C\langle h_1,\dots,h_l\rangle$ is a Cartan sub-algebra of $L$. 
+\item The root system $\Psi_H$ of $H$ is equal to $R$. 
+\end{itemize}
+\end{thm}
 
 
 

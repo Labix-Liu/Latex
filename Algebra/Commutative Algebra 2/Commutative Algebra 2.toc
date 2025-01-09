@@ -1,0 +1,28 @@
+\contentsline {section}{\numberline {1}Dedekind Domains}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Fractional and Invertible Ideals}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Dedekind Domains}{4}{subsection.1.2}%
+\contentsline {section}{\numberline {2}The Picard Group of a Ring}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The Picard Group}{5}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Filtrations}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Filtrations and Stable Filtrations}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Artin-Rees Lemma}{6}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Completions}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}General Completion Methods}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}I-Adic Completion}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}The Artin-Rees Lemma}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Hensel's Lemma}{8}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Homological Dimension Theory}{9}{section.5}%
+\contentsline {section}{\numberline {6}Regular Sequences}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Regular Sequences}{10}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Relation to the Koszul Complex}{10}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Depth of an Ideal}{10}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Regular Local Rings}{11}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Basic Properties}{11}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Homological Methods}{11}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Two Important Rings Through the Koszul Complex}{12}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Gorenstein Rings}{12}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Cohen-Macauley Rings}{12}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Kähler Differentials}{13}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Kähler Differentials}{13}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Transfering the System of Differentials}{18}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Characterization for Separability}{20}{subsection.9.3}%

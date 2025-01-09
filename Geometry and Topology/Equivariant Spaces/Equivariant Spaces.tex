@@ -26,15 +26,15 @@
 \section{Topological Groups and G-Spaces}
 The above four chapters has established deep connections between three properties of a space. Namely, the fundamental group, the fibers of the covering space and the group of homeomorphisms of the covering space. Such a deep connection between algebra and topology is not unique to covering space theory, nor to fundamental groups. In this section we will take a step back and look at the big picture. 
 
-\subsection{Topological Groups, Subgroups and Homomorphisms}
+\subsection{Topological Groups and the Coset Space}
 \begin{defn}{Topological Groups}{} Let $G$ be a group. We say that $G$ is a topological group if $G$ is also a topological space and that the following are true. 
 \begin{itemize}
-\item The map $l_h:G\to G$ defined by $g\mapsto hg$ is continuous for all $h\in G$
-\item The map $i:G\to G$ defined by $g\mapsto g^{-1}$ is continuous
+\item The multiplication map $\cdot:G\times G\to G$ defined by $(g,h)\mapsto gh$ is continuous. 
+\item The inverse map $(-)^{-1}:G\to G$ defined by $g\mapsto g^{-1}$ is continuous. 
 \end{itemize}
 \end{defn}
 
-Notice that every topological group can be given the discrete topology, and so every group is trivially a topological group. But of course there is no guarantee that anything interesting theorems will occur in this case. 
+Notice that every group can be given the discrete topology, and so every group is trivially a topological group. But of course there is no guarantee that anything interesting theorems will occur in this case. We call these topological groups discrete. 
 
 \begin{defn}{Discrete Group}{} Let $G$ be a topological group. We say that $G$ is a discrete group if it has the discrete topology. 
 \end{defn}
@@ -56,6 +56,7 @@ Notice that every topological group can be given the discrete topology, and so e
 \end{itemize}
 \end{thm}
 
+\subsection{Morphisms Between Topological Groups}
 \begin{defn}{Continuous Homomorphisms}{} Let $G$ and $H$ be topological groups. A function $f:G\to H$ is said to be a continuous homomorphism if it is continuous and a group homomorphism. 
 \end{defn}
 
@@ -69,6 +70,31 @@ When the topological group $G$ is compact, the first isomorphism theorem in fact
 
 \begin{prp}{}{} Let $G$ be a compact topological group. Let $g\in G$. Then $$A=\overline{\{g^n\;|\;n\in\N\}}$$ is a subgroup of $G$. 
 \end{prp}
+
+\subsection{Some Real Topological Groups}
+\begin{prp}{The Group of Matrices as a Topological Group}{} The group of real $n\times n$ matrices $$M_n(\R)=\{(a_{ij})_{n\times n}\;|\;a_{ij}\in\R\}$$ with group structure given by matrix addition can be given the structure of a topological group whose topology is given by the topology of $\R^{n^2}$ and a choice of bijection of sets $\R^{n^2}\cong M_n(\R)$. 
+\end{prp}
+
+\begin{prp}{}{} Let $n\in\N\setminus\{0\}$. Then $\GL(n,\R)$ is an open subset of $M_n(\R)$. 
+\end{prp}
+
+Beware that $\GL(n,\R),O(n,\R),SL(n,\R),SO(n,\R)$ are not topological groups as subsets of $M_n(\R)$ because they are not subgroups of $M_n(\R)$ in the first place. 
+
+\begin{prp}{The General Linear Group as a Topological Group}{} The general linear group $$\GL(n,\R)=\{M\in M_n(\R)\;|\;\det(M)\neq 0\}$$ with group structure given by matrix multiplication can be given the structure of a topological group whose topology is given by the subspace topology as a subset of $M_n(\R)$. 
+\end{prp}
+
+\begin{prp}{}{} Let $n\in\N\setminus\{0\}$. Then the following are all topological groups with group structure and topology inherited from $\GL(n,\R)$. 
+\begin{itemize}
+\item The orthogonal group $O(n,\R)$. 
+\item The special linear group $SL(n,\R)$. 
+\item The special orthogonal group $SO(n,\R)$. 
+\end{itemize}
+Moreover, they are closed subsets of $\GL(n,\R)$. 
+\end{prp}
+
+\subsection{Some Complex Topological Groups}
+
+$\GL(n,\C), U(n), SU(n)$
 
 \pagebreak
 \section{Equivariant Spaces}
