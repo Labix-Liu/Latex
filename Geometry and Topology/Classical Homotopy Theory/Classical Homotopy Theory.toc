@@ -21,8 +21,8 @@
 \contentsline {section}{\numberline {5}Blakers-Massey Theorem}{24}{section.5}%
 \contentsline {subsection}{\numberline {5.1}The Blakers-Massey Theorem for Squares}{24}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}The Dual Blakers-Massey Theorem for Squares}{25}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Homotopy n-Cubes}{26}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Maps between Homotopy Squares}{26}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}n-Cubes of Spaces}{26}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Homotopy Limits and Colimits}{28}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Homotopy Limits and Colimits}{28}{subsection.7.1}%
+\contentsline {section}{\numberline {6}Homotopy n-Cubes}{27}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Maps between Homotopy Squares}{27}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}n-Cubes of Spaces}{27}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Homotopy Limits and Colimits}{29}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Homotopy Limits and Colimits}{29}{subsection.7.1}%

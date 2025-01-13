@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  7 JAN 2025 17:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  11 JAN 2025 20:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1076,7 +1076,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
-(Lie Groups and Lie Algebras.toc)
+(Lie Groups and Lie Algebras.toc
+LaTeX Font Info:    Trying to load font information for U+euf on input line 30.
+
+
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+))
 \tf@toc=\write5
 \openout5 = `"Lie Groups and Lie Algebras.toc"'.
 
@@ -1088,11 +1094,6 @@ LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
  (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
-Overfull \hbox (6.59517pt too wide) detected at line 65
-[]
- []
-
-
 
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
 enc}]
@@ -1136,17 +1137,17 @@ enc}]
 [22]
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 670--671
+Underfull \hbox (badness 10000) in paragraph at lines 663--664
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 674.
+(hyperref)                removing `math shift' on input line 667.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 674.
+(hyperref)                removing `math shift' on input line 667.
 
 
 
@@ -1155,90 +1156,84 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [25]
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 735--736
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 737--738
-
- []
-
-
 
 [27]
+Underfull \hbox (badness 10000) in paragraph at lines 759--760
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 761--762
+
+ []
+
+
 
 [28]
 
 [29]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 823.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 823.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 845--846
-
- []
-
-
-
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 877--887
 
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 847.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 877--887
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 847.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 869--870
 
  []
 
 
 
 [31]
-Overfull \hbox (2.77159pt too wide) in paragraph at lines 888--889
+Underfull \hbox (badness 10000) in paragraph at lines 901--911
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 901--911
+
+ []
+
+
+
+[32]
+Overfull \hbox (2.77159pt too wide) in paragraph at lines 912--913
 []\T1/qpl/m/n/10 We will now show that Sim-ple Lie al-ge-bras give rise to ir-r
 e-ducible Dynkin di-a-grams and vice versa. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 891--904
+Underfull \hbox (badness 10000) in paragraph at lines 915--928
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 891--904
+Underfull \hbox (badness 10000) in paragraph at lines 915--928
 
  []
 
 
 
-[32] (Lie Groups and Lie Algebras.aux)
+[33] (Lie Groups and Lie Algebras.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Lie Groups and Lie Algebras".out' has ch
-anged.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Lie Groups and Lie Algebras".out':
-
-(rerunfilecheck)             Before: 648FE0E79164332A217F2A8F9977E3B5;8775
-(rerunfilecheck)             After:  26D12AC9C4FB943583C10CEF561DF97A;9056.
+Package rerunfilecheck Info: File `"Lie Groups and Lie Algebras".out' has not c
+hanged.
+(rerunfilecheck)             Checksum: 2044AF7EF30098BCD9C2E9C7D30DBE04;9526.
  ) 
 Here is how much of TeX's memory you used:
- 33029 strings out of 473577
- 651863 string characters out of 5716318
- 1074740 words of memory out of 5000000
- 55476 multiletter control sequences out of 15000+600000
- 606782 words of font info for 83 fonts, out of 8000000 for 9000
+ 33058 strings out of 473577
+ 652353 string characters out of 5716318
+ 1073745 words of memory out of 5000000
+ 55492 multiletter control sequences out of 15000+600000
+ 602834 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,27n,120p,1023b,1203s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
@@ -1255,14 +1250,15 @@ Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
 .pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Lie Groups and Lie Algebras.pdf" (32 pages, 489661 bytes).
+public/amsfonts/euler/eufm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/l
+iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on "Lie Groups and Lie Algebras.pdf" (33 pages, 504670 bytes).
 PDF statistics:
- 668 PDF objects out of 1000 (max. 8388607)
- 214 named destinations out of 1000 (max. 500000)
- 349 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 712 PDF objects out of 1000 (max. 8388607)
+ 221 named destinations out of 1000 (max. 500000)
+ 389 words of extra memory for PDF output out of 10000 (max. 10000000)
 

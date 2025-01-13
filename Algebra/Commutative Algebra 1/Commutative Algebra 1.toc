@@ -9,22 +9,23 @@
 \contentsline {subsection}{\numberline {2.3}Nilradical and Jacobson Ideals}{10}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Extensions and Contractions of Ideals}{12}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Revisiting the Polynomial Ring}{13}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Simplifying Generators of an Ideal}{15}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Ordering on the Monomials}{15}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Monomial Ideals}{16}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Groebner Bases}{16}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Modules over a Commutative Ring}{17}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Cayley-Hamilton Theorem}{17}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Nakayama's Lemma}{18}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Change of Rings}{19}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Properties of the Hom Set}{20}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Failure of Exactness of Hom and Tensoring}{21}{subsection.4.5}%
+\contentsline {section}{\numberline {3}Modules over a Commutative Ring}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Cayley-Hamilton Theorem}{15}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Nakayama's Lemma}{16}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Change of Rings}{17}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Properties of the Hom Set}{18}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Failure of Exactness of Hom and Tensoring}{19}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Algebra Over a Commutative Ring}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Commutative Algebras}{21}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Finitely Generated Algebra}{21}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Finite Algebras}{22}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Zariski's Lemma}{22}{subsection.4.4}%
 \contentsline {section}{\numberline {5}Localization}{23}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Localization of a Ring}{23}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Localization at a Prime Ideal}{24}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Localization of a Module}{25}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Local Properties}{27}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Ideals of a Localization}{27}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.4}Ideals of a Localization}{27}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Local Properties}{27}{subsection.5.5}%
 \contentsline {section}{\numberline {6}Primary Decomposition}{29}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Support of a Module}{29}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Associated Prime}{29}{subsection.6.2}%
@@ -32,22 +33,21 @@
 \contentsline {subsection}{\numberline {6.4}Primary Decomposition}{29}{subsection.6.4}%
 \contentsline {section}{\numberline {7}Integral Dependence}{31}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Integral Elements}{31}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Integral Extensions}{31}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.2}Integral Closure}{31}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}The Going-Up and Going-Down Theorems}{32}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Normal Domains}{33}{subsection.7.4}%
-\contentsline {section}{\numberline {8}Algebra Over a Commutative Ring}{34}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Commutative Algebras}{34}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Finitely Generated Algebra}{35}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Finite Algebras}{36}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Zariski's Lemma}{36}{subsection.8.4}%
-\contentsline {section}{\numberline {9}Introduction to Dimension Theory for Rings}{37}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Krull Dimension}{37}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Structure Theorem for Artinian Rings}{37}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Height of Prime Ideals}{37}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Length of a Module}{38}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}The Hilbert Polynomial}{38}{subsection.9.5}%
-\contentsline {section}{\numberline {10}Valuation and Valuation Rings}{40}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Valuation Rings}{40}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Valuations on a Field}{40}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Discrete Valuations and Normalizations}{40}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Discrete Valuation Rings}{41}{subsection.10.4}%
+\contentsline {section}{\numberline {8}Introduction to Dimension Theory for Rings}{34}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Krull Dimension}{34}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Height of Prime Ideals}{34}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Length of a Module}{35}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}The Hilbert Polynomial}{35}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Structure Theorem for Artinian Rings}{36}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Valuation and Valuation Rings}{38}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Valuation Rings}{38}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Valuations on a Field}{38}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Discrete Valuations and Normalizations}{38}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Discrete Valuation Rings}{39}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Dedekind Domains}{42}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Fractional Ideals}{42}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Invertible Ideals}{42}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Dedekind Domains}{43}{subsection.10.3}%

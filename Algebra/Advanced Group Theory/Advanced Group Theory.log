@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  9 JAN 2025 09:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  9 JAN 2025 10:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1110,13 +1110,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--105
 [6]
 
 [7]
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
 
  []
 
 
+
+[8]
 
 [9]
 
@@ -1284,10 +1284,10 @@ Package rerunfilecheck Info: File `"Advanced Group Theory".out' has not changed
 (rerunfilecheck)             Checksum: E9969D14937A98173B027DBC625C0882;6972.
  ) 
 Here is how much of TeX's memory you used:
- 33211 strings out of 473577
- 655981 string characters out of 5716318
+ 33212 strings out of 473577
+ 655998 string characters out of 5716318
  1083697 words of memory out of 5000000
- 55652 multiletter control sequences out of 15000+600000
+ 55653 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,16n,120p,1323b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1315,7 +1315,7 @@ AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C
 -gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/tex-gyre/qplri.pfb>
-Output written on "Advanced Group Theory.pdf" (42 pages, 599041 bytes).
+Output written on "Advanced Group Theory.pdf" (42 pages, 598587 bytes).
 PDF statistics:
  711 PDF objects out of 1000 (max. 8388607)
  220 named destinations out of 1000 (max. 500000)

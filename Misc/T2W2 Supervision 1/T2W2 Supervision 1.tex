@@ -1,0 +1,47 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{T2W2 Supervision 1}
+\rfoot{\thepage}
+
+\title{T2W2 Supervision 1}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\section*{Exercise Sheet for Week 2}
+\subsection*{Question 1}
+Find the radius of convergence of the following power series: 
+\begin{itemize}
+\item $\sum_{k=0}^\infty\frac{x^k}{k!}$
+\item $\sum_{k=0}^\infty\frac{x^k}{r^k}$ for some $r\in\R$. 
+\end{itemize}
+
+\subsection*{Question 2}
+Consider the power series $\sum_{k=0}^\infty a_kx^k$ for $a_k\in\R$. Prove (it is hard) that the radius of convergence of the power series is given by $$r=\lim_{n\to\infty}\left(\inf\left\{\abs{x_m}^{-1/m}:m\geq n\right\}\right)$$ Check that this formula works for all the power series you have seen. \\
+
+Upshot: A hack that you are not allowed to use in assignments or exams unless they taught you this in the notes (you may use it for sanity check). 
+
+\subsection*{Question 3}
+Consider the equation $y^2=x^3+x+10$ defined for the region $y\geq 0$. Find a parameterization of the curve. Now parameterize it for the case when $y\leq 0$. Piece the two to find a parameterization of the entire curve $y^2=x^3+x+10$, making sure that it is continuous. \\
+
+Upshot: Not all curves are paramterized by a single formula. 
+
+\subsection*{Question 4}
+Find two different parametrizations of the standard parabola $y=x^2$. Can you write an expression relating the two parametrizations?\\
+
+Upshot: First question says that parametrization is not unique. The second question is the same as asking for a reparametrization from one curve to another. 
+
+\subsection*{Question 5}
+5(a): Consider the following three vectors of $\R^3$: $\begin{pmatrix}1 \\ 0 \\ 1\end{pmatrix},\begin{pmatrix}1 \\ 1 \\ 0\end{pmatrix},\begin{pmatrix}0 \\ 1 \\ 1\end{pmatrix}$. Prove that no vector is a linear combination of the other two. We call these vectors linearly independent from each other. \\
+
+5(b): Now consider the same set of vectors. Consider the set of all possible linear combinations of the three vectors: $$S=\left\{a\begin{pmatrix}1 \\ 0 \\ 1\end{pmatrix}+b\begin{pmatrix}1 \\ 1 \\ 0\end{pmatrix}+c\begin{pmatrix}0 \\ 1 \\ 1\end{pmatrix}:a,b,c\in\R\right\}$$ Show that $S=\R^3$. We say that these vectors span $\R^3$. \\
+
+5(c): Now choose your favourite vector out of the original three vectors, and take it away. Show that the remaining two vectors no longer span $\R^3$. 
+
+\end{document}

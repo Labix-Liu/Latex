@@ -1,50 +1,54 @@
-\contentsline {section}{\numberline {1}Smooth Algebras}{4}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Smooth Algebras}{4}{subsection.1.1}%
-\contentsline {section}{\numberline {2}Geometric Properties of Ring Homomorphisms}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Finite and Quasi-Finite Morphisms}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Unramified Morphisms}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Etale Morphisms}{6}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Derived Categories in Algebraic Geometry}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Derived Categories of Schemes}{7}{subsection.3.1}%
-\contentsline {section}{\numberline {4}Intersection Theory}{8}{section.4}%
-\contentsline {subsection}{\numberline {4.1}The Order of Zeroes and Poles}{8}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}The Induced Map}{9}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Symmetric Polynomials}{11}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Symmetric Polynomials}{11}{subsection.5.1}%
-\contentsline {section}{\numberline {6}$\lambda $-Rings}{12}{section.6}%
-\contentsline {subsection}{\numberline {6.1}$\lambda $-Rings}{12}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}$\lambda $-Ring Homomorphisms and Ideals}{13}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Augmented $\lambda $-Rings}{14}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Extending $\lambda $-Structures}{14}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Free $\lambda $-Rings}{14}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}The Universal $\lambda $-Ring}{14}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Adams Operations}{14}{subsection.6.7}%
-\contentsline {section}{\numberline {7}Witt Vectors}{15}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Fundamentals of the Ring of Big Witt Vectors}{15}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Important Maps of Witt Vectors}{17}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}The Ring of p-Typical Witt Vectors}{18}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}The $\lambda $-structure on W(R)}{19}{subsection.7.4}%
-\contentsline {section}{\numberline {8}Formal Group Laws}{20}{section.8}%
-\contentsline {section}{\numberline {9}Calculus of Functors}{21}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Excisive Functors}{21}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}The Taylor Tower}{21}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Linear Functors}{23}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Catalogue of Construction Needed}{25}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Important Theorems}{26}{subsection.9.5}%
-\contentsline {section}{\numberline {10}Stable Infinity Categories}{29}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Stable Infinity Categories}{29}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}}{29}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}}{29}{subsection.10.3}%
-\contentsline {section}{\numberline {11}Algebras and Coalgebras}{30}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Coalgebras}{30}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Bialgebras}{31}{subsection.11.2}%
-\contentsline {section}{\numberline {12}Hopf Algebras}{32}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Hopf Algebras}{32}{subsection.12.1}%
-\contentsline {section}{\numberline {13}Differential Graded Algebra}{33}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Basic Definitions}{33}{subsection.13.1}%
-\contentsline {section}{\numberline {14}Group Structures on Maps of Spaces}{34}{section.14}%
-\contentsline {section}{\numberline {15}R Project}{36}{section.15}%
-\contentsline {subsection}{\numberline {15.1}Homotopy Axioms}{36}{subsection.15.1}%
-\contentsline {subsection}{\numberline {15.2}Blakers-Massey Theorem}{37}{subsection.15.2}%
-\contentsline {subsection}{\numberline {15.3}Linear Functors and Spectra}{37}{subsection.15.3}%
-\contentsline {subsection}{\numberline {15.4}}{38}{subsection.15.4}%
+\contentsline {section}{\numberline {1}Simplifying Generators of an Ideal}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Ordering on the Monomials}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Monomial Ideals}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Groebner Bases}{5}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Smooth Algebras}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Smooth Algebras}{6}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Geometric Properties of Ring Homomorphisms}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Finite and Quasi-Finite Morphisms}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Unramified Morphisms}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Etale Morphisms}{8}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Derived Categories in Algebraic Geometry}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Derived Categories of Schemes}{9}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Intersection Theory}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The Order of Zeroes and Poles}{10}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The Induced Map}{11}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Symmetric Polynomials}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Symmetric Polynomials}{13}{subsection.6.1}%
+\contentsline {section}{\numberline {7}$\lambda $-Rings}{14}{section.7}%
+\contentsline {subsection}{\numberline {7.1}$\lambda $-Rings}{14}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}$\lambda $-Ring Homomorphisms and Ideals}{15}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Augmented $\lambda $-Rings}{16}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Extending $\lambda $-Structures}{16}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Free $\lambda $-Rings}{16}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}The Universal $\lambda $-Ring}{16}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Adams Operations}{16}{subsection.7.7}%
+\contentsline {section}{\numberline {8}Witt Vectors}{17}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Fundamentals of the Ring of Big Witt Vectors}{17}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Important Maps of Witt Vectors}{19}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}The Ring of p-Typical Witt Vectors}{20}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}The $\lambda $-structure on W(R)}{21}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Formal Group Laws}{22}{section.9}%
+\contentsline {section}{\numberline {10}Calculus of Functors}{23}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Excisive Functors}{23}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}The Taylor Tower}{23}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Linear Functors}{25}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Catalogue of Construction Needed}{27}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Important Theorems}{28}{subsection.10.5}%
+\contentsline {section}{\numberline {11}Stable Infinity Categories}{31}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Stable Infinity Categories}{31}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}}{31}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}}{31}{subsection.11.3}%
+\contentsline {section}{\numberline {12}Algebras and Coalgebras}{32}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Coalgebras}{32}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Bialgebras}{33}{subsection.12.2}%
+\contentsline {section}{\numberline {13}Hopf Algebras}{34}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Hopf Algebras}{34}{subsection.13.1}%
+\contentsline {section}{\numberline {14}Differential Graded Algebra}{35}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Basic Definitions}{35}{subsection.14.1}%
+\contentsline {section}{\numberline {15}Group Structures on Maps of Spaces}{36}{section.15}%
+\contentsline {section}{\numberline {16}R Project}{38}{section.16}%
+\contentsline {subsection}{\numberline {16.1}Homotopy Axioms}{38}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}Blakers-Massey Theorem}{39}{subsection.16.2}%
+\contentsline {subsection}{\numberline {16.3}Linear Functors and Spectra}{39}{subsection.16.3}%
+\contentsline {subsection}{\numberline {16.4}}{40}{subsection.16.4}%

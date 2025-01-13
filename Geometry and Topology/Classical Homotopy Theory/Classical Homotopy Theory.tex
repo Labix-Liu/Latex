@@ -851,7 +851,31 @@ This lemma has a less geometric way of proving it that does not involve any of t
 	\arrow[from=1-2, to=2-2]
 	\arrow[from=2-1, to=2-2]
 \end{tikzcd}}\\~\\
-is a homotopy pushout. Suppose the map $X_0\to X_i$ is $k_i$-connected for $i=1,2$. Then the diagram is $(k_1+k_2-1)$-cartesian. Explicitly, this means that $$\alpha:X_0\to\text{holim}(X_1\rightarrow X_{12}\leftarrow X_2)$$ is $(k_1+k_2-1)$-connected. 
+is a homotopy pushout. Suppose the map $X_0\to X_i$ is $k_i$-connected for $i=1,2$. Then the diagram is $(k_1+k_2-1)$-cartesian. Explicitly, this means that $$\alpha:X_0\to\text{holim}(X_1\rightarrow X_{12}\leftarrow X_2)$$ is $(k_1+k_2-1)$-connected. \tcbline
+\begin{proof}
+
+
+
+
+Let $e^d$ be a cell of dimension $d$. We first proof that the following square \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & {X\cup e^{d_1}} \\
+	{X\cup e^{d_2}} & {X\cup e^{d_1}\cup e^{d_2}}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[hook, from=1-2, to=2-2]
+	\arrow[hook, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+is $(d_1+d_2-3)$-Cartesian for any space $X$. Let $p_1\in e^{d_1}$ and $p_2\in e^{d_2}$ be interior points. Since $X\cup e^{d_2}$ is weakly equivalent to $X\cup e^{d_1}\cup e^{d_2}\setminus\{p_1\}$ by inclusion (and similarly for $X\cup e^{d_1}$), the above square admits a weak equivalence to the following square: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X\cup e^{d_1}\cup e^{d_2}\setminus\{p_1,p_2\}} & {X\cup e^{d_1}\cup e^{d_2}\setminus\{p_2\}} \\
+	{X\cup e^{d_1}\cup e^{d_2}\setminus\{p_1\}} & {X\cup e^{d_1}\cup e^{d_2}}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[hook, from=1-2, to=2-2]
+	\arrow[hook, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{proof}
 \end{thm}
 
 This theorem directly generalizes the homotopy excision theorem in the following way. For $X$ a CW complex and $A,B$ two subcomplexes with non-empty intersection and $X=A\cup B$, consider the following square of inclusions: \\~\\

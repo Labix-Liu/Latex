@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  7 JAN 2025 14:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  12 JAN 2025 17:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -909,6 +909,13 @@ Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 )
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip79
+\multirow@cntb=\count346
+\multirow@dima=\skip80
+\bigstrutjot=\dimen318
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgpagella.sty
 Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
 ) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
@@ -958,8 +965,8 @@ File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
 w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
 ))
-\c@tcb@cnt@thm=\count346
-Package hyperref Info: Option `colorlinks' set `true' on input line 255.
+\c@tcb@cnt@thm=\count347
+Package hyperref Info: Option `colorlinks' set `true' on input line 256.
 ) (Commutative Algebra 1.aux)
 \openout1 = `"Commutative Algebra 1.aux"'.
 
@@ -1020,16 +1027,16 @@ LaTeX Font Info:    ... okay on input line 16.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count347
-\scratchdimen=\dimen318
+\scratchcounter=\count348
+\scratchdimen=\dimen319
 \scratchbox=\box88
-\nofMPsegments=\count348
-\nofMParguments=\count349
+\nofMPsegments=\count349
+\nofMParguments=\count350
 \everyMPshowfont=\toks54
-\MPscratchCnt=\count350
-\MPscratchDim=\dimen319
-\MPnumerator=\count351
-\makeMPintoPDFobject=\count352
+\MPscratchCnt=\count351
+\MPscratchDim=\dimen320
+\MPnumerator=\count352
+\makeMPintoPDFobject=\count353
 \everyMPtoPDFconversion=\toks55
 )
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -1042,7 +1049,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count353
+\c@lstlisting=\count354
 Package hyperref Info: Link coloring ON on input line 16.
  (Commutative Algebra 1.out) (Commutative Algebra 1.out)
 \@outlinefile=\write4
@@ -1176,28 +1183,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--102
 [38]
 
 [39]
+Overfull \hbox (30.0pt too wide) in paragraph at lines 1169--1170
+[][] 
+ []
+
+
 
 [40]
 
 [41]
 
-[42] (Commutative Algebra 1.aux)
+[42]
+Overfull \hbox (24.5716pt too wide) in paragraph at lines 1219--1220
+[]\T1/qpl/m/n/10 Dedekind sought for an in-te-gral do-main whose ide-als can be
+ fac-tor-ized uniquely as a prod-uct of primes. 
+ []
+
+
+
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1276
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1276
+
+ []
+
+
+
+[44] (Commutative Algebra 1.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Commutative Algebra 1".out' has not changed
 .
-(rerunfilecheck)             Checksum: BCBE95A79AE3D4EDAF4C2F91F7776983;9436.
+(rerunfilecheck)             Checksum: 0A1CBE6E88D6F79E03D19667942890EB;9294.
  ) 
 Here is how much of TeX's memory you used:
- 33666 strings out of 473577
- 667482 string characters out of 5716318
- 1084100 words of memory out of 5000000
- 56070 multiletter control sequences out of 15000+600000
+ 33870 strings out of 473577
+ 672041 string characters out of 5716318
+ 1083866 words of memory out of 5000000
+ 56259 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,18n,120p,774b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,22n,120p,777b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1216,9 +1248,9 @@ nts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Commutative Algebra 1.pdf" (42 pages, 543693 bytes).
+Output written on "Commutative Algebra 1.pdf" (44 pages, 553184 bytes).
 PDF statistics:
- 809 PDF objects out of 1000 (max. 8388607)
- 260 named destinations out of 1000 (max. 500000)
+ 830 PDF objects out of 1000 (max. 8388607)
+ 272 named destinations out of 1000 (max. 500000)
  437 words of extra memory for PDF output out of 10000 (max. 10000000)
 

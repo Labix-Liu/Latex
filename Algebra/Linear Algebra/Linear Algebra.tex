@@ -424,9 +424,7 @@ Although not stated in the theorem, this does not mean that linear maps without 
 \end{thm}
 
 \pagebreak
-\section{The Jordan Canonical Form}
-In the last section, we looked into what kinds of matrices can have "nice" looking matrix under some basis. We now provide a less "nice" looking form of a similar matrix. However, every matrix can be reduced to this relatively "nice" looking form, as long as the field is algebraically closed. This form is called the Jordan Normal Form. 
-
+\section{The Cayley-Hamilton Theorem}
 \subsection{The Minimal Polynomial}
 \begin{thm}{}{} Let $\F$ be a field. Let $A$ be a $n\times n$ matrix over $\F$. Then there is some non-zero polynomial $p\in\F[x]$ of degree at most $n^2$ such that $p(A)=\vb{0}_n$. \tcbline\begin{proof} Note that $\{I,A,\dots,A^{n^2}\}$ is linerarly dependent in the vector space of $n\times n$ matrices. Thus there exists constant $c_0,\dots,c_{n^2}$ that are not all zero such that $$c_0I+\dots+c_{n^2}A^{n^2}=\vb{0}_n$$ Thus $p(x)=c_0+c_1x+\dots+c_{n^2}x^{n^2}$ is our desired polynomial. 
 \end{proof}
@@ -459,6 +457,9 @@ Let $p(x)$ be the minimal polynomial in the above proof. Let $q(A)=0$. By divisi
 \end{crl}
 
 We will later see that in fact, the above criterion is a neccessary and sufficient condition: $A$ is diagonalizable if and only if the minimal polynomial is a product of distinct linear factors. 
+
+\begin{lmm}{}{} Let $\F$ be a field. Let $n,m\in\N\setminus\{0\}$. Let $A\in M_n(\F)$ and $B\in M_m(\F)$. Then $$c_M(x)=c_A(x)c_B(x)$$ and $$\mu_M(x)=\gcd(\mu_A(x),\mu_B(x))$$
+\end{lmm}
 
 \subsection{Cayley-Hamilton Theorem}
 \begin{thm}{Cayley-Hamilton}{} Let $c_A(x)=\det(A-xI)$ be the characteristic polynomial of the $n\times n$ matrix $A$ over a field $\F$, then $c_A(A)=0$. \tcbline
@@ -495,109 +496,87 @@ Using this, we derive a better algorithm to find the minimal polynomial: \\~\\
 Step 1: Take $v\neq 0$ an eigenvector and set $W=\text{span}\{v,T(v),T^2(v),\dots\}$. Then $W$ is invariant under $T$. Let $d$ be the minimal positive integer such that $v,T(v),\dots,T^d(v)$ are linearly dependent. Then $v,T(v),\dots,T^{d-1}(v)$ are linearly independent. Then we know that $\mu_T(x)$ has degree larger than $d$ since else $\mu_T(x)v$ will never be $0$. Then there is a nontrivial linear dependency relation of the form $$T^d(v)+c_{d-1}T^{d-1}(v)+\dots+c_1T(v)+c_0v=0$$\\
 Step 2: Consider the polynomial $$x^d+c_{d-1}x^{d-1}+\dots+c_1x+c_0$$ Then this is precisely the minimal polynomial. 
 
+\pagebreak
+\section{The Jordan Canonical Form}
+In the last sections, we looked into what kinds of matrices can have "nice" looking matrix under some basis. We now provide a less "nice" looking form of a similar matrix. However, every matrix can be reduced to this relatively "nice" looking form, as long as the field is algebraically closed. This form is called the Jordan Normal Form. 
+
 \subsection{Generalized Eigenspace}
-\begin{defn}{Generalized Eigenvector}{} Let $T:V\to V$. Fix $k\in\N$. A non zero vector $v$ such that $$(T-\lambda I)^kv=0$$ is called a generalized eigenvector of $T$ with respect to the eigenvalue $\lambda$. Also we define $$N_k(T,\lambda)=\{v\in V|(T-\lambda I)^kv=0\}=\ker((T-\lambda I)^k)$$ to be the generalized eigenspace of index $k$ of $T$ with respect to $\lambda$. The set of all generalized eigenvector regardless of the index, is defined to be $$G(T,\lambda)=\{v\in V|(T-\lambda I)^kv=0\text{ for some }k\in\N\}=\bigcup_{k=1}^\infty N_k(T,\lambda)$$
+\begin{defn}{Generalized Eigenvectors}{} Let $V$ be a vector space over a field $\F$. Let $T\in\text{End}_k(V)$. Let $\lambda$ be an eigenvalue of $T$. We say that $v\in V$ is a generalized eigenvector of $T$ if $$(T-\lambda\text{id}_V)^kv=0$$ for some $k\in\N\setminus\{0\}$. 
 \end{defn}
 
-\begin{prp}{}{} The dimensions of corresponding generalized eigenspaces of similar matrices are the same. \tcbline
-\begin{proof}
-This is true since generalized eigenspaces are defined without explicitly defining a basis for the linear map. Thus similar matrices that induce the same linear map will have the same dimensions for generalized eigenspaces. 
-\end{proof}
-\end{prp}
+\begin{defn}{Generalized Eigenspaces}{} Let $V$ be a vector space over a field $\F$. Let $T\in\text{End}_k(V)$. Let $\lambda$ be an eigenvalue of $T$. Define the generalized eigenspace of index $k\in\N\setminus\{0\}$ of $T$ with respect to $\lambda$ to be $$N_k(T,\lambda)=\{v\in V|(T-\lambda I)^kv=0\}=\ker((T-\lambda I)^k)$$
+\end{defn}
 
-\begin{prp}{}{} Let $T:V\to V$ be a linear map with eigenvalue $\lambda$. Then $$N_1(T,\lambda)\subseteq N_2(T,\lambda)\subseteq N_3(T,\lambda)\subseteq\dots$$ \tcbline
-\begin{proof}
-Trivially if $v\in\ker(A-\lambda I)^i$. This means that $(A-\lambda I)^iv=0$ and $(A-\lambda I)^{i+1}v=0$. Thus $N_i(T,\lambda)\subseteq N_{i+1}(T,\lambda)$ for any $i$ and we are done. 
-\end{proof}
-\end{prp}
-
-\begin{prp}{}{} Let $\lambda$ be an eigenvalue of $T:V\to V$. There exists some $n\in N$ such that $$N_n(T-\lambda I)=N_{n+1}(T-\lambda I)=\dots$$ Denote $d(\lambda)$ the smallest of such $n$. \tcbline
-\begin{proof}
-$d(\lambda)\leq\dim(V)$. 
-\end{proof}
-\end{prp}
-
-\begin{prp}{}{} Let $\lambda$ be an eigenvalue of $T:V\to V$. Then $$G(T,\lambda)=N_{\dim(V)}(T,\lambda)$$
-\end{prp}
-
-\begin{prp}{}{} Let $T:V\to V$ with eigenvalues $\lambda_1,\dots,\lambda_m$. Let $v_i\in G(T,\lambda_i)$ for $i\in\{1,\dots,m\}$. Then $v_1,\dots,v_m$ are linearly independent. 
-\end{prp}
-
-\begin{thm}{}{} Let $V$ be a vector space of an algebraically closed field $F$. Let $T:V\to V$. Let $\lambda_1,\dots,\lambda_m$ be distinct eigenvalues of $T$. Then
+\begin{prp}{}{} Let $V$ be a vector space over a field $\F$. Let $T\in\text{End}_k(V)$. Let $\lambda$ be an eigenvalue of $T$. Then the following are true. 
 \begin{itemize}
-\item $V=G(T,\lambda_1)\oplus\dots\oplus G(T,\lambda_m)$
-\item $G(T,\lambda_j)$ is invariant under $T$. 
+\item $N_1(T,\lambda)\subseteq N_2(T,\lambda)\subseteq N_3(T,\lambda)\subseteq\dots$
+\item There exists some $k\in\N\setminus\{0\}$ such that $N_k(T,\lambda)=N_{k+1}(T,\lambda)=\cdots$
+\end{itemize} \tcbline
+\begin{proof}
+Let $v\in N_i(T,\lambda)$. This means that $(T-\lambda\text{id}_V)^iv=0$. Applying the linear map $T-\lambda\text{id}_V$ on both sides show that $v\in N_{i+1}(T,\lambda)$. 
+\end{proof}
+\end{prp}
+
+\begin{defn}{Degree of Eigenvectors}{} Let $V$ be a vector space over a field $\F$. Let $T\in\text{End}_k(V)$. Let $\lambda$ be an eigenvalue of $T$. Define the degree of $\lambda$ to be $$d(\lambda)=\min\{k\;|\;N_k(T,\lambda)=N_{k+1}(T,\lambda)=\cdots\}$$
+\end{defn}
+
+\begin{prp}{}{} Let $V$ be a vector space over a field $\F$. Let $T\in\text{End}_k(V)$. Let $\lambda_1,\dots,\lambda_m$ be eigenvalues of $T$. Let $v_i\in N_{d(\lambda_i)}(T,\lambda_i)$ for $1\leq i\leq m$. Then $v_1,\dots,v_m$ are linearly independent. 
+\end{prp}
+
+Using generalized eigenspaces, we obtain an improvement of thm3.2.5. 
+\begin{thm}{}{} Let $V$ be a vector space of an algebraically closed field $F$. Let $T:V\to V$. Let $\lambda_1,\dots,\lambda_m$ be the full list of distinct eigenvalues of $T$. Then the following are true. 
+\begin{itemize}
+\item $V$ admits a decomposition into generalized eigenspaces $$V=\bigoplus_{i=1}^mN_{d(\lambda_i)}(T,\lambda_i)$$
+\item The generalized eigenspace $N_{d(\lambda_i)}(T,\lambda_i)$ is an invariant subspace of $T$. 
 \end{itemize}
 \end{thm}
 
+This version of the decomposition is applicable to any in vector space and linear map. In particular, if $d(\lambda_i)=1$ for all $i$, notice that generalized eigenspaces are simply eigenspaces so that the two decompositions coincide. 
+
 \subsection{Jordan Canonical Form}
-\begin{defn}{Jordan Chain}{} A Jordan Chain of length $k$ is a sequence of nonzero vectors $v_1,\dots,v_k$ such that
-\begin{align*}
-Av_1&=\lambda v_1\\
-Av_2&=\lambda v_2+v_1\\
-&\vdots\\
-Av_k&=\lambda v_k+v_{k-1}
-\end{align*}
-for some eigenvalue $\lambda$ of $A$. 
+\begin{defn}{Jordan Chain}{} Let $V$ be a vector space over a field $\F$. Let $T\in\text{End}_k(V)$. Let $\lambda$ be an eigenvalue of $T$. A Jordan Chain of length $k\in\N\setminus\{0\}$ is a sequence of nonzero vectors $v_1,\dots,v_k\in V$ such that the following are true. 
+\begin{itemize}
+\item $T(v_1)=\lambda v_1$
+\item For $2\leq i\leq k$, we have $T(v_i)=\lambda v_i+v_{i-1}$
+\end{itemize}
 \end{defn}
 
-\begin{crl}{}{} Let $v_1,\dots,v_k$ be a Jordan Chain of $\lambda$. Then $v_i\in N_i(A,\lambda)$ for $i\in\{1,\dots,k\}$ and $(T-\lambda I)(v_i)=v_{i-1}$ except for $i=1$. \tcbline
-\begin{proof} The result is immediate from substitution in the Jordan Chains. 
+\begin{lmm}{}{} Let $V$ be a vector space over a field $\F$. Let $T\in\text{End}_k(V)$. Let $\lambda$ be an eigenvalue of $T$. Let $v_1,\dots,v_k\in V$ be a Jordan chain of length $k$ with respect to $T$ and $\lambda$. Then the following are true. 
+\begin{itemize}
+\item For $1\leq i\leq k$, we have $v_i\in N_i(A,\lambda)$
+\item For $2\leq i\leq k$, $(T-\lambda\text{id}_V)(v_i)=v_{i-1}$
+\item The vectors $v_1,\dots,v_k$ are linearly independent. 
+\end{itemize} \tcbline
+\begin{proof}
 \end{proof}
-\end{crl}
+\end{lmm}
 
-\begin{prp}{}{} The vectors in a Jordan chain are linearly independent. 
+\begin{prp}{}{} Let $V$ be a vector space over a field $\F$. Let $T\in\text{End}_k(V)$. Let $\lambda$ be an eigenvalue of $T$. Let $v_1,\dots,v_k\in V$ be a Jordan chain of length $k$ with respect to $T$ and $\lambda$. Then the subspace $\F\langle v_1,\dots,v_k\rangle$ is invariant under $T$. \tcbline
+\begin{proof}
+Note that we just have to find out where $v_1,\dots,v_k$ are mapped to since they are a basis of our subspace. But $T(v_i)=\lambda v_i+v_{i-1}$ for $i\in\{2,\dots,k\}$ which is a linear combination of our basis, we must have that the subspace is invariant. 
+\end{proof}
 \end{prp}
 
-\begin{prp}{}{} The subspace spanned by a Jordan Chain is invariant under its linear map. \tcbline
-\begin{proof} Note that we just have to find out where $v_1,\dots,v_k$ are mapped to since they are a basis of our subspace. But $T(v_i)=\lambda v_i+v_{i-1}$ for $i\in\{2,\dots,k\}$ which is a linear combination of our basis, we must have that the subspace is invariant. 
-\end{proof}
-\end{prp}
-
-\begin{defn}{Jordan Block of Degree $k$}{} Define the Jordan block of degree $k$ to be the $k\times k$ matrix $$
+\begin{defn}{Jordan Block of Degree $k$}{} Let $\F$ be a field. Let $\lambda\in\F$. Define the Jordan block of degree $k$ of $\lambda$ to be the $k\times k$ matrix $$
 \gamma_{ij}=\begin{cases}
 \lambda & \text{if $j=i$}\\
-1 & \text{if $j=i+1$}\\
+1_\F & \text{if $j=i+1$}\\
 0 & \text{otherwise}
 \end{cases}$$
-This means the diagonal of the matrix is $\lambda$ and the super diagonal is $1$. It is denoted as $J_{\lambda,k}$
+The matrix is denoted by $J_{\lambda,k}$. 
 \end{defn}
 
-\begin{crl}{}{} The matrix of $T$ with respect to the basis $v_1,\dots,v_n$ is a Jordan Block if and only if $v_1,\dots,v_n$ is a Jordan Chain. \tcbline
-\begin{proof} Let $v_1,\dots,v_k$ be a Jordan Chain. Our matrix should be in the form $$\begin{pmatrix}
-T(v_1) & T(v_2) & \cdots & T(v_k) 
-\end{pmatrix}$$ Calculating each column gives $$\begin{pmatrix}
-\lambda & 1 & 0 & 0 & 0\\
-0 & \lambda & 1 & 0 & 0\\
-0 & 0 & \ddots & \ddots & 0\\
-0 & 0 & 0 & \lambda & 1\\
-0 & 0 & 0 & 0 & \lambda
-\end{pmatrix}$$
-For the other side, it is easy to simply compute $v_1,\dots,v_k$ out with the matrix. 
-\end{proof}
-\end{crl}
-
-\begin{defn}{Jordan Basis}{} A Jordan basis is a basis consisting of one or more Jordan chains strung together. 
+\begin{defn}{Jordan Basis}{} Let $V$ be a vector space over a field $\F$. Let $T\in\text{End}_\F(V)$. A Jordan basis of $T$ is sequence of Jordan chains $v_1,\dots,v_{k_1},w_1,\dots,w_{k_2},\dots$ for $T$ such that it is a basis for $V$. 
 \end{defn}
 
-\begin{lmm}{}{} A Jordan Basis is indeed a basis. \tcbline
-\begin{proof} We naturally assume the string of Jordan Chains consists of $n$ vectors in total, corresponding to $\dim(V)=n$. Thus we just have to show linear independence. But this is also trivial. We have shown that vectors in the same Jordan Chain are independent, and vectors in different $G(T,\lambda)$ are proven to be linearly independent. 
-\end{proof}
-\end{lmm}
+\begin{prp}{}{} Let $V$ be a vector space over a field $\F$. Let $T\in\text{End}_\F(V)$. Let $v_1,\dots,v_n$ be a Jordan basis for $T$. Then the matrix representing $T$ under the Jordan basis is given by a direct sum of Jordan blocks. 
+\end{prp}
 
-\begin{defn}{Direct Sum}{} Let $A\in F^{n\times n}$ and $B\in F^{m\times m}$. Define the direct sum to be $$A\oplus B=\begin{pmatrix}
-A & 0_{n\times m}\\
-0_{m\times n} & B
-\end{pmatrix}$$
-\end{defn}
-
-\begin{lmm}{}{} Let $B,C$ be square matrices. $$(B\oplus C)^n=B^n\oplus C^n$$
-\end{lmm}
-
-\begin{crl}{}{} The matrix of $T$ with respect to a Jordan Basis is the direct sum $$J_{\lambda_1,k_1}\oplus\dots\oplus J_{\lambda_s,k_s}$$ of Jordan Blocks. 
-\end{crl}
-
-\begin{thm}{}{} Let $A$ be a matrix over an algebraically closed field. Then there exists a Jordan basis for $A$. Moreover, $A$ is similar to some $J$ which is a direct sum of Jordan Blocks. \tcbline
+\begin{thm}{}{} Let $\F$ be an algebraically closed field. Let $n\in\N\setminus\{0\}$. Let $A\in M_n(\F)$ be a matrix. Then the following are true. 
+\begin{itemize}
+\item Consider $A$ as a linear transformation $\F^n\to\F^n$. Then a Jordan basis for $A$ exists. 
+\item $A$ is similar to a direct sum of Jordan blocks. 
+\end{itemize} \tcbline
 \begin{proof} We will construct the basis with $3$ methods. They each contribute to part of the Jordan Basis. Firstly, we will obtain a basis of a subspace. We induct on $n$. The case of $n=1$ is trivial. \\~\\
 Now suppose $T:V\to V$ is a linear map with $\dim(V)=n$. We want to find a restriction of $T$ that is an automorphism to apply the induction hypothesis. Fix $\lambda$ to be one of the eigenvalues of $T$. This will be used throughout the entire proof. This $\lambda$ is possible because the ground field is algebraically closed. Now I claim that $U=\im(T-\lambda I)$ is invariant under $T$. If this is true, then $T|_U:U\to U$ can be used to apply induction hypothesis. So all we have to show is that $U$ is $T$-invariant and that $\dim(U)<\dim(V)$. The second item must be true by the rank nullity theorem. There must be an eigenvector in $\ker(T-\lambda I)$. Thus $\ker(T-\lambda I)\geq 1$ which implies that $\dim(U)<n$ by the rank nullity theorem. Now we prove that $U$ is invariant. Let $u\in U$, I show that $T(u)\in U$. If $u\in U$, then $u=(T-\lambda I)(v)$ for some $v\in V$, hence $$T(u)=T(T-\lambda I)(v)=(T-\lambda I)(T(v))\in\im(T-\lambda I)=U$$ Thus we have proven that $T|_U:U\to U$. Apply induction hypothesis here to obtain a Jordan Basis for $T_U$. Call that Jordan Basis $e_1,\dots,e_m$. \\~\\
 We now construct our second set of vectors. Recall that a Jordan Basis is a string of $l$ Jordan Chains. Let $v_1,\dots,v_k$ denote one of the Jordan Chains. We can extend this Jordan Chain one more by setting $(T-\lambda I)^{k+1}(v_{k+1})=0$. Do the same thing for everey Jordan Chain, and relabel them to $w_1,\dots,w_l$. As a side note, the two set of vectors we have now still form a Jordan Basis because we simply extended every Jordan Chain one more. \\~\\
@@ -608,47 +587,45 @@ Finally by the above corollary, in a Jordan Basis, the matrix of $T$ is a direct
 \end{proof}
 \end{thm}
 
+\begin{defn}{The Jordan Canonical Form}{} Let $\F$ be an algebraically closed field. Let $n\in\N\setminus\{0\}$. Let $A\in M_n(\F)$ be a matrix. Define the Jordan canonical form of $A$ to be any choice of direct sum of Jordan blocks given by the above theorem. 
+\end{defn}
 
-\begin{lmm}{}{} If $A,B$ are similar, then they have the same JCF up to reodering of the Jordan Blocks by direct sum. 
+\begin{lmm}{}{} Let $\F$ be an algebraically closed field. Let $n\in\N\setminus\{0\}$. Let $A\in M_n(\F)$ be a matrix. Then $A$ and $B$ have the same Jordan canonical form up to a reordering of the direct sum in the JCF. 
 \end{lmm}
 
-\begin{thm}{}{} Let $\lambda$ be an eigenvalue of a matrix $A$. Let $J$ be the Jordan Canonical Form of $A$. Then
+\begin{prp}{}{} Let $\F$ be an algebraically closed field. Let $n\in\N\setminus\{0\}$. Let $A\in M_n(\F)$ be a matrix. Then the following are true. 
 \begin{itemize}
 \item The number of Jordan Blocks of $J$ with eigenvalue $\lambda$ is equal to $\dim(\ker(A-\lambda I))$
-\item Let $k>0$. Then number of Jordan Blocks of $J$ with eigenvalue $\lambda$ of degree at least $i$ is equal to $\dim(N_i(A,\lambda))-\dim(N_{i-1}(A,\lambda))$
+\item The number of Jordan Blocks of $J$ with eigenvalue $\lambda$ of degree at least $i$ is equal to $\dim(N_i(A,\lambda))-\dim(N_{i-1}(A,\lambda))$
 \end{itemize}\tcbline\begin{proof} Since similar matrices have the same dimensions for their generalized eigenspaces corresponding to their eigenvalue, WLOG take $A=J=J_{\lambda_1,k_1}\oplus\dots\oplus J_{\lambda_s,k_s}$. However, note that the dimension of $N_i(A\oplus B,\lambda)$ is equal to $\dim(N_i(A,\lambda))+\dim(N_i(B,\lambda))$. So we just have to  prove the theorem for a single Jordan Block. \\~\\
 Since $(J_{\lambda,k}-\lambda I)^i$ has a single diagonal line of ones $i$ places above the diagonal for $i<k$, and is $0$ for $i\geq k$, the dimension of its kernel is $i$ for $0\leq i\leq k$ and k for $i\geq k$. 
 \end{proof}
-\end{thm} 
-
-\begin{crl}{}{} The JCF of a matrix is unique up to a reordering of the Jordan Blocks. \tcbline
-\begin{proof}
-The above theorem says that the number of Jordan Blocks associated with $\lambda$ is determined by the nullity of $A$, and the size of every Jordan Block is determined by the dimension of the generalized eigenspaces. 
-\end{proof}
-\end{crl}
-
-\subsection{Results of the Jordan Normal Theorem}
-\begin{lmm}{}{} Let $M=A\oplus B$. Then $$c_M(x)=c_A(x)c_B(x)$$ and $$\mu_M(x)=\gcd(\mu_A(x),\mu_B(x))$$
-\end{lmm}
-
-\begin{prp}{}{} Let $A$ have JCF $J$.  Let $\lambda$ be an eigenvalue of $A$. Consider the Jordan Blocks in $J$ related to $\lambda$. The string of Jordan Chains of these Jordan Blocks form a basis for $G(A,\lambda)$. 
 \end{prp}
 
-\begin{thm}{}{} Let $T:V\to V$ and $\lambda_1,\dots,\lambda_m$ be the set of eigenvalues of $T$. Then the characteristic polynomial of $T$ is $$c_A(x)=(-1)^n\prod_{k=1}^m(x-\lambda_k)^{a_k}$$ where $a_k$ is the sum of the degrees of the Jordan Blocks of $T$ of eigenvalue $\lambda_k$
-\end{thm}
+\begin{prp}{}{} Let $\F$ be an algebraically closed field. Let $n\in\N\setminus\{0\}$. Let $A\in M_n(\F)$ be a matrix. Then the Jordan canonical form of $A$ is unique up to reordering of the direct sum of the Jordan blocks. 
+\end{prp}
 
-\begin{thm}{}{} Let $T:V\to V$ and $\lambda_1,\dots,\lambda_m$ be the set of eigenvalues of $T$. Then the minimal polynomial of $T$ is $$\mu_A(x)=\prod_{k=1}^m(x-\lambda_k)^{b_k}$$ where $b_k$ is the largest among the degrees of the Jordan Blocks of $T$ of eigenvalue of $\lambda_k$. Also, we have $d(\lambda_k)=b_k$
-\end{thm}
+\begin{prp}{}{} Let $V$ be a vector space over an algebraically closed field $\F$. Let $T\in\text{End}_k(V)$. Let $\lambda_1,\dots,\lambda_m$ be the full list of distinct eigenvalues of $T$. Then then following are true. 
+\begin{itemize}
+\item The characteristic polynomial of $T$ is given by $$c_T(x)=(-1)^n\prod_{k=1}^m(x-\lambda_k)^{a_k}$$ where $a_k$ is the sum of the degrees of the Jordan Blocks of $T$ of eigenvalue $\lambda_k$
+\item The minimal polynomial of $T$ is $$\mu_A(x)=\prod_{k=1}^m(x-\lambda_k)^{d(\lambda_k)}$$
+\end{itemize}
+\end{prp}
 
-\begin{thm}{}{} Let $T:V\to V$ and $\lambda_1,\dots,\lambda_m$ be the set of eigenvalues of $T$. Then $T$ is diagonalizable if and only if $\mu_A(x)$ has no repeated factors. 
-\end{thm}
+\begin{prp}{}{} Let $V$ be a vector space over an algebraically closed field $\F$. Let $T\in\text{End}_k(V)$. Then the following are equivalent. 
+\begin{itemize}
+\item $T$ is diagonalizable. 
+\item $\mu_T(x)$ has no repeated factors. 
+\item $d(\lambda)=1$ for all eigenvalues $\lambda$ of $T$. 
+\end{itemize}
+\end{prp}
 
-\begin{thm}{}{} Let $A,B\in M_{n\times n}(\C)$. Then $A$ and $B$ are similar if and only if the following two are true: 
+\begin{prp}{}{} Let $A,B\in M_{n\times n}(\C)$. Then $A$ and $B$ are similar if and only if the following are true. 
 \begin{itemize}
 \item $A$ and $B$ have the same set of eigenvalues
 \item $\dim(\ker(A-\lambda I)^i)=\dim(\ker(B-\lambda I)^i)$ for all $i$ and eigenvalues $\lambda$ 
 \end{itemize}
-\end{thm}
+\end{prp}
 
 To finish this section, we show the process of determining the Jordan Canonical form of a matrix. The steps are usually as follows: \\~\\
 Step 1: Find out the nullity of $A-\lambda I$ as this gives us the number of Jordan Blocks with eigenvalue $\lambda$. \\
@@ -700,31 +677,26 @@ We can choose $v_3=\begin{pmatrix}1\\ 0\\ 1\end{pmatrix}$. This means that $$P=\
 \end{proof}
 \end{eg}
 
-\subsection{Functions of Matrices}
-We start of the last section with a formula for the $n$th power of a Jordan Block. 
-\begin{lmm}{}{} Let $J_{\lambda,k}$ be a Jordan Block. Then $$J_{\lambda,k}^n=\begin{pmatrix}
-\lambda^n & n\lambda^{n-1} & \cdots & \binom{n}{k-2}\lambda^{n-k+2} & \binom{n}{k-1}\lambda^{n-k+1}\\
-0 & \lambda^n & \cdots & \binom{n}{k-3}\lambda^{n-k+3} & \binom{n}{k-2}\lambda^{n-k+2}\\
-\vdots & \vdots & \ddots & \vdots & \vdots\\
-0 & 0 & \cdots & \lambda^n & n\lambda^{n-1}\\
-0 & 0 & \cdots & 0 & \lambda^n
-\end{pmatrix}$$
-\end{lmm}
-
-When used together with the fact that powers of matrices can be distributed through direct sums, we obtain the formula for finding powers of matrices. Namely if $A$ has Jordan canonical form $J$ and $A=PJP^{-1}$, then $A^n=PJ^nP^{-1}$. \\~\\
-
-We now define functions of matrices in terms of this decomposition. 
-
-\begin{defn}{Functions of Matrices}{} Let $f$ be a function over $\C$. For every matrix $A\in M_{n\times n}(\C)$, define $f(A)$ by $$f(A)=Pf(J)P^{-1}$$ where $f(J)=f(J_{\lambda_1,k_1})\oplus\dots\oplus f(J_{\lambda_t,k_t})$ is the direct sum of Jordan blocks. And finally, for each Jordan block $J_{\lambda,k}$, define $f(J_{\lambda,k})$ by $$f(J_{\lambda,k})=\begin{pmatrix}
-f(\lambda) & f'(\lambda) & \dots & \frac{1}{(k-2)!}f^{(k-2)}(\lambda) & \frac{1}{(k-1)!}f^{(k-1)}(\lambda)\\
-0 & f(\lambda) & \dots & \frac{1}{(k-3)!}f^{(k-3)}(\lambda) & \frac{1}{(k-2)!}f^{(k-2)}(\lambda)\\
-\vdots & \vdots & \ddots & \vdots & \vdots\\
-0 & 0 & \cdots & f(\lambda) & f'(\lambda)\\
-0 & 0 & \cdots & 0 & f(\lambda)
-\end{pmatrix}$$
+\subsection{The Jordan-Chevalley Decompositions}
+\begin{defn}{Jordan-Chevalley Decompositions}{} Let $k$ be a field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. A Jordan-Chevalley decomposition of $V$ consists of $D,S\in\text{End}(V)$ such that the following are true. 
+\begin{itemize}
+\item $T=D+S$
+\item $D$ is diagonalizable
+\item $S$ is nilpotent
+\item $SD=DS$
+\end{itemize}
 \end{defn}
 
-Note that taking $f(x)=x^n$, this coincides with the power of a Jordan block, which is presumably what motivated the this definition of matrix functions. 
+We note here that if we consider vector spaces as a $k$-module, then saying $V$ semisimple is the same as saying $V$ is diagonalizable. 
+
+\begin{prp}{}{} Let $k$ be a field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Then $T$ admits a unique Jordan-Chevalley decomposition. \tcbline
+\begin{proof}
+Let $T=PJP^{-1}$ be the Jordan canonical form of $x$. Then $J$ has non-zero entries exactly at the $(i,i)$th and $(i,i+1)$ positions. Therefore we can decompose $J$ as a sum of a diagonal matrix $D_J$ and a matrix $D_J$ with non-zero entry only on $(i,i+1)$th positions. But $S_J$ must then be nilpotent. Since $J$ is given in block form, we can also consider $D_J$ and $S_J$ as blocks. But diagonal matrices commute with all matrices. Hence $D_JS_J=S_JD_J$. Now let $D=PD_JP^{-1}$ and $S=PS_JP^{-1}$. I claim that $D,S$ consist of ta Jordan-Chevalley decomposition. We have that $T=PJP^{-1}=P(D_J+S_J)P^{-1}=PD_JP^{-1}+PS_JP^{-1}=D+S$. Also, $D$ is diagonalizable since $D=PD_JP^{-1}$ and $D_J$ is diagonalizable. Now we know that $S_J^n=0$ for some $n\in\N$. Then $S^n=PS_J^nP^{-1}=0$ hence $S$ is also nilpotent. Finally, we have that $$DS=PD_JP^{-1}PS_JP^{-1}=PD_JS_JP^{-1}=PS_JD_JP^{-1}=SD$$ hence we proved the existence of such a decomposition. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Let $D,S\in\text{End}(V)$ be the Jordan-Chevalley decomposition of $T$. Then there exists $p,q\in k[x]$ such that $p(T)=D$ and $q(T)=S$. 
+\end{prp}
 
 \pagebreak
 \section{Linearity in Two Variables}
@@ -1050,6 +1022,46 @@ Thus we have
 Note that we have equality if and only if $\|z\|=0$, meaning $x=\frac{\abs{\langle x,y\rangle}}{\|y\|^2}y$. We are done by taking $\lambda=\frac{\|y\|^2}{\abs{\langle x,y\rangle}}$. 
 \end{proof}
 \end{prp}
+\subsection{The Adjoint of a Linear Map}
+\begin{defn}{The Adjoint of a Linear Map}{} Let $V$ be an inner product space. Let $T\in\text{End}(V)$ be a linear map. A map $T^\ast\in\text{End}(V)$ is said to be the adjoint of $T$ if $$\langle T(v), w\rangle=\langle v, T^\ast(w)\rangle$$ for all $v,w\in V$. 
+\end{defn}
+
+\begin{prp}{}{} Let $V$ be an inner product space and $T:V\to V$ be a linear map. Then the adjoint of $T$ exists and is unique. \tcbline
+\begin{proof}
+Let $T$ be a linear map. Then the function $\tau(v,w)=\langle T(v), w\rangle$ is a bilinear form since the inner product is bilinear. But we know that bilinear forms can be represented by a matrix multiplication, namely $\tau(v,w)=v^TAw$ where $A$ is defined as in theorem 1.3.2. Then treating $Aw$ as the linear map $T^\ast(w)$ and since $v^Tw=v\cdot w$, we have that $\tau(v,w)=v\cdot T^\ast(w)$ thus proving existence. Uniqueness follows naturally by construction of the matrix $A$. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $V$ be an finite dimensional inner product space. Let $T\in\text{End}(V)$ be a linear map. Let $A$ be a matrix representing $T$ under a chosen basis of $V$. Then the transpose $A^T$ of $A$ represents the adjoint $T^\ast$ under the same basis. 
+\end{prp}
+
+\begin{defn}{Self-Adjoint}{} Let $V$ be an inner product space. Let $T\in\text{End}(V)$ be a linear map. We say that $T$ is self-adjoint if $T=T^\ast$. 
+\end{defn}
+
+\begin{prp}{}{} Let $V$ be an finite dimensional inner product space. Let $T\in\text{End}(V)$ be a linear map. Let $A$ be a matrix representing $T$. Then $T$ is self-adjoint if and only if $A$ is symmetric. \tcbline
+\begin{proof}
+Let $T$ be self-adjoint. Then $Av\cdot w=v\cdot Aw$ for all $v,w\in V$. 
+\end{proof}
+\end{prp}
+
+\subsection{The Trace of a Linear Map}
+\begin{defn}{The Trace of a Linear Map}{} Let $V$ be an inner product space over $\R$ or $\C$. Let $T:V\to V$ be a linear map. Let $\{e_1,\dots,e_n\}$ be an orthonormal basis. Define the trace of $T$ to be $$\text{tr}(T)=\sum_{i=1}^{\dim(V)}\langle T(e_i),e_i\rangle$$
+\end{defn}
+
+TBA: Invariance under choice of basis. 
+
+\begin{defn}{The Trace of a Matrix}{} Let $k=\R$ or $\C$. Let $M=(m_{i,j})\in M_{n\times n}(k)$ be a matrix. Define the trace of $M$ to be $$\text{tr}(M)=\sum_{i=1}^nm_{i,i}$$
+\end{defn}
+
+\begin{prp}{}{} Let $V$ be an inner product space over $k=\R$ or $\C$. Let $T:V\to V$ be a linear map. Suppose that $M\in M_{n\times n}(k)$ represent the linear map $T$. Then $$\text{tr}(T)=\text{tr}(M)$$
+\end{prp}
+
+\begin{lmm}{}{} Let $k=\R$ or $\C$. Let $A,B=(m_{i,j})\in M_{n\times n}(k)$ be two square matrices. Then the following are true. 
+\begin{itemize}
+\item $\text{tr}:M_{n\times n}(k)\to k$ is a linear map
+\item $\text{tr}(AB)=\text{tr}(BA)$
+\end{itemize}
+\end{lmm}
 
 \pagebreak
 \section{Orthogonality}
@@ -1174,6 +1186,7 @@ One can think of orthgonal maps as orthgonality preserving maps. If $\langle v,w
 \begin{itemize}
 \item $T$ is orthogonal
 \item $A$ is orthogonal
+\item $T^\ast=T^{-1}$. 
 \item $T$ maps orthonormal bases to orthonormal bases
 \end{itemize} \tcbline
 \begin{proof} Suppose that $T:V\to V$ is represented by $A$. 
@@ -1193,14 +1206,11 @@ Thus we are done.
 \end{prp}
 
 \pagebreak
-\section{Orthgonality in $\R^n$}
+\section{Reductions and Decompositions of Linear Maps over Real Vector Spaces}
 \subsection{Reduction of Quadratic Forms over $\R$}
 Orthogonality is interesting for real matrices because the notion of similarity and congruence coinincide under orthogonality. Notice that being similar and congruent to a diagonal matrix at the same time means that there exists an invertible $P$ such that $P^TAP=P^{-1}AP=D$. \\~\\
 
 In the remaining sections we treat the adjugate in the case of $\R^n$ and save the case for $\C^n$ in another chapter. Then $V$ in the remaining sections will only denote $\R^n$. 
-
-\begin{defn}{Euclidean Vector Space}{} An Euclidean vector space is $\R^n$ equipped with an inner product. 
-\end{defn}
 
 \begin{prp}{}{} A function $b:V\times V\to\R$ is an inner product over $\R$ if and only if $b$ is bilinear and positive definite. 
 \end{prp}
@@ -1281,30 +1291,7 @@ We have that $a_3=2f_2+\sqrt{5}f_3$. Combining everything together, we have that
 \end{proof}
 \end{eg}
 
-\subsection{Adjoints of a Linear Map}
-\begin{prp}{}{} Let $V$ be an inner product space and $T:V\to V$ be a linear map. Then there exists a unique linear map $T^\ast:V\to V$ such that $$\langle T(v), w\rangle=\langle v, T^\ast(w)\rangle$$ for all $v,w\in V$. \tcbline
-\begin{proof}
-Let $T$ be a linear map. Then the function $\tau(v,w)=\langle T(v), w\rangle$ is a bilinear form since the inner product is bilinear. But we know that bilinear forms can be represented by a matrix multiplication, namely $\tau(v,w)=v^TAw$ where $A$ is defined as in theorem 1.3.2. Then treating $Aw$ as the linear map $T^\ast(w)$ and since $v^Tw=v\cdot w$, we have that $\tau(v,w)=v\cdot T^\ast(w)$ thus proving existence. Uniqueness follows naturally by construction of the matrix $A$. 
-\end{proof}
-\end{prp}
-
-\begin{defn}{Adjoint of a Linear Map}{} $T^\ast$ in the above case is called the adjoint of $T$. 
-\end{defn}
-
-\begin{defn}{Self-Adjoint}{} A linear map $T:V\to V$ is said to be self-adjoint if $T^*=T$
-\end{defn}
-
-\begin{prp}{}{} Let $T$ be a linear map represented by a matrix $A$. Then the following are true. 
-\begin{itemize}
-\item $T$ is self-adjoint if and only if $A$ is symmetric. 
-\item $T$ is orthogonal if and only if $T^\ast=T^{-1}$. 
-\end{itemize}
-\tcbline
-\begin{proof}
-Let $T$ be self-adjoint. Then $Av\cdot w=v\cdot Aw$ for all $v,w\in V$. 
-\end{proof}
-\end{prp}
-
+\subsection{Self-Adjoints in $\R^n$}
 \begin{prp}{}{} Let $T:\R^n\to\R^n$ be self-adjoint. Then every eigenvalues of $T$ are real. \tcbline
 \begin{proof}
 Suppose that $T(v)=Av$ where $A$ is a representation of $T$. Suppose that $\lambda$ is an eigenvalue of $T$. Then $Av=\lambda v$ for some eigenvector $v\in\R^n$. Then taking complex conjugates give 
@@ -1403,44 +1390,5 @@ P&=\begin{pmatrix}
 This means that we are done. 
 \end{proof}
 \end{eg}
-
-\pagebreak
-\section{Operators on Vector Spaces}
-\subsection{The Jordan-Chevalley Decompositions}
-\begin{defn}{Jordan-Chevalley Decompositions}{} Let $k$ be a field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. A Jordan-Chevalley decomposition of $V$ consists of $D,S\in\text{End}(V)$ such that the following are true. 
-\begin{itemize}
-\item $T=D+S$
-\item $D$ is diagonalizable
-\item $S$ is nilpotent
-\item $SD=DS$
-\end{itemize}
-\end{defn}
-
-We note here that if we consider vector spaces as a $k$-module, then saying $V$ semisimple is the same as saying $V$ is diagonalizable. 
-
-\begin{prp}{}{} Let $k$ be a field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Then $T$ admits a unique Jordan-Chevalley decomposition. 
-\end{prp}
-
-\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V$ be a finite dimensional vector space over $k$. Let $T\in\text{End}(V)$. Let $D,S\in\text{End}(V)$ be the Jordan-Chevalley decomposition of $T$. Then there exists $p,q\in k[x]$ such that $p(T)=D$ and $q(T)=S$. 
-\end{prp}
-
-\subsection{The Trace of a Linear Map}
-\begin{defn}{The Trace of a Linear Map}{} Let $V$ be an inner product space over $\R$ or $\C$. Let $T:V\to V$ be a linear map. Let $\{e_1,\dots,e_n\}$ be an orthonormal basis. Define the trace of $T$ to be $$\text{tr}(T)=\sum_{i=1}^{\dim(V)}\langle T(e_i),e_i\rangle$$
-\end{defn}
-
-TBA: Invariance under choice of basis. 
-
-\begin{defn}{The Trace of a Matrix}{} Let $k=\R$ or $\C$. Let $M=(m_{i,j})\in M_{n\times n}(k)$ be a matrix. Define the trace of $M$ to be $$\text{tr}(M)=\sum_{i=1}^nm_{i,i}$$
-\end{defn}
-
-\begin{prp}{}{} Let $V$ be an inner product space over $k=\R$ or $\C$. Let $T:V\to V$ be a linear map. Suppose that $M\in M_{n\times n}(k)$ represent the linear map $T$. Then $$\text{tr}(T)=\text{tr}(M)$$
-\end{prp}
-
-\begin{lmm}{}{} Let $k=\R$ or $\C$. Let $A,B=(m_{i,j})\in M_{n\times n}(k)$ be two square matrices. Then the following are true. 
-\begin{itemize}
-\item $\text{tr}:M_{n\times n}(k)\to k$ is a linear map
-\item $\text{tr}(AB)=\text{tr}(BA)$
-\end{itemize}
-\end{lmm}
 
 \end{document}

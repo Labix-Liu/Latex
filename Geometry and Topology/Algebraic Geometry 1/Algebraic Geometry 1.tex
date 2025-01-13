@@ -29,8 +29,8 @@ Knowledge on commutative algebra is required as a prerequisite. These set of not
 \end{abstract}
 \pagebreak
 \tableofcontents
-\pagebreak
 
+\pagebreak
 \section{Some Topological Concepts}
 \subsection{Irreducible Spaces}
 \begin{defn}{Irreducible Spaces}{} Let $X$ be a space. We say that $X$ is irreducible if the following are true. For any closed sets $U,W\subseteq X$ such that $X=U\cup W$, we have that either $U=X$ or $W=X$. Otherwise, we say that $X$ is reducible. 
@@ -49,7 +49,10 @@ Suppose that $f(X)=Y_1\cup Y_2$ for some closed sets $Y_1,Y_2\subseteq Y$. Then 
 \begin{defn}{Noetherian Spaces}{} Let $X$ be a space. We say that $X$ is Noetherian if for every sequence $Y_1,Y_2,\dots$ of closed sets such that $$Y_1\supset Y_2\supset\cdots$$ there exists $n\in\N$ such that $Y_n=Y_{n+1}=\cdots$. 
 \end{defn}
 
-\begin{prp}{}{} Let $X$ be a space. Then $X$ is Noetherian if and only if for every sequence $U_1,U_2,\dots$ of open sets such that $$U_1\subset U_2\subset\cdots$$ there exists $n\in\N$ such that $U_n=U_{n+1}=\cdots$. 
+\begin{prp}{}{} Let $X$ be a space. Then $X$ is Noetherian if and only if for every sequence $U_1,U_2,\dots$ of open sets such that $$U_1\subset U_2\subset\cdots$$ there exists $n\in\N$ such that $U_n=U_{n+1}=\cdots$. \tcbline
+\begin{proof}
+A sequence of open subsets $U_1\subset u_2\subset\cdots$ terminates at a finite length if and only if the sequence of closed sets $X\setminus U_1\supset X\setminus U_2\supset\cdots$ terminates a finite length. This is true vice versa. 
+\end{proof}
 \end{prp}
 
 \begin{prp}{}{} Let $X$ be a space. If $X$ is Noetherian, then $X$ is compact. \tcbline
@@ -58,11 +61,14 @@ Let $X$ be Noetherian. Suppose that $X$ is not compact. Let $\mU=\{U_i\;|\;i\in 
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Every subspace of a Noetherian space is Noetherian. 
+\begin{prp}{}{} Every subspace of a Noetherian space is Noetherian. \tcbline
+\begin{proof}
+Let $X$ be a Noetherian space. Let $Y\subseteq X$ be a subspace of $X$. Let $U_1\subset U_2\subset\cdots$ be a sequence of open subsets in $Y$. Then in particular it is also a sequence of open subsets in $X$. Hence it terminates in finite steps. Hence $Y$ is Noetherian. 
+\end{proof}
 \end{prp}
 
-\begin{thm}{}{} Let $X$ be a Noetherian space. Then there exists a finite collection $X_1,\dots,X_n\subseteq X$ of irreducible closed sets such that $$X=X_1\cup\cdots\cup X_n$$ and that $X_i$ is not contained in $X_j$ for $i\neq j$. Moreover, such a decomposition is unique up to reordering of the components. 
-\end{thm}
+\begin{prp}{}{} Let $X$ be a Noetherian space. Then there exists a finite collection $X_1,\dots,X_n\subseteq X$ of irreducible closed sets such that $$X=X_1\cup\cdots\cup X_n$$ and that $X_i$ is not contained in $X_j$ for $i\neq j$. Moreover, such a decomposition is unique up to reordering of the components. 
+\end{prp}
 
 \subsection{Some Types of Maps}
 \begin{defn}{Dominant Maps}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. We say that $f$ is dominant if $f(X)$ is dense in $Y$. 
@@ -232,17 +238,6 @@ As with any other field of maths, we need a correct notion of morphism between v
 \begin{defn}{Polynomial Maps}{} Let $k$ be a field. We say that a map of sets $f:\A_k^n\to\A_k^m$ is polynomial if there exists $f_1,\dots,f_m\in k[x_1,\dots,x_n]$ such that $$f(p)=(f_1(p),\dots,f_m(p))$$ for all $p\in\A_k^n$. 
 \end{defn}
 
-\begin{defn}{Regular Maps}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. A regular map from $V$ to $W$ is a map $$\phi:V\to W$$ such that $\phi$ is the restriction of a polynomial map $\A_k^n\to\A_k^m$. 
-\end{defn}
-
-Such a regular map may not be given by a unique set of polynomials. 
-
-\begin{eg}{}{} Let $V=V(y-x^2)\subseteq\A_\C^2$ be the parabola. Let $W=V(y^2-x^3)\subseteq\A_\C^2$ be the cuspidal cubic. Consider $F_1,F_2:\A_\C^2\to\A_\C^2$ defined by $F_1(x,y)=(x^2,x^3)$ and $F_2(x,y)=((y-x^2+1)x^2,x^3)$ respectively. Then $F_1$ and $F_2$ define the same regular map $(F_1)|_V=(F_2)|_V:V\to W$. \tcbline
-\begin{proof}
-Indeed, when restricted to $V=V(y-x^2)$, we conclude that $y-x^2=0$ and hence $F_2$ simplifies to the map $F_1$. 
-\end{proof}
-\end{eg}
-
 \begin{prp}{}{} Let $k$ be a field. Let $\phi:\A_k^n\to\A_k^m$ be a polynomial map. Let $W=V(\{f_i\;|\;i\in I\})\subseteq\A_k^m$ be an affine algebraic set of $\A_k^m$. Then $$\phi^{-1}(W)=V(\{f_i\circ\phi\;|\;i\in I\})$$ \tcbline
 \begin{proof}
 Let us first consider the case of the zero set $V(g)$ of one polynomial. Suppose that $x\in\phi^{-1}(V(g))$. Then $\phi(x)\in V(g)$ which means that $g(\phi(x))=0$. The converse is entirely true. Hence we proved that $\phi^{-1}(V(g))=V(g\circ\phi)$. \\~\\
@@ -257,6 +252,17 @@ Now let $W=V(\{f_i\;|\;i\in I\})\subseteq\A_k^m$. Then $W=\bigcap_{i\in I}V(f_i)
 and so we conclude. 
 \end{proof}
 \end{prp}
+
+\begin{defn}{Morphism of Affine Varieties}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. A morphism from $V$ to $W$ is a map $$\phi:V\to W$$ such that $\phi$ is the restriction of a polynomial map $\A_k^n\to\A_k^m$. 
+\end{defn}
+
+Such a regular map may not be given by a unique set of polynomials. 
+
+\begin{eg}{}{} Let $V=V(y-x^2)\subseteq\A_\C^2$ be the parabola. Let $W=V(y^2-x^3)\subseteq\A_\C^2$ be the cuspidal cubic. Consider $F_1,F_2:\A_\C^2\to\A_\C^2$ defined by $F_1(x,y)=(x^2,x^3)$ and $F_2(x,y)=((y-x^2+1)x^2,x^3)$ respectively. Then $F_1$ and $F_2$ define the same regular map $(F_1)|_V=(F_2)|_V:V\to W$. \tcbline
+\begin{proof}
+Indeed, when restricted to $V=V(y-x^2)$, we conclude that $y-x^2=0$ and hence $F_2$ simplifies to the map $F_1$. 
+\end{proof}
+\end{eg}
 
 While the preimage of a subvariety is a subvariety, the image of a subvariety may not be a variety in general, but its closure still is. 
 
@@ -738,14 +744,19 @@ Now suppose that $F\in\I^H(\overline{W})$. Taking the projective vanishing locus
 \end{prp}
 
 \subsection{Morphisms of Projective Varieties}
-\begin{defn}{Morphisms of Projective Varieties}{} Let $V\subseteq\Prj^n$ and $W\subseteq\Prj^m$ be projective varieties. Let $F:V\to W$ be a map (of sets) from $V$ to $W$. We say that $F$ is a morphism of projective varieties if for each $p\in V$, there exists homogeneous polynomials $F_0,\dots,F_m\in\C[x_0,\dots,x_n]$ of the same degree and an open neighbourhood $U$ of $p$ such that the following holds. 
+\begin{defn}{Morphisms of Projective Varieties}{} Let $V\subseteq\Prj^n$ and $W\subseteq\Prj^m$ be projective varieties. Let $F:V\to W$ be a map (of sets) from $V$ to $W$. We say that $F$ is a morphism of projective varieties if for all $p\in X$, there exists an open neighbourhood $U$ of $p$ and an open affine set $X\subseteq W$ containing $F(p)$ such that the following are true. 
+\begin{itemize}
+\item $F(U)\subseteq X$
+\item $F|_U:U\to X$ is a morphism of affine varieties
+\end{itemize}
+\end{defn}
+
+\begin{prp}{Morphisms of Projective Varieties}{} Let $V\subseteq\Prj^n$ and $W\subseteq\Prj^m$ be projective varieties. Let $F:V\to W$ be a map (of sets) from $V$ to $W$. Then $F$ is a morphism of projective varieties if and only if for each $p\in V$, there exists homogeneous polynomials $F_0,\dots,F_m\in\C[x_0,\dots,x_n]$ of the same degree and an open neighbourhood $U$ of $p$ such that the following holds. 
 \begin{itemize}
 \item $V(F_0,\dots,F_m)\cap U=\emptyset$ (They cannot all vanish at the same time)
 \item $F|_U:U\to W$ agrees with the map $U\to\Prj^m$ defined by $$[z_0:\cdots:z_n]\mapsto[F_0(z_0,\dots,z_n):\cdots:F_m(z_0,\dots,z_n)]$$
 \end{itemize}
-\end{defn}
-
-This defintion ensures that when a morphism of projective varities is restricted to its open covers $\A^n$, it defines a morphism of affine varieties. They are locally affine varieties. 
+\end{prp}
 
 \begin{defn}{Isomorphism of Projective Varieties}{} A morphism of projective varieties $F:V\to W$ is an isomorphism if there exists a morphism $G:W\to V$ such that $G$ is the inverse of $F$. In this case we say that $V$ and $W$ are isomorphic. 
 \end{defn}
@@ -783,22 +794,22 @@ Let $V\subseteq\Prj^n$ be a projective variety. Then $V$ being closed implies $V
 \end{lmm}
 
 \subsection{Morphisms of Quasi-Projective Varieties}
-\begin{defn}{Morphisms of Quasi-Projective Varities}{} Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasiprojective varieties. A morphism from $X$ to $Y$ is a map $F:X\to Y$ such that for all $p\in X$, there exists an open neighbourhood $U_p$ of $p$ together with homogenous polynomials $F_0,\dots,F_m\in k[x_0,\dots,x_n]$ of the same degree such that 
-\begin{itemize}
-\item $V(F_0,\dots,F_m)\cap U=\emptyset$
-\item $F|_U$ agrees with $[x_0,\dots,x_n]\to[F_0(x_0,\dots,x_n),\dots,F_m(x_0,\dots,x_n)]$
-\end{itemize}
-\end{defn}
-
-\begin{lmm}{}{} Every morphism of affine or projective varieties is a morphism of quasiprojective varieties. 
-\end{lmm}
-
-\begin{prp}{}{} Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasiprojective varieties. A morphism from $X$ to $Y$ is a map $F:X\to Y$ such that for all $p\in X$, there exists an open neighbourhood $U$ of $p$ and an open affine set $V\subseteq W$ containing $F(p)$ such that the following are true. 
+\begin{defn}{Morphisms of Quasi-Projective Varities}{} Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasiprojective varieties. A morphism from $X$ to $Y$ is a map $F:X\to Y$ such that for all $p\in X$, there exists an open neighbourhood $U$ of $p$ and an open affine set $V\subseteq W$ containing $F(p)$ such that the following are true. 
 \begin{itemize}
 \item $F(U)\subseteq V$
 \item $F|_U:U\to V$ is a morphism of affine varieties (in the old sense)
 \end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasiprojective varieties. A map of sets $F:X\to Y$ is a morphism of quasi-projective varieties if and only if for all $p\in X$, there exists an open neighbourhood $U_p$ of $p$ together with homogenous polynomials $F_0,\dots,F_m\in k[x_0,\dots,x_n]$ of the same degree such that 
+\begin{itemize}
+\item $V(F_0,\dots,F_m)\cap U=\emptyset$
+\item $F|_U$ agrees with $[x_0,\dots,x_n]\to[F_0(x_0,\dots,x_n),\dots,F_m(x_0,\dots,x_n)]$
+\end{itemize}
 \end{prp}
+
+\begin{lmm}{}{} Every morphism of affine or projective varieties is a morphism of quasiprojective varieties. 
+\end{lmm}
 
 \subsection{Redefining Varieties}
 \begin{defn}{Extended Definition of Affine Varities}{} A quasiprojective variety is said to be affine if it is isomorphic to a closed subset of affine space. 
@@ -832,8 +843,7 @@ In other words, $D(f)$ is exactly the points of $V$ where $f$ is not zero. Some 
 \pagebreak
 \section{The Algebra of Regular Functions}
 \subsection{Regular Functions on Quasi-Projective Varieties}
-\begin{defn}{Regular Functions on Quasi-Projective Varieties}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. A complex valued function $f:U\to\C$ is regular at a point $p\in U$ if there some affine open set containing $p$ on which $f$ is regular at $p$. 
-$f$ is said to be regular on $U$ if it is regular at every point of $U$. 
+\begin{defn}{Regular Functions on Quasi-Projective Varieties}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. A complex valued function $f:U\to\C$ is regular at a point $p\in U$ if there some affine open set $p\in W\subseteq U$ such that $$f=\frac{g}{h}$$ for some $g,h\in\C[V]$ such that $h(p)\neq 0$. 
 \end{defn}
 
 \begin{defn}{The Algebra of Regular Functions}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. Define the $\C$-algebra of regular functions on $U$ to be the set $$\mO_V(U)=\{f:U\to\C\;|\;f\text{ is regular on }U\}$$ together with addition and multiplication of rational functions. 
@@ -883,6 +893,8 @@ These information organize well into a sheaf.
 \subsection{Regular Functions on Affine Varieties}
 \begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Then there is an isomorphism $$\C[V]\cong\mO_V(V)$$ given by the map $f\mapsto\frac{f}{1}$. 
 \end{prp}
+
+This is the same as saying regular functions on $V$ are precisely the morphism of varieties from $V$ to $\C$. 
 
 \begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Let $p\in V$ and let $m_p$ be the maximal ideal corresponding to $p$ under Hilbert's nullstellensatz. Then there is an isomorphism $$\mO_{V,p}\cong\C[V]_{m_p}$$
 \end{prp}
@@ -1000,7 +1012,7 @@ The transition maps between two open cover is given by the rational functions $\
 \pagebreak
 \section{The Tangent Space}
 \subsection{Dimension Theory for Varieties}
-\begin{defn}{Dimension (Topological)}{} Let $k$ be a field. Let $X$ be a variety of $\A_k^n$. Define the dimension of $X$ to be $$\dim(X)=\sup_{\substack{Z_0,\dots,Z_n\subseteq X\\\text{irreducible varieties}}}\{n\in\N\;|\;Z_0\subset Z_1\subset\dots\subset Z_n\}$$
+\begin{defn}{Dimension of a Variety}{} Let $k$ be a field. Let $X$ be a variety over $k$. Define the dimension of $X$ to be $$\dim(X)=\sup_{\substack{Z_0,\dots,Z_n\subseteq X\\\text{irreducible varieties}}}\{n\in\N\;|\;Z_0\subset Z_1\subset\dots\subset Z_n\}$$
 \end{defn}
 
 Some immediate consequences can be deduced. For instance, if $X$ is a point then $\dim(X)=0$. Also, if $Z_1\subset\cdots\subset Z_m$ is such a maximal chain for some space $X$, then $\dim(Z_d)=d$ and $Z_m=X$. 
@@ -1021,6 +1033,26 @@ Now suppose that $\dim(V_k)$ achieves the number $m$ for some $k$. Let $Y_1\subs
 \end{proof}
 \end{lmm}
 
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Then the following are true. 
+\begin{itemize}
+\item $\dim(V)=\dim(\C[V])$
+\item For any $p\in V$, $\dim(\mO_{V,p})=\dim(V)$
+\item $\text{tr}\dim_\C(K(V))=\dim(V)$. 
+\end{itemize} \tcbline
+\begin{proof}
+Any chain of irreducible subvarieties of $V$ corresponds to a chain of prime ideals in $\C[V]$. 
+\end{proof}
+\end{prp}
+
+\begin{lmm}{}{} Let $n\in\N$. Then $\dim(\Prj^n)=\dim(A^n)=n$. \tcbline
+\begin{proof}
+We have seen in Commutative Algebra 1 that $\dim(k[x_1,\dots,x_n])=n$. By the above lemma $\dim(\A_k^n)=\dim(k[x_1,\dots,x_n])=n$. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} A variety $V$ in $\A^n$ has dimension $n-1$ if and only of it is the zero set of a single nonconstant irreducible polynomial in $k[x_1,\dots,x_n]$. 
+\end{prp}
+
 \begin{lmm}{}{} Let $k$ be a field. Let $X,Y\subseteq\A_k^n$ be varieties. If $X\subset Y$ then $\dim(X)\leq\dim(Y)$. \tcbline
 \begin{proof}
 Suppose that $Z_0\subset\cdots\subset Z_n$ is a maximal chain of irreducibles of $X$. Then it is also a chain of irreducibles of $Y$ that may not be maximal. Thus $\dim(X)\leq\dim(Y)$. 
@@ -1038,20 +1070,6 @@ Suppose that $Z_0\subset\cdots\subset Z_n$ is a maximal chain of irreducibles of
 \item We induct on $\dim(Y)$. Suppose that $\dim(Y)=0$ for the base case. Then $\dim(X)\geq 0$. Now suppose that there exists some $n\in\N$ such that the statement is true for $\dim(Y)\leq n$. Now suppose that $\dim(Y)=n+1$. Let $Y_0\subset\cdots\subset Y_{n+1}=Y$ be a maximal chain of irreducible subvarieties of $Y$. Notice that $\dim(Y_n)\leq\dim(Y)$ by the above. Together with the fact that $Y_0\subset\cdots\subset Y_n$ is a chain of irreducible subvarieties of $Y$ we conclude that $\dim(Y_n)=n$. Now $f^{-1}(Y_n)$ is closed in $X$ and is a subvariety of $X$. Decompose $f^{-1}(Y_n)$ into irreducible components $V_1,\dots,V_k$. By surjectivity, we have that $f(f^{-1}(Y_n))=Y_n$, and we have that $$Y_n=f(V_1)\cup\cdots\cdots f(V_k)$$ Since $f$ is a closed map, each $f(V_k)$ is also closed. But $Y_n$ is irreducible. So $f(V_k)=Y_n$ for some $k$. This means that $f|_{V_k}:V_k\to Y_n$ is surjective. By inducetive hypothesis, $\dim(V_k)\geq\dim(Y_n)=n$. But $V_i$ is strictly smaller than $X$ and $V_k$ and $X$ are both irreducible. This means that $$\dim(X)>\dim(V_k)\geq\dim(Y_n)=n$$ This implies that $\dim(X)\geq n+1=\dim(Y)$ and so we are done. 
 \end{itemize}
 \end{proof}
-\end{prp}
-
-\begin{lmm}{}{} Let $n\in\N$. Then $\dim(\Prj^n)=\dim(A^n)=n$. 
-\end{lmm}
-
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Then the following are true. 
-\begin{itemize}
-\item $\dim(V)=\dim(\C[V])$
-\item For any $p\in V$, $\dim(\mO_{V,p})=\dim(V)$
-\item $\text{tr}\dim_\C(K(V))=\dim(V)$. 
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} A variety $V$ in $\A^n$ has dimension $n-1$ if and only of it is the zero set of a single nonconstant irreducible polynomial in $k[x_1,\dots,x_n]$. 
 \end{prp}
 
 \subsection{The Tangent Space of Affine Varieties}

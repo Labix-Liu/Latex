@@ -2285,4 +2285,15 @@ a_{m,1} & \cdots & a_{m,j-1} & a_{m,j+1} & \cdots & a_{m,n}\\
 \end{itemize}
 \end{prp}
 
+\subsection{Direct Sum or Matrices}
+\begin{defn}{Direct Sum}{} Let $\F$ be a field. Let $n,m\in\N\setminus\{0\}$. Let $\in M_n(\F)$ in $B\in M_m(\F)$. Define the direct sum of $A$ and $B$ to be $$A\oplus B=\begin{pmatrix}
+A & 0_{n\times m}\\
+0_{m\times n} & B
+\end{pmatrix}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $\F$ be a field. Let $n,m\in\N\setminus\{0\}$. Let $\in M_n(\F)$ in $B\in M_m(\F)$. Then for any $k\in\N\setminus\{0\}$, we have that $$(A\oplus B)^n=A^n\oplus B^n$$
+\end{lmm}
+
+
 \end{document}

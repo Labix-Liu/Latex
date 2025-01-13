@@ -189,9 +189,6 @@ This follows from the fact that every group is the quotient of a free group.
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $S=\{s_1,\dots,s_n\}$ be a finite set. Let $R$ be a set of words of $S$. Let $G$ be a group. Let $g_1,\dots,g_n\in G$. Then there exists a group homomorphism $$\phi:G\to H\;\;\;\;\text{ such that }\;\;\;\;\phi(s_i)=g_i$$ for a$1\leq i\leq n$ if and only if for each $r_1\cdots r_k\in R$, $g_1\cdots g_k=1_G$. Such a homomorphism is unique if it exists. 
-\end{prp}
-
 \subsection{Amalgamated Products}
 \begin{defn}{Amalgamted Products}{} Let $G,H,K$ be groups. Let $\phi:K\to G$ and $\psi:K\to H$ be injective group homomorphisms. Define the amalgamated product of $G$ and $H$ over $K$ to be the quotient of the free product $$G\ast_KH=\frac{G\ast H}{\langle\{\phi(k)(\psi(k))^{-1}\;|\;k\in K\}^G\rangle}$$
 \end{defn}
@@ -215,6 +212,9 @@ This means that the generated subgroup is the smallest subgroup of $G$ containin
 
 \begin{defn}{Generating Set of a Group}{} Let $G$ be a group and $S$ a subset of $G$. We say that $S$ is a generating set of $G$ if $G=\langle S\rangle$. 
 \end{defn}
+
+\begin{lmm}{}{} Let $S$ be a set. Then $S$ is a generating set of the free group $F_S$ on $S$. 
+\end{lmm}
 
 \subsection{Finitely Generated Groups}
 \begin{defn}{Finitely Generated Groups}{} A group $G$ is finitely generated if there is a finite subset $A=\{g_1,\dots,g_n\}$ of $G$ such that $G=\langle A\rangle$. 
@@ -427,7 +427,7 @@ Free Groups                                                                     
 Groups with the least relations                                                           & Abelian groups with the least relations                                                                   \\[1.5ex]\hline
 \multirow{2}{*}{Unique up to cardinality of underying set}                                & Unique up to cardinality of basis                                                                         \\
                                                                                           & (which is its underlying set)                                                                             \\\hline
-Free product of one point sets                                                            & Direct sum of copies of $\Z$                                                                              \\[1.5ex]\hline
+Free product of copies of $\Z$                                                         & Direct sum of copies of $\Z$                                                                              \\[1.5ex]\hline
 It is finitely generated if and only if it is isomorphic to $F_n$                         & It is finitely generated if and only if it is isomorphic to $\Z^n$                                        \\[1.5ex]\hline
 Every finitely generated group is isomorphic to a quotient of a free group of finite rank & Every finitely generated abelian group is isomorphic to a quotient of a free abelian group of finite rank
 \end{tabular}

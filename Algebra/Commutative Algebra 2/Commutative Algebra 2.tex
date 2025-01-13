@@ -19,73 +19,6 @@
 \end{abstract}
 \pagebreak
 \tableofcontents
-\pagebreak
-
-\section{Dedekind Domains}
-\subsection{Fractional and Invertible Ideals}
-\begin{defn}{Fractional Ideal}{} Let $R$ be an integral domain. Let $I$ be an ideal of $\text{Frac}(R)$. We say that $I$ is a fractional ideal of $R$ if there exists $r\in R\setminus\{0\}$ such that $rI\subseteq R$. 
-\end{defn}
-
-While $I$ is not exactly an ideal of $R$, we can think of it as if it were an ideal because it is isomorphic to an actual ideal of $R$. 
-
-\begin{lmm}{}{} Let $R$ be an integral domain. Let $I$ be a fractional ideal of $R$ where $rI\subseteq R$ for some $r\in R\setminus\{0\}$. Then there is an $R$-module isomorphism $$I\cong rI\subseteq R$$ given by $i\mapsto ri$. \tcbline
-\begin{proof}
-I claim that there is an $R$-module isomorphism $I\cong rI$ for $rI\subseteq R$ given by $i\mapsto ri$. The kernel of this $R$-module homomorphism is given by $\{i\in I\;|\;ri=0\}$. But $ri=0$ if and only if $r=0$ or $i=0$. Since $r\neq 0$ we must have $i=0$ so that the kernel is trivial. Moreover, this $R$-module homomorphism is surjective since for any $k\in rI$ it can be written as $k=ri$ for some $i$. Then $i\in I$ maps to $ri$ under the morphism. Hence $I\cong rI$ as $R$-modules. 
-\end{proof}
-\end{lmm}
-
-\begin{lmm}{}{} Let $R$ be an integral domain. Let $I$ be a fractional ideal of $R$. If $R$ is Noetherian, then $I$ is finitely generated. \tcbline
-\begin{proof}
-Let $R$ be Noetherian. Since $I$ is isomorphic to $rI$ for some non-zero $r\in R$, and $rI$ is an ideal of $R$, $R$ being Noetherian implies that $rI$ is finitely generated and hence $I$ is finitely generated. 
-\end{proof}
-\end{lmm}
-
-\begin{defn}{Invertible Ideals}{} Let $R$ be an integral domain. Let $I$ be a fractional ideal of $R$. We say that $I$ is invertible if $I^{-1}I=R$ where $$I^{-1}=\{s\in\text{Frac}(R)\;|\;sI\subseteq R\}$$
-\end{defn}
-
-\begin{prp}{}{} Let $R$ be an integral domain. Let $I$ be a fractional ideal. Then the following are equivalent. 
-\begin{itemize}
-\item $I$ is invertible. 
-\item $I$ is a projective $R$-module. 
-\item $I$ is a finitely generated, and for any maximal ideal $m$ of $R$, $I_m$ is a principal ideal of $R_m$. 
-\end{itemize}
-\end{prp}
-
-\subsection{Dedekind Domains}
-\begin{defn}{Dedekind Domains}{} Let $R$ be a commutative ring. We say that $R$ is a dedekind domain if the following are true. 
-\begin{itemize}
-\item $R$ is an integral domain
-\item $R$ is an integrally closed
-\item $R$ is Noetherian
-\item Every non-zero prime ideal of $R$ is maximal ($R$ has dimension $1$)
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $R$ be an integral domain that is not a field. Then the following are equivalent. 
-\begin{itemize}
-\item $R$ is a Dedekind domain. 
-\item Every non-zero fractional ideal $I$ of $R$ is invertible ($I^{-1}I=R$). 
-\item Every non-zero ideal can be expressed uniquely as a direct product of finitely many prime ideals of $R$. 
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item $(1)\implies(2)$: Let $R$ be a Dedekind domain. Let $m$ be a maximal ideal of $R$. We have seen from Commutative Algebra 1 that $R_m$ is a Noetherian local ring. By 7.4.2 in Commutative Algebra 1 we also conclude that $R_m$ is normal. By 9.3.2 of Commutative Algebra 1 we know that $\dim(R_m)=\text{ht}_R(m)=1$. By 10.4.6 of Commutative Algebra 1, $R_m$ is a DVR and in particular $m$ is a principal ideal. \\~\\
-
-Let $I$ be a fractional ideal of $R$. We know by 1.1.3 that $I$ is finitely generated. Since $R_m$ is a normal Noetherian local ring of dimension $1$, the ideal $I_m$ of $R_m$ must be principal. By 1.1.5 we conclude that $I$ is invertible. \\~\\
-
-\item $(2)\implies(1)$: Let $I$ be an ideal of $R$. Since $I$ is invertible, by 1.1.5 we conclude that $I$ is finitely generated. Hence $R$ is Noetherian. Let $P$ be a prime ideal of $R$. By assumption, $P$ is invertible. This means that the unique maximal ideal $PR_P$ of $R_P$ is principal (Why????). By 10.4.6 of Commutative Algebra 1, we conclude that $R_P$ is a DVR. In particular, it is integrally closed and $\dim(R_P)=1$. This means that $\text{ht}_R(P)=1$. Thus $R$ is either a field or $\dim(R)=1$. By assumption $R$ is not a field. Hence $\dim(R)=1$. We know that $R=\bigcap_{m\text{ a maximal ideal}}R_m$. Since prime ideals are maximal ideals in one dimensional rings, we can rewrite the intersection as $$R=\bigcap_{P\text{ a prime ideal}}R_P$$ But each $R_P$ is a DVR. Hence $R$ is a DVR and we conclude that $R$ is normal. 
-\end{itemize}
-\end{proof}
-\end{prp}
-
-\pagebreak
-\section{The Picard Group of a Ring}
-\subsection{The Picard Group}
-\begin{defn}{The Picard Group of a Ring}{} Let $R$ be an integral domain. Define the picard group of $R$ to be the set $$\text{Pic}(R)=\{I\subseteq R\;|\;I\text{ is invertible}\}/\sim$$ where $I\sim J$ if $I$ and $J$ are isomorphic as $R$-modules, together with binary operation given by tensor products. 
-\end{defn}
-
-\begin{lmm}{}{} Let $R$ be a ring. If $R$ is a UFD, then $\text{Pic}(R)$ is trivial. 
-\end{lmm}
 
 \pagebreak
 \section{Filtrations}
@@ -459,6 +392,15 @@ Materials referenced: \cite{Pat}
 \end{prp}
 
 This proposition will be of use at \ref{eg:4.1.7}. 
+
+\pagebreak
+\section{The Picard Group of an Integral Domain}
+\subsection{The Picard Group}
+\begin{defn}{The Picard Group of a Ring}{} Let $R$ be an integral domain. Define the picard group of $R$ to be the set $$\text{Pic}(R)=\{I\subseteq R\;|\;I\text{ is invertible}\}/\sim$$ where $I\sim J$ if $I$ and $J$ are isomorphic as $R$-modules, together with binary operation given by tensor products. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a ring. If $R$ is a UFD, then $\text{Pic}(R)$ is trivial. 
+\end{lmm}
 
 
 
