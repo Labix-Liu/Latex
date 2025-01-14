@@ -799,9 +799,37 @@ for all maximal ideals $m$ of $R$.
 \begin{defn}{Support of a Module}{} Let $A$ be a commutative ring. Let $M$ be an $A$-module. The support of $M$ is the subset $$\text{Supp}(M)=\{P\text{ a prime ideal of }A\;|\;M_P\neq 0\}$$
 \end{defn}
 
+Let $R$ be a commutative ring. Let $M$ be an $R$-module. Recall that the annihilator of an element $m\in M$ is the ideal $$\text{Ann}_R(m)=\{r\in R\;|\;r\cdot m=0\}$$ Moreover, we define $$\text{Ann}_R(M)=\{r\in R\;|\;r\cdot m=0\text{ for all }m\in M\}=\bigcap_{m\in M}\text{Ann}_R(m)$$
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $P$ be a prime ideal of $R$ Then $P\in\text{Supp}(M)$ if and only if $\text{Ann}_R(M)\subseteq P$. 
+\end{prp}
+
 \subsection{Associated Prime}
-\begin{defn}{Associated Prime}{} Let $M$ be an $A$-module. An associated prime $P$ of $M$ is a prime ideal of $A$ such that there exists some $m\in M$ such that $P=\text{Ann}(m)$. 
+\begin{defn}{Associated Prime}{} Let $M$ be an $A$-module. An associated prime of $M$ is a prime ideal $P$ of $A$ such that $$P=\text{Ann}_A(m)$$ for some $m\in M$. Also define $$\text{Ass}(M)=\{P\text{a prime ideal of }A\;|\;P\text{ is an associated prime of }M\}$$
 \end{defn}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Then $$\text{Ass}(M)\subseteq\text{Supp}(M)$$
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Then the following are true. 
+\begin{itemize}
+\item $\text{Ass}(M)$ is a finite set. 
+\item For $P\in\text{Ass}(M)$, $\text{Ann}_R(M)\subseteq P$. 
+\item We have $$\text{Ass}(M)=\{P\in\text{Spec}(R)\;|\;\text{ For any prime ideal }Q\subseteq P, Q\text{ does not contain }\text{Ann}_R(M)\}$$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item 
+\item We have seen that every $P\in\text{Supp}(M)$ is such that $\text{Ann}_R(M)\subseteq P$. Since $\text{Ass}(M)\subseteq\text{Supp}(M)$, we are done. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Then $$\bigcup_{P\in\text{Ass}(M)}P=\{m\in M\;|\;m\text{ is a zero divisor of }M\}\cup\{0\}$$
+\end{prp}
+
+\begin{thm}{Disassembly of an R-Module}{} Let $R$ be a Noetherian commutative ring. Let $M$ be a finitely generated $R$-module. Then there exists a chain of $R$-submodules $$0=M_0\subset M_1\subset\cdots\subset M_k=M$$ such that $$\frac{M_{i+1}}{M_i}\cong\frac{R}{P_i}$$ for some prime ideal $P_i$ of $R$. 
+\end{thm}
 
 \subsection{Primary Ideals}
 \begin{defn}{Primary Ideals}{} Let $R$ be a commutative ring. Let $Q$ be a proper ideal of $R$. We say that $Q$ is a primary ideal of $R$ if $fg\in Q$ implies $f\in Q$ or $g^m\in Q$ for some $m>0$. 
@@ -967,7 +995,7 @@ Atiyah-Macdonald
 
 \begin{prp}{}{} Let $k$ be a field. Let $A$ be an integral domain that is a finitely generated $k$-algebra. Then the following are true. 
 \begin{itemize}
-\item $\dim(A)=\text{tr}\dim_k(\text{Frac}(A))$
+\item $\dim(A)=\text{trdeg}_k(\text{Frac}(A))$
 \item For any prime ideal $P$ of $A$, we have $$\dim(A)=\dim(A/P)+\text{ht}_A(P)$$
 \end{itemize}
 \end{prp}

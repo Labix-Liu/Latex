@@ -29,25 +29,25 @@
 \contentsline {section}{\numberline {6}Primary Decomposition}{29}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Support of a Module}{29}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Associated Prime}{29}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Primary Ideals}{29}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Primary Decomposition}{29}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Integral Dependence}{31}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Integral Elements}{31}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Integral Closure}{31}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}The Going-Up and Going-Down Theorems}{32}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Normal Domains}{33}{subsection.7.4}%
-\contentsline {section}{\numberline {8}Introduction to Dimension Theory for Rings}{34}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Krull Dimension}{34}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Height of Prime Ideals}{34}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Length of a Module}{35}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}The Hilbert Polynomial}{35}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Structure Theorem for Artinian Rings}{36}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Valuation and Valuation Rings}{38}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Valuation Rings}{38}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Valuations on a Field}{38}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Discrete Valuations and Normalizations}{38}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Discrete Valuation Rings}{39}{subsection.9.4}%
-\contentsline {section}{\numberline {10}Dedekind Domains}{42}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Fractional Ideals}{42}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Invertible Ideals}{42}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Dedekind Domains}{43}{subsection.10.3}%
+\contentsline {subsection}{\numberline {6.3}Primary Ideals}{30}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Primary Decomposition}{30}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Integral Dependence}{32}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Integral Elements}{32}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Integral Closure}{32}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}The Going-Up and Going-Down Theorems}{33}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Normal Domains}{34}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Introduction to Dimension Theory for Rings}{35}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Krull Dimension}{35}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Height of Prime Ideals}{35}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Length of a Module}{36}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}The Hilbert Polynomial}{36}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Structure Theorem for Artinian Rings}{37}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Valuation and Valuation Rings}{39}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Valuation Rings}{39}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Valuations on a Field}{39}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Discrete Valuations and Normalizations}{39}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Discrete Valuation Rings}{40}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Dedekind Domains}{43}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Fractional Ideals}{43}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Invertible Ideals}{43}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Dedekind Domains}{44}{subsection.10.3}%
