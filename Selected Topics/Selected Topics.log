@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  10 JAN 2025 13:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  15 JAN 2025 09:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1085,121 +1085,132 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 
 
 [3]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 3
+Underfull \hbox (badness 1701) in paragraph at lines 44--44
+[]\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/10 be a com-pact Haus-dor
+ff space. De-fine the com-plex K-theory of $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/10 
+to be the 
+ []
+
+
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 50.
+
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 5
 2.
- (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 
-[4{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+[4]
+
+[5{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
 enc}]
 
-[5]
-
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-
- []
-
-
 
 [7]
 
 [8]
 
-Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 164.
-
-
-
 [9]
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+
 
 [10]
 
 [11]
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+
+[13]
+
+[14]
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 298--299
 
  []
 
 
-Underfull \hbox (badness 1735) in paragraph at lines 256--256
+Underfull \hbox (badness 1735) in paragraph at lines 314--314
 []\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 R$ \T1/qpl/m/n/10 be a ring. De-fine the
  el-e-men-tary sym-met-ric poly-no-mi-als to be the el-e-ments 
  []
 
 
 
-[13]
+[16]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 263.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 263.
+(hyperref)                removing `math shift' on input line 321.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 263.
+(hyperref)                removing `\lambda' on input line 321.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 264.
+(hyperref)                removing `math shift' on input line 321.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 264.
+(hyperref)                removing `math shift' on input line 322.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 264.
+(hyperref)                removing `\lambda' on input line 322.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--266
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 322.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--324
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--269
+Underfull \hbox (badness 10000) in paragraph at lines 325--327
 
  []
 
 
 
-[14]
+[17]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 319.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 319.
+(hyperref)                removing `math shift' on input line 377.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 319.
+(hyperref)                removing `\lambda' on input line 377.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 334.
+(hyperref)                removing `math shift' on input line 377.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 334.
+(hyperref)                removing `math shift' on input line 392.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 334.
+(hyperref)                removing `\lambda' on input line 392.
 
 
-Underfull \hbox (badness 4120) in paragraph at lines 335--335
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 392.
+
+
+Underfull \hbox (badness 4120) in paragraph at lines 393--393
 []\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 R$ \T1/qpl/m/n/10 be a $\OML/cmm/m/it/10
  ^^U$\T1/qpl/m/n/10 -ring. We say that $\OML/cmm/m/it/10 R$ \T1/qpl/m/n/10 is a
 n aug-mented $\OML/cmm/m/it/10 ^^U$\T1/qpl/m/n/10 -ring if it comes with a $\OM
@@ -1208,247 +1219,231 @@ L/cmm/m/it/10 ^^U$\T1/qpl/m/n/10 -
 
 
 
-[15]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 343.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 343.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 343.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 350.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 350.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 350.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 352.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 352.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 352.
-
-
-
-[16]
-
-[17]
-
 [18]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 401.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\lambda' on input line 401.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 401.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 408.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\lambda' on input line 408.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 408.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 410.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\lambda' on input line 410.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 410.
+
+
+
 [19]
-Overfull \hbox (0.59756pt too wide) in paragraph at lines 477--478
+
+[20]
+
+[21]
+
+[22]
+Overfull \hbox (0.59756pt too wide) in paragraph at lines 535--536
 []\T1/qpl/m/n/10 The Te-ich-muller rep-re-sen-ta-tive is in gen-eral not a ring
  ho-mo-mor-phism, but it is still mul-ti-plica-tive. 
  []
 
 
 
-[20]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 514.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 514.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 514.
-
-
-
-[21]
-
-[22]
-
 [23]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 572.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\lambda' on input line 572.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 572.
+
+
+
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 632--660
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 632--660
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 632--660
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 632--660
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 632--660
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 632--660
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 632--660
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 632--660
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 665--682
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 665--682
-
- []
-
-
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 682--734
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 682--734
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 682--734
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 682--734
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 682--734
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 682--734
-
- []
-
-
 
 [26]
-Underfull \hbox (badness 2134) in paragraph at lines 742--743
-\T1/qpl/m/n/10 given as fol-lows. For a lin-ear func-tor $\OML/cmm/m/it/10 F$\T
-1/qpl/m/n/10 , we as-so-ciate to it the se-quence of spaces 
- []
-
-
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 784--785
+Underfull \hbox (badness 10000) in paragraph at lines 690--718
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 784--785
+Underfull \hbox (badness 10000) in paragraph at lines 690--718
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 798--808
+Underfull \hbox (badness 10000) in paragraph at lines 690--718
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 798--808
+Underfull \hbox (badness 10000) in paragraph at lines 690--718
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--718
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--718
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--718
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--718
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 723--740
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 723--740
 
  []
 
 
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 808--817
+Underfull \hbox (badness 10000) in paragraph at lines 740--792
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 808--817
+Underfull \hbox (badness 10000) in paragraph at lines 740--792
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 808--817
+Underfull \hbox (badness 10000) in paragraph at lines 740--792
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 817--826
+Underfull \hbox (badness 10000) in paragraph at lines 740--792
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 817--826
+Underfull \hbox (badness 10000) in paragraph at lines 740--792
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 817--826
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 830--839
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 830--839
+Underfull \hbox (badness 10000) in paragraph at lines 740--792
 
  []
 
 
 
 [29]
+Underfull \hbox (badness 2134) in paragraph at lines 800--801
+\T1/qpl/m/n/10 given as fol-lows. For a lin-ear func-tor $\OML/cmm/m/it/10 F$\T
+1/qpl/m/n/10 , we as-so-ciate to it the se-quence of spaces 
+ []
+
+
 
 [30]
-
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 935--936
+Underfull \hbox (badness 10000) in paragraph at lines 842--843
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 935--936
+Underfull \hbox (badness 10000) in paragraph at lines 842--843
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 856--866
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 856--866
+
+ []
+
+
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 866--875
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 866--875
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 866--875
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 875--884
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 875--884
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 875--884
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 888--897
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 888--897
 
  []
 
@@ -1457,40 +1452,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 935--936
 [32]
 
 [33]
+Underfull \hbox (badness 10000) in paragraph at lines 946--947
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 946--947
+
+ []
+
+
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1035--1036
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1035--1036
-
- []
-
-
 
 [35]
 
 [36]
+Underfull \hbox (badness 10000) in paragraph at lines 1046--1047
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1046--1047
+
+ []
+
+
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1152--1163
+
+[38]
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 1163--1174
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1152--1163
+Underfull \hbox (badness 10000) in paragraph at lines 1163--1174
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1152--1163
+Underfull \hbox (badness 10000) in paragraph at lines 1163--1174
 
  []
 
 
-Overfull \hbox (18.91403pt too wide) in paragraph at lines 1164--1165
+Overfull \hbox (18.91403pt too wide) in paragraph at lines 1175--1176
 \OML/cmm/m/it/10 X=i\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 )$ \T1/q
 pl/m/n/10 is ho-mo-topy equiv-a-lent to $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\
 OT1/cmr/m/n/10 )$\T1/qpl/m/n/10 . https://ncatlab.org/nlab/show/topological+cof
@@ -1498,118 +1507,118 @@ iber+sequence#
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1164--1165
-
- []
-
-
-
-[38]
-Underfull \hbox (badness 10000) in paragraph at lines 1170--1171
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1170--1171
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1172--1173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1172--1173
-
- []
-
-
-Overfull \hbox (0.4221pt too wide) in paragraph at lines 1181--1182
-[]\T1/qpl/m/n/10 Effectively, we want the $\OML/cmm/m/it/10 n$ \T1/qpl/m/n/10 s
-pace in the tower to ex-actly cap-ture ho-mo-topy in-for-ma-tion up to level $\
-OML/cmm/m/it/10 n$\T1/qpl/m/n/10 . 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1206--1207
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1206--1207
-
- []
-
-
-
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 1208--1217
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1208--1217
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1220--1238
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1220--1238
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1220--1238
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1220--1238
+Underfull \hbox (badness 10000) in paragraph at lines 1175--1176
 
  []
 
 
 
 [40]
+Underfull \hbox (badness 10000) in paragraph at lines 1181--1182
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1181--1182
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1183--1184
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1183--1184
+
+ []
+
+
+Overfull \hbox (0.4221pt too wide) in paragraph at lines 1192--1193
+[]\T1/qpl/m/n/10 Effectively, we want the $\OML/cmm/m/it/10 n$ \T1/qpl/m/n/10 s
+pace in the tower to ex-actly cap-ture ho-mo-topy in-for-ma-tion up to level $\
+OML/cmm/m/it/10 n$\T1/qpl/m/n/10 . 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1197--1216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1197--1216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1197--1216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1197--1216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1197--1216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1197--1216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1217--1218
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1217--1218
+
+ []
+
+
 
 [41]
+Underfull \hbox (badness 10000) in paragraph at lines 1219--1228
 
-[42] (Selected Topics.aux)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1219--1228
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1249
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1249
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1249
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1249
+
+ []
+
+
+
+[42]
+
+[43]
+
+[44] (Selected Topics.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
@@ -1621,75 +1630,83 @@ Package rerunfilecheck Warning: File `"Selected Topics".out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `"Selected Topics".out':
-(rerunfilecheck)             Before: 1C3884694EA4CE343DFAD3509D244B15;7904
-(rerunfilecheck)             After:  276D288DD1ED4A1FA143DB7B813E54F5;8600.
+(rerunfilecheck)             Before: 3DD0E5B6B90D624955B878344E7B0756;8746
+(rerunfilecheck)             After:  2C6699F9C45487B8170FF164EBE1E660;8925.
  ) 
 Here is how much of TeX's memory you used:
- 35037 strings out of 473577
- 701620 string characters out of 5716318
- 1108643 words of memory out of 5000000
- 57432 multiletter control sequences out of 15000+600000
+ 35071 strings out of 473577
+ 702259 string characters out of 5716318
+ 1108795 words of memory out of 5000000
+ 57453 multiletter control sequences out of 15000+600000
  603344 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,22n,120p,1037b,1469s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{subsection.15.4} has been referenced but does not e
+pdfTeX warning (dest): name{subsection.16.4} has been referenced but does not e
 xist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.15.3} has been referenced but does not e
+pdfTeX warning (dest): name{subsection.16.3} has been referenced but does not e
 xist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.15.2} has been referenced but does not e
+pdfTeX warning (dest): name{subsection.16.2} has been referenced but does not e
 xist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.15.1} has been referenced but does not e
+pdfTeX warning (dest): name{subsection.16.1} has been referenced but does not e
 xist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.9.5} has been referenced but does not ex
+pdfTeX warning (dest): name{subsection.11.5} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.11.4} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.11.3} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.11.2} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.11.1} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.8.7} has been referenced but does not ex
 ist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.9.4} has been referenced but does not ex
+pdfTeX warning (dest): name{subsection.8.6} has been referenced but does not ex
 ist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.9.3} has been referenced but does not ex
+pdfTeX warning (dest): name{subsection.8.5} has been referenced but does not ex
 ist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.9.2} has been referenced but does not ex
+pdfTeX warning (dest): name{subsection.8.4} has been referenced but does not ex
 ist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.9.1} has been referenced but does not ex
+pdfTeX warning (dest): name{subsection.8.3} has been referenced but does not ex
 ist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.6.7} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.6} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.5} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.3} has been referenced but does not ex
+pdfTeX warning (dest): name{subsection.8.2} has been referenced but does not ex
 ist, replaced by a fixed one
 
 
 pdfTeX warning (dest): name{subsection.6.2} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.3} has been referenced but does not ex
 ist, replaced by a fixed one
 
 
@@ -1702,6 +1719,10 @@ ist, replaced by a fixed one
 
 
 pdfTeX warning (dest): name{subsection.2.2} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.1} has been referenced but does not ex
 ist, replaced by a fixed one
 
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
@@ -1727,9 +1748,9 @@ fb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qp
 lb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyr
 e/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex
 -gyre/qplri.pfb>
-Output written on "Selected Topics.pdf" (42 pages, 588028 bytes).
+Output written on "Selected Topics.pdf" (44 pages, 597727 bytes).
 PDF statistics:
- 814 PDF objects out of 1000 (max. 8388607)
- 260 named destinations out of 1000 (max. 500000)
- 413 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 856 PDF objects out of 1000 (max. 8388607)
+ 273 named destinations out of 1000 (max. 500000)
+ 445 words of extra memory for PDF output out of 10000 (max. 10000000)
 

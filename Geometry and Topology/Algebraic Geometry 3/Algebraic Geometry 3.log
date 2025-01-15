@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  14 JAN 2025 19:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  14 JAN 2025 19:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"./Advanced Group Theory.tex"
-(Advanced Group Theory.tex
+**"./Algebraic Geometry 3.tex"
+(Algebraic Geometry 3.tex
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -967,27 +967,27 @@ Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
 ))
 \c@tcb@cnt@thm=\count347
 Package hyperref Info: Option `colorlinks' set `true' on input line 256.
-) (Advanced Group Theory.aux)
-\openout1 = `"Advanced Group Theory.aux"'.
+) (Algebraic Geometry 3.aux)
+\openout1 = `"Algebraic Geometry 3.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1050,86 +1050,97 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 \c@lstlisting=\count354
-Package hyperref Info: Link coloring ON on input line 16.
- (Advanced Group Theory.out) (Advanced Group Theory.out)
+Package hyperref Info: Link coloring ON on input line 22.
+ (Algebraic Geometry 3.out) (Algebraic Geometry 3.out)
 \@outlinefile=\write4
-\openout4 = `"Advanced Group Theory.out"'.
+\openout4 = `"Algebraic Geometry 3.out"'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 Couldn't patch \deferred@thm@head!
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 24.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
 
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
+9.
+
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
+File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
+)
 
 [1
 
 {C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
-a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
-(Advanced Group Theory.toc)
+a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}{C:/Users/liu
+la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
+(Algebraic Geometry 3.toc)
 \tf@toc=\write5
-\openout5 = `"Advanced Group Theory.toc"'.
+\openout5 = `"Algebraic Geometry 3.toc"'.
 
 
 
 [2]
 
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 66.
+
+
+
 [3]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 8
-0.
- (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
-File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
-)
-Overfull \hbox (16.1368pt too wide) detected at line 91
-\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g[] [] g[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
-^^C \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 h[] [] h[]\OT1/cmr/m/n/10 ) = []
- []
 
-
-
-[4{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
-
- []
-
-
+[4]
 
 [5]
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 127--136
 
-[7]
+ []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--136
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--136
 
  []
 
 
 
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
+
+ []
+
+
+
+[8]
+
 [9]
 
 [10]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 241.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 241.
-
-
 
 [11]
 
@@ -1142,29 +1153,44 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [15]
 
 [16]
-
-[17]
-Overfull \hbox (26.67618pt too wide) in paragraph at lines 428--437
- [][] 
+Overfull \hbox (18.39568pt too wide) detected at line 408
+[]
  []
 
 
 
+[17]
+
 [18]
+Underfull \hbox (badness 10000) in paragraph at lines 440--441
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 440--441
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--454
+
+ []
+
+
 
 [19]
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 523--524
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 523--524
-
- []
-
-
 
 [21]
 
@@ -1173,33 +1199,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 523--524
 [23]
 
 [24]
+Underfull \hbox (badness 10000) in paragraph at lines 609--614
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 645.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 645.
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 645.
+Underfull \hbox (badness 10000) in paragraph at lines 609--614
+
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 645.
+Underfull \hbox (badness 10000) in paragraph at lines 609--614
+
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\geq' on input line 645.
+Underfull \hbox (badness 10000) in paragraph at lines 615--616
+
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 645.
+Underfull \hbox (badness 10000) in paragraph at lines 615--616
+
+ []
 
 
 
 [25]
+Underfull \hbox (badness 10000) in paragraph at lines 650--658
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 650--658
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 667--668
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 667--668
+
+ []
+
+
 
 [26]
 
@@ -1211,52 +1257,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [30]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 827.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 827.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 827.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 827.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 827.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 827.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 827.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 827.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 827.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 827.
-
-
-
 [31]
 
 [32]
 
 [33]
+Underfull \hbox (badness 10000) in paragraph at lines 869--870
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 869--870
+
+ []
+
+
 
 [34]
 
@@ -1264,62 +1279,48 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [36]
 
-[37]
-
-[38]
-
-[39]
-
-[40]
-
-[41]
-
-[42]
-
-[43] (Advanced Group Theory.aux)
+[37] (Algebraic Geometry 3.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
-Package rerunfilecheck Info: File `"Advanced Group Theory".out' has not changed
-.
-(rerunfilecheck)             Checksum: E9969D14937A98173B027DBC625C0882;6972.
+Package rerunfilecheck Info: File `"Algebraic Geometry 3".out' has not changed.
+
+(rerunfilecheck)             Checksum: 9F7BC0473ADABA39EFA18CAA672F62B7;9202.
  ) 
 Here is how much of TeX's memory you used:
- 33216 strings out of 473577
- 656056 string characters out of 5716318
- 1083697 words of memory out of 5000000
- 55655 multiletter control sequences out of 15000+600000
- 599637 words of font info for 75 fonts, out of 8000000 for 9000
+ 33321 strings out of 473577
+ 658192 string characters out of 5716318
+ 1077701 words of memory out of 5000000
+ 55725 multiletter control sequences out of 15000+600000
+ 600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,16n,120p,1323b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,18n,120p,820b,1383s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmmi12.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/liula/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/
+cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/
 liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:
 /Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.
 pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr8.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liula/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/liula/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C
-:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
-/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex
--gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/tex-gyre/qplri.pfb>
-Output written on "Advanced Group Theory.pdf" (43 pages, 600349 bytes).
+m/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liula/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users
+/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/U
+sers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><
+C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.
+pfb>
+Output written on "Algebraic Geometry 3.pdf" (37 pages, 579712 bytes).
 PDF statistics:
- 717 PDF objects out of 1000 (max. 8388607)
- 222 named destinations out of 1000 (max. 500000)
- 317 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 772 PDF objects out of 1000 (max. 8388607)
+ 254 named destinations out of 1000 (max. 500000)
+ 389 words of extra memory for PDF output out of 10000 (max. 10000000)
 
