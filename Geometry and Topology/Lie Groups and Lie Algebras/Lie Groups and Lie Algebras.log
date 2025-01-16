@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  11 JAN 2025 20:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  15 JAN 2025 15:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1158,12 +1158,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [26]
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 759--760
+Underfull \hbox (badness 10000) in paragraph at lines 762--763
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--762
+Underfull \hbox (badness 10000) in paragraph at lines 764--765
 
  []
 
@@ -1176,44 +1176,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 761--762
 [30]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 847.
+(hyperref)                removing `math shift' on input line 850.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 847.
+(hyperref)                removing `math shift' on input line 850.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 869--870
+Underfull \hbox (badness 10000) in paragraph at lines 872--873
 
  []
 
 
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 901--911
+Underfull \hbox (badness 10000) in paragraph at lines 904--914
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 901--911
+Underfull \hbox (badness 10000) in paragraph at lines 904--914
 
  []
 
 
 
 [32]
-Overfull \hbox (2.77159pt too wide) in paragraph at lines 912--913
+Overfull \hbox (2.77159pt too wide) in paragraph at lines 915--916
 []\T1/qpl/m/n/10 We will now show that Sim-ple Lie al-ge-bras give rise to ir-r
 e-ducible Dynkin di-a-grams and vice versa. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 915--928
+Underfull \hbox (badness 10000) in paragraph at lines 918--931
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 915--928
+Underfull \hbox (badness 10000) in paragraph at lines 918--931
 
  []
 
@@ -1229,8 +1229,8 @@ hanged.
 (rerunfilecheck)             Checksum: 2044AF7EF30098BCD9C2E9C7D30DBE04;9526.
  ) 
 Here is how much of TeX's memory you used:
- 33058 strings out of 473577
- 652353 string characters out of 5716318
+ 33059 strings out of 473577
+ 652370 string characters out of 5716318
  1073745 words of memory out of 5000000
  55492 multiletter control sequences out of 15000+600000
  602834 words of font info for 88 fonts, out of 8000000 for 9000
@@ -1256,9 +1256,9 @@ ograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/App
 Data/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/l
 iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Lie Groups and Lie Algebras.pdf" (33 pages, 504670 bytes).
+Output written on "Lie Groups and Lie Algebras.pdf" (33 pages, 506113 bytes).
 PDF statistics:
- 712 PDF objects out of 1000 (max. 8388607)
- 221 named destinations out of 1000 (max. 500000)
+ 713 PDF objects out of 1000 (max. 8388607)
+ 222 named destinations out of 1000 (max. 500000)
  389 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -591,15 +591,13 @@ c_r
 \end{prp}
 
 \subsection{The Tangent Bundle}
-\begin{defn}{The Tangent Bundle}{} Let $M$ be a smooth manifold. Define the tangent bundle of $M$ to be the disjoint union $$TM=\coprod_{p\in M}T_pM$$
+\begin{defn}{The Tangent Bundle}{} Let $M$ be a smooth manifold. Define the tangent bundle of $M$ to be the disjoint union $$TM=\coprod_{p\in M}T_pM$$ Define the projection map $\pi:TM\to M$ by $\pi(v)=p$ if $v\in T_pM$. 
 \end{defn}
 
-Notice that $TM$ in fact consists of pairs $(p,v)$ where $p\in M$ is a point and $v\in T_p(M)$ is a tangent vector at $p$. Then there is a natural projection map $\pi:TM\to M$ defined by $(p,v)\mapsto p$. 
-
-\begin{defn}{Local Trivialization Maps}{} Let $M$ be a smooth manifold of dimension $n$. Let $(U,\phi)$ be a chart on $M$. Let $T(U)=\coprod_{q\in U}T_q(M)$. Define the local trivialization maps by $\tilde{\phi}:T(U)\to\phi(U)\times\R^n$ by $\tilde{\phi}(p,v)=(\phi(p),a_1(p),\dots,a_n(p))$. 
+\begin{defn}{Local Trivialization Maps}{} Let $M$ be a smooth manifold of dimension $n$. Let $(U,\phi)$ be a chart on $M$. Let $$TU=\coprod_{q\in U}T_q(M)$$ Let $v\in TU$ and let $p=\pi(v)$. Then $v\in T_pM$ is given locally on a chart by $$v=\sum_{k=1}^n c_k\frac{\partial}{\partial x^k}\bigg{|}_p$$ for smooth functions $c_k:U\to\R$. Define the local trivialization map $$\widetilde{\phi}:TU\to U\times\R^n$$ by the formula $$\widetilde{\phi}(v)=(p,c_1(p),\dots,c_n(p))$$
 \end{defn}
 
-\begin{lmm}{}{} Let $M$ be a smooth manifold of dimension $n$. Let $(U,\phi)$ be a chart on $M$. Then $\tilde{\phi}$ is a bijection. \tcbline
+\begin{lmm}{}{} Let $M$ be a smooth manifold of dimension $n$. Let $(U,\phi)$ be a chart on $M$. Then the local trivialization maps $$\widetilde{\phi}:TU\to U\times\R^n$$ is a bijection. \tcbline
 \begin{proof}
 It is easy to see that the map defined by $$(\vb{x},c_1,\dots,c_n)\mapsto\left(\phi^{-1}(\vb{x}),\sum_{k=1}^nc_k\frac{\partial}{\partial x^k}\bigg{|}_p\right)$$ is an inverse to $\tilde{\phi}$. 
 \end{proof}

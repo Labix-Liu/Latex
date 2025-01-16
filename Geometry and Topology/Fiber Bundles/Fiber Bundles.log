@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  14 JAN 2025 22:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  15 JAN 2025 14:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1150,25 +1150,12 @@ d on input line 186.
 
 [9]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 222.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 222.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 222.
-
-
-
 [10]
 
 [11]
 
 [12]
-Overfull \hbox (3.08167pt too wide) in paragraph at lines 289--290
+Overfull \hbox (3.08167pt too wide) in paragraph at lines 297--298
 []\T1/qpl/m/n/10 Here co-ho-mol-ogy can be taken for ex-am-ple sin-gu-lar co-ho
 -mol-ogy with co-ef-fi-cients in a fixed group. 
  []
@@ -1197,15 +1184,15 @@ Package rerunfilecheck Warning: File `"Fiber Bundles".out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `"Fiber Bundles".out':
-(rerunfilecheck)             Before: BBE79D96526BC565BE8542C9304B4F8B;4722
-(rerunfilecheck)             After:  5D4D6AF5949AAC66129F0EDFF837FADA;4698.
+(rerunfilecheck)             Before: A4B6F18B1E1071C5BC2D29ECCA3D7013;4961
+(rerunfilecheck)             After:  1AED389520BC818EE7D193594294EC9D;5039.
  ) 
 Here is how much of TeX's memory you used:
- 32761 strings out of 473577
- 646297 string characters out of 5716318
+ 32757 strings out of 473577
+ 646245 string characters out of 5716318
  1072624 words of memory out of 5000000
- 55301 multiletter control sequences out of 15000+600000
- 599899 words of font info for 85 fonts, out of 8000000 for 9000
+ 55296 multiletter control sequences out of 15000+600000
+ 598047 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,16n,120p,1012b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
@@ -1224,9 +1211,9 @@ symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Fiber Bundles.pdf" (18 pages, 345021 bytes).
+Output written on "Fiber Bundles.pdf" (18 pages, 347386 bytes).
 PDF statistics:
- 404 PDF objects out of 1000 (max. 8388607)
- 118 named destinations out of 1000 (max. 500000)
- 205 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 411 PDF objects out of 1000 (max. 8388607)
+ 120 named destinations out of 1000 (max. 500000)
+ 213 words of extra memory for PDF output out of 10000 (max. 10000000)
 

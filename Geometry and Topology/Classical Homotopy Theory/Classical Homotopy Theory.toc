@@ -20,7 +20,7 @@
 \contentsline {subsection}{\numberline {4.5}Connectedness of Homotopy Squares}{23}{subsection.4.5}%
 \contentsline {section}{\numberline {5}Blakers-Massey Theorem}{24}{section.5}%
 \contentsline {subsection}{\numberline {5.1}The Blakers-Massey Theorem for Squares}{24}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}The Dual Blakers-Massey Theorem for Squares}{25}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.2}The Dual Blakers-Massey Theorem for Squares}{26}{subsection.5.2}%
 \contentsline {section}{\numberline {6}Homotopy n-Cubes}{27}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Maps between Homotopy Squares}{27}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}n-Cubes of Spaces}{27}{subsection.6.2}%

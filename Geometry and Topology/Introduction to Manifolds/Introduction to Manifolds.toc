@@ -25,7 +25,7 @@
 \contentsline {subsection}{\numberline {7.1}Smooth Vector Bundles}{24}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}The Tangent Bundle}{26}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Vector Fields}{28}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Integral Curves of Vector Fields}{28}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.4}Integral Curves of Vector Fields}{29}{subsection.7.4}%
 \contentsline {section}{\numberline {8}Differential Calculus on Manifolds}{31}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Differential 1-Forms}{31}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Differential k-Forms}{33}{subsection.8.2}%

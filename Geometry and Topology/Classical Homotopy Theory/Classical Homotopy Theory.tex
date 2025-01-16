@@ -836,7 +836,43 @@ The reasons for the above setup is that we want to prove the following lemma.
 \end{tikzcd}}\\~\\
 given by inclusion maps is $(d_1+d_2-3)$-cartesian. \tcbline
 \begin{proof}
-Let $p_1\in e^{d_1}$ and $p_2\in e^{d_2}$ be interior points of the cells. Denote $Y=X\cup e^{d_1}\cup e^{d_2}$. 
+Let $p_1\in e^{d_1}$ and $p_2\in e^{d_2}$ be interior points. Since $X\cup e^{d_2}$ is weakly equivalent to $X\cup e^{d_1}\cup e^{d_2}\setminus\{p_1\}$ by inclusion (and similarly for $X\cup e^{d_1}$), the above square admits a weak equivalence to the following square: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X\cup e^{d_1}\cup e^{d_2}\setminus\{p_1,p_2\}} & {X\cup e^{d_1}\cup e^{d_2}\setminus\{p_2\}} \\
+	{X\cup e^{d_1}\cup e^{d_2}\setminus\{p_1\}} & {X\cup e^{d_1}\cup e^{d_2}}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[hook, from=1-2, to=2-2]
+	\arrow[hook, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+By thm???? to show that the square is $(d_1+d_2-3)$-cartesian is the same as showing the map $$\text{hofiber}_y(Y\setminus\{p_1,p_2\}\to Y\setminus\{p_1\})\to\text{hofiber}_y(Y\setminus\{p_2\}\to Y)$$ is $(d_1+d_2-3)$-cartesian. Let $$C=\text{hofiber}_y(Y\setminus\{p_2\}\to Y\setminus\{p_2\})\simeq\ast$$ Now notice that the domain and codomain of our map in question, as well as $C$ are all subspaces of $Y\times\text{Map}(I,Y)$. In particular, the intersections can be calculated to give $$C\cap\text{hofiber}_y(Y\setminus\{p_1,p_2\}\to Y\setminus\{p_1\})=\text{hofiber}_y(Y\setminus\{p_1,p_2\}\to Y\setminus\{p_1,p_2\})$$ and $$C\cap\text{hofiber}_y(Y\setminus\{p_2\}\to Y)=\text{hofiber}_y(Y\setminus\{p_2\}\to Y\setminus\{p_2\})\simeq\ast$$ By thm??? we conclude that the square \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{C\cap\text{hofiber}_y(Y\setminus\{p_1,p_2\}\to Y\setminus\{p_1\})} & {\text{hofiber}_y(Y\setminus\{p_1,p_2\}\to Y\setminus\{p_1\})} \\
+	C & {C\cup\text{hofiber}_y(Y\setminus\{p_1,p_2\}\to Y\setminus\{p_1\})}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[hook, from=1-2, to=2-2]
+	\arrow[hook, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+is a homotopy pullback. Since the left two terms are contractible, it is a weak equivalence. By thm??? we conclude that the map on the right is a weak equivalence. Similarly, we can consider the diagram \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{C\cap\text{hofiber}_y(Y\setminus\{p_2\}\to Y)} & {\text{hofiber}_y(Y\setminus\{p_2\}\to Y)} \\
+	C & {C\cup\text{hofiber}_y(Y\setminus\{p_2\}\to Y)}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[hook, from=1-2, to=2-2]
+	\arrow[hook, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+which is a homotopy pullback. And the fact that the terms on the left are contractible imply that the map on the right (which is in fact equal) $$\text{hofiber}_y(Y\setminus\{p_2\}\to Y)\overset{=}{\hookrightarrow}\text{hofiber}_y(Y\setminus\{p_2\}\to Y)$$ is a weak equivalence by the same theorem. We now have a chain of maps \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\text{hofiber}_y(Y\setminus\{p_1,p_2\}\to Y\setminus\{p_1\})} & {C\cup\text{hofiber}_y(Y\setminus\{p_1,p_2\}\to Y\setminus\{p_1\})} \\
+	\\
+	{C\cup \text{hofiber}_y(Y\setminus\{p_2\}\to Y)} & {\text{hofiber}_y(Y\setminus\{p_2\}\to Y)}
+	\arrow["{\text{weak eq.}}", hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=3-1]
+	\arrow["{\text{weak eq.}}", from=3-1, to=3-2]
+\end{tikzcd}}\\~\\
+where the middle map is inclusion. It remains to show that the middle map is $(d_1+d_2-3)$-connected. 
 \end{proof}
 \end{lmm}
 
@@ -854,27 +890,6 @@ This lemma has a less geometric way of proving it that does not involve any of t
 is a homotopy pushout. Suppose the map $X_0\to X_i$ is $k_i$-connected for $i=1,2$. Then the diagram is $(k_1+k_2-1)$-cartesian. Explicitly, this means that $$\alpha:X_0\to\text{holim}(X_1\rightarrow X_{12}\leftarrow X_2)$$ is $(k_1+k_2-1)$-connected. \tcbline
 \begin{proof}
 
-
-
-
-Let $e^d$ be a cell of dimension $d$. We first proof that the following square \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	X & {X\cup e^{d_1}} \\
-	{X\cup e^{d_2}} & {X\cup e^{d_1}\cup e^{d_2}}
-	\arrow[hook, from=1-1, to=1-2]
-	\arrow[hook, from=1-1, to=2-1]
-	\arrow[hook, from=1-2, to=2-2]
-	\arrow[hook, from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-is $(d_1+d_2-3)$-Cartesian for any space $X$. Let $p_1\in e^{d_1}$ and $p_2\in e^{d_2}$ be interior points. Since $X\cup e^{d_2}$ is weakly equivalent to $X\cup e^{d_1}\cup e^{d_2}\setminus\{p_1\}$ by inclusion (and similarly for $X\cup e^{d_1}$), the above square admits a weak equivalence to the following square: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{X\cup e^{d_1}\cup e^{d_2}\setminus\{p_1,p_2\}} & {X\cup e^{d_1}\cup e^{d_2}\setminus\{p_2\}} \\
-	{X\cup e^{d_1}\cup e^{d_2}\setminus\{p_1\}} & {X\cup e^{d_1}\cup e^{d_2}}
-	\arrow[hook, from=1-1, to=1-2]
-	\arrow[hook, from=1-1, to=2-1]
-	\arrow[hook, from=1-2, to=2-2]
-	\arrow[hook, from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
 \end{proof}
 \end{thm}
 

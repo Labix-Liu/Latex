@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  8 JAN 2025 21:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  15 JAN 2025 15:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1259,17 +1259,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 451--452
 [26]
 
 [27]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 638
+LaTeX Font Info:    Trying to load font information for U+euf on input line 636
 .
  (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-Underfull \hbox (badness 10000) in paragraph at lines 646--647
+Underfull \hbox (badness 10000) in paragraph at lines 644--645
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 646--647
+Underfull \hbox (badness 10000) in paragraph at lines 644--645
 
  []
 
@@ -1280,12 +1280,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 646--647
 [29]
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 715--716
+Underfull \hbox (badness 10000) in paragraph at lines 713--714
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 715--716
+Underfull \hbox (badness 10000) in paragraph at lines 713--714
 
  []
 
@@ -1294,12 +1294,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 715--716
 [31]
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 754--755
+Underfull \hbox (badness 10000) in paragraph at lines 752--753
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 754--755
+Underfull \hbox (badness 10000) in paragraph at lines 752--753
 
  []
 
@@ -1312,11 +1312,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 754--755
 [35]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 856.
+(hyperref)                removing `math shift' on input line 854.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 856.
+(hyperref)                removing `math shift' on input line 854.
 
 
 
@@ -1339,22 +1339,15 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Introduction to Manifolds".out' has chan
-ged.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Introduction to Manifolds".out':
-(rerunfilecheck)             Before: A6C9248F48C3F4C2859C695A1F2CF3F3;7487
-(rerunfilecheck)             After:  9A09DD4DBC7143417E0C0E505BA5F04A;7482.
+Package rerunfilecheck Info: File `"Introduction to Manifolds".out' has not cha
+nged.
+(rerunfilecheck)             Checksum: 9A09DD4DBC7143417E0C0E505BA5F04A;7482.
  ) 
 Here is how much of TeX's memory you used:
- 32980 strings out of 473577
- 650333 string characters out of 5716318
+ 32983 strings out of 473577
+ 650384 string characters out of 5716318
  1076728 words of memory out of 5000000
- 55415 multiletter control sequences out of 15000+600000
+ 55418 multiletter control sequences out of 15000+600000
  602908 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,19n,120p,1629b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1378,7 +1371,7 @@ rograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/
 liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Introduction to Manifolds.pdf" (43 pages, 572525 bytes).
+Output written on "Introduction to Manifolds.pdf" (43 pages, 573007 bytes).
 PDF statistics:
  690 PDF objects out of 1000 (max. 8388607)
  214 named destinations out of 1000 (max. 500000)

@@ -1,13 +1,14 @@
 \contentsline {section}{\numberline {1}The Tangent Space and Smooth Points}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}The Tangent Space of Affine Varieties}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Smooth Points of an Affine Variety}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Smooth Points of a Variety in General}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.3}The Tangent Space of Varieties in General}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Smooth Points of a Variety in General}{4}{subsection.1.4}%
 \contentsline {section}{\numberline {2}Birational Geometry}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Birational Morphisms}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Rational Morphisms}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Birational Maps}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Categorical Equivalence with Finitely Generated Field Extensions}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Categorical Equivalence with Finitely Generated Field Extensions}{5}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Blowing Ups}{6}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Theory of Divisors}{8}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Divisors of a Variety}{8}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}The Linear System of a Divisor}{9}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Intersection Theory}{10}{section.4}%
+\contentsline {section}{\numberline {3}Theory of Divisors}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Divisors of a Variety}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The Linear System of a Divisor}{8}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Intersection Theory}{9}{section.4}%

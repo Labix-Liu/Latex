@@ -728,15 +728,18 @@ For a group $G$, denote the left multiplication map of $h\in G$ by $l_h$. If $G$
 \begin{defn}{Left Invariant Vector Field}{} Let $G$ be a Lie group and $X$ a vector field on $G$. We say that $X$ is left invariant if $$(l_h)_\ast(X_g)=X_{hg}$$ for all $X_g\in T_g(G)$. 
 \end{defn}
 
-\begin{prp}{}{} Let $G$ be a Lie group. The vector space of left invariant vector fields of $G$ is a Lie algebra of dimension $\dim(G)$. Moreover, if $X_e\in T_e(G)$ is a tangent vector at $e$ the identity, then there is a unique left invariant vector field $X$ on $G$ such that its identity is $X_e$. 
+\begin{prp}{}{} Let $G$ be a Lie group. The vector space of left invariant vector fields of $G$ is a Lie algebra of dimension $\dim(G)$. 
 \end{prp}
 
-\begin{defn}{Lie Algebra of a Lie Group}{} Let $G$ be a Lie group. Define the Lie algebra $V$ of $G$ to be the vector space $T_e(G)$. 
+\begin{prp}{}{} Let $G$ be a Lie group. Let $v\in T_{1_G}(G)$ be a tangent vector at the identity. Then there exist a unique left invariant vector field $X:G\to TG$ on $G$ such that $X({1_G})=v$. 
+\end{prp}
+
+\begin{defn}{Lie Algebra of a Lie Group}{} Let $G$ be a Lie group. Define the Lie algebra of $G$ to be the Lie algebra $T_{1_G}(G)$. 
 \end{defn}
 
 Recall that given a homomorphism of Lie groups $\phi:G\to H$, it induces a differential $\phi_\ast:T_g(G)\to T_{\phi(g)}(H)$. 
 
-\begin{prp}{}{} Let $\phi:G\to H$ be a homomorphism of Lie groups with Lie algebras $V$ and $W$ respectively. Then the induced map from the differential $\phi_\ast:V\to W$ is a Lie algebra homomorphism. 
+\begin{prp}{}{} Let $\phi:G\to H$ be a homomorphism of Lie groups with Lie algebras $V$ and $W$ respectively. Then the induced map from the differential $$(\phi_\ast)_{1_G}:T_{1_G}G\to T_{1_H}H$$ is a Lie algebra homomorphism. 
 \end{prp}
 
 In other words, we constructed a functor from Lie groups to Lie algebras sending a Lie group to the tangent space at the identity. 

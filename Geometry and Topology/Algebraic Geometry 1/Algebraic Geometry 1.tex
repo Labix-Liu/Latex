@@ -870,14 +870,14 @@ In other words, $D(f)$ is exactly the points of $V$ where $f$ is not zero. Some 
 
 These information organize well into a sheaf. 
 
-\begin{defn}{Ring of Germs of Regular Functions}{} Let $p$ be a point of a variety $X$. Define the local ring of $p$ on $X$ to be $$\mathcal{O}_{V,p}=\{(U,f)\;|\;U\subseteq X\text{ is open}, p\in U, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. 
+\begin{defn}{Ring of Germs of Regular Functions}{} Let $p$ be a point of a variety $X$. Define the local ring of $p$ on $X$ to be $$\mO_{X,p}=\{(U,f)\;|\;U\subseteq X\text{ is open}, p\in U, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. 
 \end{defn}
 
 \begin{prp}{}{} Let $X$ be a variety and $p\in X$. Then the ring of germs $\mathcal{O}_{X,p}$ is a local ring. 
 \end{prp}
 
 \subsection{The Function Field}
-\begin{defn}{Function Field}{} Let $X$ be a variety. Define the function field of $X$ to be $$K(X)=\{(U,f)\;|\;U\subseteq X\text{ is open}, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. Elements of $K(X)$ are called rational functions on $X$. 
+\begin{defn}{Function Field}{} Let $X$ be an irreducible variety. Define the function field of $X$ to be $$K(X)=\{(U,f)\;|\;U\subseteq X\text{ is open}, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. Elements of $K(X)$ are called rational functions on $X$. 
 \end{defn}
 
 \begin{lmm}{}{} Let $X$ be a variety. Then the function field $K(X)$ of $X$ is a field. 
@@ -891,16 +891,18 @@ These information organize well into a sheaf.
 \end{lmm}
 
 \subsection{Regular Functions on Affine Varieties}
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Then there is an isomorphism $$\C[V]\cong\mO_V(V)$$ given by the map $f\mapsto\frac{f}{1}$. 
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Then there is an isomorphism $$\C[V]\cong\mO_V(V)$$ given by the map $f\mapsto\frac{f}{1}$. 
 \end{prp}
 
 This is the same as saying regular functions on $V$ are precisely the morphism of varieties from $V$ to $\C$. 
 
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Let $p\in V$ and let $m_p$ be the maximal ideal corresponding to $p$ under Hilbert's nullstellensatz. Then there is an isomorphism $$\mO_{V,p}\cong\C[V]_{m_p}$$
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Let $p\in V$ and let $m_p$ be the maximal ideal corresponding to $p$ under Hilbert's nullstellensatz. Then there is an isomorphism $$\mO_{V,p}\cong\C[V]_{m_p}$$
 \end{prp}
 
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Then there is an isomorphism $$K(V)\cong\text{Frac}(\C[V])$$ Moreover, $K(V)$ is a finitely generated field extension of $\C$. 
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Then there is an isomorphism $$K(V)\cong\text{Frac}(\C[V])$$ Moreover, $K(V)$ is a finitely generated field extension of $\C$. 
 \end{prp}
+
+In general, for an irreducible variety $X$, we have two injective maps $$\mO_X(X)\hookrightarrow\mO_{X,p}\hookrightarrow K(X)$$ for any $p\in X$. The above propositions mean that if $X$ is also affine, then we can recognize the above diagram as $$\C[X]\hookrightarrow\C[X]_{m_p}\hookrightarrow\text{Frac}(\C[X])$$ where $m_p$ is the maximal ideal corresponding to the point $p$ by Hilbert's Nullstellensatz. 
 
 \subsection{Regular Functions on Projective Varieties}
 \begin{thm}{}{} Let $X\subseteq\Prj^n$ be a projective variety. Let $p\in V$. Then the following are true. 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  13 JAN 2025 20:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  15 JAN 2025 16:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1220,15 +1220,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 690--691
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
+Package rerunfilecheck Info: File `"Algebraic Geometry 1".out' has not changed.
 
-
-Package rerunfilecheck Warning: File `"Algebraic Geometry 1".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Algebraic Geometry 1".out':
-(rerunfilecheck)             Before: 0E08DF79D1EE4FDA419F4F234E14801C;8588
-(rerunfilecheck)             After:  DD8D0FD5BFF0338F244FEEDC96B82BFC;8603.
+(rerunfilecheck)             Checksum: DD8D0FD5BFF0338F244FEEDC96B82BFC;8603.
  ) 
 Here is how much of TeX's memory you used:
  33130 strings out of 473577
@@ -1256,7 +1250,7 @@ nts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Geometry 1.pdf" (41 pages, 545560 bytes).
+Output written on "Algebraic Geometry 1.pdf" (41 pages, 546226 bytes).
 PDF statistics:
  726 PDF objects out of 1000 (max. 8388607)
  240 named destinations out of 1000 (max. 500000)

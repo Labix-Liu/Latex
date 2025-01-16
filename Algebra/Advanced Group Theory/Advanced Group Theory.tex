@@ -192,6 +192,9 @@ This follows from the fact that every group is the quotient of a free group.
 \end{proof}
 \end{prp}
 
+\begin{defn}{Finitely Presented Groups}{} Let $G$ be a group. We say that $G$ is finitely presented if there exists a presentation $$G\cong\langle S\;|\;R\rangle$$ of $G$ such that $S$ is a finite set. 
+\end{defn}
+
 \subsection{Amalgamated Products}
 \begin{defn}{Amalgamted Products}{} Let $G,H,K$ be groups. Let $\phi:K\to G$ and $\psi:K\to H$ be injective group homomorphisms. Define the amalgamated product of $G$ and $H$ over $K$ to be the quotient of the free product $$G\ast_KH=\frac{G\ast H}{\langle\{\phi(k)(\psi(k))^{-1}\;|\;k\in K\}^G\rangle}$$
 \end{defn}
@@ -228,6 +231,11 @@ This means that the generated subgroup is the smallest subgroup of $G$ containin
 
 \begin{prp}{}{} Let $G$ be a group. Then $G$ is finitely generated if and only if there exists $n\in\N$ such that $G$ is isomorphic to the quotient of the free group $F_n$ of rank $n$ with a normal subgroup $N$ of $F_n$, written as $$G\cong\frac{F_n}{N}$$
 \end{prp}
+
+\begin{prp}{}{} Let $G$ be a group. If $G$ is finitely presented, then $G$ is finitely generated. 
+\end{prp}
+
+The converse is in general not true. Examples: Higgs group, Lamplighter group. 
 
 \pagebreak
 \section{More Types of Groups}

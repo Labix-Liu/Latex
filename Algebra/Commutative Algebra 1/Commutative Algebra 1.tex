@@ -636,20 +636,34 @@ Trivial since $\Z$ is a principal ideal domain.
 \end{proof}
 \end{prp}
 
-\begin{prp}{Universal Property}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. Let $k:R\to S^{-1}R$ be localization map. Then the following is true. \\~\\
+\begin{prp}{Universal Property}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative set. Then $S^{-1}R$ and the localization map $k:R\to S^{-1}R$ satisfies the following universal property. \\~\\
 
-For all commutative rings $B$ and ring homomorphisms $\phi:R\to B$ such that $\phi(s)\in B^\times$ for all $s\in S$, there exists a unique ring homomorphism $\psi:S^{-1}R\to B$ such that the following diagram commutes: \\~\\
+For any commutative ring $B$ and ring homomorphism $\phi:R\to B$ such that $\phi(s)\in B^\times$ for all $s\in S$, there exists a unique ring homomorphism $\phi:S^{-1}R\to B$ such that the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	R & {S^{-1}R} \\
 	& B
 	\arrow["k", from=1-1, to=1-2]
 	\arrow["\phi"', from=1-1, to=2-2]
 	\arrow["{\exists !\psi}", dashed, from=1-2, to=2-2]
-\end{tikzcd}}
+\end{tikzcd}} \\~\\
+Moreover, $S^{-1}R$ is the unique commutative ring (up to unique isomorphism) that has such a property. 
 \end{prp}
 
 \begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset of $R$. If $R$ is Noetherian, then $S^{-1}R$ is Noetherian. 
 \end{lmm}
+
+\subsection{Ideals of a Localization}
+\begin{defn}{Ideals Closed Under Division}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. We say that $I$ is closed under division by $s$ if for all $s\in S$ and $a\in R$ such that $sa\in I$, we have $a\in I$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then we have $$I^e=S^{-1}I$$
+\end{lmm}
+
+\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then there is a one-to-one bijection $$\{J\;|\;J\text{ is an ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;|\;\substack{I\text{ is an ideal of }R\text{ and }\\I\text{ is closed under division by }S}\right\}$$ given by $J\mapsto J^c$. 
+\end{thm}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then the above bijection restricts to the following bijection $$\{J\;|\;J\text{ is a prime ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;\bigg{|}\;\substack{I\text{ is a prime ideal of }R\text{ and }\\I\cap S=\emptyset}\right\}$$
+\end{prp}
 
 \subsection{Localization at a Prime Ideal}
 \begin{lmm}{}{} Let $R$ be a ring and $P$ a prime ideal of $R$. Then $R\setminus P$ is a multiplicative set. \tcbline
@@ -725,19 +739,6 @@ Then the following is an exact sequence of $S^{-1}R$-modules. \\~\\
 \item Localization commutes with cokernels: $$S^{-1}\frac{N}{\im(\phi)}\cong\frac{S^{-1}N}{\im(S^{-1}\phi)}$$
 \end{itemize}
 \end{lmm}
-
-\subsection{Ideals of a Localization}
-\begin{defn}{Ideals Closed Under Division}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. We say that $I$ is closed under division by $s$ if for all $s\in S$ and $a\in R$ such that $sa\in I$, we have $a\in I$. 
-\end{defn}
-
-\begin{lmm} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Let $\iota:R\hookrightarrow S^{-1}R$ be the inclusion homomorphism. Then we have $$I^e=S^{-1}I$$
-\end{lmm}
-
-\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Let $\iota:R\hookrightarrow S^{-1}R$ be the inclusion homomorphism. Then there is a one-to-one bijection $$\{J\;|\;J\text{ is an ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;|\;\substack{I\text{ is an ideal of }R\text{ and }\\I\text{ is closed under division by }S}\right\}$$ given by $J\mapsto J^c$. 
-\end{thm}
-
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then the above bijection restricts to the following bijection $$\{J\;|\;J\text{ is a prime ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;\bigg{|}\;\substack{I\text{ is a prime ideal of }R\text{ and }\\I\cap S=\emptyset}\right\}$$
-\end{prp}
 
 \subsection{Local Properties}
 \begin{defn}{Local Properties of Modules}{} Let $R$ be a commutative ring. A property of $R$-modules is local if for any $R$-modules $M$, the following are equivalent. 

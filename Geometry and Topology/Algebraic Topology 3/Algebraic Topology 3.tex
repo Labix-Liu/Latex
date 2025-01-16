@@ -1,4 +1,4 @@
-documentclass[a4paper]{article}
+\documentclass[a4paper]{article}
 
 \input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
 
@@ -262,7 +262,11 @@ Note that even though at the end of the sequence group structures are not define
 
 Note that $\pi_0(X,x_0)$ implies that $X$ is path connected. Hence the notion of $n$-connectedness does not depend on the base point by the change of base point isomorphism. In particular, $\pi_k(X,x_0)=0$ for $0\leq k\leq n$ and some $x_0\in X$ if and only if $\pi_k(X,x_0)=0$ for $0\leq k\leq n$ for all $x_0\in X$. (Hatcher)
 
-\begin{defn}{n-Connected Pair of Spaces}{} Let $(X,A)$ be a pair of space. We say that it is $n$-connected if $$\pi_k(X,A,x_0)=0$$ for $0\leq k\leq n$ and all $x_0\in A$. 
+\begin{defn}{n-Connected Pair of Spaces}{} Let $(X,A)$ be a pair of space. We say that it is $n$-connected if the following are true. 
+\begin{itemize}
+\item $\pi_k(X,A,x_0)=0$ for $0<k\leq n$ and all $x_0\in A$. 
+\item $\pi_0(\iota):\pi_0(A)\to\pi_0(X)$ is surjective. 
+\end{itemize}
 \end{defn}
 
 TBA: conditions in P.346 of Hatcher

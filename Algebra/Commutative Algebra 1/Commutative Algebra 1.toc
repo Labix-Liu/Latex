@@ -22,9 +22,9 @@
 \contentsline {subsection}{\numberline {4.4}Zariski's Lemma}{22}{subsection.4.4}%
 \contentsline {section}{\numberline {5}Localization}{23}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Localization of a Ring}{23}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Localization at a Prime Ideal}{24}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Localization of a Module}{25}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Ideals of a Localization}{27}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.2}Ideals of a Localization}{24}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Localization at a Prime Ideal}{24}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Localization of a Module}{25}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}Local Properties}{27}{subsection.5.5}%
 \contentsline {section}{\numberline {6}Primary Decomposition}{29}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Support of a Module}{29}{subsection.6.1}%

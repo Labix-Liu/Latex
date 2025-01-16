@@ -41,8 +41,15 @@ It should first be made sense that the definition is independent of the choice o
 \begin{prp}{}{} Let $V$ be a closed affine variety over $\C$. Let $p\in V$. Let $m_p$ denote the corresponding maximal ideal. Then there is an isomorphism $$T_pV\cong\left(\frac{m_p}{m_p^2}\right)^\ast$$ given by ?????. In particular, we have the identity $$\dim(T_pV)=\dim_{\C[V]/m_p}(m_p/m_p^2)$$
 \end{prp}
 
-\begin{defn}{The Tangent Space of a Quasi-Projective Variety}{} Let $k$ be a field. Let $V$ be a quasi-projective variety over $k$. Let $p\in V$. Define the tangent space of $V$ at $p$ to be $$T_pV=\left(\frac{m_p}{m_p}\right)^\ast$$ where $m_p$ is the unique maximal ideal of the local ring $\mO_{V,p}$. 
+\begin{defn}{The Jacobian Matrix}{} Let $k$ be a field. Let $V=\V(f_1,\dots,f_m)\subseteq\A_k^n$ be an affine variety. Let $p\in V$. Define the Jacobian matrix of $V$ at $p$ to be the $m\times n$ matrix $$J_{V,p}=\begin{pmatrix}
+\frac{\partial f_1}{\partial x_1}\bigg{|}_p & \cdots & \frac{\partial f_1}{\partial x_n}\bigg{|}_p\\
+\vdots & \ddots & \vdots\\
+\frac{\partial f_m}{\partial x_1}\bigg{|}_p & \cdots & \frac{\partial f_m}{\partial x_n}\bigg{|}_p
+\end{pmatrix}$$
 \end{defn}
+
+\begin{prp}{}{} Let $k$ be a field. Let $V=\V(f_1,\dots,f_m)\subseteq\A_k^n$ be an affine variety. Let $p=(p_1,\dots,p_n)\in V$. Then $$T_pV=\left\{(x_1,\dots,x_n)\in\A_k^n\;\bigg{|}\;J_{V,p}\cdot\begin{pmatrix}x_1-p_1\\\vdots\\x_n-p_n\end{pmatrix}=0\right\}$$
+\end{prp}
 
 \subsection{Smooth Points of an Affine Variety}
 We continue to restrict our attention to affine varieties. 
@@ -50,21 +57,26 @@ We continue to restrict our attention to affine varieties.
 \begin{defn}{Smooth and Singular Points of Affine Varieties}{} Let $k$ be a field. Let $X$ be an irreducible affine variety over $k$. Let $p\in X$ be a point. We say that $p$ is a smooth point of $X$ if $$\dim(T_p(X))=\dim(X)$$ Otherwise, we say that $p$ is a singular point of $X$. 
 \end{defn}
 
-\begin{prp}{}{} Let $V=\V(f_1,\dots,f_m)\subseteq\A_\C^n$ be an irreducible affine variety. Let $p\in V$. Then $p$ is singular if and only if the Jacobian $$\begin{pmatrix}
-\frac{\partial f_1}{\partial x_1}\bigg{|}_p & \cdots & \frac{\partial f_1}{\partial x_n}\bigg{|}_p\\
-\vdots & \ddots & \vdots\\
-\frac{\partial f_m}{\partial x_1}\bigg{|}_p & \cdots & \frac{\partial f_m}{\partial x_n}\bigg{|}_p
-\end{pmatrix}$$
-has rank $n-\dim(V)$. 
+\begin{prp}{}{} Let $V=\V(f_1,\dots,f_m)\subseteq\A_\C^n$ be an irreducible affine variety. Let $p\in V$. Then the following are equivalent. 
+\begin{itemize}
+\item $p$ is a smooth point of $V$. 
+\item $\rank(J_{V,p})=n-\dim(V)$. 
+\item $\mO_{V,p}$ is a regular local ring. 
+\end{itemize}
 \end{prp}
 
-\begin{prp}{}{} Let $X$ be an affine variety. Let $p\in X$. Then $X$ is smooth at $p$ if and only if the local ring $\mathcal{O}_{X,p}$ is regular. 
-\end{prp}
+In particular, this shows that smoothness is independent of the choice of generators of $V$, because we have given a characterization in terms of a property of the local ring $\mO_{V,p}$. \\
+
+Hard to prove: smoothness is preserved by isomorphisms. 
+
+\subsection{The Tangent Space of Varieties in General}
+\begin{defn}{The Tangent Space of a Quasi-Projective Variety}{} Let $k$ be a field. Let $V$ be a quasi-projective variety over $k$. Let $p\in V$. Define the tangent space of $V$ at $p$ to be $$T_pV=\left(\frac{m_p}{m_p}\right)^\ast$$ where $m_p$ is the unique maximal ideal of the local ring $\mO_{V,p}$. 
+\end{defn}
 
 \subsection{Smooth Points of a Variety in General}
 We can now motivate the definition of a smooth point using the purely algebraic characterization. 
 
-\begin{defn}{Smooth and Singular Points of A General Variety}{} Let $X$ be a variety. We say that $X$ is smooth at a point $p\in X$ if the local ring $\mathcal{O}_{X,p}$ is a regular local ring, otherwise it is singular. $X$ is smooth if every point of $X$ is smooth. 
+\begin{defn}{Smooth and Singular Points of A General Variety}{} Let $X$ be a variety. We say $p\in X$ is a smooth point of $X$ if the local ring $\mO_{X,p}$ is a regular local ring. Otherwise, we say that $p$ is a singular point of $X$. 
 \end{defn}
 
 \begin{thm}{}{} Let $X$ be a variety. Then the set of singular points of $X$ is a proper closed subset of $X$. 
@@ -78,33 +90,29 @@ We can now motivate the definition of a smooth point using the purely algebraic 
 
 \pagebreak
 \section{Birational Geometry}
-\subsection{Birational Morphisms}
-\begin{defn}{Projective Morphism}{} A morphism of varieties $\pi:X\to V$ is called a projective morphism if $X$ is a closed subvariety of a product variety, meaning that $X\subset V\times\Prj^n$ and $\pi$ is the restriction of the projection onto the first coordinate. 
+\subsection{Rational Morphisms}
+\begin{defn}{Equivalent Maps}{} Let $X,Y$ be irreducible varieties. Let $U_1,U_2\subseteq X$ be open. Let $f_1:U_1\to Y$ and $f_2:U_2\to Y$ be morphisms of varieties. We say that $f_1$ and $f_2$ are equivalent if there exists an open subset $W\subseteq U_1\cap U_2$ such that $$f_1|_W=f_2|_W:W\to Y$$
 \end{defn}
 
-Note that this is not the same as morphisms of projective varieties. 
-
-\begin{defn}{Birational Morphism}{} A morphism $\pi:X\to V$ of quasiprojective varieties is called a birational morphism if its restriction to some dense open set $U\subset X$ is an isomorphism onto some dense open subset $U'\subset V$. 
+\begin{defn}{Rational Maps}{} Let $X,Y$ be irreducible varieties. A rational map $f:X\to Y$ is an equivalent class of morphisms of varieties $f:U\to Y$ for some open subset $U\subseteq X$. 
 \end{defn}
+
+Since open subsets of a variety dense, rational maps are maps that are defined almost entirely on $X$. 
+
+\begin{defn}{Dominant Maps}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a rational map defined on $U\subseteq X$. We say that $f$ is dominant if $f(U)$ contains an open subset. 
+\end{defn}
+
+It only makes sense to compose rational maps if the former one is dominant. 
+
+\begin{prp}{}{} Let $X,Y,Z$ be irreducible varieties. Let $f:X\to Y$ and $g:Y\to Z$ be rational maps. If $f$ is dominant, then $g\circ f$ is rational. 
+\end{prp}
+
+\begin{prp}{}{} Let $X$ be an irreducible variety. Then the set of rational maps $X\to\A^1$ are in bijection with the function field $K(X)$. 
+\end{prp}
 
 \subsection{Birational Maps}
-While morphisms are meant to be defined entirely for the variety, rational maps of varieties simply rely on a definition on open subsets of the variety, which makes it more versatile. 
-
-\begin{lmm}{}{} Open subsets of a variety is dense. 
-\end{lmm}
-
-\begin{lmm}{}{} Let $X,Y$ be varieties. Let $\phi,\psi$ be two morphisms from $X\to Y$. Suppose that there is a nonempty open subset $U\subseteq X$ such that $\phi|_U=\psi|_U$. Then $\phi=\psi$. 
-\end{lmm}
-
-\begin{defn}{Rational Maps}{} Let $X,Y$ he varieties. A rational map $\phi:X\to Y$ is an equivalence class of pairs $\langle U,\phi_U\rangle$, where $U$ is a nonempty open subset of $X$, and $\phi|_U$ is a morphism of $U$ to $Y$. \\~\\
-We say that $\langle U,\phi|_U\rangle$ and $\langle V,\phi|_V\rangle$ are equivalent if $\phi|_U$ and $\phi|_V$ agree on $U\cap V$. \\~\\
-The rational map $\phi$ is dominant if for some (and hence every) pair $\langle U,\phi|_U\rangle$, the image of $\phi|_U$ is dense in $Y$. 
+\begin{defn}{Birational Maps}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a dominant rational map defined on $U\subseteq X$. We say that $f$ is a birational map if there exists a dominant rational map $g:Y\to X$ such that $$g\circ f=\text{id}_X\;\;\;\;\text{ and }\;\;\;\;f\circ g=\text{id}_Y$$ In this case, we say that $X$ and $Y$ are birational. 
 \end{defn}
-
-\begin{defn}{Birational Maps}{} A birational map $\phi:X\to Y$ is a rational map which has an inverse. In this case, we say that $X$ and $Y$ are birationally equivalent. 
-\end{defn}
-
-Varieties can form a category where morphisms are simply dominant rational maps. Isomorphisms in the category are birational maps. 
 
 \subsection{Categorical Equivalence with Finitely Generated Field Extensions}
 \begin{prp}{}{} Let $\phi:X\to Y$ be a dominant rational map represented by $\langle U,\phi_U\rangle$. Let $f\in \C[Y]$ be a rational function represented by $\langle V,f\rangle$ where $V$ is an open set in $Y$ and $f$ regular function on $V$. Then $f\circ\phi_U$ is a homomorphism of $\C$-algebras from $\C[Y]$ to $\C[X]$. \tcbline

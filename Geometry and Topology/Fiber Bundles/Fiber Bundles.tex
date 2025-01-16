@@ -180,7 +180,7 @@ Principal bundles are easier to understand than fiber bundles with structure gro
 \begin{crl}{}{} A fiber bundle is equivalent to the trivial bundle if and only if its associated principal bundle admits a cross section. 
 \end{crl}
 
-\subsection{The Classifying Space}
+\subsection{Universal Principal Bundles}
 Recall that homotopic maps give isomorphic fiber bundles. (???: Descends to isomorphic principal $G$-bundles)
 
 \begin{defn}{Principal Bundle Functor}{} Let $G$ be a topological group and $X$ a space. Define a contravariant functor $\text{Prin}_G:\bold{hTop}\to\bold{Set}$ as follows. 
@@ -213,13 +213,21 @@ A surprising thing is that $BG$ is not determined by its isomorphism type but in
 such that $f$ is a homotopy equivalence. In particular, this means that any two universal principal $G$-bundles are homotopy equivalent. 
 \end{thm}
 
-\begin{defn}{Classifying Space}{} Let $G$ be a topological group. The classifying space $BG$ of $G$ is the homotopy type of the universal principal $G$-bundle. Denote the total space of $BG$ by $EG$. For a principal $G$-bundle $f:Y\to X\in\text{Prin}_G(X)$, define the classifying map to be the associated map $X\to BG$ given in 1.5.3. 
+\subsection{The Classifying Space of a Group}
+\begin{defn}{Classifying Space}{} Let $G$ be a topological group. The classifying space $BG$ of $G$ is the homotopy type of the universal principal $G$-bundle. Denote the total space of $BG$ by $EG$. 
 \end{defn}
 
 TBA: Functoriality of $B:\bold{Grp}\to\bold{Top}$. 
 
+\begin{prp}{}{} The following are true regarding the classifying space of the limits of the orthogonal and unitary groups. 
+\begin{itemize}
+\item There is a homeomorphism $BO\cong\lim_{n\to\infty}BO(n)$
+\item There is a homeomorphism $BU\cong\lim_{n\to\infty}BU(n)$
+\end{itemize}
+\end{prp}
+
 \pagebreak
-\section{Vector Bundles and K${_0}$}
+\section{Vector Bundles and Principal Bundles}
 \subsection{Relation to Principal Bundles}
 \begin{defn}{Frame Bundle}{} Let $p:E\to B$ be a vector bundle. Define the frame bundle to be the associated principal bundle of $p:E\to B$ viewed as a fiber bundle. \\~\\
 
