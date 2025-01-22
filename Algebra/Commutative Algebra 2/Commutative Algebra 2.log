@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  10 JAN 2025 13:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  18 JAN 2025 14:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1089,47 +1089,46 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
 d on input line 33.
 
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 5
+2.
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
+File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
+)
 
-
-[4]
+[4{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+enc}]
 
 [5]
 
 [6]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 7
-6.
- (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
-File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
-)
 
-[7{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}]
+[7]
 
 [8]
 
 [9]
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
 
-LaTeX Warning: Reference `defn:7.1.7' on page 11 undefined on input line 230.
+LaTeX Warning: Reference `defn:7.1.7' on page 11 undefined on input line 239.
 
 
-LaTeX Warning: Citation `Rav' on page 11 undefined on input line 272.
+LaTeX Warning: Citation `Rav' on page 11 undefined on input line 281.
 
 
-LaTeX Warning: Citation `Ern' on page 11 undefined on input line 272.
+LaTeX Warning: Citation `Ern' on page 11 undefined on input line 281.
 
 
-LaTeX Warning: Citation `Mat' on page 11 undefined on input line 272.
+LaTeX Warning: Citation `Mat' on page 11 undefined on input line 281.
 
 
 
@@ -1137,20 +1136,20 @@ LaTeX Warning: Citation `Mat' on page 11 undefined on input line 272.
 
 [12]
 
-LaTeX Warning: Citation `Har' on page 13 undefined on input line 276.
+LaTeX Warning: Citation `Har' on page 13 undefined on input line 285.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--277
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 276--277
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
 
  []
 
 
-LaTeX Warning: Reference `prp:7.1.6' on page 13 undefined on input line 290.
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
+
+ []
+
+
+LaTeX Warning: Reference `prp:7.1.6' on page 13 undefined on input line 299.
 
 
 
@@ -1158,91 +1157,91 @@ LaTeX Warning: Reference `prp:7.1.6' on page 13 undefined on input line 290.
 
 [14]
 
-LaTeX Warning: Reference `thm:7.1.2' on page 15 undefined on input line 311.
+LaTeX Warning: Reference `thm:7.1.2' on page 15 undefined on input line 320.
 
 
-LaTeX Warning: Reference `thm:7.1.3' on page 15 undefined on input line 311.
+LaTeX Warning: Reference `thm:7.1.3' on page 15 undefined on input line 320.
 
 
-LaTeX Warning: Citation `Liu' on page 15 undefined on input line 316.
+LaTeX Warning: Citation `Liu' on page 15 undefined on input line 325.
 
 
-LaTeX Warning: Citation `CRing' on page 15 undefined on input line 316.
+LaTeX Warning: Citation `CRing' on page 15 undefined on input line 325.
 
 
-LaTeX Warning: Reference `thm:7.1.2' on page 15 undefined on input line 336.
+LaTeX Warning: Reference `thm:7.1.2' on page 15 undefined on input line 345.
 
 
-LaTeX Warning: Reference `prp:7.1.4' on page 15 undefined on input line 340.
+LaTeX Warning: Reference `prp:7.1.4' on page 15 undefined on input line 349.
 
 
-LaTeX Warning: Reference `thm:7.1.3' on page 15 undefined on input line 340.
+LaTeX Warning: Reference `thm:7.1.3' on page 15 undefined on input line 349.
 
 
 
 [15]
 
-LaTeX Warning: Reference `prp:7.1.5' on page 16 undefined on input line 355.
+LaTeX Warning: Reference `prp:7.1.5' on page 16 undefined on input line 364.
 
 
-LaTeX Warning: Reference `prp:7.1.6' on page 16 undefined on input line 355.
+LaTeX Warning: Reference `prp:7.1.6' on page 16 undefined on input line 364.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
 
  []
 
 
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
 
  []
 
 
-LaTeX Warning: Citation `Dav' on page 17 undefined on input line 363.
+LaTeX Warning: Citation `Dav' on page 17 undefined on input line 372.
 
 
-LaTeX Warning: Citation `Per' on page 17 undefined on input line 379.
+LaTeX Warning: Citation `Per' on page 17 undefined on input line 388.
 
 
-LaTeX Warning: Citation `Liu' on page 17 undefined on input line 379.
+LaTeX Warning: Citation `Liu' on page 17 undefined on input line 388.
 
 
 
 [17]
 
-LaTeX Warning: Citation `Har' on page 18 undefined on input line 383.
+LaTeX Warning: Citation `Har' on page 18 undefined on input line 392.
 
 
-LaTeX Warning: Citation `Liu' on page 18 undefined on input line 383.
+LaTeX Warning: Citation `Liu' on page 18 undefined on input line 392.
 
 
-LaTeX Warning: Citation `Dav' on page 18 undefined on input line 383.
+LaTeX Warning: Citation `Dav' on page 18 undefined on input line 392.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
 
  []
 
 
-LaTeX Warning: Citation `Pat' on page 18 undefined on input line 385.
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
+
+ []
 
 
-LaTeX Warning: Citation `Pat' on page 18 undefined on input line 390.
+LaTeX Warning: Citation `Pat' on page 18 undefined on input line 394.
 
 
-LaTeX Warning: Reference `eg:4.1.7' on page 18 undefined on input line 394.
+LaTeX Warning: Citation `Pat' on page 18 undefined on input line 399.
+
+
+LaTeX Warning: Reference `eg:4.1.7' on page 18 undefined on input line 403.
 
 
 
@@ -1257,89 +1256,40 @@ L3 programming layer <2024-12-09>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `"Commutative Algebra 2".out' has changed.
-
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Commutative Algebra 2".out':
-(rerunfilecheck)             Before: 2159B99223872CF81F2923CF80264FFA;4282
-(rerunfilecheck)             After:  E3E68F73C6FEF95A2A01459301453196;4282.
+Package rerunfilecheck Info: File `"Commutative Algebra 2".out' has not changed
+.
+(rerunfilecheck)             Checksum: 156BCD9DC882C3A24C7460AAAADD8FF0;4449.
  ) 
 Here is how much of TeX's memory you used:
- 32970 strings out of 473577
- 652068 string characters out of 5716318
+ 32966 strings out of 473577
+ 652015 string characters out of 5716318
  1088951 words of memory out of 5000000
- 55540 multiletter control sequences out of 15000+600000
+ 55543 multiletter control sequences out of 15000+600000
  600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,17n,120p,802b,1484s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{tcb@cnt@thm.8.2.1} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{tcb@cnt@thm.8.3.1} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{tcb@cnt@thm.8.2.2} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.8.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.8.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.1} has been referenced but does not ex
-ist, replaced by a fixed one
-
-<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-bx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liul
-a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/U
-sers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.p
-fb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/symbols/msam10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Commutative Algebra 2.pdf" (19 pages, 407380 bytes).
+<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/li
+ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
+/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5
+.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/symbols/msam10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on "Commutative Algebra 2.pdf" (19 pages, 407230 bytes).
 PDF statistics:
- 398 PDF objects out of 1000 (max. 8388607)
- 88 named destinations out of 1000 (max. 500000)
- 213 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 395 PDF objects out of 1000 (max. 8388607)
+ 81 named destinations out of 1000 (max. 500000)
+ 221 words of extra memory for PDF output out of 10000 (max. 10000000)
 

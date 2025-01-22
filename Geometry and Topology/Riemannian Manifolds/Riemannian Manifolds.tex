@@ -23,12 +23,7 @@
 
 \section{Riemannian Metrics}
 \subsection{The Riemannian Metric}
-\begin{defn}{Riemannian Metric}{} Let $M$ be a smooth manifold. A Riemannian metric on $M$ is a function $g: TM\times TM\to\R$ such that for each $p\in M$, the restriction of $g$ to $T_pM\times T_pM$, denoted $g_p$ has the following properties. 
-\begin{itemize}
-\item Symmetric: $g_p(X_p,Y_p)=g_p(Y_p,X_p)$ for all $X_p,Y_p\in T_pM$
-\item Positive Definite: $g_p(X_p,X_p)>0$ for all $X_p\in T_pM$ with $X_p\neq 0$
-\item Bilinearity: $g_p(aX_p+bY_p,Z_p)=ag_p(X_p,Z_p)+bg_p(Y_p,Z_p)$ and $g_p(X_p,aY_p+bZ_p)=ag_p(X_p,Y_p)+bg_p(X_p,Z_p)$
-\end{itemize}
+\begin{defn}{Riemannian Metric}{} Let $M$ be a smooth manifold. A Riemannian metric on $M$ is a function $g: TM\times TM\to\R$ such that for each $p\in M$, the restriction of $g$ to $$g_p:T_pM\times T_pM\to\R$$ is an inner product. 
 \end{defn}
 
 \begin{defn}{Riemannian Manifold}{} A Riemannian manifold $(M,g)$ is a manifold $M$ together with a Riemannian metric $g$ on $M$. 
@@ -89,7 +84,7 @@ In other words, a bundle metric is an assignment to each fibre, an inner product
 \pagebreak
 \section{Connections and Parallel Transports}
 \subsection{Affine Connections}
-Recall that for a smooth vector bundle $p:E\to M$, we denote the space of smooth sections on $E$ by $\Gamma(E)$. 
+Recall that for a smooth vector bundle $p:E\to M$, we denote the space of smooth sections on $E$ by $\Gamma(E)$. Moreover, $\mathfrak{X}(M)$ is the space of smooth sections on the tangent bundle $TM$. 
 
 \begin{defn}{Connections}{} Let $M$ be a smooth manifold. Let $p:E\to M$ be a smooth vector bundle. A connection on $p$ is a map $$\nabla:\mathfrak{X}(M)\times\Gamma(E)\to\Gamma(E)$$ where we denote $\nabla(V,T)$ by $\nabla_V(T)$, such that the following are true. 
 \begin{itemize}
@@ -107,12 +102,31 @@ The directional derivative is the canonical affine connection on $\R^n$. In fact
 \begin{thm}{}{} Every smooth manifold admits an affine connection. 
 \end{thm}
 
-\subsection{Covariant Derivatives}
-\begin{defn}{Vector Fields Along Curves}{} Let $M$ be a smooth manifold. Let $\gamma:(a,b)\to M$ be a curve on $M$. A vector field along $\gamma$ is a map $X:(a,b)\to TM$ such that $$X(t)\in T_{\gamma(t)}(M)$$ for all $t\in(a,b)$. 
+\subsection{Metric Connections}
+\begin{defn}{Metric Connections}{} Let $M$ be a smooth manifold. Let $\nabla$ be an affine connection. We say that $\nabla$ is a metric connection if the $$\nabla(X,g(Y,Z))=g(\nabla(X,Y),Z)+g(Y,\nabla(X,Z))$$ for all $X,Y,Z\in\mathfrak{X}(M)$. 
 \end{defn}
 
-\begin{defn}{Set of all Vector Fields Along Curves}{} Let $M$ be a smooth manifold. Let $\gamma:(a,b)\to M$ be a curve on $M$. Denote the set of all vector fields along $\gamma$ by $$\mathfrak{X}(\gamma)=\{X:(a,b)\to TM\;|\;X\text{ is a vector field along }\gamma\}$$
+\subsection{The Levi-Civita Connection}
+\begin{defn}{The Lie Bracket on Smooth Vector Fields}{} Let $M$ be a smooth manifold. Let $X,Y\in\mathfrak{X}(M)$ be smooth vector fields. Define the Lie bracket of $X$ and $Y$ to be the vector field $[X,Y]$ given by the formula $$[X,Y]_p(f)=X(Y_p(f))=Y(X_p(f))$$ for $p\in M$ and $f\in\mC_{M,p}^\infty$. 
 \end{defn}
+
+\begin{prp}{}{} Let $M$ be a smooth manifold. Let $X,Y\in\mathfrak{X}(M)$ be smooth vector fields. Let $(U,\phi)$ be a chart on $M$. Let $X$ and $Y$ be given locally on the chart by the formula $$X=\sum_{k=1}^na_k\frac{\partial}{\partial x^k}\;\;\;\;\text{ and }\;\;\;\;Y=\sum_{k=1}^nb_k\frac{\partial}{\partial x^k}$$ for $a_k,b_k:U\to\R$ smooth functions. Then the Lie bracket of $X$ and $Y$ is given locally on the chart by the formula $$[X,Y]=\sum_{k=1}^n\left(X(b_k)-Y(a_k)\right)\frac{\partial}{\partial x^k}=\sum_{i=1}^n\left(\sum_{j=1}^n\left(a_j\frac{\partial b_i}{\partial x^i}-b_i\frac{\partial a_j}{\partial x^j}\right)\right)\frac{\partial}{\partial x^i}$$
+\end{prp}
+
+\begin{defn}{Levi-Civita Connections}{} Let $(M,g)$ be a Riemannian manifold. Let $\nabla:\mathfrak{X}(M)\times\mathfrak{X}(M)\to\mathfrak{X}(M)$ be an affine connection on $M$. We say that $\nabla$ is a Levi-Civita connection if the following are true. 
+\begin{itemize}
+\item $\nabla$ is a metric connection. 
+\item For any $X,Y\in\mathfrak{X}(M)$, we have $$\nabla(X,Y)-\nabla(Y,X)=[X,Y]$$
+\end{itemize}
+\end{defn}
+
+\begin{thm}{Existence and Uniqueness of Levi-Civita Connections}{} Let $(M,g)$ be a Riemannian manifold. Then $M$ has a unique Levi-Civita connection. 
+\end{thm}
+
+\pagebreak
+\section{Taking Derivatives of the Vector Fields}
+\subsection{Covariant Derivatives}
+Let $M$ be a smooth manifold. Let $\gamma:I\to M$ be a smooth curve. Then $\im(\gamma)$ is an embedded submanifold of $M$. Therefore it makes sense to talk about smooth vector fields on $\im(\gamma)$. We overload the notation and denote the $\mC^\infty(\im(\gamma))$-algebra of smooth vector spaces by $$\mathfrak{X}(\gamma)=\{X:\im(\gamma)\to TM\;|\;X\text{ is a smooth vector field on }\im(\gamma)\}$$
 
 \begin{defn}{Covariant Derivatives Along a Curve}{} Let $M$ be a smooth manifold. Let $\gamma:(a,b)\to M$ be a curve on $M$. Let $\nabla:\mathfrak{X}(M)\times\mathfrak{X}(M)\to\mathfrak{X}(M)$ be an affine connection on $M$. The covariant derivative of $\gamma$ is a map $$D_t:\mathfrak{X}(\gamma)\to\mathfrak{X}(\gamma)$$ such that 
 \begin{itemize}
@@ -122,11 +136,13 @@ The directional derivative is the canonical affine connection on $\R^n$. In fact
 \end{itemize}
 \end{defn}
 
-\begin{thm}{}{} Let $M$ be a smooth $n$-manifold. Let $\gamma:I\to M$ be a curve. Let $\nabla$ be an affine connection on $M$. For $t\in I$, choose a chart $(U,\phi=(x^1,\dots,x^n))$ for $\gamma(t)$. For any $V\in\mathfrak{X}(\gamma)$, write $V$ locally around $\gamma(t)$ by $$V(t)=\sum_{i=1}^na_i(t)\frac{\partial}{\partial x^k}\bigg{|}_{\gamma(t)}$$ The covariant derivative defined locally by $$D_tV|_{t_0}=\sum_{i=1}^n\left(\frac{da_i}{dt}\bigg{|}_{t_0}\frac{\partial}{\partial x^i}\bigg{|}_{\gamma(t_0)}+a_i(t_0)\nabla_{\gamma'(t_0)}\frac{\partial}{\partial x^i}\bigg{|}_{\gamma(t_0)}\right)$$ is unique. 
+\begin{thm}{Existence and Uniqueness of Covariant Derivatives}{} Let $M$ be a smooth manifold. Let $\nabla$ be an affine connection. For each smooth curve $\gamma:(a,b)\to M$, the connection $\nabla$ determines a unique covariant derivative $$D_t:\mathfrak{X}(\gamma)\to\mathfrak{X}(\gamma)$$
+
+For each $t\in I$, choose a chart $(U,\phi=(x^1,\dots,x^n))$ for $\gamma(t)\in M$. Write $V$ locally on the chart by $$V_{\gamma(t)}=\sum_{i=1}^na_i(\gamma(t))\frac{\partial}{\partial x^k}\bigg{|}_{\gamma(t)}$$ Then the unique associated covariant derivatives is given locally on the chart by the formula $$(D_tV)_{\gamma(t_0)}=\sum_{i=1}^n\left(\frac{\partial a_i}{\partial x^i}\bigg{|}_{\gamma(t_0)}\frac{\partial}{\partial x^i}\bigg{|}_{\gamma(t_0)}+a_i(\gamma(t_0))\nabla\left(\gamma'(t_0),\frac{\partial}{\partial x^i}\bigg{|}_{\gamma(t_0)}\right)\right)$$ for $t_0\in I$. 
 \end{thm}
 
 \subsection{Parallel Transports}
-\begin{defn}{Parallel Vector Fields along a Curve}{} Let $M$ be a smooth manifold. Let $\gamma:I\to M$ be a curve. Let $X:M\to TM$ be a vector field. We say that $X$ is parallel along to $\gamma$ if $D_tV=0$. 
+\begin{defn}{Parallel Vector Fields along a Curve}{} Let $M$ be a smooth manifold. Let $\gamma:I\to M$ be a curve. Let $D_t$ be its associated covariant derivative. Let $X:M\to TM$ be a vector field. We say that $X$ is parallel along to $\gamma$ if $D_tX=0$. 
 \end{defn}
 
 \begin{thm}{}{} Let $M$ be a smooth manifold. Let $\gamma:I\to M$ be a curve. Let $\nabla$ be an affine connection. Let $t_0\in I$ and $v_0\in T_{\gamma(t_0)}M$. Then there exists a unique parallel vector field $V(t)$ along $\gamma$ such that $V(t_0)=v_0$. 
@@ -135,15 +151,17 @@ The directional derivative is the canonical affine connection on $\R^n$. In fact
 \begin{defn}{Parallel Transports}{} Let $M$ be a smooth manifold. Let $\gamma:(a,b)\to M$ be a curve on $M$. Let $t_0,t\in(a,b)$. The map $$P_{t_0,t}:T_{\gamma(t_0)}(M)\to T_{\gamma(t)}(M)$$ defined by $v\mapsto X(t)$ where $X(t)$ is the unique parallel vector field along $\gamma$ with $X(t_0)=v$. 
 \end{defn}
 
-\subsection{The Levi-Civita Connection}
 
 \pagebreak
-\section{Geodesics}
-\begin{defn}{Geodesics}{} A curve $\gamma:(a,b)\to M$ is called a geodesic if $D_t(\gamma'(t))=0$ for all $t\in(a,b)$. 
+\section{Geometry on Manifolds}
+\subsection{Geodesics}
+Let $M$ be a smooth manifold. Let $\gamma:I\to M$ be a smooth curve on $M$. Then we can compute its differential to obtain a tangent vector $$\gamma'(t)\in T_{\gamma(t)}M$$ for each $t\in I$. This defines a vector field in $\mathfrak{X}(\gamma)$. 
+
+\begin{defn}{Geodesics}{} Let $M$ be a smooth manifold. Let $\nabla$ be an affine connection on $M$. A geodesic on $M$ is a curve $\gamma:I\to M$ such that $$D_t(\gamma'(t))=0$$ where $D_t$ is the associated covariant derivative of $\nabla$ and $\gamma$. 
 \end{defn}
 
 \pagebreak
-\section{Curvature}
+\section{Measuring the Curvature}
 \subsection{Gauss-Bonnet Theorem}
 \begin{thm}{The Gauss-Bonnet Formula}{} Let $(M,g)$ be an oriented smooth $2$-manifold. Let $\gamma$ be a positively oriented curved polygon in $M$ and let $\Omega$ be its interior. Then $$\int_\Omega K\,dA+\int_\gamma\kappa_N\,ds+\sum_{i=1}^k\varepsilon_i=2\pi$$ where 
 \begin{itemize}

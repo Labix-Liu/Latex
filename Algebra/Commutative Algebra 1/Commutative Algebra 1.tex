@@ -19,142 +19,23 @@
 \end{abstract}
 \pagebreak
 \tableofcontents
-\pagebreak
-
-\pagebreak
-\section{Basic Notions of Commutative Rings}
-\subsection{Local Rings}
-\begin{defn}{Local Rings}{} Let $R$ be a commutative ring. We say that $R$ is a local ring if it has a unique maximal ideal $m$. In this case, we say that $R/m$ is the residue field of $R$. 
-\end{defn}
-
-\begin{eg}{}{} Consider the following commutative rings. 
-\begin{itemize}
-\item $\Z/6\Z$ is not a local ring. 
-\item $\Z/8\Z$ is a local ring. 
-\item $\Z/24\Z$ is not a local ring. 
-\item $\R[x]$ is not a local ring. 
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item The only ideals of $\Z/6\Z$ are $(2+6\Z)$ and $(3+6\Z)$. They do not contain each other and so they are both maximal. 
-\item The only ideals of $\Z/8\Z$ are $(2+8\Z)$ and $(4+8\Z)$. But $(2+8\Z)\supseteq(4+8\Z)$. Hence $\Z/8\Z$ has a unique maximal ideal. 
-\item A similar proof as above ensues. 
-\item Any irreducible polynomial $f\in\R[x]$ is such that $(f)$ is a maximal ideal. Indeed the evaluation homomorphism gives an isomorphism $\frac{\R[x]}{(f)}\cong\R$. 
-\end{itemize}
-\end{proof}
-\end{eg}
-
-\begin{prp}{}{} Let $R$ be a ring and $I$ an ideal of $R$. Then $I$ is the unique maximal ideal of $R$ if and only if $I$ is the set containing all non-units of $R$. \tcbline
-\begin{proof}
-Let $I$ be the unique maximal ideal of $R$. Clearly $I$ does not contain any unit else $I=R$. Now suppose that $r$ is a non-unit. Suppose that $r\notin I$. Define $J=\{sr|s\in R\}$ Clearly $J$ is an ideal. It must be contained in some maximal ideal. Since $I$ is the unique maximal ideal, $J\subseteq I$. But this means that $r\in I$, a contradiction. Thus every non-unit is in $I$. \\~\\
-Suppose that $I$ contains all non-units of $R$. Let $r\notin I$. Then there exists $s\notin I$ such that $rs=1$. Then $(r+I)(s+I)=1+I$ in $R/I$. This means that every element of $R/I$ has a multiplicative inverse which means that $R/I$ is a field and thus $I$ is a maximal ideal. Now let $J\neq I$ be another maximal ideal. Then $J$ contains some unit $r$. This implies that $J=R$ and thus $I$ is the unique maximal ideal. 
-\end{proof}
-\end{prp}
-
-\begin{eg}{}{} Let $k$ be a field. Then the ring of power series $k[[x]]$ is a local ring. \tcbline
-\begin{proof}
-Let $M$ be the set of all non-units of $k[[x]]$. I first show that $f\in M$ if and only if the constant term of $f$ is non-zero. Let $g$ be a power series. Then the $n$th coefficient of $f\cdot g$ is given by $$c_n=\sum_{k=0}^na_kb_{n-k}$$ If the constant term of $f$ is $0$, then $c_0=0$ and so $f\cdot g\neq 1$. Now if the constant term of $f$ is $a_0\neq 0$, then set $b_0=\frac{1}{a_0}$. Now we can use the formula $0=c_n$ to deduce $$b_n=-\frac{\sum_{k=1}^na_kb_{n-k}}{a_0}$$. This is such that $a_n\cdot b_n=0$. Define $g=\sum_{k=0}^\infty b_kx^k$. Then $f\cdot g=1$. Thus $f$ is a unit. \\~\\
-
-By the above proposition, we conclude that $M$ is the unique maximal ideal of $k[[x]]$. 
-\end{proof}
-\end{eg}
-
-We will discuss more of local rings in the topic of localizations. 
-
-\subsection{Noetherian Commutative Rings}
-We recall some facts about Noetherian rings. In the following, let $R$ be a commutative ring, although they are also true if $R$ is non-commutative if we take all modules defined below to be left (right) $R$-modules. 
-
-\begin{itemize}
-\item If we have a short exact sequence of $R$-modules: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {M_1} & {M_2} & {M_3} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["f", from=1-2, to=1-3]
-	\arrow["g", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-Then $M_2$ is Noetherian if and only if $M_1$ and $M_3$ are Noetherian. 
-\item If $M$ and $N$ are $R$-modules, then $M\oplus N$ is Noetherian if and only if $M$ and $N$ are Noetherian. 
-\item If $M$ is an $R$-module and $N$ is an $R$-submodule of $M$, then $M$ is Noetherian if and only if $N$ and $M/N$ are Noetherian.
-\item If $R$ is Noetherian and $I$ is an ideal of $R$, then $R/I$ is Noetherian. 
-\item Later when once has seen localization, we can also prove that: If $R$ is Noetherian then $S^{-1}R$ is Noetherian for any multiplicative subset $S$ of $R$. 
-\end{itemize}
-
-\begin{thm}{Hilbert's Basis Theorem}{} Let $R$ be a commutative ring. If $R$ is Noetherian, then $$R[x_1,\dots,x_n]$$ is a Noetherian ring. 
-\end{thm}
-
-\begin{prp}{}{} Let $R=\bigoplus_{i=0}^nR_i$ be a graded ring. Then $R$ is Noetherian if and only if $R_0$ is Noetherian and $R$ is finitely generated as an $R_0$-module. 
-\end{prp}
-
-\subsection{Artinian Commutative Rings}
-We recall some facts about Artinian rings. In the following, let $R$ be a commutative ring, although they are also true if $R$ is non-commutative if we take all modules defined below to be left (right) $R$-modules. 
-
-\begin{itemize}
-\item If we have a short exact sequence of $R$-modules: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {M_1} & {M_2} & {M_3} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["f", from=1-2, to=1-3]
-	\arrow["g", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-Then $M_2$ is Artinian if and only if $M_1$ and $M_3$ are Artinian. 
-\item If $M$ and $N$ are $R$-modules, then $M\oplus N$ is Artinian if and only if $M$ and $N$ are Artinian. 
-\item If $M$ is an $R$-module and $N$ is an $R$-submodule of $M$, then $M$ is Artinian if and only if $N$ and $M/N$ are Artinian.
-\item If $R$ is Artinian and $I$ is an ideal of $R$, then $R/I$ is Artinian. 
-\end{itemize}
-
-\begin{prp}{}{} Let $R$ be an integral domain. Then $R$ is Artinian if and only if $R$ is a field. 
-\end{prp}
-
-\begin{prp}{}{} Let $R$ be a commutative ring. If $R$ is Artinian, then the following are true. 
-\begin{itemize}
-\item Every prime ideal of $R$ is maximal
-\item There is an equality $N(R)=J(R)$
-\item $R$ has only a finite number of maximal ideals
-\end{itemize}
-\end{prp}
-
-\begin{thm}{(Hopkins)}{} Let $R$ be a commutative ring. If $R$ is Artinian then $R$ is Noetherian. 
-\end{thm}
-
-\subsection{Spectra of a Ring}
-\begin{defn}{Max Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the max spectrum of $A$ to be $$\text{maxSpec}(A)=\{m\subseteq A\;|\;m\text{ is a maximal ideal of }A\}$$
-\end{defn}
-
-\begin{defn}{Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the spectrum of $A$ to be $$\text{Spec}(A)=\{p\subseteq A\;|\;p\text{ is a prime ideal of }A\}$$
-\end{defn}
-
-\begin{eg}{}{} Consider the following commutative rings. 
-\begin{itemize}
-\item $\text{Spec}(\Z/6\Z)=\{(2+6\Z),(3+6\Z)\}$
-\item $\text{Spec}(\Z/8\Z)=\{(2+8\Z)\}$
-\item $\text{Spec}(\Z/24\Z)=\{(2+24\Z),(3+24\Z)\}$
-\item $\text{Spec}(\R[x])=\{(f)\;|\;f\text{ is irreducible }\}$
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item The only ideals of $\Z/6\Z$ are $(2+6\Z)$ and $(3+6\Z)$. We need to find which ones are prime ideals. Now $\Z/6\Z\setminus(2+6\Z)$ consists of $1+6\Z$, $3+6\Z$ and $5+6\Z$. No multiplication of these elements give an element of $(2+6\Z)$. So any two elements in $\Z/6\Z$ which multiply to an element of $(2+6\Z)$ must contain one element that lie in $(2+6\Z)$. Hence $(2+6\Z)$ is prime. This is similar for $(3+6\Z)$. Hence $\text{Spec}(\Z/6\Z)=\{(2+6\Z),(3+6\Z)\}$. 
-\item The only ideals of $\Z/8\Z$ are $(2+8\Z)$ and $(4+8\Z)$. A similar argument as above shows that $(2+8\Z)$ is a prime ideal. However, $6+8\Z\notin(4+8\Z)$ while $(6+8\Z)^2=4+8\Z\in(4+8\Z)$ which shows that $(4+8\Z)$ is not a prime ideal. 
-\item A similar proof as above ensues. 
-\item Recall that $\R[x]$ is a principal ideal domain. Let $I=(f)$ be a prime ideal of $\R[x]$. Then $f$ is irreducible. Thus every prime ideal of $\R[x]$ is of the form $(f)$ for $f$ an irreducible polynomial. 
-\end{itemize}
-\end{proof}
-\end{eg}
-
-\begin{lmm}{}{} Let $R,S$ be commutative rings. Let $f_1:R\times S\to R$ and $f_2:R\times S\to S$ denote the projection maps. Then the map $$f_1^\ast\amalg f_2^\ast:\text{Spec}(R)\amalg\text{Spec}(S)\to\text{Spec}(R\times S)$$ is a bijection. \tcbline
-\begin{proof}
-The core of the proof is the fact that $P$ is a prime ideal of $R\times S$ if and only if $P=R\times Q$ or $P=V\times S$ for either a prime ideal $Q$ of $P$ or a prime ideal $V$ of $S$. It is clear that if $Q$ is a prime ideal of $S$ and $V$ is a prime ideal of $R$, then $R\times Q$ and $V\times S$ are both prime ideals of $R\times S$. \\~\\
-
-So suppose that $P$ is a prime ideal in $R\times S$. Let $e_1=(1,0)$ and $e_2=(0,1)$. Since $P\neq R$, at least one of $e_1$ or $e_2$ is not in $P$. Without loss of generality assume that $e_1\notin P$. But $e_1e_2=0\in P$ and $P$ being prime implies that $e_2\in P$. Since $e_2$ is the identity of $\{0\}\times S\cong S$, we conclude that $\{0\}\times S\subseteq P$. By the correspondence theorem, the projection map $f_1:R\times S\to R$ gives a bijection between prime ideals of $R\times S$ that contain $\{0\}\times S$ and prime ideals of $R$. So $f_1(P)$ is a prime ideal of $R$. Thus $P=f_1(P)\times S$ which is exactly what we wanted. \\~\\
-
-Now the bijection is clear. $f_1^\ast\amalg f_2^\ast$ sends a prime ideal $P$ of $R$ to $P\times S$ and it sends a prime ideal $Q$ of $S$ to $R\times Q$. This map is surjective by the above argument. It is injective by inspection. 
-\end{proof}
-\end{lmm}
 
 \pagebreak
 \section{Ideals Of a Commutative Ring}
 \subsection{Operations on Ideals}
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I_1,\dots,I_n$ be ideals of $R$. Let $P_1,\dots,P_k$ be prime ideals of $R$. 
+\begin{itemize}
+\item Let $I$ be an ideal of $R$. If $I\subseteq\bigcup_{i=1}^kP_i$, then $I\subseteq P_i$ for some $i$. 
+\item Let $P$ be an ideal of $R$. If $P\subseteq\bigcap_{i=1}^nI_i$, then $I_i\subseteq P$ for some $i$. 
+\item Let $P$ be an ideal of $R$. If $P=\bigcap_{i=1}^nI_i$, then $I_i=P$ for some $i$. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item We prove the contrapositive by induction $k$. When $k=1$, the case is clear. Suppose that $I\not\subseteq P_i$ for $1\leq i\leq k-1$ implies $I\not\subseteq\bigcup_{i=1}^{k-1}P_i$. Suppose also that $I\not\subseteq P_k$. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $S,T\subseteq R$ be subsets of $R$. Then $$\langle S\cup T\rangle=\langle S\rangle +\langle T\rangle$$
 \end{prp}
 
@@ -178,7 +59,7 @@ Some more important results from Groups and Rings and Rings and Modules include:
 \item Chinese Remainder Theorem: If $I$ and $J$ are coprime, then there is an isomorphism $$\frac{R}{I\cap J}\cong\frac{R}{I}\times\frac{R}{J}$$
 \end{itemize}
 
-\subsection{Radical Ideals}
+\subsection{The Radical of an Ideal}
 The radical of an ideal is a very different notion from the radical of module. 
 
 \begin{defn}{Radical of an Ideal}{} Let $I$ be an ideal of a ring $R$. Define the radical of $I$ to be $$\sqrt{I}=\{r\in R|r^n\in I\text{ for some }n\in\N\}$$
@@ -225,28 +106,7 @@ In particular, by the above lemma it follows that the radical of an ideal is a r
 
 We conclude that there is an inclusion of types of ideal in which each inclusion is strict: $$\substack{\text{Maximal}\\\text{ideals}}\subset\substack{\text{Prime}\\\text{ideals}}\subset\substack{\text{Radical}\\\text{ideals}}$$
 
-\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Denote $\varphi$ to be the inclusion preserving one-to-one bijection $$\left\{\substack{\text{Ideals of }R\\\text{containing }I}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\text{Ideals of }R/I\right\}$$ from the correspondence theorem for rings. In other words, $\varphi(A)=A/I$. Let $J\subseteq R$ be an ideal containing $I$. Then the following are true. 
-\begin{itemize}
-\item $J$ is a radical ideal if and only if $\varphi(J)=J/I$ is a radical ideal. 
-\item $J$ is a prime ideal if and only if $\varphi(J)=J/I$ is a prime ideal. 
-\item $J$ is a maximal ideal if and only if $\varphi(J)=J/I$ is a maximal ideal. 
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item Let $J$ be a radical ideal. Suppose that $r+I\in\sqrt{J/I}$. This means that $(r+I)^n=r^n+I\in J/I$ for some $n\in\N$. But this means that $r^n\in J$. This implies that $r\in\sqrt{J}=J$. Thus $r+I\in J/I$ and we conclude that $\sqrt{J/I}\subseteq J/I$. Since we also have $J/I\subseteq\sqrt{J/I}$, we conclude. \\~\\
-
-Now suppose that $J/I$ is a radical ideal. Let $r\in\sqrt{J}$. This means that $r^n\in J$ for some $n\in\N$. Now $r^n+I=(r+I)^n\in J/I$ implies that $r+I\in\sqrt{J/I}=J/I$. Hence $r\in J$ and so $\sqrt{J}\subseteq J$. Since we also have that $J\subseteq\sqrt{J}$, we conclude. 
-
-\item Let $J$ be a prime ideal. Then $R/J$ is an integral domain. By the second isomorphism theorem, we have that $R/J\cong(R/I)/(J/I)$ and hence $(R/I)/(J/I)$ is also an integral domain. Hence $J/I$ is a prime ideal. The converse is also true. 
-
-\item Let $J$ be a maximal ideal. Then $R/J$ is a field. By the second isomorphism theorem, we have that $R/J\cong(R/I)/(J/I)$ and hence $(R/I)/(J/I)$ is also a field. Hence $J/I$ is a maximal ideal. The converse is also true. 
-\end{itemize}
-\end{proof}
-\end{thm}
-
-Another way to write the bijections is via spectra: $$\text{Spec}(R/I)\;\;\overset{1:1}{\longleftrightarrow}\;\;\{P\in\text{Spec}(R)\;|\;I\subseteq P\}$$ and $$\text{maxSpec}(R/I)\;\;\overset{1:1}{\longleftrightarrow}\;\;\{m\in\text{maxSpec}(R)\;|\;I\subseteq m\}$$
-
-\subsection{Nilradical and Jacobson Ideals}
+\subsection{The Nilradical Ideal of Commutative Rings}
 Let $R$ be a ring. Recall that an element $r\in R$ is nilpotent if $r^n=0_R$ for some $n\in\N$. When $R$ is commutative, we can form an ideal out of nilpotent elements. 
 
 \begin{defn}{Nilradicals}{} Let $R$ be a ring. Define the nilradical of $R$ to be $$N(R)=\{r\in R\;|\;r\text{ is nilpotent}\}$$
@@ -267,10 +127,13 @@ Note that this is different from nilpotent ideals, as nilpotency is a property o
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. The nilradical of $R$ is the intersection of all prime ideals of $R$. \tcbline
+\begin{prp}{}{} Let $R$ be a commutative ring. Then we have $$N(R)=\bigcap_{P\in\text{Spec}(R)}P$$ \tcbline
 \begin{proof}
-We want to show that $$N(R)=\bigcap_{P\in\text{Spec}(R)}P$$
-Trivially $N(R)$ is a prime ideal. Now suppose that $r\in R$ is in the intersection of all prime ideals. Then $r^n$ also lies in every prime ideal. 
+Let $x\in N(R)$. Let $P$ be an arbitrary prime ideal. Since $x$ is nilpotent, $x^n=0$ for some $n\in\N$. If $x\notin P$, then $x^2\notin P$ since $P$ is a prime ideal. Recursively we see that $x^k\notin P$ for all $k\in N\setminus\{0\}$. But $x^n=0\in P$ is a contradiction. Hence $N(R)\subseteq\bigcap_{P\in\text{Spec}(R)}P$. \\~\\
+
+Now suppose that $x\in R$ is not nilpotent. Consider the set $$\Sigma=\{I\trianglelefteq R\;|\;x^k\notin I\text{ for all }k\geq 1\}$$ Notice that $(0)\in\Sigma$ and hence it is non-empty. Let $I_1\subseteq I_2\subseteq\cdots$ be a chain in $\Sigma$. Define $I=\bigcup_{k=1}^\infty I_k$. I claim that $I\in\Sigma$. First of all if $a,b\in I$ and $r\in R$, then $a\in I_m$ and $b\in I_n$ for some $m,n\geq 1$. Then $a,b\in I_{\max\{m,n\}}$ so that $a+b\in I_{\max\{m,n\}}\subseteq I$. Also $ra\in I_m\subseteq I$ since $I_m$ is an ideal. Hence $I$ itself is an ideal of $R$. Suppose for a contradiction that $x^n\in I$ for some $n$. Then $x^n\in I_k$ for some $k$. This is a contradiction since $I_k\in\Sigma$. Thus we know that $I\in\Sigma$. In particular, $I$ is an upper bound of $I_1\subseteq I_2\subseteq\cdots$. By Zorn's lemma, we conclude that $\Sigma$ has a maximal element, say $P$. \\~\\
+
+Suppose for a contradiction that $P$ is not a prime ideal. Let $ab\in P$ and $a,b\notin P$. Then $P\subset P+(a),P+(b)$. Since $P$ is maximal in $\Sigma$, $P+(a)$ and $P+(b)$ cannot be in $\Sigma$, and there exists $x^m\in P+(a)$ and $x^n\in P+(b)$ for some $m,n$. Then $$x^{m+n}=x^m\cdot x^n\in (P+(a))(P+(b))=P+(ab)$$ Hence $P+(ab)\notin\Sigma$. But $ab\in P$ implies that $P+(ab)=P$. We have reached a contradiction. Thus $P$ is a prime ideal that does not contain $x$. We show that $x\notin N(R)$ implies $x\notin P$ for some prime ideal $P$. The contrapositive of this statement is $x\in P$ for all prime ideals $P$ implies $x\in N(R)$. Hence we are done. 
 \end{proof}
 \end{prp}
 
@@ -298,23 +161,60 @@ So radical, prime and maximal ideals all have characterizations using the quotie
 \item $I$ is radical if and only if $R/I$ is reduced. 
 \end{itemize}
 
-Recall the notion of the Jacobson radical from Rings and Modules. Let $R$ be a ring. The Jacobson radical of $R$ is the radical $$J(R)=\text{rad}(R)=\bigcap_{\substack{S\trianglelefteq R\\R\text{ is cosimple}}}S$$ of $R$ considered as a left $R$-module. But when $R$ is a commutative ring, this description can be simplified. 
+\subsection{The Correspondence between Ideals and the Quotient}
+\begin{defn}{Max Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the max spectrum of $A$ to be $$\text{maxSpec}(A)=\{m\subseteq A\;|\;m\text{ is a maximal ideal of }A\}$$
+\end{defn}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Then $$J(R)=\bigcap_{m\in\text{maxSpec}(R)}m$$ \tcbline
-\begin{proof}
-Submodules of $R$ are precisely ideals of $R$ and cosimple ideals are ideals $I$ of $R$ for which $R/I$ is simple. But if $R/I$ is simple, then $R/I$ contains no ideals which means that $R/I$ is a field. So $I$ is a maximal ideal. 
-\end{proof}
-\end{prp}
+\begin{defn}{Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the spectrum of $A$ to be $$\text{Spec}(A)=\{p\subseteq A\;|\;p\text{ is a prime ideal of }A\}$$
+\end{defn}
 
-Recall some properties of the Jacobson radical from Rings and Modules. For a (not necessarily commutative ring $R$), 
+\begin{eg}{}{} Consider the following commutative rings. 
 \begin{itemize}
-\item $J(R/J(R))=0$
+\item $\text{Spec}(\Z/6\Z)=\{(2+6\Z),(3+6\Z)\}$
+\item $\text{Spec}(\Z/8\Z)=\{(2+8\Z)\}$
+\item $\text{Spec}(\Z/24\Z)=\{(2+24\Z),(3+24\Z)\}$
+\item $\text{Spec}(\R[x])=\{(f)\;|\;f\text{ is irreducible }\}$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item The only ideals of $\Z/6\Z$ are $(2+6\Z)$ and $(3+6\Z)$. We need to find which ones are prime ideals. Now $\Z/6\Z\setminus(2+6\Z)$ consists of $1+6\Z$, $3+6\Z$ and $5+6\Z$. No multiplication of these elements give an element of $(2+6\Z)$. So any two elements in $\Z/6\Z$ which multiply to an element of $(2+6\Z)$ must contain one element that lie in $(2+6\Z)$. Hence $(2+6\Z)$ is prime. This is similar for $(3+6\Z)$. Hence $\text{Spec}(\Z/6\Z)=\{(2+6\Z),(3+6\Z)\}$. 
+\item The only ideals of $\Z/8\Z$ are $(2+8\Z)$ and $(4+8\Z)$. A similar argument as above shows that $(2+8\Z)$ is a prime ideal. However, $6+8\Z\notin(4+8\Z)$ while $(6+8\Z)^2=4+8\Z\in(4+8\Z)$ which shows that $(4+8\Z)$ is not a prime ideal. 
+\item A similar proof as above ensues. 
+\item Recall that $\R[x]$ is a principal ideal domain. Let $I=(f)$ be a prime ideal of $\R[x]$. Then $f$ is irreducible. Thus every prime ideal of $\R[x]$ is of the form $(f)$ for $f$ an irreducible polynomial. 
 \end{itemize}
-
-\begin{prp}{}{} Let $R$ be a commutative ring. Then $x\in J(R)$ if and only if $1-xy\in R^\times$ for all $y\in R$. \tcbline
-\begin{proof}
 \end{proof}
-\end{prp}
+\end{eg}
+
+\begin{lmm}{}{} Let $R,S$ be commutative rings. Let $f_1:R\times S\to R$ and $f_2:R\times S\to S$ denote the projection maps. Then the map $$f_1^\ast\amalg f_2^\ast:\text{Spec}(R)\amalg\text{Spec}(S)\to\text{Spec}(R\times S)$$ is a bijection. \tcbline
+\begin{proof}
+The core of the proof is the fact that $P$ is a prime ideal of $R\times S$ if and only if $P=R\times Q$ or $P=V\times S$ for either a prime ideal $Q$ of $P$ or a prime ideal $V$ of $S$. It is clear that if $Q$ is a prime ideal of $S$ and $V$ is a prime ideal of $R$, then $R\times Q$ and $V\times S$ are both prime ideals of $R\times S$. \\~\\
+
+So suppose that $P$ is a prime ideal in $R\times S$. Let $e_1=(1,0)$ and $e_2=(0,1)$. Since $P\neq R$, at least one of $e_1$ or $e_2$ is not in $P$. Without loss of generality assume that $e_1\notin P$. But $e_1e_2=0\in P$ and $P$ being prime implies that $e_2\in P$. Since $e_2$ is the identity of $\{0\}\times S\cong S$, we conclude that $\{0\}\times S\subseteq P$. By the correspondence theorem, the projection map $f_1:R\times S\to R$ gives a bijection between prime ideals of $R\times S$ that contain $\{0\}\times S$ and prime ideals of $R$. So $f_1(P)$ is a prime ideal of $R$. Thus $P=f_1(P)\times S$ which is exactly what we wanted. \\~\\
+
+Now the bijection is clear. $f_1^\ast\amalg f_2^\ast$ sends a prime ideal $P$ of $R$ to $P\times S$ and it sends a prime ideal $Q$ of $S$ to $R\times Q$. This map is surjective by the above argument. It is injective by inspection. 
+\end{proof}
+\end{lmm}
+
+\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Denote $\varphi$ to be the inclusion preserving one-to-one bijection $$\left\{\substack{\text{Ideals of }R\\\text{containing }I}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\text{Ideals of }R/I\right\}$$ from the correspondence theorem for rings. In other words, $\varphi(A)=A/I$. Let $J\subseteq R$ be an ideal containing $I$. Then the following are true. 
+\begin{itemize}
+\item $J$ is a radical ideal if and only if $\varphi(J)=J/I$ is a radical ideal. 
+\item $J$ is a prime ideal if and only if $\varphi(J)=J/I$ is a prime ideal. 
+\item $J$ is a maximal ideal if and only if $\varphi(J)=J/I$ is a maximal ideal. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $J$ be a radical ideal. Suppose that $r+I\in\sqrt{J/I}$. This means that $(r+I)^n=r^n+I\in J/I$ for some $n\in\N$. But this means that $r^n\in J$. This implies that $r\in\sqrt{J}=J$. Thus $r+I\in J/I$ and we conclude that $\sqrt{J/I}\subseteq J/I$. Since we also have $J/I\subseteq\sqrt{J/I}$, we conclude. \\~\\
+
+Now suppose that $J/I$ is a radical ideal. Let $r\in\sqrt{J}$. This means that $r^n\in J$ for some $n\in\N$. Now $r^n+I=(r+I)^n\in J/I$ implies that $r+I\in\sqrt{J/I}=J/I$. Hence $r\in J$ and so $\sqrt{J}\subseteq J$. Since we also have that $J\subseteq\sqrt{J}$, we conclude. 
+
+\item Let $J$ be a prime ideal. Then $R/J$ is an integral domain. By the second isomorphism theorem, we have that $R/J\cong(R/I)/(J/I)$ and hence $(R/I)/(J/I)$ is also an integral domain. Hence $J/I$ is a prime ideal. The converse is also true. 
+
+\item Let $J$ be a maximal ideal. Then $R/J$ is a field. By the second isomorphism theorem, we have that $R/J\cong(R/I)/(J/I)$ and hence $(R/I)/(J/I)$ is also a field. Hence $J/I$ is a maximal ideal. The converse is also true. 
+\end{itemize}
+\end{proof}
+\end{thm}
+
+Another way to write the bijections is via spectra: $$\text{Spec}(R/I)\;\;\overset{1:1}{\longleftrightarrow}\;\;\{P\in\text{Spec}(R)\;|\;I\subseteq P\}$$ and $$\text{maxSpec}(R/I)\;\;\overset{1:1}{\longleftrightarrow}\;\;\{m\in\text{maxSpec}(R)\;|\;I\subseteq m\}$$
 
 \subsection{Extensions and Contractions of Ideals}
 \begin{defn}{Extension of Ideals}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $I$ be an ideal of $R$. Define the extension $I^e$ of $I$ to $S$ to be the ideal $$I^e=\langle f(i)\;|\;i\in I\rangle$$
@@ -375,6 +275,130 @@ Regarding ideals of the polynomial ring, the following maybe useful:
 \item There is an isomorphism $\frac{R[x]}{I[x]}\cong\frac{R}{I}[x]$ given by the map $$\left(f=\sum_{k=0}^na_kx^k+I[x]\right)\mapsto\left(\sum_{k=0}^n(a_k+I)x^k\right)$$
 \item If $I$ is a prime ideal of $R$, then $I[x]$ is a prime ideal of $R[x]$. 
 \end{itemize}
+
+\pagebreak
+\section{Basic Notions of Commutative Rings}
+\subsection{Local Rings}
+\begin{defn}{Local Rings}{} Let $R$ be a commutative ring. We say that $R$ is a local ring if it has a unique maximal ideal $m$. In this case, we say that $R/m$ is the residue field of $R$. 
+\end{defn}
+
+\begin{eg}{}{} Consider the following commutative rings. 
+\begin{itemize}
+\item $\Z/6\Z$ is not a local ring. 
+\item $\Z/8\Z$ is a local ring. 
+\item $\Z/24\Z$ is not a local ring. 
+\item $\R[x]$ is not a local ring. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item The only ideals of $\Z/6\Z$ are $(2+6\Z)$ and $(3+6\Z)$. They do not contain each other and so they are both maximal. 
+\item The only ideals of $\Z/8\Z$ are $(2+8\Z)$ and $(4+8\Z)$. But $(2+8\Z)\supseteq(4+8\Z)$. Hence $\Z/8\Z$ has a unique maximal ideal. 
+\item A similar proof as above ensues. 
+\item Any irreducible polynomial $f\in\R[x]$ is such that $(f)$ is a maximal ideal. Indeed the evaluation homomorphism gives an isomorphism $\frac{\R[x]}{(f)}\cong\R$. 
+\end{itemize}
+\end{proof}
+\end{eg}
+
+\begin{prp}{}{} Let $R$ be a ring and $I$ an ideal of $R$. Then $I$ is the unique maximal ideal of $R$ if and only if $I$ is the set containing all non-units of $R$. \tcbline
+\begin{proof}
+Let $I$ be the unique maximal ideal of $R$. Clearly $I$ does not contain any unit else $I=R$. Now suppose that $r$ is a non-unit. Suppose that $r\notin I$. Define $J=\{sr|s\in R\}$ Clearly $J$ is an ideal. It must be contained in some maximal ideal. Since $I$ is the unique maximal ideal, $J\subseteq I$. But this means that $r\in I$, a contradiction. Thus every non-unit is in $I$. \\~\\
+Suppose that $I$ contains all non-units of $R$. Let $r\notin I$. Then there exists $s\notin I$ such that $rs=1$. Then $(r+I)(s+I)=1+I$ in $R/I$. This means that every element of $R/I$ has a multiplicative inverse which means that $R/I$ is a field and thus $I$ is a maximal ideal. Now let $J\neq I$ be another maximal ideal. Then $J$ contains some unit $r$. This implies that $J=R$ and thus $I$ is the unique maximal ideal. 
+\end{proof}
+\end{prp}
+
+\begin{eg}{}{} Let $k$ be a field. Then the ring of power series $k[[x]]$ is a local ring. \tcbline
+\begin{proof}
+Let $M$ be the set of all non-units of $k[[x]]$. I first show that $f\in M$ if and only if the constant term of $f$ is non-zero. Let $g$ be a power series. Then the $n$th coefficient of $f\cdot g$ is given by $$c_n=\sum_{k=0}^na_kb_{n-k}$$ If the constant term of $f$ is $0$, then $c_0=0$ and so $f\cdot g\neq 1$. Now if the constant term of $f$ is $a_0\neq 0$, then set $b_0=\frac{1}{a_0}$. Now we can use the formula $0=c_n$ to deduce $$b_n=-\frac{\sum_{k=1}^na_kb_{n-k}}{a_0}$$ This is such that $a_n\cdot b_n=0$. Define $g=\sum_{k=0}^\infty b_kx^k$. Then $f\cdot g=1$. Thus $f$ is a unit. \\~\\
+
+By the above proposition, we conclude that $M$ is the unique maximal ideal of $k[[x]]$. 
+\end{proof}
+\end{eg}
+
+We will discuss more of local rings in the topic of localizations. 
+
+\subsection{Noetherian Commutative Rings}
+We recall some facts about Noetherian rings. In the following, let $R$ be a commutative ring, although they are also true if $R$ is non-commutative if we take all modules defined below to be left (right) $R$-modules. 
+
+\begin{itemize}
+\item If we have a short exact sequence of $R$-modules: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then $M_2$ is Noetherian if and only if $M_1$ and $M_3$ are Noetherian. 
+\item If $M$ and $N$ are $R$-modules, then $M\oplus N$ is Noetherian if and only if $M$ and $N$ are Noetherian. 
+\item If $M$ is an $R$-module and $N$ is an $R$-submodule of $M$, then $M$ is Noetherian if and only if $N$ and $M/N$ are Noetherian.
+\item If $R$ is Noetherian and $I$ is an ideal of $R$, then $R/I$ is Noetherian. 
+\item Later when once has seen localization, we can also prove that: If $R$ is Noetherian then $S^{-1}R$ is Noetherian for any multiplicative subset $S$ of $R$. 
+\end{itemize}
+
+\begin{thm}{Hilbert's Basis Theorem}{} Let $R$ be a commutative ring. If $R$ is Noetherian, then $$R[x_1,\dots,x_n]$$ is a Noetherian ring. 
+\end{thm}
+
+\begin{prp}{}{} Let $R=\bigoplus_{i=0}^nR_i$ be a graded ring. Then $R$ is Noetherian if and only if $R_0$ is Noetherian and $R$ is finitely generated as an $R_0$-module. 
+\end{prp}
+
+\subsection{Artinian Commutative Rings}
+We recall some facts about Artinian modules. 
+
+\begin{itemize}
+\item If we have a short exact sequence of $R$-modules: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then $M_2$ is Artinian if and only if $M_1$ and $M_3$ are Artinian. 
+\item If $M$ and $N$ are $R$-modules, then $M\oplus N$ is Artinian if and only if $M$ and $N$ are Artinian. 
+\item If $M$ is an $R$-module and $N$ is an $R$-submodule of $M$, then $M$ is Artinian if and only if $N$ and $M/N$ are Artinian.
+\end{itemize}
+
+Let $R$ be a (not necessarily commutative ring). If $R$ is left Artinian, then the following are true. 
+
+\begin{itemize}
+\item If $I$ is an ideal of $R$, then $R/I$ is Artinian. 
+\item Every prime ideal of $R$ is maximal. 
+\item $R$ only has finitely many maximal ideals. 
+\item $J(R)$ is a nilpotent ideal. 
+\item $R$ is Noetherian. 
+\end{itemize}
+
+There are also properties of Artinian rings that only commutative rings can realize. 
+
+\begin{prp}{}{} Let $R$ be an integral domain. Then $R$ is Artinian if and only if $R$ is a field. \tcbline
+\begin{proof}
+It is clear that every field is Artinian. Conversely, let $R$ be Artinian. Consider the following descending chain of ideals in $R$: $$R\supseteq(x)\supseteq(x^2)\supseteq$$ for any $0\neq x\in R$. Since $R$ is Artinian, the chain terminates and $(x^n)=(x^{n+1})$ for some $n\in\N$. Then there exists $y\in R$ such that $x^n=yx^{n+1}$. This means that $x^n(1-yx)=0$. Since $R$ is an integral domain, $R$ has no nilpotents. Hence $x^n$ is non-zero and $1=xy$. Thus $x$ has an inverse so that $R$ is a field. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $R$ be Artinian. Then every prime ideal in $R$ is maximal. \tcbline
+\begin{proof}
+Let $P$ be a prime ideal. Since quotients of Artinian rings are Artinian, $R/P$ is Artinian. Since $R/P$ is also an integral domain, we conclude by the above that $R/P$ is a field. Hence $P$ is maximal. 
+\end{proof}
+\end{prp}
+
+Recall some properties of the Jacobson radical from Rings and Modules. For a (not necessarily commutative ring $R$), 
+\begin{itemize}
+\item $J(R/J(R))=0$
+\item $J(R)=\bigcap_{m\in\text{maxSpec}(R)}m$
+\end{itemize}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. If $R$ is Artinian, then $$N(R)=J(R)$$ \tcbline
+\begin{proof}
+Since every prime ideal in $R$ is maximal, we have that $$N(R)=\bigcap_{P\text{ a prime ideal}}P=\bigcap_{P\text{ a maximal ideal}}P=J(R)$$ and so we conclude. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. If $R$ is Artinian, then $R$ has finitely many maximal ideals. \tcbline
+\begin{proof}
+Consider the collection $$\{m_1\cap\cdots\cap m_k\;|\;m_1,\dots,m_k\text{ are maximal ideals of }R\}$$ of $R$-submodules of $R$. Since $R$ is Artinian, every collection of $R$-submodules of $R$ has a minimal element. Hence this collection also has a minimal element, say $m_1\cap\cdots\cap m_k$. Let $m$ be another maximal ideal of $R$. Then $$m\cap m_1\cap\cdots\cap m_k\subseteq m_1\cap\cdots\cap m_k$$ Since $m_1\cap\cdots\cap m_k$ is minimal, they are equal. By prp1.1.1, we conclude that $m\supseteq m_i$ for some $i$. Since they are maximal, we have $m=m_i$. Hence $m_1,\dots,m_k$ gives the full list of distinct maximal ideals of $R$. 
+\end{proof}
+\end{prp}
 
 \pagebreak
 \section{Modules over a Commutative Ring}
@@ -604,7 +628,7 @@ Trivial since $\Z$ is a principal ideal domain.
 \begin{lmm}{}{} Let $F$ be a field. Let $f\in F[x]$. Then the localization $F[x]_f$ is not a field. 
 \end{lmm}
 
-\begin{thm}{Zariski's Lemma}{} Let $F$ be a field. Let $K$ be a field that is also a finitely generated algebra over $F$. Then $K$ is a finite algebra. In particular, $K$ is a finitely generated vector space over $F$. 
+\begin{thm}{Zariski's Lemma}{} Let $F$ be a field. Let $K$ be a field that is also a finitely generated algebra over $F$. Then $K$ is a finite algebra. In particular, $K$ is a finite dimensional vector space over $F$. 
 \end{thm}
 
 \begin{crl}{}{} Let $F$ be an algebraically closed field. Let $K$ be a field that is also a finitely generated algebra over $F$. Then the inclusion homomorphism $F\hookrightarrow K$ is an $F$-algebra isomorphism. 
@@ -619,7 +643,13 @@ Trivial since $\Z$ is a principal ideal domain.
 \begin{defn}{Multiplicative Set}{} Let $R$ be a commutative ring. $S\subseteq R$ is a multiplicative set if $1\in S$ and $S$ is closed under multiplication: $x,y\in S$ implies $xy\in S$
 \end{defn}
 
-\begin{defn}{Localization of a Ring}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set. Define the ring of fractions of $R$ with respect to $S$ by $$S^{-1}R=\left\{\frac{r}{s}\;\bigg{|}\;r\in R,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{r}{s}\sim\frac{r'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(ru'-r'u)=0$$ If $S=\{1,f,f^2,\dots\}$ then we write $$S^{-1}R=R_f=R[1/f]$$
+\begin{defn}{Localization of a Ring}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set. Define the ring of fractions of $R$ with respect to $S$ by $$S^{-1}R=\left\{\frac{r}{s}\;\bigg{|}\;r\in R,s\in S\right\}/\sim$$ where we say that $r/s\sim r'/s'$ if there exists $t\in S$ such that $t(rs'-r's)=0$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Then the set $\{f^n\;|\;n\in\N\}$ is a multiplicative set. 
+\end{lmm}
+
+\begin{defn}{Localization at an Element}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Define the localization of $R$ at $f$ to be the ring $$R_f=\{f^n\;|\;n\in\N\}^{-1}R$$ It is also denoted as $R[1/f]$. 
 \end{defn}
 
 \begin{prp}{}{} Let $S^{-1}R$ be a ring of fractions. 
@@ -652,42 +682,14 @@ Moreover, $S^{-1}R$ is the unique commutative ring (up to unique isomorphism) th
 \begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset of $R$. If $R$ is Noetherian, then $S^{-1}R$ is Noetherian. 
 \end{lmm}
 
-\subsection{Ideals of a Localization}
-\begin{defn}{Ideals Closed Under Division}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. We say that $I$ is closed under division by $s$ if for all $s\in S$ and $a\in R$ such that $sa\in I$, we have $a\in I$. 
-\end{defn}
-
-\begin{lmm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then we have $$I^e=S^{-1}I$$
-\end{lmm}
-
-\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then there is a one-to-one bijection $$\{J\;|\;J\text{ is an ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;|\;\substack{I\text{ is an ideal of }R\text{ and }\\I\text{ is closed under division by }S}\right\}$$ given by $J\mapsto J^c$. 
-\end{thm}
-
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then the above bijection restricts to the following bijection $$\{J\;|\;J\text{ is a prime ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;\bigg{|}\;\substack{I\text{ is a prime ideal of }R\text{ and }\\I\cap S=\emptyset}\right\}$$
-\end{prp}
-
-\subsection{Localization at a Prime Ideal}
 \begin{lmm}{}{} Let $R$ be a ring and $P$ a prime ideal of $R$. Then $R\setminus P$ is a multiplicative set. \tcbline
 \begin{proof}
 By definition, $xy\in P$ implies $x\in P$ or $y\in P$, since $R\setminus P$ removes all these elements, we have that $x\notin P$ and $y\notin P$ implies that $xy\notin P$. 
 \end{proof}
 \end{lmm}
 
-\begin{defn}{Localization on Prime Ideals}{} Let $R$ be a commutative ring. Let $P$ be a prime ideal. Denote $$R_p=(R\setminus P)^{-1}R$$ the localization of $R$ at $P$. 
+\begin{defn}{Localization at Prime Ideals}{} Let $R$ be a commutative ring. Let $P$ be a prime ideal. Denote $$R_p=(R\setminus P)^{-1}R$$ the localization of $R$ at $P$. 
 \end{defn}
-
-\begin{lmm}{}{} Let $R$ be an integral domain. Then we have $$\text{Frac}(R)=R_{(0)}$$
-\end{lmm}
-
-\begin{prp}{}{} Let $R$ be a commutative ring and let $p$ be a prime ideal of $R$. Then $R_p$ is a local ring with unique maximal ideal given by $$PR_p=\left\{\frac{r}{s}\;|\;r\in P,s\notin P\right\}$$ \tcbline
-\begin{proof}
-Let $I$ be the set of all non-units of $R_p$. It is sufficient to show that $I$ is an ideal by the above lemma. Clearly if $i\in I$ then $r\cdot i$ is also not invertible. Explicitly, we have $$I=\left\{\frac{r}{s}\in R_p\bigg{|}r\in p\right\}$$ Let $\frac{r_1}{s_1},\frac{r_2}{s_2}\in I$, then $\frac{r_1}{s_1}+\frac{r_2}{s_2}=\frac{r_1s_2+r_2s_1}{s_1s_2}$ is in $I$ since $r_1,r_2\in P$ and $P$ being an ideal implies $r_1s_2+r_2s_1\in P$. 
-\end{proof}
-\end{prp}
-
-Be wary that in general localizations does not result in a local ring. This happens only when we are localizing with respect to a prime ideal. The importance of prime ideals is not explicit in the above because only using prime ideals $P$ can $R\setminus P$ be a multiplicative set which ultimately allows localization to make sense. 
-
-\begin{prp}{}{} Let $R$ be an integral domain. Then there is an equality $$R=\bigcap_{m\text{ a maximal ideal}}R_m$$ when considered as subrings of $\text{Frac}(R)$.  
-\end{prp}
 
 \subsection{Localization of a Module}
 \begin{defn}{Localization of a Module}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set Let $M$ be a $R$-module. Define the ring of fractions of $M$ with respect to $S$ by $$S^{-1}M=\left\{\frac{m}{s}|m\in M,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{m}{s}\sim\frac{m'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(mu'-m'u)=0$$ If $S=\{1,f,f^2,\dots\}$ then we write $$S^{-1}M=M_f=M[1/f]$$
@@ -739,6 +741,81 @@ Then the following is an exact sequence of $S^{-1}R$-modules. \\~\\
 \item Localization commutes with cokernels: $$S^{-1}\frac{N}{\im(\phi)}\cong\frac{S^{-1}N}{\im(S^{-1}\phi)}$$
 \end{itemize}
 \end{lmm}
+
+\subsection{Localization of Integral Domains}
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. If $R$ is an integral domain, then then following are true. 
+\begin{itemize}
+\item The localization map $R\to S^{-1}R$ is injective. 
+\item If $0\notin S$, then $S^{-1}R$ is an integral domain. 
+\end{itemize} \tcbline
+\begin{proof}
+Suppose that $0=\frac{a}{s}\cdot\frac{b}{t}$. By the equivalence relation this is the same as saying that $uab=0$ for some $u\in S$. Since $R$ is an integral domain and $0\neq S$, we conclude that $u\notin S$ so that $ab=0$. Again since $R$ is an integral domain this implies that $a=0$ or $b=0$. Hence either $a/s=0$ or $b/t=0$ in $S^{-1}R$. Hence $S^{-1}R$ is an integral domain. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be an integral domain. Then the following are true. 
+\begin{itemize}
+\item $\text{Frac}(R)=R_{(0)}$
+\item $R=\bigcap_{m\text{ a maximal ideal}}R_m$
+\end{itemize}
+\end{prp}
+
+\subsection{Ideals of a Localization}
+\begin{defn}{Ideals Closed Under Division}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. We say that $I$ is closed under division by $s$ if for all $s\in S$ and $a\in R$ such that $sa\in I$, we have $a\in I$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then we have $$I^e=S^{-1}I$$
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. Let $P$ be a prime ideal of $R$. Then the following are true. 
+\begin{itemize}
+\item $S^{-1}P$ is a prime ideal of $S^{-1}R$ if and only if $S\cap P=\emptyset$. 
+\item $S^{-1}P=S^{-1}R$ if and only if $S\cap P\neq\emptyset$. 
+\end{itemize} \tcbline
+\begin{proof}
+Recall that $R/P$ is an integral domain if $P$ is prime. Since $S^{-1}$ commutes with quotients, we have that $$\frac{S^{-1}R}{S^{-1}P}\cong S^{-1}\frac{R}{P}$$~\\
+
+If $S\cap P=\emptyset$, then $0\in P$ implies that $0\notin S$. This means that $0\notin\phi(S)$. By 5.3.1 we conclude that $S^{-1}(R/P)$ is an integral domain. Hence $S^{-1}P$ is a prime ideal. If $S\cap P\neq\emptyset$, suppose that $x\in S\cap P$. Then ?????
+\end{proof}
+\end{prp}
+
+\begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Let $\phi:R\to S^{-1}R$ denote the localization map. Then there is a one-to-one bijection $$\{J\;|\;J\text{ is an ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;|\;\substack{I\text{ is an ideal of }R\text{ and }\\I\text{ is closed under division by }S}\right\}$$ whose map is given by $J\mapsto J^c=\phi^{-1}(J)$ and inverse is given by $I\mapsto I^e=S^{-1}I$. \tcbline
+\begin{proof}
+We first show that our map of sets are well defined. Let $J$ be a prime ideal of $S^{-1}R$. We first show that $\phi^{-1}(J)$ is closed under division by $S$. Suppose that $s\in S$ and $r\in R$ such that $sr\in\phi^{-1}(J)$. Then $sr/1\in J$. Now since $J$ is an ideal of $S^{-1}R$, we know that $1/s\cdot sr/1\in J$. But $1/s\cdot sr/1=r/1=\phi(r)$. This means that $\phi(r)\in J$ and hence $r\in\phi^{-1}(J)$. Thus $\phi^{-1}(J)$ is an ideal closed under division by $S$. \\~\\
+
+Now let $I$ be an ideal of $R$ closed under division. I claim that $S^{-1}I$ is an ideal of $S^{-1}R$. Let $a/s,b/t\in S^{-1}I$. Then $a/s+b/t=(at+bs)/st$. Since $I$ is an ideal, we know that $at+bs\in I$. Also since $S$ is a multiplicative subset, $st\in S$. Hence $(at+bs)/st\in I$. Now let $a/s\in S^{-1}I$ and $r/t\in S^{-1}R$. Then $(a/s)\cdot(r/t)=ar/st$. Since $I$ is an ideal, $ar\in I$. Thus $ar/st\in S^{-1}I$ so that $I$ is an ideal. \\~\\
+
+It remains to show that the two maps are inverses of each other. Let $J$ be an ideal of $S^{-1}R$. We want to show that $J=S^{-1}(\phi^{-1}(J))$. Let $a/s\in J$. Since $J$ is an ideal, we have $\phi(a)=a/1=1/s\cdot a/s\in J$. Hence $a\in\phi^{-1}J$ so that $a/s\in S^{-1}\phi^{-1}(J)$. Thus $J\subseteq S^{-1}(\phi^{-1}(J))$. Now by 1.5.5 the extension of the contraction of $J$ is a subset of $J$. Hence we conclude. \\~\\
+
+On the other hand, we also want to show that $I=\phi^{-1}(S^{-1}I)$. Again by 1.5.5 we know that $I\subseteq\phi^{-1}(S^{-1}I)$. Conversely, let $x\in\phi^{-1}(S^{-1}I)$. Then $\phi(x)=x/1\in S^{-1}I$. This means that $x/1=b/t$ for some $b\in I$ and $t\in S$. Then there exists $u\in S$ such that $uxt=ub$. Since $b\in I$, $ub\in I$ hence $uxt\in I$. Since $ut\in S$ and $I$ is closed under division, we have $x\in I$. \\~\\
+
+This shows that $S^{-1}(-)$ and $\phi^{-1}(-)$ are mutual inverses of each others. Thus we conclude. 
+\end{proof}
+\end{thm}
+
+Using the theorem we conclude that every ideal of $S^{-1}R$ is of the form $S^{-1}I$ for some ideal $I$ of $R$ such that $I$ is closed under division by $S$. 
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then the above bijection restricts to the following bijection $$\{J\;|\;J\text{ is a prime ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;\bigg{|}\;\substack{I\text{ is a prime ideal of }R\\\text{ and }I\cap S=\emptyset}\right\}$$ \tcbline
+\begin{proof}
+Let $\phi:R\to S^{-1}R$ be the localization map. From the above we know that $Q=S^{-1}\phi^{-1}(Q)$ for any prime ideal $Q$ of $S^{-1}R$. This implies that $S^{-1}\phi^{-1}(Q)$ is prime. By 5.4.3 this implies that $\phi^{-1}(Q)\cap S=\emptyset$. Thus the map $J\mapsto\phi^{-1}(J)$ induces a well defined map on our given sets of prime ideals. \\~\\
+
+Conversely, by 5.4.3 we know that if $P$ is a prime ideal of $R$ such that $S\cap P=\emptyset$, then $S^{-1}P$ is a prime ideal of $S^{-1}R$. Hence the inverse map is also well defined on our domain and codomain. By the above theorem it is already a bijection, hence we are done. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $P$ be a prime ideal of $R$. Then the above bijection gives $$\{J\;|\;J\text{ is a prime ideal of }R_P\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;\bigg{|}\;\substack{I\text{ is a prime ideal of }R\\\text{ and }I\subseteq P}\right\}$$ \tcbline
+\begin{proof}
+Notice that the condition that $I\cap S=\emptyset$ in the above proposition translates to $I\cap (R\setminus P)=\emptyset$, which is the same as saying $I\subseteq P$. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring and let $P$ be a prime ideal of $R$. Then $R_P$ is a local ring with unique maximal ideal given by $$PR_P=\left\{\frac{r}{s}\;|\;r\in P,s\notin P\right\}$$ \tcbline
+\begin{proof}
+We show that $PR_P$ is the only unique maximal ideal. Suppose that $I$ is an ideal in $R_P$ such that $I$ is not a subset of $PR_P$. Then there exists $a/s\in I$ such that $a\notin P$ and $s\notin P$. It is clear that $s/a$ is then an element of $R_P$. So $a/s$ is invertible. Hence $I=R_P$. 
+\end{proof}
+\end{prp}
+
+Be wary that in general localizations does not result in a local ring. This happens only when we are localizing with respect to a prime ideal. The importance of prime ideals is not explicit in the above because only using prime ideals $P$ can $R\setminus P$ be a multiplicative set which ultimately allows localization to make sense. 
 
 \subsection{Local Properties}
 \begin{defn}{Local Properties of Modules}{} Let $R$ be a commutative ring. A property of $R$-modules is local if for any $R$-modules $M$, the following are equivalent. 
@@ -974,6 +1051,8 @@ Atiyah-Macdonald
 \begin{defn}{Krull Dimension}{} Let $R$ be a commutative ring. Define the Krull dimension of $R$ to be $$\dim(R)=\max\{t\in\N\;|\;p_0\subset\dots\subset p_t\text{ for }p_0,\dots,p_t\text{ prime ideals}\}$$
 \end{defn}
 
+In particular, notice that a commutative ring $R$ has $\dim(R)=0$ if and only if every prime ideal is maximal. 
+
 \begin{lmm}{}{} Let $R,S$ be commutative rings such that $R\subseteq S$ is an integral extension. Then $\dim(R)=\dim(S)$. 
 \end{lmm}
 
@@ -984,11 +1063,31 @@ Atiyah-Macdonald
 \end{itemize}
 \end{prp}
 
+\begin{lmm}{}{} Let $R$ be a commutative ring. Then the following are true. 
+\begin{itemize}
+\item If $R$ is a field, then $\dim(R)=0$
+\item If $R$ is Artinian, then $\dim(R)=0$
+\end{itemize} \tcbline
+\begin{proof}
+Let $R$ be a field. Then the only proper prime ideal of $R$ is $(0)$. In particular, $(0)$ forms the only chain of prime ideals in $R$. Hence $\dim(R)=0$. \\~\\
+
+Now let $R$ be Artinian. Let $P$ be a prime ideal of $R$. Then $R/P$ is an integral domain. Moreover, every quotient of an Artinian ring is Artinian. Hence $R/P$ is Artinian. By prp1.3.1, we conclude that $R/P$ is a field. Hence $P$ is a maximal ideal. Any chain of prime ideals of $R$ must terminate at the first prime ideal since it is maximal. Hence $\dim(R)=0$. 
+\end{proof}
+\end{lmm}
+
 \subsection{Height of Prime Ideals}
-\begin{defn}{Height of a Prime Ideal}{} Let $R$ be a commutative ring. Let $p$ be a prime ideal of $R$. Define the height of $p$ to be $$\text{ht}(p)=\sup\{t\in\N\;|\;p_0\subset\dots\subset p_t=p\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
+\begin{defn}{Height of a Prime Ideal}{} Let $R$ be a commutative ring. Let $p$ be a prime ideal of $R$. Define the height of $p$ to be $$\text{ht}(p)=\max\{t\in\N\;|\;p_0\subset\dots\subset p_t=p\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$
 \end{defn}
 
-\begin{lmm}{}{} Let $p$ be a prime ideal in a ring $R$. Then $$\text{ht}(p)=\dim(R_p)$$ 
+\begin{lmm}{}{} Let $R$ be a commutative ring. Then $$\dim(R)=\max\{\text{ht}(P)\;|\;P\in\text{Spec}(R)\}$$
+\end{lmm}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $P$ be a prime ideal of $R$. Then $$\text{ht}(P)=\dim(R_P)$$ \tcbline
+\begin{proof}
+Let $\dim(R_P)=n$. Then there exists a strict chain of prime ideals of $R_P$ of length $n$ (and no chain of prime ideals of length $>n$). By prp5.4.6, prime ideals of $R_P$ are in bijection with prime ideals of $R$ that $P$ contains. Hence the maximal chain of prime ideals of length $n$ correspond to a chain of prime ideals in $R$ that contain $P$, of length $n$. Hence $\dim(R_p)=n\leq\text{ht}(P)$. Conversely, let $m=\text{ht}(P)$. Then there exists a strict chain of prime ideals that are subsets of $P$, that are of length $m$. By the same correspondence, the chain of prime ideals correspond to a chain of prime ideals in $R_P$ of length $m$. Hence $\text{ht}(P)=m\leq\dim(R_P)$. \\~\\
+
+The two inequalities combine to show that $\dim(R_P)=\text{ht}(P)$. 
+\end{proof}
 \end{lmm}
 
 \begin{lmm}{}{} Let $R$ be a commutative ring. Let $P$ be a prime ideal of $R$. Then $$\dim(R)\geq\dim(R/P)+\text{ht}_R(P)$$
@@ -1012,21 +1111,17 @@ Atiyah-Macdonald
 \begin{thm}{Krull's Principal Ideal Theorem}{} Let $R$ be a Noetherian ring. Let $I$ be a proper and principal ideal of $R$. Let $p$ be the smallest prime ideal containing $I$. Then $$\text{ht}_R(p)\leq 1$$
 \end{thm}
 
-\subsection{Length of a Module}
-\begin{defn}{Length of a Module}{} Let $R$ be a ring and let $M$ be an $R$-module. Define the length of $M$ to be $$l_R(M)=\text{sup}\{n\in\N\;|\;0=M_0\subset M_1\subset\cdots\subset M_n=M\}$$
-\end{defn}
-
-\begin{lmm}{}{} Let $R$ be a ring. Let $0\to M'\to M\to M''\to 0$ be a short exact sequence of $R$-modules. Then $$l_R(M)=l_R(M')+l_R(M'')$$
-\end{lmm}
+\subsection{Length of a Module over Commutative Rings}
+Let $R$ be a ring. Recall that the length of an $R$-module $M$ is defined to be the supremum $$l_R(M)=\text{sup}\{n\in\N\;|\;0=M_0\subset M_1\subset\cdots\subset M_n=M\}$$
 
 \begin{lmm}{}{} Let $(A,m)$ be a local ring and let $M$ be an $A$-module. If $mM=0$, then $$l_A(M)=\dim_{A/m}(M)$$
 \end{lmm}
 
-\begin{prp}{}{} Let $R$ be a ring and let $M$ be an $R$-module. Then the following are equivalent. 
+\begin{prp}{}{} Let $R$ be a commutative ring and let $M$ be an $R$-module. Then the following are equivalent. 
 \begin{itemize}
 \item $M$ is simple
 \item $l_R(M)=1$
-\item $M\cong A/m$ for some maximal ideal $m$ of $A$
+\item $M\cong R/m$ for some maximal ideal $m$ of $R$
 \end{itemize}
 \end{prp}
 
@@ -1037,8 +1132,8 @@ Atiyah-Macdonald
 \begin{defn}{The Hilbert Series}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a Noetherian graded ring. Let $M=\bigoplus_{k=0}^\infty M_k$ be a graded $R$-module. Define the Hilbert series $HS_M\in\Z[[t]]$ of $M$ to be the formal series $$HS_M(t)=\sum_{k=0}^\infty H_M(k)t^k=\sum_{k=0}^\infty l_{R_0}(M_k)t^k$$
 \end{defn}
 
-\begin{thm}{}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a Noetherian graded ring such that $R_0$ is Artinian. Let $M=\bigoplus_{k=0}^\infty M_k$ be a graded $R$-module. Let $\lambda:\{M_i\;|\;i\in I\}\to\Z$ be an additive function Then the function $$g(t)=\sum_{k=0}^\infty\lambda(M_k)t^k$$ is a rational function and can be written in the form $$g(t)=\frac{f(t)}{\prod_{i=1}^r(1-t^{d_i})}$$ for some $f(t)\in\Z[t]$ and $d_i\in\N$. 
-\end{thm}
+\begin{prp}{}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a Noetherian graded ring such that $R_0$ is Artinian. Let $M=\bigoplus_{k=0}^\infty M_k$ be a graded $R$-module. Let $\lambda:\{M_i\;|\;i\in I\}\to\Z$ be an additive function Then the function $$g(t)=\sum_{k=0}^\infty\lambda(M_k)t^k$$ is a rational function and can be written in the form $$g(t)=\frac{f(t)}{\prod_{i=1}^r(1-t^{d_i})}$$ for some $f(t)\in\Z[t]$ and $d_i\in\N$. 
+\end{prp}
 
 \begin{thm}{The Fundamental Theorem of Dimension Theory}{} Let $(R,m)$ be a local Noetherian ring. Let $I$ be an $m$-primary ideal. Then the following numbers are equal. 
 \begin{itemize}
@@ -1053,21 +1148,35 @@ The following is a generalization of Krull's principal ideal theorem. Both of th
 \begin{thm}{Krull's Height Theorem}{} Let $R$ be a Noetherian ring. Let $I$ be a proper ideal generated by $n$ elements. Let $p$ be the smallest prime ideal containing $I$. Then $$\text{ht}_R(p)\leq n$$
 \end{thm}
 
-\begin{thm}{}{} Let $(R,m)$ be a Noetherian local ring and let $k=R/m$ be the residue field. Then $$\dim(R)\leq\dim_k(m/m^2)$$
-\end{thm}
-
-\subsection{Structure Theorem for Artinian Rings}
-\begin{lmm}{}{} Let $R$ be a commutative ring. Then the following are true. 
-\begin{itemize}
-\item If $R$ is a field, then $\dim(R)=0$
-\item If $R$ is Artinian, then $\dim(R)=0$
-\end{itemize}
-\end{lmm}
-
-\begin{prp}{}{} Let $R\neq 0$ be a commutative ring. Then $R$ is Artinian if and only if $R$ is Noetherian and $\dim(R)=0$. 
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring and let $k=R/m$ be the residue field. Then $$\dim(R)\leq\dim_k(m/m^2)$$
 \end{prp}
 
-\begin{thm}{Structure Theorem for Commutative Artinian Rings}{} Let $R$ be an Artinian commutative ring. Then there exists Artinian local rings $A_1,\dots,A_k$ such that $$R\cong\bigoplus_{i=1}^kA_i$$ Moreover, the decomposition is unique up to reordering of the direct product. 
+\subsection{Structure Theorem for Artinian Rings}
+Let $R$ be a ring. Let $M$ be an $R$-module. Recall that a composition series for $M$ is a sequence of $R$-submodules $$0=M_0\subset M_1\subset\cdots\subset M_k=M$$ such that $\frac{M_{i+1}}{M_i}$ is a simple $R$-module for $1\leq i<k$. 
+
+\begin{prp}{}{} Let $R\neq 0$ be a commutative ring. Then $R$ is Artinian if and only if $R$ is Noetherian and $\dim(R)=0$. \tcbline
+\begin{proof}
+Let $R$ be Artinian. In Rings and Modules, the Akizuki-Hopkins-Levitzki theorem proves that $R$ is Noetherian. Moreover, lmm8.1.4 shows that $\dim(R)=0$. \\~\\
+
+Now let $R$ be Notherian and $\dim(R)=0$. This means that every prime ideal of $R$ is maximal. Let $S$ be the set of all ideals of $R$ that admit a composition series. I claim that $S$ is non-empty. Let $T=\{\text{Ann}(x)\;|\;0\neq x\in R\}$. Clearly $T$ is non-empty. Let $Y_1\subseteq Y_2\subseteq\cdots$ be a chain in $T$. Since $R$ is Noetherian, the chain terminates at finitely many sets with $Y=\text{Ann}(x)\subseteq R$ for some $x\in R$. I claim that $Y$ is a prime ideal. By definition $R=\text{Ann}(0)\notin T$ hence $R\notin T$. This means that $Y\neq R$. Let $ab\in Y=\text{Ann}(x)$. Suppose that $b\notin Y$. We know that $abx=0$ so $a\in\text{Ann}(bx)$. Since $bx\neq 0$, we have $\text{Ann}(bx)\in T$. Since $R$ is commutative, we also have that $\text{Ann}(x)\subseteq\text{Ann}(bx)$. Since $\text{Ann}(x)$ is maximal, we have that $\text{Ann}(x)=\text{Ann}(bx)$. Hence $a\in\text{Ann}(x)$. Thus $\text{Ann}(x)$ is prime. Since $\dim(R)=0$ we have $\text{Ann}(x)$ is a maximal ideal. $R/\text{Ann}(x)$ is a field (and hence a simple $R$-module). The multiplication map $r\mapsto rx$ has kernel $\text{Ann}(x)$. Hence the induced map $R/\text{Ann}(x)\to R$ is injective, and we can consider $R/\text{Ann}(x)$ as a subring of $R$. Together with the fact that it is a simple $R$-module makes it an $R$-submodule with composition series length of $1$. Hence $S$ is non-empty. \\~\\
+
+Let $N_1\subseteq N_2\subseteq\cdots$ be a chain in $S$. Since $R$ is Noetherian, the chain terminates with some ideal $I\in S$. If $I=R$, then $R$ has a composition series. If $I\neq R$, then $R/I$ is non-zero. Choose a prime ideal $P$ of $R$ such that $I\subseteq P\neq R$ (this always exists since we can choose maximal ideals). Then we have $0\neq R/P\subseteq R/I$. Let $p:R\to R/I$ be the projection map. Let $T=p^{-1}(R/P)$. Then we have that $N\subset T\subseteq M$ and $T/N\cong R/P$. Since $\dim(R)=0$, $P$ is maximal hence $R/P$ is a field (and a simple $R$-module). This proves that $T\in S$. But this contradicts the maximality of $N$. Hence $N=R\in T$. Thus $R$ has a composition series. From Rings and Modules we know that this implies $R$ is Noetherian. Hence we conclude. 
+\end{proof}
+\end{prp}
+
+Recall from Rings and Modules that we have seen that Artinian rings have finitely many maximal ideals. 
+
+\begin{thm}{Structure Theorem for Commutative Artinian Rings}{} Let $R$ be an Artinian commutative ring. Then $R$ decomposes into a direct product of Artinian local rings $$R\cong\bigoplus_{i=1}^k R_i$$ Moreover, the decomposition is unique up to reordering of the direct product.  \tcbline
+\begin{proof}
+Let $m_1,\dots,m_k$ be the full list of distinct maximal ideals of $R$. Then $$\prod_{i=1}^km_i^n=0$$ for some $n\in\N\setminus\{0\}$. The ideals $m_i^n$ and $m_j^n$ are pairwise coprime for $i\neq j$. Hence by the Chinese Remainder Theorem we obtain ring isomorphisms 
+\begin{align*}
+R&\cong\frac{R}{0}\\
+&\cong\frac{R}{\prod_{i=1}^km_i^n}\\
+&\cong\frac{R}{\bigcap_{i=1}^km_i^n}\tag{$m_i^n$ and $m_j^n$ pairwise coprime}\\
+&\cong\bigoplus_{i=1}^k\frac{R}{m_i^n}\tag{CRT}
+\end{align*}
+By the correspondence of maximal ideals, $R/m_i^n$ has a unique maximal ideal $m_i/m_i^n$. Hence it is local. Also since $R$ is Artinian, $R/m_i^n$ is Artinian. Thus we are done. 
+\end{proof}
 \end{thm}
 
 \pagebreak
@@ -1078,9 +1187,16 @@ The following is a generalization of Krull's principal ideal theorem. Both of th
 
 \begin{lmm}{}{} Let $R$ be a valuation ring. Then the following are true. 
 \begin{itemize}
-\item $R$ is a local ring
-\item $R$ is integrally closed
-\end{itemize}
+\item $R$ is a local ring. 
+\item $R$ is normal. 
+\end{itemize} \tcbline
+\begin{proof}
+Let $R$ be a valuation ring. The set of units of $R$ are precisely $S=\{x\in\text{Frac}(R)\;|\;x\in R\text{ and }x^{-1}\in R\}$. Let $m=R\setminus S$. Let $x\in m$ and $r\in R$. Then $rx$ is not a unit because if $arx=1$, then $ar\in R$ is an inverse of $x$, which is a contradiction since $x\in S$. Hence $rx\in R$. \\~\\
+
+Let $x,y\in m$. If one of them are zero then their sum lies in $m$. If both are not zero, then $xy^{-1}$ is an element of $\text{Frac}(R)$. Since $R$ is a valuation ring, either $xy^{-1}$ or $yx^{-1}$ is in $R$. In either case, we have $$x+y=y(y^{-1}x+1)=x(1+x^{-1}y)\in m$$ (one factor is in $m$ and the other in $R$). Hence $m$ is an ideal. By prp2.1.3 we conclude that $R$ is a local ring with unique maximal ideal $m$. \\~\\
+
+Let $x\in\text{Frac}(R)$ be integral over $R$. Then $$x^n+r_{n-1}x^{n-1}+\dots+r_1x+r_0=0$$ for some $r_0,\dots,r_{n-1}\in R$. If $x\in R$ then we are done. If $x\notin R$ then since $R$ is a valuation ring, $x^{-1}\in R$. Then $$x=-(r_1+r_2x^{-1}+\dots+r_nx^{1-n})\in R$$ so that $R$ is normal. 
+\end{proof}
 \end{lmm}
 
 \subsection{Valuations on a Field}
@@ -1162,6 +1278,7 @@ The rest of the section devotes efforts to recognizing discrete valuation rings.
 \begin{itemize}
 \item $R$ is a discrete valuation ring
 \item $R$ is a UFD with a unique irreducible element up to multiplication of a unit
+\item $R$ is Noetherian, local, $\dim(R)=1$ and normal. 
 \item $R$ is Noetherian, local with principal maximal ideal
 \item $R$ is Noetherian, local and $\dim(R)=1=\dim_{R/m}(m/m^2)=1$ for $m$ the unique maximal ideal of $R$
 \item $R$ is Noetherian, local and $I=m^k$ for all non-zero ideals $I$ of $R$ and $m$ the unique maximal ideal of $R$
@@ -1174,6 +1291,9 @@ We have seen that every ideal is of the form $(t^n)$ for some $n>0$. Thus every 
 \item $(1)\implies(3)$:
 \end{itemize}
 \end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a Noetherian integral domain and $\dim(R)=1$. Then $R$ is normal if and only if $R_m$ is a discrete valuation ring for all maximal ideals $m$. 
 \end{prp}
 
 In summary, if $R$ is a discrete valuation ring, then $R$ has the following properties. 
@@ -1303,7 +1423,7 @@ We summarize the relation between Dedekind domains and other types of domains in
 	\arrow[from=2-4, to=2-5, phantom, sloped, "\subset"]
 \end{tikzcd}} \\~\\
 
-In particular, DVRs, PIDs and Dedekind domains are $1$-dimensional. 
+In particular, DVRs, PIDs and Dedekind domains are $1$-dimensional. Moreover, notice that the only difference between DVRs and Dedekind domains is that DVRs are local rings. They both share the fact that they are Noetherian, $\dim(R)=1$ and normal. 
 
 
 

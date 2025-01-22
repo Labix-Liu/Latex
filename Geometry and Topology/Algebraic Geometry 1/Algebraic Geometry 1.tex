@@ -175,6 +175,9 @@ Suppose that $V=U\cup W$ for some closed sets $U$ or $W$. Then $U$ and $W$ are a
 \end{proof}
 \end{prp}
 
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $f\in k[x_1,\dots,x_n]$ be a polynomial. If $f$ is irreducible then $\V(f)$ is irreducible. 
+\end{prp}
+
 \subsection{The Zariski Topology}
 \begin{defn}{Zariski Topology}{} Let $k$ be a field. Define the Zariski topology on $\A_k^n$ to be the topology where the closed sets are precisely all the affine varieties of $\A_k^n$. 
 \end{defn}
@@ -870,25 +873,15 @@ In other words, $D(f)$ is exactly the points of $V$ where $f$ is not zero. Some 
 
 These information organize well into a sheaf. 
 
+\subsection{Regular Functions Near a Point}
 \begin{defn}{Ring of Germs of Regular Functions}{} Let $p$ be a point of a variety $X$. Define the local ring of $p$ on $X$ to be $$\mO_{X,p}=\{(U,f)\;|\;U\subseteq X\text{ is open}, p\in U, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. 
 \end{defn}
 
 \begin{prp}{}{} Let $X$ be a variety and $p\in X$. Then the ring of germs $\mathcal{O}_{X,p}$ is a local ring. 
 \end{prp}
 
-\subsection{The Function Field}
-\begin{defn}{Function Field}{} Let $X$ be an irreducible variety. Define the function field of $X$ to be $$K(X)=\{(U,f)\;|\;U\subseteq X\text{ is open}, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. Elements of $K(X)$ are called rational functions on $X$. 
+\begin{defn}{Induced Map on Germs}{} Let $k$ be a field. Let $X,Y$ be varieties over $k$. Let $\phi:X\to Y$ be a morphism of varieties. Let $p\in X$ be a point. Define the induced map on germs to be the map $$\phi^\ast:\mO_{Y,f(p)}\to\mO_{X,p}$$ given by $(U,f)\mapsto(\phi^{-1}(U),f\circ\phi)$. 
 \end{defn}
-
-\begin{lmm}{}{} Let $X$ be a variety. Then the function field $K(X)$ of $X$ is a field. 
-\end{lmm}
-
-\begin{lmm}{}{} Let $V$ be a variety over $\C$. Then the following are true. 
-\begin{itemize}
-\item The map $\mO_V(V)\to\mO_{V,p}$ given by $f\mapsto(V,f)$ is injective for any $p\in V$. 
-\item The map $\mO_{V,p}\to k(V)$ given by $(V,f)\mapsto(V,f)$ is injective for any $p\in V$. 
-\end{itemize}
-\end{lmm}
 
 \subsection{Regular Functions on Affine Varieties}
 \begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Then there is an isomorphism $$\C[V]\cong\mO_V(V)$$ given by the map $f\mapsto\frac{f}{1}$. 
@@ -899,11 +892,6 @@ This is the same as saying regular functions on $V$ are precisely the morphism o
 \begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Let $p\in V$ and let $m_p$ be the maximal ideal corresponding to $p$ under Hilbert's nullstellensatz. Then there is an isomorphism $$\mO_{V,p}\cong\C[V]_{m_p}$$
 \end{prp}
 
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Then there is an isomorphism $$K(V)\cong\text{Frac}(\C[V])$$ Moreover, $K(V)$ is a finitely generated field extension of $\C$. 
-\end{prp}
-
-In general, for an irreducible variety $X$, we have two injective maps $$\mO_X(X)\hookrightarrow\mO_{X,p}\hookrightarrow K(X)$$ for any $p\in X$. The above propositions mean that if $X$ is also affine, then we can recognize the above diagram as $$\C[X]\hookrightarrow\C[X]_{m_p}\hookrightarrow\text{Frac}(\C[X])$$ where $m_p$ is the maximal ideal corresponding to the point $p$ by Hilbert's Nullstellensatz. 
-
 \subsection{Regular Functions on Projective Varieties}
 \begin{thm}{}{} Let $X\subseteq\Prj^n$ be a projective variety. Let $p\in V$. Then the following are true. 
 \begin{itemize}
@@ -911,6 +899,62 @@ In general, for an irreducible variety $X$, we have two injective maps $$\mO_X(X
 \item $K(X)\cong\C[V]_{(0)}$
 \end{itemize}
 \end{thm}
+
+\pagebreak
+\section{The Algebra of Rational Functions}
+\subsection{Rational Functions and The Function Field}
+\begin{defn}{Function Field}{} Let $k$ be a field. Let $V$ be a variety over $k$. Define the set of rational functions on $V$ to be $$K(V)=\{(U,f)\;|\;U\subseteq V\text{ open and }f:U\to k\text{ is regular }\}/\sim$$ where we say that $(U,f)\sim(V,g)$ if there exists $W\subseteq U\cap V$ open such that $f|_W=g|_W$. Elements of the function field are called rational functions. 
+\end{defn}
+
+\begin{lmm}{}{} Let $k$ be a field. Let $V$ be an irreducible affine variety over $k$. Define the operations $$(U,f)+(V,g)=(U\cap V,f+g)\;\;\;\;\text{ and }\;\;\;\;(U,f)\cdot(V,g)=(U\cap V,fg)$$ Then they induce well defined operations on $\text{Rat}(V)$ so that it is a $k$-algebra. Moreover, it is a field. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $V$ be a variety over $\C$. Then the following are true. 
+\begin{itemize}
+\item The map $\mO_V(V)\to\mO_{V,p}$ given by $f\mapsto(V,f)$ is injective for any $p\in V$. 
+\item The map $\mO_{V,p}\to k(V)$ given by $(V,f)\mapsto(V,f)$ is injective for any $p\in V$. 
+\end{itemize}
+\end{lmm}
+
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Then there is an isomorphism $$K(V)\cong\text{Frac}(\C[V])$$ Moreover, $K(V)$ is a finitely generated field extension of $\C$. 
+\end{prp}
+
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible projective variety. Then there is an isomorphism $$K(X)\cong\C[V]_{(0)}$$ 
+\end{prp}
+
+\begin{defn}{Induced Map on Rational Functions}{} Let $k$ be a field. Let $X,Y$ be irreducible varieties over $k$. Let $\phi:X\to Y$ be a morphism of varieties. Define the induced map on rational functions to be $$\phi^\ast:K(Y)\to K(X)$$ given by $(U,f)\mapsto (\phi^{-1}(U),f\circ\phi)$. 
+\end{defn}
+
+\subsection{Rational Maps between Varieties}
+\begin{defn}{Equivalent Maps}{} Let $X,Y$ be irreducible varieties. Let $U_1,U_2\subseteq X$ be open. Let $f_1:U_1\to Y$ and $f_2:U_2\to Y$ be morphisms of varieties. We say that $f_1$ and $f_2$ are equivalent if there exists an open subset $W\subseteq U_1\cap U_2$ such that $$f_1|_W=f_2|_W:W\to Y$$
+\end{defn}
+
+\begin{defn}{Rational Maps}{} Let $X,Y$ be irreducible varieties. A rational map $f:X\to Y$ is an equivalent class of morphisms of varieties $f:U\to Y$ for some open subset $U\subseteq X$. 
+\end{defn}
+
+Since open subsets of a variety dense, rational maps are maps that are defined almost entirely on $X$. In particular, notice that rational functions on an irreducible variety $V$ is the same as a rational map $V\to k$. 
+
+\begin{defn}{Dominant Maps}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a rational map defined on $U\subseteq X$. We say that $f$ is dominant if $f(U)$ contains an open subset. 
+\end{defn}
+
+It only makes sense to compose rational maps if the former one is dominant. 
+
+\begin{prp}{}{} Let $X,Y,Z$ be irreducible varieties. Let $f:X\to Y$ and $g:Y\to Z$ be rational maps. If $f$ is dominant, then $g\circ f$ is rational. 
+\end{prp}
+
+\begin{defn}{Birational Maps}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a dominant rational map defined on $U\subseteq X$. We say that $f$ is a birational map if there exists a dominant rational map $g:Y\to X$ such that $$g\circ f=\text{id}_X\;\;\;\;\text{ and }\;\;\;\;f\circ g=\text{id}_Y$$ In this case, we say that $X$ and $Y$ are birational. 
+\end{defn}
+
+\begin{prp}{}{} Let $k$ be a field. Let $X,Y$ be irreducible varieties over $k$. Then there is a one-to-one correspondence $$\left\{\substack{\text{Dominant Rational Maps}\\X\to Y}\right\}\;\;\overset{1:1}{\longleftrightarrow}\left\{\substack{k\text{-algebra homomorphisms}\\K(Y)\to K(X)}\right\}$$ given by $\phi\mapsto\phi^\ast$. 
+\end{prp}
+
+\begin{crl}{}{} Let $k$ be a field. Let $X,Y$ be irreducible varieties over $k$. The the following conditions are equivalent. 
+\begin{itemize}
+\item $X$ and $Y$ are birationally equivalent
+\item There exists open subsets $U\subseteq X$ and $V\subseteq Y$ with $U$ isomorphic to $V$
+\item $K(X)$ and $K(Y)$ are isomorphic $k$-algebras
+\end{itemize}
+\end{crl}
 
 \pagebreak
 \section{Classical Constructions}

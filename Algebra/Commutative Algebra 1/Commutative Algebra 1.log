@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  16 JAN 2025 09:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  21 JAN 2025 18:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1085,34 +1085,14 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 
 
 [3]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 3
-2.
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
+8.
  (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 
 [4{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
 enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 68--77
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 68--77
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--102
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--102
-
- []
-
-
 
 [5]
 
@@ -1129,6 +1109,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--102
 [11]
 
 [12]
+Underfull \hbox (badness 10000) in paragraph at lines 323--332
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--332
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--357
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--357
+
+ []
+
+
 
 [13]
 
@@ -1185,53 +1185,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--102
 [39]
 
 [40]
-Overfull \hbox (30.0pt too wide) in paragraph at lines 1198--1199
-[][] 
- []
-
-
 
 [41]
 
 [42]
 
 [43]
-Overfull \hbox (24.5716pt too wide) in paragraph at lines 1248--1249
+
+[44]
+Overfull \hbox (30.0pt too wide) in paragraph at lines 1318--1319
+[][] 
+ []
+
+
+
+[45]
+
+[46]
+Overfull \hbox (24.5716pt too wide) in paragraph at lines 1368--1369
 []\T1/qpl/m/n/10 Dedekind sought for an in-te-gral do-main whose ide-als can be
  fac-tor-ized uniquely as a prod-uct of primes. 
  []
 
 
 
-[44]
-Underfull \hbox (badness 10000) in paragraph at lines 1304--1305
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 1424--1425
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1304--1305
+Underfull \hbox (badness 10000) in paragraph at lines 1424--1425
 
  []
 
 
 
-[45] (Commutative Algebra 1.aux)
+[48] (Commutative Algebra 1.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Commutative Algebra 1".out' has not changed
 .
-(rerunfilecheck)             Checksum: 39970103368AAA41D0D2680087E137B6;9294.
+(rerunfilecheck)             Checksum: 07F63FE715BA7E07ABEA926475CA072C;9719.
  ) 
 Here is how much of TeX's memory you used:
- 33879 strings out of 473577
- 672194 string characters out of 5716318
- 1083829 words of memory out of 5000000
- 56262 multiletter control sequences out of 15000+600000
+ 33893 strings out of 473577
+ 672378 string characters out of 5716318
+ 1079610 words of memory out of 5000000
+ 56267 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,22n,120p,777b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,22n,120p,1445b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1244,15 +1250,15 @@ ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/li
 ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/
 Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.
 pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
-ymbols/msam7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Commutative Algebra 1.pdf" (45 pages, 557669 bytes).
+ymbols/msam10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on "Commutative Algebra 1.pdf" (48 pages, 582245 bytes).
 PDF statistics:
- 840 PDF objects out of 1000 (max. 8388607)
- 278 named destinations out of 1000 (max. 500000)
+ 859 PDF objects out of 1000 (max. 8388607)
+ 287 named destinations out of 1000 (max. 500000)
  437 words of extra memory for PDF output out of 10000 (max. 10000000)
 

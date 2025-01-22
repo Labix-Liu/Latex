@@ -29,9 +29,9 @@
 \contentsline {subsection}{\numberline {7.3}Perfect Pairings}{32}{subsection.7.3}%
 \contentsline {section}{\numberline {8}Inner Product Spaces}{33}{section.8}%
 \contentsline {subsection}{\numberline {8.1}The Norm of a Space}{33}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Inner Products}{34}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.2}Inner Products}{33}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}The Adjoint of a Linear Map}{35}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}The Trace of a Linear Map}{36}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.4}The Trace of a Linear Map}{35}{subsection.8.4}%
 \contentsline {section}{\numberline {9}Orthogonality}{37}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Orthogonal Vectors}{37}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Orthonormal Basis}{38}{subsection.9.2}%

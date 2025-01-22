@@ -2112,9 +2112,6 @@ a_{mj}
 \begin{defn}{Matrix Addition}{} Let $R$ be a ring. Let $m,n\in\N\setminus\{0\}$. Define matrix addition to be the binary operation $+:M_{m\times n}(R)\times M_{m\times n}(R)\to M_{m\times n}(R)$ given by $$(a_{ij})+(b_{ij})=(a_{ij}+b_{ij})$$
 \end{defn}
 
-\begin{prp}{}{} Let $R$ be a ring. Let $m,n\in\N\setminus\{0\}$. Then $(M_{m\times n}(R),+)$ is an abelian group. 
-\end{prp}
-
 \begin{defn}{Scalar Multiplication}{} Let $R$ be a ring. Let $m,n\in\N\setminus\{0\}$. Define scalar multiplication to be the function $\cdot:\R\times M_{m\times n}(\R)\to M_{m\times n}(\R)$ given by $$\lambda\cdot(a_{ij})=(\lambda a_{ij})$$
 \end{defn}
 
@@ -2224,15 +2221,15 @@ Let $n\in\N\setminus\{0\}$. Recall that $S_n$ is the group of all bijections of 
 \begin{defn}{Determinants}{} The determinant of a $n\times n$ matrix $A=(a_{ij})$ is the scalar quantity $$\det(A)=\sum_{\phi\in S_n}\sign(\phi)a_{1\phi(1)}a_{2\phi(2)}\dots a_{n\phi(n)}$$
 \end{defn}
 
-\begin{lmm}{}{} $\det(I_n)=1$. 
-\end{lmm}
+\begin{lmm}{}{} Let $n\in\N\setminus\{0\}$. Then $\det(I_n)=1$. \tcbline
 \begin{proof} 
 \begin{align*}
 \det(I_n)&=\sum_{\phi\in S_n}\sign(\phi)a_{1\phi(1)}a_{2\phi(2)}\dots a_{n\phi(n)}\\
 &=a_{11}a_{22}\dots a_{nn}\\
 &=1
 \end{align*}
-\end{proof}
+\end{proof} 
+\end{lmm}
 
 \begin{prp}{}{} If $A$ has two equal rows then $\det(A)=0$
 \end{prp}
@@ -2256,8 +2253,7 @@ Let $n\in\N\setminus\{0\}$. Recall that $S_n$ is the group of all bijections of 
 \end{prp}
 
 \subsection{Formula for the Inverse of an Invertible Matrix}
-\begin{defn}{}{}[Minor] Let $A\in M_{n\times n}(\R)$. The minor $M_{ij}$ of the element $a_{ij}$ of $A$ is the determinant of the submatrix obtained by deleting the $i$th row and the $j$th column of $A$. $$M_{ij}=
-\begin{vmatrix}
+\begin{defn}{The Adjoint of a Matrix}{} Let $\F$ be a field. Let $n\in\N\setminus\{0\}$. Let $A\in M_n(\F)$. Define the adjoint of $A$ to be $$\text{adj}(A)=(A_{ij})^T$$ where $A_{ij}$ is given by the formula $$A_{ij}=(-1)^{i+j}\begin{vmatrix}
 a_{1,1} & \cdots & a_{1,j-1} & a_{1,j+1} & \cdots & a_{1,n}\\
 \vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
 a_{i-1,1} & \cdots & a_{i-1,j-1} & a_{i-1,j+1} & \cdots & a_{i-1,n}\\
@@ -2265,9 +2261,6 @@ a_{i+1,1} & \cdots & a_{i+1,j-1} & a_{i+1,j+1} & \cdots & a_{i+1,n}\\
 \vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
 a_{m,1} & \cdots & a_{m,j-1} & a_{m,j+1} & \cdots & a_{m,n}\\
 \end{vmatrix}$$
-\end{defn}
-
-\begin{defn}{The Adjoint of a Matrix}{} Let $\F$ be a field. Let $n\in\N\setminus\{0\}$. Let $A\in M_n(\F)$. Define the adjoint of $A$ to be $$\text{adj}(A)=(A_{ij})^T$$ where $A_{ij}=(-1)^{i+j}M_{ij}$. 
 \end{defn}
 
 \begin{prp}{}{} Let $\F$ be a field. Let $n\in\N\setminus\{0\}$. Let $A\in M_n(\F)$. Then we have $$A\cdot\text{adj}(A)=\det(A)\cdot I_n=\text{adj}(A)\cdot A$$
@@ -2293,6 +2286,22 @@ A & 0_{n\times m}\\
 \end{defn}
 
 \begin{lmm}{}{} Let $\F$ be a field. Let $n,m\in\N\setminus\{0\}$. Let $\in M_n(\F)$ in $B\in M_m(\F)$. Then for any $k\in\N\setminus\{0\}$, we have that $$(A\oplus B)^n=A^n\oplus B^n$$
+\end{lmm}
+
+\subsection{The General Linear Group and its Subgroups}
+\begin{defn}{The General Linear Group}{} Let $k$ be a field. Define the general linear group of $n\times n$ matrices over $k$ to be $$\GL(n,k)=(M_n(k))^\times=\{M\in M_n(k)\;|\;M\text{ is invertible in }M_n(k)\}$$
+\end{defn}
+
+\begin{defn}{The Orthogonal Group}{} Let $k$ be a field. Let $n\in\N\setminus\{0\}$. Define the orthogonal group to be $$O(n,k)=\{M\in\GL(n,k)\;|\;M^TM=I_n\}$$
+\end{defn}
+
+\begin{defn}{The Special Linear Group}{} Let $k$ be a field. Let $n\in\N\setminus\{0\}$. Define the special linear group to be $$SL(n,k)=\{M\in\GL(n,k)\;|\;\det(M)=\pm1\}$$
+\end{defn}
+
+\begin{defn}{The Special Orthogonal Group}{} Let $k$ be a field. Let $n\in\N\setminus\{0\}$. Define the special orthogonal group to be $$SO(n,k)=\{M\in\GL(n,k)\;|\;\det(M)=1\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $k$ be a field. Let $n\in\N\setminus\{0\}$. Then $$SO(n,k)=O(n,k)\cap SL(n,k)$$
 \end{lmm}
 
 

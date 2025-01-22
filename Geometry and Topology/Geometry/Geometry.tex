@@ -21,70 +21,17 @@ Geometry is one of the oldest topics in mathematics. Almost every topic in mathe
 \tableofcontents
 \pagebreak
 \section{Euclidean Geometry}
-\subsection{Euclidean Space}
-The background of our study of geometry involves mainly three settings. In this chapter we will begin with the surface that mathematics students are most familiar with, namely the Euclidean Space. We will treat it as a metric space and investigate basic objects in traditional geometry such as lines, triangles and distance preserving transformations between them. 
-
-\begin{defn}{Euclidean Inner Product}{} Let $x,y\in \R^n$. The Euclidean inner product is defined to be $$\langle x,y\rangle=\sum_{k=1}^nx_ky_k$$
-\end{defn}
-
-The Euclidean inner product is just your standard product we investigated thoroughly in Linear Algebra. With this we have that $(\R^n,\langle\cdot,\cdot\rangle)$ becoming an Inner product space. The inner product naturally produces a norm, as well as a metric, as seem in Linear Algebra. 
-
-\begin{defn}{Euclidean Norm}{} Let $x\in \R^n$. The Euclidean Norm is defined to be $$\|x\|=\sqrt{\langle x,x\rangle}$$
-\end{defn}
-
+\subsection{Geometric Objects in Euclidean Space}
 \begin{defn}{Euclidean Metric}{} Let $x,y\in \R^n$. The Euclidean Metric is defined to be $$d(x,y)=\|x-y\|$$
 \end{defn}
-
-These three notion would be useful in formulating properties of the Euclidean Space. Before we prove that the Euclidean Metric is a metric on $\R^n$, we need a lemma to make our lives easier. 
-
-\begin{lmm}{Translation Invariance of Euclidean Metric}{} For $x,y,z\in\R^m$, we have $$d(x,y)=d(x-z,y-z)$$ \tcbline
-\begin{proof}
-Let $x,y,z\in\R^m$
-\begin{align*}
-d(x,y)&=\|x-y\|\\
-&=\|(x-z)-(y-z)\|\\
-&=d(x-z,y-z)
-\end{align*}
-Thus we are done. 
-\end{proof}
-\end{lmm}
-
-We now show that $\R^n$ is indeed a metric space with the distance function defined as above. 
-
-\begin{thm}{}{} Let $x,y\in\R^n$. $d(x,y)=\|x-y\|$ is a metric on $\R^n$. \tcbline
-\begin{proof} We just have the triangle inequality to prove. By the translation invariance, this is equivalent to proving $$d(0,y-x)\leq d(0,z-x)+d(z-x,y-x)$$ Rewriting this gives $d(0,u)\leq d(0,v)+d(v,u)\iff\|u\|\leq\|v\|+\|u-v\|$. 
-\begin{align*}
-\|u\|&=\frac{\langle u,u\rangle}{\|u\|}\\
-&=\frac{\langle v+u-v,u\rangle}{\|u\|}\\
-&=\frac{1}{\|u\|}\left(\langle v,u\rangle+\langle u-v,u\rangle\right)\\
-&=\left\langle v,\frac{u}{\|u\|}\right\rangle+\left\langle u-v,\frac{u}{\|u\|}\right\rangle\\
-&\leq\abs{\left\langle v,\frac{u}{\|u\|}\right\rangle}+\abs{\left\langle u-v,\frac{u}{\|u\|}\right\rangle}\\
-&\leq\|v\|\|\frac{u}{\|u\|}\|+\|u-v\|\cdot\|\frac{u}{\|u\|}\|\\
-&=\|v\|+\|u-v\|
-\end{align*}
-\end{proof}
-\end{thm}
-
-As seen from the below proposition, we can see that $\R^n$ is a particularly well behaved space. 
-
-\begin{prp}{}{} $\R^n$ is an inner product space. Thus it is also a normed vector space and a metric space. \tcbline
-\begin{proof} Trivial. 
-\end{proof}
-\end{prp}
-
-Finally we will define the Euclidean Space. Beware that our definition is a bit vague and that it is not completely equal to $\R^n$
 
 \begin{defn}{Euclidean Space}{} An Euclidean Space is a metric space which is isometric to $\R^n$, with the Euclidean metric for some $n\in\N$. We use the notation $E^n$ to denote the Euclidean Space. 
 \end{defn}
 
-While we have a metric defined on $E^n$, it does not have addition and scalar multiplication, which makes it different from $\R^n$. However, it is by definition that an Euclidean Space can be associated with $\R^n$. This makes the discussion on Euclidean Space much more easier, simply by studying $\R^n$. \linebreak\linebreak
-The reason we use the Euclidean Space instead of $\R^n$ is because we want our $0$ to be avaliable anywhere, instead of it being fixated on point in the space. 
-
-\subsection{Lines and Collinearity}
-\begin{defn}{Lines}{} Let $u,v\in\R^n, v\neq 0$. The line through $u$ in the direction $v$ is defined to be $$L=\{u+\lambda v|\lambda\in\R\}\subset\R^n$$
+\begin{defn}{Lines}{} Let $n\in\N\setminus\{0\}$. Let $u,v\in\R^n$. Define the line through $u$ and $v$ to be the set $$L_{u,v}=\{u+\lambda v\;|\;\lambda\in\R\}\subset\R^n$$
 \end{defn}
 
-\begin{defn}{Collinearity}{} We say that $x,y,z$ are collinear if there is a line $L$ with $x,y,z\in L$. 
+\begin{defn}{Collinearity}{} Let $n\in\N\setminus\{0\}$. Let $x,y,z\in\R^n$. We say that $x,y,z$ are collinear if there exists a line in $\R^n$ such that $$x,y,z\in L$$
 \end{defn}
 
 \begin{lmm}{Translation Preserves Collinearity}{} Let $x,y,z\in\R^n$ be distinct. They are collinear if and only if $x-z,y-z,0$ are collinear. \tcbline\begin{proof} $x,y,z$ is collinear if and only if $z=(1-\lambda)x+\lambda y\iff 0=(1-\lambda)(x-z)+\lambda(x-z)$. This means $x-z,y-z,0$ are collinear
@@ -114,18 +61,35 @@ We know that this happens if and only if $v=\lambda u$ for some $\lambda\in\R$, 
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} If $T$ is an isometry, then for $x,y,z\in E^n$, $x,y,z$ are collinear implies that $T(x),T(y),T(z)$ are also collinear. 
+\subsection{Isomorphisms of Euclidean Spaces}
+\begin{prp}{}{} Let $n\in\N\setminus\{0\}$. Let $f:\R^n\to\R^n$ be an isometry. Then the following are true. 
+\begin{itemize}
+\item For any isometry $g:\R^n\to\R^n$, $g\circ f:\R^n\to\R^n$ is an isometry. 
+\item The identity function $\text{id}_{\R^n}:\R^n\to\R^n$ is an isometry. 
+\item $f^{-1}:\R^n\to\R^n$ is an isometry. 
+\end{itemize}
 \end{prp}
 
-\subsection{Affine Maps}
+\begin{defn}{The Isometry Group}{} Let $n\in\N\setminus\{0\}$. Define the group of isometries of $(\R^n,d)$ to be the set $$\text{Isom}(\R^n,d)=\{f:\R^n\to\R^n\;|\;f\text{ is an isometry of }\R^n\}$$ together with group structure given by the composition of functions. 
+\end{defn}
+
+\begin{lmm}{}{} For any metric space $(X,d)$, $\text{Isom}(X,d)$ is a group. \tcbline
+\begin{proof} Note that if $f,g,h\in\text{Isom}(X,d)$, then $g\circ f$ is an isometry, $h\circ g\circ f$ is associative, the identity mapping $f(x)=x$ for all $x\in X$ is the identity of the group and since $f$ is bijective, there exists an inverse of $f$. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $n\in\N\setminus\{0\}$. Let $T:\R^n\to\R^n$ be an isometry. Let $x,y,z\in\R^n$. Then $x,y,z$ are collinear if and only if $T(x),T(y),T(z)$ are collinear. 
+\end{prp}
+
+\subsection{Classifying Isometries of Euclidean Space}
 \begin{defn}{Affine Maps}{} A map $T:\R^n\to\R^m$ is affine if it is of the form $$T(x)=Ax+b$$ for all $x\in\R^n$ for some linear map $A$ and $b\in\R^k$. 
 \end{defn}
 
-\begin{prp}{}{} Given a map $T:\R^n\to\R^k$, the following are equivalent. 
+\begin{prp}{}{} Let $n,k\in\N\setminus\{0\}$. Let $T:\R^n\to\R^k$ be a function. Then the following are equivalent. 
 \begin{itemize}
-\item $T$ is affine
-\item For all $\lambda,\mu\in\R$ and $x,y\in\R^n$, $$T(\lambda x+\mu y)-T(0)=\lambda(T(x)-T(0))+\mu(T(y)-T(0))$$
-\item For all $\lambda\in\R$, $$T(\lambda x+(1-\lambda)y)=\lambda T(x)+(1-\lambda)T(y)$$
+\item $T$ is an affine map. 
+\item The map $L(x)=T(x)-T(0)$ is a linear map. 
+\item For all $\lambda\in\R$, $T(\lambda x+(1-\lambda)y)=\lambda T(x)+(1-\lambda)T(y)$
 \end{itemize}\tcbline
 \begin{proof} Let $T:\R^n\to\R^k$ be a map. 
 \begin{itemize}
@@ -153,12 +117,12 @@ T(\lambda x+\mu y)-T(0)&=\lambda(T(x)-T(0))+\mu(T(y)-T(0))
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $L:\R^n\to\R^n$ be a linear map with matrix $A$ with respect to the standard basis. Then the following are equivalent. 
+\begin{prp}{}{} Let $n\in\N\setminus\{0\}$. Let $L:\R^n\to\R^n$ be a linear map. Let $A$ be the matrix representing $T$ under the standard basis. Then the following are equivalent. 
 \begin{itemize}
 \item $L$ is an isometry
 \item $\|L(x)\|=\|x\|$ for all $x\in\R^n$
 \item $\langle L(x),L(y)\rangle=\langle x,y\rangle$ for all $x,y\in\R^n$
-\item $A$ is orthogonal
+\item $A$ is an orthogonal matrix. 
 \end{itemize}\tcbline
 \begin{proof} Let $L:\R^n\to\R^k$ be linear. 
 \begin{itemize}
@@ -187,7 +151,7 @@ Thus $d(L(x),L(y))=\|L(x)-L(y)\|=\|L(x-y)\|=\|x-y\|=d(x,y)$.
 \end{proof}
 \end{prp}
 
-\begin{thm}{}{} Every Euclidean Isometry $T:\R^n\to\R^n$ is affine and has the form $T(x)=Ax+b$, where $A$ is orthogonal. \tcbline
+\begin{prp}{}{} Let $n\in\N\setminus\{0\}$. Let $T:\R^n\to\R^n$ be a function. Then $T$ is an isometry if and only if $T$ is affine and given by $T(x)=Ax+b$, where $A$ is orthogonal. \tcbline
 \begin{proof} We have shown that Euclidean Isometries are line preserving, thus by $1.3.2$ they are affine and in the form $T(x)=Ax+b$. We now check that $G(x)=Ax=T(x)-b$ is an isometry. $G$ is distance preserving since
 \begin{align*}
 d(G(x),G(y))&=\|G(x)-G(y)\|\\
@@ -198,86 +162,13 @@ d(G(x),G(y))&=\|G(x)-G(y)\|\\
 \end{align*}
 We now show that $G$ is bijective. Since $T$ is an isometry, $T$ is bijective and $T(x)-b$ is also bijective with $T^{-1}(x)=x+b$ and thus $G$ is an isometry. By the above proposition, $A$ is orthogonal. 
 \end{proof}
-\end{thm}
-
-\begin{prp}{}{} Every orthogonal matrix $A\in\R^{n\times n}$ induces a set of Euclidean isometries $T(x)=Ax+b$ where $b\in\R^n$ \tcbline
-\begin{proof} If $A$ is orthogonal, then $G(x)=Ax$ is an isometry by the above proposition. But so is $T(x)=Ax+b$ for any $b\in\R^n$ since $G$ is bijective, $T$ is bijective and 
-\begin{align*}
-d(T(x),T(y))&=\|T(x)-T(y)\|\\
-&=\|Ax+b-Ay-b\|\\
-&=\|G(x)-G(y)\|\\
-&=\|x-y\|\tag{$G$ is an isometry}\\
-&=d(x,y)
-\end{align*}
-\end{proof}
 \end{prp}
 
-\subsection{Normal Form Theorem}
-This is to categorize that every isometry from $\R^n$ to $\R^n$ has the normal form under some orthonormal basis. By doing this, we can simply study the normal form of a linear map to derive results to every isometry of the Euclidean Space. 
-\begin{lmm}{}{} Let $L$ be an isometry of $\R^n$, and $W$ a subspace of $\R^n$ such that $L(W)=W$. Then also $L(W^\perp)=W^\perp$\tcbline
-\begin{proof} Let $v\in L(W^{\perp})$. 
-\begin{align*}
-v\in L(W^\perp)&\iff L^{-1}(v)\in W^\perp\\
-&\iff\langle L^{-1}(v),w\rangle=0\;\forall w\in W\\
-&\iff\langle L(L^{-1}(v)),L(w)\rangle=0\;\forall w\in W\\
-&\iff\langle v,L(w)\rangle=0\;\forall w\in W\\
-&\iff\langle v,w\rangle=0\;\forall w\in W\\
-&\iff v\in W^\perp
-\end{align*}
-\end{proof}
-\end{lmm}
-
-Geometrically this means that if a subspace is invariant, then its orthogonal complement is invariant as well under isometry. 
-
-\begin{crl}{}{} Let $L$ be an isometry of $\R^n$. Let $W$ be a subspace of $\R^n$ such that $L(W)=W$. Let $w_1,\dots,w_p$ be a basis for $W$ and let $w_{p+1},\dots,w_n$ be a basis for $W^\perp$. Then with respect to the basis, the matrix $L$ has the form $$\begin{pmatrix}
-L|_W & 0\\
-0 & L|_{W^\perp}
-\end{pmatrix}$$\tcbline
-\begin{proof}
-Note that $A$ can be written in the form $$\begin{pmatrix}L|_W & L|_{W^\perp}\end{pmatrix}=\begin{pmatrix}\text{pr}_W(L|_W) & \text{pr}_W(L|_{W^\perp})\\ \text{pr}_{W^\perp}(L|_W) & \text{pr}_{W^\perp}(L|_{W^\perp})\end{pmatrix}$$ where pr$_W(v)$ is the projection of $v\in V$ on to the subspace $W$ and vice versa. Then by the above lemma pr$_W(L|_{W^\perp})=0$ and pr$_{W^\perp}(L|_W)=0$. Thus $$A=\begin{pmatrix}
-L|_W & 0\\
-0 & L|_{W^\perp}
-\end{pmatrix}$$
-\end{proof}
-\end{crl}
-
-\begin{prp}{}{} Let $\lambda\in\C$ be an eigenvalue of an isometry $L$ of $\R^n$, with eigenvector $z\in\C^n$. Then the following are true. 
-\begin{itemize}
-\item $\abs{\lambda}=1$
-\item $\overline{\lambda}$ is also an eigenvalue with eigenvector $\overline{z}$
-\item if $\mu$ is also eigenvalue not equal to $\lambda$ with eigenvector $w$, then $\langle z,w\rangle=0$
-\end{itemize}\tcbline
-\begin{proof} Let $z,w\in\C$. 
-\begin{itemize}
-\item $\langle z,z\rangle=\langle Az,Az\rangle=\langle\lambda z,\lambda z\rangle=\lambda\overline{\lambda}\langle z,z\rangle$. Thus $\abs{\lambda}=1$
-\item $A\overline{z}=\overline{A}\overline{z}=\overline{Az}=\overline{\lambda}\overline{z}$ and $A=\overline{A}$ since $A$ is real. 
-\item Note that $\langle z,w\rangle=\langle Az,Aw\rangle=\langle\lambda z,\mu w\rangle=\lambda\abs{\mu}\langle z,w\rangle$. Thus either $\langle z,w\rangle=0$ or $\lambda\abs{\mu}=1$. If $\lambda\abs{\mu}=1$, then
-\begin{align*}
-\lambda\abs{\mu}&=1\\
-\lambda\mu\abs{\mu}&=\mu\\
-\lambda\abs{\mu}^2&=\mu\\
-\lambda&=\mu
-\end{align*}
-This is a contradiction since we assume $\lambda\neq\mu$. Thus we must have $\langle z,w\rangle=0$
-\end{itemize}
-\end{proof}
+\begin{prp}{}{} Let $\phi:O(n,\R)\to\text{Aut}(\R^n)$ be the function defined by $\phi(A)(x)=Ax$ for $x\in\R^n$. Then $\phi$ is a group homomorphism. Moreover, there is a group isomorphism $$\psi:\text{Isom}(\R^n,d)\to \R^n\rtimes_\phi O(n,\R)$$ given by $T\mapsto(T(0),T-T(0))$. 
 \end{prp}
 
-Note that the third point here implies that the eigenspaces has to be orthogonal to each other. 
-
-\begin{lmm}{}{} If $L$ is a linear isometry of $W\cong\R^2$ with eigenvalues $\lambda,\overline{\lambda}\in\C\setminus\R$, then $L$ has an orthonormal basis in $\R^2$ with respect to which it has matrix $$\begin{pmatrix}\cos(\theta) & -\sin(\theta)\\ \sin(\theta) & \cos(\theta)\end{pmatrix}$$ where $\lambda=\cos(\theta)+i\sin(\theta)$\tcbline
-\begin{proof} Extend $L$ to $\C^2$. Let $z=x+iy$ be an eigenvector with eigenvalue $\lambda$, with $x,y\in\R^2$. We know that $\abs{\lambda}=1$, so $\lambda=\cos(\theta)+i\sin(\theta)$ for some $\theta$, and we have $$L(x+iy)=(\cos(\theta)+i\sin(\theta))(x+iy)$$ Comparing real and imaginary parts give $$L(x)=\cos(\theta)x-\sin(\theta)y$$ and $$L(y)=\sin(\theta)x+\cos(\theta)y$$ Thus we have the given matrix. \linebreak\linebreak
-Now we show that $x,y$ can be an orthonormal basis. From the above, we have $\langle z,\overline{z}\rangle=0$. Since $x=\frac{1}{2}(z+\overline{z})$ and $y=\frac{1}{2i}(z-\overline{z})$, we have
-\begin{align*}
-\langle x,y\rangle&=\frac{-1}{4i}\langle z+\overline{z},z-\overline{z}\rangle\\
-&=\|z\|^2-\langle z,\overline{z}\rangle+\langle\overline{z},z\rangle-\|\overline{z}\|^2\\
-&=0
-\end{align*}
-Thus $x,y$ are orthogonal. We also have that $0=\langle z,\overline{z}\rangle=\langle x+iy,x-iy\rangle=\|x\|^2-\|y\|^2+2i\langle x,y\rangle=\|x\|^2-\|y\|^2$. Thus $\|x\|=\|y\|$. Thus our basis can be normalized by using $\frac{x}{\|x\|}$ and $\frac{y}{\|y\|}$ without changing the basis. 
-\end{proof}
-\end{lmm}
-
-\begin{thm}{Normal Form Theorem}{} Let $L:\R^n\to\R^n$ be a linear isometry and $A$ an orthogonal matrix such that $L(x)=Ax$. Then there exists an orthonormal basis of $\R^n$ with respect to which the matrix $A$ is $$A=\begin{pmatrix}
+\subsection{Canonical Form of Orthogonal Matrices}
+\begin{thm}{Canonical Form of Orthogonal Matrices}{} Let $M\in O(n,\R)$ be an orthogonal matrix. Then there exists an orthonormal basis of $\R^n$ such that $M$ is similar to a matrix of the form $$\begin{pmatrix}
 I_k &&&&\\
 &-I_m&&&\\
 &&B_1&&\\
@@ -306,29 +197,6 @@ By the above, in both cases, $L|_{W^\perp}$ is an isometry of $W^\perp$, so we c
 \end{thm}
 
 I would say that the main part of this theorem is that you essentially decompose $\R^n$ into $W_1\oplus\dots\oplus W_n$, where they are mutually orthogonal. It might be the case that an isometry in $\R^2$ or $\R^3$ allows some orthogonal to rotate or reflect, leaving the rest invariant. Thus performing each rotation or reflection in $\R^3$ is only transforming one of $W_1,\dots,W_n$. 
-
-\subsection{Relation to Groups}
-\begin{defn}{The Orthogonal Group}{} The group of $n\times n$ real orthogonal matrices is defined to by $$O(n,\R)=\{A\in\text{GL}(\R^n)|A^TA=I\}$$
-\end{defn}
-
-\begin{lmm}{}{} $O(n,\R)$ is a group. \tcbline
-\begin{proof} It is simple to check that $O(n,\R)$ by closure, associativity, existence of inverse and identity. 
-\end{proof}
-\end{lmm}
-
-\begin{prp}{}{} $O(n,\R)$ acts on $\R^n$ as a group action. In particular, for $M\in O(n,\R)$, $A_M(x)=Mx$. 
-\end{prp}
-
-\begin{defn}{Isometry Group}{} Let $(X,d)$ be a metric space. Then the group of isometries of $(X,d)$ is the set $$\text{Isom}(X,d)=\{f:X\to X|f \text{ is an isometry of }X\}$$
-\end{defn}
-
-\begin{lmm}{}{} For any metric space $(X,d)$, Isom$(X,d)$ is a group. \tcbline
-\begin{proof} Note that if $f,g,h\in\text{Isom}(X,d)$, then $g\circ f$ is an isometry, $h\circ g\circ f$ is associative, the identity mapping $f(x)=x$ for all $x\in X$ is the identity of the group and since $f$ is bijective, there exists an inverse of $f$. 
-\end{proof}
-\end{lmm}
-
-\begin{thm}{}{} There is a group homomorphism between $$\psi:\text{Isom}(\R^n,d)\to \R^n\rtimes_\phi O(n,\R)$$ where $\phi$ is given by the natural action of $O(n)$ on $\R^n$ and $$\psi(T)=(T(0),T-T(0))$$ and its inverse being $$\psi^{-1}(b,A)=\left(T(x)=Ax+b\right)$$
-\end{thm}
 
 \subsection{Isometry Decomposition}
 \begin{defn}{Hyperplane}{} Let $V\subseteq\R^n$ be a vector subspace of $\R^{n-1}$. Let $b\in\R^n$. Let $v_n\in\R$ such that $v_n\perp V$. A hyperplane of $\R^n$ is an affine subspace of dimension $n-1$, which has the form $$\Pi=V+b=\{b+v|v\in V\}=\{v\in V|\langle v,v_n\rangle=\langle v_n,b\rangle\}$$ where $V\subseteq\R^n$ and $b\in\R^n$
@@ -375,7 +243,7 @@ Thus we are done.
 \end{proof}
 \end{lmm}
 
-\begin{thm}{}{} The group Isom$(E^n)$ is generated by reflections. Moreover, any isometry of $E^n$ is the product of at most $n+1$ reflections. \tcbline
+\begin{thm}{}{} Let $T\in\text{Isom}(\R^n,d)$ be an isometry of $\R^n$. Then $T$ is the composition of at most $n+1$ reflections. \tcbline
 \begin{proof} Let $T$ be an isometry. Let $P=T(0)$ and $Q=0$. Then by the above, there exists a reflection $R$ such that $R(T(0))=0$. Thus $L=R\circ T$ is a linear isometry. Choose an orthonormal basis $v_1,\dots,v_n$ so that by the normal form theorem, the matrix $M$ has the following form $$M=\begin{pmatrix}
 I_k &&&&\\
 &-I_m&&&\\

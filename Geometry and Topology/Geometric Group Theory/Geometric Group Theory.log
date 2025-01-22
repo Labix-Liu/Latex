@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  15 JAN 2025 17:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  21 JAN 2025 17:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1090,32 +1090,38 @@ File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}] (Geometric Group Theory.aux)
+enc}]
+
+[4] (Geometric Group Theory.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Geometric Group Theory".out' has not change
 d.
-(rerunfilecheck)             Checksum: 00742E7DD72CE56EB9A3F76CE786395B;322.
+(rerunfilecheck)             Checksum: CD7FD58A8A6A6E129F315FB8E27BA9F4;554.
  ) 
 Here is how much of TeX's memory you used:
- 32392 strings out of 473577
- 639716 string characters out of 5716318
- 1047680 words of memory out of 5000000
- 55046 multiletter control sequences out of 15000+600000
- 590811 words of font info for 72 fonts, out of 8000000 for 9000
+ 32425 strings out of 473577
+ 640274 string characters out of 5716318
+ 1068680 words of memory out of 5000000
+ 55067 multiletter control sequences out of 15000+600000
+ 596737 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,11n,120p,573b,1093s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/tex-gyre/qplr.pfb>
-Output written on "Geometric Group Theory.pdf" (3 pages, 142159 bytes).
+fonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liula/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liul
+a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/
+liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
+Output written on "Geometric Group Theory.pdf" (4 pages, 190866 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 8 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 111 PDF objects out of 1000 (max. 8388607)
+ 20 named destinations out of 1000 (max. 500000)
+ 37 words of extra memory for PDF output out of 10000 (max. 10000000)
 

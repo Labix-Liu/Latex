@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  13 JAN 2025 20:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  18 JAN 2025 11:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1136,12 +1136,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 252--253
 [16]
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 582--596
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 582--596
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 539--540
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--542
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--542
 
  []
 
@@ -1158,46 +1173,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 582--596
 [22]
 
 [23]
+Underfull \hbox (badness 10000) in paragraph at lines 695--709
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 695--709
+
+ []
+
+
 
 [24]
 
 [25]
 
-LaTeX Warning: Citation `Zar-Sam' on page 26 undefined on input line 851.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 851--852
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 851--852
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 855--856
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 855--856
-
- []
-
-
-
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 857--858
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 857--858
-
- []
-
-
 
 [27]
 
@@ -1209,35 +1200,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 857--858
 
 [31]
 
+LaTeX Warning: Citation `Zar-Sam' on page 32 undefined on input line 964.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 964--965
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 964--965
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 968--969
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 968--969
+
+ []
+
+
+
 [32]
+Underfull \hbox (badness 10000) in paragraph at lines 970--971
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 970--971
+
+ []
+
+
 
 [33]
 
 [34]
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1071--1072
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1071--1072
-
- []
-
-
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
-
- []
-
-
 
 [37]
 
@@ -1245,7 +1250,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
 
 [39]
 
-[40] (Rings and Modules.aux)
+[40]
+
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1185
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1185
+
+ []
+
+
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 1234--1235
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1234--1235
+
+ []
+
+
+
+[43]
+
+[44]
+
+[45]
+
+[46]
+
+[47]
+
+[48]
+
+[49]
+
+[50] (Rings and Modules.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
@@ -1254,23 +1299,17 @@ L3 programming layer <2024-12-09>
 
 LaTeX Warning: There were undefined references.
 
-
-Package rerunfilecheck Warning: File `"Rings and Modules".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Rings and Modules".out':
-(rerunfilecheck)             Before: 718EA18DD46C6C5BBC6022C0FBB0943E;6675
-(rerunfilecheck)             After:  8E8B8FFFF1BCB0EEF4DF851F08827113;6635.
+Package rerunfilecheck Info: File `"Rings and Modules".out' has not changed.
+(rerunfilecheck)             Checksum: 0102318B1B1F399A213649544AECD1CB;7326.
  ) 
 Here is how much of TeX's memory you used:
- 33945 strings out of 473577
- 674541 string characters out of 5716318
- 1093612 words of memory out of 5000000
- 56372 multiletter control sequences out of 15000+600000
+ 34305 strings out of 473577
+ 683207 string characters out of 5716318
+ 1101650 words of memory out of 5000000
+ 56692 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,17n,120p,799b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,17n,120p,1249b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1288,9 +1327,9 @@ lic/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Rings and Modules.pdf" (40 pages, 529263 bytes).
+Output written on "Rings and Modules.pdf" (50 pages, 587838 bytes).
 PDF statistics:
- 701 PDF objects out of 1000 (max. 8388607)
- 234 named destinations out of 1000 (max. 500000)
- 333 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 801 PDF objects out of 1000 (max. 8388607)
+ 274 named destinations out of 1000 (max. 500000)
+ 365 words of extra memory for PDF output out of 10000 (max. 10000000)
 

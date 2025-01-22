@@ -136,39 +136,14 @@ and we are done.
 \end{proof}
 \end{thm}
 
-\subsection{Equivalent Metrics}
-\begin{thm}{}{} Let $d_1,d_2$ be two metrics on $X$. Then the following statements are equivalent. 
-\begin{itemize}
-\item The open sets in $(X,d_1)$ and $(X,d_2)$ coincide
-\item For any metric space $(Y,d_Y)$, a function $g:X\to Y$ is continuous from $(X,d_1)$ to $(Y,d_Y)$ if and only if $g$ is continuous from $(X,d_2)$ to $(X,d_1)$
-\item For any metric sapce $(Y,d_Y)$, a function $f:Y\to X$ is continuous from $(Y,d_Y)$ to $(X,d_1)$ if and only if $f$ is continuous from $(Y,d_Y)$ to $(X,d_2)$
-\end{itemize}
-\end{thm}
-
-\begin{defn}{Topologically Equivalent Metrics}{} Two metrics $d_1,d_2$ on $X$ are said to be topologically equivalent if the above statements are true. 
+\subsection{Linear Isometries}
+\begin{defn}{Distance Preserving Maps}{} Let $(X,d_1)$ and $(X,d_2)$ be metric spaces. Let $f:X\to Y$ be a function. We say that $f$ is distance preserving if for any $p,q\in X$, we have $$d_2(f(p),f(q))=d_1(p,q)$$
 \end{defn}
 
-\begin{defn}{Lipschitz Equivalent Metrics}{} Two metrics $d_1,d_2$ on $X$ are said to be Lipschitz equivalent if there exists $0<c_1\leq c_2<\infty$ such that $$c_1d_1(x,y)\leq d_2(x,y)\leq c_2d_1(x,y)$$ for all $x,y\in X$. 
+\begin{defn}{Isometries}{} Let $(X,d_1)$ and $(X,d_2)$ be metric spaces. Let $f:X\to Y$ be a distance preserving map. We say that $f$ is an isometry if there exists a distance preserving map $g:Y\to X$ such that $$g\circ f=\text{id}_X\;\;\;\;\text{ and }\;\;\;\;f\circ g=\text{id}_Y$$
 \end{defn}
 
-\begin{lmm}{}{} Lipschitz equivalence implies topologically equivalence on metrics. 
-\end{lmm}
-
-\begin{defn}{Equivalent Norms}{} Two norms $\|\cdot\|_1$ and $\|\cdot\|_2$ for a vector space $V$ over a field $F=\R$ or $\C$ are said to be equivalent if there exists $c_1,c_2\in F$ such that for every $x\in V$, $$c_1\|x\|_1\leq\|x\|_2\leq c_2\|x\|_1$$
-\end{defn}
-
-\begin{prp}{}{} The equivalence on norms is an equivalent relation. 
-\end{prp}
-
-\begin{prp}{}{} Suppose that two norms are equivalent on a normed vector space, then they induce topologically equivalent metrics. \tcbline
-\begin{proof}
-Suppose that $\|\cdot\|_1$ and $\|\cdot\|_2$ are equivalent. Then define their corresponding metrics by $d_1(x,y)=\|x-y\|_1$ and $d_2(x,y)=\|x-y\|_2$ for $x,y$ in a normed vector space $X$. We show that the open sets coincide. \\~\\
-Suppose that $U\subseteq(X,d_1)$ is open. Then for every $x\in U$, there exists $r>0$ such that $B_r(x)\subset U$. From the equivalent norms, we have that there exists $c$ such that $\|x-y\|_2\leq c\|x-y\|_1$ and thus $$\left\{x\in X\bigg{|}\|x-y\|_2<\frac{r}{c}\right\}\subseteq\{x\in X|\|x-y\|_1<r\}$$ Thus $B_{\frac{r}{c}}(x)$ in the $d_2$ metric is a subset of $B_r(x)$ in the $d_1$ metric. This means that we have constructed an open ball in $(X,d_2)$ so that it is contained in $U$. Thus $U$ is also open in $(X,d_2)$. \\~\\
-Mirror this to show that the open sets of $(X,d_2)$ must also be open sets of $(X,d_1)$ using the fact that there exists $c$ such that $\|x-y\|_1\leq c\|x-y\|_2$ and we are done. 
-\end{proof}
-\end{prp}
-
-\begin{lmm}{}{} If $X$ is a vector space and two norms induce topologically equivalent metrics, then the norms are equivalent. 
+\begin{lmm}{}{} Let $(X,d_1)$ and $(X,d_2)$ be metric spaces. Let $f:X\to Y$ be a distance preserving map. Then $f$ is an isometry if and only if $f$ is bijective. 
 \end{lmm}
 
 \pagebreak

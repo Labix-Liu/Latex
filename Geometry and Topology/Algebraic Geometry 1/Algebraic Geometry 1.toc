@@ -6,7 +6,7 @@
 \contentsline {subsection}{\numberline {2.1}The Zero Set of Polynomials}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Irreducible Varieties}{7}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}The Zariski Topology}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Morphisms of Affine Varieties}{9}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.4}Morphisms of Affine Varieties}{10}{subsection.2.4}%
 \contentsline {section}{\numberline {3}The Dictionary Between Algebra and Geometry}{12}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Forming an Ideal of a Set}{12}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}The Absolute Hilbert's Nullstellensatz}{13}{subsection.3.2}%
@@ -30,13 +30,16 @@
 \contentsline {subsection}{\numberline {6.3}Redefining Varieties}{31}{subsection.6.3}%
 \contentsline {section}{\numberline {7}The Algebra of Regular Functions}{32}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Regular Functions on Quasi-Projective Varieties}{32}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}The Function Field}{33}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.2}Regular Functions Near a Point}{33}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Regular Functions on Affine Varieties}{33}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Regular Functions on Projective Varieties}{34}{subsection.7.4}%
-\contentsline {section}{\numberline {8}Classical Constructions}{35}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Veronese Maps}{35}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}The Segre Map}{35}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}The Grassmannians Manifolds}{36}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Dimension Theory for Varieties}{39}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Dimension and its Properties}{39}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Comparing Dimensions}{40}{subsection.9.2}%
+\contentsline {section}{\numberline {8}The Algebra of Rational Functions}{35}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Rational Functions and The Function Field}{35}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Rational Maps between Varieties}{36}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Classical Constructions}{37}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Veronese Maps}{37}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}The Segre Map}{37}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}The Grassmannians Manifolds}{38}{subsection.9.3}%
+\contentsline {section}{\numberline {10}Dimension Theory for Varieties}{41}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Dimension and its Properties}{41}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Comparing Dimensions}{42}{subsection.10.2}%

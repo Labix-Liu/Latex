@@ -62,4 +62,5 @@
 \contentsline {subsection}{\numberline {11.2}Row Operations}{72}{subsection.11.2}%
 \contentsline {subsection}{\numberline {11.3}Determinants}{74}{subsection.11.3}%
 \contentsline {subsection}{\numberline {11.4}Formula for the Inverse of an Invertible Matrix}{75}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}Direct Sum or Matrices}{76}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11.5}Direct Sum or Matrices}{75}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11.6}The General Linear Group and its Subgroups}{76}{subsection.11.6}%

@@ -24,14 +24,54 @@ Potentially good books: Humphreys, Erdmann and Wildson
 \pagebreak
 \section{The Geometry of Presentations}
 \subsection{Cayley Graphs}
-\begin{defn}{The Cayley Graph of a Group}{} Let $G$ be a group. Let $S$ be a generating set of $G$. Define the Cayley graph $\Gamma$ of $G$ with respect to $S$ to consist of the following data. 
+\begin{defn}{The Cayley Graph of a Group}{} Let $G$ be a group. Let $S$ be a generating set of $G$. Define the Cayley graph $\Gamma=\Gamma(G,S)$ of $G$ with respect to $S$ to consist of the following data. 
 \begin{itemize}
 \item The vertices are given by $V(\Gamma)=G$
 \item The edges are given by $E(\Gamma)=\{(g,gs)\;|\;g\in G,s\in S\}$
 \end{itemize}
 \end{defn}
 
+Let $(V,E)$ be a graph. Recall that a graph automorphism consists of a bijective map of vertices and a bjective map of edges such that $$\{\phi(v),\phi(w)\}\in E$$ for all $\{v,w\}\in E$. They form a group by composition. 
 
+\begin{lmm}{The Action Lemma}{} Let $G$ be a group. Let $S$ be a generating set of $G$. Then $G$ acts on the Cayley graph $\Gamma$ of $G$ with respect to $S$ via tha map $$\cdot:G\times\Gamma\to\Gamma$$ defined by $h\cdot g=hg$ and $h\cdot (g,gs)=(hg,hgs)$. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $G$ be a group. Let $S$ be a generating set of $G$. Then $G$ acts on the Cayley graph faithfully. 
+\end{lmm}
+
+\begin{prp}{}{} Let $G$ be a group. Let $S$ be a generating set of $G$. Then the following are true regarding the Cayley graph $\Gamma(G,S)$ of $G$ with respect to $S$. 
+\begin{itemize}
+\item $\Gamma(G,S)$ has no embedded cycles. 
+\item $\Gamma(G,S)$ is connected. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $S$ be a set. Then $\Gamma(F_S,S)$ is a tree. 
+\end{prp}
+
+\begin{prp}{}{} Let $G$ be a group. Let $S$ be a generating set of $G$. Consider $\Gamma(G,S)$ as a CW complex. Then $\Gamma(F_S,S)$ is a universal cover of $\Gamma(G,S)$. 
+\end{prp}
+
+\subsection{Giving the Cayley Graph a Metric}
+\begin{defn}{The Word Metric}{} Let $G$ be a group. Let $S$ be a generating set of $G$. Let $\Gamma$ be the Cayley complex of $G$ and $S$. Define the word metric to be the map $d_S:V(\Gamma)\times V(\Gamma)\to\N$ by $$d_S(g,h)=\min\{n\in\N\;|\;\gamma:[0,n]\to\Gamma\text{ is a path from }g\text{ to }h\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $G$ be a group. Let $S$ be a generating set of $G$. Let $\Gamma$ be the Cayley complex of $G$ and $S$. Then $d_\Gamma$ is a metric on $V(\Gamma)$. 
+\end{lmm}
+
+\begin{prp}{}{} Let $G$ be a group. Let $S$ be a generating set of $G$. Let $\Gamma$ be the Cayley complex of $G$ and $S$. Then for each $k\in G$, the induced map $\Gamma\to\Gamma$ from the action of $G$ on $\Gamma$ is an isometry. In other words, $$d_S(k\cdot g,k\cdot h)=d_S(g,h)$$ for all $g,h,k\in G$. 
+\end{prp}
+
+\begin{defn}{The Word Norm}{} Let $G$ be a group. Let $S$ be a generating set of $G$. Let $\Gamma$ be the Cayley complex of $G$ and $S$. Define the word norm of $g\in G$ to be $$\|g\|_S=d_S(1_G,g)$$
+\end{defn}
+
+\begin{lmm}{}{} Let $G$ be a group. Let $S$ be a generating set of $G$. Let $\Gamma$ be the Cayley complex of $G$ and $S$. Then the following are true. 
+\begin{itemize}
+\item $d_S(g,h)=\|g^{-1}h\|_S$ for all $g,h\in G$. 
+\item $\|g^{-1}\|_S=\|g\|_S$ for all $g\in G$. 
+\item $\|gh\|_S\leq\|g\|_S+\|h\|_S$ for all $g,h\in G$. 
+\end{itemize}
+\end{lmm}
 
 
 

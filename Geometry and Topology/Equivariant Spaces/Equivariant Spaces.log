@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  8 JAN 2025 17:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  16 JAN 2025 23:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1134,21 +1134,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 280--281
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Equivariant Spaces".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Equivariant Spaces".out':
-(rerunfilecheck)             Before: BBA5F36B081BB3EFCF332ED4A1C51B62;2959
-(rerunfilecheck)             After:  F28F15CA40896224E02464E1D3FB81B1;3164.
+Package rerunfilecheck Info: File `"Equivariant Spaces".out' has not changed.
+(rerunfilecheck)             Checksum: F28F15CA40896224E02464E1D3FB81B1;3164.
  ) 
 Here is how much of TeX's memory you used:
- 32593 strings out of 473577
- 643028 string characters out of 5716318
- 1070664 words of memory out of 5000000
- 55163 multiletter control sequences out of 15000+600000
+ 32594 strings out of 473577
+ 643044 string characters out of 5716318
+ 1069664 words of memory out of 5000000
+ 55164 multiletter control sequences out of 15000+600000
  600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,11n,120p,615b,1201s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1171,9 +1164,9 @@ X/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppDat
 a/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Equivariant Spaces.pdf" (15 pages, 367399 bytes).
+Output written on "Equivariant Spaces.pdf" (15 pages, 368159 bytes).
 PDF statistics:
- 329 PDF objects out of 1000 (max. 8388607)
+ 334 PDF objects out of 1000 (max. 8388607)
  88 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  15 JAN 2025 15:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  16 JAN 2025 20:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1259,17 +1259,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 451--452
 [26]
 
 [27]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 636
+LaTeX Font Info:    Trying to load font information for U+euf on input line 641
 .
  (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-Underfull \hbox (badness 10000) in paragraph at lines 644--645
+Underfull \hbox (badness 10000) in paragraph at lines 649--650
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 644--645
+Underfull \hbox (badness 10000) in paragraph at lines 649--650
 
  []
 
@@ -1280,12 +1280,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 644--645
 [29]
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 713--714
+Underfull \hbox (badness 10000) in paragraph at lines 718--719
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 713--714
+Underfull \hbox (badness 10000) in paragraph at lines 718--719
 
  []
 
@@ -1294,12 +1294,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 713--714
 [31]
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 752--753
+Underfull \hbox (badness 10000) in paragraph at lines 757--758
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 752--753
+Underfull \hbox (badness 10000) in paragraph at lines 757--758
 
  []
 
@@ -1312,11 +1312,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 752--753
 [35]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 859.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 859.
 
 
 
@@ -1371,7 +1371,7 @@ rograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/
 liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Introduction to Manifolds.pdf" (43 pages, 573007 bytes).
+Output written on "Introduction to Manifolds.pdf" (43 pages, 574334 bytes).
 PDF statistics:
  690 PDF objects out of 1000 (max. 8388607)
  214 named destinations out of 1000 (max. 500000)

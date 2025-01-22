@@ -90,49 +90,6 @@ We can now motivate the definition of a smooth point using the purely algebraic 
 
 \pagebreak
 \section{Birational Geometry}
-\subsection{Rational Morphisms}
-\begin{defn}{Equivalent Maps}{} Let $X,Y$ be irreducible varieties. Let $U_1,U_2\subseteq X$ be open. Let $f_1:U_1\to Y$ and $f_2:U_2\to Y$ be morphisms of varieties. We say that $f_1$ and $f_2$ are equivalent if there exists an open subset $W\subseteq U_1\cap U_2$ such that $$f_1|_W=f_2|_W:W\to Y$$
-\end{defn}
-
-\begin{defn}{Rational Maps}{} Let $X,Y$ be irreducible varieties. A rational map $f:X\to Y$ is an equivalent class of morphisms of varieties $f:U\to Y$ for some open subset $U\subseteq X$. 
-\end{defn}
-
-Since open subsets of a variety dense, rational maps are maps that are defined almost entirely on $X$. 
-
-\begin{defn}{Dominant Maps}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a rational map defined on $U\subseteq X$. We say that $f$ is dominant if $f(U)$ contains an open subset. 
-\end{defn}
-
-It only makes sense to compose rational maps if the former one is dominant. 
-
-\begin{prp}{}{} Let $X,Y,Z$ be irreducible varieties. Let $f:X\to Y$ and $g:Y\to Z$ be rational maps. If $f$ is dominant, then $g\circ f$ is rational. 
-\end{prp}
-
-\begin{prp}{}{} Let $X$ be an irreducible variety. Then the set of rational maps $X\to\A^1$ are in bijection with the function field $K(X)$. 
-\end{prp}
-
-\subsection{Birational Maps}
-\begin{defn}{Birational Maps}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a dominant rational map defined on $U\subseteq X$. We say that $f$ is a birational map if there exists a dominant rational map $g:Y\to X$ such that $$g\circ f=\text{id}_X\;\;\;\;\text{ and }\;\;\;\;f\circ g=\text{id}_Y$$ In this case, we say that $X$ and $Y$ are birational. 
-\end{defn}
-
-\subsection{Categorical Equivalence with Finitely Generated Field Extensions}
-\begin{prp}{}{} Let $\phi:X\to Y$ be a dominant rational map represented by $\langle U,\phi_U\rangle$. Let $f\in \C[Y]$ be a rational function represented by $\langle V,f\rangle$ where $V$ is an open set in $Y$ and $f$ regular function on $V$. Then $f\circ\phi_U$ is a homomorphism of $\C$-algebras from $\C[Y]$ to $\C[X]$. \tcbline
-\begin{proof}
-Notice that since $\phi_U(U)$ is dense in $Y$, $\phi_U^{-1}(V)$ is a nonempty open subset of $X$. Thus $f\circ\phi_U$ is a regular function on $\phi_U^{-1}(V)$. Thus $f\circ\phi_U$ is rational function on $X$. This means that $f\circ\phi_U\in\C[X]$. \\~\\
-In particular, the map taking $f$ to $f\circ\phi_U$ is a $\C$-algebra homomorphism. 
-\end{proof}
-\end{prp}
-
-\begin{thm}{}{} Let $X$ and $Y$ be two varieties. The above construction gives a bijection between the set of dominant rational maps from $X\to Y$ and the set of $\C$-algebra homomorphisms from $\C[Y]$ to $\C[X]$. \\~\\
-In other words, this correspondence is a contravariant functor from the category of varieties and the category of finitely generated field extensions of $\C$. 
-\end{thm}
-
-\begin{crl}{}{} Let $X,Y$ be two varieties. The the following conditions are equivalent. 
-\begin{itemize}
-\item $X$ and $Y$ are birationally equivalent
-\item There exists open subsets $U\subseteq X$ and $V\subseteq Y$ with $U$ isomorphic to $V$
-\item $K(X)$ and $K(Y)$ are isomorphic $\C$-algebras
-\end{itemize}
-\end{crl}
 
 \subsection{Blowing Ups}
 \begin{defn}{Blowing Up at $\A^n$}{} Define the blowing up of $\A^n$ at the point $0$ to be the closed subset $X$ of $\A^n\times\Prj^{n-1}$ defined by the equations $\{x_iy_j=x_jy_i|0\leq i,j\leq n\}$. Restricting the projection $\A^n\times\Prj^{n-1}\to\A^n$ to the first factor gives a natural morphism $\phi:X\to\A^n$. 

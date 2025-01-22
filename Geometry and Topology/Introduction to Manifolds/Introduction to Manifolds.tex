@@ -541,9 +541,14 @@ Note that the condition on homeomorphism is necessary for $f(M)$ to be an embedd
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $n\in\N\setminus\{0\}$. Then $SL(n,\R),O(n,\R),SO(n,\R)$ are embedded submanifolds of $\GL(n,\R)$ and $M_n(\R)$. \tcbline
+\begin{prp}{}{} Let $n\in\N\setminus\{0\}$. Then the following are embedded submanifolds of $\GL(n,\R)$. 
+\begin{itemize}
+\item The orthogonal group $O(n,\R)$, with dimension $n^2-(n^2+n)/2=(n^2-n)/2$. 
+\item The special linear group $SL(n,\R)$
+\item The special orthogonal group $SO(n,\R)$
+\end{itemize} \tcbline
 \begin{proof}
-We first consider $SL(n,\R)$. Consider the determinant map $\det:\GL(n,\R)\to\R$ defined by $M\mapsto\det(M)$. Consider the differential of the map at $1\in\R$. 
+We first consider $O(n,\R)$. Let $S_n$ denote the set of symmetric matrices in $M_n(\R)$. Since $S$ is a finite dimensional vector space over $\R$, it is also a smooth manifold of the same dimension. Let $F:M_n(\R)\to S_n$ be the map $M\mapsto M^TM$. Notice that $O(n,\R)=F^{-1}(I_n)$. Let $A\in F^{-1}(I_n)=O(n)$. We can calculate the differential $(dF_\ast)_A:\R^{n^2}\cong M_n(\R)\to S_n\cong\R^{(n^2+n)/2}$ (vector space isomorphisms) by $$(dF_\ast)_A(X)=\frac{d}{dt}F(A+tX)\bigg{|}_{t=0}=\frac{d}{dt}(A+tX)^T(A+tX)\bigg{|}_{t=0}=A^TX+X^TA$$ for any $X\in M_n(\R)$. I claim that this linear map is surjective. Let $B\in S_n$ be a symmetric matrix. Using $X=\frac{1}{2}AB$, we have that $$(dF_\ast)_A(AB)=A^T(\frac{1}{2}AB)+(\frac{1}{2}AB)^TA=\frac{1}{2}(B+B^T)=B$$ because $A$ is orthogonal and $B$ is symmetric. The preimage theorem is satisfied, hence $O(n,\R)$ is an embedded submanifold of $\GL(n,\R)$ of dimension $\dim(O(n,\R))=n^2-(n^2+n)/2=(n^2-n)/2$. 
 \end{proof}
 \end{prp}
 
