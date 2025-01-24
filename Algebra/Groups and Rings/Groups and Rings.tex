@@ -1745,7 +1745,7 @@ In general, we have that $$\text{Fields}\subset\text{Euclidean Domains}\subset\t
 
 \pagebreak
 \section{The Ring of Polynomials}
-\subsection{Polynomials over General Rings}
+\subsection{Polynomials over Commutative Rings}
 In this section we formulate the basic theory of generating polynomials from a ring. 
 \begin{defn}{Indeterminates}{} Let $R$ be a ring. A symbol $x$ is called an indeterminate over $R$ if $$a_0+a_1x+a_2x^2+\dots+a_nx^n=0$$ where $a_i\in R$, implies that $a_i=0$ for each $i$. 
 \end{defn}
@@ -1775,11 +1775,48 @@ The evaluation maps gives a useful ring homomorphism to construct quotient rings
 \end{proof}
 \end{lmm}
 
+\subsection{The Roots of a Polynomial}
+\begin{defn}{The Roots of a Polynomial}{} Let $R$ be a commutative ring. Let $f\in R[x]$. We say that $a\in R$ is a root of $f$ if $\phi_a(f)=0$. In this case we write $f(a)=0$. 
+\end{defn}
+
+\begin{defn}{Degree of a Polynomial}{} Let $R$ be a commutative ring. Let $f\in R[x]$ be written as $f=\sum_{k=0}^n a_kx^k$ so that $a_n\neq 0$. Then define the degree of $f$ to be $$\deg(f)=n$$
+\end{defn}
+
+\begin{thm}{Monic Linear Division Algorithm}{} Let $R$ be a commutative ring. Let $f\in R[x]$. Let $x-a\in R[x]$ be a polynomial. Then there exists $q\in R[x]$ and $r\in R$ such that $$f(x)=(x-a)q(x)+r$$ \tcbline
+\begin{proof}
+If $f(x)=0$ then just take $q(x)=0$ and $r=0$. So assume that $f(x)\neq 0$. We induct on $\deg(f)$. If $\deg(f)=1$, then $f(x)=cx+d$ for some $c\neq 0$. Set $q(x)=c$ and $r=ca+d$. Then we have $$q(x)(x-a)+r=c(x-a)+ca+d=cx+d=f(x)$$ so we are done. Now assume that the result is true for all polynomials whose degree is less than $n$. Let $f$ be a degree $n$ polynomial, given by $f=\sum_{k=0}^na_kx^k$. Let $$g(x)=f(x)-a_nx^{n-1}(x-a)=(a_{n-1}+a_na)x^{n-1}+\sum_{k=0}^{n-2}a_kx^k$$ Notice that $\deg(g)\leq n-1$ and we can apply the inductive hypothesis to obtain $q'\in R[x]$ and $r\in R$ such that $g(x)=q'(x)(x-a)+r$. Now we have that 
+\begin{align*}
+f(x)&=g(x)+a_nx^{n-1}(x-a)\\
+&=q'(x)(x-a)+r+a_nx^{n-1}(x-a)\\
+&=\left(q'(x)+a_nx^{n-1}\right)(x-a)+r
+\end{align*}
+We are done as we set $q(x)=q'(x)+a_nx^{n-1}$. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{Factor Theorem}{} Let $R$ be a commutative ring. Let $f\in R[x]$. Then $a\in R$ is a root of $f$ if and only if $x-a$ divides $f$. \tcbline
+\begin{proof}
+Let $a\in R$ be a root of $f$. By the monic linear division algorithm, $f(x)=q(x)(x-a)+r$ for some $q\in R[x]$ and $r\in R$. Then $$0=\phi_a(f)=\phi_a(q(x)(x-a)+r)=\phi_a(q(x))\phi_a(x-a)+\phi_a(r)=0+r$$ since $\phi_a(x-a)=a-a=0$. Hence $r=0$ and we have $f(x)=q(x)(x-a)$. Hence $f$ is divisible by $x-a$. \\~\\
+
+Now suppose that $x-a$ divides $f$. Then there exists $q\in R[x]$ such that $f(x)=q(x)(x-a)$. Then it is clear that $$\phi_a(f)=\phi_a(q)\phi_a(x-a)=0$$ and so we conclude. 
+\end{proof}
+\end{thm}
+
 \subsection{Polynomials over Integral Domains}
-\begin{prp}{}{} If $R$ is an integral domain then $R[x]$ is an integral domain. In particular the units in $R$ are also units in $R[x]$. \tcbline
+\begin{prp}{}{} Let $R$ be a commutative ring. Then $R$ is an integral domain if and only if $R[x]$ is an integral domain. \tcbline
 \begin{proof}
 Commutativity is clear since for $f,g\in R[x]$, coefficients of the product $fg$ inherits commutativity from $R$ thus $fg=gf$. Now we show that cancellation law exists in $R[X]$. Let $f,g\in R[x]$ such that $fg=0$. Suppose for a contradiction that $f\neq 0$ and $g\neq 0$. This means that $\deg(f)=n$ and $\deg(g)=m$ for some $n,m\neq 0$. Consider the coefficient of $x^{n+m}$ in $fg$, which is $a_nb_m$. Since $fg=0$, $a_nb_m=0$ and by cancellation law in $R$ either $a_n=0$ or $b_m=0$. This contradicts the fact that $\deg(f)=n$ and $\deg(g)=m$ thus we are done. \\~\\
-The second part is trivial since $R\leq R[x]$ and they have the same identity. 
+
+Now suppose that $R[x]$ is an integral domain. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be an integral domain. Let $f\in R[x]$. Then $f$ has at most $\deg(f)$ roots in $R$. 
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be an integral domain. Then $$\{r\in R\;|\;r\text{ is a unit}\}=\{f\in R[x]\;|\;f\text{ is a unit}\}$$ \tcbline
+\begin{proof}
+It is clear that $\subseteq$ is trivial. Now let $f\in R[x]$ such that $f$ is a unit. Suppose that $fg=1$ for some $g\in R[x]$. Write $f=\sum_{k=0}^na_kx^k$ and $g=\sum_{i=0}^mb_ix^i$ for $a_n\neq 0$. comparing top coefficients with $fg$ and $1$ shows that $a_nb_m=0$. Since $R$ is an integral domain, we conclude that $b_m=0$. We induct decreasingly on the coefficients of $g$. Suppose we showed that $b_n=\dots=b_{k+1}=0$ for some $k\geq 0$. Then the coefficient of $x^{k+n}$ in $fg$ is given by $$a_{k+n-m}b_m+\dots+a_{n-1}b_{k+1}+a_nb_k$$ Comparing coefficients with the polynomial $1$ shows that the above expression is $0$. Since $b_n=\dots=b_{k+1}=0$, we are left with $a_nb_k=0$. Since $a_n\neq 0$, we have that $b_k=0$. Thus $b_n=\dots=b_1=0$ by induction. We are left with the fact that $g$ is a constant, say $g(x)=b$. But now $a_0\cdot b=1$ implies that $b$ is a unit, hence the constant $g\in R$ is a unit. 
 \end{proof}
 \end{prp}
 
@@ -1794,104 +1831,75 @@ The second part is trivial since $R\leq R[x]$ and they have the same identity.
 \end{itemize}
 \end{prp}
 
-\subsection{Polynomials over UFDs}
-The primary goal of this chapter is to compute results relating to finding out ireducible polynomials in UFD, rather than investigating the structure of polynomial rings. 
-\begin{defn}{Primitive}{} An element $0\neq f\in R[x]$ where $R$ is a unique factorization domain is called primitive if $\gcd(a_0,a_1,\dots,a_n)=1$. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Then $R$ is a UFD if and only if $R[x]$ is an UFD. 
+\end{prp}
+
+\subsection{Irreducibility Criterion for Polynomials over Integral Domains}
+The primary goal of this chapter is to compute results relating to finding out irreducible polynomials in integral domains, rather than investigating the structure of polynomial rings. 
+
+\begin{defn}{Primitive}{} Let $R$ be an integral domain. Let $f\in R[x]$ be non-zero and is given by $f=\sum_{k=0}^na_kx^k$ for $a_n\neq 0$. We say that $f$ is primitive if $\gcd(a_0,a_1,\dots,a_n)=1$. 
 \end{defn}
 
-The reason that we have this notion is to prevent polynomials such as $5x-5$ to be discussed. This clearly will not be irreducible since there is a factor of $5$. Likewise if the gcd of all its coefficients are not $1$, then you can factor out the gcd from the entire polynomial. 
-
-\begin{prp}{}{} The productive of two primitive polynomials is also primitive. 
+\begin{prp}{}{} Let $R$ be a UFD. Let $f,g\in R[x]$ be primitive. Then $fg$ is also primitive. 
 \end{prp}
 
-\begin{prp}{Eisentein's Criterion}{} Let $R$ be a UFD. Let $f\in R[x]$ be primitive. Suppose there is a prime $p\in R$ such that $p$ does not divide $a_n$ but $p|a_i$ for $0\leq i\leq n-1$ and $p^2$ does not divide $a_0$. Then $f$ is irreducible in $R[x]$. 
-\end{prp}
-
-\begin{thm}{}{} Let $R$ be a UFD with field of fractions $Q=Q(R)$. Then a primitive polynomial in $R[x]$ is irreducible if and only if it is irreducible in $Q[x]$. 
+\begin{thm}{Generalized Gauss's Theorem}{} Let $R$ be an integral domain. Let $f\in R[x]$ be primitive. Then $f$ is irreducible if and only if $f$ is irreducible in $\text{Frac}(R)[x]$. 
 \end{thm}
 
-\begin{prp}{}{} $R$ is an UFD if and only if $R[x]$ is an UFD. 
+\begin{prp}{Eisentein's Criterion}{} Let $R$ be an integral domain. Let $f\in R[x]$ be primitive. Suppose that $P$ is a prime ideal of $R$ such that the following are true. 
+\begin{itemize}
+\item $a_n\notin P$. 
+\item $a_0,\dots,a_{n-1}\in P$. 
+\item $a_0\notin P^2$. 
+\end{itemize}
+Then $f$ is irreducible in $R[x]$. 
 \end{prp}
 
-\subsection{Polynomials over a Field}
-This section will mainly be revisiting old notations with $F[x]$. 
-\begin{thm}{Division Algorithm}{} Let $F$ be any field and let $f$ and $g$ be polynomials in $F[x]$. Assume that $f\neq0$ and that the leading coefficient of $f$ is a unit in $R$. Then uniquely determined polynomials $q$ and $r$ exist in $F[x]$ such that 
+\begin{prp}{}{} Let $R$ be an integral domain. Let $f\in R[x]$ be a polynomial such that $\deg(f)=1$. Then the following are true. 
+\begin{itemize}
+\item If the coefficient of $x$ in $f$ is a unit then $f$ is irreducible. 
+\item If $f$ is irreducible then $f$ has no roots in $R$. 
+\end{itemize} \tcbline
+\begin{proof}
+Suppose that $\deg(f)=1$ and the coefficient of $x$ in $f$ is a unit. Suppose for a contradiction that $f$ is reducible. Then there exists non-units $p,q\in R[x]$ such that $f(x)=p(x)q(x)$. Since $R$ is an integral domain, we have $\deg(f)=\deg(p)+\deg(q)$. This means that at exactly one of $p$ or $q$ is a constant. It must be non-zero otherwise $f=0$. Without loss of generality suppose that $q(x)=b$ for some $b\in R[x]$. Since $p$ has degree $1$, $p(x)=cx+d$ for some $c,d\in R$. Then $f(x)=(cx+d)b=bcx+db$. But the coefficient of $x$ of $f$ is a unit hence $bc$ is a unit. Suppose that $u$ is its inverse. Then $bcu=1$ implies that $b$ is a unit. This contradicts the fact that $q(x)=b$ is a non-unit. Hence $f$ is irreducible. \\~\\
+
+Suppose that $f$ is irreducible. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring such that $R[x]$ is a UFD. Let $f\in R[x]$ be a polynomial such that $2\leq\deg(f)\leq 3$. If $f$ is irreducible then $f$ has no roots in $R$. 
+\begin{proof}
+Suppose that $f$ has a root $a\in R$. By the factor theorem (9.2.4) we know that $x-a$ divides $f$. This means that there exist $q\in R[x]$ such that $f(x)=q(x)(x-a)$. Then $f$ is reducible. 
+\end{proof}
+\end{prp}
+
+\subsection{Polynomials over a Field and Irreducibility}
+\begin{thm}{Generlized Polynomial Division Algorithm}{} Let $F$ be any field and let $f$ and $g$ be polynomials in $F[x]$. Assume that $f\neq0$ and that the leading coefficient of $f$ is a unit in $R$. Then uniquely determined polynomials $q$ and $r$ exist in $F[x]$ such that 
 \begin{itemize}
 \item $g=qf+r$
 \item Either $r=0$ or $\deg(r)<\deg(f)$
 \end{itemize}
-In particular, $\deg$ is an Euclidean Valuation of $F[x]$ and $F[x]$ is a Euclidean domain. 
 \end{thm}
 
-The above theorem is equivalent to saying that $F[x]$ is a Euclidean domain as long as $F$ is a field. Trivially, this also means that $F[x]$ is both a principal ideal domain and a unique factorization domain. \\~\\
-We give an alternate proof showing that $F[x]$ is a principal ideal domain. \\~\\
-Let $I$ be a nontrivial ideal of $F[x]$. Let $f\in I$ be nonzero such that the degree of $f$ is as small as possible. I claim that $(f)=I$. We already have that $(f)\subseteq I$ since $f\in I$. Now we show that $I\subseteq(f)$. So let $g\in I$. By the division algorithm, write $g=fq+r$ for some $q,r$ such that $\deg(r)<\deg(f)$ or $\deg(r)=0$. If $r\neq 0$, then $r=g-fq\in I$ since $f,g\in I$. But then $\deg(r)<\deg(f)$ means that $f$ is not of smallest degree in $I$, a contradiction. Thus $g=fq$, which means that $g\in(f)$. \\~\\
-This is a constructive proof in the sense that if we would like to know the sole generator of an ideal in a polynomial ring $F[x]$ of a field, we simply take the polynomial of lowest degree. \\~\\
-
-Since we have shown that polynomials over a field are euclidean domains, the following theorems and definitions are also trivial. 
-
-\begin{lmm}{}{} Let $F$ be a field and suppose that $p\in F[x]$. Then the ideal generated by $p$ is maximal if and only if $p$ is irreducible. \tcbline
-\begin{proof}
-Proved when we introduced irreducibility. 
-\end{proof}
+\begin{lmm}{}{} Let $F$ be a field. Then $F[x]$ is an Euclidean domain with valuation given by $\deg:F[x]\to\N$. 
 \end{lmm}
 
-\begin{prp}{Greatest Common Divisor}{} Let $f$ and $g$ be nonzero polynomials in $F[x]$, where $F$ is a field. Then a uniquely determined polynomial $d$ exists in $F[x]$ satisfying the following conditions. 
+A number of results follows from this. For instance, 
 \begin{itemize}
-\item $d$ is monic
-\item $d$ divides both $f$ and $g$
-\item If $h$ divides both $f$ and $g$, then $h$ divides $d$
-\item $d=uf+vg$ for some polynomials $u,v\in F[x]$
+\item $F[x]$ is a PID, a UFD and an integral domain. 
+\item $f\in F[x]$ is irreducible if and only if $(f)$ is maximal if and only if $f$ is prime. 
+\item Every $f\in F[x]$ has at most $\deg(f)$ roots. 
+\item The gcd and hcf of two elements exists, Bezout's lemma is also applicable. 
+\item Factor theorem and Remainder theorem both hold. 
 \end{itemize}
+
+\begin{prp}{}{} Let $F$ be a field. Let $f\in F[x]$. If $\deg(f)=1$ so that $f$ is linear, then $f$ irreducible. 
 \end{prp}
 
-\begin{prp}{}{} Let $p\in F[x]$ be irreducible, $F$ a field. If $p$ divides a product $f_1f_2\cdots f_n$ of nonzero polynomials in $F[x]$, then $p$ divides one of $f_i$. 
+\begin{prp}{}{} Let $F$ be a field. Let $f\in F[x]$ such that $2\leq\deg(f)\leq 3$. Then $f$ is irreducible if and only if $f$ has no roots in $F$. 
 \end{prp}
 
-\begin{thm}{Unique Factorization Theorem}{} If $F$ is a field, let $f$ be a nonconstant polynomial in $F[x]$. Then 
-\begin{itemize}
-\item $f=ap_1p_2\cdots p_n$, where $a\in F$ and $p_i$ is monic and irreducible for all $i$
-\item The factorization is unique up to the order of the factors
-\end{itemize}
-\end{thm}
-
-We now begin dicussion of new notions that only polynomial rings based on a field will have. 
-
-\begin{thm}{Factor Theorem}{} Let $F$ be a field. Let $a\in R$. Let $f\in F[x]$. Then $f(a)=0$ if and only if $f=(x-a)q$ for some $q\in F[x]$. \tcbline
-\begin{proof}
-Clearly if $f$ is of the form $f=(x-a)q$ then $f(a)=0$. \\~\\
-Now suppose that $f(a)=0$. We apply the division algorithm on $f$ with $x-a$ to get $$f(x)=(x-a)q(x)+r(x)$$ where either $r(x)=0$ or $\deg(r)<1$. This means that $r(x)=k$ for some constant $k\in F$. Since $f(a)=0$, we have that $(a-a)q(a)+k=0$ which means that $k=0$ and we are done. 
-\end{proof}
-\end{thm}
-
-\begin{prp}{}{} Let $F$ be a field and let $f$ be a nonzero polynomial in $F[x]$ of degree $n$. Then $f$ has at most $n$ roots in $R$. 
-\end{prp}
-
-\begin{thm}{Remainder Theorem}{} Let $F$ be a field. Let $a\in F$. Let $f\in F[x]$. If $f$ is divided by $(x-a)$, the remainder is $f(a)$. \tcbline
-\begin{proof}
-By division algorithm, there exists $q,r\in F[x]$ such that $f(x)=(x-a)q(x)+r(x)$. Evaluating $x$ at $a$ gives $f(a)=r(a)$. 
-\end{proof}
-\end{thm}
-
-\subsection{Factorization in $\Z[x]$ and $\Q[x]$}
-Gauss's lemma reduces the question of irreducibility in $\Q[x]$ half to $\Z[x]$. 
-
-\begin{thm}{Gauss's Lemma}{} A primitive irreducible polynomial in $\Z[x]$ remains irreducible in $\Q[x]$
-\end{thm}
-
-Eisenstein's criterion is particularly useful in $\Z[x]$. 
-
-\begin{thm}{Eisensteins's Criterion}{} Let $f(x)=\sum_{k=0}^na_kx^k\in\Z[x]$. Suppose that $p$ is a prime such that 
-\begin{itemize}
-\item $p$ does not divide $a_n$
-\item $p$ divides $a_0,\dots,a_{n-1}$
-\item $p^2$ divides $a_0$
-\end{itemize}
-Then $f$ is irreducible in $\Z[x]$. 
-\end{thm}
-
-The rational root test shows that any rational number that is a root of $f$ must satisfy divisibility criterion, which reduces the number of rationals that we have to check for roots. 
-
+\subsection{Irreducibility Criterion in $\Z$}
 \begin{thm}{Rational Root Test}{} Let $f(x)=\sum_{k=0}^na_kx^k\in\Z[x]$. If $r/s\in\Q$ for $\gcd(r,s)=1$ is a root then $r$ divides $a_0$ and $s$ divides $a_n$. 
 \end{thm}
 
