@@ -781,7 +781,7 @@ If $S\cap P=\emptyset$, then $0\in P$ implies that $0\notin S$. This means that 
 
 \begin{thm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Let $\phi:R\to S^{-1}R$ denote the localization map. Then there is a one-to-one bijection $$\{J\;|\;J\text{ is an ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;|\;\substack{I\text{ is an ideal of }R\text{ and }\\I\text{ is closed under division by }S}\right\}$$ whose map is given by $J\mapsto J^c=\phi^{-1}(J)$ and inverse is given by $I\mapsto I^e=S^{-1}I$. \tcbline
 \begin{proof}
-We first show that our map of sets are well defined. Let $J$ be a prime ideal of $S^{-1}R$. We first show that $\phi^{-1}(J)$ is closed under division by $S$. Suppose that $s\in S$ and $r\in R$ such that $sr\in\phi^{-1}(J)$. Then $sr/1\in J$. Now since $J$ is an ideal of $S^{-1}R$, we know that $1/s\cdot sr/1\in J$. But $1/s\cdot sr/1=r/1=\phi(r)$. This means that $\phi(r)\in J$ and hence $r\in\phi^{-1}(J)$. Thus $\phi^{-1}(J)$ is an ideal closed under division by $S$. \\~\\
+We first show that our map of sets are well defined. Let $J$ be an ideal of $S^{-1}R$. We first show that $\phi^{-1}(J)$ is closed under division by $S$. Suppose that $s\in S$ and $r\in R$ such that $sr\in\phi^{-1}(J)$. Then $sr/1\in J$. Now since $J$ is an ideal of $S^{-1}R$, we know that $1/s\cdot sr/1\in J$. But $1/s\cdot sr/1=r/1=\phi(r)$. This means that $\phi(r)\in J$ and hence $r\in\phi^{-1}(J)$. Thus $\phi^{-1}(J)$ is an ideal closed under division by $S$. \\~\\
 
 Now let $I$ be an ideal of $R$ closed under division. I claim that $S^{-1}I$ is an ideal of $S^{-1}R$. Let $a/s,b/t\in S^{-1}I$. Then $a/s+b/t=(at+bs)/st$. Since $I$ is an ideal, we know that $at+bs\in I$. Also since $S$ is a multiplicative subset, $st\in S$. Hence $(at+bs)/st\in I$. Now let $a/s\in S^{-1}I$ and $r/t\in S^{-1}R$. Then $(a/s)\cdot(r/t)=ar/st$. Since $I$ is an ideal, $ar\in I$. Thus $ar/st\in S^{-1}I$ so that $I$ is an ideal. \\~\\
 
@@ -963,6 +963,9 @@ When $A$ and $B$ are field, this is a familiar notion in Field and Galois theory
 \end{itemize}
 \end{prp}
 
+\begin{prp}{}{} Let $A\subseteq B$ be commutative rings. Then $B$ is a finitely generated $A$-module if and only if $B=A[x_1,\dots,x_n]$ for some $x_1,\dots,x_n\in B$ that is integral over $A$. 
+\end{prp}
+
 \begin{prp}{}{} Let $B$ be a commutative ring and let $A\subseteq B$ be a subring. Let $b_1,b_2\in B$ be integral over $A$. Then $b_1+b_2$ and $b_1b_2$ are both integral over $A$. 
 \end{prp}
 
@@ -970,13 +973,13 @@ When $A$ and $B$ are field, this is a familiar notion in Field and Galois theory
 \begin{defn}{Integral Closure}{} Let $B$ be a commutative ring. Let $A\subseteq B$ be a subring. Define the subring $$\overline{A}=\{b\in B\;|\;b\text{ is integral over }A\}$$ to be the integral closure of $A$ in $B$. 
 \end{defn}
 
+\begin{prp}{}{} Let $B$ be a commutative ring. Let $A\subseteq B$ be a subring. Let $S$ be a multiplicatively closed subset of $A$. Then $$\overline{S^{-1}A}=S^{-1}\overline{A}$$
+\end{prp}
+
 \begin{defn}{Integral Extensions}{} Let $B$ be a commutative ring and let $A\subseteq B$ be a subring. We say that $B$ is integral over $A$ if $\overline{A}=B$. We also say that $B$ is the integral extension of $A$. 
 \end{defn}
 
-\begin{lmm}{}{} Let $B$ be a commutative ring and let $A\subseteq B$ be a subring. Then $\overline{A}$ is an integral extension of $A$. 
-\end{lmm}
-
-\begin{lmm}{}{} Let $A\subseteq B\subseteq C$ be commutative rings. If $C$ is integral over $B$ and $B$ is integral over $A$, then $C$ is integral over $A$. 
+\begin{lmm}{}{} Let $A\subseteq B\subseteq C$ be commutative rings. Then $C$ is integral over $B$ and $B$ is integral over $A$ if and only if $C$ is integral over $A$. 
 \end{lmm}
 
 \begin{prp}{}{} Let $A,B$ be commutative rings such that $A\subset B$ is an integral extension. Let $J$ be an ideal of $B$. Then $\frac{B}{J}$ is integral over $\frac{A}{J\cap A}$. 
@@ -987,9 +990,6 @@ When $A$ and $B$ are field, this is a familiar notion in Field and Galois theory
 
 \begin{lmm}{}{} Let $A,B$ be integral domains such that $A\subset B$ is an integral extension. Then $A$ is a field if and only if $B$ is a field. 
 \end{lmm}
-
-\begin{prp}{}{} Let $B$ be a commutative ring. Let $A\subseteq B$ be a subring. Let $S$ be a multiplicatively closed subset of $A$. Then $$\overline{S^{-1}A}=S^{-1}\overline{A}$$
-\end{prp}
 
 \begin{defn}{Integrally Closed}{} Let $B$ be a commutative ring. Let $A\subseteq B$ be a subring. We say that $A$ is integrally closed in $B$ if $\overline{A}=A$. 
 \end{defn}
@@ -1032,6 +1032,9 @@ We want to show that $S^{-1}R$ is integrally closed in $\text{Frac}(R)=\text{Fra
 \end{proof}
 \end{prp}
 
+\begin{prp}{}{} Let $R$ be a commutative ring. If $R$ is a UFD, then $R$ is normal. 
+\end{prp}
+
 \begin{prp}{Normal is a Local Property}{} Let $R$ be an integral domain. Then the following are equivalent. 
 \begin{itemize}
 \item $R$ is normal
@@ -1044,6 +1047,12 @@ Notice that an integral domain $R$ is normal if and only if the canonical inclus
 \end{prp}
 
 Atiyah-Macdonald
+
+\begin{prp}{}{} Let $R$ be a normal domain. Then $R[x]$ is a normal domain. 
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a normal domain. Let $K/\text{Frac}(R)$ be an algebraic extension. Let $f\in K$. Then $f$ is integral over $R$ if and only if the minimal polynomial $\min(K,f)\in R[x]$. 
+\end{prp}
 
 \pagebreak
 \section{Introduction to Dimension Theory for Rings}
@@ -1274,15 +1283,12 @@ The rest of the section devotes efforts to recognizing discrete valuation rings.
 \end{itemize}
 \end{prp}
 
-\begin{prp}{}{} Let $R$ be an integral domain. Then the following are equivalent. 
+\begin{prp}{Equivalent Characterizations of DVRs I}{} Let $R$ be an integral domain. Then the following are equivalent. 
 \begin{itemize}
 \item $R$ is a discrete valuation ring
-\item $R$ is a UFD with a unique irreducible element up to multiplication of a unit
 \item $R$ is Noetherian, local, $\dim(R)=1$ and normal. 
-\item $R$ is Noetherian, local with principal maximal ideal
-\item $R$ is Noetherian, local and $\dim(R)=1=\dim_{R/m}(m/m^2)=1$ for $m$ the unique maximal ideal of $R$
-\item $R$ is Noetherian, local and $I=m^k$ for all non-zero ideals $I$ of $R$ and $m$ the unique maximal ideal of $R$
-\item $R$ is Noetherian, local and there exists $t\in R$ and $k>0$ such that $I=(t^k)$ for all non-zero ideal $I$ of $R$
+\item $R$ is local, a PID and not a field. 
+\item $R$ is a UFD with a unique irreducible element up to multiplication of a unit
 \end{itemize} \tcbline
 \begin{proof}~\\
 \begin{itemize}
@@ -1290,6 +1296,19 @@ The rest of the section devotes efforts to recognizing discrete valuation rings.
 We have seen that every ideal is of the form $(t^n)$ for some $n>0$. Thus every ascending chains of ideal must be of the form $$(t^{n_1})\subset(t^{n_2})\subset\dots$$ for $n_1>n_2>\dots$. Since $n_1,n_2,\dots$ is strictly decreasing, the chain must eventually stabilizes. This proves that $R$ is Noetherian and has principal maximal ideal. 
 \item $(1)\implies(3)$:
 \end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{Equivalent Characterizations of DVRs II}{} Let $R$ be an integral domain that is Noetherian and local with unique maximal ideal $m$. Then the following are equivalent. 
+\begin{itemize}
+\item $R$ is a discrete valuation ring. 
+\item $\dim(R)=1$ and $R$ is normal. 
+\item $\dim(R)=1$ and $\dim_{R/m}(m/m^2)=1$
+\item $R$ is not a field and $m$ is principal. 
+\item $I=m^k$ for all non-zero ideals $I$ of $R$
+\item There exists $t\in R$ and $k>0$ such that $I=(t^k)$ for all non-zero ideal $I$ of $R$
+\end{itemize} \tcbline
+\begin{proof}
 \end{proof}
 \end{prp}
 

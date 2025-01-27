@@ -1765,15 +1765,27 @@ Since $R\leq R[x]$ by considering all the constant polynomials, the identity of 
 \begin{defn}{The Evaluation Map}{} Let $R$ be a ring and let $a$ be an element in the center $Z(R)$ of $R$. Define the evaluation map $\phi_a:R[x]\to R$ by the formula $$\phi_a\left(\sum_{k=0}^nc_kx^k\right)=\sum_{k=0}^nc_ka^k$$
 \end{defn}
 
-\begin{thm}{Evaluation Theorem}{} Let $R$ be a ring and let $a$ be an element in the center $Z(R)$ of $R$. Then the evaluation homomorphism $\phi_a:R[x]\to R$ is a surjective ring homomorphism. 
-\end{thm}
-
-The evaluation maps gives a useful ring homomorphism to construct quotient rings. 
-
-\begin{lmm}{}{} Let $R$ be a ring. Then the evaluation homomorphism gives an isomorphism $$\frac{R[x]}{(x-a)}\cong R$$ for any $a\in Z(R)$.  \tcbline
+\begin{prp}{}{} Let $R$ be a ring and let $a$ be an element in the center $Z(R)$ of $R$. Then the evaluation homomorphism $\phi_a:R[x]\to R$ is a surjective ring homomorphism. \tcbline
 \begin{proof}
+Let $f,g\in R[x]$ be given as $f(x)=\sum_{k=0}^nc_kx^k$ and $g(x)=\sum_{i=0}^mb_ix^i$. Then we have 
+\begin{align*}
+\phi_a(f+g)&=\phi_a\left(\sum_{k=0}^nc_kx^k+\sum_{i=0}^mb_ix^i\right)\\
+&=\phi_a\left(\sum_{k=0}^{\max\{m,n\}}(c_k+b_k)x^k\right)\\
+&=\sum_{k=0}^{\max\{m,n\}}(c_k+b_k)a^k\\
+&=\sum_{k=0}^nc_ka^k+\sum_{i=0}^mb_ia^i\\
+&=\phi_a(f)+\phi_a(g)
+\end{align*}
+Moreover, we have that 
+\begin{align*}
+\phi_a(fg)&=\phi_a\left(\sum_{k=0}^nc_kx^k\sum_{i=0}^mb_ix^i\right)\\
+&=\phi_a\left(\sum_{k=0}^{m+n}\left(\sum_{i=0}^kc_ib_{k-i}\right)x^k\right)\\
+&=\sum_{k=0}^{m+n}\left(\sum_{i=0}^kc_ib_{k-i}\right)a^k\\
+&=\sum_{k=0}^nc_ka^k\sum_{i=0}^mb_ia^i\tag{$a\in Z(R)$}\\
+&=\phi_a(f)\phi_a(g)
+\end{align*}
+Thus $\phi_a$ is a ring homomorphism. To show that $\phi_a$ is surjective, let $b\in R$. Then clearly $\phi_a(x-a+b)=b$. 
 \end{proof}
-\end{lmm}
+\end{prp}
 
 \subsection{The Roots of a Polynomial}
 \begin{defn}{The Roots of a Polynomial}{} Let $R$ be a commutative ring. Let $f\in R[x]$. We say that $a\in R$ is a root of $f$ if $\phi_a(f)=0$. In this case we write $f(a)=0$. 
@@ -1807,7 +1819,7 @@ Now suppose that $x-a$ divides $f$. Then there exists $q\in R[x]$ such that $f(x
 \begin{proof}
 Commutativity is clear since for $f,g\in R[x]$, coefficients of the product $fg$ inherits commutativity from $R$ thus $fg=gf$. Now we show that cancellation law exists in $R[X]$. Let $f,g\in R[x]$ such that $fg=0$. Suppose for a contradiction that $f\neq 0$ and $g\neq 0$. This means that $\deg(f)=n$ and $\deg(g)=m$ for some $n,m\neq 0$. Consider the coefficient of $x^{n+m}$ in $fg$, which is $a_nb_m$. Since $fg=0$, $a_nb_m=0$ and by cancellation law in $R$ either $a_n=0$ or $b_m=0$. This contradicts the fact that $\deg(f)=n$ and $\deg(g)=m$ thus we are done. \\~\\
 
-Now suppose that $R[x]$ is an integral domain. 
+Now suppose that $R[x]$ is an integral domain. Then $R$ is a subring of $R[x]$ so that $R$ is also an integral domain. 
 \end{proof}
 \end{prp}
 
@@ -1855,33 +1867,15 @@ The primary goal of this chapter is to compute results relating to finding out i
 Then $f$ is irreducible in $R[x]$. 
 \end{prp}
 
-\begin{prp}{}{} Let $R$ be an integral domain. Let $f\in R[x]$ be a polynomial such that $\deg(f)=1$. Then the following are true. 
-\begin{itemize}
-\item If the coefficient of $x$ in $f$ is a unit then $f$ is irreducible. 
-\item If $f$ is irreducible then $f$ has no roots in $R$. 
-\end{itemize} \tcbline
-\begin{proof}
-Suppose that $\deg(f)=1$ and the coefficient of $x$ in $f$ is a unit. Suppose for a contradiction that $f$ is reducible. Then there exists non-units $p,q\in R[x]$ such that $f(x)=p(x)q(x)$. Since $R$ is an integral domain, we have $\deg(f)=\deg(p)+\deg(q)$. This means that at exactly one of $p$ or $q$ is a constant. It must be non-zero otherwise $f=0$. Without loss of generality suppose that $q(x)=b$ for some $b\in R[x]$. Since $p$ has degree $1$, $p(x)=cx+d$ for some $c,d\in R$. Then $f(x)=(cx+d)b=bcx+db$. But the coefficient of $x$ of $f$ is a unit hence $bc$ is a unit. Suppose that $u$ is its inverse. Then $bcu=1$ implies that $b$ is a unit. This contradicts the fact that $q(x)=b$ is a non-unit. Hence $f$ is irreducible. \\~\\
-
-Suppose that $f$ is irreducible. 
-\end{proof}
-\end{prp}
-
-\begin{prp}{}{} Let $R$ be a commutative ring such that $R[x]$ is a UFD. Let $f\in R[x]$ be a polynomial such that $2\leq\deg(f)\leq 3$. If $f$ is irreducible then $f$ has no roots in $R$. 
-\begin{proof}
-Suppose that $f$ has a root $a\in R$. By the factor theorem (9.2.4) we know that $x-a$ divides $f$. This means that there exist $q\in R[x]$ such that $f(x)=q(x)(x-a)$. Then $f$ is reducible. 
-\end{proof}
-\end{prp}
-
 \subsection{Polynomials over a Field and Irreducibility}
-\begin{thm}{Generlized Polynomial Division Algorithm}{} Let $F$ be any field and let $f$ and $g$ be polynomials in $F[x]$. Assume that $f\neq0$ and that the leading coefficient of $f$ is a unit in $R$. Then uniquely determined polynomials $q$ and $r$ exist in $F[x]$ such that 
+\begin{thm}{Polynomial Division Algorithm over Fields}{} Let $F$ be a field. Let $f,g\in F[x]$ such that $f\neq 0$. Then there exists unique $q,r\in F[x]$ such that 
 \begin{itemize}
 \item $g=qf+r$
-\item Either $r=0$ or $\deg(r)<\deg(f)$
+\item Either $r=0$ or $\deg(r)<\deg(g)$
 \end{itemize}
 \end{thm}
 
-\begin{lmm}{}{} Let $F$ be a field. Then $F[x]$ is an Euclidean domain with valuation given by $\deg:F[x]\to\N$. 
+\begin{lmm}{}{} Let $F$ be a field. Then $F[x]$ is an Euclidean domain with valuation given by $$\deg:F[x]\to\N$$ that sends $f$ to $\deg(f)$. 
 \end{lmm}
 
 A number of results follows from this. For instance, 
@@ -1910,7 +1904,6 @@ Finally, recall that $\F_p\cong\Z/p\Z$ is a field. We can descend the polynomial
 
 
 \pagebreak
-
 \section{Field Theory}
 \subsection{Properties of a Field}
 \begin{defn}{Fields}{} A field is a commutative division ring, denoted $(F,+,\times)$. In particular, it satisfies the following
@@ -1952,11 +1945,11 @@ Suppose that $a\in\ker(\phi)$. Then we have $\phi(a)\phi(a^{-1})=\phi(aa^{-1})=1
 
 In particular, a field homomorphism $\varphi:F\to K$ means that $F$ embeds into $K$ since $F$ is now isomorphic to $\varphi(F)$ which is a subfield of $K$. Instead of writing $\varphi(F)$ a subfield of $K$ we will write $F\subset K$ instead. This embedding however depends on $\varphi$ and so the embedding is unclear, we will use $\varphi(F)\subset K$ for $F$ being isomorphic to a subfield of $K$. 
 
-\subsection{Types of Fields}
-\begin{defn}{Prime Subfields}{} Let $F$ be a field. The prime subfield of $F$ is the subfield of $F$ generated by the multiplicative identity of $F$. Namely the field $\{n\cdot 1|n\in\Z\}$. 
+\subsection{New Fields from Old}
+\begin{defn}{Prime Subfields}{} Let $F$ be a field. Define the prime subfield of $F$ to be the subfield whose set is given by $$F_0=\{n\cdot 1\;|\;n\in\Z\}$$
 \end{defn}
 
-\begin{prp}{}{} Let $F$ be a field. The prime subfield is equal to $$\bigcap_{K<F}K$$ \tcbline
+\begin{prp}{}{} Let $F$ be a field. The prime subfield of $F$ is equal to $$F_0=\bigcap_{K<F}K$$ \tcbline
 \begin{proof}
 The fact that it is a field itself is trivial. Write $E$ for the prime subfield. Let $L=\bigcap_{K<F}K$.  Then $L<E$ is trivial. Now $1\in L$ since $L$ is a subfield of $F$. Since $E$ is the smallest subfield containing $1$, $E<L$ and we are done. 
 \end{proof}
@@ -1970,132 +1963,6 @@ The fact that it is a field itself is trivial. Write $E$ for the prime subfield.
 
 \begin{prp}{}{} Let $E,F<K$. Then $$FE=\bigcap_{\substack{U\text{ a field}\\E,F<U<K}}U$$
 \end{prp}
-
-\subsection{Field Extensions}
-\begin{defn}{Field Extensions}{} Let $F,K$ be fields such that $K$ contains $F$ as a subfield. Then we say that $K$ is a field extension of $F$ and we write it as $F<K$. \\~\\
-If $F<L<K$ are field extensions then we say that $L$ is the intermediate field of the extension $F<K$. 
-\end{defn}
-
-\begin{prp}{}{} If $K$ is an extension of $F$, then $K$ is a vector space over $F$. \tcbline
-\begin{proof}
-Define the action of $F$ on $K$ by simply left multiplication. Then the axioms of a vector space is satisfied through properties of $F$ as a field. 
-\end{proof}
-\end{prp}
-
-\begin{defn}{Degree of an Extension}{} Let $K/F$ be a field extension. The degree of $K/F$, denoted $$[K:F]$$ is the dimension of $K$ as a vector space over $F$. It is said to be finite if $[K:F]$ is finite and infinite otherwise. 
-\end{defn}
-
-\begin{prp}{The Tower Law}{} Let $F<K<E$ be field extensions. Then $$[E:F]=[E:K][K:F]$$ Moreover, if $\{a_i|i\in I\}$ is a basis for $E$ over $K$ and $\{b_j|j\in J\}$ is a basis for $K$ over $F$ then $$\{a_ib_j|i\in I, j\in J\}$$ is a basis for $E$ over $F$. 
-\end{prp}
-
-\begin{defn}{Finite Extensions}{} Let $K/F$ be a field extension. We say that $K/F$ is a finite extension if $[K:F]$ is finite. 
-\end{defn}
-
-\subsection{Finitely Generated Field Extensions}
-Recall the evaluation map $\phi_a:F[x]\to K$ given by $f\mapsto f(a)$ for each $a\in K$. 
-
-\begin{defn}{Simple Extensions}{} Let $F<K$ be a field extension. Let $a\in K$. Define 
-$$F(a)=\left\{\frac{\phi_a(f(x))}{\phi_a(g(x))}\bigg{|}f,g\in F[x],g(a)\neq 0\right\}=\left\{\frac{f(a)}{g(a)}\bigg{|}f,g\in F[x],g(a)\neq 0\right\}$$
-We say that a field extension $F<L$ is a simple extension if $L=F(a)$ for some $a\in L$. 
-\end{defn}
-
-It is straight forward from the definition to see that $F(a)$ is just the fraction field of $F[a]$. 
-
-\begin{lmm}{}{} Let $K/F$ be a field extension. Let $a\in K$. Then $$\text{Frac}(F[a])=F(a)$$
-\end{lmm}
-
-\begin{prp}{}{} Let $F<K$ be a field extension. Then $K=F(a)$ is a simple field extension for $a\in K$ if and only if $$K=\bigcap_{\substack{R\text{ is a field}\\F\cup\{a\}\subseteq R\subseteq K}}R$$
-\end{prp}
-
-Similar to simplex extensions, we can adjoin multiple elements to a field. 
-
-\begin{defn}{Finitely Generated Field Extensions}{} Let $K/F$ be a field extension. Let $\{a_1,\dots,a_n\}\subset K$. Define $$F(a_1,\dots,a_n)=\left\{\frac{\phi_a(f(a_1,\dots,a_n))}{\phi_a(g(a_1,\dots,a_n))}\;\bigg{|}\;f,g\in F[x_1,\dots,x_n],g(a_1,\dots,a_n)\neq 0\right\}$$ to be the field extension finitely generated by $a_1,\dots,a_n$. 
-\end{defn}
-
-In particular, finitely generated extensions is just the simple extension applied finitely many times. 
-
-\begin{lmm}{}{} Let $F<K$ be fields. Let $a,b\in K$, then $F(a,b)=F(a)(b)$. 
-\end{lmm}
-
-\begin{prp}{}{} Let $K/F$ be a field extension. Let $X=\{a_1,\dots,a_n\}\subset K$. Then $$F(a_1,\dots,a_n)=\bigcap_{\substack{R\text{ is a field}\\F\cup X\subseteq R\subseteq K}}R$$ Namely, it is the smallest field extension of $F$ containing $X$. 
-\end{prp}
-
-\begin{prp}{}{} Every finite field extension is finitely generated. \tcbline
-\begin{proof}
-Let $K/F$ be a finite field extension, say $n=[K:F]$. Then by definition, $K=\text{span}\{k_1,\dots,k_n\}$ where $k_i\in K$ for each $i$. Hence every element of $K$ can be written as a finite linear combination of $k_1,\dots,k_n$ over $F$. Thus $K\subseteq F(x_1,\dots,x_n)$. Since $K$ is a field that contains $F$ and $\{k_1,\dots,k_n\}$, by proposition 9.4.6, we have that $F(k_1,\dots,k_n)\subseteq K$ and so we conclude. 
-\end{proof}
-\end{prp}
-
-There is a great relation between the polynomial ring and finitely generated field extensions. Notice that a polynomial ring over a field is not a field while finitely generated field extensions are a field. 
-
-\begin{prp}{}{} Let $K/F$ be a field extension. Let $X=\{a_1,\dots,a_n\}\subset K$. Then $$F[a_1,\dots,a_n]=\bigcap_{\substack{R\text{ is a ring}\\F\cup X\subseteq R\subseteq K}}R$$
-\end{prp}
-
-\begin{prp}{}{} Let $K/F$ be a field extension. Let $X=\{a_1,\dots,a_n\}\subset K$. Then $$F(a_1,\dots,a_n)=\text{Frac}\left(F[a_1,\dots,a_n]\right)$$
-\end{prp}
-
-\subsection{Algebraic Elements}
-Recall the notion of algebraic elements and the minimal polynomials from groups and rings. 
-
-\begin{defn}{Algebraic and Transcendental Elements}{} Let $F<K$ be fields. Then $a\in K$ is said to be algebraic over $F$ if there exists a non zero polynomial $f\in F[x]$ such that $f(a)=0$. Otherwise it is said to be transcendental. 
-\end{defn}
-
-\begin{defn}{Minimal Polynomial}{} Let $F<K$ be field extensions and $a\in K$ be algebraic over $F$. Then the minimal polynomial of $a$ over $F$ is the monic irreducible polynomial $p(x)\in F[x]$ of least degree such that $p(a)=0$. It is often denoted $\min(F,a)$. 
-\end{defn}
-
-\begin{prp}{}{} Let $F<K$ be fields and $a\in K$ be algebraic over $F$. Then the minimal polynomial exists and is unique. Moreover, if $g\in F[x]$ satisfies $g(a)=0$, then $f|g$. 
-\end{prp}
-
-\begin{prp}{}{} Let $F<K$ be a field extension and $a\in K$ algebraic over $F$. Let $\deg(\min(F,a))=n$. Then $[F(a):F]=n$ and $1,a,\dots,a^{n-1}$ is a basis for $F(a)$ over $F$. \tcbline
-\begin{proof}
-Suppose that $f$ is the minimum polynomial. We prove that $L:F[x]_{<n}\to F[x]/(f)$ defined by $L(g)=g+(f)$ is a field isomorphism. It is easy to check that it is a $F$-linear map. For injectivity, suppose that $L(v)=0$. Then $v\in(f)$ as well as $\deg(v)<\deg(f)$ by construction forces $v$ to be $0$. For sujectivity, suppose that $r+(f)\in F[x]/(f)$ and $\deg(r)<\deg(f)$. Then we can just choose $r\in F[x]_{<n}$ and we are done. Thus $L$ is an isomorphism. \\~\\
-Using the fact that $F[x]/(f)\cong F(a)$, we can construct a basis for $F(a)$ from $L$. But $L$ has the basis $\{1,x,\dots,x^{n-1}\}$. Transporting it through the field isomorphisms, we get $\{1,a,\dots,a^{n-1}\}$ is a basis of $F(a)$. \\~\\
-\end{proof}
-\end{prp}
-
-\begin{prp}{}{} Let $f\in K[x]$ be an irreducible polynomial. Then there exists a field extension $K<L$ and $a\in L$ such that $L=K(a)$ and $f(a)=0$. \\~\\
-
-Moreover, if $f$ is monic, then $f$ is the minimal polynomial of $a$ over $K$ and $[K(a):K]=\deg(f)$. \tcbline
-\begin{proof}
-Consider the field $L=K[x]/(f)$. $L$ is a field since $f$ is irreducible in $K[x]$. Moreover, the composition $K\to K[x]\to K[x]/(f)=L$ is a field homomorphism and so is injective. Let $a=x+(f)\in L$. Any element of $L$ is of the form $h(x)+(f)$, but that is exactly $h(a)$, so $a$ generates $L$ over $K$. It is clear that $f(a)=f(x)+(f)=0+(f)$ is zero in $L$. \\~\\
-
-If $f$ is monic and irreducible, it is by definition the minimal polynomial of $a$. By the above theorem, $[K(a):K]=\deg(f)$ and so we conclude. 
-\end{proof}
-\end{prp}
-
-If $f$ is reducible, then we will not have the last statement that $[K(a):K]=\deg(f)$, but the rest of the proposition still works, just pick your favourite irreducible factor of $f$. 
-
-\subsection{Algebraic Extensions}
-Every field extension can be classified into an algebraic extension or a transcendental extension or a mixture of both. Since $\R$ contains both algebraic elements and transcendental elements of $\Q$, it is the prototypical example of such a field extension. Algebraic extensions will be studied briefly here, while more is said on transcendental extensions in field and Galois theory. 
-
-\begin{defn}{Algebraic Extensions}{} Let $K/F$ be a field extension. We say that $K/F$ is an algebraic extension if every element of $K$ is algebraic over $F$. 
-\end{defn}
-
-In particular, notice that $a\in K$ is an algebraic element over $F$ if and only if $F(a)$ is an algebraic extension. 
-
-\begin{lmm}{}{} If $F<K$ is a finite extension of fields, then $K$ is algebraic over $F$. \tcbline
-\begin{proof}
-Suppose that $[K:F]=n$. If $a\in L$, consider the elements $1,a,\dots,a^n$. Since they lie in an $n$ dimensional vector space, there exists $c_0,\dots,c_n\in F$ not all $0$ such that $\sum_{i=0}^nc_ia^i=0$. Thus $a$ satisfies a non-trivial polynomial relation over $F$. 
-\end{proof}
-\end{lmm}
-
-\begin{thm}{}{} If $K$ is algebraic over $L$ and $L$ is algebraic over $F$ then $K$ is algebraic over $F$. 
-\end{thm}
-
-\begin{prp}{}{} Let $K$ be a field extension of $F$. If each $a_1,\dots,a_n\in K$ is algebraic over $F$, then $F(a_1,\dots,a_n)$ is a finite dimensional vector space with $$[F(a_1,\dots,a_n):F]\leq\prod_{k=1}^n[F(a_k):F]$$
-\end{prp}
-
-\begin{crl}{}{} Let $F<K$ be fields. Then $a\in K$ is algebraic over $F$ if and only if $[F(a):F]<\infty$. \\~\\
-
-Moreover, a simple field extension $F(a)/F$ is a finite extension if and only if $F(a)$ is an algebraic extension. 
-\end{crl}
-
-Since finitely generated field extensions is a finite concatenation of simple extensions, we can ask the question of whether the simplicity criteria can be relaxed to finitely generated extensions. The following proposition shows that it is possible. 
-
-\begin{prp}{}{} Let $K/F$ be a finitely generated field extension. Then $K/F$ is a finite extension if and only if $K/F$ is an algebraic extension. 
-\end{prp}
-
-If one know of colimits, then it is easy to see that algebraic extension are just colimits of finite extensions. This means that algebraic extensions are just finite extensions applied a countable number of times. 
 
 \pagebreak
 \section{The Ring of Matrices}
