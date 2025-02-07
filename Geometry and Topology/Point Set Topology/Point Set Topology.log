@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  16 JAN 2025 18:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  28 JAN 2025 09:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1275,20 +1275,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 581--583
 
 [28]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 804.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 804.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 804.
+
+
+
 [29]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 814.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 814.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 814.
-
-
 
 [30]
 
@@ -1296,20 +1296,20 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [32]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 938.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 938.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 938.
+
+
+
 [33]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 948.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 948.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 948.
-
-
 
 [34]
 
@@ -1323,57 +1323,55 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [39]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1070.
+
+
+
 [40]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1080.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1080.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1080.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1080.
-
-
 
 [41]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1118.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1118.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1118.
+
+
+
 [42]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1128.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1128.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1128.
-
-
-
-[43]
-
-[44] (Point Set Topology.aux)
+[43] (Point Set Topology.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Point Set Topology".out' has not changed.
-(rerunfilecheck)             Checksum: 29D2014D8B516D2FB1836CED18006BCC;8270.
+(rerunfilecheck)             Checksum: DF8893D1B2AF4F1048066130A7A36C5D;8068.
  ) 
 Here is how much of TeX's memory you used:
- 33106 strings out of 473577
- 652308 string characters out of 5716318
+ 33097 strings out of 473577
+ 652169 string characters out of 5716318
  1079679 words of memory out of 5000000
- 55485 multiletter control sequences out of 15000+600000
+ 55480 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,16n,120p,1046b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1399,9 +1397,9 @@ iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Use
 rs/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:
 /Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pf
 b>
-Output written on "Point Set Topology.pdf" (44 pages, 577182 bytes).
+Output written on "Point Set Topology.pdf" (43 pages, 573667 bytes).
 PDF statistics:
- 826 PDF objects out of 1000 (max. 8388607)
- 282 named destinations out of 1000 (max. 500000)
- 389 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 814 PDF objects out of 1000 (max. 8388607)
+ 278 named destinations out of 1000 (max. 500000)
+ 381 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -597,7 +597,6 @@ The following notion is unique to metric spaces which is helpful in characterizi
 \begin{defn}{Bounded Set}{} Let $U$ be a subset of a metric spaces $(X,d)$. We say that $U$ is bounded if there exists $a\in X$ and $r>0$ such that $$U\subseteq B_r(a)$$
 \end{defn}
 
-\subsection{Continuity in Metric Spaces}
 \begin{prp}{}{} Let $f:X\to Y$ be a funciton between metric spaces. The following are equivalent. 
 \begin{itemize}
 \item $f$ is continuous at $p\in X$
@@ -605,15 +604,6 @@ The following notion is unique to metric spaces which is helpful in characterizi
 \item For every $\epsilon>0$, there exists $\delta>0$ such that $$x\in B_{\delta}(p)\implies f(x)\in B_{\epsilon}(f(p))$$ Or equivalently, $f(B_{\delta}(p))\subset B_{\epsilon}(f(p))$. 
 \end{itemize}
 \end{prp}
-
-\begin{defn}{Lipschitz Continuity}{} A function $f:X\to Y$ is Lipschitz continuous if there exists $C\geq 0$ such that $$d_Y(f(x),f(y))\leq Cd_X(x,y)$$ for all $x,y\in X$. In this case, $C$ is the Lipschitz constant. 
-\end{defn}
-
-\begin{lmm}{}{} Lipschitz continuity implies continuity. \tcbline
-\begin{proof}
-Set $\delta=\frac{\epsilon}{C}$ in the $\epsilon-\delta$ definition of continuity. 
-\end{proof}
-\end{lmm}
 
 \subsection{Equivalent Metrics}
 We now investigate when will different metrics induce the same topology. The answer is reasonably straight forward considering we have the notion of homeomorphism at play. 
@@ -629,7 +619,7 @@ We now investigate when will different metrics induce the same topology. The ans
 \end{itemize}
 \end{prp}
 
-\begin{defn}{Lipschitz Equivalent Metrics}{} Two metrics $d_1,d_2$ on $X$ are said to be Lipschitz equivalent if there exists $0<c_1\leq c_2<\infty$ such that $$c_1d_1(x,y)\leq d_2(x,y)\leq c_2d_1(x,y)$$ for all $x,y\in X$. 
+\begin{defn}{Bilipschitz Equivalent Metrics}{} Two metrics $d_1,d_2$ on $X$ are said to be bilipschitz equivalent if there exists $0<c_1\leq c_2<\infty$ such that $$c_1d_1(x,y)\leq d_2(x,y)\leq c_2d_1(x,y)$$ for all $x,y\in X$. 
 \end{defn}
 
 \begin{lmm}{}{} Let $X$ be a set. Let $d_1$ and $d_2$ be metrics on $X$. If $d_1$ and $d_2$ are Lipshcitz equivalent then $d_1$ and $d_2$ are topologically equivalent. 

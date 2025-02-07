@@ -453,7 +453,7 @@ It remains to show that the set $S$ is closed. Suppose for a contradiction that 
 We now define formally want it means to lift a homotopy, and in particular paths for a general space. 
 
 \begin{defn}{The Homotopy Lifting Property}{} Let $p:Z\to X$ be a map. We say that $p$ has the homotopy lifting property (HLP) if for every homotopy $f_t:Y\to X$ and a lift $\tilde{f}_0:Y\to Z$ of $f_0:Y\to X$, there exists a unique homotopy $\tilde{f}_t:Y\to\tilde{X}$ of $\tilde{f_0}$ that lifts $f_t$. In terms of diagrams, we have \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
 Y\times\{0\}\arrow[r, "\tilde{f_0}"]\arrow[d, "i"] & Z\arrow[d, "p"]\\
 Y\times I\arrow[ru, dotted, "\tilde{f}_t"]\arrow[r, "f_t"] & X
 \end{tikzcd}}
@@ -462,7 +462,7 @@ Y\times I\arrow[ru, dotted, "\tilde{f}_t"]\arrow[r, "f_t"] & X
 This means that if $f$ and $g$ are homotopic functions from $Y$ to $X$, then the lifts of $f$ and $g$ are also homotopic, given that they have the homotopy lifting property. 
 
 \begin{defn}{The Path Lifting Property}{} Let $p:Z\to X$ be a map. We say that $p$ has the path lifting property (PLP) if for any path $f:I\to X$ with $f(0)=x_0$ and $\tilde{x}_0\in p^{-1}(x_0)$, there exists a unique lift $\tilde{f}:I\to Z$ of $f$ such that $\tilde{f}_0=\tilde{x_0}$. In terms of diagrams, we have \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
  & Z\arrow[d, "p"]\\
 I\arrow[ru, dotted, "\tilde{f}"]\arrow[r, "f"] & X
 \end{tikzcd}}
@@ -765,50 +765,74 @@ The first section we also show that just from the fundamental group of the circl
 \subsection{The Fundamental Group of the Circle}
 In this section we compute our firs fundamental group through the use of covering space and path lifting properties. The proof for the fundamental group of the circle reproduces important concepts of the proofs of the covering space, instead of directly applying all the consequences of the HLP. This means that the proof bares some resemblance to the more abstract proof of the HLP, which might also be a good exercise in trying to understand the proofs in the covering space. 
 
-\begin{thm}{}{} Let $u_n:I\to S^1\subset\C$ be the loop given by $u(t)=e^{2\pi int}$. Then the map $\phi:\Z\to\pi(S^1,1)$ defined by $\phi(n)=[u_n]$ is a group isomorphism. \tcbline
+\begin{thm}{}{} There is a group isomorphism $$\pi_1(S^1,1)\cong\Z$$ given as follows. For each $n\in\Z$, $\phi:\Z\to\pi_1(S^1,1)$ sends $n$ to $[u_n:I\to S^1]$ where $u_n(t)=e^{2\pi int}$. \tcbline
 \begin{proof}
-We first prove that $\phi$ is a group homomorphism. This mean that we need to show that $[u_{m+n}]=[u_m]\cdot[u_n]$. Notice that the map $p_\infty:\R\to S^1$ defined by $p_\infty(t)=e^{2\pi it}$ is a covering map of $S^1$. Define $\tilde{u}_n:I\to\R$ by $\tilde{u}_n(s)=ns$ is a lift of $u_n$ to $p_\infty$. Consider the function $\tau_n:\R\to\R$ defined by $\tau_n(t)=t+n$, and consider $\tilde{u}_m\cdot(\tau_m\circ\tilde{u}_n)$. This is a path from $0$ to $m+n$, and is homotopic to $\tilde{u}_{m+n}$ by the linear homotopy $$f_t=(1-k)[\tilde{u}_{n+m}]+k[\tilde{u}_m\cdot(\tau_m\circ\tilde{u}_n)]$$ Now we have that 
+Define the map $p:\R\to S^1$ by $s\mapsto e^{2\pi is}$. Notice that this is a covering map. Indeed, for each $x\in S^1\setminus\{1\}$, $S^1\setminus\{1\}$ is an open neighbourhood of $x$ for which $$p^{-1}(S^1\setminus\{1\})=\coprod_{n\in\Z}(n,n+1)$$ and on each component of the disjoint union $p$ gives a homeomorphism. Hence $p:\R\to S^1$ is a covering map. \\~\\
+
+By the path lifting property, $u_n:I\to S^1$ has a lift $\widetilde{u_n}:I\to\R$, given by $t\mapsto nt$. Now define $\tau_m:\R\to\R$ by $\tau_m(s)=s+m$. I claim that $\widetilde{u_m+n}$ is homotopic to $\widetilde{u_m}\cdot(\tau_m\circ\widetilde{u_n})$ relative boundary. Define a map $H:I\times I\to\R$ by $$H(t,s)=(1-s)\widetilde{u_{m+n}}(t)+s(\widetilde{u_m}\cdot(\tau_m\circ\widetilde{u_n}))(t)$$ It is easy to see that 
+\begin{itemize}
+\item $H(t,0)=\widetilde{u_{m+n}}(t)$
+\item $H(t,1)=\widetilde{u_m}\cdot(\tau_m\circ\widetilde{u_n})(t)$
+\item $H(0,s)=(1-s)\cdot 0+s\cdot 0=0$
+\item $H(1,s)=(1-s)\cdot(m+n)+s\cdot(m+n)=m+n$
+\end{itemize}
+So that $H$ is a well defined homotopy relative to boundary. \\~\\
+
+To show that $\phi$ is a well defined group homomorphism, we calculate that 
 \begin{align*}
-[u_{m+n}]&=[p_\infty\circ\tilde{u}_{m+n}]\tag{Lift of $u$}\\
-&=[p_\infty\circ(\tilde{u}_m\cdot(\tau_m\circ\tilde{u}_n))]\tag{Homotopies descend}\\
-&=[(p_\infty\circ\tilde{u}_m)\cdot(p_\infty\circ\tau_m\circ\tilde{u}_n)]\tag{Paths descend}\\
-&=[p_\infty\circ\tilde{u}_m]\cdot[p_\infty\circ\tau_m\circ\tilde{u}_n]\\
-&=[p_\infty\circ\tilde{u}_m]\cdot[p_\infty\circ\tilde{u}_n]\tag{Deck Transformation}\\
+[u_{m+n}]&=[p\circ\widetilde{u}_{m+n}]\tag{Lift of $u$}\\
+&=[p\circ(\widetilde{u}_m\cdot(\tau_m\circ\widetilde{u}_n))]\tag{Homotopies descend}\\
+&=[(p\circ\widetilde{u}_m)\cdot(p\circ\tau_m\circ\widetilde{u}_n)]\tag{Paths descend}\\
+&=[p\circ\widetilde{u}_m]\cdot[p\circ\tau_m\circ\widetilde{u}_n]\tag{Concatenation is well defined up to homotopy}\\
+&=[p\circ\widetilde{u}_m]\cdot[p\circ\widetilde{u}_n]\tag{$p\circ\tau_m=p$}\\
 &=[u_m]\cdot[u_n]\tag{Lift of $u$}
 \end{align*}
 Thus $\phi$ is indeed a group homomorphism. \\~\\
 
-Next is surjectivity. Suppose that $[v]\in\pi_1(S^1,1)$. Notice that the covering $p_\infty$ has the path lifting property. This means that $v$ has a unique lift $\tilde{v}$ such that $p_\infty\circ\tilde{v}=v$ and $\tilde{v}(0)=0$. Since $v(1)=1$ and $p_\infty\circ\tilde{v}=v$, we have that $\tilde{v}(1)\in p_\infty^{-1}(1)=\{t\in\R|e^{2\pi it}=1\}=\Z$. So take $\tilde{v}(1)=n\in\Z$. Then $\tilde{v}\sim\tilde{u_n}$ since it is given by the linear homotopy $f_k=(1-t)\tilde{v}+t\tilde{u}_n$. Since homotopies descend, we have that $v=u_n$ and thus $[v]=[u_n]$ and we are done. \\~\\
+We now show that $\phi$ is surjective. Suppose that $[v]\in\pi_1(S^1,1)$. By the path lifting property of $p$, there exists a unique lift $\widetilde{v}:I\to\R$ such that $v=p\circ\widetilde{v}$ and $\tilde{v}(0)=0$. In particular, we have that $$\widetilde{v}(1)\in p^{-1}(1)=\{t\in\R\;|\;e^{2\pi it}=1\}=\Z$$ so that $\widetilde{v}(1)$ is an integer, say $\widetilde{v}(1)=k\in\Z$. I claim that $\widetilde{v}$ and $\widetilde{u_k}$ are homotopic. Define a homotopy $H:I\times I\to\R$ by $$H(t,s)=(1-s)\widetilde{v}(t)+s\widetilde{u_k}(t)$$ It is clear that it satisfies the boundary conditions so that $H$ is a homotopy from $\widetilde{v}$ to $\widetilde{u_k}$ fixing end points. Since $p$ is a covering map, by homotopy descend we have that $[\widetilde{v}]=[\widetilde{u_k}]$ implies $$[v]=[p\circ\widetilde{v}]=[p\circ\widetilde{u_k}]=[u_k]$$ Hence $\phi$ is surjective. \\~\\
 
-Finally, for injectivity, we want to show that the $\ker(\phi)=\{0\}$. In other words, we want to show that if $\phi(n)=[u_n]$ is equal to the constant loop $[I]$, then $n=0$. So let $[u_n]=[I]$. This means that $u_n\sim I$ and there exists a homotopy $H:I\times I\to S^1$ such that $f_0=u_n$, $f_1=I$ and $f_t(0)=f_t(1)=1$ for all $t$ since it is relative to the boundary. Define $g:I\times\{0\}\to\R$ by $g(s,0)=\tilde{u}_n(0)$. Clearly this is a lift of $u_n$ to $\R$ and since covering maps $p_\infty:\R\to S^1$ has the homotopy lifting property, there exists $\tilde{H}:I\times I\to\R$ such that $\tilde{f}_0=g=\tilde{u}_n$ and $p_\infty\circ\tilde{f_t}=f_t$. In particular, we have $p_\infty\circ\tilde{f}_1=I$. We also have that $f_t(0)=1$ and $p_\infty\circ\tilde{f}_t(0)=f_t(0)$ implies $\tilde{f}_t(0)\in p_\infty^{-1}(1)=\Z$. The argument similar for $\tilde{f}_1(s),\tilde{f}_t(1)\in\Z$. Finally, since $\tilde{f}_0=\tilde{u}_n$ we have that $\tilde{f}_0(1)=n$. But homtopies are continuous and we have that $\tilde{f}_0(0)=0$. So we have 
+We also need to show that $\phi$ is injective. Let $[u_n]\in\pi_1(S^1,1)$. Suppose that $e_1$ be the constant loop on $1\in S^1$. I claim that if $[u_n]=[e_1]$ then $n=0$. If $[u_n]=[e_1]$, then there exists a homotopy relative boundary $H:I\times I\to S^1$ such that $H(t,0)=u_n(t)$ and $H(t,1)=e_1(t)=1$ and $H(0,s)=H(1,s)=1$. Recall that the path $\widetilde{u_n}:I\to\R$ defined by $t\mapsto nt$ is a lift of $u_n$. Since $p$ is a covering map, it has the homotopy lifting property. This means that there exists a homotopy $\widetilde{H}:I\times I\to\R$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{I\times\{0\}} & \R \\
+	{I\times I} & {S^1}
+	\arrow["{\widetilde{u_n}}", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["{\exists\widetilde{H}}"{description}, dashed, from=2-1, to=1-2]
+	\arrow["H"', from=2-1, to=2-2]
+\end{tikzcd}} \\~\\
+Now since $p\circ\widetilde{H}=H$, we have that $$\widetilde{H}(0,s),\widetilde{H}(1,s)\in p^{-1}(1)=\{t\in\R\;|\;e^{2\pi it}=1\}=\Z$$ for $s\in I$. But since $H$ is continuous in $s$ and $\Z$ is a discrete subset of $\R$, we must have that $\widetilde{H}(0,s)=\widetilde{H}(0,0)\in\Z$ is constant for $s\in I$, and $\widetilde{H}(1,s)=\widetilde{H}(1,0)\in\Z$ is constant for $s\in I$. But by definition of the lift of the homotopy, we have $\widetilde{H}(0,0)=0$. Similarly, $\widetilde{H}(1,0)=n$. At the same time, we have $$\widetilde{H}(t,1)\in p^{-1}(1)=\{t\in\R\;|\;e^{2\pi it}=1\}=\Z$$ so by a similar argument, we conclude that $\widetilde{H}(1,1)=\widetilde{H}(t,1)=\widetilde{H}(0,1)$ for any $t\in I$. Then we have 
 \begin{align*}
-0=\tilde{f}(0,0)&=\tilde{f}(0,t)\tag{Continuity in $t$ and takes value in $\Z$}\\
-&=\tilde{f}(0,1)\tag{Take $t=1$}\\
-&=\tilde{f}(s,1)\tag{Continuity in $s$ and takes value in $\Z$}\\
-&=\tilde{f}(1,1)\tag{Take $s=1$}\\
-&=\tilde{f}(1,t)\tag{Continuity in $t$ and takes value in $\Z$}\\
-&=\tilde{f}(1,0)=n
+\widetilde{H}(0,0)&=0\\
+\widetilde{H}(0,s)&=0\tag{for any $s\in I$}\\
+\widetilde{H}(0,1)&=0\\
+\widetilde{H}(t,1)&=0\tag{for any $t\in I$}\\
+\widetilde{H}(1,1)&=0\\
+\widetilde{H}(1,s)&=0\tag{for any $s\in I$}\\
+\widetilde{H}(1,0)&=0\\
+\widetilde{u_n}(1)&=0\\
+n&=0
 \end{align*}
-So $n=0$ and we are done. 
+Hence $\phi$ is injective. 
 \end{proof}
 \end{thm}
 
 There are a number of important consequences deducible from the fundamental group of circle, via comparing it to other fundamental groups. 
 
-\begin{thm}{}{3.1.2} The disc $D^2$ does not retract to $S^1\subset D^2$. \tcbline
+\begin{prp}{}{3.1.2} The disc $D^2$ does not retract to $S^1\subset D^2$. \tcbline
 \begin{proof}
 If there exists a retract $f:D^2\to S^1$ then $\pi_1(f)$ is a surjective homomorphism. But $\pi_1	(D^2,1)\cong\{0\}$ and $\pi_1(S^1,1)\cong\Z$ which is a contradiction. 
 \end{proof}
-\end{thm}
+\end{prp}
 
 Brouwer's fixed point theorem is a powerful theorem showing that every map from $D^n$ to $D^n$ has a fixed point. During his time there was not the notion of the fundamental group. Now with the fundamental group, we can treat the case of $n=2$ very easily. 
 
-\begin{crl}{Brouwer's Fixed Point Theorem}{} Every continuous map $f:D^2\to D^2$ has a fixed point. \tcbline
+\begin{prp}{Brouwer's Fixed Point Theorem}{} Every continuous map $f:D^2\to D^2$ has a fixed point. \tcbline
 \begin{proof}
 Suppose for a contradiction that $f:D^2\to D^2$ has no fixed points. Then for every $x$ and $f(x)$, there is a unique line $L_x(t)=(1-t)f(x)+tx$ joining $x$ and $f(x)$. The line intersects with $S^1$ in two points. Let $r(x)$ be the one where $t>0$. Then clearly $r:D^2\to S^1$ is a function such that $r(x)=x$ for $x\in S^1$. \\~\\
 I claim that this function is continuous and thus is a retract. We want $\abs{L_x(t)}=1$ which means that $$((1-t)f(x)+tx)^2=1$$ Clearly the positive solution of this quadratic depends continuously on $x$ and $f(x)$ which is also continuous. This means that $r$ is indeed a retract. This contradicts \ref{thm:3.1.2} saying that $D^2$ does not retract to $S^1$ thus we are done. 
 \end{proof}
-\end{crl}
+\end{prp}
 
 To show the more general Brouwer's fixed point theorem, we make use of homology in the sequel of these notes. \\~\\
 

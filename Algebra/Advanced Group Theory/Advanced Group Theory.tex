@@ -318,18 +318,25 @@ It suffices to show that $G$ is abelian if and only if $[G,G]=1$. We know that i
 \end{lmm}
 
 \subsection{Free Abelian Groups}
-\begin{defn}{Basis of an Abelian Group}{} Let $G$ be an abelian group. Let $B\subset G$. 
-\begin{itemize}
-\item We say that elements of $B$ are linearly independent if $\sum_{b\in B}n_b\cdot b=0$ implies $n_b=0$ for each $b\in B$
-\item We say that $B$ is a basis of $G$ if it is linearly independent and generate $G$. 
-\end{itemize}
+\begin{defn}{Free Abelian Group On a Set}{} Let $S$ be a set. Define the free abelian group on $S$ to be the direct sum $$\Z S=\Z\langle s\in S\rangle=\bigoplus_{s\in S}\Z$$ 
 \end{defn}
 
-\begin{defn}{Free Abelian Group}{} Let $G$ be an abelian group. We say that $G$ is free abelian if $G$ admits a basis. 
-\end{defn}
+\begin{prp}{Universal Property of Free Abelian Groups}{} Let $S$ be a set. Then the free group $\Z S$ and the inclusion map $\iota:S\to\Z S$ satisfies the following universal property. For any abelian group $A$ and any map of sets $\psi:S\to A$, there exists a unique group homomorphism $\phi:\Z S\to A$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	S & {\Z S} \\
+	& A
+	\arrow["\iota", hook, from=1-1, to=1-2]
+	\arrow["\psi"', from=1-1, to=2-2]
+	\arrow["{\exists!\phi}", dashed, from=1-2, to=2-2]
+\end{tikzcd}} \\~\\
+Moreover, $\Z S$ is the unique group (up to unique isomorphism) that has such a property. \tcbline
+\end{prp}
 
-Notice that $k_1,\dots,k_n$ are unique for each element $g\in G$. This contrasts the fact that in finitely generated abelian groups, $k_1,\dots,k_n$ are not necessarily unique. \\
-Another comparison, every free group is not finite, but again there is none of this restriction on finitely generated abelian groups. 
+\begin{prp}{}{} Let $S$ be a set. Then there is an isomorphism $$\Z S\cong(F_S)^\text{ab}$$ given by the universal property of free abelian groups. 
+\end{prp}
+
+\begin{prp}{}{} Let $S,T$ be sets. Then $\Z S\cong\Z T$ are isomorphic if and only if $\abs{S}=\abs{T}$. 
+\end{prp}
 
 \begin{prp}{}{} Let $A$ be an abelian group and $B$ a subgroup of $A$. If $A/B$ is a free abelian group, then $$A\cong B\times A/B$$ \tcbline
 \begin{proof}
@@ -351,23 +358,16 @@ This implies that $k_i=0$ and thus $b=0$. Thus $\ker(\phi)=0$. Now suppose that 
 \end{proof}
 \end{prp}
 
-Just as free groups are unique up to the cardinality of the underlying set, free abelian groups are unique up to the cardinality of its basis. 
+Given an arbitrary abelian group, we can recognize whether it is free abelian using the concept of a basis that is analogous to that in Linear Algebra. 
 
-\begin{prp}{}{} Let $G$ be a free abelian group with basis $B$. Then $G$ is isomorphic to a direct sum $$G\cong\bigoplus_{i\in I}\Z$$ for $\abs{I}=\abs{B}$. 
-\end{prp}
+\begin{defn}{Basis of an Abelian Group}{} Let $G$ be an abelian group. Let $B\subset G$. 
+\begin{itemize}
+\item We say that elements of $B$ are linearly independent if $\sum_{b\in B}n_b\cdot b=0$ implies $n_b=0$ for each $b\in B$
+\item We say that $B$ is a basis of $G$ if it is linearly independent and generate $G$. 
+\end{itemize}
+\end{defn}
 
-\begin{prp}{Universal Property of Free Abelian Groups}{} Let $G$ be a free abelian group with basis $B$. Then $G$ and the inclusion $\iota:B\hookrightarrow G$ satisfies the following universal property. For any abelian group $H$ and any map of sets $f:B\to H$, there exists a unique group homomorphism $F:G\to H$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	B & G \\
-	& H
-	\arrow["\iota", hook, from=1-1, to=1-2]
-	\arrow["f"', from=1-1, to=2-2]
-	\arrow["{\exists!F}", dashed, from=1-2, to=2-2]
-\end{tikzcd}} \\~\\
-Moreover, $G$ is the unique group (up to unique isomorphism) that has such a property. 
-\end{prp}
-
-\begin{prp}{}{} Let $G$ be a free abelian group. Then there exists a set $S$ such that there is an isomorphism $$G\cong(F_S)^\text{ab}$$
+\begin{prp}{}{} Let $G$ be an abelian group. Then $G$ is isomorphic to a free abelian group if and only if $G$ has a basis. 
 \end{prp}
 
 \pagebreak

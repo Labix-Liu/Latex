@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  16 JAN 2025 22:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  28 JAN 2025 09:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1117,46 +1117,36 @@ enc}]
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
+Package rerunfilecheck Info: File `"Riemannian Manifolds".out' has not changed.
 
-
-Package rerunfilecheck Warning: File `"Riemannian Manifolds".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Riemannian Manifolds".out':
-(rerunfilecheck)             Before: F8816C9D6BAEC3697F69B24B0E5BBFC5;2692
-(rerunfilecheck)             After:  5A765DD1228A77C3C7328CB2C766993D;2617.
+(rerunfilecheck)             Checksum: 5A765DD1228A77C3C7328CB2C766993D;2617.
  ) 
 Here is how much of TeX's memory you used:
- 32528 strings out of 473577
- 641841 string characters out of 5716318
+ 32526 strings out of 473577
+ 641811 string characters out of 5716318
  1070681 words of memory out of 5000000
- 55120 multiletter control sequences out of 15000+600000
+ 55119 multiletter control sequences out of 15000+600000
  597445 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,11n,120p,765b,1118s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{subsection.4.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-ex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liula/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/liul
-a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Us
-ers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm1
-0.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/tex-gyre/qplr.pfb>
-Output written on "Riemannian Manifolds.pdf" (11 pages, 282475 bytes).
+<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liula/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/li
+ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/
+Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/euf
+m10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/tex-gyre/qplr.pfb>
+Output written on "Riemannian Manifolds.pdf" (11 pages, 281903 bytes).
 PDF statistics:
- 277 PDF objects out of 1000 (max. 8388607)
- 64 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 63 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

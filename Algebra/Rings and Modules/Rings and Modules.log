@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  18 JAN 2025 11:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  4 FEB 2025 18:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1185,6 +1185,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 695--709
 
 
 [24]
+Underfull \hbox (badness 10000) in paragraph at lines 753--764
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 753--764
+
+ []
+
+
 
 [25]
 
@@ -1200,49 +1210,69 @@ Underfull \hbox (badness 10000) in paragraph at lines 695--709
 
 [31]
 
-LaTeX Warning: Citation `Zar-Sam' on page 32 undefined on input line 964.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 964--965
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 964--965
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 968--969
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 968--969
-
- []
-
-
-
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 970--971
+
+LaTeX Warning: Citation `Zar-Sam' on page 33 undefined on input line 1019.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1020
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 970--971
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1020
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1023--1024
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1023--1024
 
  []
 
 
 
 [33]
+Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+
+ []
+
+
 
 [34]
 
 [35]
+Underfull \hbox (badness 10000) in paragraph at lines 1065--1066
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1065--1066
+
+ []
+
+
 
 [36]
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
+
+ []
+
+
 
 [37]
 
@@ -1253,28 +1283,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 970--971
 [40]
 
 [41]
-Underfull \hbox (badness 10000) in paragraph at lines 1184--1185
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1184--1185
-
- []
-
-
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1234--1235
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1234--1235
-
- []
-
-
 
 [43]
 
@@ -1290,7 +1300,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 1234--1235
 
 [49]
 
-[50] (Rings and Modules.aux)
+[50]
+
+[51] (Rings and Modules.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
@@ -1300,16 +1312,16 @@ L3 programming layer <2024-12-09>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `"Rings and Modules".out' has not changed.
-(rerunfilecheck)             Checksum: 0102318B1B1F399A213649544AECD1CB;7326.
+(rerunfilecheck)             Checksum: B09D0EB56C0F9144B289B4CD8242E37F;7283.
  ) 
 Here is how much of TeX's memory you used:
- 34305 strings out of 473577
- 683207 string characters out of 5716318
- 1101650 words of memory out of 5000000
- 56692 multiletter control sequences out of 15000+600000
+ 34598 strings out of 473577
+ 690627 string characters out of 5716318
+ 1110346 words of memory out of 5000000
+ 56976 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,17n,120p,1249b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,17n,120p,1096b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1327,9 +1339,9 @@ lic/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Rings and Modules.pdf" (50 pages, 587838 bytes).
+Output written on "Rings and Modules.pdf" (51 pages, 596865 bytes).
 PDF statistics:
- 801 PDF objects out of 1000 (max. 8388607)
- 274 named destinations out of 1000 (max. 500000)
+ 815 PDF objects out of 1000 (max. 8388607)
+ 283 named destinations out of 1000 (max. 500000)
  365 words of extra memory for PDF output out of 10000 (max. 10000000)
 

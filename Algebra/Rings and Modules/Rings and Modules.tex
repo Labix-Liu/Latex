@@ -634,7 +634,7 @@ Exact sequences give a compact way of expressing a sequence of homomorphisms and
 
 \begin{defn}{Long Exact Sequences}{} Let $R$ be a ring. Let $M_k$ be a left $R$-module for each $k\in\Z$. Let $f_k:M_k\to M_{k-1}$ be $R$-module homomorphisms for each $k\in\Z$. We say that the sequence \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {M_1} & {M_k} & {M_{k+1}} & \cdots
+	\cdots & {M_{k+1}} & {M_k} & {M_{k-1}} & \cdots
 	\arrow[from=1-1, to=1-2]
 	\arrow["{f_{k+1}}", from=1-2, to=1-3]
 	\arrow["{f_k}", from=1-3, to=1-4]
@@ -706,6 +706,61 @@ From the above we can deduce that whenever we see the following sequences: \\~\\
 	\arrow[from=2-4, to=2-5]
 \end{tikzcd}}\\~\\
 are exact by definition. 
+
+\begin{prp}{}{} Let $R$ be a ring. Let the following be a long exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {M_{k+1}} & {M_k} & {M_{k-1}} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{f_{k+1}}", from=1-2, to=1-3]
+	\arrow["{f_k}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then for all $i\in\Z$, there are short exact sequences of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\im(f_{i+1})} & {M_i} & {\im(f_i)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\text{incl.}}", from=1-2, to=1-3]
+	\arrow["{f_i}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}} \tcbline
+\begin{proof}
+Suppose we are given the long exact sequence and consider the 3 term sequence below. It is clear that the inclusion map is injective. Similarly, the map $f_i:M_i\to\im(f_i)$ is surjective tautologically. Finally, $\ker(f_i)=\im(f_{i+1})$ from the long exact sequence. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a ring. Suppose that for each $i\in\Z$, we have a short exact sequence of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {N_{i+1}} & {M_i} & {N_i} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{g_i}", from=1-2, to=1-3]
+	\arrow["{h_i}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}} \\~\\
+Then the following sequence of $R$-modules \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {M_{k+1}} & {M_k} & {M_{k-1}} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{g_i\circ h_{i+1}}", from=1-2, to=1-3]
+	\arrow["{g_{i-1}\circ h_i}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is a long exact sequence. \tcbline
+\begin{proof}
+Since $h_i$ is surjective, we have that $\im(g_i\circ h_{i+1})=\im(g_i)$. Similarly, since $g_i$ is injective, we have that $\ker(g_{i-1}\circ h_i)=\ker(h_i)$. But from the short exact sequence we know that $\im(g_i)=\ker(h_i)$. Hence we have $$\im(g_i\circ h_{i+1})=\im(g_i)=\ker(h_i)=\ker(g_{i-1}\circ h_i)$$ so that we have a long exact sequence. 
+\end{proof}
+\end{prp}
+
+It is convenient to think of the exchange as follows. We can intersperse $\im(f_i)$ to obtain a new sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {M_{i+1}} & {\im(f_{i+1})} & {M_i} & {\im(f_i)} & {M_{i-1}} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\text{surj.}}", from=1-2, to=1-3]
+	\arrow["{\text{inj.}}", from=1-3, to=1-4]
+	\arrow["{\text{surj.}}", from=1-4, to=1-5]
+	\arrow["{\text{inj.}}", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+that is NOT exact unless we fold up each pair of surjective map followed by an injective map into a single map. On the otherhand, we can ignore all other terms in the sequence except for an injective map followed by a surjective map. This will give us a short exact sequence. 
 
 \subsection{Split Exact Sequences}
 \begin{defn}{Split Exact Sequence}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
@@ -972,180 +1027,6 @@ However, second order derivatives (which are compositions of the first order par
 Finally, there is one more example of derivations. While we have done a completely general treatment of partial derivatives above, we can in fact evaluate the derivative at a chosen point and it will again be an $\R$-derivation. Writing $f(p)=\text{ev}_p(f)$ where $\text{ev}$ is the evaluation homomorphism, the $\R$-derivation $\R[x_1,\dots,x_n]\to\R[x_1,\dots,x_n]$ defined by $$f\mapsto \frac{\partial f}{\partial x_i}g(p)+f(p)\frac{\partial g}{\partial x_i}$$ is also a derivation! 
 
 \pagebreak
-\section{Graded Structures}
-\subsection{Graded Rings}
-\begin{defn}{Graded Rings}{} Let $R$ be a ring. We say that $R$ is graded if the following are true. 
-\begin{itemize}
-\item The abelian group structure of $R$ decomposes into a direct sum $$R=\bigoplus_{k=0}^\infty R_k$$ where each $R_k$ is an abelian group 
-\item For $r_i\in R_i$ and $r_j\in R_j$, $r_ir_j\in R_{i+j}$. 
-\end{itemize}
-We say that an element $r\in R$ is homogenous if $r\in R_k$ for some $k\in\N$. 
-\end{defn}
-
-\begin{prp}{}{} The following are true for a graded ring $R=\bigoplus_{n\in\N}R_i$. 
-\begin{itemize}
-\item $R_0$ is a subring of $R$
-\item $R_n$ is an $R_0$-module for each $n$
-\item $R$ is an $R_0$-module
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item $R_0$ is an abelian group by definition. We also have that $r_0\in R_0$ and $s_0\in R_0$ implies $r_0s_0\in R_0$ which means that multiplication is closed. 
-\item We have that for $r_0\in R_0$ and $r_n\in R_n$, $r_0\cdot r_n\in R_n$
-\item Since each $R_n$ is a $R_0$-module, the direct sum $R$ is also an $R_0$ module. 
-\end{itemize}
-\end{proof}
-\end{prp}
-
-\begin{defn}{Graded Commutative Rings}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a graded ring. We say that $R$ is graded commutative if for all $r\in R_i$ and $r\in R_j$, $$r\cdot s=(-1)^{ij}s\cdot r$$
-\end{defn}
-
-\begin{defn}{Homomorphism of Graded Rings}{} Let $R,S$ be graded rings. Let $\varphi:R\to S$ be a ring homomorphism. We say that $\phi$ is a graded ring homomorphism if $$\phi(R_i)\subseteq S_i$$ for each $i\in\N$. 
-\end{defn}
-
-\begin{defn}{Isomorphism of Graded Rings}{} Let $R,S$ be graded rings. Let $\varphi:R\to S$ be a ring homomorphism. We say that $\phi$ is a graded ring isomorphism if it is a graded ring homomorphism and an isomorphism of rings. 
-\end{defn}
-
-\subsection{Homogeneous Ideals}
-\begin{defn}{Homogeneous Ideals}{} Let $R$ be a graded ring. Let $I$ be an ideal of $R$. We say that $I$ is a homogeneous ideal if for all $a\in I$, each homogeneous components of $a$ lies in $I$. 
-\end{defn}
-
-\begin{lmm}{}{} Let $R$ be a graded ring. Let $I$ be an ideal of $R$. Then $I$ is homogeneous if and only if for all $f\in I$ with homogeneous decomposition $f=\sum_{k=0}^df_k$, each $f_k\in I$. 
-\end{lmm}
-
-\begin{lmm}{}{} Let $R$ be a graded ring. Let $I,J$ be homogeneous ideals of $R$. Then the following are true. 
-\begin{itemize}
-\item $I+J$ is a homogeneous ideal
-\item $IJ$ is a homogeneous ideal
-\item $I\cap J$ is a homogeneous ideal
-\item $\sqrt{I}$ is a homogeneous ideal
-\end{itemize}
-\end{lmm}
-
-\begin{prp}{}{} Let $R$ be a graded ring. Let $I$ be a homogeneous ideal of $R$. Then $R/I$ is also a graded ring with decomposition given by $$\frac{R}{I}=\bigoplus_{k=0}^\infty\frac{R_k}{R_k\cap I}$$
-\end{prp}
-
-\subsection{Graded Modules}
-\begin{defn}{Graded Modules over a Ring}{} Let $R$ be a ring. Let $M$ be an $R$-module. We say that $M$ is a graded module over $R$ if there is a decomposition $$M=\bigoplus_{k=0}^\infty M_k$$ into $R$-modules such that $m_i+m_j\in M_{i+j}$ for $m_i\in M_i$ and $m_j\in M_j$. 
-\end{defn}
-
-\begin{defn}{Graded Modules over a Graded Ring}{} Let $R$ be a graded ring. Let $M$ be an $R$-module. We say that $M$ is a graded module over $R$ if there is a decomposition $$M=\bigoplus_{k=0}^\infty M_k$$ into abelian groups and $R_iM_j\subseteq M_{i+j}$. 
-\end{defn}
-
-\begin{prp}{}{} Let $R$ be a graded ring. Let $M,N$ be graded $R$-modules. Then the tensor product $M\otimes_RN$ is also a graded $R$-module, with grading given by $$\left(M\otimes_RN\right)_n=\frac{\bigoplus_{i+j=n}M_i\otimes_\Z N_j}{\left\langle rm\otimes n-m\otimes rn\;|\;\substack{m\in M_a, n\in N_b, r\in R_c\\\text{ such that }a+b+c=n}\right\rangle}$$
-\end{prp}
-
-\begin{prp}{}{} Let $R,S$ be graded rings considered as graded $\Z$-modules. Then the graded $\Z$-module $R\otimes_\Z S$ is also a graded ring, with multiplication defined by $$(r_1\otimes s_1)(r_2\otimes s_2)=(-1)^{\abs{s_1}\abs{r_2}}(r_1r_2\otimes s_1s_2)$$
-\end{prp}
-
-\begin{lmm}{}{} Let $R,S$ be graded rings. If $R$ and $S$ are graded commutative, then $R\otimes_\Z S$ is also graded commutative. 
-\end{lmm}
-
-\subsection{Graded Algebras}
-\begin{defn}{Graded Algebra}{} A graded algebra $A$ over $R$ is an algebra that is also a graded ring. 
-\end{defn}
-
-\begin{prp}{}{} Let $R$ be a graded ring. Let $A,B$ be graded $R$-algebras. Then the tensor product $A\otimes_RB$ is also a graded $R$-algebra, with grading given by $$\left(A\otimes_RB\right)_n=\frac{\bigoplus_{i+j=n}A_i\otimes_\Z B_j}{\left\langle rm\otimes n-m\otimes rn\;|\;\substack{m\in A_a, n\in B_b, r\in R_c\\\text{ such that }a+b+c=n}\right\rangle}$$ and multiplication given by $$(r_1\otimes s_1)(r_2\otimes s_2)=(-1)^{\abs{s_1}\abs{r_2}}(r_1r_2\otimes s_1s_2)$$
-\end{prp}
-
-\pagebreak
-\section{Tensor Algebras}
-\subsection{Multilinear Maps of R-Modules}
-\begin{defn}{Multilinear Map}{} Let $M_1,\dots,M_n,N$ be $R$-modules. An $R$-module homomorphism $\varphi:M_1\times\cdots\times M_n\to N$ is said to be multilinear if the following is true. For $1\leq k\leq n$ and all $m_i\in M_i$ for $i\neq k$, the map $M_i\to N$ defined by $$x\mapsto\varphi(m_1,\dots,m_{k-1},x,m_{k+1},\dots,m_n)$$ is an $R$-module homomorphism. Denote the set of all multilinear maps from $M_1\times\cdots\times M_n$ to $N$ by $$\Hom^n(M_1\times\cdots\times M_n;N)$$
-\end{defn}
-
-\begin{defn}{Symmetric Map}{} A multilinear map $\varphi:M\times\cdots\times M\to N$ is called symmetric if interchanging $m_i$ and $m_j$ does not change the value of $\varphi$ for any $i,j$. 
-\end{defn}
-
-\begin{defn}{Alternating Map}{} A multilinear map $\varphi:M\times\cdots\times M\to N$ is called alternating if $m_i=m_{i+1}$ for some $i$ implies $\varphi(m_1,\dots,m_k)=0$. 
-\end{defn}
-
-
-\subsection{Tensor Algebra}
-In this section, $R$ is a commutative ring with identity and we assume that the left and right action on every $R$-module is the same. 
-
-\begin{defn}{$k$th Tensor Power}{} Let $M$ be an $R$-module. Let $k\in\N$. Define the $k$th tensor power of $M$ to be the tensor product $$M^{\otimes k}=M\otimes M\cdots\otimes M$$ where the tensor product over $M$ is taken $k$ times. By convention, define $M^{\otimes 0}$ to be $R$. 
-\end{defn}
-
-\begin{defn}{Tensor Algebra}{} Let $M$ be an $R$-module. Define the tensor algebra over $V$ to be the direct sum $$T(M)=\bigoplus_{k=0}^\infty M^{\otimes k}$$ Define multiplication in $T(M)$ to be the map $M^{\otimes k}\otimes M^{\otimes l}\to V^{\otimes k+l}$, defined by $$(m_1\otimes\cdots\otimes m_i)(m_1'\otimes\cdots\otimes m_j')=m_1\otimes m_i\otimes m_1'\otimes\cdots\otimes m_j'$$ and then extended by linearity to all of $T(M)$. 
-\end{defn}
-
-\begin{prp}{}{} Let $M$ be an $R$-module. Then $T(M)$ is a graded $R$-algebra with the above defined multiplication rule. 
-\end{prp}
-
-\begin{prp}{Universal Property}{} The tensor algebra $T(M)$ of an $R$-module $M$ satisfies the following universal property. Let $A$ be any $R$-algebra and $\varphi:M\to A$ an $R$-module homomorphism. Then there is a unique $R$-algebra homomorphism $\psi:T(M)\to A$ such that $\psi|_M=\varphi$. 
-\end{prp}
-
-\begin{prp}{}{} Let $V$ be a finite dimensional vector space over $\F$ with basis $B=\{v_1,\dots,v_n\}$. Then the $k$-tensors $$v_{i_1}\otimes\cdots\otimes v_{i_k}$$ with $v_{i_1},\dots,v_{i_k}\in B$ are a basis for $T^k(V)$ over $\F$. In particular, $\dim_\F(T^k(V))=n^k$. 
-\end{prp}
-
-\subsection{Exterior Algebra}
-\begin{defn}{Alternating Quotient}{} Let $M$ be an $R$-module. The alternating quotient is the ideal $$A(M)=\langle m\otimes m|m\in M\rangle$$ of $T(M)$. 
-\end{defn}
-
-\begin{lmm}{}{} The ideal $A(M)$ is a homogenous ideal. 
-\end{lmm}
-
-\begin{defn}{Exterior Algebra}{} Let $M$ be an $R$-module. Define the exterior algebra of $V$ to be the quotient $$\Lambda(M)=T(V)/A(M)$$ Elements of the form $m_1\otimes m_2$ are written as $m_1\wedge m_2$ by convention. 
-\end{defn}
-
-\begin{prp}{}{} Let $M$ be an $R$-module. Then the following are true regarding the symmetric algebra. 
-\begin{itemize}
-\item $\Lambda(M)$ is a graded ring with homogenous components $\Lambda^k(M)=T^k(M)/A^k(M)$ called the $k$th exterior power
-\item $\Lambda^0(M)=R$
-\item $\Lambda^1(M)=M$
-\item $\Lambda(M)$ is an $R$-algebra. 
-\end{itemize}
-\end{prp}
-
-\begin{thm}{}{} Let $M$ be an $R$-module. Let $$I=\langle m_1\otimes\cdots\otimes m_k|m_1,\dots,m_k\in M, m_i=m_j\text{ for some }i\neq j\rangle$$ Then $\Lambda^k(M)=T^k(M)/I$. 
-\end{thm}
-
-\begin{prp}{}{} Let $\{v_1,\dots,v_n\}$ be a basis of the vector space $V$. Then $$\{v_{i_1}\wedge\dots\wedge v_{i_r}|1\leq i_1<\dots<i_r\leq n\}$$ is a basis of $\Lambda^r(V)$ and $$\dim(\Lambda^r(V))=\binom{n}{r}$$
-\end{prp}
-
-\begin{crl}{}{} Let $V$ be vector space over $\F$ of dimension $n$. For $k>n$, $\Lambda^k(M)=0$. 
-\end{crl}
-
-\begin{lmm}{}{} Let $M$ be an $R$-module. Then the following are true regarding the exterior algebra $\Lambda(M)$. 
-\begin{itemize}
-\item Alternating: $m\wedge m=0$ for all $m\in M$
-\item $m_1\wedge m_2=-m_2\wedge m_1$ for any $m_1,m_2\in M$
-\item $m_1\wedge m_2=(-1)^{rs}m_2\wedge m_1$ for any $m_1\in\Lambda^r(M)$ and $m_2\in\Lambda^s(M)$
-\end{itemize}
-\end{lmm}
-
-\subsection{Symmetric Algebra}
-\begin{defn}{Symmetric Quotient}{} Let $M$ be an $R$-module. The symmetric quotient is the ideal $$C(M)=\langle m_1\otimes m_2-m_2\otimes m_1|m_1,m_2\in M\rangle$$ of $T(M)$ generated by commutativity. 
-\end{defn}
-
-\begin{lmm}{}{} The ideal $C(M)$ is a homogenous ideal. 
-\end{lmm}
-
-\begin{defn}{Symmetric Algebra}{} Let $M$ be an $R$-module. Define the symmetric algebra of $M$ to be the quotient $$S(M)=T(M)/C(M)$$ Elements of the form $m_1\otimes m_2$ are written as $m_1m_2$ by convention. 
-\end{defn}
-
-Again here we are quotienting out symmetric objects so that we can treat them as the same thing. 
-
-\begin{prp}{}{} Let $M$ be an $R$-module. Then the following are true regarding the symmetric algebra. 
-\begin{itemize}
-\item $S(M)$ is a graded ring with homogenous components $S^k(M)=T^k(M)/C^k(M)$ called the $k$th symmetric power
-\item $S^0(M)=R$
-\item $S^1(M)=M$
-\item $S(M)$ is an $R$-algebra. 
-\end{itemize}
-\end{prp}
-
-\begin{thm}{}{} Let $M$ be an $R$-module. Let $$I=\langle m_1\otimes\cdots\otimes m_k-m_{\sigma(1)}\otimes\cdots\otimes m_{\sigma(k)}|m_1,\dots,m_k\in M, \sigma\in S_k\rangle$$ Then $S^k(M)=T^k(M)/I$. 
-\end{thm}
-
-\begin{thm}{Universal Property}{} The symmetric algebra $S(M)$ for an $R$-module $M$ satisfies the following universal property: Let $A$ be any commutative $R$-algebra and $\varphi:M\to A$ an $R$-module homomorphism. Then there exists a unique $R$-algebra homomorphism $\psi:S(M)\to A$ such that $\psi|_M=\varphi$. 
-\end{thm}
-
-\begin{crl}{}{} Let $V$ be an $n$-dimensional vector space over $\F$. Then $S(V)$ is isomorphic as a graded $\F$-algebra to $\F[x_1,\dots,x_n]$. This isomorphism is also a vector space isomorphism. In particular, $\dim_\F(S^k(V))=\binom{k+n-1}{n-1}$. 
-\end{crl}
-
-\pagebreak
 \section{Radicals}
 \subsection{The Radical of a Module}
 \begin{defn}{Cosimple}{} Let $M$ be an $R$-module. We say that a submodule $N$ of $M$ is cosimple if $\frac{M}{N}$ is simple. 
@@ -1192,13 +1073,16 @@ Suppose that $I^n=0$ and $J^m=0$. For any $x_i\in I$ and $y_j\in J$, we have tha
 \end{prp}
 
 \subsection{The Annihilator of an Element}
-\begin{defn}{Annihilators}{} Let $R$ be a ring and $M$ an $R$-module. Let $m\in M$. Define the annihilator of $m$ to be $$\text{Ann}_R(m)=\{r\in R\;|\;rm=0\}$$ Define the annihilator of $M$ to be $$\text{Ann}_R(M)=\{r\in R\;|\;rm=0\text{ for all }m\in M\}$$ Right annihilators are defined similarly. 
+\begin{defn}{Annihilators}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Let $S\subseteq M$ be a subset of $M$. Define the annihilator of $S$ to be the set $$\text{Ann}_R(S)=\{r\in R\;|\;rs=0\text{ for all }s\in S\}$$
 \end{defn}
 
 When $R$ is commutative left annihilators and right annihilators are the same. 
 
-\begin{lmm}{}{} Let $R$ be a ring and $M$ an $R$-module. Let $m\in M$. Then $\text{Ann}_R(m)$ and $\text{Ann}_R(M)$ are left ideals of $R$. 
+\begin{lmm}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Let $S\subseteq M$ be a subset of $M$. Then $\text{Ann}_R(S)$ is a left ideal of $R$. 
 \end{lmm}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Let $S\subseteq M$ be a subset of $M$. Then $\text{Ann}_R(\langle S\rangle)\subseteq\text{Ann}_R(S)$. 
+\end{prp}
 
 \begin{lmm}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Let $x\in M$. Then there is an $R$-module isomorphism $$\text{Ann}(x)=\ker(r\mapsto r\cdot x)$$ where $r\mapsto r\cdot x$ is an $R$-module homomorphism $R\to M$. 
 \end{lmm}
@@ -1439,9 +1323,213 @@ Let $M$ be left Artinian and left Noetherian. Choose a simple $R$-submodule $M_1
 
 \begin{thm}{Akizuki–Hopkins–Levitzki Theorem}{} Let $R$ be a ring. If $R$ is Artinian, then $R$ is Noetherian. \tcbline
 \begin{proof}
-We know that the Jacobson radical is nilpotent. Therefore we obtain a chain of $R$-modules $$0=(J(R))^nR\subseteq\cdots\subseteq J(R)R\subseteq R$$ for some $n\in\N$. We induct on this chain. Clearly $0$ is Noetherian. Now suppose that $(J(R))^kR$ is Noetherian, we want to show that $(J(R))^{k-1}R$ is Noetherian. Now notice that $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ has the structure of an $\frac{R}{J(R)}$-module since $J(R)$ annihilates the quotient. Moreover, we know that $J(R)$ is nilpotent. Also, since $R$ is Artinian, any quotient of $R$ is also Artinian. In particular, we know that $R/J(R)$ is Artinian. Now $J(R/J(R))=0$. By the above corollary, $R/J(R)$ is semisimple. In particular, every $R/J(R)$-module is semisimple. Hence $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ is semisimple. By the above corollary, $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ is left Artinian. By 9.2.5, since $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ and $J(R))^kR$ are left Artinian, so it $(J(R))^{k-1}R$ which completes the induction step. Since each $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ is Artinian, it has a composition series. Stacking the composition series for each $k$, we obtain a composition series for $R$. Hence $R$ is Noetherian. 
+We know that the Jacobson radical is nilpotent. Therefore we obtain a chain of $R$-modules $$0=(J(R))^nR\subseteq\cdots\subseteq J(R)R\subseteq R$$ for some $n\in\N$. We induct on this chain. Clearly $0$ is Noetherian. Now suppose that $(J(R))^kR$ is Noetherian, we want to show that $(J(R))^{k-1}R$ is Noetherian. \\~\\
+
+Now notice that $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ has the structure of an $\frac{R}{J(R)}$-module since $J(R)$ annihilates the quotient. Moreover, we know that $J(R)$ is nilpotent. Also, since $R$ is Artinian, any quotient of $R$ is also Artinian. In particular, we know that $R/J(R)$ is Artinian. Now $J(R/J(R))=0$. By 7.2.9, $R/J(R)$ is semisimple. In particular, every $R/J(R)$-module is semisimple by 3.3.7. Hence $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ is semisimple. Then $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ is a direct sum of simple $R/J(R)$-modules. By 7.2.5, $R$ is Artinian implies that the $R$-submodule $(J(R))^kR$ is Artinian. Using the same corollary, $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ is Artinian. \\~\\
+
+We now have that $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ is Artinian and is a direct sum of simple $R/J(R)$-modules. This implies that there are only a finite number of components of the direct sum, say $M_1,\dots,M_k$. Then $$0\subset M_1\subset M_1\oplus M_2\subset\cdots\subset\bigoplus_{i=1}^{k-1}M_i\subset\frac{(J(R))^{k-1}R}{(J(R))^kR}$$ is a composition series. By the above prp, $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ is Noetherian. \\~\\
+
+We now know that $\frac{(J(R))^{k-1}R}{(J(R))^kR}$ and $(J(R))^kR$ are Noetherian, hence $(J(R))^{k-1}R$ is Noetherian, which completes the inductive step. 
 \end{proof}
 \end{thm}
+
+\pagebreak
+\section{Graded Structures}
+\subsection{Graded Rings}
+\begin{defn}{Graded Rings}{} Let $R$ be a ring. We say that $R$ is graded if the following are true. 
+\begin{itemize}
+\item The abelian group structure of $R$ decomposes into a direct sum $$R=\bigoplus_{k=0}^\infty R_k$$ where each $R_k$ is an abelian group 
+\item For $r_i\in R_i$ and $r_j\in R_j$, $r_ir_j\in R_{i+j}$. 
+\end{itemize}
+We say that an element $r\in R$ is homogenous if $r\in R_k$ for some $k\in\N$. 
+\end{defn}
+
+\begin{prp}{}{} The following are true for a graded ring $R=\bigoplus_{n\in\N}R_i$. 
+\begin{itemize}
+\item $R_0$ is a subring of $R$
+\item $R_n$ is an $R_0$-module for each $n$
+\item $R$ is an $R_0$-module
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $R_0$ is an abelian group by definition. We also have that $r_0\in R_0$ and $s_0\in R_0$ implies $r_0s_0\in R_0$ which means that multiplication is closed. 
+\item We have that for $r_0\in R_0$ and $r_n\in R_n$, $r_0\cdot r_n\in R_n$
+\item Since each $R_n$ is a $R_0$-module, the direct sum $R$ is also an $R_0$ module. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R=\bigoplus_{n\in\N}R_i$ be a graded ring. Then $R$ is Noetherian if and only if $R_0$ is Noetherian and $R$ is finitely generated as an $R_0$-module. 
+\end{prp}
+
+\begin{defn}{Associated Graded Ring}{} Let $R$ be a ring. Let $I$ be a left ideal of $R$. Define the graded ring associated to $R$ of $I$ to be $$\text{gr}_I(R)=\bigoplus_{n=0}^\infty\frac{I^n}{I^{n+1}}$$
+\end{defn}
+
+\begin{defn}{Graded Commutative Rings}{} Let $R=\bigoplus_{k=0}^\infty R_k$ be a graded ring. We say that $R$ is graded commutative if for all $r\in R_i$ and $r\in R_j$, $$r\cdot s=(-1)^{ij}s\cdot r$$
+\end{defn}
+
+\begin{defn}{Homomorphism of Graded Rings}{} Let $R,S$ be graded rings. Let $\varphi:R\to S$ be a ring homomorphism. We say that $\phi$ is a graded ring homomorphism if $$\phi(R_i)\subseteq S_i$$ for each $i\in\N$. 
+\end{defn}
+
+\begin{defn}{Isomorphism of Graded Rings}{} Let $R,S$ be graded rings. Let $\varphi:R\to S$ be a ring homomorphism. We say that $\phi$ is a graded ring isomorphism if it is a graded ring homomorphism and an isomorphism of rings. 
+\end{defn}
+
+\subsection{Graded Modules}
+\begin{defn}{Graded Modules over a Graded Ring}{} Let $R$ be a graded ring. Let $M$ be an $R$-module. We say that $M$ is a graded module over $R$ if there is a decomposition $$M=\bigoplus_{k=0}^\infty M_k$$ into abelian groups and $R_iM_j\subseteq M_{i+j}$. 
+\end{defn}
+
+\begin{prp}{}{} Let $R=\bigoplus_{i=0}^\infty R_i$ be a graded ring. Let $M=\bigoplus_{i=0}^\infty M_i$ be a graded $R$-module. Then the following are true. 
+\begin{itemize}
+\item $M$ is an $R_0$-module. 
+\item $M_n$ is an $R_0$-module for each $n\in\N$. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a graded ring. Let $M,N$ be graded $R$-modules. Then the tensor product $M\otimes_RN$ is also a graded $R$-module, with grading given by $$\left(M\otimes_RN\right)_n=\frac{\bigoplus_{i+j=n}M_i\otimes_\Z N_j}{\left\langle rm\otimes n-m\otimes rn\;|\;\substack{m\in M_a, n\in N_b, r\in R_c\\\text{ such that }a+b+c=n}\right\rangle}$$
+\end{prp}
+
+\begin{prp}{}{} Let $R,S$ be graded rings considered as graded $\Z$-modules. Then the graded $\Z$-module $R\otimes_\Z S$ is also a graded ring, with multiplication defined by $$(r_1\otimes s_1)(r_2\otimes s_2)=(-1)^{\abs{s_1}\abs{r_2}}(r_1r_2\otimes s_1s_2)$$
+\end{prp}
+
+\begin{lmm}{}{} Let $R,S$ be graded rings. If $R$ and $S$ are graded commutative, then $R\otimes_\Z S$ is also graded commutative. 
+\end{lmm}
+
+\subsection{Homogenity}
+\begin{defn}{Homogenous Elements}{} Let $R$ be a graded ring. Let $M=\bigoplus_{i=0}^\infty M_i$ be a graded $R$-module. Let $m\in M$. We say that $m$ is homogenous if $m\in M_n$ for some $n\in\N$. 
+\end{defn}
+
+\begin{defn}{Homogenous Submodules}{} Let $R$ be a graded ring. Let $M$ be a graded $R$-module. Let $N\leq M$ be an $R$-submodule of $M$. We say that $N$ is homogenous if it is generated by homogenous elements of $N$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a graded ring. Let $M=\bigoplus_{i=0}^\infty M_i$ be a graded $R$-module. Let $N\leq M$ be an $R$-submodule of $M$. Then the following are equivalent. 
+\begin{itemize}
+\item $N$ is homogenous. 
+\item For each $x\in N$, write $x=\sum_ix_i$ for $x_i\in M_i$. Then $x_i\in N$ for all $i$. 
+\item $N=\sum_{i=0}^\infty(N\cap M_i)$
+\end{itemize}
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a graded ring. Let $M=\bigoplus_{i=0}^\infty M_i$ be a graded $R$-module. Let $N\leq M$ be an $R$-submodule of $M$. If $N$ is homogenous, then $M/N$ is homogenous with grading given by $$\frac{M}{N}=\bigoplus_{i=0}^\infty\frac{M_i}{M_i\cap N}$$
+\end{prp}
+
+\begin{defn}{Homogeneous Ideals}{} Let $R$ be a graded ring. Let $I$ be an ideal of $R$. We say that $I$ is a homogeneous ideal if $I$ is homogenous as an $R$-submodule. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a graded ring. Let $I,J$ be homogeneous ideals of $R$. Then the following are true. 
+\begin{itemize}
+\item $I+J$ is a homogeneous ideal
+\item $IJ$ is a homogeneous ideal
+\item $I\cap J$ is a homogeneous ideal
+\item $\sqrt{I}$ is a homogeneous ideal
+\end{itemize}
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a graded ring. Let $I$ be a homogeneous ideal of $R$. Then $R/I$ is also a graded ring with decomposition given by $$\frac{R}{I}=\bigoplus_{k=0}^\infty\frac{R_k}{R_k\cap I}$$
+\end{prp}
+
+\subsection{Graded Algebras}
+\begin{defn}{Graded Algebra}{} A graded algebra $A$ over $R$ is an algebra that is also a graded ring. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a graded ring. Let $A,B$ be graded $R$-algebras. Then the tensor product $A\otimes_RB$ is also a graded $R$-algebra, with grading given by $$\left(A\otimes_RB\right)_n=\frac{\bigoplus_{i+j=n}A_i\otimes_\Z B_j}{\left\langle rm\otimes n-m\otimes rn\;|\;\substack{m\in A_a, n\in B_b, r\in R_c\\\text{ such that }a+b+c=n}\right\rangle}$$ and multiplication given by $$(r_1\otimes s_1)(r_2\otimes s_2)=(-1)^{\abs{s_1}\abs{r_2}}(r_1r_2\otimes s_1s_2)$$
+\end{prp}
+
+\pagebreak
+\section{Tensor Algebras}
+\subsection{Multilinear Maps of R-Modules}
+\begin{defn}{Multilinear Map}{} Let $M_1,\dots,M_n,N$ be $R$-modules. An $R$-module homomorphism $\varphi:M_1\times\cdots\times M_n\to N$ is said to be multilinear if the following is true. For $1\leq k\leq n$ and all $m_i\in M_i$ for $i\neq k$, the map $M_i\to N$ defined by $$x\mapsto\varphi(m_1,\dots,m_{k-1},x,m_{k+1},\dots,m_n)$$ is an $R$-module homomorphism. Denote the set of all multilinear maps from $M_1\times\cdots\times M_n$ to $N$ by $$\Hom^n(M_1\times\cdots\times M_n;N)$$
+\end{defn}
+
+\begin{defn}{Symmetric Map}{} A multilinear map $\varphi:M\times\cdots\times M\to N$ is called symmetric if interchanging $m_i$ and $m_j$ does not change the value of $\varphi$ for any $i,j$. 
+\end{defn}
+
+\begin{defn}{Alternating Map}{} A multilinear map $\varphi:M\times\cdots\times M\to N$ is called alternating if $m_i=m_{i+1}$ for some $i$ implies $\varphi(m_1,\dots,m_k)=0$. 
+\end{defn}
+
+
+\subsection{Tensor Algebra}
+In this section, $R$ is a commutative ring with identity and we assume that the left and right action on every $R$-module is the same. 
+
+\begin{defn}{$k$th Tensor Power}{} Let $M$ be an $R$-module. Let $k\in\N$. Define the $k$th tensor power of $M$ to be the tensor product $$M^{\otimes k}=M\otimes M\cdots\otimes M$$ where the tensor product over $M$ is taken $k$ times. By convention, define $M^{\otimes 0}$ to be $R$. 
+\end{defn}
+
+\begin{defn}{Tensor Algebra}{} Let $M$ be an $R$-module. Define the tensor algebra over $V$ to be the direct sum $$T(M)=\bigoplus_{k=0}^\infty M^{\otimes k}$$ Define multiplication in $T(M)$ to be the map $M^{\otimes k}\otimes M^{\otimes l}\to V^{\otimes k+l}$, defined by $$(m_1\otimes\cdots\otimes m_i)(m_1'\otimes\cdots\otimes m_j')=m_1\otimes m_i\otimes m_1'\otimes\cdots\otimes m_j'$$ and then extended by linearity to all of $T(M)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $M$ be an $R$-module. Then $T(M)$ is a graded $R$-algebra with the above defined multiplication rule. 
+\end{prp}
+
+\begin{prp}{Universal Property}{} The tensor algebra $T(M)$ of an $R$-module $M$ satisfies the following universal property. Let $A$ be any $R$-algebra and $\varphi:M\to A$ an $R$-module homomorphism. Then there is a unique $R$-algebra homomorphism $\psi:T(M)\to A$ such that $\psi|_M=\varphi$. 
+\end{prp}
+
+\begin{prp}{}{} Let $V$ be a finite dimensional vector space over $\F$ with basis $B=\{v_1,\dots,v_n\}$. Then the $k$-tensors $$v_{i_1}\otimes\cdots\otimes v_{i_k}$$ with $v_{i_1},\dots,v_{i_k}\in B$ are a basis for $T^k(V)$ over $\F$. In particular, $\dim_\F(T^k(V))=n^k$. 
+\end{prp}
+
+\subsection{Exterior Algebra}
+\begin{defn}{Alternating Quotient}{} Let $M$ be an $R$-module. The alternating quotient is the ideal $$A(M)=\langle m\otimes m|m\in M\rangle$$ of $T(M)$. 
+\end{defn}
+
+\begin{lmm}{}{} The ideal $A(M)$ is a homogenous ideal. 
+\end{lmm}
+
+\begin{defn}{Exterior Algebra}{} Let $M$ be an $R$-module. Define the exterior algebra of $V$ to be the quotient $$\Lambda(M)=T(V)/A(M)$$ Elements of the form $m_1\otimes m_2$ are written as $m_1\wedge m_2$ by convention. 
+\end{defn}
+
+\begin{prp}{}{} Let $M$ be an $R$-module. Then the following are true regarding the symmetric algebra. 
+\begin{itemize}
+\item $\Lambda(M)$ is a graded ring with homogenous components $\Lambda^k(M)=T^k(M)/A^k(M)$ called the $k$th exterior power
+\item $\Lambda^0(M)=R$
+\item $\Lambda^1(M)=M$
+\item $\Lambda(M)$ is an $R$-algebra. 
+\end{itemize}
+\end{prp}
+
+\begin{thm}{}{} Let $M$ be an $R$-module. Let $$I=\langle m_1\otimes\cdots\otimes m_k|m_1,\dots,m_k\in M, m_i=m_j\text{ for some }i\neq j\rangle$$ Then $\Lambda^k(M)=T^k(M)/I$. 
+\end{thm}
+
+\begin{prp}{}{} Let $\{v_1,\dots,v_n\}$ be a basis of the vector space $V$. Then $$\{v_{i_1}\wedge\dots\wedge v_{i_r}|1\leq i_1<\dots<i_r\leq n\}$$ is a basis of $\Lambda^r(V)$ and $$\dim(\Lambda^r(V))=\binom{n}{r}$$
+\end{prp}
+
+\begin{crl}{}{} Let $V$ be vector space over $\F$ of dimension $n$. For $k>n$, $\Lambda^k(M)=0$. 
+\end{crl}
+
+\begin{lmm}{}{} Let $M$ be an $R$-module. Then the following are true regarding the exterior algebra $\Lambda(M)$. 
+\begin{itemize}
+\item Alternating: $m\wedge m=0$ for all $m\in M$
+\item $m_1\wedge m_2=-m_2\wedge m_1$ for any $m_1,m_2\in M$
+\item $m_1\wedge m_2=(-1)^{rs}m_2\wedge m_1$ for any $m_1\in\Lambda^r(M)$ and $m_2\in\Lambda^s(M)$
+\end{itemize}
+\end{lmm}
+
+\subsection{Symmetric Algebra}
+\begin{defn}{Symmetric Quotient}{} Let $M$ be an $R$-module. The symmetric quotient is the ideal $$C(M)=\langle m_1\otimes m_2-m_2\otimes m_1|m_1,m_2\in M\rangle$$ of $T(M)$ generated by commutativity. 
+\end{defn}
+
+\begin{lmm}{}{} The ideal $C(M)$ is a homogenous ideal. 
+\end{lmm}
+
+\begin{defn}{Symmetric Algebra}{} Let $M$ be an $R$-module. Define the symmetric algebra of $M$ to be the quotient $$S(M)=T(M)/C(M)$$ Elements of the form $m_1\otimes m_2$ are written as $m_1m_2$ by convention. 
+\end{defn}
+
+Again here we are quotienting out symmetric objects so that we can treat them as the same thing. 
+
+\begin{prp}{}{} Let $M$ be an $R$-module. Then the following are true regarding the symmetric algebra. 
+\begin{itemize}
+\item $S(M)$ is a graded ring with homogenous components $S^k(M)=T^k(M)/C^k(M)$ called the $k$th symmetric power
+\item $S^0(M)=R$
+\item $S^1(M)=M$
+\item $S(M)$ is an $R$-algebra. 
+\end{itemize}
+\end{prp}
+
+\begin{thm}{}{} Let $M$ be an $R$-module. Let $$I=\langle m_1\otimes\cdots\otimes m_k-m_{\sigma(1)}\otimes\cdots\otimes m_{\sigma(k)}|m_1,\dots,m_k\in M, \sigma\in S_k\rangle$$ Then $S^k(M)=T^k(M)/I$. 
+\end{thm}
+
+\begin{thm}{Universal Property}{} The symmetric algebra $S(M)$ for an $R$-module $M$ satisfies the following universal property: Let $A$ be any commutative $R$-algebra and $\varphi:M\to A$ an $R$-module homomorphism. Then there exists a unique $R$-algebra homomorphism $\psi:S(M)\to A$ such that $\psi|_M=\varphi$. 
+\end{thm}
+
+\begin{crl}{}{} Let $V$ be an $n$-dimensional vector space over $\F$. Then $S(V)$ is isomorphic as a graded $\F$-algebra to $\F[x_1,\dots,x_n]$. This isomorphism is also a vector space isomorphism. In particular, $\dim_\F(S^k(V))=\binom{k+n-1}{n-1}$. 
+\end{crl}
 
 
 

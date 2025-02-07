@@ -541,7 +541,7 @@ Note that the vertices here are an ordered set so that an orientation is inheren
 
 \begin{defn}{Properties of $n$-Simplexes}{} Let $\Delta^n=[v_0,\dots,v_n]$ be an $n$-simplex. 
 \begin{itemize}
-\item The $k$th face of $\Delta^n$ is a the $n-1$ simplex $\partial_k\Delta^n=\Delta^n\cap\{x_k=0\}$. We use $[v_0,\dots,\hat{v}_k,\cdots,v_n]$ to indicate the $k$th $n-1$dimensional face
+\item The $k$th face of $\Delta^n$ is a the $n-1$ simplex $\Delta_k^n=\Delta^n\cap\{x_k=0\}$. We use $[v_0,\dots,\hat{v}_k,\cdots,v_n]$ to indicate the $k$th $n-1$dimensional face
 \item The boundary of $\Delta$, written $\partial\Delta^n$ is the union of all its proper faces
 \item The interior is defined to be $(\Delta^n)^\circ=\Delta^n\setminus\partial\Delta^n$
 \end{itemize}
@@ -561,7 +561,7 @@ It is easy to see that any face of an $n$-simplex is an $n-1$ simplex in its own
 \end{defn}
 
 \subsection{Delta Complexes}
-\begin{defn}{$\Delta$-Set}{} A $\Delta$-set is a collection of sets $S_n$ (usually $n$-simplexes) together with maps $d_i^n:S_n\to S_{n-1}$ for $0\leq i\leq n$ such that $$d_i^{n-1}\circ d_j^n=d_{j-1}^{n-1}\circ d_i^n$$ called the face relation whenever $i<j$. 
+\begin{defn}{$\Delta$-Set}{} A $\Delta$-set is a collection of sets $S_n$ of $n$-simplicies for each $n$, together with maps $d_i^n:S_n\to S_{n-1}$ for $0\leq i\leq n$ such that $$d_i^{n-1}\circ d_j^n=d_{j-1}^{n-1}\circ d_i^n$$ called the face relation whenever $i<j$. 
 \end{defn}
 
 In particular, $d_i$ sends an $n$-simplex to its $i$th face, which is an $n-1$ simplex. This means that for $s=[v_1,\dots,v_n]\in S_n$, $d_i(s)=[v_1,\dots,\hat{v}_i,\cdots,v_n]$. 
@@ -597,7 +597,7 @@ The main goal is now to associate to every $\Delta$-complex an abelian group. Th
 
 We begin by treating the case of $\Delta$-sets. 
 
-\begin{defn}{Simplicial $n$-Chains}{} Let $S=(S_\bullet,d_\bullet)$ be a $\Delta$-set. Define the group of simplicial $n$-chains on $S$ to be free group $$\Delta_n(S)=\langle\Delta_k^n\;|\;\Delta_k^n\in S_n\rangle$$ on the set of $n$-simplexes. An $n$ chain is then of the form $$\sum_km_k\Delta_k^n$$ for $m_k\in\Z$ and $\Delta_k^N\in S_n$. 
+\begin{defn}{Simplicial $n$-Chains}{} Let $S=(S_\bullet,d_\bullet)$ be a $\Delta$-set. Define the group of simplicial $n$-chains on $S$ to be free group $$\Delta_n(S)=\Z\langle\Delta_k^n\;|\;\Delta_k^n\in S_n\rangle$$ on the set of $n$-simplexes. An $n$ chain is then of the form $$\sum_km_k\Delta_k^n$$ for $m_k\in\Z$ and $\Delta_k^N\in S_n$. 
 \end{defn}
 
 All the simplicial $n$-chains are related by a formula called the boundary operator. 
@@ -662,22 +662,23 @@ Combining with the induced map in homology, we thus have that given a map of $\D
 \subsection{Barycentric Subdivision}
 Barycentric subdivisions is the main ingredient for proving one of the major results of singular homology. It is defined first through $\Delta$-set, and then passed on to singular $n$-simplexes, which we will see in the next chapter. 
 
-\begin{defn}{Barycenter}{} Let $\Delta^n=[v_0,\dots,v_n]$ be a standard $n$-simplex. The barycenter of $\Delta^n$ is the point $$b=\frac{1}{n+1}\sum_{i=0}^nv_i$$
+\begin{defn}{Barycenter}{} Let $v=[v_0,\dots,v_n]$ be an $n$-simplex. Define the barycenter of $v$ to be the point $$B(v)=\frac{1}{n+1}\sum_{i=0}^nv_i$$
 \end{defn}
 
 In fact, we can find the barycenter inductively. Knowing the barycenter $b_i$ on the $i$th face $[v_0,\dots,\hat{v}_i,\dots,v_n]$, let $l_i$ be the line connecting $b_i$ and $v_i$. Then $b$ is the intersection of all these lines $l_i$. 
 
-\begin{defn}{Barycentric Cone}{} Let $[w_1,\dots,w_n]\subseteq\Delta^n$ be an $(n-1)$-simplex. Define its barycentric cone to be $$\mB[w_1,\dots,w_n]=[b,w_1,\dots,w_n]\subseteq\Delta^n$$ where $b$ is the barycenter of $\Delta^n$. This definition is extended linearly to linear combinations of $(n-1)$-simplices. 
+\begin{defn}{Barycentric Cone}{} Let $v$ be an $n$-simplex. Let $w=[w_1,\dots,w_n]\subseteq v$ be an $(n-1)$-simplex in $v$. Define the barycentric cone of $w$ to be the $n$-simplex $$\mB(w)=[B(v),w_1,\dots,w_n]\subset v$$ 
 \end{defn}
 
-Intuitively, this means that given a face of $\Delta^n$ which is an $(n-1)$-simplex, its barycentric cone is the $n$-simplex constructed from the vertices of the face together with the barycenter. \\~\\
+Intuitively, this means that given a face of $\Delta^n$ which is an $(n-1)$-simplex, its barycentric cone is the $n$-simplex constructed from the vertices of the face together with the barycenter. 
 
-Extending it to linearity simply means that if one has a formal linear combination of the faces of $\Delta^n$, say $\sum_{k}m_k\sigma_k$ where each $\sigma_k$ is a face of $\Delta^n$, then we have that $$\mB\sum_km_k\sigma_k=\sum_km_k\mB\sigma_k$$
+\begin{defn}{The Barycentric Map}{} Let $v$ be an $n$-simplex. Define the barycentric map of $v$ to be the map $$\mB:C_{n-1}(v)\to C_n(v)$$ defined on the basis by $\mB([w_1,\dots,w_n])=[B(v),w_1,\dots,w_n]$. 
+\end{defn}
 
-\begin{defn}{Barycentric Subdivision}{} Let $\Delta^n$ be the standard $n$-simplex. Define inductively the barycentric subdivision $S(\Delta^n)\in C_n(\Delta^n)$ of $\Delta^n$ as
+\begin{defn}{Barycentric Subdivision}{} Let $\Delta^n$ be the standard $n$-simplex. Define inductively the barycentric subdivision $$S^\Delta(\Delta^n)\in C_n(\Delta^n)$$ of $\Delta^n$ by the following recursive formula. 
 \begin{itemize}
-\item When $n=0$, $S(\Delta^0)=\Delta^0$
-\item When $n>0$, define $$S(\Delta^n)=\mB S(\partial\Delta^n)=\sum_{i=0}^n(-1)^i\mB S(\partial_i\Delta^n)$$
+\item When $n=0$, $S^\Delta(\Delta^0)=\Delta^0$
+\item When $n>0$, the barycentric subdivision of $\Delta^n$ is given by $$S^\Delta(\Delta^n)=\sum_{i=0}^n(-1)^i\mB S^\Delta(\partial_i\Delta^n)$$
 \end{itemize}
 \end{defn}
 
@@ -713,8 +714,38 @@ We prove the second item inductively. When $n=0$, we have $0$ on both sides. Whe
 \end{proof}
 \end{lmm}
 
+\begin{lmm}{}{} Let $v=[v_0,\dots,v_n]$ be a simplex. Let $[w_0,\dots,w_n]$ be a component in the barycentric subdivision of $v$. Then we have $$\diam([w_0,\dots,w_n])\leq\frac{n}{n+1}\diam([v_0,\dots,v_n])$$ \tcbline
+\begin{proof}
+If $n=0$, then the claim is true since $[w_0]=[v_0]$ has diameter $0$. Assume that $n>0$. We first prove the following subclaim: For every $x\in[x_0,\dots,x_n]$ an $n$-simplex, its maximum distance to points in the simplex is attained at a vertex $x_i$. Indeed if $y\in[x_0,\dots,x_n]$ with $\|x-y\|$ maximal, then we can write $y=\sum_{i=1}^nt_ix_i$ with $\sum_{i=1}^nt_i=1$ and $t_i\geq 0$. Then we have that 
+\begin{align*}
+\|x-y\|&=\left\|x-\sum_{i=1}^nt_ix_i\right\|\\
+&=\left\|\sum_{i=1}^nt_i(x-x_i)\right\|\\
+&\leq\sum_{i=1}^nt_i\|x-x_i\|\\
+&\leq\max\|x-x-i\|
+\end{align*}
+with equality if $y$ is one of the vertices with $\|x-x_i\|$ being maximal. By applying the above twice, we have that the diameter of $[w_0,\dots,w_n]$ is the length of the longest edge $[x,y]$ in $[w_0,\dots,w_n]$. Now there are two cases. \\~\\
+
+Case 1: None of $x,y$ is the barycenter $b$ of $[w_0,\dots,w_n]$. Then they must be the vertices of a simplex in the barycentric subdivision of one of the faces $[v_0,\dots,\hat{v_i},\dots,v_n]$. By induction, we have that 
+\begin{align*}
+\diam([w_0,\dots,w_n])&=\|x-y\|\\
+&\leq\frac{n-1}{n}\diam([v_0,\dots,\hat{v_i},\dots,v_n])\\
+&\leq\frac{n}{n+1}\diam([v_0,\dots,v_n])
+\end{align*}
+and so we are done. \\~\\
+
+Case 2: Without loss of generality, $x=b$. \\
+Then $y$ lies on some face of $[v_0,\dots,v_n]$ and the claim above implies that we can take $y=v_i$ for some vertex $v_i$ of that face. Let $b_i$ be the barycenter of $[v_0,\dots,\hat{v_i},\dots,v_n]$. Then we have that the barycenter of $[v_0,\dots,v_n]$ is $$b=\frac{1}{n+1}\sum_{j=1}^nv_j=\frac{1}{n+1}v_i+\frac{n}{n+1}b_i$$ We thus have that 
+\begin{align*}
+\diam([w_0,\dots,w_n])&=\|v_i-b\|\\
+&\leq\frac{n}{n+1}\|v_i-b_i\|\\
+&\leq\frac{n}{n+1}\diam([v_0,\dots,v_n])
+\end{align*}
+and so we conclude. 
+\end{proof}
+\end{lmm}
+
 \pagebreak
-\section{Introduction to Singular Homology}
+\section{Singular Homology}
 \subsection{Singular n-Simplexes and Singular Homology}
 There are a few problems with simplicial homology. In particular, not every space has a $Delta$-complex structure. We would want to extend this definition to any space, with or without $\Delta$-complex structures. Moreover, we have not yet shown that simplicial homology is independent of the choice of $\Delta$-complex structures. Maps between $\Delta$-complex structures may not necessarily define a map between its homology groups. \\~\\
 
@@ -727,19 +758,17 @@ We say that these are singular because we allow potential deformations of the fa
 
 It is clear that every $\Delta$-complex consists of $n$-simplex so the inclusion map of the $n$-simplex to the $\Delta$-complex defines a singular $n$-simplex. In fact by definition, none of these $n$-simplex are ``singular'' in the sense that some of their faces are degenerate. 
 
-\begin{defn}{Singular $n$-Chains}{} Let $X$ be a topological space. Define the group of singular $n$-chains on $X$ to be the free group $$C_n(X)=\langle\sigma:\Delta^n\to X\;|\;\sigma\text{ is a singular }n\text{ simplex}\rangle $$ on the set of all singular $n$-simplexes on $X$. An $n$-chain is then of the form $$\sum_{\substack{\text{Singular} \\ n \text{ simplexes } \sigma}}m_\sigma\sigma$$ where $m_\sigma\in\Z$ and $\sigma:\Delta^n\to X$ is a singular $n$-simplex. 
+\begin{defn}{The Group of Singular n-Chains}{} Let $X$ be a topological space. Define the group of singular $n$-chains on $X$ to be the free abelian group $$C_n(X)=\Z\langle\sigma:\Delta^n\to X\;|\;\sigma\text{ is a singular }n\text{ simplex}\rangle $$ on the set of singular $n$-chains. 
 \end{defn}
 
-This definition is reminiscent of that of $\Delta$-sets and $\Delta$-complexes. The important point is that to every set we can associate a free group on the set. As a set itself there is no algebraic invariants to study. But once we enrich it to include formal linear combinations, we obtain a group structure. \\~\\
+This definition is reminiscent of that of $\Delta$-sets and $\Delta$-complexes. The important point is that to every set we can associate a free group on the set. As a set itself there is no algebraic invariants to study. But once we enrich it to include formal linear combinations, we obtain a group structure. 
 
-It is easy to see that the oriented boundary is also well defined on singular $n$-simplexes simply by a manner of translating the boundary through the continuous map $\sigma$. 
-
-\begin{defn}{Boundary Operator}{} Let $X$ be a topological space. Define the boundary operator $\partial_n:C_n(X)\to C_{n-1}(X)$ to be the homeomorphism given by $$\partial_n(\sigma)=\sum_{k=0}^n(-1)^k\sigma|_{\partial_i\Delta^n}$$
+\begin{defn}{The Boundary Operator}{} Let $X$ be a topological space. Define the boundary operator $\partial_n:C_n(X)\to C_{n-1}(X)$ to be the homomorphism given by $$\partial_n(\sigma)=\sum_{k=0}^n(-1)^k\sigma|_{\partial_i\Delta^n}$$
 \end{defn}
 
 The same proof as in proposition 2.2.3 gives the following. 
 
-\begin{prp}{}{} The family of abelian groups $C_n(X)$ of a simplicial complex and the boundary operator $\partial$ forms a chain complex. \tcbline
+\begin{prp}{}{} Let $X$ be a space. The family of abelian groups $C_n(X)$ of a simplicial complex and the boundary operator $\partial$ forms a chain complex. \tcbline
 \begin{proof}
 Let $\sigma\in C_{n+1}(X)$. Then we have that $$(\partial_n\circ\partial_{n+1})(\sigma)=\partial_n\left(\sum_{j=0}^{n+1}(-1)^j\sigma|_{\partial_j\Delta^{n+1}}\right)=\sum_{i=0}^n\sum_{j=0}^{n+1}(-1)^{i+j}\left(\sigma|_{\partial_j\Delta^{n+1}}\right)|_{\partial_i\Delta^n}$$ Fix a pair $0\leq i<j\leq n+1$. By definition 2.1.5, $A=(-1)^{i+j}\left(\sigma|_{\partial_j\Delta^{n+1}}\right)|_{\partial_i\Delta^n}$ and $B=(-1)^{i+j}\left(\sigma|_{\partial_i\Delta^{n+1}}\right)|_{\partial_{j-1}\Delta^n}$ cancel out. Moreover every summand is of the form $A$ or $B$ and not both so that the sum vanishes. In other words, we have that 
 \begin{align*}
@@ -752,9 +781,14 @@ We conclude that $(C_\bullet,\partial_\bullet)$ forms a chain complex.
 \end{proof}
 \end{prp}
 
-Being a chain complex means that the group of $n$-cycles and $n$-boundaries are automatically defined. 
+\begin{defn}{The Singular Chain Complex}{} Let $X$ be a space. Define the singular chain complex $(C_\bullet(X),\partial_\bullet)$ to be the chain complex given by the following data. 
+\begin{itemize}
+\item The $n$th term is given by $$C_n(X)=\Z\langle\sigma:\Delta^n\to X\;|\;\sigma\text{ is a singular }n\text{ simplex}\rangle$$ the group of singular $n$-chains of $X$. 
+\item The boundary operator $\partial_n:C_n(X)\to C_{n-1}(X)$ is given by the formula $$\partial_n(\sigma)=\sum_{k=0}^n(-1)^k\sigma|_{\partial_i\Delta^n}$$
+\end{itemize}
+\end{defn}
 
-\begin{defn}{The Singular Homology Group}{} Let $X$ be a topological space. Define the singular chain complex of $X$ to be $(C_\bullet,\partial_\bullet)$. The $n$-th singular homology group of $X$ is defined to be $$H_n(X)=H_n(C_\bullet(X))$$
+\begin{defn}{The Singular Homology Group}{} Let $X$ be a topological space. Define the $n$th singular homology group of $X$ to be $$H_n(X)=H_n(C_\bullet(X),\partial_\bullet)=\frac{\ker(\partial_n:C_n(X)\to C_{n-1}(X))}{\im(\partial_{n+1}:C_{n+1}(X)\to C_n(X))}$$
 \end{defn}
 
 One can imagine that in order to deduce the homology groups of a space, the computations involved are highly non-trivial. For instance, one has first work out how the boundary maps are defined in order to deduce their kernel and images. But the set of singular $n$-simplexes of a space is a much larger set than that of $\Delta$-complexes. When the dimension of the space $X$ (whatever this means) is larger, one can also imagine that the singular homology groups $H_n(X)$ are non-trivial in most of $n\in\N$. We will see how to compute them in the next section. 
@@ -936,11 +970,14 @@ In this case the fundamental group is trivial and by the above theorem, we have 
 Using corollary 3.2.3, we see that path-connected spaces will have non-trivial $0$th homology group. This motivates the minor modification into reduced homology since the intuition should show that homology groups of single points should be equal to $0$. \\~\\
 We shall see in later chapters that this also simplifies the statements of homology in many cases. 
 
-\begin{defn}{Reduced Homology}{} Let $X$ be a topological space and let $(C_\bullet(X),\partial_\bullet)$ be its group of $n$-chains. Consider the augmented chain complex \\~\\
+\begin{defn}{The Augmented Chain Complex}{} Let $X$ be a space. Define the augmented chain complex $(\widetilde{C}_\bullet(X),\partial_\bullet)$ of $X$ to be the chain complex given by \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 \cdots\arrow[r, "\partial_{n+1}"] & C_n(X)\arrow[r, "\partial_n"] & \cdots\arrow[r, "\partial_2"] & C_1(X)\arrow[r, "\partial_1"] & C_0(X)\arrow[r, "\varepsilon"] & \Z\arrow[r] & 0
 \end{tikzcd}}\\~\\
-where the map $\varepsilon:C_0\to\Z$ is defined by $$\varepsilon\left(\sum_{i\in I}n_i\sigma_i\right)=\sum_{i\in I}n_i$$ Define the reduced homology $$\widetilde{H}_n(X)$$ to be the homology of the augmented chain complex. 
+where $\varepsilon:C_0\to\Z$ is the map given by $$\varepsilon\left(\sum_{i\in I}n_i\sigma_i\right)=\sum_{i\in I}n_i$$
+\end{defn}
+
+\begin{defn}{Reduced Homology}{} Let $X$ be a space. Define the $n$th reduced homology group of $X$ to be $$\widetilde{H}_n(X)=H_n(\widetilde{C}_\bullet(X),\partial_\bullet)$$
 \end{defn}
 
 It is clear that for $n\geq 1$, singular homology and reduced homology gives the same homology groups, but not for $n=0$. 
@@ -953,9 +990,21 @@ The chain complex is entirely the same for $n\geq 1$ so their homology groups wi
 
 When $n=0$, we must have that $$\tilde{H}_0(X)\cong\frac{\ker(\varepsilon)}{\im(\partial_1)}$$ There is in fact an alternate definition of the reduced homology groups, given as follows. 
 
-\begin{prp}{}{} Let $X$ be a topological space. Let $\pi:X\to\ast$ be the map to the one point space. Then we have the isomorphism $$\widetilde{H}_0(X)\cong\ker(H_0(X)\overset{\pi_\ast}{\longrightarrow}\Z)$$ of degree $0$ homology groups. Moreover, we have that $$H_0(X)\cong\widetilde{H}_0(X)\oplus\Z$$ \tcbline
+\begin{prp}{}{} Let $X$ be a space. Let $\pi:X\to\ast$ be the unique map to the one point space. Then there is a split exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\widetilde{H}_0(X)} & {H_0(X)} & \Z & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["{\pi_\ast}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+where $f$ is the inclusion map. \tcbline
 \begin{proof}
-By definition $\pi_\ast$ sends every $[\sigma]\in H_0(X)$ to the generator of $H_0(X)\cong\Z$. Let $\left[\sum_{k=1}^n m_k\sigma_k\right]$ be a coset in $H_0(X)$. Then this is sent to $$\pi_\ast\left(\sum_{k=1}^n m_k\sigma_k\right)=\sum_{k=1}^nm_k$$ Define a map $f:\ker(\varepsilon)\to\ker(\pi_\ast)$ by $$f\left(\sum_{k=1}^n m_k\sigma_k\right)=\left[\sum_{k=1}^n m_k\sigma_k\right]$$ Note that this is well defined. Indeed $\ker(\varepsilon)\subseteq C_0(X)$ and $\ker(\pi_\ast)\subseteq H_0(X)$ so that elements of $\ker(\pi_\ast)$ are also cosets of $C_0(X)$. Moreover, if two elements $\left(\sum_{k=1}^n m_k\sigma_k\right)$ and $\left(\sum_{j=1}^s b_j\tau_j\right)$ lie in the same coset of $B_0(X)$ in $\ker(\varepsilon)\subseteq C_0(X)$, then $p=\left(\sum_{k=1}^n m_k\sigma_k-\sum_{j=1}^s b_j\tau_j\right)$ lies in $B_0(X)$. Then $f(p)=[p]=0$ together with linearity implies that $$f\left(\sum_{k=1}^n m_k\sigma_k\right)=f\left(\sum_{j=1}^s b_j\tau_j\right)$$ so that $f$ descends to a well defined map $$f:\frac{\ker(\varepsilon)}{\im(\partial_1)}\to\ker(\pi_\ast)$$ Clearly $f$ is also surjective. By the first isomorphism theorem, we obtain $$\tilde{H}_0(X)\cong\frac{\ker(\varepsilon)}{\im(\partial_1)}\cong\ker(\pi_\ast)$$ 
+We first show that $f$ is well defined. Notice that $\ker(\varepsilon)\leq C_0(X)\twoheadrightarrow\frac{C_0(X)}{\im(\partial_1)}=H_0(X)$ so that there is a canonical map $\ker(\varepsilon)\to H_0(X)$ given by $x\mapsto[x]$. Then kernel of this map is precisely $\ker(\varepsilon)\cap\im(\partial_1)=\im(\partial_1)$. Since $\im(\partial_1)\leq\ker(\varepsilon)$ our map descends to a well defined map $\widetilde{H}_0(X)=\frac{\ker(\varepsilon)}{\im(\partial_1)}$ which is precisely the inclusion map. The inclusion map is injective and $\pi$ is surjective since it is a retract. We are left to show that $\im(f)=\ker(\pi_\ast)$. \\~\\
+
+Now $\pi_\ast$ sends all generators of $H_0(X)$ to the unique element of the one point set, hence $\pi_\ast$ is the map given by $\left[\sum_{k=0}^nm_k x_k\right]\mapsto\sum_{k=1}^nm_k$. Since $\varepsilon$ has the exact same effect as $\pi_\ast$ we conclude that $\ker(\varepsilon)=\ker(\pi_\ast)$. \\~\\
+
+Finally since the third term of the short exact sequence is free, we conclude that the short exact sequence splits. 
 \end{proof}
 \end{prp}
 
@@ -1030,18 +1079,36 @@ Follows from the homology of one point space and homotopy invariance.
 \end{eg}
 
 \subsection{Mayer-Vietoris Sequence}
-Seifert-van Kampen theorem allows the fundamental group of a space to be computed by considering appropriate subspaces. There is a similar method for homology provided by the Mayer-Vietoris sequence. \\~\\
+Seifert-van Kampen theorem allows the fundamental group of a space to be computed by considering appropriate subspaces. There is a similar method for homology provided by the Mayer-Vietoris sequence. \\
 
-The Mater-Vietoris sequence is another powerful for breakdown spaces into subspaces in order to compute homology groups. We will make use of the notion of Barycentric subdivisions to proof the theorem. \\~\\
+The Mater-Vietoris sequence is another powerful for breakdown spaces into subspaces in order to compute homology groups. We will make use of the notion of Barycentric subdivisions to proof the theorem. \\
 
 We can transfer the definition of barycentric subdivision simply by pushing forward. 
 
-\begin{defn}{Barycentric Subdivision of Singular Simplices}{} Let $X$ be a space and $\sigma:\Delta^n\to X$ a singular $n$-simplex. Define the barycentric subdivision of $\sigma$ to be the $n$-chain $$S(\sigma)=\sigma_\ast(S\Delta^n)\in C_n(X)$$ Extending linearly, we have a homomorphism $$S:C_n(X)\to C_n(X)$$
+\begin{defn}{Barycentric Subdivision of Singular Simplices}{} Let $X$ be a space and $\sigma:\Delta^n\to X$ a singular $n$-simplex. Let $\sigma_\ast:C_n(\sigma)\to C_n(X)$ be the induced map given on the basis by $[v_0,\dots,v_n]\mapsto\sigma|_{[v_0,\dots,v_n]}$. Define the barycentric subdivision of $\sigma$ to be the $n$-chain $$S(\sigma)=\sigma_\ast(S^\Delta(\Delta^n))$$ Extend it to a map $S:C_n(X)\to C_n(X)$ defined on the basis. 
 \end{defn}
 
-We have set up the definitions nicely in the previous subsection so that we obtain the following lemmas and propositions. 
+\begin{prp}{}{} Let $n\in\N$. Define $T(\Delta^n)\in C_{n+1}(\Delta^n\times I)$ as follows. 
+\begin{itemize}
+\item $T^\Delta(\Delta^0)=\mB(\Delta^0)=[B(\Delta^0),v]\in C_1(\Delta^0\times I)$
+\item For $n>0$, define $T^\Delta(\Delta^n)=\mB(\Delta^n\times\{0\})-\mB(T(\partial(\Delta^n\times\{0\})))\in C_{n+1}(\Delta^n\times I)$
+\end{itemize}
+Then we have $$\partial(T^\Delta(\Delta^n))+T(\partial(\Delta^n\times\{0\}))=\Delta^n\times\{0\}-S(\Delta^n\times\{1\})$$ \tcbline
+\begin{proof}
+It is trivially true for $n=0$. We then induct on $n$. Suppose that the previous cases are true. We have that 
+\begin{align*}
+\partial(T(\Delta^n))&=\partial(\mB\Delta_0^n)-\partial(\mB(T(\partial\Delta_0^n)))\\
+&=\Delta_0^n-\mB(\partial\Delta_0^n)-T(\partial\Delta_0^n)+\mB(\partial T(\partial\Delta_0^n))\tag{Lemma 4.2.4}\\
+&=\Delta_0^n-T(\partial\Delta_0^n)+\mB(\partial T(\partial\Delta_0^n)-\partial\Delta_0^n)\\
+&=\Delta_0^n-T(\partial\Delta_0^n)-\mB(S(\partial\Delta_1^n)+T(\partial^2\Delta_0^n))\tag{By induction}\\
+&=\Delta_0^n-T(\partial\Delta_0^n)-S(\Delta_1^n)
+\end{align*}
+\end{proof}
+\end{prp}
 
-\begin{lmm}{}{} The map $S:C_\bullet(X)\to C_\bullet(X)$ is a chain map. \tcbline
+\begin{prp}{}{} Let $X$ be a space. Then the barycentric subdivision map $S:C_n(X)\to C_n(X)$ is a chain map that is chain homotopic to the identity map via the map $T:C_n(X)\to C_{n+1}(X)$ defined as follows. \\~\\
+
+Consider the map $\phi_\sigma:\Delta^n\times I\overset{\text{proj}}{\rightarrow}\Delta^n\overset{\sigma}{\rightarrow}X$ given by projection. Write $\sigma_\ast^\sigma:C_{n+1}(\Delta^n\times I)\to C_{n+1}(X)$ the induced map defined by $\sigma_\ast(\tau)=\phi_\sigma\circ\tau$. Then define $$T(\sigma)=\sigma_\ast(T^\Delta(\Delta^n))$$  \tcbline
 \begin{proof}
 We have that 
 \begin{align*}
@@ -1052,59 +1119,11 @@ We have that
 &=\sum_{i=0}^n(-1)^iS(\partial_i\sigma)\tag{Definition of $S$}\\
 &=S(\partial\sigma)
 \end{align*}
-Thus we are done. 
-\end{proof}
-\end{lmm}
+which shows that $S$ is chain map. \\~\\
 
-\begin{prp}{}{} The barycentric subdivision is chain homotopic to the identity map. \tcbline
-\begin{proof}
-Recall the prism $\Delta^n\times[0,1]$. Write $\Delta_0^n$ for the bottom face and $\Delta_1^n$ the top face. Let $b$ be the barycenter of $\Delta_1^n$. Define $T:C_n(X)\to C_{n+1}(X)$ first on $n$-simplexes recursively as follows: 
-\begin{itemize}
-\item When $n=0$, $T(\Delta^0)=[b,v_{00}]=[v_{0,1},v_{00}]$
-\item When $n>0$, $T(\Delta^n)=\mB\Delta_0^n-\mB T(\partial\Delta_0^n)$
-\end{itemize}
-where $\mB[v_0,\dots,v_n]=[b,v_0,\dots,v_n]$ instead of just the barycentric cone itself. 
-We wish to prove the relation $$\partial(T(\Delta^n))+T(\partial(\Delta_0^n))=\Delta_0^n-S\Delta_1^n$$ It is trivially true for $n=0$. We then induct on $n$. Suppose that the previous cases are true. We have that 
-\begin{align*}
-\partial(T(\Delta^n))&=\partial(\mB\Delta_0^n)-\partial(\mB(T(\partial\Delta_0^n)))\\
-&=\Delta_0^n-\mB(\partial\Delta_0^n)-T(\partial\Delta_0^n)+\mB(\partial T(\partial\Delta_0^n))\tag{Lemma 4.2.4}\\
-&=\Delta_0^n-T(\partial\Delta_0^n)+\mB(\partial T(\partial\Delta_0^n)-\partial\Delta_0^n)\\
-&=\Delta_0^n-T(\partial\Delta_0^n)-\mB(S(\partial\Delta_1^n)+T(\partial^2\Delta_0^n))\tag{By induction}\\
-&=\Delta_0^n-T(\partial\Delta_0^n)-S(\Delta_1^n)
-\end{align*}
-Let $\sigma:\Delta^n\to X$ be a singular $n$-simplex. Let $\sigma':\Delta^n\times I\to\Delta^n\overset{\sigma}{\longrightarrow}X$ be the composition of $\sigma$ with the projection away from the second factor. Define $T:C_n(X)\to C_{n+1}(X)$ by $$\sigma\mapsto\sigma_\ast'(T(\Delta^n))$$ Then this $T$ defined on the free group also satisfies the chain homotopy relation by linearity. Thus $T$ is now a chain homotopy from $S$ to $\text{id}$ and so we conclude. 
+Since $T^\Delta$ satisfies the chain homotopy relation and $T$ and $\sigma_\ast$ is linear, we have that $T$ also satisfies the chain homotopy relation so that it is a chain homotopy from $S$ to $\text{id}$. 
 \end{proof}
 \end{prp}
-
-\begin{lmm}{}{} Let $[w_0,\dots,w_n]$ be a simplex in the barycentric subdivision of $[v_0,\dots,v_n]$. Then $$\diam([w_0,\dots,w_n])\leq\frac{n}{n+1}\diam([v_0,\dots,v_n])$$ \tcbline
-\begin{proof}
-If $n=0$, then the claim is true since $[w_0]=[v_0]$ has diameter $0$. Assume that $n>0$. We first prove the following subclaim: For every $x\in[x_0,\dots,x_n]$ an $n$-simplex, its maximum distance to points in the simplex is attained at a vertex $x_i$. Indeed if $y\in[x_0,\dots,x_n]$ with $\|x-y\|$ maximal, then we can write $y=\sum_{i=1}^nt_ix_i$ with $\sum_{i=1}^nt_i=1$ and $t_i\geq 0$. Then we have that 
-\begin{align*}
-\|x-y\|&=\left\|x-\sum_{i=1}^nt_ix_i\right\|\\
-&=\left\|\sum_{i=1}^nt_i(x-x_i)\right\|\\
-&\leq\sum_{i=1}^nt_i\|x-x_i\|\\
-&\leq\max\|x-x-i\|
-\end{align*}
-with equality if $y$ is one of the vertices with $\|x-x_i\|$ being maximal. By applying the above twice, we have that the diameter of $[w_0,\dots,w_n]$ is the length of the longest edge $[x,y]$ in $[w_0,\dots,w_n]$. Now there are two cases. \\~\\
-
-Case 1: None of $x,y$ is the barycenter $b$ of $[w_0,\dots,w_n]$. Then they must be the vertices of a simplex in the barycentric subdivision of one of the faces $[v_0,\dots,\hat{v_i},\dots,v_n]$. By induction, we have that 
-\begin{align*}
-\diam([w_0,\dots,w_n])&=\|x-y\|\\
-&\leq\frac{n-1}{n}\diam([v_0,\dots,\hat{v_i},\dots,v_n])\\
-&\leq\frac{n}{n+1}\diam([v_0,\dots,v_n])
-\end{align*}
-and so we are done. \\~\\
-
-Case 2: Without loss of generality, $x=b$. \\
-Then $y$ lies on some face of $[v_0,\dots,v_n]$ and the claim above implies that we can take $y=v_i$ for some vertex $v_i$ of that face. Let $b_i$ be the barycenter of $[v_0,\dots,\hat{v_i},\dots,v_n]$. Then we have that the barycenter of $[v_0,\dots,v_n]$ is $$b=\frac{1}{n+1}\sum_{j=1}^nv_j=\frac{1}{n+1}v_i+\frac{n}{n+1}b_i$$ We thus have that 
-\begin{align*}
-\diam([w_0,\dots,w_n])&=\|v_i-b\|\\
-&\leq\frac{n}{n+1}\|v_i-b_i\|\\
-&\leq\frac{n}{n+1}\diam([v_0,\dots,v_n])
-\end{align*}
-and so we conclude. 
-\end{proof}
-\end{lmm}
 
 We now come to the final ingredient of the proof. The subgroup of $n$-chains consists of linear combinations of $n$-chains contained in $U_1$ and $U_2$. 
 
@@ -1131,15 +1150,13 @@ And so the sequence of chain complexes is exact.
 \end{proof}
 \end{prp}
 
-Note that the choice of the minus sign can be place arbitrarily. The important point is that the place of the minus is so that we can prove $\im((i_1)_\ast-(i_2)_\ast)=\ker((j_1)_\ast+(j_2)_\ast)$. \\~\\
+Note that the choice of the minus sign can be place arbitrarily. The important point is that the place of the minus is so that we can prove $\im((i_1)_\ast-(i_2)_\ast)=\ker((j_1)_\ast+(j_2)_\ast)$. 
 
-The final piece is the following proposition. 
-
-\begin{prp}{}{} Let $X$ be a space and $U_1,U_2$ be open such that $X=U_1\cup U_2$. Then the inclusion $C_\bullet(U_1+U_2)\hookrightarrow C_\bullet(X)$ induces isomorphisms in homology. \tcbline
+\begin{prp}{}{} Let $X$ be a space and $U_1,U_2$ be open such that $X=U_1\cup U_2$. Then the inclusion $$C_\bullet(U_1+U_2)\hookrightarrow C_\bullet(X)$$ induces isomorphisms in homology. \tcbline
 \begin{proof}
-We want that the map $\iota_\ast:H_n(C_\bullet(U_1+U_2))\to H_n(X)$ is injective and surjective. \\~\\
+Let $\sigma\in C_n(X)$ be a singular $n$-simplex of $X$. Consider $\sigma^{-1}(U_1)$ and $\sigma^{-1}(U_2)$ as an open cover of $\Delta^n$. Let $\delta$ be the Lebesgue number of the open cover. Suppose that $v_k\in S^k(\Delta^n)$ lie in the $k$-times barycentric subdivision of $\sigma$. By lemma 3.5.5, we have that $$\diam(v_k)\leq\left(\frac{n}{n+1}\right)^k\diam(\Delta^n)$$ As $k\to\infty$, $\diam(v_k)\to 0$. So there exists $k\in\N$ such that $\diam(v_k)\leq\delta$. By definition of the Lebesgue cover this means that $v_k$ lie completely in $U_1$ or $U_2$. Hence there exists a smallest number $k$ such that $S^k(\sigma)\in C_n(U_1+U_2)$. \\~\\
 
-Let $z\in Z_n(X)$ be an $n$-cycle in $X$. Thus $z$ is a linear combination of finitely many $n$-simplexes $\sigma_k:\Delta^n\to X$. Choose $k\in\N$ such that $S^k(\sigma_i)\in C_n(U_1+U_2)$. By lemma 4.3.3, this is possible as by repeating the process of barycentric subdivision, we have that the factor $\left(\frac{n}{n+1}\right)^k$ as $k$ tends to infinity, the factor tends to $0$. Continuing the proof, we also have that $S^k(z)\in C_n(U_1+U_2)$ is a cycle. Since $S\simeq\text{id}$ by the proposition 4.3.3 and composition of chain homotopic maps are chain homotopic, we have that $S^k\simeq\text{id}$ via some chain homotopy $\eta$. Thus we have that $$z-S^k(z)=\partial\eta(z)+\eta\partial(z)=\partial\eta(z)$$ In particular, this shows that $z$ and $S^k(z)$ are homologous in $H_n(X)$ so that $[z]=\iota([S^k(z)])$. \\~\\
+Let $z\in Z_n(X)$ be an $n$-cycle in $X$. Thus $z$ is a linear combination of finitely many $n$-simplexes $\sigma_k:\Delta^n\to X$. Choose $k\in\N$ such that $S^k(\sigma_i)\in C_n(U_1+U_2)$. Since $S\simeq\text{id}$ by the proposition 4.3.3 and composition of chain homotopic maps are chain homotopic, we have that $S^k\simeq\text{id}$ via some chain homotopy $\eta$. Thus we have that $$z-S^k(z)=\partial\eta(z)+\eta\partial(z)=\partial\eta(z)$$ since $\partial z=0$. In particular, this shows that $z$ and $S^k(z)$ are homologous in $H_n(X)$ so that $[z]=\iota([S^k(z)])$. \\~\\
 
 For injectivity, let $w\in Z_n(C_\bullet(U_1+U_2))$ such that $\iota([w])=0$. This means that $w=\partial(z)$ for some $z\in C_{n+1}(X)$. Similar to the above, there exists $k\in\N$ such that $S^k(z)\in C_{n+1}(U_1+U_2)$ and $\eta$ such that $z-S^k(z)=\partial\eta(z)+\eta\partial(z)$. But then $\partial S^k(z)=\partial(z)-\partial^2\eta(z)-\partial\eta\partial(z)=w-\partial\eta(w)$ so that $[w]=0$ as required. 
 \end{proof}
@@ -1410,8 +1427,61 @@ where $C_n(X,A)$ denotes the quotient group $C_n(X)/C_n(A)$. In other words, $$H
 Elements of $Z_n(X,A)$ are called relative $n$-cycles, while elements of $B_n(X,A)$ are called relative $n$-boundaries. 
 \end{defn}
 
-Geometrically, relative $n$-cycles are $n$-cycles in $C_n(X)$ such that $\partial z\in C_{n-1}(A)$ which means that the boundary of $z$ is contained in the subspace $A$. Intuitively, we are treating cycles in the subspace $A$ as $0$ and so the homology groups measure the homology of $X$ without $A$. 
+Geometrically, relative $n$-cycles are $n$-cycles in $C_n(X)$ such that $\partial z\in C_{n-1}(A)$ which means that the boundary of $z$ is contained in the subspace $A$. Intuitively, we are treating cycles in the subspace $A$ as $0$ and so the homology groups measure the homology of $X$ without $A$. \\~\\
 
+TBA: Functoriality\\~\\
+
+Relative homology also satisfies the homotopy invariance property and has the Mayer-Vietoris sequence. 
+
+\begin{thm}{Homotopy Invariance}{} Let $(X,A),(Y,B)$ be pairs of spaces. Let $f,g:(X,A)\to(Y,B)$ be homotopic maps. Then the induced map on relative homology are the same: $$f_\ast=g_\ast:H_n(X,A)\to H_n(Y,B)$$ 
+\end{thm}
+
+\begin{crl}{}{} Let $f:(X,A)\to (Y,B)$ be a map such that both $f:X\to Y$ and $f|_A:A\to B$ are homotopy equivalences. Then $$f_\ast:H_n(X,A)\to H_n(Y,B)$$ induces an isomorphism for all $n\in\N$. 
+\end{crl}
+
+\begin{defn}{Triplet of Spaces}{} Let $X$ be a space. A triple $(X,A,B)$ is said to be a triplet of spaces if $B\subseteq A\subseteq X$. 
+\end{defn}
+
+\begin{defn}{Maps of Triplets}{} Let $(X,A,B)$ and $(Y,C,D)$ be triplets of spaces. Let $f;X\to Y$ be a map. We say that $f$ is a map of the triplets if $f(A)\subseteq C$ and $f(B)\subseteq D$. 
+\end{defn}
+
+\begin{prp}{}{} Let $(X,A,B)$ be a triplet of spaces. Let $j:B\hookrightarrow A$ and $i:A\hookrightarrow X$ be inclusions. Then \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {C_\bullet(A,B)} & {C_\bullet(X,B)} & {C_\bullet(X,A)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["i", from=1-2, to=1-3]
+	\arrow["j", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+is a short exact sequence of chain complexes. 
+\end{prp}
+
+TBA: Naturality
+
+\begin{prp}{Long Exact Sequence of a Triple}{} Let $(X,A,B)$ be a triplet of spaces. Let $j:B\hookrightarrow A$ and $i:A\hookrightarrow X$ be inclusions. Then there is a long exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {H_n(A,B)} & {H_n(X,B)} & {H_n(X,A)} & {H_{n-1}(A,B)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["i_\ast", from=1-2, to=1-3]
+	\arrow["j_\ast", from=1-3, to=1-4]
+	\arrow["\partial", from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+\end{tikzcd}}\\~\\
+in relative homology induced by the inclusion maps and the connecting homomorphism $\partial$ from the snake lemma. 
+\end{prp}
+
+\begin{thm}{Relative Mayer-Vietoris Sequence}{} Let $(X,Y)$ be a pair of space such that $A,B\subset X$ cover $X$ and $C,D\subset Y$ cover $Y$ with $C\subset A$ and $D\subset B$. Then there is an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {H_n(A\cap B,C\cap D)} && {H_n(A,C)\oplus H_n(B,D)} && {H_n(X,Y)} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["\Phi", from=1-2, to=1-4]
+	\arrow["\Psi", from=1-4, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}}\\~\\
+in relative homology. 
+\end{thm}
+
+\subsection{Relation to Singular Homology}
 \begin{thm}{Exact Sequence of Pairs of Spaces}{} Let $(X,A)$ be a pair of spaces. Then there is an exact sequence \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 \cdots\arrow[r] & H_n(A)\arrow[r, "\iota_\ast"] & H_n(X)\arrow[r, "j_\ast"] & H_n(X,A)\arrow[r, "\partial"] & H_{n-1}(A)\arrow[r] & \cdots
@@ -1448,11 +1518,18 @@ showing that $H_n(X,A)=0$.
 \end{proof}
 \end{lmm}
 
-Notice that relative homology is more generalized than reduced homology in the following sense: 
+Using the lemma, we have a low degree interpretation for relative homology. 
 
-\begin{lmm}{}{} Let $X$ be space and $x\in X$ be a point. Then there is an isomorphism $$H_n(X,x)\cong\widetilde{H}_n(X)$$ of homology groups for all $n\in\N$. \tcbline
+\begin{prp}{}{} Let $(X,A)$ be a pair of space. Then the following are true. 
+\begin{itemize}
+\item $H_0(X,A)=0$ if and only if every path component of $X$ contains at least one path component of $A$. 
+\item $H_1(X,A)=0$ if and only if $H_1(A)\to H_1(X)$ is surjective and each path component of $X$ contains at most one path-component of $A$. 
+\end{itemize}
+\end{prp}
+
+\begin{lmm}{}{} Let $X$ be space and $x\in X$ be a point. Then there is an isomorphism $$H_n(X,\{x\})\cong\widetilde{H}_n(X)$$ of homology groups for all $n\in\N$. \tcbline
 \begin{proof}
-We have a long exact sequence as in theorem 4.1.3. In particular, since $H_n(\{x\})=0$ for all $n\geq 1$, we have an isomorphism $$H_n(X,x)\cong H_n(X)$$ which descends to an isomorphism in reduced homology. We are now left with the exact sequence: \\~\\
+We have a long exact sequence as in theorem 4.1.3. In particular, since $H_n(\{x\})=0$ for all $n\geq 1$, we have an isomorphism $$H_n(X,\{x\})\cong H_n(X)$$ which descends to an isomorphism in reduced homology. We are now left with the exact sequence: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & H_1(X)\arrow[r, "j_\ast"] & H_1(X,x)\arrow[r, "\partial"] & H_0(x)\arrow[r, "\iota_\ast"] & H_0(X)\arrow[r, "j_\ast"] & H_0(X,x)\arrow[r] & 0
 \end{tikzcd}}\\~\\
@@ -1476,55 +1553,7 @@ Therefore we conclude.
 \end{proof}
 \end{lmm}
 
-Relative homology also satisfies the homotopy invariance property and has the Mayer-Vietoris sequence. 
-
-\begin{thm}{Homotopy Invariance}{} Let $(X,A),(Y,B)$ be pairs of spaces. Let $f,g:(X,A)\to(Y,B)$ be homotopic maps. Then the induced map on relative homology are the same: $$f_\ast=g_\ast:H_n(X,A)\to H_n(Y,B)$$ 
-\end{thm}
-
-\begin{crl}{}{} Let $f:(X,A)\to (Y,B)$ be a map such that both $f:X\to Y$ and $f|_A:A\to B$ are homotopy equivalences. Then $$f_\ast:H_n(X,A)\to H_n(Y,B)$$ induces an isomorphism for all $n\in\N$. 
-\end{crl}
-
-\begin{prp}{Long Exact Sequence of a Triple}{} Let $(X,A,B)$ be a triplet of space such that $B\subset A\subset X$. Then \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {C_n(A,B)} & {C_n(X,B)} & {C_n(X,A)} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-is a short exact sequence that gives rise to a long exact sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {H_n(A,B)} & {H_n(X,B)} & {H_n(X,A)} & {H_{n-1}(A,B)} & \cdots
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-	\arrow[from=1-5, to=1-6]
-\end{tikzcd}}\\~\\
-in relative homology. Moreover, the exact sequence is natural with respect to maps $f:(X,A,B)\to(Y,C,D)$. 
-\end{prp}
-
-\begin{thm}{Relative Mayer-Vietoris Sequence}{} Let $(X,Y)$ be a pair of space such that $A,B\subset X$ cover $X$ and $C,D\subset Y$ cover $Y$ with $C\subset A$ and $D\subset B$. Then there is an exact sequence \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {H_n(A\cap B,C\cap D)} && {H_n(A,C)\oplus H_n(B,D)} && {H_n(X,Y)} & \cdots
-	\arrow[from=1-1, to=1-2]
-	\arrow["\Phi", from=1-2, to=1-4]
-	\arrow["\Psi", from=1-4, to=1-6]
-	\arrow[from=1-6, to=1-7]
-\end{tikzcd}}\\~\\
-in relative homology. 
-\end{thm}
-
-Using the lemma, we have a low degree interpretation for relative homology. 
-
-\begin{prp}{}{} Let $(X,A)$ be a pair of space. Then the following are true. 
-\begin{itemize}
-\item $H_0(X,A)=0$ if and only if every path component of $X$ contains at least one path component of $A$. 
-\item $H_1(X,A)=0$ if and only if $H_1(A)\to H_1(X)$ is surjective and each path component of $X$ contains at most one path-component of $A$. 
-\end{itemize}
-\end{prp}
-
-\subsection{Quotient Spaces and Excision}
+\subsection{The Excision Theorem}
 The excision theorem is a powerful theorem for computing relative homology groups. This statement is derived directly from Mayer-Vietoris. 
 
 \begin{thm}{The Excision Theorem}{} Let $X$ be a space and $Z,A$ be subspaces of $X$ such that $\overline{Z}\subseteq A^\circ$. Then the inclusion map $(X\setminus Z,A\setminus Z)\hookrightarrow (X,A)$ induces an isomorphism $$H_n(X\setminus Z,A\setminus Z)\cong H_n(X,A)$$ for all $n$. Moreover, the excision isomorphism is natural in maps $f:(X,A,Z)\to(Y,B,C)$. \tcbline
@@ -1566,7 +1595,7 @@ It is clear by definition that any CW-complex $X$ and subcomplex $A$ forms a goo
 \begin{lmm}{}{} Both CW-complexes and $\Delta$-complexes are good pairs. 
 \end{lmm}
 
-\begin{prp}{}{} Let $X$ be a space and $A$ a closed subspace of $X$ such that $(X,A)$ is a good pair. Then the quotient map $X\to X/A$ induces a natural isomorphism $$H_n(X,A)\cong H_n(X/A,A/A)\cong\widetilde{H}_n(X/A)$$ in homology groups. \tcbline
+\begin{prp}{}{} Let $X$ be a space and $A$ a closed subspace of $X$ such that $(X,A)$ is a good pair. Then the quotient map $X\to X/A$ induces a natural isomorphism $$H_n(X,A)\cong\widetilde{H}_n(X/A)$$ in homology groups together with the excision isomorphism. \tcbline
 \begin{proof}
 Let $V$ be a open neighbourhood of $A$ satisfying the good pair condition. Then there is an obvious inclusion map $(X,A)\to(X,V)$. Applying the long exact sequence of relative homology for both $(X,A)$ and $(X,V)$, we obtain the following diagram by naturality in theorem 1.4.3: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -2211,8 +2240,6 @@ We have now defined a series of functors. We also recap on the material in secti
 \item Specializing to the case $R=\Z$, we have a functorial method of dualizing chain complexes into cochain complexes by the functor $$\Hom(-;A):\bold{Ch}(\Z)\to\bold{CCh}(\Z)$$ for any abelian group $A$. 
 \end{itemize}
 
-\pagebreak
-\section{The Choice of Coefficients in Singular (Co)Homology}
 \subsection{Free Resolutions}
 \begin{defn}{Free Resolutions}{} Let $H$ be a group. An exact sequence of the form \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -2558,13 +2585,16 @@ Since $C_n$ is free abelian we conclude that $B_{n-1}$ and $Z_{n-1}$ are free. T
 \subsection{Singular Cohomology}
 We now have all the pieces to define singular cohomology. This is a three step functorial process so that the end result is also functorial. 
 
-\begin{defn}{Singular Cochain Complex with Coefficients}{} Let $X$ be a space. Let $G$ be an abelian group. Define the singular cochain complex $$(C^\bullet(X;G),\partial^\ast)$$ with coefficients in $G$ to be the dual of the singular chain complex $(C_\bullet(X),\partial)$. Each term $C^n(X;G)$ is called the $n$th singular cochain group. The maps $\partial^\ast$ are called the coboundary maps. 
+\begin{defn}{The Singular Cochain Complex}{} Let $X$ be a space. Let $G$ be an abelian group. Define the singular cochain complex $(C^\bullet(X;G),\partial^\bullet)$ with coefficients in $G$ to be the cochain complex given by the following data. 
+\begin{itemize}
+\item The $n$th term is given by $$C^n(X;G)=\Hom_\Z(C_n(X);G)$$ the group of singular $n$-cochains of $X$. 
+\item The boundary operator $\partial^n:C^{n-1}(X;G)\to C^n(X;G)$ is given by the formula $$\partial^n(\phi)=\phi\circ\partial_n$$ for $\phi\in C^{n-1}(X;G)$. 
+\end{itemize}
+It is the dual cochain complex of the singular chain complex $(C_\bullet(X),\partial_\bullet)$ of $X$. 
 \end{defn}
 
-\begin{defn}{Singular Cohomology Groups of a Space}{} Let $X$ be a topological space and $(C^\bullet(X;G),\delta_\bullet)$ the singular cochain complex of $X$ with coefficients in an abelian group $G$. The $n$th cohomology group of $X$ with coefficients in $G$ is defined to be $$H^n(X;G)=\frac{\ker(\delta_{n+1}:C^n(X;G)\to C^{n+1}(X;G))}{\im(\delta_n:C^{n-1}(X;G)\to C^n(X;G))}=H_\bullet(C^\bullet(X;G),\delta_\bullet)$$
+\begin{defn}{Singular Cohomology Groups of a Space}{} Let $X$ be a topological space. Let $G$ be a group. The $n$th singular cohomology group of $X$ with coefficients in $G$ is defined to be $$H^n(X;G)=H_n(C^\bullet(X;G),\partial^\bullet)=\frac{\ker(\partial^{n+1}:C^n(X;G)\to C^{n+1}(X;G))}{\im(\partial^n:C^{n-1}(X;G)\to C^n(X;G))}$$
 \end{defn}
-
-We can describe the construction of singular cohomology groups as a three step functorial process $$H^n(-;G):\bold{Top}\overset{C_\bullet(-)}{\longrightarrow}\bold{Ch}(\Z)\overset{\Hom(-,G)}{\longrightarrow}\bold{CCh}(\Z)\overset{H_n(-)}{\longrightarrow}\bold{Ab}$$ Therefore the construction of singular cohomology groups are also functorial. \\~\\
 
 Recall that for a space $X$, its singular chain complex $C_\bullet^\text{Sing}(X)$ is defined to be free abelian group $$C_n^\text{Sing}(X)=\Z[\Delta^n]$$ on the set of singular $n$-simplicies on $X$. By dualizing it, one obtains the singular cochain complex $$C_\text{Sing}^n(X)=\Hom(\Z[\Delta^n],G)$$ for any abelian group $G$. Such a map $f\in\Hom(\Z[\Delta^n],G)$ is determined on the generators of the free abelian group by its universal property. And so $f$ is essentially determined by the choice of an element $g\in G$ for every singular $n$-simplex. In other words, every element of $C_\text{Sing}^n(X;G)$ of $X$ is just a labelling of every singular $n$-simplex with an element of $G$. Now if $f:\Z[\Delta^n]\to G$ is a cocycle, we simply require that the sum of the values that $f$ takes on the boundary of $\Delta^n$ to be $0$. In particular, 
 \begin{itemize}
@@ -2575,59 +2605,69 @@ Recall that for a space $X$, its singular chain complex $C_\bullet^\text{Sing}(X
 \begin{defn}{Induced Homomorphisms}{} Let $f:X\to Y$ be a continuous map. Let $G$ be an abelian group. Define the induced map on cohomology $$f^\ast:H^n(Y;G)\to H^n(X;G)$$ by the formula $[\alpha]\mapsto[\alpha\circ f]$. 
 \end{defn}
 
-\begin{thm}{Induced Homomorphisms}{} Let $f:X\to Y$ be a continuous map. Let $G$ be an abelian group. Then the induced homomorphism $$f^\ast:H^n(Y;G)\to H^n(X;G)$$ is well defined and is a group homomorphism. Moreover, the following are true. 
+We can describe the construction of singular cohomology groups as a three step functorial process $$H^n(-;G):\bold{Top}\overset{C_\bullet(-)}{\longrightarrow}\bold{Ch}(\Z)\overset{\Hom(-,G)}{\longrightarrow}\bold{CCh}(\Z)\overset{H_n(-)}{\longrightarrow}\bold{Ab}$$ Therefore the construction of singular cohomology groups are also functorial. Alternatively, it is a good practice to check directly that taking a space to its cohomlogy groups defines a functor. 
+
+\begin{thm}{Functoriality of Cohomology}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a continuous map. Let $G$ be an abelian group. Then the induced homomorphism $$f^\ast:H^n(Y;G)\to H^n(X;G)$$ is well defined and is a group homomorphism. Moreover, the following are true. 
 \begin{itemize}
 \item If $Z$ is a space and $g:Y\to Z$ is another map, then $$(g\circ f)^\ast=f^\ast\circ g^\ast$$
 \item We have that $$(\text{id}_X)^\ast=\text{id}_{H^n(X;G)}$$
-\end{itemize}
+\end{itemize} \tcbline
+\begin{proof}
+As seen above cohomology is a three step functorial process, hence the induced map satisfies all the functorial properties. 
+\end{proof}
 \end{thm}
 
-\begin{defn}{Reduced Cohomology Groups}{} Let $X$ be a space. Let $R$ be a ring. Let $M$ be an $R$-module. Define the reduced cohomology groups of $X$ to be $$\widetilde{H}_\text{Sing}^n(X;M)=H^n(\Hom(C_\bullet(X)\to\Z,M))$$ the $n$th cohomology groups of the dual of the augmented singular chain complex \\~\\
-\adjustbox{scale=1,center}{\begin{tikzcd}
-	\cdots & {C_n(X)} & \cdots & {C_1(X)} & {C_0(X)} & \Z & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-	\arrow["\varepsilon", from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-\end{tikzcd}}\\~\\
-of $X$. 
-\end{defn}
-
-\begin{prp}{}{} Let $X$ be a space. Let $R$ be a ring. Let $M$ be an $R$-module. Then the following are true regarding the reduced cohomology of $X$. 
-\begin{itemize}
-\item For all $n>0$, $$\widetilde{H}_\text{Sing}^n(X;M)=H_\text{Sing}^n(X;M)$$
-\item When $n=0$, the universal coefficient theorem induces an isomorphism $$\widetilde{H}_\text{Sing}^0(X;M)\cong\Hom(H_0^\text{Sing}(X),M)$$
-\end{itemize}
-\end{prp}
-
-\subsection{Properties of Singular Cohomology}
-\begin{thm}{Homotopy Invariance}{} Let $f,g:X\to Y$ be continuous such that $f\simeq g$. Then $f$ and $g$ induces the same map $$f^\ast=g^\ast:H^n(Y)\to H^n(X)$$ on singular cohomology. 
-\end{thm}
-
-\begin{thm}{Excision}{} Let $(X,A)$ be a pair of spaces. Let $Z\subseteq A$ such that $\overline{Z}\subset A^\circ$. Let $R$ be a ring. Let $M$ be an $R$-module. Then the inclusion map $\iota:(X\setminus Z,A\setminus Z)\hookrightarrow(X,A)$ induces an isomorphism $$\iota^\ast:H^n(X,A;M)\overset{\cong}{\longrightarrow}H^n(X\setminus Z,A\setminus Z;M)$$ in cohomology groups for all $n\in\N$. 
+\begin{thm}{Homotopy Invariance}{} Let $X,Y$ be spaces. Let $f,g:X\to Y$ be continuous maps. Let $G$ be an abelian group. If $f$ and $g$ are homotopic, then they induce the same map $$f^\ast=g^\ast:H^n(Y;G)\to H^n(X;G)$$ on singular cohomology. \tcbline
+\begin{proof}
+We have seen that in the proof of 4.4.3, $f_\ast,g_\ast:C_n(X)\to C_n(Y)$ are chain homotopic by some chain homotopy $\eta:C_n(X)\to C_{n+1}(Y)$. This means that have $$g_\ast-f_\ast=\partial\circ\eta+\eta\circ\partial:C_n(X)\to C_n(Y)$$ Both maps are group homomorphisms hence we can dualize and applying the hom functor to get $$g^\ast-f^\ast=\partial^\ast\circ\eta^\ast+\eta^\ast\circ\partial^\ast$$ This means that the maps$f^\ast,g^\ast:C^n(X;G)\to C^n(Y;G)$ are chain homotopic, hence they induce the same map on cohomology. 
+\end{proof}
 \end{thm}
 
 \begin{thm}{Mayer-Vietoris Sequence}{} Let $X$ be a topological space and $U_1,U_2$ be open sets of $X$ such that $X=U_1\cup U_2$ and that $U_1\cap U_2\neq\emptyset$. Write $i_1:U_1\cap U_2\to U_1$, $i_2:U_1\cap U_2\to U_2$, $j_1:U_1\to X$ and $j_2:U_2\to X$ the inclusion maps. Let $G$ be an abelian group. Then there is a long exact sequence \\~\\
 \adjustbox{scale=0.7,center}{\begin{tikzcd}
 \cdots\arrow[r] & H^{n-1}(X;G)\arrow[r, "\partial"] & H^n(U_1\cap U_2;G)\arrow[rr, "(i_1)^\ast-(i_2)^\ast"] && H^n(U_1;G)\oplus H^n(U_2;G)\arrow[rr, "(j_1)^\ast+(j_2)^\ast"] && H^n(X;G)\arrow[r, "\partial"] & H^{n+1}(U_1\cap U_2;G)\arrow[r] & \cdots
 \end{tikzcd}}\\~\\
-in cohomology. 
+in cohomology. \tcbline
+\begin{proof}
+
+\end{proof}
 \end{thm}
 
-\subsection{Relative Cohomology}
-\begin{defn}{Relative Cohomology Groups}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Define the relative cochain complex $$(C^\bullet(X,A;G),\partial^\ast)$$ with coefficients in $G$ to be the dual of the relative chain complex $(C_\bullet(X,A),\partial)$. Define the $n$th relative cohomology group of $X$ to be the quotient group $$H_n(X,A;G)=\frac{\ker(\partial^\ast:C^n(X,A;G)\to C^{n+1}(X,A;G))}{\im(\partial^\ast:C^{n-1}(X,A;G)\to C^n(X,A;G))}=H_n(C^\bullet(X,A;G))$$
+\begin{defn}{Reduced Cohomology Groups}{} Let $X$ be a space. Let $G$ be an abelian group. Define the reduced cohomology groups $$\widetilde{H}^n(X;G)$$ of $X$ with coefficients in $G$ to be the $n$th cohomology groups of the augmented singular chain complex. 
 \end{defn}
 
-\begin{lmm}{}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Then the $n$th term of the relative cochain complex is given by $$C^n(X,A;G)=\{\alpha:C_n(X)\to G\;|\;\alpha(\sigma)=0\text{ for all }\sigma\in C_n(X,A)\text{ such that }\im(\sigma)\subseteq A\}$$
+\begin{prp}{}{} Let $X$ be a space. Let $R$ be a ring. Let $M$ be an $R$-module. Then the following are true regarding the reduced cohomology of $X$. 
+\begin{itemize}
+\item For all $n>0$, $$\widetilde{H}^n(X;M)=H^n(X;M)$$
+\item When $n=0$, the universal coefficient theorem induces an isomorphism $$\widetilde{H}^0(X;M)\cong\Hom(H_0(X),M)$$
+\end{itemize}
+\end{prp}
+
+\subsection{Relative Cohomology}
+\begin{defn}{Relative Cochain Complex}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Define the relative cochain complex $(C^\bullet(X,A;G),\partial^\ast)$ with coefficients in $G$ to be given by the following data. 
+\begin{itemize}
+\item The $n$th term is given by $$C^n(X,A;G)=\Hom_\Z(C_n(X,A),G)$$ the group of singular $n$-cochains relative to $A$. 
+\item The boundary operator $\partial^n:C^{n-1}(X;G)\to C^n(X;G)$ is given by the formula $$\partial^n(\phi)=\phi\circ\partial_n$$ for $\phi\in C^{n-1}(X,A;G)$. 
+\end{itemize}
+It is the dual cochain complex of the relative singular chain complex $(C_\bullet(X,A),\partial_\bullet)$ of $X$ with respect to $A$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Then the $n$th term of the relative cochain complex is given by $$C^n(X,A;G)=\{\alpha\in C^n(X;G)\;|\;\alpha(\sigma)=0\text{ for all }\im(\sigma)\subseteq A\}$$
 \end{lmm}
+
+\begin{defn}{Relative Cohomology Groups of a Space}{} Let $X$ be a topological space. Let $G$ be an abelian group. The $n$th relative cohomology group of $X$ with coefficients in $G$ is defined to be $$H^n(X,A;G)=H_n(C^\bullet(X,A;G),\partial^\bullet)=\frac{\ker(\partial^{n+1}:C^n(X,A;G)\to C^{n+1}(X,A;G))}{\im(\partial^n:C^{n-1}(X,A;G)\to C^n(X,A;G))}$$
+\end{defn}
+
+TBA: Functoriality
+
+\begin{thm}{Excision}{} Let $(X,A)$ be a pair of spaces. Let $Z\subseteq A$ be a subspace such that $\overline{Z}\subseteq A^\circ$. Let $G$ be an abelian group. Then the inclusion map $\iota:(X\setminus Z,A\setminus Z)\hookrightarrow(X,A)$ induces an isomorphism $$\iota^\ast:H^n(X,A;G)\overset{\cong}{\longrightarrow}H^n(X\setminus Z,A\setminus Z;G)$$ in cohomology groups for all $n\in\N$. 
+\end{thm}
 
 \begin{thm}{Long Exact Sequence of Relative Cohomology Groups}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Then there is an exact sequence \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-\cdots\arrow[r] & H^{n-1}(A;M)\arrow[r, "\partial"] & H^n(X,A;M)\arrow[r, "j^\ast"] & H^n(X;M)\arrow[r, "i^\ast"] & H^n(A)\arrow[r] & \cdots
+\cdots\arrow[r] & H^{n-1}(A;G)\arrow[r, "\partial"] & H^n(X,A;G)\arrow[r, "j^\ast"] & H^n(X;G)\arrow[r, "i^\ast"] & H^n(A;G)\arrow[r] & \cdots
 \end{tikzcd}}\\~\\
-where $\iota:A\to X$ is the inclusion map and $j:X\to X\setminus A$ is the quotient map. Moreover, the connecting homomorphism $\partial:H^{n-1}(A;M)\to H^n(X,A;M)$ is defined by ?????. \tcbline
+where $\iota:A\to X$ is the inclusion map, $j:X\to X\setminus A$ is the quotient map and $\partial$ is the connecting homomorphism induced by the snake lemma. \tcbline
 \begin{proof}
 Notice that \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -2642,17 +2682,6 @@ is a short exact sequence by the above lemma. Thus it induces a long exact seque
 Consider $[z]=z+C_n(A)\in C_n(X,A)$ a cycle in $C_n(X,A)$. The surjective map $j$ is the projection map so $j(z)=[z]$. Now $d(z)\in\ker(j)$ because $$j(d(z))=d(j(z))=d([z])=0$$ by assumption So $d(z)\in\ker(j)=\im(i)$. Since $i$ is the inclusion, $[d(z)]\in C_{n-1}(A)$ is precisely the element that $\partial$ maps $[z]$ to. 
 \end{proof}
 \end{thm}
-
-\begin{prp}{}{} Let $X$ be a space. Let $B\subseteq A\subseteq X$ be subspaces. Let $j:B\hookrightarrow A$ and $i:A\hookrightarrow X$ be inclusions. Then \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {C_\bullet^\text{Sing}(A,B)} & {C_\bullet^\text{Sing}(X,B)} & {C_\bullet^\text{Sing}(A,B)} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["i", from=1-2, to=1-3]
-	\arrow["j", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-is a short exact sequence of chain complexes. 
-\end{prp}
 
 \begin{thm}{Long Exact Sequence of Triplet of Spaces}{} Let $X$ be a space. Let $B\subseteq A\subseteq X$ be subspaces. Let $j:B\hookrightarrow A$ and $i:A\hookrightarrow X$ be inclusions. Let $M$ be a $R$-module for some ring $R$. Then there is a long exact sequence in cohomology \\~\\
 \adjustbox{scale=0.8,center}{\begin{tikzcd}

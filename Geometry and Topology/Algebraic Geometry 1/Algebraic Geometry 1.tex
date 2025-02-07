@@ -235,6 +235,19 @@ Now suppose that $Y\subseteq X$ is closed. By definition of closed sets, there e
 
 This lemma showed that there is a one-to-one correspondence in the following way: $$\left\{\text{Closed subsets of }X\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\text{Affine algebraic subsets of }X\right\}$$ for any affine algebraic set $X$ of $\A_k^n$. In fact, this simplifies quite a lot topologically. Recall that because closed and open sets are relative, we often need to state whether a set is closed relative to the subspace or closed in the underlying space. However, we see in the Zariski topology that they both really mean the same thing, namely it is the zero set of some collection of polynomials. 
 
+\begin{defn}{Basic Open Sets}{} Let $V$ be Zariski closed on $\A^n$. Let $f\in k[V]$. Then $$D(f)=V\setminus V(f)$$ is said to be a basic open set. 
+\end{defn}
+
+In other words, $D(f)$ is exactly the points of $V$ where $f$ is not zero. Some literature like to use $V_f$ for notation. 
+
+\begin{prp}{}{} Let $V$ be Zariski closed on $\A^n$. Let $f\in k[V]$. Then 
+\begin{itemize}
+\item $D(f)$ is an affine algebraic variety
+\item Every open subset of $V$ is a union of basic open sets
+\item The set of all basic open sets of $X$ forms a basis for the Zariski Topology
+\end{itemize}
+\end{prp}
+
 \subsection{Morphisms of Affine Varieties}
 As with any other field of maths, we need a correct notion of morphism between varieties to work with so that we can transfer structure to a potentially easier object to study. However, depending on what subfield of algebraic geometry one is interested in, there may be different notions of morphisms. In this introductory notes, we will define the most generic and widely used morphism. 
 
@@ -654,74 +667,76 @@ We have the projective version of the Nullstellensatz. It works exactly the same
 \begin{thm}{The Projective Nullstellensatz I}{} Let $J\subseteq\C[x_1,\dots,x_n]$ be an homogenous ideal. Then $$I^H(V(J))=\sqrt{J}$$
 \end{thm}
 
-\begin{thm}{The Projective Nullstellensatz II}{} Let $k$ be an algebraically closed field. Then there is an inclusion reversing bijection $$\left\{\substack{\text{Homogenous Radical Ideals}\\\text{of }k[x_0,\dots,x_n]}\right\}\setminus\{(z_0,\dots,z_n)\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Projective varieties}\\\text{of }\Prj^n}\right\}$$ given by $\V^H(-)$ and $\I^H(-)$. 
+\begin{thm}{The Projective Nullstellensatz II}{} Let $k$ be an algebraically closed field. Then then following are true. 
+\begin{itemize}
+\item There is an inclusion reversing bijection $$\left\{\substack{\text{Homogenous Radical Ideals}\\\text{of }k[x_0,\dots,x_n]}\right\}\setminus\{(z_0,\dots,z_n)\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Projective varieties}\\\text{of }\Prj^n}\right\}$$ given by $\V^H(-)$ and $\I^H(-)$. 
+\item There is an inclusion reversing bijection $$\left\{\substack{\text{Homogenous Prime Ideals}\\\text{of }k[x_0,\dots,x_n]}\right\}\setminus\{(z_0,\dots,z_n)\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Irreducible projective}\\\text{varieties of }\Prj^n}\right\}$$ given by $\V^H(-)$ and $\I^H(-)$. 
+\item There is a bijection $$\left\{\substack{\text{Ideals of the form}\\(p_ix_j-p_jx_i\;|\;1\leq i,j\leq n)\text{ for }p_i\in k}\right\}\setminus\{(z_0,\dots,z_n)\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\Prj^n$$ given by $\V^H(-)$ and $\I^H(-)$. In particular, $[p_0:\cdots:p_n]\in\Prj^n$ corresponds to $(p_ix_j-p_jx_i\;|\;1\leq i,j\leq n)$. 
+\end{itemize}
 \end{thm}
 
 \pagebreak
 \section{The Relation Between Affine and Projective Varieties}
-\subsection{The Affine Cone and Projectivization}
-\begin{defn}{Affine Cones}{} Let $k$ be a field. Let $X$ be affine variety of $\A_k^n$. We say that $X$ is an affine cone if the following are true. 
-\begin{itemize}
-\item $0\in X$
-\item $\lambda x\in X$ for all $x\in X$ and $\lambda\in k^\times$
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Projectivization}{} Let $k$ be a field. Let $X$ be an affine variety of $\A_k^n$. Let $p:\A_k^n\setminus\Prj_k^n$ denote the projection map. Define the projectivization of $X$ to be the image $$P(X)=p(X\setminus\{0\})$$
-\end{defn}
-
-\begin{defn}{The Cone of a Projective Variety}{} Let $k$ be a field. Let $X$ be an projective variety of $\Prj_k^n$. Let $p:\A_k^n\setminus\Prj_k^n$ denote the projection map. Define the cone of $X$ to be $$C(X)=\{0\}\cup p^{-1}(X)$$
-\end{defn}
-
-\begin{lmm}{}{} Let $k$ be a field. Let $X$ be a projective variety Then the cone $C(X)$ is an affine cone. 
-\end{lmm}
-
-\begin{lmm}{}{} Let $k$ be a field. Then the following are true. 
-\begin{itemize}
-\item Let $F$ be a subset of non-constant homogeneous polynomials of $k[x_0,\dots,x_n]$. Then $\V(F)$ is an affine cone. 
-\item Let $X$ be an affine cone in $\A_k^n$. Then $\I(X)$ is a homogeneous ideal. 
-\end{itemize}
-\end{lmm}
-
-\begin{prp}{}{} Let $k$ be a field. Then there is a bijection $$\text{Cones in }\A_k^n\;\;\overset{1:1}{\longleftrightarrow}\text{Projective Varieties in }\Prj_k^n$$ given by the maps $P(-)$ and $C(-)$. 
-\end{prp}
-
-\subsection{The Homogeneous Coordinate Ring}
-\begin{defn}{The Homogeneous Coordinate Ring}{} Let $k$ be a field. Let $V$ be a projective variety of $\Prj_k^n$. Define the homogeneous coordinate ring of $V$ by $$k^H[V]=\frac{k[x_0,\dots,x_n]}{\I^H(V)}$$
-\end{defn}
-
-Note: This is the standard coordinate ring on the affine cone: It is the standard coordinate ring on $C(X)$. We should not think of the homogeneous coordinate ring as the ring of polynomials on $V$. We should think of it as the ring of polynomials on $C(X)$. \\
-
-Moreover, this ring depends on the choice of embedding of $X$ in $\A_k^{n+1}$. This means that $V_1\cong V_2$ as projective varieties but they may have non-isomorphic coordinate rings. 
-
 \subsection{Homogenization and Dehomogenization}
-\begin{defn}{The Dehomogenization Map}{} Let $k$ be a field. Let $0\leq i\leq n$. Define the dehomogenization map with respect to $z_i$ to be the map of sets $$\phi_i:\C_d[z_0,\dots,z_n]\to\C[x_1,\dots,x_n]$$ given by the formula $$f(z_0,\dots,z_n)\mapsto\frac{f(z_0,\dots,z_n)}{z_i^d}\overset{\text{Substitute }x_k=\frac{z_i}{z_k}}{\longrightarrow}\text{Polynomial in }x_1,\dots,x_n$$
+\begin{defn}{The Dehomogenization Map}{} Let $k$ be a field. Define the dehomogenization map with respect to $z_i$ to be the map $$D_i:k^H[z_0,\dots,z_n]\to k[x_1,\dots,x_n]$$ given as follows. For each $f\in k^H[z_0,\dots,z_n]$ a homogeneous polynomial, we have $$D_i(f)(x_1,\dots,x_n)=f(x_1,\dots,x_{i-1},1,x_{i+1},\dots,x_n)$$
 \end{defn}
 
-\begin{prp}{}{} Let $V=\V^H(F)$ be a projective variety over $\Prj_\C^n$. Let $\varphi_i:U_i\overset{\cong}{\longrightarrow}\A_\C^n$ be the transition chart of $\Prj_\C^n$ with respect to $z_i\neq 0$. Then there is a bijection $$\varphi_i(V\cap U_i)=\V(\{\phi_i(f)\;|\;f\in F\})$$
+There are two different ways to express this formula of dehomogenization. 
+\begin{itemize}
+\item For each homogeneous polynomial $f$ of total degree $d$, divide the polynomial by $z_i^d$. Then substitute $z_j/z_d$ with $x_{j+1}$ when $j<i$ and substitute $z_j/z_d$ with $x_j$ when $j>i$ (The $z_i$th term disappears after dividing with $z_i^d$). 
+\item If $$f=\sum_{c_0+\cdots+c_n=d} a_{c_0,\dots,c_n}z_0^{c_0}\cdots z_n^{c_n}\in k^H[z_0,\dots,z_n]$$ is in the $d$th graded component, then $$D_i(f)(x_1,\dots,x_n)=\sum_{c_0+\cdots+c_n=d} a_{c_0,\dots,c_n}x_1^{c_0}\cdots x_i^{c_{i-1}}\cdot x_{i+1}^{c_{i+1}}\cdots x_n^{c_n}$$
+\end{itemize}
+
+\begin{prp}{}{} Let $V=\V^H(F)$ be a projective variety over $\Prj_\C^n$. Let $\varphi_i:U_i\overset{\cong}{\longrightarrow}\A_\C^n$ be the transition chart of $\Prj_\C^n$ with respect to $z_i\neq 0$. Then there is a bijection $$\varphi_i(V\cap U_i)=\V(\{D_i(f)\;|\;f\in F\})$$
 \end{prp}
 
 We use the hat symbol to mean that we omit the element. So $k[x_1,\hat{x}_2,x_3]$ means the polynomial ring in variables $x_1$ and $x_3$. 
 
-\begin{defn}{Homogenization}{} Let $k$ be a field. Define the homogenization map $$(-)_i^+:k[x_0,\dots,\hat{x}_i,\dots,x_n]\to k[x_0,\dots,x_n]$$ as follows. If $f\in k[x_1,\dots,x_n]$ is such that the homogeneous terms of $f$ is given by $$f=g_0+\dots+g_m$$ and $d$ is the total degree of $f$, then $$(f)_i^+(x_0,\dots,x_n)=x_i^dg_0+x_i^{d-1}g_1+\dots+g_d$$
+\begin{defn}{Homogenization}{} Let $k$ be a field. Define the homogenization map with respect to $i$ $$H_i:k[y_1,\dots,y_n]\to k^H[x_0,\dots,x_n]$$ as follows. For $f\in k[y_1,\dots,y_n]$ so that $f=\sum_{i=0}^mg_i$ for $g_i$ is in the $i$th graded component and $d$ is the total degree of $f$, then $$H_i(f)(x_0,\dots,x_n)=y_i^{\deg(f)}\cdot f\left(\frac{y_0}{y_i},\dots,\frac{y_{i-1}}{y_i},\frac{y_{i+1}}{y_i},\dots,\frac{y_n}{y_i}\right)$$
 \end{defn}
 
-\begin{lmm}{}{} Let $k$ be a field. Let $f\in k[x_1,\dots,x_n]$. Then the homogenization $(-)_i^+$ of $f$ is homogeneous. 
+There are two different ways to write out explicitly what the homogenization map is doing to the polynomials: 
+\begin{itemize}
+\item For $f\in k[y_1,\dots,y_n]$ so that $f=\sum_{i=0}^mg_i$ for $g_i$ is in the $i$th graded component and $d$ is the total degree of $f$, then $$H_i(f)(x_0,\dots,x_n)=\sum_{r=0}^dx_i^rg_{d-r}(x_0,\dots,x_{i-1},x_i,\dots,x_n)$$ 
+\item Or, if the polynomial is given as $$f=\sum_{c_1,\dots,c_n}a_{c_1,\dots,c_n}y_1^{c_1}\cdots y_n^{c_n}$$ then the homogenization of $f$ is given as $$H_i(f)=\sum_{c_1,\dots,c_n}a_{c_1,\dots,c_n}x_0^{c_1}\cdots x_{i-1}^{c_i}\cdots x_i^{\deg(f)-c_1-\dots-c_n}\cdots x_{i+1}^{c_{i+1}}\cdots x_n^{c_n}$$
+\end{itemize}
+
+\begin{lmm}{}{} Let $k$ be a field. Let $f\in k[x_1,\dots,x_n]$ be a polynomial with total degree $d$. Then $H_i(f)$ is a homogeneous polynomial that lise in the $d$th graded component. 
 \end{lmm}
 
 \begin{prp}{}{} Let $f\in\C[x_1,\dots,x_n]$. Let $F\in\C[x_0,\dots,x_n]$. Then the following are true regarding homogenization and dehomogenization. 
 \begin{itemize}
-\item The composition of homogenization and dehomogenization gives the identity: $$\phi_i((f)_i^+)=f$$
-\item The composition of dehomogenization and homogenization gives the identity: $$(\phi_i(F))_i^+=G$$ where $F=x_i^dG$ such that $x_i$ does not divide $G$. 
-\item $\phi_i(F_1)=\phi_i(F_2)$ if and only if $F_1=z_i^{k_1}G$ and $F_2=z_i^{k_2}G$ for some $k_1,k_2$ such that $z_1,z_2$ does not divide $G$. 
+\item The composition of homogenization and dehomogenization gives the identity: $$D_i(H_i(f))=f$$
+\item The composition of dehomogenization and homogenization gives the map: $$H_i(D_i(F))=G$$ where $F=x_i^dG$ such that $x_i$ does not divide $G$. 
+\item We have $$D_i(F_1)=D_i(F_2)\;\;\;\;\text{ if and only if }\;\;\;\;F_1=z_i^{k_1}G,\;\;F_2=z_i^{k_2}G$$ for some $k_1,k_2$ such that $z_1,z_2$ does not divide $G$. 
 \end{itemize}
 \end{prp}
 
-\begin{crl}{}{} Let $F\subset\C[x_0,\dots,\hat{x}_i,\dots,x_n]$ be a subset of polynomials. Let $\varphi_i:U_i\overset{\cong}{\longrightarrow}\A_\C^n$ be the transition chart of $\Prj_\C^n$ with respect to $z_i\neq 0$. Then there is a bijection $$\varphi_i(\V^H(\{(f_j)_i^+\;|\;f_j\in F\})\cap U_i)=\V(F)$$
+\begin{crl}{}{} Let $F\subset\C[x_0,\dots,\hat{x}_i,\dots,x_n]$ be a subset of polynomials. Let $\varphi_i:U_i\overset{\cong}{\longrightarrow}\A_\C^n$ be the transition chart of $\Prj_\C^n$ with respect to $z_i\neq 0$. Then there is a bijection $$\varphi_i(\V^H(\{H_i(f_j)\;|\;f_j\in F\})\cap U_i)=\V(F)$$
 \end{crl}
 
 \begin{crl}{}{} Suppose that $U_i$ inherits the Zariski topology from $\Prj^n$. Then the transition chart $$\psi_i:U_i\to\A^n$$ is a homeomorphism. 
 \end{crl}
+
+\subsection{The Homogeneous Coordinate Ring}
+Recall from Rings and Modules that the quotient of a graded ring with a homogeneous ideal carries a canonical grading induced by the grading from the original ring. 
+
+\begin{defn}{The Homogeneous Coordinate Ring}{} Let $k$ be a field. Let $V$ be a projective variety of $\Prj_k^n$. Define the homogeneous coordinate ring of $V$ by $$k^H[V]=\frac{k[x_0,\dots,x_n]}{\I^H(V)}$$ together with the grading structure inherited from $k[x_0,\dots,x_n]$. 
+\end{defn}
+
+There is virtually no difference between $k^H[V]$ and $k[V]$ (because affine varieties can also be generated by homogeneous ideals). We simply emphasize that we think of $k^H(V)$ as the coordinate ring of a projective variety using the superscript $H$, as well as to remind us that we are considering the grading structure on it. \\
+
+Moreover, this ring depends on the choice of embedding of $X$ in $\A_k^{n+1}$. This means that $V_1\cong V_2$ as projective varieties but they may have non-isomorphic coordinate rings. 
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\Prj_k^n$ be a projective variety over $k$. Let $(U_i,\varphi_i)$ be an affine chart of $\Prj^n$. Then there is a natural isomorphism of $k$-algebras $$k[\varphi_i(U_i\cap V)]\cong(k^H[V]_{x_i})_0$$ induced by the map $$f\mapsto\frac{H_i(f)}{x_i^{\deg(f)}}$$ (Localization is done by localizing at an element, and taking degree $0$ elements). \tcbline
+\begin{proof}
+Firstly, note that this is a well defined map $k[y_1,\dots,y_n]\to(k^H[x_0,\dots,x_n]_{x_i})_0$ because the function $x_i$ is invertible in $(k^H[x_0,\dots,x_n]_{x_i})_0$, and that $\deg(H_i(f))=\deg(f)$ so that the target lies in the $0$th graded component. Moreover, it is clear that the mapping gives a $k$-algebra homomorphism. We want to also prove that this is an isomorphism. We construct the inverse map by $$\frac{f}{x_i^{\deg(f)}}\in(k^H[x_0,\dots,x_n]_{x_i})_0\mapsto D_i(f)$$ We have that $$D_i\left(\frac{H_i(f)}{x_i^{\deg(f)}}\right)=D_i(H_i(f))=f$$ by prp5.1.5. On the other hand, we have that $$\frac{g}{x_i^{\deg(g)}}\overset{D_i}{\mapsto}D_i(g)\mapsto\frac{H_i(D_i(g))}{x_i^{\deg(g)}}$$ But by assumption $g$ has no common factors with $x_i$ so by prp5.1.5 we have $H_i(D_i(g))=g$ and both maps are indeed inverses of each other. \\~\\
+
+Now we want to show that the image of $\I(\varphi_i(U_i\cap V))$ under this map is given by $\I^H(V)(k^H[V]_{x_i})_0$. By 5.1.6 we have $$\varphi_i(U_i\cap V)=\V(\I(\varphi_i(U_i\cap V)))=\varphi_i(\V^H(H_i(f)\;|\;f\in\I(\varphi_i(U_i\cap V))))$$ Since $\varphi_i$ is a homeomorphism, we have $U_i\cap V=\V^H(H_i(f)\;|\;f\in\I(\varphi_i(U_i\cap V)))$. This means that if $f\in\I(\varphi_i(U_i\cap V))$, then $\frac{H_i(f)}{x_i^{\deg(f)}}(q)=0$ for all $q\in U_i\cap V$. So $\frac{H_i(f)}{x_i^{\deg(f)}}$ vanishes on $U_i\cap V$. Now notice that since $x_i$ is invertible in $(k^H[Y]_{x_i})_0$, we can write $\frac{H_i(f)}{x_i^{\deg(f)}}=\frac{x_iH_i(f)}{x_i^{\deg(f)+1}}$. Since $x_iH_i(f)$ vanish on $V\setminus U_i$, we conclude that $\frac{x_iH_i(f)}{x_i^{\deg(f)+1}}\in\I^H(V)(k^H[V]_{x_i})_0$. Hence $$\frac{H_i(f)}{x_i^{\deg(f)}}=\frac{x_iH_i(f)}{x_i^{\deg(f)+1}}\in\I^H(V)(k^H[V]_{x_i})_0$$ Thus we have proved that $\I(\varphi_i(U_i\cap V))\subseteq\I^H(V)(k^H[V]_{x_i})_0$. Conversely, by prp5.1.2, we have that $$\varphi_i(U_i\cap V)=\varphi_i(\V(\I^H(V))\cap U_i)=\V(D_i(f)\;|\;f\in\I^H(V))$$ This means that if $g\in\I^H(V)(k^H[V]_{x_i})_0$, then $D_i(g)$ vanishes on $\varphi_i(V\cap U_i)$. Hence $D_i(g)\in\I(\varphi_i(U_i\cap V)$. Thus we conclude that the two sets are mapped bijectively under our maps. \\~\\
+
+Passing to quotients, we thus obtain a $k$-algebra isomorphism $$k[\varphi_i(U_i\cap V)]=\frac{k[y_1,\dots,y_n]}{\I(\varphi_i(U_i\cap V))}\cong\frac{(k^H[x_0,\dots,x_n]_{x_i})_0}{\I^H(V)(k^H[V]_{x_i})_0}\cong\left(\left(\frac{k^H[x_0,\dots,x_n]_{x_i}}{\I^H(V)}\right)_{x_i}\right)_0=\left(\left(k^H[V]\right)_{x_i}\right)_0$$
+\end{proof}
+\end{prp}
 
 \subsection{Projective Closure}
 In general, for $W$ an affine variety of $\C^n$, considering $\C^n$ in the open cover $U_0$, $W$ may not be closed and so may not be a projective variety. However the closure certainly is. 
@@ -775,186 +790,32 @@ In general, isomorphic projective varieties does not have isomorphic homogeneous
 \begin{lmm}{}{} Let $F,G\in\C[x,y,z]$ be two irreducible homogeneous polynomials of degree $2$. Then $\V(F)$ and $\V(G)$ are projectively equivalent. 
 \end{lmm}
 
-\pagebreak
-\section{Quasi-Projective Varieties}
-\subsection{Quasi-Projective Varieties}
-In this section we attempt to unify the two types of varieties, affine and projective into one unified theory. 
-
-\begin{defn}{Locally Closed Subsets}{} A locally closed subset of a topological space $X$ is a subset of the form $U\cap V$ where $U$ is open in $X$ and $V$ is closed in $X$. 
-\end{defn}
-
-\begin{defn}{Quasi-Projective Varieties}{} A quasiprojective variety is a locally closed subset of $\Prj^n$. 
-\end{defn}
-
-\begin{lmm}{}{} Affine varieties and projective varieties are both quasiprojective varieties. \tcbline
-\begin{proof}
-Let $W\subseteq\A^n$ be an affine variety. Then $W$ is closed and thus $W=\overline{W}\cap U_0$ where $\overline{W}$ is the closure of $W$ in $\Prj^n$ by $\A^n\cong U_0\subseteq\Prj^n$. \\~\\
-Let $V\subseteq\Prj^n$ be a projective variety. Then $V$ being closed implies $V=V\cap\Prj^n$ trivially. 
-\end{proof}
-\end{lmm}
-
-\begin{lmm}{}{} Any open subset of $\Prj^n$ or $\A^n$ is a quasiprojective variety. 
-\end{lmm}
-
-\subsection{Morphisms of Quasi-Projective Varieties}
-\begin{defn}{Morphisms of Quasi-Projective Varities}{} Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasiprojective varieties. A morphism from $X$ to $Y$ is a map $F:X\to Y$ such that for all $p\in X$, there exists an open neighbourhood $U$ of $p$ and an open affine set $V\subseteq W$ containing $F(p)$ such that the following are true. 
+\subsection{The Affine Cone and Projectivization}
+\begin{defn}{Affine Cones}{} Let $k$ be a field. Let $X$ be affine variety of $\A_k^n$. We say that $X$ is an affine cone if the following are true. 
 \begin{itemize}
-\item $F(U)\subseteq V$
-\item $F|_U:U\to V$ is a morphism of affine varieties (in the old sense)
+\item $0\in X$
+\item $\lambda x\in X$ for all $x\in X$ and $\lambda\in k^\times$
 \end{itemize}
 \end{defn}
 
-\begin{prp}{}{} Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasiprojective varieties. A map of sets $F:X\to Y$ is a morphism of quasi-projective varieties if and only if for all $p\in X$, there exists an open neighbourhood $U_p$ of $p$ together with homogenous polynomials $F_0,\dots,F_m\in k[x_0,\dots,x_n]$ of the same degree such that 
-\begin{itemize}
-\item $V(F_0,\dots,F_m)\cap U=\emptyset$
-\item $F|_U$ agrees with $[x_0,\dots,x_n]\to[F_0(x_0,\dots,x_n),\dots,F_m(x_0,\dots,x_n)]$
-\end{itemize}
-\end{prp}
+\begin{defn}{Projectivization}{} Let $k$ be a field. Let $X$ be an affine variety of $\A_k^n$. Let $p:\A_k^n\setminus\Prj_k^n$ denote the projection map. Define the projectivization of $X$ to be the image $$P(X)=p(X\setminus\{0\})$$
+\end{defn}
 
-\begin{lmm}{}{} Every morphism of affine or projective varieties is a morphism of quasiprojective varieties. 
+\begin{defn}{The Cone of a Projective Variety}{} Let $k$ be a field. Let $X$ be an projective variety of $\Prj_k^n$. Let $p:\A_k^n\setminus\Prj_k^n$ denote the projection map. Define the cone of $X$ to be $$C(X)=\{0\}\cup p^{-1}(X)$$
+\end{defn}
+
+\begin{lmm}{}{} Let $k$ be a field. Let $X$ be a projective variety Then the cone $C(X)$ is an affine cone. 
 \end{lmm}
 
-\subsection{Redefining Varieties}
-\begin{defn}{Extended Definition of Affine Varities}{} A quasiprojective variety is said to be affine if it is isomorphic to a closed subset of affine space. 
-\end{defn}
-
-\begin{defn}{The Coordinate Ring}{} Let $X$ be an affine variety. Choose an isomorphism $F:X\overset{\cong}{\longrightarrow}V$ where $V$ is a closed subset of affine space. Define the coordinate ring of $X$ to be the pullback of the coordinate ring $\C[V]$ of $V$ via $F$. 
-\end{defn}
-
-\begin{prp}{}{} Let $X,Y$ be affine varieties (in the traditional sense). Let $F:X\to Y$ be a map of sets. Then $F$ is a morphism of quasi-projective varieties if and only if $F$ is a morphism of affine varieties in the traditional sense. 
-\end{prp}
-
-\begin{defn}{Extended Definition of Projective Varities}{} A quasiprojective variety is said to be projective if it is isomorphic to a closed subvariety of projective space. 
-\end{defn}
-
-\begin{defn}{Basic Open Sets}{} Let $V$ be Zariski closed on $\A^n$. Let $f\in k[V]$. Then $$D(f)=V\setminus V(f)$$ is said to be a basic open set. 
-\end{defn}
-
-In other words, $D(f)$ is exactly the points of $V$ where $f$ is not zero. Some literature like to use $V_f$ for notation. 
-
-\begin{prp}{}{} Let $V$ be Zariski closed on $\A^n$. Let $f\in k[V]$. Then 
+\begin{lmm}{}{} Let $k$ be a field. Then the following are true. 
 \begin{itemize}
-\item $D(f)$ is an affine algebraic variety
-\item Every open subset of $V$ is a union of basic open sets
-\item The set of all basic open sets of $X$ forms a basis for the Zariski Topology
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Every quasiprojective variety is locally affine. 
-\end{prp}
-
-\pagebreak
-\section{The Algebra of Regular Functions}
-\subsection{Regular Functions on Quasi-Projective Varieties}
-\begin{defn}{Regular Functions on Quasi-Projective Varieties}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. A complex valued function $f:U\to\C$ is regular at a point $p\in U$ if there some affine open set $p\in W\subseteq U$ such that $$f=\frac{g}{h}$$ for some $g,h\in\C[V]$ such that $h(p)\neq 0$. 
-\end{defn}
-
-\begin{defn}{The Algebra of Regular Functions}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. Define the $\C$-algebra of regular functions on $U$ to be the set $$\mO_V(U)=\{f:U\to\C\;|\;f\text{ is regular on }U\}$$ together with addition and multiplication of rational functions. 
-\end{defn}
-
-\begin{lmm}{}{} Let $V$ be quasi-projective variety over $\C$. Let $U\subseteq V$ be open. Then $\mO_V(U)$ is a $\C$-algebra. 
-\end{lmm}
-
-\begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $f\in\C[V]$. Then there is an isomorphism $$\mO_V(D(f))\cong\C[V][1/f]=\left\{\frac{g}{f^n}\;\bigg{|}\;g\in\C[V],n\in\N\right\}$$
-\end{prp}
-
-\begin{defn}{Restriction Maps}{} Let $V$ be a quasi-projective variety over $\C$. Let $U,W$ be an open subset of $V$ such that $W\subseteq U$. Define the restriction map to be the $\C$-algebra homomorphism $$\text{res}_W^U:\mO_V(U)\to\mO_V(W)$$ by the identity. 
-\end{defn}
-
-\begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $U,W$ be an open subset of $V$ such that $W\subseteq U$. Then the restriction map $$\text{res}_W^U:\mO_V(U)\to\mO_V(W)$$ is injective. 
-\end{prp}
-
-\begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. Then the following are true. 
-\begin{itemize}
-\item Let $W,X$ be open subsets of $V$ such that $X\subseteq W\subseteq U$. Then $$\text{res}_X^V=\text{res}_X^W\circ\text{res}_W^U$$
-\item The identity homomorphism $$\text{res}_U^U:\mO_V(U)\to\mO_V(U)$$ is an isomorphism
-\end{itemize}
-\end{prp}
-
-These information organize well into a sheaf. 
-
-\subsection{Regular Functions Near a Point}
-\begin{defn}{Ring of Germs of Regular Functions}{} Let $p$ be a point of a variety $X$. Define the local ring of $p$ on $X$ to be $$\mO_{X,p}=\{(U,f)\;|\;U\subseteq X\text{ is open}, p\in U, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. 
-\end{defn}
-
-\begin{prp}{}{} Let $X$ be a variety and $p\in X$. Then the ring of germs $\mathcal{O}_{X,p}$ is a local ring. 
-\end{prp}
-
-\begin{defn}{Induced Map on Germs}{} Let $k$ be a field. Let $X,Y$ be varieties over $k$. Let $\phi:X\to Y$ be a morphism of varieties. Let $p\in X$ be a point. Define the induced map on germs to be the map $$\phi^\ast:\mO_{Y,f(p)}\to\mO_{X,p}$$ given by $(U,f)\mapsto(\phi^{-1}(U),f\circ\phi)$. 
-\end{defn}
-
-\subsection{Regular Functions on Affine Varieties}
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Then there is an isomorphism $$\C[V]\cong\mO_V(V)$$ given by the map $f\mapsto\frac{f}{1}$. 
-\end{prp}
-
-This is the same as saying regular functions on $V$ are precisely the morphism of varieties from $V$ to $\C$. 
-
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Let $p\in V$ and let $m_p$ be the maximal ideal corresponding to $p$ under Hilbert's nullstellensatz. Then there is an isomorphism $$\mO_{V,p}\cong\C[V]_{m_p}$$
-\end{prp}
-
-\subsection{Regular Functions on Projective Varieties}
-\begin{thm}{}{} Let $X\subseteq\Prj^n$ be a projective variety. Let $p\in V$. Then the following are true. 
-\begin{itemize}
-\item Let $m_p=\{f\in\C[V]|f\text{ is homogenous and }f(p)=0\}$ be the ideal of functions that vanish at $p$. Then $\mathcal{O}_{V,p}=\C[V]_{m_p}$
-\item $K(X)\cong\C[V]_{(0)}$
-\end{itemize}
-\end{thm}
-
-\pagebreak
-\section{The Algebra of Rational Functions}
-\subsection{Rational Functions and The Function Field}
-\begin{defn}{Function Field}{} Let $k$ be a field. Let $V$ be a variety over $k$. Define the set of rational functions on $V$ to be $$K(V)=\{(U,f)\;|\;U\subseteq V\text{ open and }f:U\to k\text{ is regular }\}/\sim$$ where we say that $(U,f)\sim(V,g)$ if there exists $W\subseteq U\cap V$ open such that $f|_W=g|_W$. Elements of the function field are called rational functions. 
-\end{defn}
-
-\begin{lmm}{}{} Let $k$ be a field. Let $V$ be an irreducible affine variety over $k$. Define the operations $$(U,f)+(V,g)=(U\cap V,f+g)\;\;\;\;\text{ and }\;\;\;\;(U,f)\cdot(V,g)=(U\cap V,fg)$$ Then they induce well defined operations on $\text{Rat}(V)$ so that it is a $k$-algebra. Moreover, it is a field. 
-\end{lmm}
-
-\begin{lmm}{}{} Let $V$ be a variety over $\C$. Then the following are true. 
-\begin{itemize}
-\item The map $\mO_V(V)\to\mO_{V,p}$ given by $f\mapsto(V,f)$ is injective for any $p\in V$. 
-\item The map $\mO_{V,p}\to k(V)$ given by $(V,f)\mapsto(V,f)$ is injective for any $p\in V$. 
+\item Let $F$ be a subset of non-constant homogeneous polynomials of $k[x_0,\dots,x_n]$. Then $\V(F)$ is an affine cone. 
+\item Let $X$ be an affine cone in $\A_k^n$. Then $\I(X)$ is a homogeneous ideal. 
 \end{itemize}
 \end{lmm}
 
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Then there is an isomorphism $$K(V)\cong\text{Frac}(\C[V])$$ Moreover, $K(V)$ is a finitely generated field extension of $\C$. 
+\begin{prp}{}{} Let $k$ be a field. Then there is a bijection $$\text{Cones in }\A_k^n\;\;\overset{1:1}{\longleftrightarrow}\text{Projective Varieties in }\Prj_k^n$$ given by the maps $P(-)$ and $C(-)$. 
 \end{prp}
-
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible projective variety. Then there is an isomorphism $$K(X)\cong\C[V]_{(0)}$$ 
-\end{prp}
-
-\begin{defn}{Induced Map on Rational Functions}{} Let $k$ be a field. Let $X,Y$ be irreducible varieties over $k$. Let $\phi:X\to Y$ be a morphism of varieties. Define the induced map on rational functions to be $$\phi^\ast:K(Y)\to K(X)$$ given by $(U,f)\mapsto (\phi^{-1}(U),f\circ\phi)$. 
-\end{defn}
-
-\subsection{Rational Maps between Varieties}
-\begin{defn}{Equivalent Maps}{} Let $X,Y$ be irreducible varieties. Let $U_1,U_2\subseteq X$ be open. Let $f_1:U_1\to Y$ and $f_2:U_2\to Y$ be morphisms of varieties. We say that $f_1$ and $f_2$ are equivalent if there exists an open subset $W\subseteq U_1\cap U_2$ such that $$f_1|_W=f_2|_W:W\to Y$$
-\end{defn}
-
-\begin{defn}{Rational Maps}{} Let $X,Y$ be irreducible varieties. A rational map $f:X\to Y$ is an equivalent class of morphisms of varieties $f:U\to Y$ for some open subset $U\subseteq X$. 
-\end{defn}
-
-Since open subsets of a variety dense, rational maps are maps that are defined almost entirely on $X$. In particular, notice that rational functions on an irreducible variety $V$ is the same as a rational map $V\to k$. 
-
-\begin{defn}{Dominant Maps}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a rational map defined on $U\subseteq X$. We say that $f$ is dominant if $f(U)$ contains an open subset. 
-\end{defn}
-
-It only makes sense to compose rational maps if the former one is dominant. 
-
-\begin{prp}{}{} Let $X,Y,Z$ be irreducible varieties. Let $f:X\to Y$ and $g:Y\to Z$ be rational maps. If $f$ is dominant, then $g\circ f$ is rational. 
-\end{prp}
-
-\begin{defn}{Birational Maps}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a dominant rational map defined on $U\subseteq X$. We say that $f$ is a birational map if there exists a dominant rational map $g:Y\to X$ such that $$g\circ f=\text{id}_X\;\;\;\;\text{ and }\;\;\;\;f\circ g=\text{id}_Y$$ In this case, we say that $X$ and $Y$ are birational. 
-\end{defn}
-
-\begin{prp}{}{} Let $k$ be a field. Let $X,Y$ be irreducible varieties over $k$. Then there is a one-to-one correspondence $$\left\{\substack{\text{Dominant Rational Maps}\\X\to Y}\right\}\;\;\overset{1:1}{\longleftrightarrow}\left\{\substack{k\text{-algebra homomorphisms}\\K(Y)\to K(X)}\right\}$$ given by $\phi\mapsto\phi^\ast$. 
-\end{prp}
-
-\begin{crl}{}{} Let $k$ be a field. Let $X,Y$ be irreducible varieties over $k$. The the following conditions are equivalent. 
-\begin{itemize}
-\item $X$ and $Y$ are birationally equivalent
-\item There exists open subsets $U\subseteq X$ and $V\subseteq Y$ with $U$ isomorphic to $V$
-\item $K(X)$ and $K(Y)$ are isomorphic $k$-algebras
-\end{itemize}
-\end{crl}
 
 \pagebreak
 \section{Classical Constructions}
@@ -1079,16 +940,16 @@ Now suppose that $\dim(V_k)$ achieves the number $m$ for some $k$. Let $Y_1\subs
 \end{proof}
 \end{lmm}
 
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Then the following are true. 
-\begin{itemize}
-\item $\dim(V)=\dim(\C[V])$
-\item For any $p\in V$, $\dim(\mO_{V,p})=\dim(V)$
-\item $\text{tr}\dim_\C(K(V))=\dim(V)$. 
-\end{itemize} \tcbline
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Then $$\dim(V)=\dim(\C[V])$$ \tcbline
 \begin{proof}
 Any chain of irreducible subvarieties of $V$ corresponds to a chain of prime ideals in $\C[V]$. 
 \end{proof}
 \end{prp}
+
+\begin{prp}{}{} Let $V\subseteq\Prj_\C^n$ be an projective variety. Then $$\dim(V)=\dim(\C^H[V])-1$$
+\end{prp}
+
+Note: the definition of dimension ignores any grading structure put on to the coordinate ring. Hence we do not get equal numbers between $\dim(V)$ and $\dim(\C^H[V])$. 
 
 \begin{lmm}{}{} Let $n\in\N$. Then $\dim(\Prj^n)=\dim(A^n)=n$. \tcbline
 \begin{proof}
@@ -1118,6 +979,145 @@ Suppose that $Z_0\subset\cdots\subset Z_n$ is a maximal chain of irreducibles of
 \end{itemize}
 \end{proof}
 \end{prp}
+
+\pagebreak
+\section{Quasi-Projective Varieties}
+\subsection{Quasi-Projective Varieties}
+In this section we attempt to unify the two types of varieties, affine and projective into one unified theory. 
+
+\begin{defn}{Locally Closed Subsets}{} A locally closed subset of a topological space $X$ is a subset of the form $U\cap V$ where $U$ is open in $X$ and $V$ is closed in $X$. 
+\end{defn}
+
+\begin{defn}{Quasi-Projective Varieties}{} Let $k$ be a field. Let $X\subseteq\Prj^n$ be a subset. We say that $X$ is a quasi-projective variety if $X$ is a locally closed subset of $\Prj^n$. 
+\end{defn}
+
+\begin{prp}{}{} Let $k$ be a field. Then the following are quasi-projective varieties. 
+\begin{itemize}
+\item The affine space $\A^n$. 
+\item The projective space $\Prj^n$. 
+\item Any affine variety $X\subseteq\A^n$. 
+\item Any projective variety $X\subseteq\Prj^n$. 
+\end{itemize} \tcbline
+\begin{proof}
+Let $W\subseteq\A^n$ be an affine variety. Then $W$ is closed and thus $W=\overline{W}\cap U_0$ where $\overline{W}$ is the closure of $W$ in $\Prj^n$ by $\A^n\cong U_0\subseteq\Prj^n$. \\~\\
+Let $V\subseteq\Prj^n$ be a projective variety. Then $V$ being closed implies $V=V\cap\Prj^n$ trivially. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be a field. Then the following are quasi-projective varieties. 
+\begin{itemize}
+\item Any open subset $U\subseteq\A^n$. 
+\item Any open subset $U\subseteq\Prj^n$. 
+\item The product of two affine varieties $V\times W$ for $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$. 
+\item The product of two projective varieties $V\times W$ for $V\subseteq\Prj_k^n$ and $W\subseteq\Prj_k^m$. 
+\end{itemize} \tcbline
+\begin{proof}
+\end{proof}
+\end{prp}
+
+\subsection{Morphisms of Quasi-Projective Varieties}
+\begin{defn}{Morphisms of Quasi-Projective Varities}{} Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasiprojective varieties. A morphism from $X$ to $Y$ is a map $F:X\to Y$ such that for all $p\in X$, there exists an open neighbourhood $U$ of $p$ and an open affine set $V\subseteq W$ containing $F(p)$ such that the following are true. 
+\begin{itemize}
+\item $F(U)\subseteq V$
+\item $F|_U:U\to V$ is a morphism of affine varieties (in the old sense)
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasiprojective varieties. A map of sets $F:X\to Y$ is a morphism of quasi-projective varieties if and only if for all $p\in X$, there exists an open neighbourhood $U_p$ of $p$ together with homogenous polynomials $F_0,\dots,F_m\in k[x_0,\dots,x_n]$ of the same degree such that 
+\begin{itemize}
+\item $V(F_0,\dots,F_m)\cap U=\emptyset$ ($F_0,\dots,F_m$ does not simultaneously vanish)
+\item $F|_U$ agrees with $[x_0,\dots,x_n]\to[F_0(x_0,\dots,x_n),\dots,F_m(x_0,\dots,x_n)]$
+\end{itemize}
+\end{prp}
+
+\begin{lmm}{}{} Every morphism of affine or projective varieties is a morphism of quasiprojective varieties. 
+\end{lmm}
+
+\subsection{Redefining Varieties}
+\begin{defn}{Extended Definition of Affine Varieties}{} A quasiprojective variety is said to be affine if it is isomorphic to a closed subset of affine space. 
+\end{defn}
+
+\begin{defn}{The Coordinate Ring}{} Let $X$ be an affine variety. Choose an isomorphism $F:X\overset{\cong}{\longrightarrow}V$ where $V$ is a closed subset of affine space. Define the coordinate ring of $X$ to be the pullback of the coordinate ring $\C[V]$ of $V$ via $F$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X,Y$ be affine varieties (in the traditional sense). Let $F:X\to Y$ be a map of sets. Then $F$ is a morphism of quasi-projective varieties if and only if $F$ is a morphism of affine varieties in the traditional sense. 
+\end{prp}
+
+\begin{defn}{Extended Definition of Projective Varieties}{} A quasiprojective variety is said to be projective if it is isomorphic to a closed subvariety of projective space. 
+\end{defn}
+
+\begin{prp}{}{} Every quasiprojective variety is locally affine. 
+\end{prp}
+
+\pagebreak
+\section{The Algebra of Regular Functions}
+\subsection{Regular Functions on Quasi-Projective Varieties}
+\begin{defn}{Regular Functions on Quasi-Projective Varieties}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. A complex valued function $f:U\to\C$ is regular at a point $p\in U$ if there some affine open set $p\in W\subseteq U$ such that $$f=\frac{g}{h}$$ for some $g,h\in\C[W]$ such that $h(p)\neq 0$. 
+\end{defn}
+
+\begin{defn}{The Algebra of Regular Functions}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. Define the $\C$-algebra of regular functions on $U$ to be the set $$\mO_V(U)=\{f:U\to\C\;|\;f\text{ is regular on }U\}$$ together with addition and multiplication of rational functions. 
+\end{defn}
+
+\begin{lmm}{}{} Let $V$ be quasi-projective variety over $\C$. Let $U\subseteq V$ be open. Then $\mO_V(U)$ is a $\C$-algebra. 
+\end{lmm}
+
+\begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $f\in\C[V]$. Then there is an isomorphism $$\mO_V(D(f))\cong\C[V][1/f]=\left\{\frac{g}{f^n}\;\bigg{|}\;g\in\C[V],n\in\N\right\}$$
+\end{prp}
+
+\begin{defn}{Restriction Maps}{} Let $V$ be a quasi-projective variety over $\C$. Let $U,W$ be an open subset of $V$ such that $W\subseteq U$. Define the restriction map to be the $\C$-algebra homomorphism $$\text{res}_W^U:\mO_V(U)\to\mO_V(W)$$ by the identity. 
+\end{defn}
+
+\begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $U,W$ be an open subset of $V$ such that $W\subseteq U$. Then the restriction map $$\text{res}_W^U:\mO_V(U)\to\mO_V(W)$$ is injective. 
+\end{prp}
+
+\begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. Then the following are true. 
+\begin{itemize}
+\item Let $W,X$ be open subsets of $V$ such that $X\subseteq W\subseteq U$. Then $$\text{res}_X^V=\text{res}_X^W\circ\text{res}_W^U$$
+\item The identity homomorphism $$\text{res}_U^U:\mO_V(U)\to\mO_V(U)$$ is an isomorphism
+\end{itemize}
+\end{prp}
+
+These information organize well into a sheaf. 
+
+\subsection{Regular Functions Near a Point}
+\begin{defn}{Ring of Germs of Regular Functions}{} Let $p$ be a point of a variety $X$. Define the local ring of $p$ on $X$ to be $$\mO_{X,p}=\{(U,f)\;|\;U\subseteq X\text{ is open}, p\in U, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a variety and $p\in X$. Then the ring of germs $\mathcal{O}_{X,p}$ is a local ring. 
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be a field. Let $X\subseteq\Prj^n$ be a variety over $k$. Let $p\in X$. Let $(U_i,\varphi_i)$ be an affine chart for $\Prj^n$. Then there is a $k$-algebra isomorphism $$\mO_{X,p}\cong\mO_{\varphi(U_i),\varphi_i(p)}$$
+\end{prp}
+
+In other words, we can compute the local ring on an affine chart, which matches intuitively the fact that everything in the local germ can be read off locally. 
+
+\begin{defn}{Induced Map on Germs}{} Let $k$ be a field. Let $X,Y$ be varieties over $k$. Let $\phi:X\to Y$ be a morphism of varieties. Let $p\in X$ be a point. Define the induced map on germs to be the map $$\phi^\ast:\mO_{Y,f(p)}\to\mO_{X,p}$$ given by $(U,f)\mapsto(\phi^{-1}(U),f\circ\phi)$. 
+\end{defn}
+
+\subsection{Regular Functions on Affine Varieties}
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Then there is an isomorphism $$\C[V]\cong\mO_V(V)$$ given by the map $f\mapsto\frac{f}{1}$. 
+\end{prp}
+
+This is the same as saying regular functions on $V$ are precisely the morphism of varieties from $V$ to $\C$. 
+
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Let $p\in V$ and let $m_p$ be the maximal ideal corresponding to $p$ under Hilbert's nullstellensatz. Then there is an isomorphism $$\mO_{V,p}\cong\C[V]_{m_p}$$
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be an affine variety over $k$. Let $p\in V$. Then we have $$\dim(V)=\dim(k[V])=\dim(\mO_{V,p})$$
+\end{prp}
+
+\subsection{Regular Functions on Projective Varieties}
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\Prj^n$ be a projective variety over $k$. Let $p\in V$. Then there is a $k$-algebra isomorphism $$\mathcal{O}_{V,p}\cong(k^H[V]_{\I^H(\{p\})})_0$$ where the zero refers to taking the degree zero part of the graded ring. \tcbline
+\begin{proof}
+Let $p\in V$. Choose an affine chart $(U_i,\varphi_i)$ for which $p\in U_i$. By definition of regular functions we have $\mO_{V,p}=\mO_{\varphi_i(U_i\cap V),\varphi_i(p)}$.  Then $\mO_{\varphi_i(U_i\cap V),\varphi(p)}\cong k[\varphi_i(U_i\cap V)]_{m_{\varphi(p)}}$ from the affine case. Consider the map from 5.2.2 $\phi:k[\varphi_i(U_i\cap V)]\to (k^H[V]_{x_i})_0$ which is an isomorphism of $\C$-algebras. I claim that $$\phi(m_{\varphi_i(p)})=\I^H(\{p\})(k^H[V]_{\I^H(\{p\})})_0$$ Let $f\in m_{\varphi_i(p)}$. Then $f$ vanishes on $\varphi_i(p)$. Using the same argument in 5.2.2 we see that $H_i(f)$ vanishes on $p$. Hence $\frac{H_i(f)}{x_i^{\deg(f)}}\in\I^H(\{p\})(k^H[V]_{\I^H(\{p\})})_0$. Conversely, if $g/x_i^{\deg(g)}\in\I^H(\{p\})(k^H[V]_{\I^H(\{p\})})_0$. Then again the same argument shows that $g(\varphi_i(p))=0$. Hence $g\in m_{\varphi_i(p)}$. \\~\\
+
+By 5.2.2, we obtain a further isomrphism $$\mO_{\varphi_i(U_i\cap V),\varphi(p)}\cong k[\varphi_i(U_i\cap V)]_{m_{\varphi(p)}}\cong\left(\left(k^H[V]_{x_i}\right)_0\right)_{\I^H(\{p\})(k^H[V]_{\I^H(\{p\})})_0}$$ Since localization of localization is isomorphic to the single localization, we obtain an isomorphism $$\mO_{\varphi_i(U_i\cap V),\varphi(p)}\cong\left(k^H[V]_{\I^H(\{p\})}\right)_0$$ and so we conclude. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\Prj_k^n$ be a projective variety over $k$. Let $p\in V$. Then we have $$\dim(V)=\dim(k^H[V])-1=\dim(\mO_{V,p})$$
+\end{prp}
+
 
 
 

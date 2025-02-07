@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  15 JAN 2025 15:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  1 FEB 2025 23:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1286,10 +1286,10 @@ Package rerunfilecheck Info: File `"Advanced Group Theory".out' has not changed
 (rerunfilecheck)             Checksum: E9969D14937A98173B027DBC625C0882;6972.
  ) 
 Here is how much of TeX's memory you used:
- 33219 strings out of 473577
- 656107 string characters out of 5716318
+ 33218 strings out of 473577
+ 656086 string characters out of 5716318
  1083697 words of memory out of 5000000
- 55656 multiletter control sequences out of 15000+600000
+ 55654 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,16n,120p,1323b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1317,9 +1317,9 @@ AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C
 -gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/tex-gyre/qplri.pfb>
-Output written on "Advanced Group Theory.pdf" (43 pages, 601264 bytes).
+Output written on "Advanced Group Theory.pdf" (43 pages, 601120 bytes).
 PDF statistics:
- 720 PDF objects out of 1000 (max. 8388607)
- 224 named destinations out of 1000 (max. 500000)
+ 721 PDF objects out of 1000 (max. 8388607)
+ 225 named destinations out of 1000 (max. 500000)
  317 words of extra memory for PDF output out of 10000 (max. 10000000)
 

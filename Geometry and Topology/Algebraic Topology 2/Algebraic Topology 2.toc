@@ -11,17 +11,18 @@
 \contentsline {subsection}{\numberline {3.3}Delta Complexes}{17}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Simplicial Homology}{18}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Barycentric Subdivision}{20}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Introduction to Singular Homology}{22}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Singular n-Simplexes and Singular Homology}{22}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Relation to the Low Degree Homotopy Groups}{25}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Reduced Homology}{29}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Homotopy Invariance}{30}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Mayer-Vietoris Sequence}{33}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Three Applications of Singular Homology}{40}{subsection.4.6}%
+\contentsline {section}{\numberline {4}Singular Homology}{23}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Singular n-Simplexes and Singular Homology}{23}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Relation to the Low Degree Homotopy Groups}{26}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Reduced Homology}{30}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Homotopy Invariance}{31}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Mayer-Vietoris Sequence}{34}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Three Applications of Singular Homology}{39}{subsection.4.6}%
 \contentsline {section}{\numberline {5}Relative Homology}{43}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Relative Homology Groups}{43}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Quotient Spaces and Excision}{46}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Local Homology Groups}{48}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.2}Relation to Singular Homology}{44}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The Excision Theorem}{46}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Local Homology Groups}{48}{subsection.5.4}%
 \contentsline {section}{\numberline {6}Degree Theory and Cellular Homology}{50}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Degree of Continuous Maps}{50}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Local Degree}{53}{subsection.6.2}%
@@ -34,32 +35,30 @@
 \contentsline {section}{\numberline {8}Algebra of Cochain Complexes}{65}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Cochain Complexes}{65}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Producing a Cochain Complex from a Chain Complex}{66}{subsection.8.2}%
-\contentsline {section}{\numberline {9}The Choice of Coefficients in Singular (Co)Homology}{68}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Free Resolutions}{68}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Universal Coefficient Theorem for Cohomology}{70}{subsection.9.2}%
-\contentsline {section}{\numberline {10}Singular Cohomology}{75}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Singular Cohomology}{75}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Properties of Singular Cohomology}{76}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Relative Cohomology}{77}{subsection.10.3}%
-\contentsline {section}{\numberline {11}Variants of Cohomology}{79}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Simplicial and Cellular Cohomology}{79}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Cohomology with Compact Support}{79}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Axioms of Cohomology}{80}{subsection.11.3}%
-\contentsline {section}{\numberline {12}The Ring Structure in Singular Cohomology}{82}{section.12}%
-\contentsline {subsection}{\numberline {12.1}The Cup Product}{82}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}The Relative Cup Product}{84}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}The Kunneth Formula}{86}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Applications of the Cup Product}{87}{subsection.12.4}%
-\contentsline {section}{\numberline {13}Suspensions and Loopspaces}{88}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Suspensions of a Space}{88}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}The Construction of the Loop Space}{88}{subsection.13.2}%
-\contentsline {subsection}{\numberline {13.3}The Suspension-Loopspace Adjunction}{89}{subsection.13.3}%
-\contentsline {subsection}{\numberline {13.4}(Co)Homology of Suspensions and Loopspaces}{90}{subsection.13.4}%
-\contentsline {subsection}{\numberline {13.5}Group Structure on the Set of Maps}{90}{subsection.13.5}%
-\contentsline {subsection}{\numberline {13.6}The Art of Delooping}{90}{subsection.13.6}%
-\contentsline {section}{\numberline {14}Relation Between (Co)Homology Theories}{92}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Reduced Homology Theory}{92}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Reduced Cohomology Theories}{94}{subsection.14.2}%
-\contentsline {section}{\numberline {15}The Euler Characteristic}{96}{section.15}%
-\contentsline {subsection}{\numberline {15.1}The Characteristic as an Invariant}{96}{subsection.15.1}%
-\contentsline {subsection}{\numberline {15.2}First Properties of the Euler Characteristic}{97}{subsection.15.2}%
+\contentsline {subsection}{\numberline {8.3}Free Resolutions}{67}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Universal Coefficient Theorem for Cohomology}{69}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Singular Cohomology}{75}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Singular Cohomology}{75}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Relative Cohomology}{77}{subsection.9.2}%
+\contentsline {section}{\numberline {10}Variants of Cohomology}{80}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Simplicial and Cellular Cohomology}{80}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Cohomology with Compact Support}{80}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Axioms of Cohomology}{81}{subsection.10.3}%
+\contentsline {section}{\numberline {11}The Ring Structure in Singular Cohomology}{83}{section.11}%
+\contentsline {subsection}{\numberline {11.1}The Cup Product}{83}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}The Relative Cup Product}{85}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}The Kunneth Formula}{87}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Applications of the Cup Product}{88}{subsection.11.4}%
+\contentsline {section}{\numberline {12}Suspensions and Loopspaces}{89}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Suspensions of a Space}{89}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}The Construction of the Loop Space}{89}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}The Suspension-Loopspace Adjunction}{90}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}(Co)Homology of Suspensions and Loopspaces}{91}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}Group Structure on the Set of Maps}{91}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.6}The Art of Delooping}{91}{subsection.12.6}%
+\contentsline {section}{\numberline {13}Relation Between (Co)Homology Theories}{93}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Reduced Homology Theory}{93}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Reduced Cohomology Theories}{95}{subsection.13.2}%
+\contentsline {section}{\numberline {14}The Euler Characteristic}{97}{section.14}%
+\contentsline {subsection}{\numberline {14.1}The Characteristic as an Invariant}{97}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}First Properties of the Euler Characteristic}{98}{subsection.14.2}%

@@ -70,7 +70,7 @@ In particular, this shows that smoothness is independent of the choice of genera
 Hard to prove: smoothness is preserved by isomorphisms. 
 
 \subsection{The Tangent Space of Varieties in General}
-\begin{defn}{The Tangent Space of a Quasi-Projective Variety}{} Let $k$ be a field. Let $V$ be a quasi-projective variety over $k$. Let $p\in V$. Define the tangent space of $V$ at $p$ to be $$T_pV=\left(\frac{m_p}{m_p}\right)^\ast$$ where $m_p$ is the unique maximal ideal of the local ring $\mO_{V,p}$. 
+\begin{defn}{The Tangent Space of a Quasi-Projective Variety}{} Let $k$ be a field. Let $V$ be a quasi-projective variety over $k$. Let $p\in V$. Define the tangent space of $V$ at $p$ to be $$T_pV=\left(\frac{m_p}{m_p^2}\right)^\ast$$ where $m_p$ is the unique maximal ideal of the local ring $\mO_{V,p}$. 
 \end{defn}
 
 \subsection{Smooth Points of a Variety in General}
@@ -89,26 +89,124 @@ We can now motivate the definition of a smooth point using the purely algebraic 
 \end{prp}
 
 \pagebreak
-\section{Birational Geometry}
-
-\subsection{Blowing Ups}
-\begin{defn}{Blowing Up at $\A^n$}{} Define the blowing up of $\A^n$ at the point $0$ to be the closed subset $X$ of $\A^n\times\Prj^{n-1}$ defined by the equations $\{x_iy_j=x_jy_i|0\leq i,j\leq n\}$. Restricting the projection $\A^n\times\Prj^{n-1}\to\A^n$ to the first factor gives a natural morphism $\phi:X\to\A^n$. 
+\section{The Algebra of Rational Functions}
+\subsection{Rational Functions and The Function Field}
+\begin{defn}{Function Field}{} Let $k$ be a field. Let $V$ be a variety over $k$. Define the set of rational functions on $V$ to be $$K(V)=\{(U,f)\;|\;U\subseteq V\text{ open and }f:U\to k\text{ is regular }\}/\sim$$ where we say that $(U,f)\sim(V,g)$ if there exists $W\subseteq U\cap V$ open such that $f|_W=g|_W$. Elements of the function field are called rational functions. 
 \end{defn}
 
-\begin{thm}{}{} The following are true with regards to blowing up at $\A^n$. 
+\begin{lmm}{}{} Let $k$ be a field. Let $V$ be an variety over $k$. Define the operations $$(U,f)+(V,g)=(U\cap V,f+g)\;\;\;\;\text{ and }\;\;\;\;(U,f)\cdot(V,g)=(U\cap V,fg)$$ Then they induce well defined operations on $K(V)$ so that it is a $k$-algebra. Moreover, it is a field. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $V$ be a variety over $\C$. Then the following are true. 
 \begin{itemize}
-\item $X$ is a quasiprojective variety
-\item $\phi$ is an isomorphism for the sets $X\setminus\phi^{-1}(0)$ and $\A^n\setminus\{0\}$
-\item $\phi^{-1}(0)\cong\Prj^{n-1}$
+\item The map $\mO_V(V)\to\mO_{V,p}$ given by $f\mapsto(V,f)$ is injective for any $p\in V$. 
+\item The map $\mO_{V,p}\to k(V)$ given by $(V,f)\mapsto(V,f)$ is injective for any $p\in V$. 
 \end{itemize}
-\end{thm}
+\end{lmm}
 
-\begin{defn}{Blowing Up at a Point}{} Let $Y$ be a closed subvariety of $\A^n$ passing through $0$. Define the blowing up of $Y$ at $0$ to be the the closure of $Z=\phi^{-1}(Y\setminus\{0\})$, where $\phi:X\to\A^n$ is obtained from the above blowing up at $\A^n$. Also denote $\phi:\overline{Z}\to Z$ the morphism obtained by further restricting $\phi$ to $\overline{Z}$. \\~\\
-To blow up any point other than $0$, perform a linear change in coordinates sending $P$ to $0$. 
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an irreducible affine variety. Then there is an isomorphism $$K(V)\cong\text{Frac}(k[V])$$ Moreover, $K(V)$ is a finitely generated field extension of $\C$. 
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an irreducible affine variety. Then we have $$\text{trdeg}_k(K(V))=\dim(V)$$
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\Prj^n$ be an irreducible projective variety over $k$. Then there is a $k$-algebra isomorphism $$K(X)\cong(k[V]_{(0)})_0$$ where the zero refers to taking the degree zero part of the graded ring. \tcbline
+\begin{proof}
+\end{proof}
+\end{prp}
+
+\subsection{Rational Maps between Varieties}
+\begin{defn}{Equivalent Maps}{} Let $X,Y$ be irreducible varieties. Let $U_1,U_2\subseteq X$ be open. Let $f_1:U_1\to Y$ and $f_2:U_2\to Y$ be morphisms of varieties. We say that $f_1$ and $f_2$ are equivalent if there exists an open subset $W\subseteq U_1\cap U_2$ such that $$f_1|_W=f_2|_W:W\to Y$$
 \end{defn}
 
-\begin{defn}{Blowup along an Ideal}{} Let $F_1,\dots,F_r$ be functions in the coordinate ring $\C[x]$ of an affine algebraic variety $X$, and let $I$ be the ideal they generate. Assume that $I$ is a proper nonzero ideal of $\C[x]$. The blowup of the variety $X$ along the ideal $I$ is the graph $B$ of the rational map $F:X\to\Prj^{r-1}$ defined by $$F(x)=[F_1(x):\dots:F_r(x)]$$ amd the natural projection $\pi:X\times\Prj^{r-1}\to X$. 
+\begin{defn}{Rational Maps}{} Let $X,Y$ be irreducible varieties. A rational map $f:X\to Y$ is an equivalent class of morphisms of varieties $f:U\to Y$ for some open subset $U\subseteq X$. 
 \end{defn}
+
+Since open subsets of a variety dense, rational maps are maps that are defined almost entirely on $X$. In particular, notice that rational functions on an irreducible variety $V$ is the same as a rational map $V\to k$. 
+
+\begin{defn}{Dominant Maps}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a rational map defined on $U\subseteq X$. We say that $f$ is dominant if $f(U)$ contains an open subset. 
+\end{defn}
+
+It only makes sense to compose rational maps if the former one is dominant. 
+
+\begin{prp}{}{} Let $X,Y,Z$ be irreducible varieties. Let $f:X\to Y$ and $g:Y\to Z$ be rational maps. If $f$ is dominant, then $g\circ f$ is rational. 
+\end{prp}
+
+\begin{defn}{Induced Map on Rational Functions}{} Let $k$ be a field. Let $X,Y$ be irreducible varieties over $k$. Let $\phi:X\to Y$ be a dominant rational map. Define the induced map on rational functions to be $$\phi^\ast:K(Y)\to K(X)$$ given by $(U,f)\mapsto (\phi^{-1}(U),f\circ\phi)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $k$ be a field. Let $X,Y$ be irreducible varieties over $k$. Let $\phi:X\to Y$ be a dominant rational map. Then the induced map $\phi^\ast:K(Y)\to K(X)$ is a $k$-algebra homomorphism. 
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be a field. Let $X,Y$ be irreducible varieties over $k$. Then there is a one-to-one correspondence $$\left\{\substack{\text{Dominant Rational Maps}\\X\to Y}\right\}\;\;\overset{1:1}{\longleftrightarrow}\left\{\substack{k\text{-algebra homomorphisms}\\K(Y)\to K(X)}\right\}$$ given by $\phi\mapsto\phi^\ast$. 
+\end{prp}
+
+TBA: Equivalence of categories between irreducible varieties and dominant rational maps, and field extensions of $k$ and $k$-algebra homomorphisms. 
+
+\subsection{Birational Equivalence}
+\begin{defn}{Birational Maps}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a dominant rational map defined on $U\subseteq X$. We say that $f$ is a birational map if there exists a dominant rational map $g:Y\to X$ such that $$g\circ f=\text{id}_U\;\;\;\;\text{ and }\;\;\;\;f\circ g=\text{id}_V$$ for some open subsets $U\subseteq X$ and $V\subseteq Y$. In this case, we say that $X$ and $Y$ are birational. 
+\end{defn}
+
+\begin{prp}{}{} Let $k$ be a field. Let $X,Y$ be irreducible varieties over $k$. The the following conditions are equivalent. 
+\begin{itemize}
+\item $X$ and $Y$ are birationally equivalent
+\item There exists open subsets $U\subseteq X$ and $V\subseteq Y$ with $U$ isomorphic to $V$
+\item $K(X)$ and $K(Y)$ are isomorphic $k$-algebras
+\end{itemize}
+\end{prp}
+
+\begin{lmm}{}{} Let $n\in\N$. Then $\A^n$ is birationally equivalent to $\Prj^n$. \tcbline
+\begin{proof}
+The function field of $\A^n$ is given by $K(\A^n)=K(x_1,\dots,x_n)$. On the other hand, we can compute the function field of $\Prj^n$ to get 
+\begin{align*}
+K(\Prj^n)&=\left(k[x_0,\dots,x_n]_{(0)}\right)_0\\
+&=\left(k(x_0,\dots,x_n)\right)_0
+\end{align*}
+The zeroth graded component of $k(x_0,\dots,x_n)$ is given by $$(k(x_0,\dots,x_n))_0=\left\{\frac{f}{g}\in k(x_0,\dots,x_n)\;|\;\deg(f)=\deg(g)\right\}$$ Define a map $\phi:(k(x_0,\dots,x_n))_0\to k(x_1,\dots,x_n)$ by the map $$f(x_0,\dots,x_n)/g(x_0,\dots,x_n)\mapsto f(1,x_1,\dots,x_n)/g(1,x_1,\dots,x_n)$$ Evaluation of the zeroth variable with $1$ is a well defined $\C$-algebra homomorphism. I claim that this is a bijection. Define another map $\psi:k(x_1,\dots,x_n)\to(k(x_0,\dots,x_n))_0$ by $$h/k\mapsto x_0^d h(x_1/x_0,\dots,x_n/x_0)/x_0^d k(x_1/x_0,\dots,x_n/x_0)$$ where $d=\max\{\deg(f),\deg(g)\}$. By construction we see that $x_0^d h(x_1/x_0,\dots,x_n/x_0)$ has the same degree as $x_0^d k(x_1/x_0,\dots,x_n/x_0)$ and that they are homogeneous polynomials (similar to the homogenization of a polynomial). Moreover it is clear that $\psi$ and $\phi$ are inverses of each other. Hence we obtain an isomorphism of $\C$-algebras. 
+\end{proof}
+\end{lmm}
+
+\pagebreak
+\section{Normal Varieties}
+\subsection{Normal Varieties}
+\begin{defn}{Normal Varieties}{} Let $k$ be a field. Let $X$ be a variety over $k$. We say that $X$ is normal if $\mO_{X,p}$ is a normal domain for all $p\in X$. 
+\end{defn}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $X\subseteq\A^n$ be an affine variety. Then $X$ is normal if and only if $k[X]$ is a normal domain. 
+\end{prp}
+
+\subsection{Normalization}
+\begin{defn}{Normalization of an Affine Variety}{} Let $k$ be a field. Let $X\subseteq\A^n$ be an affine variety over $k$. Define the normalization of $X$ to be unique variety $\widetilde{X}$ such that $\overline{k[X]}=k[\widetilde{X}]$
+\end{defn}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $X\subseteq\A^n$ be an affine variety over $k$. Then the following are true regarding the induced map $$\nu:\widetilde{X}\to X$$ from the inclusion $k[X]\hookrightarrow k[\widetilde{X}]=\overline{k[X]}$. 
+\begin{itemize}
+\item The map is birational. 
+\item The map is surjective. 
+\item $\nu^{-1}(p)$ is finite for any $p\in X$. 
+\end{itemize}
+\end{prp}
+
+\pagebreak
+\section{Resolution of Singularities}
+\subsection{Blowing Ups}
+\begin{defn}{Blowing Up at $\A^n$}{} Let $n\in\N$. Define the blowing up of $\A^n$ at the point $0\in\A^n$ to be $$\text{BL}_0(\A^n)=\V\{(x_iy_j-x_jy_i\;|\;1\leq i,j\leq n\})\subseteq\A^n\times\Prj^{n-1}$$ together with the projection map $$\varphi:\text{BL}_0(\A^n)\hookrightarrow\A^n\times\Prj^{n-1}\overset{\text{proj.}}{\rightarrow}\A^n$$ defined by $(x_1,\dots,x_n,[y_1:\cdots:y_n])\mapsto(x_1,\dots,x_n)$. 
+\end{defn}
+
+\begin{prp}{}{} The following are true regarding the blowing up $\text{BL}_0(\A^n)$ of $\A^n$ at $0$ and the projection map $\varphi:\text{BL}_0(\A^n)\to\A^n$. 
+\begin{itemize}
+\item $\varphi^{-1}(p)$ is a single point for $0\neq p\in\A^n$. 
+\item $\varphi^{-1}(0)=\{0\}\times\Prj^{n-1}$. 
+\item $\text{BL}_0(\A^n)$ is irreducible. 
+\end{itemize}
+\end{prp}
+
+\begin{defn}{The Blowing Up of a Variety}{} Let $X\subseteq\A^n$ be a closed variety such that $0\in X$. Define the blowing up of $X$ at $0$ to be the set $$\widetilde{X}=\overline{\varphi^{-1}(X\setminus\{0\})}$$ If $X$ passes through $p\in X$, then the blowing up of $X$ at $p$ is obtained by translating $p$ to the origin and blowing up. 
+\end{defn}
+
+Note: if $X$ is a curve we call this the exceptional divisor. 
+
+\subsection{Normalization}
 
 \pagebreak
 \section{Theory of Divisors}

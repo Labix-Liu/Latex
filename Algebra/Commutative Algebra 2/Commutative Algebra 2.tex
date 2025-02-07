@@ -26,56 +26,204 @@
 \begin{defn}{Descending Filtrations}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. A descending filtration of $M$ consists of a sequence of $R$-submodules $M_n$ for $n\in\N$ such that $$M_0\supseteq M_1\supseteq\cdots\supseteq M_n\supseteq\cdots$$
 \end{defn}
 
-\subsection{Artin-Rees Lemma}
+\begin{defn}{Stable Filtrations}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be an $R$-module. Let $$M_0\supseteq\cdots\supseteq M_n\supseteq\cdots$$ be a descending filtration. We say that the filtration is stable with respect to $I$ if there exists $k\in\N$ such that $$IM_n=M_{n+1}$$ for all $n\geq k$. 
+\end{defn}
+
+\begin{defn}{Graded Ring Associated to a Filtration}{} Let $R$ be a commutative ring. Let $I_0\supseteq I_1\supseteq\cdots\supseteq I_n\supseteq\cdots$ be a filtration of $R$. Define the graded ring associated to the filtration to be $$\text{gr}(R)=\bigoplus_{n=0}^\infty\frac{I_n}{I_{n+1}}$$ with multiplication given by $(x+I_{n+1})\cdot(y+I_{m+1})=xy+I_{n+m+1}$
+\end{defn}
+
+We have seen in Rings and Modules that the graded ring associated to the filtrartion $$R\supseteq I\supseteq I^2\supseteq\cdots\supseteq I^n\supseteq\cdots$$ is precisely the graded ring $$\text{gr}_I(R)=\bigoplus_{n=0}^\infty\frac{I^n}{I^{n+1}}$$ associated to the commutative ring $R$. 
+
+\subsection{Artin-Rees Lemma and its Consequences}
+\begin{thm}{Artin-Rees Lemma}{} Assume $A$ is Noetherian and $I$ is an ideal of $A$. Let $M$ be a finite module and $N\subset M$ a submodule. Then there exists $c>0$ such that $$I^nM\cap N=I^{n-c}(I^cM\cap N)$$ for every $n>c$. \tcbline
+\begin{proof}
+
+\end{proof}
+\end{thm}
+
+\begin{thm}{Krull's Intersection Theorem}{} Let $(R,m)$ be a Noetherian local ring. Then $$\bigcap_{i=0}^\infty m^i=\{0\}$$
+\end{thm}
 
 \pagebreak
 \section{Completions}
-Let $\mA$ be an abelian category (for example $\bold{Ab}$, $\bold{Ring}$, ${_R\bold{Mod}}$, $\bold{Vect}_k$). Fix $\mJ$ a diagram. Recall that as long as all diagrams $\mJ\to\mC$ admits a limits, then the assignment $$\lim_\mJ:\mC^\mJ\to\mC$$ is a well defined functor. Moreover, it is left exact. 
 
 \subsection{General Completion Methods}
 \begin{defn}{Completion of a Module}{} Let $R$ be a commutative ring and let $M$ be an $R$-module. Let $M_0\supset M_1\supset\cdots\supset M_n\supset\cdots$ be a descending filtration of $R$-submodules of $M$. Define the completion of $M$ with respect to the filtration to be the inverse limit $$\widehat{M}=\varprojlim_i\frac{M}{M_i}$$
 \end{defn}
 
 \subsection{I-Adic Completion}
-\begin{defn}{I-Adic Completion}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $I$ be an ideal of $R$. Define the $I$-adic completion of $M$ to be the completion of $M$ with respect to the filtration $$I^0M\supset I^1M\supset\cdots I^nM\supset\cdots$$ Explicitly, it is given by the inverse limit $$\widehat{M}=\varprojlim_{n\in\N}\frac{M}{I^nM}$$
+\begin{defn}{I-Adic Completion}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $I$ be an ideal of $R$. Define the $I$-adic completion of $M$ to be the completion of $M$ with respect to the filtration $$I^0M\supset I^1M\supset\cdots I^nM\supset\cdots$$ Explicitly, it is given by the inverse limit $$\widehat{M}_I=\varprojlim_{n\in\N}\frac{M}{I^nM}$$
 \end{defn}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $I$ be an ideal of $R$. Then there is an $R$-module isomorphism $$\widehat{M}\cong M\otimes_R\widehat{R}$$
+Let $R$ be a commutative ring. Let $M$ be an $R$-module and $N$ an $R$-submodule of $M$. The most important consequence of the Artin-Rees lemma is that the sub-filtration $I^n(M\cap N)$ coming from $M$ and the natural filtration $I^nN$ induces that same completion. 
+
+\begin{prp}{}{}Let $R$ be a Noetherian commutative ring. Let $M$ be a finitely generated $R$-module. Let $N$ be an $R$-submodule of $M$. Consider the following two filtrations on $N$. 
+\begin{itemize}
+\item The induced sub-filtration $I^nM\cap N$ from $M$. 
+\item The natural filtration $I^nN$. 
+\end{itemize}
+The completion of $N$ with respect to the two filtrations are equal. \tcbline
+\begin{proof}
+Let $k\in\N$ and $x\in I^kN$. Then $x\in I^kM$ and since $N$ is a submodule, we have $x\in N$ so that $x\in I^kM\cap N$ (The converse is not true unless for large enough $k$. We will prove it using the Artin-Rees lemma). \\~\\
+
+By the Artin-Rees lemma, there exists $c\in\N$ such that $$I^nM\cap N=I^n(I^{n-c}M\cap N)$$ for all $n>c$. Let $x\in I^nM\cap N$. The Artin-Rees lemma give $x\in I^n(I^{n-c}M\cap N)$. Then $$x=\sum_{i=1}^ry_it_i$$ where $y_i\in I^n$ and $t_i\in I^{n-c}M\cap N$. In particular, $t_i\in N$ and $N$ is a submodule implies that $x\in I^nN$. \\~\\
+
+Hence for all $n>c$, we have an equality $$I^nN=I^nM\cap N$$ By definition of inverse limits (I think by cofinality of (co)limits), we conclude that their completions give the same $R$-module. 
+\end{proof}
 \end{prp}
 
-\begin{defn}{I-Adicly Complete}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $I$ be an ideal of $R$. We say that $M$ is $I$-adicly complete if the induced map of inverse limits $$M\to\widehat{M}$$ is an $R$-module isomorphism. 
+Let $\mA$ be an abelian category (for example $\bold{Ab}$, $\bold{Ring}$, ${_R\bold{Mod}}$, $\bold{Vect}_k$). Fix $\mJ$ a diagram. Recall that as long as all diagrams $\mJ\to\mC$ admits a limits, then the assignment $$\lim_\mJ:\mC^\mJ\to\mC$$ is a well defined functor. Moreover, it is left exact. In particular, generally speaking completions would give a left exact. However, when we complete $I$-adically, the Artin-Rees lemma give right exactness (under some finiteness conditions). 
+
+\begin{prp}{}{} Let $R$ be a Noetherian commutative ring. Let $M_1,M_2,M_3$ be finitely generated $R$-modules such that the following \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}} \\~\\
+Then for any ideal $I$ of $R$, completion with respect to $I$ gives an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\widehat{M_1}_I} & {\widehat{M_2}_I} & {\widehat{M_3}_I} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}} \\~\\
+where the maps are induced by the universal property of inverse limits. 
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a Noetherian commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. Then there is an $R$-module isomorphism $$\widehat{M}_I\cong M\otimes_R\widehat{R}_I$$ given by the universal property. 
+\end{prp}
+
+\begin{defn}{I-Adicly Complete}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $I$ be an ideal of $R$. We say that $M$ is $I$-adicly complete if the induced map of inverse limits $$M\to\widehat{M}_I$$ is an $R$-module isomorphism. 
 \end{defn}
 
 \subsection{Completion of a Ring}
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $\widehat{R}$ be the $I$-adic completion of $R$. If $R$ is Noetherian, then the following are true. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. If $R$ is Noetherian, then the following are true. 
 \begin{itemize}
-\item $\widehat{R}$ is Noetherian. 
-\item $\widehat{R}$ is a flat $R$-module. 
+\item $\widehat{R}_I$ is Noetherian. 
+\item $\widehat{R}_I$ is a flat $R$-module. 
 \end{itemize}
 \end{prp}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $m$ be a maximal ideal. Then $\widehat{R}$ is a local ring with unique maximal ideal $\widehat{m}\widehat{R}_m$. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $m$ be a maximal ideal. Then $\widehat{R}$ is a local ring with unique maximal ideal $\widehat{m}_m\widehat{R}_m$. 
 \end{prp}
 
-\begin{defn}{Complete Local Rings}{} Let $R$ be a commutative ring. Let $m$ be a maximal ideal. We say that $R$ is a complete local ring if $R$ is $m$-adicly complete. 
+\begin{defn}{Complete Local Rings}{} Let $(R,m)$ be a local ring. We say that $R$ is a complete local ring if $R$ is $m$-adicly complete. 
 \end{defn}
-
-\begin{lmm}{}{} Let $R$ be a complete local ring. Then the following are true. 
-\begin{itemize}
-\item $R$ is a local ring. 
-\end{itemize}
-\end{lmm}
 
 \subsection{Hensel's Lemma}
 \begin{thm}{Hensel's Lemma}{} Let $(R,m)$ be a complete local ring. Let $\overline{(-)}:R[x]\to(R/m)[x]$ be the projection map. Let $f\in R[x]$ be monic. If $g,h\in(R/m)[x]$ are monic and $\overline{f}=gh$, then there exists unique polynomials $u,v\in R[x]$ such that $f=uv$ and $\overline{u}=g$ and $\overline{v}=h$. 
 \end{thm}
 
-\subsection{The Artin-Rees Lemma}
-\begin{thm}{Artin-Rees Lemma}{} Assume $A$ is Noetherian and $I$ is an ideal of $A$. Let $M$ be a finite module and $N\subset M$ a submodule. Then there exists $c>0$ such that $$I^nM\cap N=I^{n-c}(I^cM\cap N)$$ for every $n>c$. 
+\pagebreak
+\section{More on Dimension Theory}
+\subsection{The Hilbert-Samuel Series}
+\begin{defn}{The Hilbert Series}{} Let $R$ be commutative ring such that $R=\bigoplus_{i=0}^\infty R_i$ is graded. Let $M=\bigoplus_{i=0}^\infty$ be a graded $R$-module. Define the Hilbert-Samuel series of $M$ to be the infinite series $HS_M\in\Z[[t]]$ given by $$HS_M(t)=\sum_{i=0}^\infty l_{R_0}(M_i)t^i$$
+\end{defn}
+
+\begin{prp}{}{} Let $R=\bigoplus_{i=0}^\infty R_i$ be a commutative, Noetherian and graded ring. Let $M=\bigoplus_{k=0}^\infty M_k$ be a finitely generated graded $R$-module. Then there exists $f\in\Z[t]$ such that the Hilbert series is given $$HS_M(t)=\frac{f(t)}{\prod_{i=1}^r(1-t^{d_i})}$$ as a rational function for some $d_i\in\N$. \tcbline
+\begin{proof}
+Since $R$ is Noetherian, $R$ is finitely generated as an $R_0$-module. Let $n$ be the number of generators. We induct on $n$. \\~\\
+
+If $n=0$, then $R_0=R$ so that $M$ is a finitely generated $R_0$-module. This means there exists $k\in\N$ such that $M_k=M_{k+1}=\cdots=0$. In this case $HS_M(t)$ is a polynomial. \\~\\
+
+Assume it is true for all numbers less than $n$. Let $x\in R_i$. Then $x\cdot M_k\subseteq M_{i+k}$ for each $k$. Consider multiplication as a map $\phi_k:M_k\to M_{i+k}$. Then define $K_k=\ker(\phi_k)$ and $L_{i+k}=\text{coker}(\phi_k)$. Define $$K=\bigoplus_{i=0}^\infty K_i\;\;\;\;\text{ and }\;\;\;\;L=\bigoplus_{i=0}^\infty L_i$$ They are $R$-submodules of $M$ and quotient of $M$ respectively and hence are finitely generated. The exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {K_k} & {M_k} & {M_{i+k}} & {L_{i+k}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["{\phi_k}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+\end{tikzcd}} \\~\\
+Recall that we can split this four term long exact sequence into two short exact sequences given by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {K_k} & {M_k} & {\im(\phi_k)} & 0 \\
+	0 & {\im(\phi_k)} & {M_{i+k}} & {L_{i+k}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[two heads, from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=2-1, to=2-2]
+	\arrow[hook, from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}} \\~\\
+From Rings and Modules we know that $l_{R_0}(M_k)=l_{R_0}(K_k)+l_{R_0}(\im(\phi_k))$ and $l_{R_0}(M_{i+k})=l_{R_0}(\im(\phi_k))+l_{R_0}(L_{i+k})$. Combining the both gives 
+\begin{align*}
+l_{R_0}(K_k)-l_{R_0}(M_k)+l_{R_0}(M_{i+k})-l_{R_0}(L_{i+k})&=0\\
+t^{i+k}l_{R_0}(K_k)-t^{i+k}l_{R_0}(M_k)+t^{i+k}l_{R_0}(M_{i+k})-t^{i+k}l_{R_0}(L_{i+k})&=0\\
+\sum_{k=-\infty}^\infty t^{i+k}l_{R_0}(K_k)-\sum_{k=-\infty}^\infty t^{i+k}l_{R_0}(M_k)+\sum_{k=-\infty}^\infty t^{i+k}l_{R_0}(M_{i+k})-\sum_{k=-\infty}^\infty t^{i+k}l_{R_0}(L_{i+k})&=0\\
+\sum_{k=0}^\infty t^{i+k}l_{R_0}(K_k)-\sum_{k=0}^\infty t^{i+k}l_{R_0}(M_k)+\sum_{k=-i}^\infty t^{i+k}l_{R_0}(M_{i+k})-\sum_{k=-i}^\infty t^{i+k}l_{R_0}(L_{i+k})&=0\\
+t^iHS_K(t)-t^iHS_M(t)+HS_M(t)-HS_L(t)&=0
+\end{align*}
+Rewriting gives the expression $$(1-t^i)HS_M(t)=HS_L(t)-t^iHS_K(t)$$ Now notice that $K$ is a direct sum of the kernel of multiplication by $x$. Hence $K$ is annihilated by $x$. Similarly, $L$ is a direct sum of the cokernel of multiplication by $x$. Hence $$x\cdot L_n\in\ker(\phi_n)=0\in L_{i+n}$$
+\end{proof}
+\end{prp}
+
+\begin{crl}{}{} Let $R=\bigoplus_{i=0}^\infty R_i$ be a commutative, Noetherian and graded ring. Let $M=\bigoplus_{k=0}^\infty M_k$ be a finitely generated graded $R$-module. Suppose that the Hilbert series of $M$ is given by $$HS_M(t)=\frac{f(t)}{(1-t)^r}$$ for some $f\in\Z[t]$ and $r\in\N$. Then there exists a polynomial $\varphi\in\Q[t]$ such that the following are true. 
+\begin{itemize}
+\item The smallest number $d\in\N$ such that $$\lim_{t\to 1}(1-t)^dHS_M(t)<\infty$$ is $\deg(\varphi)$. 
+\item $\varphi(n)=l_{R_0}(M_n)$ for all $n\geq\deg(f)+1-\deg(\varphi)$. (In other words, the length function can be given as a rational polynomial)
+\end{itemize} \tcbline
+\begin{proof}
+I claim that $$\frac{1}{(1-t)^r}=\sum_{k=0}^\infty\binom{r+k-1}{r-1}t^k$$ We proceed by induction. When $r=1$ this is just the geometric series. Suppose that it is true $<r$. Then we have 
+\begin{align*}
+\frac{1}{(1-t)^r}&=\frac{d}{dt}\int\frac{1}{(1-t)^r}\;dt\\
+&=\frac{1}{r-1}\frac{d}{dt}\left(\frac{1}{(1-t)^{r-1}}\right)\\
+&=\frac{1}{r-1}\frac{d}{dt}\left(\sum_{k=0}^\infty\binom{r+k-2}{r-2}t^k\right)\\
+&=\frac{1}{r-1}\sum_{k=1}^\infty\frac{(r+k-2)!}{(r-2)!k!}kt^{k-1}\\
+&=\sum_{k=1}^\infty\frac{(r+k-2)!}{(r-1)!(k-1)!}t^{k-1}\\
+&=\sum_{k=1}^\infty\binom{r+k-2}{r-1}t^{k-1}\\
+&=\sum_{k=0}^\infty\binom{r+k-1}{r-1}t^k
+\end{align*}
+which completes the induction step. After cancelling factors of $(1-t)$ in $f(t)$ with the denominator, we may suppose that $f(t)$ is now given coprime with $1-t$ and the denominator has power $=d$. \\~\\
+
+Suppose $f(t)$ is given by $\sum_{i=0}^Na_it^i$. Then we have $$HS_M(t)=\frac{f(t)}{(1-t)^d}=\sum_{i=0}^Na_it^i\sum_{k=0}^\infty\binom{d+k-1}{d-1}t^k$$ The coefficient of $t^n$ in this product is given by $\sum_{j=0}^Na_j\binom{d+n-j-1}{d-1}$. Set $\varphi(n)$ to be this sum. But the coefficient of $HS_M(t)$ is also $l_{R_0}(M_n)$ by definition. Hence we deduce that $$l_{R_0}(n)=\varphi(n)=\sum_{j=0}^Na_j\binom{d+n-j-1}{d-1}$$ which is non-zero when $n\geq N+1-d=\deg(f)+1-d$. In particular, expanding the binomial gives a polynomial in $n$ whose largest power of $n$ is $d$. Hence $d=\deg(\varphi)$ and we are done. 
+\end{proof}
+\end{crl}
+
+\subsection{Minimal Number of Generators of m-Primary Ideals}
+Let $R$ be a commutative ring. Let $P$ be a prime ideal of $P$. Recall that an ideal $I$ is said to be $P$-primary if the following are true. 
+\begin{itemize}
+\item $I$ is primary. This means that $ab\in I$ implies $a\in I$ or $b^n\in I$ for some $n\in\N$. 
+\item $P=\sqrt{I}$
+\end{itemize}
+
+\begin{defn}{Minimal Number of Generators of an m-Primary Ideal}{} Let $R$ be a commutative ring. Let $m$ be a maximal ideal of $R$. Let $I$ be an $m$-primary ideal of $R$. Define $$\delta_I(R)=\min\{n\in\N\;|\;x_1,\dots,x_n\in R\text{ generates }I\}$$
+\end{defn}
+
+\begin{prp}{}{} Let $(R,m)$ be a local ring. Let $I$ be an $m$-primary ideal of $R$. Then $$\delta_I(R)=\delta_m(R)$$ In particular, $\delta_I$ is invariant of the choice of the $m$-primary ideal. 
+\end{prp}
+
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Then $$\delta_m(R)=\dim_{R/m}(m/m^2)<\infty$$ \tcbline
+\begin{proof}
+We have seen this as a consequence of Nakayama's lemma in Commutative Algebra 1. 
+\end{proof}
+\end{prp}
+
+\subsection{The Fundamental Theorem of Dimension Theory}
+\begin{thm}{The Fundamental Theorem of Dimension Theory}{} Let $(R,m)$ be a local Noetherian ring. Then the following numbers are equal. 
+\begin{itemize}
+\item The Krull dimension $\dim(R)$. 
+\item The smallest number $d\in\N$ such that $$\lim_{t\to 1}(1-t)^dHS_{\text{gr}_m(R)}(t)<\infty$$ (Called the order of the pole at $1$, equivalently the number $r$ so that $HS_{\text{gr}(R)}=\frac{f(t)}{(1-t)^r}$ and $f$ and $(1-t)$ are coprime. 
+\item The minimal number of generators $$\delta_m(R)=\min\{n\in\N\;|\;x_1,\dots,x_n\in R\text{ generates }m\}$$ (which is the same number as the minimal number of generators of any $m$-primary ideals). 
+\end{itemize}
 \end{thm}
 
-\pagebreak
-\section{Homological Dimension Theory}
+\begin{thm}{Krull's Height Theorem}{} Let $R$ be a Noetherian commutative ring. Let $I$ be a proper ideal generated by $n$ elements. Let $p$ be the smallest prime ideal containing $I$. Then $$\text{ht}_R(p)\leq n$$
+\end{thm}
+
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Then we have $$\dim(R)\leq\dim_{R/m}\left(\frac{m}{m^2}\right)<\infty$$ \tcbline
+\begin{proof}
+We have seen in Commutative Algebra 1 that $\dim(R)=\dim(R_m)=\text{ht}_R(m)$. By Krull's height theorem, $\text{ht}_R(m)\leq\delta_m(R)$. Finally, by prp3.2.3 we have $\delta_m(R)=\dim_{R/m}(m/m^2)$ so we are done. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $(R,m)$ be a local ring. Then we have $$\dim(R)=\dim(\widehat{R})$$
+\end{prp}
 
 \pagebreak
 \section{Regular Sequences}
@@ -85,7 +233,7 @@ Let $\mA$ be an abelian category (for example $\bold{Ab}$, $\bold{Ring}$, ${_R\b
 \item $x_1$ is not a zero divisor on $M$. 
 \item $x_k$ is not a zero divisor on $\frac{M}{(x_1,\dots,x_{k-1})M}$ for all $2\leq k\leq n$. 
 \end{itemize}
-We simply say that $x_1,\dots,x_n$ is a regular sequence if $M=R$. 
+We simply say that $x_1,\dots,x_n$ is a regular sequence if it is an $R$-regular sequence. 
 \end{defn}
 
 It is important to note that $M$-regularity depends on the order of the elements in the sequence. 
@@ -107,11 +255,11 @@ It is important to note that $M$-regularity depends on the order of the elements
 \subsection{Basic Properties}
 Regularity is an important concept in algebraic geometry to detecting singularities. We motivate the definition by the following proposition. 
 
-\begin{defn}{Regular Local Rings}{} A Noetherian local ring $(R,m)$ is said to be regular if $$\dim_k(m/m^2)=\dim(R)$$ for $k=R/m$ the residue field of $R$. 
+\begin{defn}{Regular Local Rings}{} Let $(R,m)$ be a Noetherian local ring. We say that $R$ is a regular local ring if $$\dim(R)\leq\dim_{R/m}\left(\frac{m}{m^2}\right)$$
 \end{defn}
 
-\begin{thm}{}{} Let $(R,m)$ be a Noetherian local ring. Let $n$ be the minimal number of elements needed to generate $m$. Then $R$ is regular if and only if $n=\dim(R)$. 
-\end{thm}
+\begin{lmm}{}{} Let $(R,m)$ be a Noetherian local ring. Let $n$ be the minimal number of elements needed to generate $m$. Then $R$ is regular if and only if $n=\dim(R)$. 
+\end{lmm}
 
 \begin{thm}{}{} Let $A$ be a Noetherian local ring of dimension $1$ with maximal ideal $m$. Then the following are equivalent: 
 \begin{itemize}
