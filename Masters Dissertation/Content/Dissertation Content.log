@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  8 FEB 2025 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  9 FEB 2025 21:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"./Algebraic Geometry 1.tex"
-(Algebraic Geometry 1.tex
+**"./Dissertation Content.tex"
+(Dissertation Content.tex
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -967,8 +967,8 @@ Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
 ))
 \c@tcb@cnt@thm=\count347
 Package hyperref Info: Option `colorlinks' set `true' on input line 256.
-) (Algebraic Geometry 1.aux)
-\openout1 = `"Algebraic Geometry 1.aux"'.
+) (Dissertation Content.aux)
+\openout1 = `"Dissertation Content.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
@@ -1051,9 +1051,9 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 \c@lstlisting=\count354
 Package hyperref Info: Link coloring ON on input line 16.
- (Algebraic Geometry 1.out) (Algebraic Geometry 1.out)
+ (Dissertation Content.out) (Dissertation Content.out)
 \@outlinefile=\write4
-\openout4 = `"Algebraic Geometry 1.out"'.
+\openout4 = `"Dissertation Content.out"'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
@@ -1071,39 +1071,14 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
-5.
-(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
-File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
-)
 
 [1
 
 {C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
-a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}{C:/Users/liu
-la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
-(Algebraic Geometry 1.toc)
+a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
+(Dissertation Content.toc)
 \tf@toc=\write5
-\openout5 = `"Algebraic Geometry 1.toc"'.
+\openout5 = `"Dissertation Content.toc"'.
 
 
 
@@ -1111,168 +1086,52 @@ la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 
 [3]
 
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 80.
+
+
+
 [4]
 
 [5]
 
 [6]
 
-[7]
-
-[8]
-
-[9]
-
-[10]
-
-[11]
-
-[12]
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 366--367
-
- []
-
-
-
-[14]
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 418--419
-
- []
-
-
-
-[16]
-
-[17]
-
-[18]
-
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 546--560
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 546--560
-
- []
-
-
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 601--602
-
- []
-
-
-
-[21]
-
-[22]
-
-[23]
-
-[24]
-
-[25]
-
-[26]
-
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 727--728
-
- []
-
-
-Overfull \hbox (8.02295pt too wide) detected at line 737
-\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 '[]\OT1/cmr/m/n/10 (\OML/cm
-m/m/it/10 U[] \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 V\OT1/cmr/m/n/10 )] = [] [] [
-] [] [][] = [][]
- []
-
-
-
-[28]
-
-[29]
-
-[30]
-
-[31]
-
-[32]
-
-[33]
-
-[34]
-
-[35]
-
-[36]
-
-[37]
-
-[38]
-
-[39]
-
-[40]
-
-[41]
-
-[42]
-
-[43]
-
-[44]
-
-[45]
-
-[46]
-
-[47] (Algebraic Geometry 1.aux)
+[7] (Dissertation Content.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
-Package rerunfilecheck Info: File `"Algebraic Geometry 1".out' has not changed.
+Package rerunfilecheck Info: File `"Dissertation Content".out' has not changed.
 
-(rerunfilecheck)             Checksum: DE1899CD75108B626B34D33EE544B329;9162.
+(rerunfilecheck)             Checksum: AB53AB99AD669F6389990322F570B234;3013.
  ) 
 Here is how much of TeX's memory you used:
- 33164 strings out of 473577
- 654311 string characters out of 5716318
- 1080693 words of memory out of 5000000
- 55566 multiletter control sequences out of 15000+600000
- 600020 words of font info for 76 fonts, out of 8000000 for 9000
+ 32730 strings out of 473577
+ 647185 string characters out of 5716318
+ 1076745 words of memory out of 5000000
+ 55346 multiletter control sequences out of 15000+600000
+ 600181 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,17n,120p,1375b,1439s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,19n,120p,894b,1441s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cmextra/cmex7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/User
-s/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-msy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/symbols/msbm5.pfb><C:/Users/liula/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liul
-a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Geometry 1.pdf" (47 pages, 583704 bytes).
+cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liula/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/li
+ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/
+Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/m
+sbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-
+gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/tex-gyre/qplri.pfb>
+Output written on "Dissertation Content.pdf" (7 pages, 287898 bytes).
 PDF statistics:
- 784 PDF objects out of 1000 (max. 8388607)
- 259 named destinations out of 1000 (max. 500000)
- 365 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 221 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
+ 117 words of extra memory for PDF output out of 10000 (max. 10000000)
 

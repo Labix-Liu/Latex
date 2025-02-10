@@ -1,0 +1,196 @@
+\documentclass[a4paper]{article}
+
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Labix}
+\lhead{Selected Topics}
+\rfoot{\thepage}
+
+\title{Selected Topics}
+
+\author{Labix}
+
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{Excisive Functors between Spaces}
+\subsection{Homotopy Pushouts and Homotopy Pullbacks}
+Why we want this: pushouts dont preserve homotopies, as with any limits / colimts (therefore we have homotopy limits / colimits in model category)
+
+\begin{defn}{Standard Model for Homotopy Pushouts}{}
+\end{defn}
+
+\begin{defn}{Standard Model for Homotopy Pullbacks}{}
+\end{defn}
+
+\begin{defn}{Homotopy Pushouts}{}
+\end{defn}
+
+\begin{defn}{Homotopy Pullbacks}{}
+\end{defn}
+
+\begin{eg}{}{} Suspension and loopspace. 
+\end{eg}
+
+\begin{prp}{}{}
+\end{prp}
+
+\begin{defn}{Excisive Functors}{}
+\end{defn}
+
+\subsection{The Failure of the Identity Functor to be Excisive}
+
+\subsection{Excisive Functors Coming From Spectra}
+
+\pagebreak
+\section{Spectra as Reduced and Excisive Functors}
+\subsection{Stable Infinity Categories}
+\begin{defn}{Infinity Pushouts}{} Let $\mC$ be an infinity category. Let $F:\Delta^1\times\Delta^1\to\mC$ be a morphism of simplicial sets. Let $X\in\mC$ be an object. We say that $X$ is a pushout in $\mC$ if there exists a natural transformation $u:\Delta X\Rightarrow F$ such that there is a homotopy equivalence of Kan complexes: 
+\end{defn}
+
+\begin{defn}{Infinity Pullbacks}{}
+\end{defn}
+
+Why are these the correct analogue? 
+
+\begin{defn}{Stable Infinity Categories}{}
+\end{defn}
+
+Example in mind: spectra in ordinary categories: pushout=pullback. 
+
+\begin{defn}{Excisive Functors}{}
+\end{defn}
+
+\subsection{Suspension and Loop Functors}
+Own notes: Higher algebra 1.4
+
+trivial kan fibration -> section (Kerodon 1.5.5.5)
+
+\subsection{Stable Infinity Categories}
+
+Recall that $\mS=N_\bullet^{\text{hc}}(\bold{Top}_\ast)$ is the infinity category of spaces. 
+
+\begin{prp}{}{} Let $\mC$ be a pointed infinity category that admits all finite colimits. Then $\text{Exc}_\ast(\mC,\mS)$ is stable. \tcbline
+\begin{proof}
+Let $F:\mC\to\mS$ be excisive and reduced. Then $\Sigma_{\text{Exc}_\ast(\mC,\mS)}(F)=F\circ\Sigma_\mC$. By definition of the suspension functor, \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X & \ast \\
+	\ast & {\Sigma_\mC(X)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+is a pushout in $\mC$. Since $F$ is excisive, \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	F(X) & \ast \\
+	\ast & {(F\circ\Sigma_\mC)(X)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+is a pullback in $\mS$. On the other hand, $\Omega_{\text{Exc}_\ast(\mC,\mS)}(F)=\Omega_\mS\circ F$. By definition of the loop functor, \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{(\Omega_\mS\circ F\circ\Sigma_\mC)(X)} & \ast \\
+	\ast & {(F\circ\Sigma_\mC)(X)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+is a pullback in $\mS$ for any $X\in\mC$. Therefore $F(X)$ and $(\Omega_\mS\circ F\circ\Sigma_\mC)(X)$ are equivalent. Hence $F$ and $\Omega_{\text{Exc}_\ast(\mC,\mS)}(\Sigma_{\text{Exc}_\ast(\mC,\mS)}(F))$ are equivalent. 
+\end{proof}
+\end{prp}
+
+\begin{thm}{}{} There is an equivalence of infinity categories $$\text{Sp}(\mS)\simeq\lim(\cdots\rightarrow\mS\overset{\Omega}{\rightarrow}\mS\overset{\Omega}{\rightarrow}\mS)=:\overline{\mS}$$ induced by the evaluation map $\text{ev}_{S^0}:\overline{\mS}\to\mS$. \tcbline
+\begin{proof}~\\
+Since $\mS$ is presentable and the infinity category of presentable infinity categories admit all small limits, $\overline{\mS}$ is also presentable. Every presentable infinity category admits all small limits and colimits. Since $\mS$ is pointed, $\overline{\mS}$ is also pointed. Since all limits are computed term-wise, we have that in particular $\Omega_{\overline{\mS}}$ is computed term wise. given $\{X_n\;|\;n\in\N\}$ an object of $\overline{\mS}$, $\{\Omega X_n\;|\;n\in\N\}$ is equivalent to $\{X_n\;|\;n\in\N\}$ because we have that $\Omega X_{n+1}$ is equivalent to $X_n$ for all $n$. By a prp we conclude that $\overline{\mS}$ is stable. \\~\\
+
+Consider the canonical functor $G:\overline{\mS}\to\mS$ defined by recovering the first factor: $(X_0,X_1,\dots)\mapsto X_0$. It is clear that it commutes with finite limits since limits are computed term-wise. \\~\\
+
+Let $\mC$ be an arbitrary stable infinity category. Any functor $\mC\to\mS$ is left exact if and only if it is exact so that $\text{Exc}_\ast(\mC,\mS)=\text{Exc}_\ast^\text{L}(\mC,\mS)$. 1.4.2.16 implies that $\text{Exc}_\ast^\text{L}(\mC,\mS)$ is a stable infinity category. Thus $\Omega_\mS\circ -$ is an equivalence. \\~\\
+
+On the other hand, since $\Omega$ are computed term-wise (like all limits) and since $\text{Func}(\mC,\overline{\mS})$ is right adjoint to products we know that $\text{Func}$ commutes with finite limits . Thus we have that $$\text{Exc}_\ast^\text{L}(\mC,\overline{\mS})=\lim(\cdots\rightarrow\text{Exc}_\ast^{\text{L}}(\mC,\mS)\overset{\Omega\circ-}{\rightarrow}\text{Exc}_\ast^{\text{L}}(\mC,\mS)\overset{\Omega\circ-}{\rightarrow}\text{Exc}_\ast^{\text{L}}(\mC,\mS))$$ Since each $\Omega_{\overline{\mS}}\circ -$ is an equivalence of infinity categories, we conclude that $\text{Exc}_\ast^{\text{L}}(\mC,\overline{\mS})\simeq\text{Exc}_\ast^{\text{L}}(\mC,\mS)$. Thus evaluation on the first factor $G\circ -:\text{Exc}_\ast^{\text{L}}(\mC,\overline{\mS})\to\text{Exc}_\ast^{\text{L}}(\mC,\mS)$ is an equivalence of infinity categories. \\~\\
+
+By a previous corollary, there is an equivalence of infinity categories given by $$\Omega^\infty\circ-:\text{Exc}_\ast^\text{L}(\overline{\mS},\text{Sp}(\mS))\to\text{Exc}_\ast^{\text{L}}(\overline{\mS},\mS)$$ The fact that $G$ is left exact means that there is a factorization \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\overline{\mS}} && \mS \\
+	& {\text{Sp}(\mS)}
+	\arrow["G", from=1-1, to=1-3]
+	\arrow["{G'\circ -}"', from=1-1, to=2-2]
+	\arrow["{\Omega^\infty}"', from=2-2, to=1-3]
+\end{tikzcd}}\\~\\
+By functoriality we obtain a similar factorization: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\text{Exc}_\ast^{\text{L}}(\mC,\overline{\mS})} && {\text{Exc}_\ast^{\text{L}}(\mC,\mS)} \\
+	& {\text{Exc}_\ast^{\text{L}}(\mC,\text{Sp}(\mS))}
+	\arrow["{G\circ -}", from=1-1, to=1-3]
+	\arrow["{G'\circ -}"', from=1-1, to=2-2]
+	\arrow["{\Omega^\infty\circ -}"', from=2-2, to=1-3]
+\end{tikzcd}}\\~\\
+Since $G\circ -$ and $\Omega^\infty\circ -$ are both equivalence of infinity categories, we conclude that $G'\circ -$ is an equivalence of infinity categories. \\~\\
+
+Since this is true for all stable infinity categories, the fact that $$\text{Exc}_\ast(\mC,\overline{\mS})=\text{Exc}_\ast^L(\mC,\overline{\mS})\simeq\text{Exc}_\ast^L(\mC,\text{Sp}(\mS))=\text{Exc}_\ast(\mC,\text{Sp}(\mS))$$ is an equivalence for all stable $\mC$ together with the Yoneda embedding implies that $\overline{\mS}$ and $\text{Sp}(\mS)$ is an equivalence of infinity categories. 
+\end{proof}
+\end{thm}
+
+Beware that in the proof we also showed that $G\circ -$ is an equivalence of infinity categories for any stable infinity category $\mC$. But this does not imply that $\overline{\mS}$ and $\mS$ are equivalent because we are applying the Yoneda embedding on the category of stable infinity categories, and a priori $\mS$ is not stable. 
+
+\pagebreak
+\section{From Functors to Excisive Functors}
+\subsection{Goodwillie Calculus}
+\begin{defn}{}{} T1 and P1
+\end{defn}
+
+\begin{thm}{}{} P1 is excisive. 
+\end{thm}
+
+\subsection{Excisive Approximations}
+\begin{eg}{}{} Id -> Infinite loop suspension
+\end{eg}
+
+\subsection{Spectra and (Co)Homology Theories}
+\begin{thm}{Brown's Representability Theorem}{}
+\end{thm}
+
+\begin{defn}{Cohomology Theory Associated to Spectra}{}
+\end{defn}
+
+\begin{defn}{Spectra Associated to Cohomology Theory}{}
+\end{defn}
+
+\begin{eg}{Singular Cohomology}{}
+\end{eg}
+
+\begin{eg}{K theory}{}
+\end{eg}
+
+\begin{eg}{Landweber-exact Spectra}{}
+\end{eg}
+
+\begin{thm}{Landweber exact functor theorem}{}
+\end{thm}
+
+\subsection{A Map From Functors to (Co)Homology Theories}
+\begin{eg}{}{} Identity Functor -> stable homotopy theory (it is a homology theory)
+\end{eg}
+
+\begin{eg}{}{} Excisive functor F -> {F(Sn)} -> corresponding cohomolog theory
+\end{eg}
+
+
+
+
+
+
+\end{document}

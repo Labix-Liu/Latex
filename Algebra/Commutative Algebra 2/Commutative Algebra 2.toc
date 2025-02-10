@@ -1,6 +1,6 @@
 \contentsline {section}{\numberline {1}Filtrations}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Filtrations and Stable Filtrations}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Artin-Rees Lemma and its Consequences}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.2}Filtrations by Powers of Ideals}{3}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Completions}{5}{section.2}%
 \contentsline {subsection}{\numberline {2.1}General Completion Methods}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}I-Adic Completion}{5}{subsection.2.2}%

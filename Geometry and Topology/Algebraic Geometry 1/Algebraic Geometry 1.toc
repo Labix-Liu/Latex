@@ -35,8 +35,10 @@
 \contentsline {subsection}{\numberline {8.1}Quasi-Projective Varieties}{40}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Morphisms of Quasi-Projective Varieties}{40}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}Redefining Varieties}{41}{subsection.8.3}%
-\contentsline {section}{\numberline {9}The Algebra of Regular Functions}{42}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Regular Functions on Quasi-Projective Varieties}{42}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Regular Functions Near a Point}{43}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Regular Functions on Affine Varieties}{43}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Regular Functions on Projective Varieties}{44}{subsection.9.4}%
+\contentsline {section}{\numberline {9}The Algebra of Regular Functions}{43}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Regular Functions on Quasi-Projective Varieties}{43}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}The System of Rings of Regular Functions}{43}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Regular Functions Near a Point}{44}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Regular Functions on Affine Varieties}{44}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Regular Functions on Projective Varieties}{45}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Regular Maps Between Varieties}{46}{subsection.9.6}%

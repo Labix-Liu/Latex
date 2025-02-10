@@ -34,14 +34,17 @@
 
 We have seen in Rings and Modules that the graded ring associated to the filtrartion $$R\supseteq I\supseteq I^2\supseteq\cdots\supseteq I^n\supseteq\cdots$$ is precisely the graded ring $$\text{gr}_I(R)=\bigoplus_{n=0}^\infty\frac{I^n}{I^{n+1}}$$ associated to the commutative ring $R$. 
 
-\subsection{Artin-Rees Lemma and its Consequences}
-\begin{thm}{Artin-Rees Lemma}{} Assume $A$ is Noetherian and $I$ is an ideal of $A$. Let $M$ be a finite module and $N\subset M$ a submodule. Then there exists $c>0$ such that $$I^nM\cap N=I^{n-c}(I^cM\cap N)$$ for every $n>c$. \tcbline
+\subsection{Filtrations by Powers of Ideals}
+\begin{thm}{Artin-Rees Lemma}{} Let $R$ be a Noetherian commutative ring. Let $I$ be an ideal of $A$. Let $M$ be a finitely generated $R$-module. Let $N\leq M$ be an $R$-submodule. Then there exists $c\in\N$ such that $$I^nM\cap N=I^{n-c}(I^cM\cap N)$$ for all $n>c$. \tcbline
 \begin{proof}
 
 \end{proof}
 \end{thm}
 
-\begin{thm}{Krull's Intersection Theorem}{} Let $(R,m)$ be a Noetherian local ring. Then $$\bigcap_{i=0}^\infty m^i=\{0\}$$
+\begin{thm}{Krull's Intersection Theorem}{} Let $(R,m)$ be a Noetherian local ring. Then $$\bigcap_{i=0}^\infty m^i=\{0\}$$ \tcbline
+\begin{proof}
+Let $N=\bigcap_{i=0}^\infty m^i$. Then $N=I^nM=I^nM\cap N$ for some $n\in\N$. By the Artin-Rees lemma, we have $$N=I^nM\cap N=I^{n-c}(I^cM\cap N)\subseteq IN$$ for some $c\in\N$. Hence $N=IN$. By Nakayama's lemma, we conclude that $N=0$. 
+\end{proof}
 \end{thm}
 
 \pagebreak
@@ -114,7 +117,7 @@ where the maps are induced by the universal property of inverse limits.
 \end{defn}
 
 \subsection{Hensel's Lemma}
-\begin{thm}{Hensel's Lemma}{} Let $(R,m)$ be a complete local ring. Let $\overline{(-)}:R[x]\to(R/m)[x]$ be the projection map. Let $f\in R[x]$ be monic. If $g,h\in(R/m)[x]$ are monic and $\overline{f}=gh$, then there exists unique polynomials $u,v\in R[x]$ such that $f=uv$ and $\overline{u}=g$ and $\overline{v}=h$. 
+\begin{thm}{Hensel's Lemma}{} Let $(R,m)$ be a complete local ring. Let $\overline{(-)}:R[x]\to(R/m)[x]$ be the projection map. Let $f\in R[x]$ be monic. If $g,h\in(R/m)[x]$ are monic and $\overline{f}=gh$ and $\gcd(g,h)=1$, then there exists unique polynomials $u,v\in R[x]$ such that $f=uv$ and $\overline{u}=g$ and $\overline{v}=h$. 
 \end{thm}
 
 \pagebreak

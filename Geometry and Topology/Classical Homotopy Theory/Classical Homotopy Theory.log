@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  1 FEB 2025 20:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  9 FEB 2025 16:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1232,17 +1232,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 637--638
 [25]
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 864--873
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 880--889
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 864--873
+Underfull \hbox (badness 10000) in paragraph at lines 880--889
 
  []
 
 
-Overfull \hbox (12.61661pt too wide) in paragraph at lines 873--874
+Overfull \hbox (12.61661pt too wide) in paragraph at lines 889--890
 \T1/qpl/m/n/10 So we are re-ally just say-ing that $\OML/cmm/m/it/10 ^^Y[]\OT1/
 cmr/m/n/10 (\OML/cmm/m/it/10 A; A \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 B\OT1/cmr
 /m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/
@@ -1253,44 +1255,42 @@ m/n/10 )$\T1/qpl/m/n/10 -connected.
 
 
 
-[27
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 901--909
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 901--909
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 901--909
-
- []
-
-
-
 [28]
+Underfull \hbox (badness 10000) in paragraph at lines 917--925
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 917--925
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 917--925
+
+ []
+
+
 
 [29]
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 965--974
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 965--974
-
- []
-
-
 
 [31]
+Underfull \hbox (badness 10000) in paragraph at lines 981--990
 
-[32] (Classical Homotopy Theory.aux)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 981--990
+
+ []
+
+
+
+[32]
+
+[33] (Classical Homotopy Theory.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
@@ -1300,13 +1300,13 @@ nged.
 (rerunfilecheck)             Checksum: 582908F1DDE0810A5C464A43EF73752E;6332.
  ) 
 Here is how much of TeX's memory you used:
- 34488 strings out of 473577
- 690277 string characters out of 5716318
- 1108451 words of memory out of 5000000
- 57003 multiletter control sequences out of 15000+600000
+ 34499 strings out of 473577
+ 690438 string characters out of 5716318
+ 1111563 words of memory out of 5000000
+ 57008 multiletter control sequences out of 15000+600000
  600947 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,22n,120p,1297b,1543s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,22n,120p,1457b,1543s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1327,9 +1327,9 @@ rograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/
 liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Classical Homotopy Theory.pdf" (32 pages, 512843 bytes).
+Output written on "Classical Homotopy Theory.pdf" (33 pages, 520471 bytes).
 PDF statistics:
- 518 PDF objects out of 1000 (max. 8388607)
- 143 named destinations out of 1000 (max. 500000)
+ 529 PDF objects out of 1000 (max. 8388607)
+ 149 named destinations out of 1000 (max. 500000)
  237 words of extra memory for PDF output out of 10000 (max. 10000000)
 

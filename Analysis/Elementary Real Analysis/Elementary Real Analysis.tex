@@ -838,68 +838,74 @@ Its partial sums converges since $\abs{S_i-l}\leq p_{N_i}$ and $\abs{T_i-l}\leq 
 
 \pagebreak
 \section{Limits and Continuity}
-\subsection{Limits}
-\begin{defn}{Limits}{} Let $f:(a,b)\to\R$ a real valued function defined except possibly on $c\in(a,b)$. We say that $$\lim_{x\to c}f(x)=L$$ if for every $\varepsilon>0$ there exists a number $\delta>0$ such that $$0<\abs{x-c}<\delta\implies\abs{f(x)-L}<\varepsilon$$
+\subsection{Limits at a Point}
+\begin{defn}{Limits at a Point}{} Let $f:(a,c)\cup(c,b)\to\R$ be a function. We say that $f$ converges to $L\in\R$ at $c$ if for every $\varepsilon>0$, there exists $\delta>0$ such that for all $x$ for which $0<\abs{x-c}<\delta$, we have $\abs{f(x)-L}<\varepsilon$. In this case, we write $$\lim_{x\to c}f(x)=L$$
 \end{defn}
 
-\begin{defn}{Convergence of Functions}{} Let $c,L\in\R$ and let $f:\R\to\R$. 
-\begin{itemize} 
-\item $f(x)$ is said to converge to $L$ as $x\to\infty$ if and only if for every $\varepsilon>0$ there exists a $M>0$ such that $$x>M\implies\abs{f(x)-L}<\varepsilon$$ We write $\lim_{x\to\infty}f(x)=L$ in this case. 
-\item $f(x)$ is said to converge to $L$ as $x\to-\infty$ if and only if for every $\varepsilon>0$ there exists a $M<0$ such that $$x<M\implies\abs{f(x)-L}<\varepsilon$$ We write $\lim_{x\to-\infty}f(x)=L$ in this case. 
-\item $f(x)$ is said to converge to $\infty$ as $x\to c$ if for every $M>0$ there exists $\delta>0$ such that $$\abs{x-c}<\delta\implies f(x)>M$$ We write $\lim_{x\to c}f(x)=\infty$ in this case. 
-\item $f(x)$ is said to converge to $-\infty$ as $x\to c$ if for every $M<0$ there exists $\delta>0$ such that $$\abs{x-c}<\delta\implies f(x)<M$$ We write $\lim_{x\to c}f(x)=-\infty$ in this case. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{One Sided Limits}{} Let $f:(a,b)\to\R$ a real valued function defined except possibly on $c\in(a,b)$. 
+\begin{defn}{One Sided Limits}{} Let $f:(a,c)\cup(c,b)\to\R$ be a function. 
 \begin{itemize}
-\item We say that $\lim_{x\to c^+}f(x)=L$ if for every $\varepsilon>0$ there exists a number $\delta>0$ such that if $$c<x<c+\delta\implies\abs{f(x)-L}<\varepsilon$$
-\item We say that $\lim_{x\to c^-}f(x)=L$ if for every $\varepsilon>0$ there exists a number $\delta>0$ such that if $$c-\delta<x<c\implies\abs{f(x)-L}<\varepsilon$$
+\item We say that $$\lim_{x\to c^+}f(x)=L\in\R$$ if for every $\varepsilon>0$ there exists $\delta>0$ such that for all $x\in(c,c+\delta)$ we have $\abs{f(x)-L}<\varepsilon$
+\item We say that $$\lim_{x\to c^-}f(x)=L\in\R$$ if for every $\varepsilon>0$ there exists $\delta>0$ such that for all $x\in(c-\delta,c)$ we have $\abs{f(x)-L}<\varepsilon$
 \end{itemize}
 \end{defn}
 
-\begin{lmm}{}{} Let $L\in\R$. Then $$\lim_{x\to c}f(x)=L\iff\lim_{x\to c^+}f(x)=\lim_{x\to c^-}f(x)=L$$ \tcbline
+\begin{lmm}{}{} Let $f:(a,c)\cup(c,b)\to\R$ be a function. Let $L\in\R$. Then $\lim_{x\to c}f(x)=L$ if and only if $$\lim_{x\to c^+}f(x)=\lim_{x\to c^-}f(x)=L$$ \tcbline
 \begin{proof} An easy manipulation of the definition of limits. 
 \end{proof}
 \end{lmm}
 
-\begin{thm}{Sequential Limits}{} Let $f:(a,b)\to\R$ a real valued function defined except possibly on $c\in(a,b)$. Then $$\lim_{x\to c}f(x)=L$$ if and only if for every sequence $(x_n)$ in $I\setminus\{c\}$ with $(x_n)\to c$ we have $(f(x_n))\to L$. \tcbline
+\begin{thm}{Sequential Limits}{} Let $f:(a,c)\cup(c,b)\to\R$ be a function. Then $$\lim_{x\to c}f(x)=L$$ if and only if for every sequence $(x_n)$ in $(a,b)\setminus\{c\}$ with $(x_n)\to c$ we have $(f(x_n))\to L$. \tcbline
 \begin{proof} Suppose that $\lim_{x\to c}f(x)=L$. Then for every $\varepsilon>0$ there exists a number $\delta>0$ such that if $\abs{x-c}<\delta$ then $\abs{f(x)-L}<\varepsilon$. Consider a sequence with $(x_n)\to c$. Then for every $\delta>0$ we have that $\abs{x_n-c}<\delta$ for all $n$ larger than some $N$. However this implies that $\abs{f(x_n)-L}<\varepsilon$ for all $n$ larger than $N$. Thus we have $(f(x_n))\to L$. \\~\\ 
 Now suppose that $(x_n)\to c\implies (f(x))\to L$. This means that for all $\delta>0$, there exists $N$ such that $\abs{x_n-c}<\delta$ for all $n>N$. Consider any $x$ in the interval $I$. Then there is a sequence $(x_n)$ that contains $x$. That sequence has the properties that $\abs{x_n-c}<\delta$. We thus have $\abs{f(x)-L}<\varepsilon$ by assumption. 
 \end{proof}
 \end{thm}
 
-\begin{prp}{Algebra of Limits}{} Let $f,g:(a,b)\to\R$ a real valued function defined except possibly on $c\in(a,b)$ and $\lim_{x\to c}f(x)=L$ and $\lim_{x\to c}g(x)=M$, then
+\begin{prp}{Algebra of Limits}{} Let $f,g:(a,c)\cup(c,b)\to\R$ be functions. Let $\lim_{x\to c}f(x)=L$ and $\lim_{x\to c}g(x)=L$. Then the following are true. 
 \begin{itemize}
 \item $\lim_{x\to c}\left(f(x)+g(x)\right)=L+M$
 \item $\lim_{x\to c}\left(f(x)g(x)\right)=LM$
-\item $\lim_{x\to c}\left(\frac{f(x)}{g(x)}\right)=\frac{L}{M}$ provided that $M\neq 0$
+\item If $M\neq 0$, then $\lim_{x\to c}(f(x)/g(x))=L/M$
 \end{itemize}\tcbline
 \begin{proof} Convert them to sequential definition of limits and apply algebra of sequences. 
 \end{proof}
 \end{prp}
 
-\begin{thm}{Sandwich Theorem for Limits}{} Let $f,g,h:(a,b)\to\R$ a real valued function defined except possibly on $c\in(a,b)$. 
-\begin{itemize}
-\item If $f(x)\leq h(x)\leq g(x)$ for all $x\in I\setminus\{c\}$, and $$\lim_{x\to c}f(x)=\lim_{x\to c}g(x)=L$$ then the limit of $h(x)$ as $x\to c$ exists, and $$\lim_{x\to c}h(x)=L$$
-\item If $g(x)\leq M$ for all $x\in I\setminus\{c\}$ and $f(x_n)\to0$ as $(x_n)\to c$ then $\lim_{x\to c}f(x)g(x)=0$
-\end{itemize} \tcbline
-\begin{proof} Convert them to sequential definition and apply the sandwich theorem of sequences. For the second item, first note that for all $\frac{\varepsilon}{M}>0$ there exists some $N$ such that $$-\frac{\varepsilon}{M}<f(x_n)<\frac{\varepsilon}{M}$$ for all $n>N$. Note also that $$-M\leq g(x_n)\leq M$$ for all $n$. Thus we have that $$\abs{f(x_n)g(x_n)}<\varepsilon$$ for all $n>N$
+\begin{thm}{Sandwich Theorem for Limits}{} Let $f,g,h:(a,c)\cup(c,b)\to\R$ be functions. If $f(x)\leq h(x)\leq g(x)$ for all $x\in (a,c)\cup(c,b)$, and $$\lim_{x\to c}f(x)=\lim_{x\to c}g(x)=L$$ then we have $$\lim_{x\to c}h(x)=L$$ \tcbline
+\begin{proof} Convert them to sequential definition and apply the sandwich theorem of sequences. 
 \end{proof}
 \end{thm}
+
+\begin{defn}{Limits to Infinity}{} Let $f:(a,c)\cup(c,b)\to\R$ be a function. 
+\begin{itemize} 
+\item We say that $f$ converges to $\infty$ as $x\to c$ if for all $M>0$ there exists $\delta>0$ such that for all $x$ for which $0<\abs{x-c}<\delta$, we have $f(x)>M$. In this case we write $$\lim_{x\to c}f(x)=\infty$$
+\item We say that $f$ converges to $-\infty$ as $x\to c$ if for all $M<0$ there exists $\delta>0$ such that for all $x$ for which $0<\abs{x-c}<\delta$, we have $f(x)<M$. In this case we write $$\lim_{x\to c}f(x)=-\infty$$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Limits at Infinity}{} Let $f:\R\to\R$ be a function. 
+\begin{itemize} 
+\item We say that $f$ converges to $L\in\R$ at positive infinity if for every $\varepsilon>0$ there exists a $M>0$ such that $x>M$ implies $\abs{f(x)-L}<\varepsilon$. In this case we write $$\lim_{x\to\infty}f(x)=L$$
+\item We say that $f$ converges to $L\in\R$ at negative infinity if for every $\varepsilon>0$ there exists a $M<0$ such that $x<M$ implies $\abs{f(x)-L}<\varepsilon$ In this case we write $$\lim_{x\to-\infty}f(x)=L$$
+\end{itemize}
+\end{defn}
 
 \subsection{Continuity}
 \begin{defn}{Continuity}{} A function $f:I\subseteq\R\to\R$ is said to be continuous at $c\in I$ if and only if for every $\varepsilon>0$ there exists $\delta>0$ such that for every $x\in I$, $$\abs{x-c}<\delta\implies\abs{f(x)-f(c)}<\varepsilon$$
 \end{defn}
 
-\begin{thm}{Sequential Continuity}{} A function $f:I\subseteq\R\to\R$ is said to be continuous at $c\in I$ if and only if for every sequence $(x_n)$ of points in $I$ which converges to $c$, $f(x_n)\to f(c)$. \tcbline
-\begin{proof} We first prove the forward implication. Suppose that $f$ is continuous at $c$ and $(x_n)\to c$. Then for every $\varepsilon>0$, there exists $\delta>0$ such that for all $x\in I$, $\abs{x-c}<\delta\implies\abs{f(x)-f(c)}<\varepsilon$. Now, choose $N$ so that if $n>N$, then $\abs{x_n-c}<\delta$. Then if $n>N$ we have $\abs{f(x_n)-f(c)}<\varepsilon$. Thus $\left(f(x_n)\right)\to c$. \\~\\
-Now suppose $f$ is not continuous at $c$. Then there are some $\varepsilon>0$ such that there exists some $x$ with $\abs{x-c}<\delta\implies\abs{f(x)-f(c)}\geq\varepsilon$. We now construct a sequence as follows. For each $n$, choose $x_n$ such that $\abs{x_n-c}<\delta=\frac{1}{n}$ but $\abs{f(x_n)-f(c)}\geq\varepsilon$. Then the sequence constructed tends to $c$ since $\left(\frac{1}{n}\right)\to0$ but $f(x_n)$ does not converge to $f(c)$. 
-\end{proof}
-\end{thm}
+\begin{defn}{Sequential Continuity}{} Let $f:(a,b)\to\R$ be a function. Let $c\in (a,b)$. We say that $f$ is sequentially continuous at $c$ if for every sequence $(x_n)_{n\in\N}\subset(a,b)$ that converges to $c$, then $$(f(x_n))_{n\in\N}\to f(c)$$
+\end{defn}
 
-\begin{thm}{Limits and Continuity}{} If $f:(a,b)\to\R$ is a function and $c\in(a,b)$, $f$ is continuous at $c$ if and only if $\lim_{x\to c}f(x)=f(c)$. \tcbline
-\begin{proof} Simple proof involving replacing $L$ to $f(c)$ in the definition of limits. 
+\begin{thm}{}{} Let $f:(a,b)\to\R$ be a function. Let $c\in (a,b)$. Then the following are equivalent. 
+\begin{itemize}
+\item $f$ is continuous at $c$. 
+\item $f$ is sequentially continuous at $c$. 
+\item $\lim_{x\to c}f(x)=f(c)$. 
+\end{itemize} \tcbline
+\begin{proof} We first prove the forward implication. Suppose that $f$ is continuous at $c$ and $(x_n)\to c$. Then for every $\varepsilon>0$, there exists $\delta>0$ such that for all $x\in I$, $\abs{x-c}<\delta\implies\abs{f(x)-f(c)}<\varepsilon$. Now, choose $N$ so that if $n>N$, then $\abs{x_n-c}<\delta$. Then if $n>N$ we have $\abs{f(x_n)-f(c)}<\varepsilon$. Thus $\left(f(x_n)\right)\to c$. \\~\\
+Now suppose $f$ is not continuous at $c$. Then there are some $\varepsilon>0$ such that there exists some $x$ with $\abs{x-c}<\delta\implies\abs{f(x)-f(c)}\geq\varepsilon$. We now construct a sequence as follows. For each $n$, choose $x_n$ such that $\abs{x_n-c}<\delta=\frac{1}{n}$ but $\abs{f(x_n)-f(c)}\geq\varepsilon$. Then the sequence constructed tends to $c$ since $\left(\frac{1}{n}\right)\to0$ but $f(x_n)$ does not converge to $f(c)$. \\~\\
+
+$f$ is continuous if and only if for all $\epsilon>0$, there exists $\delta>0$ such that $x\in(c-\delta,c+\delta)$ implies $\abs{f(x)-f(c)}<\epsilon$. But this is precisely the definition of the limit of $f$. 
 \end{proof}
 \end{thm}
 
@@ -973,40 +979,6 @@ Thus we also have $y_{k_j}\to x_0$. But since $f$ is continuous at $x_0$, we mus
 \end{proof}
 \end{thm}
 
-\subsection{Power Series}
-\begin{defn}{Power Series}{} Suppose that $a_n\in\R$ for all $n\in\N$. Then the function $$f(x)=\sum_{k=0}^{\infty}a_kx^k$$ is said to be a power series in $\R$. 
-\end{defn}
-
-\begin{thm}{}{} Let $\sum_{k=0}^{\infty}a_kx^k$ be a power series with $\sum_{k=0}^{\infty}a_kt^k$ convergent for some $t\in\R$. Then $\sum_{k=0}^{\infty}a_kx^k$ converges absolutely for all $x$ with $\abs{x}<\abs{t}$. \tcbline
-\begin{proof} Note that the convergence of $\sum_{k=0}^{\infty}a_kt^k$ implies $(a_nt^n)\to 0$. This implies that $a_nt^n$ is bounded by, say $M$. 
-\begin{align*}
-\sum_{k=0}^{\infty}\abs{a_kx^k}&=\sum_{k=0}^{\infty}\abs{a_kt^k}\abs{\frac{x^k}{t^k}}\\
-&<\sum_{k=0}^{\infty}M\abs{\frac{x^k}{t^k}}\\
-&=\frac{M}{1-\abs{\frac{x}{t}}}\\
-\end{align*} Since it is increasing and bounded, the infinity sum converges absolutely thus the sum converges. 
-\end{proof}
-\end{thm}
-
-\begin{thm}{}{} For any power series $\sum_{k=0}^\infty a_kx^k$, the radius of convergence is $$R=\frac{1}{\limsup_{n\to\infty}\abs{a_n}^{\frac{1}{n}}}$$ The power series converges for $\abs{x}<R$. The power series diverges for $\abs{x}>R$. \tcbline
-\begin{proof} Application of the root test. 
-\end{proof}
-\end{thm}
-
-\begin{prp}{}{} Let $\sum_{k=0}^{\infty}a_kx^k$ with radius of convergence $R$. Then $\sum_{k=0}^{\infty}\abs{a_k}x^k$ also has radius of convergence $R$. \tcbline
-\begin{proof} We have that $$\abs{\sum_{k=0}^{\infty}\abs{a_k}x^k}\leq\sum_{k=0}^{\infty}\abs{a_k}\abs{x^k}$$ which converges between $(-R,R)$. 
-\end{proof}
-\end{prp}
-
-\begin{thm}{Continuity of Power Series}{} Let $\sum_{k=0}^{\infty}a_kx^k$ with radius of convergence $R$. Then the function $f(x)=\sum_{k=0}^{\infty}a_kx^k$ is continuous on the interval $(-R,R)$. \tcbline
-\begin{proof} Suppose $\abs{x}<R$. We show that the function is continuous at $x$. Let $T$ such that $\abs{x}<T<R$. Then $\sum_{k=0}^\infty\abs{a_k}T^k$ converges, so for every $\varepsilon>0$ there is some number $N$ such that $$\sum_{k=N+1}^\infty\abs{a_k}T^k<\frac{\varepsilon}{3}$$ Let $y$ such that $\abs{y-x}<T-\abs{x}$. Then we will have $\abs{y}<T$ and $\abs{x}<T$. Hence $$\sum_{k=N+1}^\infty\abs{a_k}\abs{x}^k<\frac{\varepsilon}{3}$$ and $$\sum_{k=N+1}^\infty\abs{a_k}\abs{y}^k<\frac{\varepsilon}{3}$$ The partial sum $$\sum_{k=0}^Na_ky^k$$ is a polynomial thus is continuous. There exists some $\delta_0>0$ such that $\abs{y-x}<\delta_0$ implies $$\abs{\sum_{k=0}^Na_ky^k-\sum_{k=0}^Na_kx^k}<\frac{\varepsilon}{3}$$ Choose $\delta=\min(\delta_0,T-\abs{x})$. Then we have that $\abs{y-x}<\delta$ we get 
-\begin{align*}
-\abs{\sum_{k=0}^\infty a_ky^k-\sum_{k=0}^\infty a_kx^k}&\leq\abs{\sum_{k=N+1}^\infty a_ky^k}+\abs{\sum_{k=0}^Na_ky^k-\sum_{k=0}^Na_kx^k}+\abs{\sum_{k=N+1}^\infty a_kx^k}\\
-&\leq\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}\\
-&=\varepsilon
-\end{align*}
-\end{proof}
-\end{thm}
-
 \pagebreak
 \section{Differentiation}
 \subsection{Properties of the Derivative}
@@ -1050,13 +1022,21 @@ Simple change of variables where $x=c+h$.
 \end{proof}
 \end{thm}
 
+\begin{defn}{$C^n$-Functions}{} Let $f:U\subseteq\R\to\R$ be a function. We say that $f$ is a function of class $C^n$ if the following are true. 
+\begin{itemize}
+\item $f^{(k)}:U\to\R$ is differentiable for $0\leq k\leq n-1$
+\item $f^{(n)}:U\to\R$ is continuous. 
+\end{itemize}
+We say that $f$ is a smooth function if $f$ is $C^n$ for all $n\in\N$. 
+\end{defn}
+
 \subsection{Inverse of the Derivative}
 \begin{thm}{}{} If $f:I\subseteq\R\to\R$ is continuous and injective then $f^{-1}$ is either increasing or decreasing on the interval. \tcbline
 \begin{proof} Suppose that $f^{-1}$ is neither increasing or decreasing on the interval $I$. Then $f^{-1}$ is decreasing on some interval $(a,b)\in I$ and not decreasing on end points. This means that $(c,a)\in I$ is not decreasing thus there is some interval $(c',a)\in(c,a)$ that is increasing, Then for every $y\in(\min{f(c),f(d)},f(a))$, the function is not injective. 
 \end{proof}
 \end{thm}
 
-\begin{thm}{}{} Let $f$ be a continuous injective function defined on an interval and suppose that $f$ is differentiable at $f^{-1}(b)$, with derivative $f'\left(f^{-1}(b)\right)\neq0$. Then $f^{-1}$ is differentiable at $b$ and $$\left(f^{-1}\right)'(b)=\frac{1}{f'\left(f^{-1}(b)\right)}$$ \tcbline
+\begin{thm}{Inverse Function Theorem}{} Let $f$ be a continuous injective function defined on an interval and suppose that $f$ is differentiable at $f^{-1}(b)$, with derivative $f'\left(f^{-1}(b)\right)\neq0$. Then $f^{-1}$ is differentiable at $b$ and $$\left(f^{-1}\right)'(b)=\frac{1}{f'\left(f^{-1}(b)\right)}$$ \tcbline
 \begin{proof} Since $f$ is continuous and injective, the derivative exists. Suppose that $g=f^{-1}$. We have that $f(g(x))=x$ for all $x\in\dom(g)$. Then we have $f'(g(x))g'(x)=1$ and $g'(x)=\frac{1}{f'(g(x))}$. 
 \end{proof}
 \end{thm}
@@ -1124,139 +1104,6 @@ f'(c)(g(b)-g(a))-g'(c)(f(b)-f(a))&=0
 
 \begin{thm}{L'Hopital's Rule}{} Suppose that $f,g:(a,b)\to\R$ are differentiable functions and $c\in(a,b)$. Suppose that $$\lim_{x\to c}\frac{f'(x)}{g'(x)}=L$$ exists. Then if $\lim_{x\to c}f(x)=\lim_{x\to c}g(x)=0$ then $$\lim_{x\to c}\frac{f(x)}{g(x)}=L$$ \tcbline
 \begin{proof} Suppose that $\lim_{x\to c}\frac{f'(x)}{g'(x)}$ exists. Then $g'(x_n)\neq0$ for any sequence of $x_n$ that converges to $c$. Thus we can apply Cauchy's MVT. Since $f(c)=g(c)=0$, $$\lim_{x\to c}\frac{f(x)}{g(x)}=\lim_{x\to c}\frac{f(x)-f(c)}{g(x)-g(c)}$$ By Cauchy's MVT, there exists $t$ between $x$ and $c$ such that $\frac{f(x)-f(c)}{g(x)-g(c)}=\frac{f'(t)}{g'(t)}$. As $x\to c$, $t\to c$. Thus we have that $$\lim_{x\to c}\frac{f(x)}{g(x)}=\lim_{x\to c}\frac{f'(x)}{g'(x)}$$
-\end{proof}
-\end{thm}
-
-\subsection{More on Power Series}
-\begin{thm}{}{} Let $\sum_{k=0}^\infty a_kx^k$ be a power series with radius of convergence $R$. Then $f$ is differentiable on $(-R,R)$ and $$f'(x)=\sum_{k=1}^\infty ka_kx^{k-1}$$ \tcbline
-\begin{proof} We first show that $\sum_{k=1}^\infty ka_kx^{k-1}$ has the same radius of convergence. We have that $\sum_{k=0}^\infty \abs{a_k}x^k$ has the same radius of convergence. Choose $x$ and $y$ such that $x<y<R$. Then $\sum_{k=0}^\infty a_kx^k$ and $\sum_{k=0}^\infty a_ky^k$ converges. 
-\begin{align*}
-\sum_{k=1}^\infty ka_kx^{k-1}&<\sum_{k=1}^\infty\abs{a_k}(y^{k-1}+y^{k-2}x+\dots+x^{k-1})\\
-&=\sum_{k=0}^\infty\abs{a_k}\frac{y^k-x^k}{y-x}
-\end{align*}
-Since $\sum_{k=0}^\infty\abs{a_k}\frac{y^k-x^k}{y-x}$ converges, we complete our lemma. \\~\\
-Now for the main proof. Choose $T$ such that $\abs{x}<T<R$. We have proved that $\sum_{k=1}^\infty ka_kx^{k-1}$ converges so given $\varepsilon>0$ there is a number $N$ so that $$\sum_{k=N+1}^\infty k\abs{a_k}T^{k-1}<\frac{\varepsilon}{3}$$ Now if $0<\abs{y-x}<T-\abs{x}$, we have $\abs{y}<T$ and $\abs{x}<T$. Thus we have that $$\abs{\sum_{k=N+1}^\infty ka_kx^{k-1}\leq\sum_{k=N+1}^\infty k\abs{a_k}\abs{x}^{k-1}<\frac{\varepsilon}{3}}$$ and also
-\begin{align*}
-\abs{\sum_{k=N+1}^\infty a_k\frac{y^k-x^k}{y-x}}&=\abs{\sum_{k=N+1}^\infty a_k(y^{k-1}+y^{k-2}x+\dots+x^{k-1})}\\
-&\leq\sum_{k=N+1}^\infty\abs{a_k}(\abs{y}^{k-1}+\dots+\abs{x}^{k-1})\\
-&\leq\sum_{k=N+1}^\infty k\abs{a_k}T^{k-1}\\
-&\leq\frac{\varepsilon}{3}
-\end{align*} The sum $$\sum_{k=1}^Na_k(y^{k-1}+y^{k-2}x+\dots+x^{k-1})$$ is a polynomial in $y$ whose value at $x$ is $\sum_{k=1}^Nka_kx^{k-1}$ so there exists $\delta_0>0$ such that $\abs{y-x}<\delta_0$ implies 
-\begin{align*}
-\abs{\sum_{k=1}^Na_k\frac{y^k-x^k}{y-x}-\sum_{k=1}^N}ka_kx^{k-1}&=\abs{\sum_{k=1}^Na_k(y^{k-1}+y^{k-2}x+\dots+x^{k-1})-\sum_{k=1}^Nka_kx^{k-1}}\\
-&\leq\frac{\varepsilon}{3}
-\end{align*}
-Finally, choose $\delta=\min(\delta_0,T-\abs{x})$ then $\abs{y-x}<\delta$ implies
-\begin{align*}
-\abs{\sum_{k=1}^\infty a_k\frac{y^k-x^k}{y-x}-\sum_{k=1}^\infty ka_kx^{k-1}}&\leq\abs{\sum_{k=N+1}^\infty a_k\frac{y^k-x^k}{y-x}}+\abs{\sum_{k=1}^N a_k\frac{y^k-x^k}{y-x}-\sum_{k=1}^N ka_kx^{k-1}}\\
-&+\abs{\sum_{k=N+1}^\infty ka_kx^{k-1}}\\
-&\leq\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}\\
-&=\varepsilon
-\end{align*}
-\end{proof}
-\end{thm}
-
-\subsection{Taylor Series}
-\begin{defn}{Taylor Series}{} Let $f:(a,b)\to\R$ and $c\in(a,b)$. If $f$ possesses derivatives of all orders at $c$, then the series $$\sum_{k=0}^{\infty}\frac{f^{(k)}(c)}{k!}(x-c)^k$$ is called the Taylor Series for $f$ at $c$. 
-\end{defn}
-
-\begin{defn}{Remainder}{} Let $f:(a,b)\to\R$ be $n$ times differentiable and $c,x\in(a,b)$. Then define the remainder to be $$R_n(x)=f(x)-\sum_{k=0}^{n-1}\frac{f^{(k)}(c)}{k!}(x-c)^{n-1}$$
-\end{defn}
-
-\begin{thm}{}{} Let $f:(a,b)\to\R$ possess derivatives of all order at $c\in(a,b)$. Then $$f(x)=\sum_{k=0}^{\infty}\frac{f^{(k)}(c)}{k!}(x-c)^k$$ if and only if $$\lim_{n\to\infty}R_n(x)=0$$ \tcbline
-\begin{proof}
-Suppose that $f(x)$ is equal to its taylor series at $c$. Since the taylor series converges to $f(x)$, $R_n(x)$ converges to $0$ by definition. \\~\\
-Suppose that $R_n(x)$ converges to $0$. Then by the definition of $R_n(x)$ we must have $f(x)$ equal to its taylor and we are done. 
-\end{proof}
-\end{thm}
-
-\begin{thm}{Lagrange Remainder}{} If $f:(c,d)\to\R$ is $n$ times differentiable and $a,b\in(c,d)$, then $$R_n(b)=\frac{f^{(n)}(t)}{n!}(b-a)^n$$ for some $t$ between $a$ and $b$. \tcbline
-\begin{proof} Define $$g(x)=f(x)-\left(f(a)+f'(a)(x-a)+\dots+\frac{f^{(n-1)}(a)}{(n-1)!}(x-a)^{n-1}\right)$$ $g(x)$ satisfies $g(a)=g'(a)=\dots=g^{(n-1)}(a)=0$. It also satisfies $g^{(n)}(x)=f^{(n)}(x)$ for all $x$. Define $h(x)=g(x)-g(b)\frac{(x-a)^n}{(b-a)^n}$. Then $h(a)=h'(a)=\dots=h^{(n-1)}(a)=0$ and $h(b)=0$. Now since $h(a)=h(b)=0$, there exists $t_1\in(a,b)$ where $h'(t_1)=0$ by Rolle's Theorem. Since $h'(t_1)=h'(a)=0$, there exists $t_2\in(a,t_1)$ where $h''(t_2)=0$. Continuing this way we get that $t=t_n$ where $h^{(n)}(t)=0$. In terms of $g$, we have $$g^{(n)}(t)=g(b)\frac{n!}{(b-a)^n}$$ Rewriting the equation we have that $$g(b)=\frac{g^{(n)}(t)}{n!}(b-a)^n=\frac{f^{(n)}(t)}{n!}(b-a)^n$$ Substituting $x=b$ into the definition of $g(x)$, we have 
-\begin{align*}
-g(b)&=f(b)-\left(f(a)+f'(a)(b-a)+\dots+\frac{f^{(n-1)}(a)}{(n-1)!}(b-a)^{n-1}\right)\\
-\frac{f^{(n)}(t)}{n!}(b-a)^n&=f(b)-\left(f(a)+f'(a)(b-a)+\dots+\frac{f^{(n-1)}(a)}{(n-1)!}(b-a)^{n-1}\right)\\
-&=f(b)-\sum_{k=0}^{n-1}\frac{f^{(k)(a)}}{(k-1)!}(b-a)^{k-1}\\
-&=R_n(b)
-\end{align*}
-Thus we are done. 
-\end{proof}
-\end{thm}
-
-\subsection{The Exponential Series}
-Now that we have explored most of the theorems in power series, we will give a through investigation on the exponential function and the logarithm function. \\~\\
-We begin by recalling the definition of the exponential function. 
-\begin{defn}{The Exponential Function}{} Let $x\in\R$. The series $$e^x=\sum_{k=0}^\infty \frac{x^k}{k!}$$ is called the exponential series
-\end{defn}
-
-\begin{thm}{}{} $f(x)=e^x$ is continuous for $x\in R$. \tcbline
-\begin{proof} Power series are continuous. 
-\end{proof}
-\end{thm}
-
-\begin{thm}{Property of the Exponential}{} Let $x,y\in\R$. Then 
-\begin{itemize}
-\item $e^{x+y}=e^xe^y$
-\item $e^x\geq 1+x$ for all $x$
-\item $e^x\leq\frac{1}{1-x}$ for all $x<1$
-\item $e^x$ is strictly increasing
-\end{itemize}\tcbline
-\begin{proof} Let $x,y\in\R$. 
-\begin{itemize}
-\item We want to show that $$\sum_{k=0}^{2m}\frac{(x+y)^k}{k!}-\left(\sum_{i=0}^m\frac{x^i}{i!}\right)\left(\sum_{j=0}^m\frac{x^j}{j!}\right)\to0$$ This is equivalent to saying that $e^{x+y}-e^xe^y=0$. From the binomial theorem, we have $$(x+y)^k=\sum_{i=0}^k\frac{k!}{i!(k-i)!}x^iy^{k-i}=\sum_{i+j=k}k!\frac{x^i}{i!}\frac{y^j}{j!}$$ Hence
-\begin{align*}
-&\sum_{k=0}^{2m}\frac{(x+y)^k}{k!}-\left(\sum_{i=0}^m\frac{x^i}{i!}\right)\left(\sum_{j=0}^m\frac{x^j}{j!}\right)\\
-&=\sum_{i+j=k}k!\frac{x^i}{i!}\frac{y^j}{j!}-\left(\sum_{i=0}^m\frac{x^i}{i!}\right)\left(\sum_{j=0}^m\frac{x^j}{j!}\right)\\
-&=\sum_{i\geq m+1,i+j\leq 2m}\frac{x^i}{i!}\frac{y^j}{j!}\\
-&\leq\sum_{i\geq m+1,i+j\leq 2m}\frac{\abs{x^i}}{i!}\frac{\abs{y^j}}{j!}\\
-&=\sum_{i\geq m+1,j\geq0}\frac{\abs{x^i}}{i!}\frac{\abs{y^j}}{j!}\\
-&=\left(\sum_{i\geq m+1}\frac{\abs{x^i}}{i!}\right)\left(\sum_{j=0}^\infty\frac{\abs{y^j}}{j!}\right)
-\end{align*} The first sum tends to $0$ as $m$ tends to infinity. 
-\item When $x\geq0$, $e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots\geq 1+x$
-\item When $0\leq x<1$, we have $e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots\leq1+x+x^2+x^3+\dots=\frac{1}{1-x}$. Now suppose that $x=-u$ is negative, then $$e^u\geq1+u$$ thus $e^{-x}\geq1-x$. This implies that $\frac{1}{1-x}\geq e^x$ thus this equality is true for all $x<1$. Now to prove the previous inequality, suppose $x\leq-1$, then $e^x>0>1+x$. Now suppose that $-1<x<0$. Let $x=-u$ then $0<u<1$ hence $e^u\leq\frac{1}{1-u}$. This implies that $e^{-x}\leq\frac{1}{1+x}$ thus $$1+x\leq e^x$$
-\item Suppose $x<y$. Then we have
-\begin{align*}
-e^y&=e^{y-x}e^x\\
-&\geq(1+y-x)e^x\\
-&>e^x
-\end{align*}
-\end{itemize}
-\end{proof}
-\end{thm}
-
-\begin{thm}{}{} $f(x)=e^x$ is differentiable for $x\in R$ and the derivative is $$f'(x)=e^x$$ \tcbline
-\begin{proof} Power series are differentiable and differentiating the power series for $e^x$ gives $e^x$. 
-\end{proof}
-\end{thm}
-
-\begin{thm}{}{} The inverse of $e^x$ exists. \tcbline
-\begin{proof} It suffices to show that $e^x$ is injective. Since it is strictly increasing, it must be increasing. Since the range of $e^x$ is $(0,\infty)$, the domain of the inverse is $(0,\infty)$
-\end{proof}
-\end{thm}
-
-This theorem allows us to define properly the inverse of the exponetial function, namely the logarithm. We will also show that the logarithm is also a power series. 
-
-\begin{defn}{The Logarithm}{} Define the logarithm function as the inverse of $e^x$ as $\ln(x)$. 
-\end{defn}
-
-\begin{thm}{}{} $f(x)=\ln(x)$ is continuous and differentiable for all $x\in(0,\infty)$ and the derivative is $$f'(x)=\frac{1}{x}$$ \tcbline
-\begin{proof} Since $e^x$ is continuous then $\ln(x)$ is also continuous. By theorem 5.2.2, $\ln(x)$ is differentiable. Also by theorem 5.2.2 we have $f'(x)=\frac{1}{x}$. 
-\end{proof}
-\end{thm}
-
-\begin{thm}{}{} The Taylor Series for the $\ln(1-x)$ is $$\ln(1-x)=-\sum_{k=1}^\infty\frac{x^k}{k}$$ for $-1\leq x<1$
-\end{thm}
-
-Be cautious that the taylor series is only defined for $x\in[-1,1)$. Outside of the interval, the power series will diverge. With that in mind, we will complete the chapter by defining real exponents. This is defined through both the exponential function and the logarithm. 
-
-\begin{defn}{Real Exponents}{} If $x>0$ and $p\in\R$ define $$x^p=e^{p\ln(x)}$$
-\end{defn}
-
-\begin{thm}{Law of Exponents}{} Let $x>0$ and $p,q\in\R$. 
-\begin{itemize}
-\item $x^{p+q}=x^px^q$
-\item $(x^p)^q=x^{pq}$
-\end{itemize}\tcbline
-\begin{proof} Simply revert the real exponents in terms of $e$. 
 \end{proof}
 \end{thm}
 
@@ -1641,9 +1488,6 @@ Thus $f$ is continuous at $x_0$.
 \end{proof}
 \end{prp}
 
-\begin{defn}{Continuously differentiable}{} Let $I\subseteq\R$. We use $C^k(I)$ to denote the collection of all functions that are differentiable $k$ times and has a continuous $k$th derivative and has domain $I$. 
-\end{defn}
-
 \subsection{Uniform Convergence and Integrability}
 \begin{thm}{}{} Suppose $(f_n)_{n\in\N}$ is a sequence of functions that is Riemann Integrable on $[a,b]$ that converges uniformly on $[a,b]$ to a function $f$. Then $f$ is Riemann Integrable and $$\lim_{n\to\infty}\int_a^bf_n(x)\,dx=\int_a^b\lim_{n\to\infty}f_n(x)\,dx$$ \tcbline
 \begin{proof} We first show that $f$ is integrable. Fix $\frac{\varepsilon}{4(b-a)}>0$. Then there exists $N\in\N$ such that $n>N$ implies $$\abs{f_n(x)-f(x)}<\frac{\varepsilon}{4(b-a)}$$ for all $x$. Fix $n>N$. Since $f_n$ is integrable, given $\frac{\varepsilon}{2}>0$ there exists a partition such that $U(f_n,P)-L(f_n,P)<\frac{\varepsilon}{2}$. For that $P$,
@@ -1706,6 +1550,184 @@ Since $\sum_{k=1}^nM_k<\infty$, given $\varepsilon>0$ there exists $N$ such that
 &<\varepsilon
 \end{align*}
 This proves that $S_n$ is uniformly cauchy, which implies that $S_n$ is uniformly convergent. 
+\end{proof}
+\end{thm}
+
+\pagebreak
+\section{Power Series and Taylor Series}
+\subsection{Power Series}
+\begin{defn}{Power Series}{} A power series in $\R$ is an infinite series of the form $$\sum_{k=0}^\infty a_k(x-c)^k$$ where $c\in\R$ is the center and $a_k\in\R$ for all $k\in\N$. 
+\end{defn}
+
+We treat the case of when $c=0$ so that the power series is centered at $0$. The more general case follows immediately by a translation. 
+
+\begin{thm}{}{} Let $\sum_{k=0}^{\infty}a_kx^k$ be a power series with $\sum_{k=0}^{\infty}a_kt^k$ convergent for some $t\in\R$. Then $\sum_{k=0}^{\infty}a_kx^k$ converges absolutely for all $x$ with $\abs{x}<\abs{t}$. \tcbline
+\begin{proof} Note that the convergence of $\sum_{k=0}^{\infty}a_kt^k$ implies $(a_nt^n)\to 0$. This implies that $a_nt^n$ is bounded by, say $M$. 
+\begin{align*}
+\sum_{k=0}^{\infty}\abs{a_kx^k}&=\sum_{k=0}^{\infty}\abs{a_kt^k}\abs{\frac{x^k}{t^k}}\\
+&<\sum_{k=0}^{\infty}M\abs{\frac{x^k}{t^k}}\\
+&=\frac{M}{1-\abs{\frac{x}{t}}}\\
+\end{align*} Since it is increasing and bounded, the infinity sum converges absolutely thus the sum converges. 
+\end{proof}
+\end{thm}
+
+\begin{defn}{Radius of Convergence}{} Let $\sum_{k=0}^\infty a_k(x-c)^k$ be a power series. Define the radius of convergence of the power series to be $$R=\sup\left\{r\in\R\;|\;\sum_{k=0}^\infty a_kr^k\text{ converges }\right\}$$
+\end{defn}
+
+\begin{prp}{}{} Let $\sum_{k=0}^{\infty}a_kx^k$ with radius of convergence $R$. Then $\sum_{k=0}^{\infty}\abs{a_k}x^k$ also has radius of convergence $R$. \tcbline
+\begin{proof} We have that $$\abs{\sum_{k=0}^{\infty}\abs{a_k}x^k}\leq\sum_{k=0}^{\infty}\abs{a_k}\abs{x^k}$$ which converges between $(-R,R)$. 
+\end{proof}
+\end{prp}
+
+\begin{thm}{}{} For any power series $\sum_{k=0}^\infty a_kx^k$, the radius of convergence is $$R=\frac{1}{\limsup_{n\to\infty}\abs{a_n}^{\frac{1}{n}}}$$ 
+\begin{proof} Application of the root test. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{Continuity of Power Series}{} Let $\sum_{k=0}^{\infty}a_kx^k$ with radius of convergence $R$. Then the function $f(x)=\sum_{k=0}^{\infty}a_kx^k$ is continuous on the interval $(-R,R)$. \tcbline
+\begin{proof} Suppose $\abs{x}<R$. We show that the function is continuous at $x$. Let $T$ such that $\abs{x}<T<R$. Then $\sum_{k=0}^\infty\abs{a_k}T^k$ converges, so for every $\varepsilon>0$ there is some number $N$ such that $$\sum_{k=N+1}^\infty\abs{a_k}T^k<\frac{\varepsilon}{3}$$ Let $y$ such that $\abs{y-x}<T-\abs{x}$. Then we will have $\abs{y}<T$ and $\abs{x}<T$. Hence $$\sum_{k=N+1}^\infty\abs{a_k}\abs{x}^k<\frac{\varepsilon}{3}$$ and $$\sum_{k=N+1}^\infty\abs{a_k}\abs{y}^k<\frac{\varepsilon}{3}$$ The partial sum $$\sum_{k=0}^Na_ky^k$$ is a polynomial thus is continuous. There exists some $\delta_0>0$ such that $\abs{y-x}<\delta_0$ implies $$\abs{\sum_{k=0}^Na_ky^k-\sum_{k=0}^Na_kx^k}<\frac{\varepsilon}{3}$$ Choose $\delta=\min(\delta_0,T-\abs{x})$. Then we have that $\abs{y-x}<\delta$ we get 
+\begin{align*}
+\abs{\sum_{k=0}^\infty a_ky^k-\sum_{k=0}^\infty a_kx^k}&\leq\abs{\sum_{k=N+1}^\infty a_ky^k}+\abs{\sum_{k=0}^Na_ky^k-\sum_{k=0}^Na_kx^k}+\abs{\sum_{k=N+1}^\infty a_kx^k}\\
+&\leq\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}\\
+&=\varepsilon
+\end{align*}
+\end{proof}
+\end{thm}
+
+\begin{prp}{}{} Let $\sum_{k=0}^\infty a_kx^k$ be a power series with radius of convergence $R$. Then $f$ is differentiable on $(-R,R)$ and $$f'(x)=\sum_{k=1}^\infty ka_kx^{k-1}$$ \tcbline
+\begin{proof} We first show that $\sum_{k=1}^\infty ka_kx^{k-1}$ has the same radius of convergence. We have that $\sum_{k=0}^\infty \abs{a_k}x^k$ has the same radius of convergence. Choose $x$ and $y$ such that $x<y<R$. Then $\sum_{k=0}^\infty a_kx^k$ and $\sum_{k=0}^\infty a_ky^k$ converges. 
+\begin{align*}
+\sum_{k=1}^\infty ka_kx^{k-1}&<\sum_{k=1}^\infty\abs{a_k}(y^{k-1}+y^{k-2}x+\dots+x^{k-1})\\
+&=\sum_{k=0}^\infty\abs{a_k}\frac{y^k-x^k}{y-x}
+\end{align*}
+Since $\sum_{k=0}^\infty\abs{a_k}\frac{y^k-x^k}{y-x}$ converges, we complete our lemma. \\~\\
+Now for the main proof. Choose $T$ such that $\abs{x}<T<R$. We have proved that $\sum_{k=1}^\infty ka_kx^{k-1}$ converges so given $\varepsilon>0$ there is a number $N$ so that $$\sum_{k=N+1}^\infty k\abs{a_k}T^{k-1}<\frac{\varepsilon}{3}$$ Now if $0<\abs{y-x}<T-\abs{x}$, we have $\abs{y}<T$ and $\abs{x}<T$. Thus we have that $$\abs{\sum_{k=N+1}^\infty ka_kx^{k-1}\leq\sum_{k=N+1}^\infty k\abs{a_k}\abs{x}^{k-1}<\frac{\varepsilon}{3}}$$ and also
+\begin{align*}
+\abs{\sum_{k=N+1}^\infty a_k\frac{y^k-x^k}{y-x}}&=\abs{\sum_{k=N+1}^\infty a_k(y^{k-1}+y^{k-2}x+\dots+x^{k-1})}\\
+&\leq\sum_{k=N+1}^\infty\abs{a_k}(\abs{y}^{k-1}+\dots+\abs{x}^{k-1})\\
+&\leq\sum_{k=N+1}^\infty k\abs{a_k}T^{k-1}\\
+&\leq\frac{\varepsilon}{3}
+\end{align*} The sum $$\sum_{k=1}^Na_k(y^{k-1}+y^{k-2}x+\dots+x^{k-1})$$ is a polynomial in $y$ whose value at $x$ is $\sum_{k=1}^Nka_kx^{k-1}$ so there exists $\delta_0>0$ such that $\abs{y-x}<\delta_0$ implies 
+\begin{align*}
+\abs{\sum_{k=1}^Na_k\frac{y^k-x^k}{y-x}-\sum_{k=1}^N}ka_kx^{k-1}&=\abs{\sum_{k=1}^Na_k(y^{k-1}+y^{k-2}x+\dots+x^{k-1})-\sum_{k=1}^Nka_kx^{k-1}}\\
+&\leq\frac{\varepsilon}{3}
+\end{align*}
+Finally, choose $\delta=\min(\delta_0,T-\abs{x})$ then $\abs{y-x}<\delta$ implies
+\begin{align*}
+\abs{\sum_{k=1}^\infty a_k\frac{y^k-x^k}{y-x}-\sum_{k=1}^\infty ka_kx^{k-1}}&\leq\abs{\sum_{k=N+1}^\infty a_k\frac{y^k-x^k}{y-x}}+\abs{\sum_{k=1}^N a_k\frac{y^k-x^k}{y-x}-\sum_{k=1}^N ka_kx^{k-1}}\\
+&+\abs{\sum_{k=N+1}^\infty ka_kx^{k-1}}\\
+&\leq\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}\\
+&=\varepsilon
+\end{align*}
+\end{proof}
+\end{prp}
+
+\begin{lmm}{}{} Every power series is a smooth function. 
+\end{lmm}
+
+\subsection{Taylor Series}
+Given a function $f:U\to\R$, we may ask whether $f$ can be represented as a power series. Since power series are infinitely differentiable, we expect any function representable by a power series to also be infinitely differentiable. However there are more conditions needed for $f$ to representable by a power series. 
+
+\begin{defn}{Taylor Series}{} Let $f:(a,b)\to\R$ be a smooth function. Let $c\in(a,b)$. Define the Taylor series of $f$ to be $$\sum_{k=0}^{\infty}\frac{f^{(k)}(c)}{k!}(x-c)^k$$
+\end{defn}
+
+\begin{defn}{Remainder}{} Let $f:(a,b)\to\R$ in $C^n$. Let $c\in(a,b)$. Then define the $n$th remainder of $f$ at $c$ to be $$R_n(x)=f(x)-\sum_{k=0}^{n-1}\frac{f^{(k)}(c)}{k!}(x-c)^{n-1}$$
+\end{defn}
+
+\begin{thm}{}{} Let $f:(a,b)\to\R$ possess derivatives of all order at $c\in(a,b)$. Then $$f(x)=\sum_{k=0}^{\infty}\frac{f^{(k)}(c)}{k!}(x-c)^k$$ if and only if $$\lim_{n\to\infty}R_n(x)=0$$ \tcbline
+\begin{proof}
+Suppose that $f(x)$ is equal to its taylor series at $c$. Since the taylor series converges to $f(x)$, $R_n(x)$ converges to $0$ by definition. \\~\\
+Suppose that $R_n(x)$ converges to $0$. Then by the definition of $R_n(x)$ we must have $f(x)$ equal to its taylor and we are done. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{Lagrange Remainder}{} If $f:(c,d)\to\R$ is $n$ times differentiable and $a,b\in(c,d)$, then $$R_n(b)=\frac{f^{(n)}(t)}{n!}(b-a)^n$$ for some $t$ between $a$ and $b$. \tcbline
+\begin{proof} Define $$g(x)=f(x)-\left(f(a)+f'(a)(x-a)+\dots+\frac{f^{(n-1)}(a)}{(n-1)!}(x-a)^{n-1}\right)$$ $g(x)$ satisfies $g(a)=g'(a)=\dots=g^{(n-1)}(a)=0$. It also satisfies $g^{(n)}(x)=f^{(n)}(x)$ for all $x$. Define $h(x)=g(x)-g(b)\frac{(x-a)^n}{(b-a)^n}$. Then $h(a)=h'(a)=\dots=h^{(n-1)}(a)=0$ and $h(b)=0$. Now since $h(a)=h(b)=0$, there exists $t_1\in(a,b)$ where $h'(t_1)=0$ by Rolle's Theorem. Since $h'(t_1)=h'(a)=0$, there exists $t_2\in(a,t_1)$ where $h''(t_2)=0$. Continuing this way we get that $t=t_n$ where $h^{(n)}(t)=0$. In terms of $g$, we have $$g^{(n)}(t)=g(b)\frac{n!}{(b-a)^n}$$ Rewriting the equation we have that $$g(b)=\frac{g^{(n)}(t)}{n!}(b-a)^n=\frac{f^{(n)}(t)}{n!}(b-a)^n$$ Substituting $x=b$ into the definition of $g(x)$, we have 
+\begin{align*}
+g(b)&=f(b)-\left(f(a)+f'(a)(b-a)+\dots+\frac{f^{(n-1)}(a)}{(n-1)!}(b-a)^{n-1}\right)\\
+\frac{f^{(n)}(t)}{n!}(b-a)^n&=f(b)-\left(f(a)+f'(a)(b-a)+\dots+\frac{f^{(n-1)}(a)}{(n-1)!}(b-a)^{n-1}\right)\\
+&=f(b)-\sum_{k=0}^{n-1}\frac{f^{(k)(a)}}{(k-1)!}(b-a)^{k-1}\\
+&=R_n(b)
+\end{align*}
+Thus we are done. 
+\end{proof}
+\end{thm}
+
+\subsection{The Exponential Series}
+Now that we have explored most of the theorems in power series, we will give a through investigation on the exponential function and the logarithm function. \\~\\
+We begin by recalling the definition of the exponential function. 
+\begin{defn}{The Exponential Function}{} Let $x\in\R$. The series $$e^x=\sum_{k=0}^\infty \frac{x^k}{k!}$$ is called the exponential series
+\end{defn}
+
+\begin{thm}{}{} $f(x)=e^x$ is continuous for $x\in R$. \tcbline
+\begin{proof} Power series are continuous. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{Property of the Exponential}{} Let $x,y\in\R$. Then 
+\begin{itemize}
+\item $e^{x+y}=e^xe^y$
+\item $e^x\geq 1+x$ for all $x$
+\item $e^x\leq\frac{1}{1-x}$ for all $x<1$
+\item $e^x$ is strictly increasing
+\end{itemize}\tcbline
+\begin{proof} Let $x,y\in\R$. 
+\begin{itemize}
+\item We want to show that $$\sum_{k=0}^{2m}\frac{(x+y)^k}{k!}-\left(\sum_{i=0}^m\frac{x^i}{i!}\right)\left(\sum_{j=0}^m\frac{x^j}{j!}\right)\to0$$ This is equivalent to saying that $e^{x+y}-e^xe^y=0$. From the binomial theorem, we have $$(x+y)^k=\sum_{i=0}^k\frac{k!}{i!(k-i)!}x^iy^{k-i}=\sum_{i+j=k}k!\frac{x^i}{i!}\frac{y^j}{j!}$$ Hence
+\begin{align*}
+&\sum_{k=0}^{2m}\frac{(x+y)^k}{k!}-\left(\sum_{i=0}^m\frac{x^i}{i!}\right)\left(\sum_{j=0}^m\frac{x^j}{j!}\right)\\
+&=\sum_{i+j=k}k!\frac{x^i}{i!}\frac{y^j}{j!}-\left(\sum_{i=0}^m\frac{x^i}{i!}\right)\left(\sum_{j=0}^m\frac{x^j}{j!}\right)\\
+&=\sum_{i\geq m+1,i+j\leq 2m}\frac{x^i}{i!}\frac{y^j}{j!}\\
+&\leq\sum_{i\geq m+1,i+j\leq 2m}\frac{\abs{x^i}}{i!}\frac{\abs{y^j}}{j!}\\
+&=\sum_{i\geq m+1,j\geq0}\frac{\abs{x^i}}{i!}\frac{\abs{y^j}}{j!}\\
+&=\left(\sum_{i\geq m+1}\frac{\abs{x^i}}{i!}\right)\left(\sum_{j=0}^\infty\frac{\abs{y^j}}{j!}\right)
+\end{align*} The first sum tends to $0$ as $m$ tends to infinity. 
+\item When $x\geq0$, $e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots\geq 1+x$
+\item When $0\leq x<1$, we have $e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots\leq1+x+x^2+x^3+\dots=\frac{1}{1-x}$. Now suppose that $x=-u$ is negative, then $$e^u\geq1+u$$ thus $e^{-x}\geq1-x$. This implies that $\frac{1}{1-x}\geq e^x$ thus this equality is true for all $x<1$. Now to prove the previous inequality, suppose $x\leq-1$, then $e^x>0>1+x$. Now suppose that $-1<x<0$. Let $x=-u$ then $0<u<1$ hence $e^u\leq\frac{1}{1-u}$. This implies that $e^{-x}\leq\frac{1}{1+x}$ thus $$1+x\leq e^x$$
+\item Suppose $x<y$. Then we have
+\begin{align*}
+e^y&=e^{y-x}e^x\\
+&\geq(1+y-x)e^x\\
+&>e^x
+\end{align*}
+\end{itemize}
+\end{proof}
+\end{thm}
+
+\begin{thm}{}{} $f(x)=e^x$ is differentiable for $x\in R$ and the derivative is $$f'(x)=e^x$$ \tcbline
+\begin{proof} Power series are differentiable and differentiating the power series for $e^x$ gives $e^x$. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{}{} The inverse of $e^x$ exists. \tcbline
+\begin{proof} It suffices to show that $e^x$ is injective. Since it is strictly increasing, it must be increasing. Since the range of $e^x$ is $(0,\infty)$, the domain of the inverse is $(0,\infty)$
+\end{proof}
+\end{thm}
+
+This theorem allows us to define properly the inverse of the exponetial function, namely the logarithm. We will also show that the logarithm is also a power series. 
+
+\begin{defn}{The Logarithm}{} Define the logarithm function as the inverse of $e^x$ as $\ln(x)$. 
+\end{defn}
+
+\begin{thm}{}{} $f(x)=\ln(x)$ is continuous and differentiable for all $x\in(0,\infty)$ and the derivative is $$f'(x)=\frac{1}{x}$$ \tcbline
+\begin{proof} Since $e^x$ is continuous then $\ln(x)$ is also continuous. By theorem 5.2.2, $\ln(x)$ is differentiable. Also by theorem 5.2.2 we have $f'(x)=\frac{1}{x}$. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{}{} The Taylor Series for the $\ln(1-x)$ is $$\ln(1-x)=-\sum_{k=1}^\infty\frac{x^k}{k}$$ for $-1\leq x<1$
+\end{thm}
+
+Be cautious that the taylor series is only defined for $x\in[-1,1)$. Outside of the interval, the power series will diverge. With that in mind, we will complete the chapter by defining real exponents. This is defined through both the exponential function and the logarithm. 
+
+\begin{defn}{Real Exponents}{} If $x>0$ and $p\in\R$ define $$x^p=e^{p\ln(x)}$$
+\end{defn}
+
+\begin{thm}{Law of Exponents}{} Let $x>0$ and $p,q\in\R$. 
+\begin{itemize}
+\item $x^{p+q}=x^px^q$
+\item $(x^p)^q=x^{pq}$
+\end{itemize}\tcbline
+\begin{proof} Simply revert the real exponents in terms of $e$. 
 \end{proof}
 \end{thm}
 

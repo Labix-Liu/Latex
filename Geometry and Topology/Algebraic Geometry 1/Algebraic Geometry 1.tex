@@ -1033,6 +1033,14 @@ Let $V\subseteq\Prj^n$ be a projective variety. Then $V$ being closed implies $V
 \begin{lmm}{}{} Every morphism of affine or projective varieties is a morphism of quasiprojective varieties. 
 \end{lmm}
 
+\begin{defn}{Isomorphism of Quasi-Projective Varieties}{} Let $k$ be a field. Let $V,W$ be varieties over $k$. Let $f:V\to W$ be a morphism of quasi-projective varieties. We say that $f$ is an isomorphism if there exists a morphism of quasi-projective varieties $g:W\to V$ such that $$g\circ f=\text{id}_V\;\;\;\;\text{ and }\;\;\;\;f\circ g=\text{id}_W$$ In this case we say that $V$ and $W$ are isomorphic. 
+\end{defn}
+
+Similar to homeomorphisms between spaces, it is not enough to just require that $f$ is a morphism that is bijective because its inverse may not be a morphism. 
+
+\begin{prp}{}{} Let $k$ be a field. Let $V,W$ be varieties over $k$. If $V$ and $W$ are isomorphic, then $V$ and $W$ are homeomorphic. 
+\end{prp}
+
 \subsection{Redefining Varieties}
 \begin{defn}{Extended Definition of Affine Varieties}{} A quasiprojective variety is said to be affine if it is isomorphic to a closed subset of affine space. 
 \end{defn}
@@ -1052,8 +1060,11 @@ Let $V\subseteq\Prj^n$ be a projective variety. Then $V$ being closed implies $V
 \pagebreak
 \section{The Algebra of Regular Functions}
 \subsection{Regular Functions on Quasi-Projective Varieties}
-\begin{defn}{Regular Functions on Quasi-Projective Varieties}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. A complex valued function $f:U\to\C$ is regular at a point $p\in U$ if there some affine open set $p\in W\subseteq U$ such that $$f=\frac{g}{h}$$ for some $g,h\in\C[W]$ such that $h(p)\neq 0$. 
+\begin{defn}{Regular Functions on Quasi-Projective Varieties}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be a quasi-projective variety over $k$. Let $f:V\to k$ be a map of sets. Let $p\in V$. We say that $f$ is regular at $p$ if there exists an open neighbourhood $p\in U\subseteq V$ such that $$f(x)=\frac{g(x)}{h(x)}$$ for all $x\in U$ and $g,h\in k[x_1,\dots,x_n]$ such that $h\neq 0$ on $U$. 
 \end{defn}
+
+\begin{prp}{}{} Let $k$ be a field. Let $V$ be a variety over $k$. Let $f:V\to k$ be a regular map. Then $f$ is continuous. 
+\end{prp}
 
 \begin{defn}{The Algebra of Regular Functions}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. Define the $\C$-algebra of regular functions on $U$ to be the set $$\mO_V(U)=\{f:U\to\C\;|\;f\text{ is regular on }U\}$$ together with addition and multiplication of rational functions. 
 \end{defn}
@@ -1061,9 +1072,10 @@ Let $V\subseteq\Prj^n$ be a projective variety. Then $V$ being closed implies $V
 \begin{lmm}{}{} Let $V$ be quasi-projective variety over $\C$. Let $U\subseteq V$ be open. Then $\mO_V(U)$ is a $\C$-algebra. 
 \end{lmm}
 
-\begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $f\in\C[V]$. Then there is an isomorphism $$\mO_V(D(f))\cong\C[V][1/f]=\left\{\frac{g}{f^n}\;\bigg{|}\;g\in\C[V],n\in\N\right\}$$
+\begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $f\in\C[V]$. Then there is an isomorphism $$\mO_V(D(f))\cong\C[V]_f$$
 \end{prp}
 
+\subsection{The System of Rings of Regular Functions}
 \begin{defn}{Restriction Maps}{} Let $V$ be a quasi-projective variety over $\C$. Let $U,W$ be an open subset of $V$ such that $W\subseteq U$. Define the restriction map to be the $\C$-algebra homomorphism $$\text{res}_W^U:\mO_V(U)\to\mO_V(W)$$ by the identity. 
 \end{defn}
 
@@ -1115,12 +1127,44 @@ By 5.2.2, we obtain a further isomrphism $$\mO_{\varphi_i(U_i\cap V),\varphi(p)}
 \end{proof}
 \end{prp}
 
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\Prj^n$ be a projective variety over $k$. Then there is a $k$-algebra isomorphism $$\mO_V(V)\cong k$$
+\end{prp}
+
 \begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\Prj_k^n$ be a projective variety over $k$. Let $p\in V$. Then we have $$\dim(V)=\dim(k^H[V])-1=\dim(\mO_{V,p})$$
 \end{prp}
 
+\subsection{Regular Maps Between Varieties}
+\begin{defn}{Regular Maps between Affine Varieties}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties over $k$. Let $f:V\to W$ be a map of sets. We say that $f$ is a regular map if $f$ is given as $$f(p)=(\phi_1(p),\dots,\phi_m(p))$$ for some $\phi_1,\dots\phi_m\in\mO_V(V)$. 
+\end{defn}
 
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties over $k$. Let $f:V\to W$ be a map of sets. Then the following are equivalent. 
+\begin{itemize}
+\item $f$ is regular. 
+\item $f$ is continuous, and $\varphi\in\mO_W(W)$ implies $\varphi\circ f\in\mO_V(V)$. 
+\item $f$ is a morphism of affine varieties. 
+\end{itemize} \tcbline
+\begin{proof}
+The equivalence between the second and the third statements is true since $\mO_V(V)\cong k[V]$. \\~\\
 
+Let $f$ be regular. It is clear that the coordinate functions $c_1,\dots,c_n:W\to k$ is regular on $W$. By definition, we have that $c_1\circ f,\dots,c_n\circ f$ are regular. Hence $f=(c_1\circ f,\dots,c_n\circ f)$. \\~\\
 
+Conversely, 
+\end{proof}
+\end{prp} (Gathman 4.7)
+
+\begin{defn}{Regular Maps}{} Let $k$ be a field. Let $V,W$ be varieties over $k$. Let $f:V\to W$ be a map of sets. We say that $f$ is regular if for all $p\in X$, there exists charts $p\in U_i$ and $f(p)\in U_j$ such that the map $$f|_{U_i}:U_i\to U_j$$ is a regular map between affine varieties. 
+\end{defn}
+
+\begin{prp}{}{} Let $k$ be a field. Let $V,W$ be varieties over $k$. Let $f:V\to W$ be a map of sets. Then the following are equivalent. 
+\begin{itemize}
+\item $f$ is regular. 
+\item $f$ is a morphism of quasi-projective varieties. 
+\item $f$ is continuous, and $\varphi\in\mO_W(W)$ implies $\varphi\circ f\in\mO_V(V)$. 
+\end{itemize} \tcbline
+\begin{proof}
+Suppose that $f$ is regular. Let $p\in V$. Then $f(p)$ is contained in some affine chart $(U_i,\phi_i)$. Moreover, $f^{-1}(U)$ is an open neighbourhood of $p$, and the restriction $f|_{f ^{-1}(U_i)}:f^{-1}(U_i)\to U_i$ is regular. Since $p\in f^{-1}(U)\subseteq V$, we can also choose an affine chart of $p$ and consider its intersection with $f^{-1}(U)$. Call it $U$. Then $f|_U:U\to U_i$ is a regular map. This restriction is contained entirely in an affine piece of the projective space. By the above we can write $$f|_U=(f_1,\dots,f_n)$$ for $f_1,\dots,f_n$ regular functions on $U$. 
+\end{proof}
+\end{prp}
 
 
 
