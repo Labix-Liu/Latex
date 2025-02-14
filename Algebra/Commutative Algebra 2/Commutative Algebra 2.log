@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  9 FEB 2025 14:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  14 FEB 2025 11:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1114,6 +1114,31 @@ d on input line 78.
 [11]
 
 [12]
+Underfull \hbox (badness 10000) in paragraph at lines 245--255
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--255
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--267
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--267
+
+ []
+
+
 
 [13]
 
@@ -1122,47 +1147,30 @@ d on input line 78.
 [15]
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
-
- []
-
-
-LaTeX Warning: Reference `defn:7.1.7' on page 17 undefined on input line 390.
-
-
-LaTeX Warning: Citation `Rav' on page 17 undefined on input line 432.
-
-
-LaTeX Warning: Citation `Ern' on page 17 undefined on input line 432.
-
-
-LaTeX Warning: Citation `Mat' on page 17 undefined on input line 432.
-
-
 
 [17]
 
 [18]
-
-LaTeX Warning: Citation `Har' on page 19 undefined on input line 436.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
 
  []
 
 
-LaTeX Warning: Reference `prp:7.1.6' on page 19 undefined on input line 450.
+LaTeX Warning: Reference `defn:7.1.7' on page 19 undefined on input line 445.
+
+
+LaTeX Warning: Citation `Rav' on page 19 undefined on input line 487.
+
+
+LaTeX Warning: Citation `Ern' on page 19 undefined on input line 487.
+
+
+LaTeX Warning: Citation `Mat' on page 19 undefined on input line 487.
 
 
 
@@ -1170,97 +1178,118 @@ LaTeX Warning: Reference `prp:7.1.6' on page 19 undefined on input line 450.
 
 [20]
 
-LaTeX Warning: Reference `thm:7.1.2' on page 21 undefined on input line 471.
+LaTeX Warning: Citation `Har' on page 21 undefined on input line 491.
 
 
-LaTeX Warning: Reference `thm:7.1.3' on page 21 undefined on input line 471.
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
+
+ []
 
 
-LaTeX Warning: Citation `Liu' on page 21 undefined on input line 476.
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
+
+ []
 
 
-LaTeX Warning: Citation `CRing' on page 21 undefined on input line 476.
-
-
-LaTeX Warning: Reference `thm:7.1.2' on page 21 undefined on input line 496.
-
-
-LaTeX Warning: Reference `prp:7.1.4' on page 21 undefined on input line 500.
-
-
-LaTeX Warning: Reference `thm:7.1.3' on page 21 undefined on input line 500.
+LaTeX Warning: Reference `prp:7.1.6' on page 21 undefined on input line 505.
 
 
 
 [21]
 
-LaTeX Warning: Reference `prp:7.1.5' on page 22 undefined on input line 515.
-
-
-LaTeX Warning: Reference `prp:7.1.6' on page 22 undefined on input line 515.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 515--516
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 515--516
-
- []
-
-
-
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
- []
-
-
-LaTeX Warning: Citation `Dav' on page 23 undefined on input line 523.
+LaTeX Warning: Reference `thm:7.1.2' on page 23 undefined on input line 526.
 
 
-LaTeX Warning: Citation `Per' on page 23 undefined on input line 539.
+LaTeX Warning: Reference `thm:7.1.3' on page 23 undefined on input line 526.
 
 
-LaTeX Warning: Citation `Liu' on page 23 undefined on input line 539.
+LaTeX Warning: Citation `Liu' on page 23 undefined on input line 531.
+
+
+LaTeX Warning: Citation `CRing' on page 23 undefined on input line 531.
+
+
+LaTeX Warning: Reference `thm:7.1.2' on page 23 undefined on input line 551.
+
+
+LaTeX Warning: Reference `prp:7.1.4' on page 23 undefined on input line 555.
+
+
+LaTeX Warning: Reference `thm:7.1.3' on page 23 undefined on input line 555.
 
 
 
 [23]
 
-LaTeX Warning: Citation `Har' on page 24 undefined on input line 543.
+LaTeX Warning: Reference `prp:7.1.5' on page 24 undefined on input line 570.
 
 
-LaTeX Warning: Citation `Liu' on page 24 undefined on input line 543.
+LaTeX Warning: Reference `prp:7.1.6' on page 24 undefined on input line 570.
 
 
-LaTeX Warning: Citation `Dav' on page 24 undefined on input line 543.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 543--544
+Underfull \hbox (badness 10000) in paragraph at lines 570--571
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 543--544
+Underfull \hbox (badness 10000) in paragraph at lines 570--571
 
  []
-
-
-LaTeX Warning: Citation `Pat' on page 24 undefined on input line 545.
-
-
-LaTeX Warning: Citation `Pat' on page 24 undefined on input line 550.
-
-
-LaTeX Warning: Reference `eg:4.1.7' on page 24 undefined on input line 554.
 
 
 
 [24]
+Underfull \hbox (badness 10000) in paragraph at lines 576--577
 
-[25] (Commutative Algebra 2.aux)
+ []
+
+
+LaTeX Warning: Citation `Dav' on page 25 undefined on input line 578.
+
+
+LaTeX Warning: Citation `Per' on page 25 undefined on input line 594.
+
+
+LaTeX Warning: Citation `Liu' on page 25 undefined on input line 594.
+
+
+
+[25]
+
+LaTeX Warning: Citation `Har' on page 26 undefined on input line 598.
+
+
+LaTeX Warning: Citation `Liu' on page 26 undefined on input line 598.
+
+
+LaTeX Warning: Citation `Dav' on page 26 undefined on input line 598.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 598--599
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 598--599
+
+ []
+
+
+LaTeX Warning: Citation `Pat' on page 26 undefined on input line 600.
+
+
+LaTeX Warning: Citation `Pat' on page 26 undefined on input line 605.
+
+
+LaTeX Warning: Reference `eg:4.1.7' on page 26 undefined on input line 609.
+
+
+
+[26]
+
+[27] (Commutative Algebra 2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
@@ -1271,13 +1300,13 @@ LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `"Commutative Algebra 2".out' has not changed
 .
-(rerunfilecheck)             Checksum: 5642900629B8A4762B05E8E04736D56F;5145.
+(rerunfilecheck)             Checksum: 4D870A3C6993CCFE4854B1F3777451F3;5794.
  ) 
 Here is how much of TeX's memory you used:
- 33297 strings out of 473577
- 660120 string characters out of 5716318
- 1088954 words of memory out of 5000000
- 55852 multiletter control sequences out of 15000+600000
+ 33449 strings out of 473577
+ 663706 string characters out of 5716318
+ 1090429 words of memory out of 5000000
+ 55989 multiletter control sequences out of 15000+600000
  600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,17n,120p,802b,1484s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1300,9 +1329,9 @@ type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs
 ocal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Commutative Algebra 2.pdf" (25 pages, 444380 bytes).
+Output written on "Commutative Algebra 2.pdf" (27 pages, 458947 bytes).
 PDF statistics:
- 450 PDF objects out of 1000 (max. 8388607)
- 103 named destinations out of 1000 (max. 500000)
- 237 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 494 PDF objects out of 1000 (max. 8388607)
+ 118 named destinations out of 1000 (max. 500000)
+ 269 words of extra memory for PDF output out of 10000 (max. 10000000)
 

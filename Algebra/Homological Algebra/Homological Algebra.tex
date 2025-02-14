@@ -539,7 +539,7 @@ is a commutative diagram.
 \end{tikzcd}}\\~\\
 \end{defn}
 
-\begin{defn}{Tensor Product Double Complex}{} Let $\mA$ be an abelian category. Let $(C_\bullet,d^C)$ and $(D_\bullet,d^D)$ be two chain complexes. Define the tensor product of $C_\bullet$ and $D_\bullet$ to be the double complex $C_\bullet\otimes D_\bullet$ with the horizontal differential and vertical differential is defined by $$d^h=d^C\otimes\text{id}_D\;\;\;\;\text{ and }\;\;\;\;d^v=\text{id}_C\otimes d^D$$ respectively. 
+\begin{defn}{Tensor Product Double Complex}{} Let $\mA$ be an abelian category. Let $(C_\bullet,d^C)$ and $(D_\bullet,d^D)$ be two chain complexes. Define the tensor product of $C_\bullet$ and $D_\bullet$ to be the double complex $C_\bullet\otimes D_\bullet$ with the horizontal differential and vertical differential is defined by $$d^h=d^{C_p}\otimes\text{id}_{D_q}\;\;\;\;\text{ and }\;\;\;\;d^v=(-1)^p\text{id}_{C_p}\otimes d^{D_q}$$ respectively. 
 \end{defn}
 
 \subsection{Total Complexes}
@@ -990,8 +990,11 @@ The following definitions requires the use of central elements. Recall that when
 \end{tikzcd}} \\~\\
 \end{defn}
 
-\begin{defn}{Generalized Koszul Complexes}{} Let $R$ be a ring. Let $x_1,\dots,x_n\in Z(R)$ be central elements. Define the generalized Koszul complex $K(x_1,\dots,x_n)$ of $x_1,\dots,x_n$ in $R$ to be the chain complex given by $$K(x_1,\dots,x_n)=\text{Tot}^\oplus\left(K(x_1)\oplus_R\cdots\oplus_R K(x_n)\right)$$ If $M$ is an $R$-module, define the generalized Koszul complex of $M$ to be $$K(x_1,\dots,x_n;M)=K(x_1,\dots,x_n)\otimes_R M$$
+\begin{defn}{Generalized Koszul Complexes}{} Let $R$ be a ring. Let $x_1,\dots,x_n\in Z(R)$ be central elements. Define the generalized Koszul complex $K(x_1,\dots,x_n)$ of $x_1,\dots,x_n$ in $R$ to be the chain complex given by $$K(x_1,\dots,x_n)=\text{Tot}^\oplus\left(K(x_1)\otimes_R\cdots\otimes_R K(x_n)\right)$$ If $M$ is an $R$-module, define the generalized Koszul complex of $M$ to be $$K(x_1,\dots,x_n;M)=K(x_1,\dots,x_n)\otimes_R M$$
 \end{defn}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $x_1,\dots,x_n\in Z(R)$ be central elements. Then there is an isomorphism $$\bigwedge_{i=1}^kR^n\cong K(x_1,\dots,x_n)_k$$ given on the basis elements by $$e_{i_1}\wedge\cdots\wedge e_{i_k}\mapsto1\otimes\cdots\otimes 1\otimes e_{i_1}\otimes\cdots\otimes e_{i_k}\otimes 1\otimes\cdots\otimes 1$$
+\end{prp}
 
 \begin{thm}{}{} Let $R$ be a ring. Let $x_1,\dots,x_n\in Z(R)$ be central elements. Then the Koszul complex $K(x_1,\dots,x_n)$ is given explicitly as \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -1003,8 +1006,22 @@ The following definitions requires the use of central elements. Recall that when
 	\arrow["{d_1}", from=1-5, to=1-6]
 	\arrow[from=1-6, to=1-7]
 \end{tikzcd}}\\~\\
-where the differential $d_k:\bigwedge_{i=1}^kR^n\to\bigwedge_{i=1}^{k-1}R^n$ is given on basis elements by $$d(e_{i_1}\wedge\cdots\wedge e_{i_k})=\sum_{j=0}^k(-1)^{j+1}x_{i_j}e_{i_0}\wedge\cdots\wedge\hat{e}_{i_j}\wedge\cdots\wedge e_{i_k}$$
+where the differential $d_k:\bigwedge_{i=1}^kR^n\to\bigwedge_{i=1}^{k-1}R^n$ is given on basis elements by $$d(e_{i_1}\wedge\cdots\wedge e_{i_k})=\sum_{j=1}^k(-1)^{j+1}x_{i_j}e_{i_0}\wedge\cdots\wedge\hat{e}_{i_j}\wedge\cdots\wedge e_{i_k}$$ where each $e_{i_j}\in\R^n$. 
 \end{thm}
+
+For an example, let $R$ be a commutative ring. Let $x,y\in R$. Then the Koszul complex $K(x,y)$ is given by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {R^2\wedge R^2} & {R^2} & R & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+The differentials are given as follows. 
+\begin{itemize}
+\item The first differential $R^2\to R$ is given by $(r,s)\mapsto rx+sy$. It can also be given as a $1\times 2$ matrix as $\begin{pmatrix}x & y\end{pmatrix}$. Also alternatively, we can write an $R$-basis for $R^2$ with $(1,0)$ and $(0,1)$. Then define the map $R^2\to R$ by $(1,0)\mapsto x$ and $(0,1)\mapsto y$. 
+\item Now recall that $R^2\wedge R^2$ has $R$-basis given by $(1,0)\wedge(0,1)$ and so there is an isomorphism $R^2\wedge R^2\cong R$. Then the second differential $R\to R^2$ is given by $1\mapsto(x,-y)$. 
+\end{itemize}
 
 \begin{defn}{Koszul (Co)Homology}{} Let $R$ be a ring. Let $x_1,\dots,x_n\in Z(R)$ be central elements. Let $M$ be an $R$-module. Define the Koszul homology of $M$ with respect to $x_1,\dots,x_n$ by $$H_k^\text{Kos}(x_1,\dots,x_n;M)=H_k(K(x_1,\dots,x_n;M))$$ Define the Koszul cohomology of $M$ with respect to the central elements by $$H_\text{Kos}^k(x_1,\dots,x_n;M)=H^k(\Hom_R(K(x_1,\dots,x_n)),M)$$
 \end{defn}

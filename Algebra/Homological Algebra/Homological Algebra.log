@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  22 JAN 2025 20:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  14 FEB 2025 10:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1194,11 +1194,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 888--889
 [25]
 
 [26]
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1022
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1022
+
+ []
+
+
 
 [27]
 
 [28]
-Overfull \hbox (3.34154pt too wide) in paragraph at lines 1052--1053
+Overfull \hbox (3.34154pt too wide) in paragraph at lines 1069--1070
 []\T1/qpl/m/n/10 Notice that co-ho-mo-log-i-cal spec-tral se-quences are re-all
 y the same thing as ho-mo-log-i-cal spec-tral se-quences,
  []
@@ -1206,17 +1216,17 @@ y the same thing as ho-mo-log-i-cal spec-tral se-quences,
 
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1077--1086
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1103
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1077--1086
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1103
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1077--1086
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1103
 
  []
 
@@ -1233,7 +1243,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1077--1086
 [34]
 
 [35]
-Underfull \hbox (badness 1117) in paragraph at lines 1289--1290
+Underfull \hbox (badness 1117) in paragraph at lines 1306--1307
 []\T1/qpl/m/n/10 Define sim-i-larly the ho-mo-topy cat-e-gories $\OML/cmm/m/it/
 10 K[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A\OT1/cmr/m/n/10 )$\T1/qpl/m/n/10 , $\O
 ML/cmm/m/it/10 K[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A\OT1/cmr/m/n/10 )$ \T1/qpl
@@ -1265,10 +1275,10 @@ Package rerunfilecheck Info: File `"Homological Algebra".out' has not changed.
 (rerunfilecheck)             Checksum: 5B252D38FD8AD6C3FB662BBB9B25DA8A;8247.
  ) 
 Here is how much of TeX's memory you used:
- 38108 strings out of 473577
- 782663 string characters out of 5716318
- 1234790 words of memory out of 5000000
- 60523 multiletter control sequences out of 15000+600000
+ 38163 strings out of 473577
+ 784074 string characters out of 5716318
+ 1235666 words of memory out of 5000000
+ 60577 multiletter control sequences out of 15000+600000
  601492 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,18n,120p,654b,1471s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1294,9 +1304,9 @@ s/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/
 Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri
 .pfb>
-Output written on "Homological Algebra.pdf" (42 pages, 585517 bytes).
+Output written on "Homological Algebra.pdf" (42 pages, 588655 bytes).
 PDF statistics:
- 749 PDF objects out of 1000 (max. 8388607)
- 240 named destinations out of 1000 (max. 500000)
+ 751 PDF objects out of 1000 (max. 8388607)
+ 241 named destinations out of 1000 (max. 500000)
  357 words of extra memory for PDF output out of 10000 (max. 10000000)
 

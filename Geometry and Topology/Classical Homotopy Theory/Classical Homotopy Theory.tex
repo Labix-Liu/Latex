@@ -548,12 +548,12 @@ Since $e_Z$ is a homotopy equivalence, we can find a homotopy inverse $k$ for $e
 \item $H(f(x),-)\ast k(\gamma'(-))\ast\overline{H(g(y),-)}(0)=H(f(x),0)=\text{id}_Z(f(x))=f(x)$
 \item $H(f(x),-)\ast k(\gamma'(-))\ast\overline{H(g(y),-)}(1)=H(g(y),0)=\text{id}_Z(g(y))=g(y)$
 \end{itemize}
-I claim that this map is inverse to the map $\phi=\phi_{X,Y,Z}^{X,Z',Y}$ where we take $e_X=\text{id}_X$ and $e_Y=\text{id}_Y$. We have that 
+I claim that this map is the homotopy inverse to the map $\phi=\phi_{X,Y,Z}^{X,Y,Z'}$. We have that 
 \begin{align*}
 \rho(\phi(x,\gamma,y))&=\rho(x,e_Z\circ\gamma,y)\\
 &=(x,H(f(x),-)\ast k(e_Z(\gamma(-))\ast\overline{H(g(y),-)},y)
 \end{align*}
-Now I claim that the middle path is homotopic to $\gamma$. For the first part, the path $H(f(x),t):I\to Z$ can be contracted to $H(f(x),0)=f(x)=\gamma(0)$ so you can homotope the traversal along $H(f(x),-)$ to the single point $f(x)=\gamma(0)$. For the third part, this is similar so we can homotope the traversal of $\overline{H(g(y),-)}$ to the single point $g(y)=\gamma(1)$. The middle part of the path is homotopic to $\gamma$ because $k\circ e_Z$ is homotopic to $\text{id}_Z$. Thus we conclude. 
+Now I claim that the middle path is homotopic to $\gamma$. For the first component of the concatenation, the path $H(f(x),t):I\to Z$ can be contracted to $H(f(x),0)=f(x)=\gamma(0)$ so you can homotope the traversal along $H(f(x),-)$ to the single point $f(x)=\gamma(0)$. For the third component of the concatenation, this is similar so we can homotope the traversal of $\overline{H(g(y),-)}$ to the single point $g(y)=\gamma(1)$. The middle part of the path is homotopic to $\gamma$ because $k\circ e_Z$ is homotopic to $\text{id}_Z$. Thus we conclude. 
 \end{proof}
 \end{thm}
 
@@ -591,7 +591,19 @@ e_Y(u) & \text{ if }u\in Y
 \end{thm}
 
 \subsection{Homotopy Pullbacks and Pushout Squares}
-We use the standard homotopy pullback and pushout to recognize homotopy pullbacks and pushouts up to weak equivalence. 
+\begin{defn}{Homotopy Commutative Squares}{} Let $W,X,Y,Z\in\bold{CGWH}$ be spaces such that there is a (not necessarily commutative) diagram \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	W & Y \\
+	X & Z
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+We say that the diagram is homotopy commutative if there exists a homotopy $H$ from $W\to X\to Z$ to $W\to Y\to Z$. 
+\end{defn}
+
+Notice that hidden from the square is the data of a homotopy. This is different from the commutative diagrams that we are used to. 
 
 \begin{defn}{Homotopy Pullback Squares}{} Let $W,X,Y,Z\in\bold{CGWH}$ be spaces such that there is a (not necessarily commutative) diagram \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -608,8 +620,6 @@ We use the standard homotopy pullback and pushout to recognize homotopy pullback
 \end{itemize}
 \end{defn}
 
-It is clear that the standard homotopy pullback indeed is a homotopy pullback. 
-
 \begin{defn}{Homotopy Pushout Squares}{} Let $W,X,Y,Z\in\bold{CGWH}$ be spaces such that there is a (not necessarily commutative) diagram \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	W & Y \\
@@ -625,7 +635,53 @@ It is clear that the standard homotopy pullback indeed is a homotopy pullback.
 \end{itemize}
 \end{defn}
 
-\subsection{Recognizing Homotopy Pullbacks and Pushouts}
+\begin{prp}{}{} Consider the following (not necessarily commutative) square \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X_1} & {X_2} & {X_3} \\
+	{Y_1} & {Y_2} & {Y_3}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+\end{tikzcd}}\\~\\
+in $\bold{CGWH}$. Let the right square be a homotopy pullback square. Then the left square is a homotopy pullback if and only if the rectangle is a homotopy pullback square. (6.4.4 Arkhowitz)
+\end{prp}
+
+\begin{prp}{}{} Consider the following (not necessarily commutative) square \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X_1} & {X_2} & {X_3} \\
+	{Y_1} & {Y_2} & {Y_3}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+\end{tikzcd}}\\~\\
+in $\bold{CGWH}$. Let the right square be a homotopy pullback square. Then the left square is a homotopy pullback if and only if the rectangle is a homotopy pullback square. (6.4.4 Arkhowitz)
+\end{prp}
+
+\begin{prp}{}{} Let $W,X,Y,Z\in\bold{CGWH}$ be spaces such that there is a (not necessarily commutative) diagram \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	W & Y \\
+	X & Z
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+Then the following are true. 
+\begin{itemize}
+\item If the square is a homotopy pullback, and $Y\to Z$ is a weak equivalence, then $W\to X$ is a weak equivalence. 
+\item If $Y\to Z$ and $W\to X$ are weak equivalence, then the square is a homotopy pullback. 
+\end{itemize}
+\end{prp}
+
+\subsection{Relation to (Co)Fibrations}
 \begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$ be spaces. Let $f:X\to Z$ and $g:Y\to Z$ be maps. Then the following spaces are homeomorphic to $$\text{holim}(X\overset{f}{\rightarrow}Z\overset{g}{\leftarrow}Y)$$ via the canonical map. 
 \begin{itemize}
 \item $\lim(P_f\rightarrow Z\overset{g}{\leftarrow}Y)$
@@ -689,7 +745,60 @@ Then the following are true.
 \begin{itemize}
 \item The square is a homotopy pullback if and only if for all $x\in X$, the map $$\text{hofiber}_x(W\to X)\to\text{hofiber}_{f(x)}(Y\to Z)$$ is a weak equivalence. 
 \item The square is $k$-cartesian if and only if for all $x\in X$, the map $$\text{hofiber}_x(W\to X)\to\text{hofiber}_{f(x)}(Y\to Z)$$ is $k$-connected. 
-\end{itemize}
+\end{itemize} \tcbline
+\begin{proof}
+Begin with the homotopy pullback square \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\text{holim}(X\rightarrow Z\leftarrow Y)} & Y \\
+	X & Z
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+We know that there is a homotopy pullback square given by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\text{holim}_y(g)} && Y \\
+	\ast & X & Z
+	\arrow[from=1-1, to=1-3]
+	\arrow[from=1-1, to=2-1]
+	\arrow["g", from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+\end{tikzcd}}\\~\\
+We can view this as a homotopy pullback square where we consider the composition $\text{holim}_y(g)\to\ast\to X$ as one single map. The gives a comparison of a homotopy pullback square with the standard homotopy pullback. Hence we obtain \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\text{holim}_y(g)} & {\text{holim}(X\rightarrow Z\leftarrow Y)} & Y \\
+	\ast & X & Z
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow["g", from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+\end{tikzcd}}\\~\\
+By the above prp, we conclude that the square on the left is a homotopy pullback. By the same method, we can glue two more squares to obtain the diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{\text{holim}_y(\alpha)} & {\text{holim}_y(f)} & W \\
+	\ast & {\text{holim}_y(g)} & {\text{holim}(X\rightarrow Z\leftarrow Y)} & Y \\
+	& \ast & X & Z
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow["u", from=1-2, to=2-2]
+	\arrow["\alpha", from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-2, to=3-2]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-3, to=3-3]
+	\arrow["g", from=2-4, to=3-4]
+	\arrow[from=3-2, to=3-3]
+	\arrow[from=3-3, to=3-4]
+\end{tikzcd}}\\~\\
+If $\alpha$ is a weak equivalence, then since the top wide rectangle is a homotopy pullback we have $\text{holim}_y(\alpha)$ is weakly equivalent to $\ast$. But the top left square is a homotopy pullback hence $\text{holim}_y(f)$ is weakly equivalent to $\text{holim}_y(g)$. Conversely, suppose that $u$ is a weak equivalence. Since the top left square is a homotopy pullback, this implies that $\text{holim}_y(\alpha)$ is weakly contractible for all $y$. In articular it is $n$-connected for all $n$. Then this implies that $\alpha$ is $(n+1)$-connected for all $n$. Hence $\alpha$ is a weak equivalence. 
+\end{proof}
 \end{prp}
 
 \subsection{Connectedness of Homotopy Squares}

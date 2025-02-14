@@ -144,10 +144,12 @@ S^{n-k}\wedge X & \text{ if } n\geq k\\
 
 \begin{defn}{The Loopspace Functor}{} Define the loopspace functor $\Omega^\infty:\mS^\N\to\bold{CG}_\ast$ as follows. 
 \begin{itemize}
-\item For $X=\{X_n\;|\;n\in\N\}$ a spectrum, $\Omega^\infty X=X_0$ returns the first space in the sequence. 
+\item For $X=\{X_n\;|\;n\in\N\}$ a spectrum, $$\Omega^\infty X=\text{hocolim}(X_0\to\Omega X_1\to\Omega^2X_2\to\cdots)$$ is a homotopy colimit
 \item For $f:X\to Y$ a morphism, $\Omega^\infty f:\Omega^\infty X\to\Omega^\infty Y$ is the map on the $0$th level in the function of spectra. 
 \end{itemize}
 \end{defn}
+
+(if $\Omega$ spectra then this functor just returns the first space. )
 
 \subsection{Functors From Spectra to Spectra}
 \begin{defn}{The Suspension of a Spectrum}{} Let $X=\{X_n,\sigma_n^X\}$ be a spectrum. Define the suspension $\Sigma X$ of $X$ to consist of the following data. 

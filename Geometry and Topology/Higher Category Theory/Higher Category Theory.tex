@@ -806,7 +806,7 @@ Fabian I.35
 \begin{prp}{}{} Let $\mC,\mD,\mE$ be infinity categories. Let $F:\mD\to\mE$ be a functor. Then the induced functor $$-\circ F:\text{Func}(\mE,\mC)\to\text{Func}(\mD,\mC)$$ preserves limits and colimits. 
 \end{prp}
 
-In particular, by choosing the inclusion functor $\{d\}\hookrightarrow\mD$, we obtain the (co)limit preserving functor $$\text{ev}_d:\text{Func}(\mD,\mC)\to\text{Func}(\{d\},\mC)\simeq\mC$$ Now given any diagram $X:K\to\text{Func}(\mD,\mC)$ that admits a limit, we can compute the value $\left(\lim_K X\right)(d)$ because we have $$\left(\lim_K X\right)(d)=\text{ev}_d\left(\lim_KX\right)=\lim_K(\text{ev}_d\circ X)$$ where the limit on the right is now a limit in $\mC$, whose diagram is given by $F(d)$ for all $F$ in the image of $X$. (I.39 Fabian)
+In particular, by choosing the inclusion functor $\{d\}\hookrightarrow\mD$, we obtain the (co)limit preserving functor $$\text{ev}_d:\text{Func}(\mD,\mC)\to\text{Func}(\{d\},\mC)\simeq\mC$$ Now given any diagram $X:K\to\text{Func}(\mD,\mC)$ that admits a limit, $\lim_K X$ is an object $\text{Func}(\mD,\mC)$. To compute the value of this functor at $d\in\mD$, we use the evaluation map to get $$\left(\lim_K X\right)(d)=\text{ev}_d\left(\lim_KX\right)=\lim_K(\text{ev}_d\circ X)$$ where the limit on the right is now an object in $\mC$, and the diagram of the limit is given on objects by $F(d)$ for all $F$ in the image of $X$. (I.39 Fabian)
 
 \pagebreak
 \section{Infinity Groupoids}

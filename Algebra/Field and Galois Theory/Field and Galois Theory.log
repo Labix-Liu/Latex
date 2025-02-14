@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  27 JAN 2025 00:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  11 FEB 2025 23:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1108,12 +1108,12 @@ la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 [10]
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
@@ -1134,27 +1134,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 273--274
 [18]
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
+Underfull \hbox (badness 10000) in paragraph at lines 520--521
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
+Underfull \hbox (badness 10000) in paragraph at lines 520--521
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 527--542
+Underfull \hbox (badness 10000) in paragraph at lines 522--537
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 527--542
+Underfull \hbox (badness 10000) in paragraph at lines 522--537
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 527--542
+Underfull \hbox (badness 10000) in paragraph at lines 522--537
 
  []
 
@@ -1188,10 +1188,10 @@ ed.
 (rerunfilecheck)             Checksum: 790C79ADFF08839E0D16F460D766B421;5510.
  ) 
 Here is how much of TeX's memory you used:
- 32927 strings out of 473577
- 650017 string characters out of 5716318
- 1074723 words of memory out of 5000000
- 55419 multiletter control sequences out of 15000+600000
+ 32925 strings out of 473577
+ 649983 string characters out of 5716318
+ 1074726 words of memory out of 5000000
+ 55418 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,16n,120p,1151b,1439s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1212,9 +1212,9 @@ e1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs
 /MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Field and Galois Theory.pdf" (29 pages, 458072 bytes).
+Output written on "Field and Galois Theory.pdf" (29 pages, 456194 bytes).
 PDF statistics:
- 535 PDF objects out of 1000 (max. 8388607)
- 169 named destinations out of 1000 (max. 500000)
+ 533 PDF objects out of 1000 (max. 8388607)
+ 168 named destinations out of 1000 (max. 500000)
  253 words of extra memory for PDF output out of 10000 (max. 10000000)
 
