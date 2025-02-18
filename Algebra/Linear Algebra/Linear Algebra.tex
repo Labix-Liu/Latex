@@ -205,19 +205,27 @@ S\circ T(au+bv)&=S(aT(u)+bT(v))\\
 \end{proof}
 \end{prp}
 
+\begin{prp}{Universal Property of Vector Spaces}{} Let $\F$ be a field. Let $V,W$ be vector spaces over $\F$. Let $B$ be a basis of $V$. Let $f:B\to W$ be a function. Then there exists a unique linear map $T:V\to W$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	B & V \\
+	& W
+	\arrow["\iota", hook, from=1-1, to=1-2]
+	\arrow["f"', from=1-1, to=2-2]
+	\arrow["{\exists!T}", dashed, from=1-2, to=2-2]
+\end{tikzcd}} \\~\\
+\end{prp}
+
 \subsection{Isomorphisms}
-\begin{defn}{Isomorphic Linear Maps}{} Let $V,W$ be vector spaces over a field $\F$. A linear map $T:V\to W$ is said to be an isomorphism if $T$ is bijective. In this case we also say that $V$ and $W$ are isomorphic. 
+\begin{defn}{Isomorphic Linear Maps}{} Let $V,W$ be vector spaces over a field $\F$. Let $T:V\to W$ be a linear. We say that $T$ is an isomorphism if there exists a linear map $S:W\to V$ such that $$S\circ T=\text{id}_V\;\;\;\;\text{ and }\;\;\;\;T\circ S=\text{id}_W$$
 \end{defn}
 
-\begin{thm}{}{} Let $V,W$ be vector spaces over a field $\F$. Let $T:V\to W$ be an isomorphism of vector spaces $V,W$ over $F$. Then its inverse map $$T^{-1}:W\to V$$ is a linear map. 
-\end{thm}
-
-\begin{thm}{}{} Let $T:V\to W$ be a linear map. Then the following are equivalent. 
+\begin{prp}{}{} Let $V,W$ be vector spaces over a field $\F$. Let $T:V\to W$ be a linear map. Then the following are equivalent. 
 \begin{itemize}
-\item $T$ is isomorphic
-\item If $v_1,\dots,v_n\in V$ is a basis of $V$ then $T(v_1),\dots,T(v_n)\in W$ is a basis of $W$
+\item $T$ is an isomorphism. 
+\item $T$ is bijective. 
+\item $v_1,\dots,v_n\in V$ is basis for $V$ if and only if $T(v_1),\dots,T(v_n)$ is a basis for $W$. 
 \end{itemize}
-\end{thm}
+\end{prp}
 
 \begin{crl}{}{} Every finite dimensional vector space over $\R$ is isomorphic to $\R^n$ for some $n\in\N\setminus\{0\}$. \tcbline
 \begin{proof} Direct consequence from the above. 
@@ -237,10 +245,10 @@ This corollary is especially important since it tells use that we only really ne
 \end{lmm}
 
 \subsection{Kernels and Images}
-\begin{defn}{Images and Kernels}{} Let $T:U\to V$ be a linear map. The image of $T$ is defined as $$\im(T)=\{\vb{v}\in V|T(\vb{u})=\vb{v}, \forall\vb{u}\in U\}$$ The kernel of $T$ is defined as $$\ker(T)=\{\vb{u}\in U|T(\vb{u})=\vb{0}_V\}$$
+\begin{defn}{Kernel of Linear Map}{} Let $\F$ be a field. Let $V,W$ be vector spaces over $\F$. Let $T:V\to W$ be a linear map. Define the kernel of $T$ to be the set $$\ker(T)=\{v\in V\;|\;T(v)=0\}$$
 \end{defn}
 
-\begin{thm}{}{} Let $T:U\to V$ be a linear map. Then
+\begin{prp}{}{} Let $T:U\to V$ be a linear map. Then the following are true. 
 \begin{itemize}
 \item $\im(T)$ is a subspace of $V$
 \item $\ker(T)$ is a subspace of $U$
@@ -251,7 +259,7 @@ This corollary is especially important since it tells use that we only really ne
 \item We now prove that $\ker(T)$ is a subspace of $U$. Suppose that $u,v\in\ker(T)$ and $a,b\in\F$. Then $T(au+bv)=aT(u)+bT(v)=0$. Thus $au+bv\in\ker(T)$. 
 \end{itemize}
 \end{proof}
-\end{thm}
+\end{prp}
 
 \begin{defn}{Rank and Nullity}{} Let $T:U\to V$ be a linear map. 
 \begin{itemize}

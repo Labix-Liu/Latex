@@ -116,13 +116,15 @@ We can now motivate the definition of a smooth point using the purely algebraic 
 \end{prp}
 
 \subsection{Rational Maps between Varieties}
-\begin{defn}{Equivalent Maps}{} Let $X,Y$ be irreducible varieties. Let $U_1,U_2\subseteq X$ be open. Let $f_1:U_1\to Y$ and $f_2:U_2\to Y$ be morphisms of varieties. We say that $f_1$ and $f_2$ are equivalent if there exists an open subset $W\subseteq U_1\cap U_2$ such that $$f_1|_W=f_2|_W:W\to Y$$
+\begin{defn}{An Equivalence Class of Maps}{} Let $X,Y$ be irreducible varieties. Let $U_1,U_2\subseteq X$ be open. Let $f_1:U_1\to Y$ and $f_2:U_2\to Y$ be morphisms of varieties. We say that $f_1$ and $f_2$ are equivalent if there exists an open subset $W\subseteq U_1\cap U_2$ such that $$f_1|_W=f_2|_W:W\to Y$$
 \end{defn}
 
 \begin{defn}{Rational Maps}{} Let $X,Y$ be irreducible varieties. A rational map $f:X\to Y$ is an equivalent class of morphisms of varieties $f:U\to Y$ for some open subset $U\subseteq X$. 
 \end{defn}
 
-Since open subsets of a variety dense, rational maps are maps that are defined almost entirely on $X$. In particular, notice that rational functions on an irreducible variety $V$ is the same as a rational map $V\to k$. 
+Since open subsets of a variety dense, rational maps are maps that are defined almost entirely on $X$. In particular, notice that rational functions on an irreducible variety $V$ is the same as a rational map $V\to k$. \\
+
+Moreover, if $f:X\to Y$ is a regular map (morphism of varieties), then $[(X,f)]$ is also a rational map. 
 
 \begin{defn}{Dominant Maps}{} Let $X,Y$ be irreducible varieties. Let $f:X\to Y$ be a rational map defined on $U\subseteq X$. We say that $f$ is dominant if $f(U)$ contains an open subset. 
 \end{defn}
@@ -165,6 +167,23 @@ K(\Prj^n)&=\left(k[x_0,\dots,x_n]_{(0)}\right)_0\\
 The zeroth graded component of $k(x_0,\dots,x_n)$ is given by $$(k(x_0,\dots,x_n))_0=\left\{\frac{f}{g}\in k(x_0,\dots,x_n)\;|\;\deg(f)=\deg(g)\right\}$$ Define a map $\phi:(k(x_0,\dots,x_n))_0\to k(x_1,\dots,x_n)$ by the map $$f(x_0,\dots,x_n)/g(x_0,\dots,x_n)\mapsto f(1,x_1,\dots,x_n)/g(1,x_1,\dots,x_n)$$ Evaluation of the zeroth variable with $1$ is a well defined $\C$-algebra homomorphism. I claim that this is a bijection. Define another map $\psi:k(x_1,\dots,x_n)\to(k(x_0,\dots,x_n))_0$ by $$h/k\mapsto x_0^d h(x_1/x_0,\dots,x_n/x_0)/x_0^d k(x_1/x_0,\dots,x_n/x_0)$$ where $d=\max\{\deg(f),\deg(g)\}$. By construction we see that $x_0^d h(x_1/x_0,\dots,x_n/x_0)$ has the same degree as $x_0^d k(x_1/x_0,\dots,x_n/x_0)$ and that they are homogeneous polynomials (similar to the homogenization of a polynomial). Moreover it is clear that $\psi$ and $\phi$ are inverses of each other. Hence we obtain an isomorphism of $\C$-algebras. 
 \end{proof}
 \end{lmm}
+
+\pagebreak
+\section{Different Types of Morphisms}
+\subsection{Proper Morphisms}
+
+\subsection{Finite Morphisms}
+\begin{defn}{Finite Morphisms Between Varieties}{} Let $k$ be a field. Let $X,Y$ be varieties over $k$. Let $f:X\to Y$ be a morphism of varieties. We say that $f$ is finite if there exists an affine cover $W_1,\dots,W_k$ of $Y$ such that $f^{-1}(W_i)$ is affine and that via the map $$f|_{f^{-1}(W_i)}:f^{-1}(W_i)\to W_i$$ we have that $k[f^{-1}(W)]$ is a finitely generated $k[W]$-module . 
+\end{defn}
+
+\begin{prp}{}{} Let $k$ be a field. Let $X,Y$ be varieties over $k$. Let $f:X\to Y$ be a morphism of varieties. If $f$ is finite and dominant, then the induced map $$K(Y)\to K(X)$$ is a finite field extension. 
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be a field. Let $X,Y$ be varieties over $k$. Let $f:X\to Y$ be a morphism of varieties. Then $f$ is finite if and only if $f$ is proper and $\abs{\phi^{-1}(q)}<\infty$ is finite for all $q\in Y$. 
+\end{prp}
+
+\begin{defn}{Degree of Finite Morphism}{} Let $k$ be a field. Let $X,Y$ be varieties over $k$. Let $f:X\to Y$ be a finite and dominant morphism of varieties. Define the the degree of $f$ to be $$\deg(f)=\dim_{K(Y)}K(X)$$
+\end{defn}
 
 \pagebreak
 \section{Normal Varieties}
@@ -211,30 +230,32 @@ Note: if $X$ is a curve we call this the exceptional divisor.
 \pagebreak
 \section{Theory of Divisors}
 \subsection{Divisors of a Variety}
-\begin{defn}{Divisors of a Variety}{} Let $X$ be a variety. Let $C_1,\dots,C_r$ be irreducible closed subvarieties of $X$ of codimension $1$. A divisor of $X$ is of the form $$D=\sum_{i=1}^rk_iC_i$$ for $k_i\in\Z$. We say that $k_i$ is the multiplicity of $C_i$ in $D$. Define the free group of all divisors of $X$ by $$\text{Div}(X)=\Z\left\langle C\;|\;C\substack{\text{ is an irreducible closed}\\\text{subvariety of codimension }1}\right\rangle$$ Generators of $\text{Div}(X)$ are called prime divisors. 
+\begin{defn}{Divisors of a Variety}{} Let $X$ be an irreducible variety. Define the free group of divisors of $X$ by $$\text{Div}(X)=\Z\left\langle C\;|\;C\substack{\text{ is an irreducible closed}\\\text{subvariety of codimension }1}\right\rangle$$ We call an element of the free group a divisor of $X$. We call generators of the free group prime divisors. 
 \end{defn}
 
-\begin{defn}{Effective Divisor}{} Let $X$ be a variety. We say that a divisor $$D=\sum_{i=1}^rk_iC_i$$ of $X$ is effective if $k_i\geq 0$ for all $i$. In this case we write $D>0$. 
+\begin{defn}{Effective Divisor}{} Let $X$ be an irreducible variety. We say that a divisor $$D=\sum_{i=1}^rk_iC_i$$ of $X$ is effective if $k_i\geq 0$ for all $i$. In this case we write $D>0$. 
 \end{defn}
 
-\begin{defn}{Divisor of a Function}{} Let $X$ be a variety such that the set of singular points of $X$ has codimension $\geq 2$. Let $f\in K(X)$. Let $C$ be a prime divisor of $X$. 
+Let $Y$ be an irreducible closed subvariety of a variety $X$ of codimension $1$. Recall that $\mO_{X,Y}$ is a local ring. 
+
+\begin{defn}{Divisor of a Function}{} Let $X$ be an irreducible variety such that $\mO_{X,Y}$ is a regular local ring for all irreducible closed subvariety of $X$ of codimension $1$. Let $f\in K(X)$. Define the divisor of $f$ to be $$\text{div}(f)=\sum_{p\in X}v_p(f)\cdot p$$ where $v_p$ is the discrete valuation of the regular local ring $\mO_{X,p}$. 
 \end{defn}
 
-\begin{defn}{Principal Divisors}{} Let $X$ be a variety. A divisor of the form $D=\text{div}(f)$ for some $f\in K(X)$ is called a principal divisor. \\~\\
-Define the set of all principal divisors by $P(X)$. 
+A lot of varieties have the property that $\mO_{X,p}$ is a regular local ring. A large class of them comes from smooth varieties, but normal? varieties also has this property. 
+
+\begin{lmm}{}{} Let $X$ be an irreducible variety such that $\mO_{X,Y}$ is a regular local ring for all irreducible closed subvariety of $X$ of codimension $1$. Let $f\in K(X)$. Then we have $\text{div}(f)\in\text{Div}(X)$ is a divisor of $X$. 
+\end{lmm}
+
+\begin{defn}{Principal Divisors}{} Let $X$ be an irreducible variety such that $\mO_{X,Y}$ is a regular local ring for all irreducible closed subvariety of $X$ of codimension $1$. Define the subgroup of principal divisors of $X$ to be $$\text{Prin}(X)=\{\text{div}(f)\;|\;f\in K(X)\}\leq\text{Div}(X)$$
 \end{defn}
 
-\begin{prp}{}{} Let $X$ be a variety. The set of all principal divisors $P(X)$ is a group. 
-\end{prp}
-
-\begin{defn}{Divisor Class Group}{} Let $X$ be a variety. Define the divisor class group of $X$ to be $$\text{Cl}(X)=\frac{\text{Div}(X)}{P(X)}$$
-We say that two divisors $D_1$ and $D_2$ are linearly equivalent if they lie in the same coset of $\text{Cl}(X)$, written as $D_1\sim D_2$. 
+\begin{defn}{Divisor Class Group}{} Let $X$ be an irreducible variety such that $\mO_{X,Y}$ is a regular local ring for all irreducible closed subvariety of $X$ of codimension $1$. Define the divisor class group of $X$ to be $$\text{Cl}(X)=\frac{\text{Div}(X)}{\text{Prin}(X)}$$ We say that two divisors $D$ and $D'$ of $X$ are linearly equivalent if $[D]=[D']\in\text{Cl}(X)$. 
 \end{defn}
 
-\begin{defn}{Degree of a Divisor}{}
+\begin{defn}{Degree of a Divisor}{} Let $X$ be an irreducible variety. Define the degree homomorphism $\deg:\text{Div}(X)\to\Z$ to be $$\deg\left(\sum_{i=1}^rk_iY_i\right)=\sum_{i=1}^rk_i$$ 
 \end{defn}
 
-\begin{prp}{}{} Let $X$ be a variety. Then $D$ is a principal divisor if and only if $\deg(D)=0$. 
+\begin{prp}{}{} Let $X$ be an irreducible variety such that $\mO_{X,Y}$ is a regular local ring for all irreducible closed subvariety of $X$ of codimension $1$. Then we have $$\ker(\deg)=\text{Prin}(D)$$ In particular, $D\in\text{Div}(X)$ is a principal divisor if and only if $\deg(D)=0$. 
 \end{prp}
 
 \subsection{The Linear System of a Divisor}

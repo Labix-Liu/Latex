@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  16 JAN 2025 19:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  17 FEB 2025 16:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1135,27 +1135,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--98
 [9]
 
 [10]
-Overfull \hbox (2.01079pt too wide) in paragraph at lines 291--292
+Overfull \hbox (2.01079pt too wide) in paragraph at lines 299--300
 \T1/qpl/m/n/10 tor spaces. How-ever, when does two ma-tri-ces rep-re-sent the s
 ame lin-ear map but in dif-fer-ent bases? 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--326
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 316--326
-
- []
-
-
 
 [11]
+Underfull \hbox (badness 10000) in paragraph at lines 324--334
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 324--334
+
+ []
+
+
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 350--351
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 
  []
 
@@ -1164,7 +1164,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 350--351
 [13]
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
 
  []
 
@@ -1175,17 +1175,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 408--409
 [16]
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 486--491
+Underfull \hbox (badness 10000) in paragraph at lines 494--499
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 486--491
+Underfull \hbox (badness 10000) in paragraph at lines 494--499
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 495--496
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
 
  []
 
@@ -1200,37 +1200,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 495--496
 [21]
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 630--635
+Underfull \hbox (badness 10000) in paragraph at lines 638--643
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 630--635
+Underfull \hbox (badness 10000) in paragraph at lines 638--643
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 630--635
+Underfull \hbox (badness 10000) in paragraph at lines 638--643
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 630--635
+Underfull \hbox (badness 10000) in paragraph at lines 638--643
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 630--635
+Underfull \hbox (badness 10000) in paragraph at lines 638--643
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 636--639
+Underfull \hbox (badness 10000) in paragraph at lines 644--647
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 636--639
+Underfull \hbox (badness 10000) in paragraph at lines 644--647
 
  []
 
@@ -1251,7 +1251,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 636--639
 [29]
 
 [30]
-Underfull \hbox (badness 1546) in paragraph at lines 885--886
+Underfull \hbox (badness 1546) in paragraph at lines 893--894
 []\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 V$ \T1/qpl/m/n/10 be a fi-nite di-men-si
 onal vec-tor space. Then $\OML/cmm/m/it/10 V[]$ \T1/qpl/m/n/10 is also fi-nite 
 di-men-sional and 
@@ -1282,26 +1282,26 @@ di-men-sional and
 [41]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1201.
+(hyperref)                removing `math shift' on input line 1209.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1201.
+(hyperref)                removing `math shift' on input line 1209.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1202--1203
+Underfull \hbox (badness 10000) in paragraph at lines 1210--1211
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1202--1203
+Underfull \hbox (badness 10000) in paragraph at lines 1210--1211
 
  []
 
 
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1236--1238
+Underfull \hbox (badness 10000) in paragraph at lines 1244--1246
 
  []
 
@@ -1310,15 +1310,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 1236--1238
 [43]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1285.
+(hyperref)                removing `math shift' on input line 1293.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1285.
+(hyperref)                removing `superscript' on input line 1293.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1285.
+(hyperref)                removing `math shift' on input line 1293.
 
 
 
@@ -1337,13 +1337,13 @@ Package rerunfilecheck Info: File `"Linear Algebra".out' has not changed.
 (rerunfilecheck)             Checksum: EB57DE5586B3A368960029F779E6FA2B;7456.
  ) 
 Here is how much of TeX's memory you used:
- 33065 strings out of 473577
- 651246 string characters out of 5716318
- 1085656 words of memory out of 5000000
- 55454 multiletter control sequences out of 15000+600000
+ 33123 strings out of 473577
+ 652775 string characters out of 5716318
+ 1084656 words of memory out of 5000000
+ 55512 multiletter control sequences out of 15000+600000
  601492 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,17n,120p,1155b,1383s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,17n,120p,1155b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1363,7 +1363,7 @@ X/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Linear Algebra.pdf" (47 pages, 578061 bytes).
+Output written on "Linear Algebra.pdf" (47 pages, 579557 bytes).
 PDF statistics:
  792 PDF objects out of 1000 (max. 8388607)
  266 named destinations out of 1000 (max. 500000)

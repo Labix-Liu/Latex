@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  8 FEB 2025 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  17 FEB 2025 18:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1241,13 +1241,13 @@ L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Algebraic Geometry 1".out' has not changed.
 
-(rerunfilecheck)             Checksum: DE1899CD75108B626B34D33EE544B329;9162.
+(rerunfilecheck)             Checksum: 3F9DBF76D10BD8FC088DB4B2D2145E50;8862.
  ) 
 Here is how much of TeX's memory you used:
- 33164 strings out of 473577
- 654311 string characters out of 5716318
- 1080693 words of memory out of 5000000
- 55566 multiletter control sequences out of 15000+600000
+ 33167 strings out of 473577
+ 654366 string characters out of 5716318
+ 1079693 words of memory out of 5000000
+ 55567 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,17n,120p,1375b,1439s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1270,9 +1270,9 @@ ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppDat
 a/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Geometry 1.pdf" (47 pages, 583704 bytes).
+Output written on "Algebraic Geometry 1.pdf" (47 pages, 585808 bytes).
 PDF statistics:
- 784 PDF objects out of 1000 (max. 8388607)
- 259 named destinations out of 1000 (max. 500000)
- 365 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 781 PDF objects out of 1000 (max. 8388607)
+ 261 named destinations out of 1000 (max. 500000)
+ 357 words of extra memory for PDF output out of 10000 (max. 10000000)
 

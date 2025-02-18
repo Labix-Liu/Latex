@@ -746,7 +746,7 @@ In general, for $W$ an affine variety of $\C^n$, considering $\C^n$ in the open 
 
 Given an affine variety $W\subseteq\A_k^n$, even if we chose an identification $\A_k^n\cong U_i$ of some affine piece of $\Prj^n$, there are still multiple choices of projective varieties $V$ for which $V\cap U_i\cong W$. The projective closure is precisely the smallest of such choice. 
 
-\begin{eg}{}{} Consider the example $T=\V(y-x^2,z-xy)\subseteq\A_\C^3$. Consider the affine piece $$U_3=\{[x:y:z:1]\;|\;x,y,z\C\}\subset\Prj_\C^3$$ Define $$V=\V((y-x^2)_3^+,(z-xy)_3^+)=\V(wy-x^2,zw-xy)\subset\Prj_\C^3$$ By construction, we have that $U_3\cap V=T$ by setting $w=1$. Now consider $V\setminus U_3=V\cap\V(w)$. We deduce that this is given by $x=0$ and so $V\setminus U_3=\V(x,w)$ which is a line in $\Prj_\C^3$. \\~\\
+\begin{eg}{}{} Consider the example $T=\V(y-x^2,z-xy)\subseteq\A_\C^3$. Consider the affine piece $$U_3=\{[x:y:z:1]\;|\;x,y,z\in\C\}\subset\Prj_\C^3$$ Define $$V=\V((y-x^2)_3^+,(z-xy)_3^+)=\V(wy-x^2,zw-xy)\subset\Prj_\C^3$$ By construction, we have that $U_3\cap V=T$ by setting $w=1$. Now consider $V\setminus U_3=V\cap\V(w)$. We deduce that this is given by $x=0$ and so $V\setminus U_3=\V(x,w)$ which is a line in $\Prj_\C^3$. \\~\\
 
 In other words, we took the homgenization of the polynomials of the variety. But we found out that this was way bigger than the original variety $T$. Indeed there is a whole projective line. \\~\\
 
@@ -1041,6 +1041,9 @@ Similar to homeomorphisms between spaces, it is not enough to just require that 
 \begin{prp}{}{} Let $k$ be a field. Let $V,W$ be varieties over $k$. If $V$ and $W$ are isomorphic, then $V$ and $W$ are homeomorphic. 
 \end{prp}
 
+\begin{prp}{}{} Let $k$ be a field. Let $(U_i,\varphi_i)$ be an affine chart of $\Prj_k^n$. Then $\varphi_i:U_i\to\A^n$ is an isomorphism of varieties. 
+\end{prp}
+
 \subsection{Redefining Varieties}
 \begin{defn}{Extended Definition of Affine Varieties}{} A quasiprojective variety is said to be affine if it is isomorphic to a closed subset of affine space. 
 \end{defn}
@@ -1060,12 +1063,21 @@ Similar to homeomorphisms between spaces, it is not enough to just require that 
 \pagebreak
 \section{The Algebra of Regular Functions}
 \subsection{Regular Functions on Quasi-Projective Varieties}
-\begin{defn}{Regular Functions on Quasi-Projective Varieties}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be a quasi-projective variety over $k$. Let $f:V\to k$ be a map of sets. Let $p\in V$. We say that $f$ is regular at $p$ if there exists an open neighbourhood $p\in U\subseteq V$ such that $$f(x)=\frac{g(x)}{h(x)}$$ for all $x\in U$ and $g,h\in k[x_1,\dots,x_n]$ such that $h\neq 0$ on $U$. 
+\begin{defn}{Regular Functions on Quasi-Projective Varieties}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be a quasi-projective variety over $k$. Let $f:V\to k$ be a map of sets. Let $p\in V$. We say that $f$ is regular at $p$ if there exists an open neighbourhood $p\in U\subseteq V$ such that $$f(x)=\frac{g(x)}{h(x)}$$ for all $x\in U$ and $g,h\in k[x_0,\dots,x_n]$ homogeneous such that $h\neq 0$ on $U$. 
 \end{defn}
 
 \begin{prp}{}{} Let $k$ be a field. Let $V$ be a variety over $k$. Let $f:V\to k$ be a regular map. Then $f$ is continuous. 
 \end{prp}
 
+\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Then there is an isomorphism $$\C[V]\cong\mO_V(V)$$ given by the map $f\mapsto\frac{f}{1}$. 
+\end{prp}
+
+This is the same as saying regular functions on $V$ are precisely the morphism of varieties from $V$ to $\C$. 
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\Prj^n$ be a projective variety over $k$. Then there is a $k$-algebra isomorphism $$\mO_V(V)\cong k$$
+\end{prp}
+
+\subsection{The System of Rings of Regular Functions}
 \begin{defn}{The Algebra of Regular Functions}{} Let $V$ be a quasi-projective variety over $\C$. Let $U$ be an open subset of $V$. Define the $\C$-algebra of regular functions on $U$ to be the set $$\mO_V(U)=\{f:U\to\C\;|\;f\text{ is regular on }U\}$$ together with addition and multiplication of rational functions. 
 \end{defn}
 
@@ -1075,7 +1087,6 @@ Similar to homeomorphisms between spaces, it is not enough to just require that 
 \begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $f\in\C[V]$. Then there is an isomorphism $$\mO_V(D(f))\cong\C[V]_f$$
 \end{prp}
 
-\subsection{The System of Rings of Regular Functions}
 \begin{defn}{Restriction Maps}{} Let $V$ be a quasi-projective variety over $\C$. Let $U,W$ be an open subset of $V$ such that $W\subseteq U$. Define the restriction map to be the $\C$-algebra homomorphism $$\text{res}_W^U:\mO_V(U)\to\mO_V(W)$$ by the identity. 
 \end{defn}
 
@@ -1095,30 +1106,25 @@ These information organize well into a sheaf.
 \begin{defn}{Ring of Germs of Regular Functions}{} Let $p$ be a point of a variety $X$. Define the local ring of $p$ on $X$ to be $$\mO_{X,p}=\{(U,f)\;|\;U\subseteq X\text{ is open}, p\in U, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. 
 \end{defn}
 
-\begin{prp}{}{} Let $X$ be a variety and $p\in X$. Then the ring of germs $\mathcal{O}_{X,p}$ is a local ring. 
+\begin{prp}{}{} Let $X$ be a variety and $p\in X$. Then the ring of germs $\mathcal{O}_{X,p}$ is a local ring. \tcbline
+\begin{proof}
+Define $m=\{f\in\mO_{X,p}\;|\;f(p)=0\}$. This is well defined even for subsets of projective varieties since $f\in\mO_{X,p}$ are defined as a quotient of homogeneous polynomials. It is clear that kernel of the evaluation map $\mO_{X,p}\to k$ defined by $f\mapsto f(p)$. This map is surjective since for any $a\in k$, the constant function $f=a$ is sent to $a$ under the evaluation map. Hence there is an isomorphism $\mO_{X,p}/m\cong k$ so that $m$ is a maximal ideal. By definition if $f\in m$ then $f(p)=0$ so that $f$ is not invertible in $\mO_{X,p}$. Conversely if $f\notin m$ then $f(p)\neq 0$ so that $f$ is invertible in $\mO_{X,p}$. Hence $m$ is the unique maximal ideal containing all non-invertible elements of the ring. 
+\end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $k$ be a field. Let $X\subseteq\Prj^n$ be a variety over $k$. Let $p\in X$. Let $(U_i,\varphi_i)$ be an affine chart for $\Prj^n$. Then there is a $k$-algebra isomorphism $$\mO_{X,p}\cong\mO_{\varphi(U_i),\varphi_i(p)}$$
+We typically use $m_p$ to refer to the unique maximal ideal of $\mO_{X,p}$. As we will see that there is an injection $k[V]\to\mO_{X,p}$ when $V$ is affine, $m_p$ could often refer to both the maximal ideal of $k[V]$ or the maximal ideal of $\mO_{X,p}$. 
+
+\begin{prp}{}{} Let $k$ be a field. Let $X\subseteq\Prj^n$ be a variety over $k$. Let $p\in X$. Let $(U_i,\varphi_i)$ be an affine chart for $\Prj^n$. Then there is a $k$-algebra isomorphism $$\mO_{X,p}\cong\mO_{\varphi(X\cap U_i),\varphi_i(p)}$$ for all $p\in U_i$. \tcbline
+\begin{proof}
+Define a map $\phi:\mO_{X,p}\to\mO_{\varphi(U_i),\varphi_i(p)}$ by $[(V,f)]\mapsto[(\varphi_i(V\cap U_i),f|_{V\cap U_i}\circ\varphi^{-1})]$ This is well defined since $\varphi^{-1}$ is a bijection. 
+\end{proof}
 \end{prp}
 
 In other words, we can compute the local ring on an affine chart, which matches intuitively the fact that everything in the local germ can be read off locally. 
 
-\begin{defn}{Induced Map on Germs}{} Let $k$ be a field. Let $X,Y$ be varieties over $k$. Let $\phi:X\to Y$ be a morphism of varieties. Let $p\in X$ be a point. Define the induced map on germs to be the map $$\phi^\ast:\mO_{Y,f(p)}\to\mO_{X,p}$$ given by $(U,f)\mapsto(\phi^{-1}(U),f\circ\phi)$. 
-\end{defn}
-
-\subsection{Regular Functions on Affine Varieties}
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Then there is an isomorphism $$\C[V]\cong\mO_V(V)$$ given by the map $f\mapsto\frac{f}{1}$. 
-\end{prp}
-
-This is the same as saying regular functions on $V$ are precisely the morphism of varieties from $V$ to $\C$. 
-
 \begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Let $p\in V$ and let $m_p$ be the maximal ideal corresponding to $p$ under Hilbert's nullstellensatz. Then there is an isomorphism $$\mO_{V,p}\cong\C[V]_{m_p}$$
 \end{prp}
 
-\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be an affine variety over $k$. Let $p\in V$. Then we have $$\dim(V)=\dim(k[V])=\dim(\mO_{V,p})$$
-\end{prp}
-
-\subsection{Regular Functions on Projective Varieties}
 \begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\Prj^n$ be a projective variety over $k$. Let $p\in V$. Then there is a $k$-algebra isomorphism $$\mathcal{O}_{V,p}\cong(k^H[V]_{\I^H(\{p\})})_0$$ where the zero refers to taking the degree zero part of the graded ring. \tcbline
 \begin{proof}
 Let $p\in V$. Choose an affine chart $(U_i,\varphi_i)$ for which $p\in U_i$. By definition of regular functions we have $\mO_{V,p}=\mO_{\varphi_i(U_i\cap V),\varphi_i(p)}$.  Then $\mO_{\varphi_i(U_i\cap V),\varphi(p)}\cong k[\varphi_i(U_i\cap V)]_{m_{\varphi(p)}}$ from the affine case. Consider the map from 5.2.2 $\phi:k[\varphi_i(U_i\cap V)]\to (k^H[V]_{x_i})_0$ which is an isomorphism of $\C$-algebras. I claim that $$\phi(m_{\varphi_i(p)})=\I^H(\{p\})(k^H[V]_{\I^H(\{p\})})_0$$ Let $f\in m_{\varphi_i(p)}$. Then $f$ vanishes on $\varphi_i(p)$. Using the same argument in 5.2.2 we see that $H_i(f)$ vanishes on $p$. Hence $\frac{H_i(f)}{x_i^{\deg(f)}}\in\I^H(\{p\})(k^H[V]_{\I^H(\{p\})})_0$. Conversely, if $g/x_i^{\deg(g)}\in\I^H(\{p\})(k^H[V]_{\I^H(\{p\})})_0$. Then again the same argument shows that $g(\varphi_i(p))=0$. Hence $g\in m_{\varphi_i(p)}$. \\~\\
@@ -1127,10 +1133,27 @@ By 5.2.2, we obtain a further isomrphism $$\mO_{\varphi_i(U_i\cap V),\varphi(p)}
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\Prj^n$ be a projective variety over $k$. Then there is a $k$-algebra isomorphism $$\mO_V(V)\cong k$$
+\begin{prp}{}{} Let $k$ be a field. Let $X$ be a variety over $k$. Let $p\in X$. Then we have $$\dim(X)=\dim(\mO_{X,p})$$
 \end{prp}
 
-\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\Prj_k^n$ be a projective variety over $k$. Let $p\in V$. Then we have $$\dim(V)=\dim(k^H[V])-1=\dim(\mO_{V,p})$$
+\begin{defn}{Induced Map on Germs}{} Let $k$ be a field. Let $X,Y$ be varieties over $k$. Let $\phi:X\to Y$ be a morphism of varieties. Let $p\in X$ be a point. Define the induced map on germs to be the map $$\phi^\ast:\mO_{Y,f(p)}\to\mO_{X,p}$$ given by $(U,f)\mapsto(\phi^{-1}(U),f\circ\phi)$. 
+\end{defn}
+
+\subsection{Regular Functions Near a Variety}
+\begin{defn}{Ring of Germs}{} Let $X$ be a variety. Let $Y\subseteq X$ be a subvariety. Define the local ring of $X$ at $Y$ to be $$\mO_{X,Y}=\{(U,f)\;|\;U\subseteq X\text{ is open }, U\cap Y\neq\emptyset, f\text{is regular on }Y\}/\sim$$ where we say that $(U,f)\sim(V,g)$ if $f=g$ on $U\cap V$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a variety. Let $Y\subseteq X$ be a subvariety. Then the following are true. 
+\begin{itemize}
+\item $\mO_{X,Y}$ is a local ring. 
+\item $\dim(\mO_{X,Y})=\dim(X)-\dim(Y)$
+\item $\text{Frac}(\mO_{X,Y})=K(Y)$. 
+\end{itemize}
+\end{prp}
+
+3.13 Hartshorne
+
+\begin{prp}{}{} Let $k$ be a field. Let $X$ be an affine variety over $k$. Let $Y$ be an irreducible closed subvariety of $Y$. Then there is a $k$-algebra isomorphism $$\mO_{X,Y}\cong k[X]_{\I(Y)}$$
 \end{prp}
 
 \subsection{Regular Maps Between Varieties}

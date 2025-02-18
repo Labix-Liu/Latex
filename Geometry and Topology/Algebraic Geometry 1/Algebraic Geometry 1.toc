@@ -39,6 +39,5 @@
 \contentsline {subsection}{\numberline {9.1}Regular Functions on Quasi-Projective Varieties}{43}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}The System of Rings of Regular Functions}{43}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}Regular Functions Near a Point}{44}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Regular Functions on Affine Varieties}{44}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Regular Functions on Projective Varieties}{45}{subsection.9.5}%
-\contentsline {subsection}{\numberline {9.6}Regular Maps Between Varieties}{46}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.4}Regular Functions Near a Variety}{46}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Regular Maps Between Varieties}{46}{subsection.9.5}%

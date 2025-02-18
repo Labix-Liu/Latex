@@ -29,10 +29,10 @@
 \begin{defn}{Stable Filtrations}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be an $R$-module. Let $$M_0\supseteq\cdots\supseteq M_n\supseteq\cdots$$ be a descending filtration. We say that the filtration is stable with respect to $I$ if there exists $k\in\N$ such that $$IM_n=M_{n+1}$$ for all $n\geq k$. 
 \end{defn}
 
-\begin{defn}{Graded Ring Associated to a Filtration}{} Let $R$ be a commutative ring. Let $I_0\supseteq I_1\supseteq\cdots\supseteq I_n\supseteq\cdots$ be a filtration of $R$. Define the graded ring associated to the filtration to be $$\text{gr}(R)=\bigoplus_{n=0}^\infty\frac{I_n}{I_{n+1}}$$ with multiplication given by $(x+I_{n+1})\cdot(y+I_{m+1})=xy+I_{n+m+1}$
+\begin{defn}{Graded Module Associated to a Filtration}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $I_0\supseteq I_1\supseteq\cdots\supseteq I_n\supseteq\cdots$ be a filtration of $R$. Define the graded ring associated to the filtration to be $$\text{gr}(R)=\bigoplus_{n=0}^\infty\frac{I_nM}{I_{n+1}M}$$ with multiplication given by $(x+I_{n+1}M)\cdot(y+I_{m+1}M)=xy+I_{n+m+1}M$
 \end{defn}
 
-We have seen in Rings and Modules that the graded ring associated to the filtrartion $$R\supseteq I\supseteq I^2\supseteq\cdots\supseteq I^n\supseteq\cdots$$ is precisely the graded ring $$\text{gr}_I(R)=\bigoplus_{n=0}^\infty\frac{I^n}{I^{n+1}}$$ associated to the commutative ring $R$. 
+We have seen in Rings and Modules that the graded ring associated to the filtrartion $$R\supseteq I\supseteq I^2\supseteq\cdots\supseteq I^n\supseteq\cdots$$ is precisely the graded ring $$\text{gr}_I(M)=\bigoplus_{n=0}^\infty\frac{I^n}{I^{n+1}}$$ associated to the commutative ring $R$. 
 
 \subsection{Filtrations by Powers of Ideals}
 \begin{thm}{Artin-Rees Lemma}{} Let $R$ be a Noetherian commutative ring. Let $I$ be an ideal of $A$. Let $M$ be a finitely generated $R$-module. Let $N\leq M$ be an $R$-submodule. Then there exists $c\in\N$ such that $$I^nM\cap N=I^{n-c}(I^cM\cap N)$$ for all $n>c$. \tcbline
@@ -122,8 +122,11 @@ where the maps are induced by the universal property of inverse limits.
 
 \pagebreak
 \section{More on Dimension Theory}
-\subsection{The Hilbert-Samuel Series}
-\begin{defn}{The Hilbert Series}{} Let $R$ be commutative ring such that $R=\bigoplus_{i=0}^\infty R_i$ is graded. Let $M=\bigoplus_{i=0}^\infty$ be a graded $R$-module. Define the Hilbert-Samuel series of $M$ to be the infinite series $HS_M\in\Z[[t]]$ given by $$HS_M(t)=\sum_{i=0}^\infty l_{R_0}(M_i)t^i$$
+\subsection{The Hilbert Series}
+\begin{defn}{The Hilbert Function}{} Let $R$ be commutative ring such that $R=\bigoplus_{i=0}^\infty R_i$ is graded. Let $M=\bigoplus_{i=0}^\infty M_i$ be a graded $R$-module. Define the Hilbert function of $M$ to be $$HF_M(n)=l_{R_0}(M_n)$$
+\end{defn}
+
+\begin{defn}{The Hilbert Series}{} Let $R$ be commutative ring such that $R=\bigoplus_{i=0}^\infty R_i$ is graded. Let $M=\bigoplus_{i=0}^\infty M_i$ be a graded $R$-module. Define the Hilbert-Samuel series of $M$ to be the infinite series $HS_M\in\Z[[t]]$ given by $$HS_M(t)=\sum_{i=0}^\infty HF_M(i)t^i=\sum_{i=0}^\infty l_{R_0}(M_i)t^i$$
 \end{defn}
 
 \begin{prp}{}{} Let $R=\bigoplus_{i=0}^\infty R_i$ be a commutative, Noetherian and graded ring. Let $M=\bigoplus_{k=0}^\infty M_k$ be a finitely generated graded $R$-module. Then there exists $f\in\Z[t]$ such that the Hilbert series is given $$HS_M(t)=\frac{f(t)}{\prod_{i=1}^r(1-t^{d_i})}$$ as a rational function for some $d_i\in\N$. \tcbline
@@ -187,6 +190,15 @@ which completes the induction step. After cancelling factors of $(1-t)$ in $f(t)
 Suppose $f(t)$ is given by $\sum_{i=0}^Na_it^i$. Then we have $$HS_M(t)=\frac{f(t)}{(1-t)^d}=\sum_{i=0}^Na_it^i\sum_{k=0}^\infty\binom{d+k-1}{d-1}t^k$$ The coefficient of $t^n$ in this product is given by $\sum_{j=0}^Na_j\binom{d+n-j-1}{d-1}$. Set $\varphi(n)$ to be this sum. But the coefficient of $HS_M(t)$ is also $l_{R_0}(M_n)$ by definition. Hence we deduce that $$l_{R_0}(n)=\varphi(n)=\sum_{j=0}^Na_j\binom{d+n-j-1}{d-1}$$ which is non-zero when $n\geq N+1-d=\deg(f)+1-d$. In particular, expanding the binomial gives a polynomial in $n$ whose largest power of $n$ is $d$. Hence $d=\deg(\varphi)$ and we are done. 
 \end{proof}
 \end{crl}
+
+\subsection{The Hilbert-Samuel Function}
+In the following we use the convention $I^0=R$ for $I$ an ideal of the commutative ring $R$. 
+
+\begin{defn}{Hilbert-Samuel Function}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be a finitely generated $R$-module. Define the Hilbert-Samuel function of $M$ with respect to $I$ to be $$\chi_M^I(n)=l_R\left(\frac{M}{I^nM}\right)$$
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be a finitely generated $R$-module. Then we have $$\chi_M^I(n)=\sum_{i=0}^nHF_{\text{gr}_I(M)}(i)=\sum_{i=0}^nl_R\left(\frac{I^iM}{I^{i+1}M}\right)$$
+\end{prp}
 
 \subsection{Minimal Number of Generators of m-Primary Ideals}
 Let $R$ be a commutative ring. Let $P$ be a prime ideal of $P$. Recall that an ideal $I$ is said to be $P$-primary if the following are true. 
