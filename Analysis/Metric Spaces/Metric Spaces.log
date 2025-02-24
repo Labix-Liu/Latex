@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  28 JAN 2025 09:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  23 FEB 2025 18:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1104,22 +1104,22 @@ la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 [8]
 
 [9]
-Overfull \hbox (5.85747pt too wide) in paragraph at lines 208--209
+Overfull \hbox (5.85747pt too wide) in paragraph at lines 236--237
 \T1/qpl/m/n/10 log-i-cal prop-er-ties rather than met-ric prop-er-ties, which w
 ill be dis-cussed more on a topol-ogy course. 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 223.
+(hyperref)                removing `math shift' on input line 251.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 223.
+(hyperref)                removing `superscript' on input line 251.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 223.
+(hyperref)                removing `math shift' on input line 251.
 
 
 
@@ -1144,15 +1144,15 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [19]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 434.
+(hyperref)                removing `math shift' on input line 462.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 434.
+(hyperref)                removing `superscript' on input line 462.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 434.
+(hyperref)                removing `math shift' on input line 462.
 
 
 
@@ -1163,14 +1163,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
-Package rerunfilecheck Info: File `"Metric Spaces".out' has not changed.
-(rerunfilecheck)             Checksum: 94BB7F4786909A435B70205897B30503;4734.
+
+
+Package rerunfilecheck Warning: File `"Metric Spaces".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Metric Spaces".out':
+(rerunfilecheck)             Before: 726F4F8801BB28D5DEE670537D9EBF85;4736
+(rerunfilecheck)             After:  81F0039524E654058C4E1E1B152E4E89;4951.
  ) 
 Here is how much of TeX's memory you used:
- 32681 strings out of 473577
- 644144 string characters out of 5716318
+ 32690 strings out of 473577
+ 644291 string characters out of 5716318
  1073633 words of memory out of 5000000
- 55204 multiletter control sequences out of 15000+600000
+ 55207 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,13n,120p,761b,1203s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1192,9 +1199,9 @@ ype1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Metric Spaces.pdf" (21 pages, 406796 bytes).
+Output written on "Metric Spaces.pdf" (21 pages, 410563 bytes).
 PDF statistics:
- 467 PDF objects out of 1000 (max. 8388607)
- 138 named destinations out of 1000 (max. 500000)
+ 474 PDF objects out of 1000 (max. 8388607)
+ 144 named destinations out of 1000 (max. 500000)
  237 words of extra memory for PDF output out of 10000 (max. 10000000)
 

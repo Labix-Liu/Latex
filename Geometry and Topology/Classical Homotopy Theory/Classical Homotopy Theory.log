@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  13 FEB 2025 19:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  24 FEB 2025 11:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1116,69 +1116,59 @@ oopspace ad-junc-tion in $[][]$.
 [5]
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 168--176
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 168--176
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 168--176
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 177--185
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 177--185
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 177--185
-
- []
-
-
 
 [7]
+Underfull \hbox (badness 10000) in paragraph at lines 196--204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--213
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--213
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--213
+
+ []
+
+
 
 [8]
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 255--265
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 255--265
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 255--265
-
- []
-
-
 
 [10]
 
 [11]
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
+Underfull \hbox (badness 10000) in paragraph at lines 392--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
+Underfull \hbox (badness 10000) in paragraph at lines 392--402
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--402
 
  []
 
@@ -1189,18 +1179,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 380--381
 [14]
 
 [15]
-Overfull \hbox (19.35158pt too wide) in paragraph at lines 481--482
-\T1/qpl/m/n/10 ful for us to first con-sider this case also be-cause of how it 
-is re-lated to maps of spaces and (co)fibrations. 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 484--497
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--497
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
 
  []
 
@@ -1213,7 +1197,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 484--497
 [18]
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 693--694
+Overfull \hbox (19.35158pt too wide) in paragraph at lines 708--709
+\T1/qpl/m/n/10 ful for us to first con-sider this case also be-cause of how it 
+is re-lated to maps of spaces and (co)fibrations. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 711--724
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 711--724
 
  []
 
@@ -1226,6 +1221,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 693--694
 [22]
 
 [23]
+Underfull \hbox (badness 10000) in paragraph at lines 920--921
+
+ []
+
+
 
 [24]
 
@@ -1236,17 +1236,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 693--694
 [27]
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 989--998
+
+[29]
+
+[30]
+
+[31]
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 1216--1225
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 989--998
+Underfull \hbox (badness 10000) in paragraph at lines 1216--1225
 
  []
 
 
-Overfull \hbox (12.61661pt too wide) in paragraph at lines 998--999
+Overfull \hbox (12.61661pt too wide) in paragraph at lines 1225--1226
 \T1/qpl/m/n/10 So we are re-ally just say-ing that $\OML/cmm/m/it/10 ^^Y[]\OT1/
 cmr/m/n/10 (\OML/cmm/m/it/10 A; A \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 B\OT1/cmr
 /m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/
@@ -1257,55 +1265,55 @@ m/n/10 )$\T1/qpl/m/n/10 -connected.
 
 
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1034
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1034
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1034
-
- []
-
-
-
-[30]
-
-[31]
-
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 1090--1099
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1090--1099
-
- []
-
-
-
 [33]
+Underfull \hbox (badness 10000) in paragraph at lines 1253--1261
 
-[34] (Classical Homotopy Theory.aux)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1253--1261
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1253--1261
+
+ []
+
+
+
+[34]
+
+[35]
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1317--1326
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1317--1326
+
+ []
+
+
+
+[37]
+
+[38] (Classical Homotopy Theory.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Classical Homotopy Theory".out' has not cha
 nged.
-(rerunfilecheck)             Checksum: 700D089AA117DEB2079E266091B2E7DD;6247.
+(rerunfilecheck)             Checksum: 82C3ECEE9EC64FAB637EB073A71374F1;7342.
  ) 
 Here is how much of TeX's memory you used:
- 34962 strings out of 473577
- 702350 string characters out of 5716318
- 1120740 words of memory out of 5000000
- 57466 multiletter control sequences out of 15000+600000
+ 35663 strings out of 473577
+ 719782 string characters out of 5716318
+ 1138721 words of memory out of 5000000
+ 58135 multiletter control sequences out of 15000+600000
  600947 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,22n,120p,1457b,1543s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1329,9 +1337,9 @@ rograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/
 liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Classical Homotopy Theory.pdf" (34 pages, 527697 bytes).
+Output written on "Classical Homotopy Theory.pdf" (38 pages, 556144 bytes).
 PDF statistics:
- 538 PDF objects out of 1000 (max. 8388607)
- 154 named destinations out of 1000 (max. 500000)
- 237 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 611 PDF objects out of 1000 (max. 8388607)
+ 186 named destinations out of 1000 (max. 500000)
+ 269 words of extra memory for PDF output out of 10000 (max. 10000000)
 

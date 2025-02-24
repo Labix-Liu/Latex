@@ -2969,16 +2969,29 @@ Recall that an $R$-module $M$ is finitely generated and free if and only if $M\c
 
 By definition of quotients, the reduced suspension defines a canonical continuous map sending a space $X$ to its reduced suspension $\Sigma X$. 
 
-\begin{thm}{}{} The reduced suspension $\Sigma$ define functors on $\bold{Top}_\ast$ and $\bold{hTop}_\ast$ as follows. 
+\begin{prp}{}{} The reduced suspension $\Sigma$ define functors on $\bold{Top}_\ast$ and $\bold{hTop}_\ast$ as follows. 
 \begin{itemize}
 \item $\Sigma$ sends a pointed space $(X,x_0)$ to $$(\Sigma X,(x_0,0))$$
 \item For the non homotopy category, $\Sigma$ sends a map $f:X\to Y$ to $$\Sigma f:\Sigma X\to\Sigma Y$$ defined by $\Sigma f([x,t])=[f(x),t]$
 \item For the homotopy category, $\Sigma$ sends a homotopy class of maps $[X,Y]$ to $$[\Sigma X,\Sigma Y]$$ respectively given by the same formula as above
 \end{itemize}
-\end{thm}
+\end{prp}
 
-\begin{defn}{Unreduced Suspensions}{} Let $X$ be a space. Define the unreduced suspension of $X$ to be the space $$SX=\frac{X\times I}{X\times\{0\},X\times\{1\}}$$
+\begin{prp}{}{} Let $n\in\N$. Then there is a homeomorphism $\Sigma S^n\cong S^{n+1}$. 
+\end{prp}
+
+\begin{prp}{}{} Let $X$ be a space. Then the suspension map induces natural isomorphisms $$\widetilde{H}_{k+1}(\Sigma X)\cong\widetilde{H}(X)$$ for $k\geq -1$. 
+\end{prp}
+
+\begin{defn}{(Reduced) Cone}{} Let $(X,x_0)$ be a pointed space. Define the reduced cone of the space to be $$CX=\frac{X\times I}{X\times\{1\}\cup\{x_0\}\times I}$$ together with the base point $[(x_0,1)]=X\times\{1\}\cup\{x_0\}\times I$. 
 \end{defn}
+
+\begin{prp}{}{} The reduced cone defines a functor on $$C:\bold{Top}_\ast\to\bold{Top}_\ast$$ as follows. 
+\begin{itemize}
+\item $C$ sends a pointed space $(X,x_0)$ to $(CX,[(x_0,1)])$
+\item $C$ sends a map $f:X\to Y$ to $$Cf:CX\to CY$$ given by the induced map $f\times\text{id}_I$ by taking quotients. 
+\end{itemize}
+\end{prp}
 
 \subsection{The Construction of the Loop Space}
 \begin{defn}{Compact Open Topology}{} Let $X,Y$ be spaces. Define the compact open topology on the set $$\Hom_\bold{Top}(X,Y)=\{f:X\to Y\;|\;f\text{ is continuous}\}$$ as follows. For $K\subseteq X$ compact and $U\subseteq Y$ open, consider the fiber product $$V(K,U)=\Hom_\bold{Top}(K,U)\times_{\Hom_\bold{Top}(K,Y)}\Hom_\bold{Top}(X,Y)$$ The collection of all $V(K,U)$ running through $K$ and $U$ forms the subbase for the compact open topology on $\Hom_\bold{Top}(X,Y)$. 
@@ -3009,8 +3022,22 @@ Switzer / Hatcher\\
 
 By the set bijection $[\Sigma^nX,Y]_\ast\cong[X,\Omega^nY]_\ast$, we can endow the structure of a group on $[\Sigma^nX,Y]_\ast$. 
 
-\subsection{(Co)Homology of Suspensions and Loopspaces}
-\begin{prp}{}{} Let $X$ be a space. Then the suspension map induces natural isomorphisms $$\widetilde{H}_{k+1}(\Sigma X)\cong\widetilde{H}(X)$$ for $k\geq -1$. 
+\subsection{Unpointed Suspensions and Mapping Spaces}
+\begin{defn}{Unreduced Cone}{} Let $X$ be a space. Define the unreduced cone of $X$ to be $$CX=\frac{X\times I}{X\times\{1\}}$$
+\end{defn}
+
+\begin{defn}{Unreduced Suspensions}{} Let $X$ be a space. Define the unreduced suspension of $X$ to be the space $$SX=\frac{X\times I}{X\times\{0\},X\times\{1\}}$$
+\end{defn}
+
+\begin{prp}{}{} Let $X$ be a space. Then the following diagram is a pushout: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X\times\{0\}} & CX \\
+	CX & SX
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
 \end{prp}
 
 \begin{prp}{}{} Let $X$ be a space. The the unreduced suspension map induces natural isomorphisms $$H_{k+1}(SX)\cong H_k(SX)$$ for $k\geq 1$. Moreover, the following are true. 
@@ -3019,6 +3046,9 @@ By the set bijection $[\Sigma^nX,Y]_\ast\cong[X,\Omega^nY]_\ast$, we can endow t
 \item $H_0(SX)\cong\Z$. 
 \end{itemize}
 \end{prp}
+
+\begin{defn}{Free Loopspace}{} Let $X$ be a space. Define the free loopspace of $X$ to be $$LX=\text{Map}(S^1,X)$$
+\end{defn}
 
 \subsection{Group Structure on the Set of Maps}
 \begin{defn}{Group Structure on Loop Spaces}{} Let $X$ be a space. Define a group structure on $\Omega X$ as follows. Let $\cdot:\Omega X\times\Omega X\to\Omega X$ be defined as the concatenation: $(f,g)\mapsto f\cdot g$. 
@@ -3047,6 +3077,10 @@ In general, there are different parameters of the (co)homology theories.
 \item ``Generalized'' means that that dimension axiom is dropped. This enables wilder (co)homology theories such as (co)bordism to appear. ``Ordinary'' means that the dimension axiom is included. In the case that we restrict to CW complexes, this axiom ensures that all (co)homology theories of this type are isomorphic to each other. 
 \item ``Reduced'' theories typically throw away the relative context in order to gain more concrete computations. There is a theorem that says that determining a generalized (co)homology theory is the ``same'' determining a reduced theory and vice versa. 
 \end{itemize}
+
+\subsection{The Mapping Cone}
+\begin{defn}{Mapping Cone}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. Define the mapping cone of $f$ to be $$C_f=CX\amalg_fY=\frac{CX\amalg Y}{\sim}$$ where the relation is generated by $(x,0)\sim f(x)$ for $x\in X$, and $CX$ is the unreduced cone of $X$. 
+\end{defn}
 
 \subsection{Reduced Homology Theory}
 In Algebraic Topology 2, we have also encountered the notion of reduced singular homology. This is derived directly from singular homology, where one simply defines reduced singular homology by also considering the augmented chain complex. Such a construction can easily be extended to arbitrary homology theories: Indeed there is no need for a topological argument in the definition of reduced singular homology. \\~\\

@@ -238,38 +238,28 @@ Note: if $X$ is a curve we call this the exceptional divisor.
 
 Let $Y$ be an irreducible closed subvariety of a variety $X$ of codimension $1$. Recall that $\mO_{X,Y}$ is a local ring. 
 
-\begin{defn}{Divisor of a Function}{} Let $X$ be an irreducible variety such that $\mO_{X,Y}$ is a regular local ring for all irreducible closed subvariety of $X$ of codimension $1$. Let $f\in K(X)$. Define the divisor of $f$ to be $$\text{div}(f)=\sum_{p\in X}v_p(f)\cdot p$$ where $v_p$ is the discrete valuation of the regular local ring $\mO_{X,p}$. 
+\begin{defn}{Regular in Codimension $1$}{} Let $k$ be a field. Let $X$ be an irreducible variety over $k$. We say that $X$ is regular in codimension $1$ if for all irreducible closed subvariety $Y$ of $X$ of codimension $1$, we have that $\mO_{X,Y}$ is a regular local ring. 
+\end{defn}
+
+\begin{defn}{Divisor of a Function}{} Let $k$ be an algebraically closed field. Let $X$ be an irreducible variety that is regular in codimension $1$. Let $f\in K(X)$. Define the divisor of $f$ to be $$\text{div}(f)=\sum_{p\in X}v_p(f)\cdot p$$ where $v_p$ is the discrete valuation of the regular local ring $\mO_{X,p}$. 
 \end{defn}
 
 A lot of varieties have the property that $\mO_{X,p}$ is a regular local ring. A large class of them comes from smooth varieties, but normal? varieties also has this property. 
 
-\begin{lmm}{}{} Let $X$ be an irreducible variety such that $\mO_{X,Y}$ is a regular local ring for all irreducible closed subvariety of $X$ of codimension $1$. Let $f\in K(X)$. Then we have $\text{div}(f)\in\text{Div}(X)$ is a divisor of $X$. 
+\begin{lmm}{}{} Let $k$ be an algebraically closed field. Let $X$ be an irreducible variety over $k$ that is regular in codimension $1$. Let $f\in K(X)$. Then we have $\text{div}(f)\in\text{Div}(X)$ is a divisor of $X$. 
 \end{lmm}
 
-\begin{defn}{Principal Divisors}{} Let $X$ be an irreducible variety such that $\mO_{X,Y}$ is a regular local ring for all irreducible closed subvariety of $X$ of codimension $1$. Define the subgroup of principal divisors of $X$ to be $$\text{Prin}(X)=\{\text{div}(f)\;|\;f\in K(X)\}\leq\text{Div}(X)$$
+\begin{defn}{Principal Divisors}{} Let $k$ be an algebraically closed field. Let $X$ be an irreducible variety over $k$ that is regular in codimension $1$. Define the subgroup of principal divisors of $X$ to be $$\text{Prin}(X)=\{\text{div}(f)\;|\;f\in K(X)\}\leq\text{Div}(X)$$
 \end{defn}
 
-\begin{defn}{Divisor Class Group}{} Let $X$ be an irreducible variety such that $\mO_{X,Y}$ is a regular local ring for all irreducible closed subvariety of $X$ of codimension $1$. Define the divisor class group of $X$ to be $$\text{Cl}(X)=\frac{\text{Div}(X)}{\text{Prin}(X)}$$ We say that two divisors $D$ and $D'$ of $X$ are linearly equivalent if $[D]=[D']\in\text{Cl}(X)$. 
+\begin{defn}{Divisor Class Group}{} Let $k$ be an algebraically closed field. Let $X$ be an irreducible variety over $k$ that is regular in codimension $1$. Define the divisor class group of $X$ to be $$\text{Cl}(X)=\frac{\text{Div}(X)}{\text{Prin}(X)}$$ We say that two divisors $D$ and $D'$ of $X$ are linearly equivalent if $[D]=[D']\in\text{Cl}(X)$. 
 \end{defn}
 
 \begin{defn}{Degree of a Divisor}{} Let $X$ be an irreducible variety. Define the degree homomorphism $\deg:\text{Div}(X)\to\Z$ to be $$\deg\left(\sum_{i=1}^rk_iY_i\right)=\sum_{i=1}^rk_i$$ 
 \end{defn}
 
-\begin{prp}{}{} Let $X$ be an irreducible variety such that $\mO_{X,Y}$ is a regular local ring for all irreducible closed subvariety of $X$ of codimension $1$. Then we have $$\ker(\deg)=\text{Prin}(D)$$ In particular, $D\in\text{Div}(X)$ is a principal divisor if and only if $\deg(D)=0$. 
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $X$ be an irreducible variety over $k$ that is regular in codimension $1$. Then we have $$\ker(\deg)=\text{Prin}(D)$$ In particular, $D\in\text{Div}(X)$ is a principal divisor if and only if $\deg(D)=0$. 
 \end{prp}
-
-\subsection{The Linear System of a Divisor}
-\begin{defn}{Associated Vector Space of a Divisor}{} Let $X$ be a nonsingular variety. Define the associated vector space of a divisor $D$ of $X$ to be $$\mathcal{L}(D)=\{f\in K(X)\;|\;\text{div}(f)+D\geq 0\}\cup\{0\}$$
-\end{defn}
-
-\begin{lmm}{}{} Let $X$ be a nonsingular variety. Then $\mathcal{L}(D)$ is a vector space over the field $k$. 
-\end{lmm}
-
-\begin{defn}{Dimension of the Associated Vector Space}{} Let $X$ be a nonsingular variety. Denote $\ell(D)$ the dimension of $\mathcal{L}(D)$, which is also called the dimension of $D$. 
-\end{defn}
-
-\begin{thm}{}{} Linearly equivalent divisors have the same dimension. 
-\end{thm}
 
 \pagebreak
 \section{Intersection Theory}

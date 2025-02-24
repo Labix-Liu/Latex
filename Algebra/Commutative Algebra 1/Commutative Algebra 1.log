@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  5 FEB 2025 18:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  23 FEB 2025 14:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1107,28 +1107,28 @@ enc}]
 [10]
 
 [11]
+Underfull \hbox (badness 10000) in paragraph at lines 299--308
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 299--308
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--342
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--342
+
+ []
+
+
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 323--332
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 323--332
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 344--353
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 344--353
-
- []
-
-
 
 [13]
 
@@ -1195,48 +1195,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 344--353
 [44]
 
 [45]
-Overfull \hbox (30.0pt too wide) in paragraph at lines 1358--1359
+
+[46]
+Overfull \hbox (30.0pt too wide) in paragraph at lines 1439--1440
 [][] 
  []
 
 
 
-[46]
-
 [47]
-Overfull \hbox (24.5716pt too wide) in paragraph at lines 1408--1409
+
+[48]
+Overfull \hbox (24.5716pt too wide) in paragraph at lines 1489--1490
 []\T1/qpl/m/n/10 Dedekind sought for an in-te-gral do-main whose ide-als can be
  fac-tor-ized uniquely as a prod-uct of primes. 
  []
 
 
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 1464--1465
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1464--1465
+Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
 
  []
 
 
 
-[49] (Commutative Algebra 1.aux)
+[50] (Commutative Algebra 1.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Commutative Algebra 1".out' has not changed
 .
-(rerunfilecheck)             Checksum: 902106918F8195B97EA31C86E6A496FC;10260.
+(rerunfilecheck)             Checksum: 16159DC8E35A2EC2FEEBE2F515C0D652;10575.
  ) 
 Here is how much of TeX's memory you used:
- 33913 strings out of 473577
- 672704 string characters out of 5716318
- 1081513 words of memory out of 5000000
- 56279 multiletter control sequences out of 15000+600000
+ 33935 strings out of 473577
+ 673060 string characters out of 5716318
+ 1082654 words of memory out of 5000000
+ 56289 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,22n,120p,1445b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1258,9 +1260,9 @@ onts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Commutative Algebra 1.pdf" (49 pages, 590202 bytes).
+Output written on "Commutative Algebra 1.pdf" (50 pages, 599532 bytes).
 PDF statistics:
- 879 PDF objects out of 1000 (max. 8388607)
- 295 named destinations out of 1000 (max. 500000)
- 445 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 906 PDF objects out of 1000 (max. 8388607)
+ 307 named destinations out of 1000 (max. 500000)
+ 461 words of extra memory for PDF output out of 10000 (max. 10000000)
 

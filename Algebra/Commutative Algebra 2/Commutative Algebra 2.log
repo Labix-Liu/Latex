@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  14 FEB 2025 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  23 FEB 2025 17:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1114,182 +1114,188 @@ d on input line 78.
 [11]
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--268
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 269--279
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 269--279
-
- []
-
-
 
 [13]
 
 [14]
 
 [15]
+Underfull \hbox (badness 10000) in paragraph at lines 332--342
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--342
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--354
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--354
+
+ []
+
+
 
 [16]
 
 [17]
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 404--405
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 404--405
-
- []
-
-
-LaTeX Warning: Reference `defn:7.1.7' on page 19 undefined on input line 457.
-
-
-LaTeX Warning: Citation `Rav' on page 19 undefined on input line 499.
-
-
-LaTeX Warning: Citation `Ern' on page 19 undefined on input line 499.
-
-
-LaTeX Warning: Citation `Mat' on page 19 undefined on input line 499.
-
-
 
 [19]
 
 [20]
 
-LaTeX Warning: Citation `Har' on page 21 undefined on input line 503.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 503--504
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 503--504
-
- []
-
-
-LaTeX Warning: Reference `prp:7.1.6' on page 21 undefined on input line 517.
-
-
-
 [21]
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
+
+ []
+
+
+LaTeX Warning: Reference `defn:7.1.7' on page 22 undefined on input line 534.
+
+
+LaTeX Warning: Citation `Rav' on page 22 undefined on input line 576.
+
+
+LaTeX Warning: Citation `Ern' on page 22 undefined on input line 576.
+
+
+LaTeX Warning: Citation `Mat' on page 22 undefined on input line 576.
+
+
 
 [22]
 
-LaTeX Warning: Reference `thm:7.1.2' on page 23 undefined on input line 538.
-
-
-LaTeX Warning: Reference `thm:7.1.3' on page 23 undefined on input line 538.
-
-
-LaTeX Warning: Citation `Liu' on page 23 undefined on input line 543.
-
-
-LaTeX Warning: Citation `CRing' on page 23 undefined on input line 543.
-
-
-LaTeX Warning: Reference `thm:7.1.2' on page 23 undefined on input line 563.
-
-
-LaTeX Warning: Reference `prp:7.1.4' on page 23 undefined on input line 567.
-
-
-LaTeX Warning: Reference `thm:7.1.3' on page 23 undefined on input line 567.
-
-
-
 [23]
 
-LaTeX Warning: Reference `prp:7.1.5' on page 24 undefined on input line 582.
+LaTeX Warning: Citation `Har' on page 24 undefined on input line 580.
 
 
-LaTeX Warning: Reference `prp:7.1.6' on page 24 undefined on input line 582.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 582--583
+Underfull \hbox (badness 10000) in paragraph at lines 580--581
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 582--583
+Underfull \hbox (badness 10000) in paragraph at lines 580--581
 
  []
+
+
+LaTeX Warning: Reference `prp:7.1.6' on page 24 undefined on input line 594.
 
 
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 588--589
-
- []
-
-
-LaTeX Warning: Citation `Dav' on page 25 undefined on input line 590.
-
-
-LaTeX Warning: Citation `Per' on page 25 undefined on input line 606.
-
-
-LaTeX Warning: Citation `Liu' on page 25 undefined on input line 606.
-
-
 
 [25]
 
-LaTeX Warning: Citation `Har' on page 26 undefined on input line 610.
+LaTeX Warning: Reference `thm:7.1.2' on page 26 undefined on input line 615.
 
 
-LaTeX Warning: Citation `Liu' on page 26 undefined on input line 610.
+LaTeX Warning: Reference `thm:7.1.3' on page 26 undefined on input line 615.
 
 
-LaTeX Warning: Citation `Dav' on page 26 undefined on input line 610.
+LaTeX Warning: Citation `Liu' on page 26 undefined on input line 620.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 610--611
-
- []
+LaTeX Warning: Citation `CRing' on page 26 undefined on input line 620.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 610--611
-
- []
+LaTeX Warning: Reference `thm:7.1.2' on page 26 undefined on input line 640.
 
 
-LaTeX Warning: Citation `Pat' on page 26 undefined on input line 612.
+LaTeX Warning: Reference `prp:7.1.4' on page 26 undefined on input line 644.
 
 
-LaTeX Warning: Citation `Pat' on page 26 undefined on input line 617.
-
-
-LaTeX Warning: Reference `eg:4.1.7' on page 26 undefined on input line 621.
+LaTeX Warning: Reference `thm:7.1.3' on page 26 undefined on input line 644.
 
 
 
 [26]
 
-[27] (Commutative Algebra 2.aux)
+LaTeX Warning: Reference `prp:7.1.5' on page 27 undefined on input line 659.
+
+
+LaTeX Warning: Reference `prp:7.1.6' on page 27 undefined on input line 659.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 659--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 659--660
+
+ []
+
+
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 665--666
+
+ []
+
+
+LaTeX Warning: Citation `Dav' on page 28 undefined on input line 667.
+
+
+LaTeX Warning: Citation `Per' on page 28 undefined on input line 683.
+
+
+LaTeX Warning: Citation `Liu' on page 28 undefined on input line 683.
+
+
+
+[28]
+
+LaTeX Warning: Citation `Har' on page 29 undefined on input line 687.
+
+
+LaTeX Warning: Citation `Liu' on page 29 undefined on input line 687.
+
+
+LaTeX Warning: Citation `Dav' on page 29 undefined on input line 687.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 687--688
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 687--688
+
+ []
+
+
+LaTeX Warning: Citation `Pat' on page 29 undefined on input line 689.
+
+
+LaTeX Warning: Citation `Pat' on page 29 undefined on input line 694.
+
+
+LaTeX Warning: Reference `eg:4.1.7' on page 29 undefined on input line 698.
+
+
+
+[29]
+
+[30] (Commutative Algebra 2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
@@ -1300,16 +1306,16 @@ LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `"Commutative Algebra 2".out' has not changed
 .
-(rerunfilecheck)             Checksum: 9FCD95D21C9BE13B9DDDF1FBC58BC41E;5958.
+(rerunfilecheck)             Checksum: 8DDC1151FB6F5BF64E1A94AF7C1F18B0;5951.
  ) 
 Here is how much of TeX's memory you used:
- 33458 strings out of 473577
- 663851 string characters out of 5716318
- 1090429 words of memory out of 5000000
- 55994 multiletter control sequences out of 15000+600000
+ 33582 strings out of 473577
+ 666805 string characters out of 5716318
+ 1092254 words of memory out of 5000000
+ 56106 multiletter control sequences out of 15000+600000
  600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,17n,120p,802b,1484s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,17n,120p,805b,1484s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1329,9 +1335,9 @@ type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs
 ocal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Commutative Algebra 2.pdf" (27 pages, 462769 bytes).
+Output written on "Commutative Algebra 2.pdf" (30 pages, 482050 bytes).
 PDF statistics:
- 504 PDF objects out of 1000 (max. 8388607)
- 122 named destinations out of 1000 (max. 500000)
+ 527 PDF objects out of 1000 (max. 8388607)
+ 134 named destinations out of 1000 (max. 500000)
  277 words of extra memory for PDF output out of 10000 (max. 10000000)
 

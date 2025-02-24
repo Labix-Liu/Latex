@@ -125,74 +125,6 @@ If $h_0$ and $h_1$ are both solutions to the extension problem, then $h_0$ and $
 \end{itemize}
 \end{prp}
 
-\begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$. Let $f:X\to Y$ be a map. Then the following are true. 
-\begin{itemize}
-\item If $f$ is a fibration, then the induced map $$f_\ast:\text{Map}(Z,X)\to\text{Map}(Z,Y)$$ is a fibration. 
-\item If $f$ is a cofibration, then the map $$f\times\text{id}_Z:X\times Z\to Y\times Z$$ is a cofibration. 
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$. Let $p:X\to Y$ be a map. 
-\begin{itemize}
-\item If $p$ is a fibration and $f:Z\to Y$ is a map, then the pullback $X\times_YZ\to Z$ of $p$ and $f$ is a fibration \\~\\
-\adjustbox{scale=1,center}{\begin{tikzcd}
-	{X\times_YZ} & X \\
-	Z & Y
-	\arrow[from=1-1, to=1-2]
-	\arrow["{\text{fibration}}"', dashed, from=1-1, to=2-1]
-	\arrow["p", from=1-2, to=2-2]
-	\arrow["f"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-\item If $p$ is a cofibration and $g:X\to Z$ is a map, then the push forward $Z\to Z\coprod_XY$ of $p$ and $g$ is a cofibration \\~\\
-\adjustbox{scale=1,center}{\begin{tikzcd}
-	X & Z \\
-	Y & {Z\coprod_XY}
-	\arrow["g", from=1-1, to=1-2]
-	\arrow["p"', from=1-1, to=2-1]
-	\arrow["{\text{cofibration}}", dashed, from=1-2, to=2-2]
-	\arrow[from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$. Let $p:X\to Y$ be a map. 
-\begin{itemize}
-\item If $p$ is a fibration and $f:Z\to Y$ is a (homotopy) weak equivalence, then the pullback $X\times_YZ\to X$ of $p$ and $f$ is a (homotopy) weak equivalence \\~\\
-\adjustbox{scale=1,center}{\begin{tikzcd}
-	{X\times_YZ} & X \\
-	Z & Y
-	\arrow["\simeq", dashed, from=1-1, to=1-2]
-	\arrow[from=1-1, to=2-1]
-	\arrow["p", from=1-2, to=2-2]
-	\arrow["{f,\simeq}"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-\item If $p$ is a cofibration and $g:X\to Z$ is a (homotopy) weak equivalence, then the push forward $Y\to Z\coprod_XY$ of $p$ and $g$ is a (homotopy) weak equivalence \\~\\
-\adjustbox{scale=1,center}{\begin{tikzcd}
-	X & Z \\
-	Y & {Z\coprod_XY}
-	\arrow["{g, \simeq}", from=1-1, to=1-2]
-	\arrow["p"', from=1-1, to=2-1]
-	\arrow[from=1-2, to=2-2]
-	\arrow["\simeq"', dashed, from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Let $E_1,E_2,B_1,B_2$ be spaces. Let $p:E_1\to B_1$ and $p_2:E_2\to B_2$ be fibrations. Let $(f:E_1\to E_2,g:B_1\to B_2)$ be a map from $p_1$ to $p_2$. If $f$ and $g$ are homotopy equivalences, then for any $b_1\in B_1$, the fibers $$\text{Fib}_{b_1}(p_1)\simeq\text{Fib}_{g(b_1)}(p_2)$$ are homotopy equivalent. This is displayed in the following diagram: \\~\\
-\adjustbox{scale=1,center}{\begin{tikzcd}
-	{\text{Fib}_{b_1}(p_1)} & {\text{Fib}_{g(b_1)}(p_2)} \\
-	{E_1} & {E_2} \\
-	{B_1} & {B_2}
-	\arrow["\simeq", from=1-1, to=1-2]
-	\arrow[hook, from=1-1, to=2-1]
-	\arrow[hook, from=1-2, to=2-2]
-	\arrow["{f, \simeq}", from=2-1, to=2-2]
-	\arrow["{p_1}"', from=2-1, to=3-1]
-	\arrow["{p_2}", from=2-2, to=3-2]
-	\arrow["{g, \simeq}"', from=3-1, to=3-2]
-\end{tikzcd}}\\~\\
-\end{prp}
-
 \subsection{Serre Fibrations}
 \begin{defn}{Serre Fibration}{} We say that a map $p:E\to B$ is a Serre fibration if it has the homotopy lifting property with respect to all CW-complexes. 
 \end{defn}
@@ -351,6 +283,9 @@ There are two important special cases of fiber bundles that will appear time and
 \begin{defn}{The Pullback Bundle}{} Let $p:E\to B$ be a fiber bundle with fiber $F$. Let $f:B'\to B$ be a continuous function. Define the pullback of $p$ by $f$ to be the space $$f^\ast(E)=\{(b',e)\in B'\times E\;|\;p(e)=f(b')\}$$
 \end{defn}
 
+\begin{thm}{}{} Let $p:E\to B$ be a fiber bundle. Suppose that $f,g:X\to B$ are homotopic maps. Then the pull back bundles $$f^\ast(E)\cong g^\ast(E)$$ are equivalent. 
+\end{thm}
+
 \subsection{Sections of a Bundle}
 \begin{defn}{Sections}{} Let $(F,E,B)$ be a fiber bundle. A section on the fiber bundle is a map $s:B\to E$ such that $$p\circ s=\text{id}_B$$
 \end{defn}
@@ -370,12 +305,6 @@ We now consider a special type of fibrations where the fibers are given by $S^1$
 \begin{defn}{Hopf Fibration / Hopf Bundle}{} The fiber bundle $p:S^3\to S^2$ with fiber $S^1$ is called the Hopf fibration / Hopf bundle. 
 \end{defn}
 
-\subsection{Homotopy of Fiber Bundles}
-\begin{thm}{}{} Let $p:E\to B$ be a fiber bundle. Suppose that $f,g:X\to B$ are homotopic maps. Then the pull back bundles $$f^\ast(E)\cong g^\ast(E)$$ are equivalent. 
-\end{thm}
-
-\begin{thm}{}{} Let $p:E\to B$ be a fiber bundle. Let $A\subseteq B$. Let $y_0\in E$ and $p(y_0)=x_0$. Then there is an isomorphism $$\pi_n(E,p^{-1}(A),y_0)\cong\pi_n(B,A,x_0)$$ given by the induced map $p_\ast$ for all $n\geq 2$. 
-\end{thm}
 
 
 \end{document}

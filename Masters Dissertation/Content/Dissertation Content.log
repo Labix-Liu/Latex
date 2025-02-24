@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  18 FEB 2025 00:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  24 FEB 2025 00:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1085,80 +1085,96 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 [2]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 42.
+d on input line 44.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--44
+Underfull \hbox (badness 10000) in paragraph at lines 35--46
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--44
+Underfull \hbox (badness 10000) in paragraph at lines 35--46
 
  []
 
 LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 4
-4.
+6.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
- []
-
-
-Overfull \hbox (4.53485pt too wide) in paragraph at lines 76--77
-[]\T1/qpl/m/n/10 Therefore we con-cern our-selves with a ho-mo-topy in-vari-ant
- ver-sion of this con-cept. The or-di-nary pushouts
  []
 
 
 
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
 enc}]
+Overfull \hbox (4.53485pt too wide) in paragraph at lines 78--79
+[]\T1/qpl/m/n/10 Therefore we con-cern our-selves with a ho-mo-topy in-vari-ant
+ ver-sion of this con-cept. The or-di-nary pushouts
+ []
+
+
 
 [4]
+Overfull \hbox (0.30171pt too wide) in paragraph at lines 104--105
+\T1/qpl/m/n/10 by the map-ping path space / map-ping cylin-der and we would yet
+ again ob-tain a home-o-mor-phism. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--131
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--131
+
+ []
+
+
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
-
- []
-
-
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
+
+ []
+
+
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 313--314
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 313--314
-
- []
-
-
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 323--324
+Underfull \hbox (badness 10000) in paragraph at lines 335--336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--324
+Underfull \hbox (badness 10000) in paragraph at lines 335--336
 
- []
-
-
-Overfull \hbox (1.27145pt too wide) in paragraph at lines 325--326
-[]\T1/qpl/m/n/10 Blakers-Massey the-o-rem it-self is a pow-er-ful the-o-rem tha
-t im-plies the con-nec-tiv-ity bounds in the Freuden-
  []
 
 
 
 [9]
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
+
+ []
+
+
+Overfull \hbox (1.27145pt too wide) in paragraph at lines 347--348
+[]\T1/qpl/m/n/10 Blakers-Massey the-o-rem it-self is a pow-er-ful the-o-rem tha
+t im-plies the con-nec-tiv-ity bounds in the Freuden-
+ []
+
+
 
 [10]
 
@@ -1168,20 +1184,24 @@ t im-plies the con-nec-tiv-ity bounds in the Freuden-
 
 [13]
 
-[14]
+[14
+
+]
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 530--539
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 552--561
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 530--539
+Underfull \hbox (badness 10000) in paragraph at lines 552--561
 
  []
 
 
-Overfull \hbox (12.61661pt too wide) in paragraph at lines 539--540
+Overfull \hbox (12.61661pt too wide) in paragraph at lines 561--562
 \T1/qpl/m/n/10 So we are re-ally just say-ing that $\OML/cmm/m/it/10 ^^Y[]\OT1/
 cmr/m/n/10 (\OML/cmm/m/it/10 A; A \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 B\OT1/cmr
 /m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/
@@ -1191,32 +1211,52 @@ m/n/10 )$\T1/qpl/m/n/10 -connected.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 547--548
+Underfull \hbox (badness 10000) in paragraph at lines 569--570
 
  []
 
 
-
-[16]
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 563--564
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 590--600
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 590--600
-
+Overfull \hbox (12.97087pt too wide) in paragraph at lines 593--594
+\T1/qpl/m/n/10 given by $\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\
+OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 
+\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (^^F\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )$\T1/q
+pl/m/n/10 . Then prove that $\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 = \OMS/cmsy/m/n
+/10 f\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (^^F[]\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 
+)\OMS/cmsy/m/n/10 g$ \T1/qpl/m/n/10 is weakly equiv-a-lent to $\OML/cmm/m/it/10
+ S \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f[][]\OT1/cmr/m/n/10 (
+[](\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^
  []
 
 
 
 [18]
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 631--641
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 631--641
+
+ []
+
+
 
 [19]
 
@@ -1227,49 +1267,80 @@ Underfull \hbox (badness 10000) in paragraph at lines 590--600
 [22]
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 903--904
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 944--945
 
  []
 
 
 
-[24]
-
 [25]
+Underfull \hbox (badness 10000) in paragraph at lines 951--974
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 951--974
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 951--974
+
+ []
+
+
 
 [26]
 
 [27]
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1059--1060
+
+[29]
+
+[30]
+Underfull \hbox (badness 2809) in paragraph at lines 1176--1177
+\T1/qpl/m/n/10 Since $\OML/cmm/m/it/10 ^^Y[]$ \T1/qpl/m/n/10 sends ho-mo-topy c
+ol-im-its to col-im-its, the group on the right is given as 
+ []
+
+
+
+[31]
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 1243--1244
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1059--1060
+Underfull \hbox (badness 10000) in paragraph at lines 1243--1244
 
  []
 
 
 
-[29] (Dissertation Content.aux)
+[33]
+
+[34] (Dissertation Content.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Dissertation Content".out' has not changed.
 
-(rerunfilecheck)             Checksum: 6763FCFE90D49F20AAD6B68BFD731CE8;3707.
+(rerunfilecheck)             Checksum: A676B98DAF0F562CEC254A8C8771A735;3664.
  ) 
 Here is how much of TeX's memory you used:
- 35041 strings out of 473577
- 704635 string characters out of 5716318
- 1154874 words of memory out of 5000000
- 57578 multiletter control sequences out of 15000+600000
+ 35592 strings out of 473577
+ 718324 string characters out of 5716318
+ 1156330 words of memory out of 5000000
+ 58120 multiletter control sequences out of 15000+600000
  600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,19n,120p,1452b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,22n,120p,1452b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1288,9 +1359,9 @@ type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Dissertation Content.pdf" (29 pages, 478657 bytes).
+Output written on "Dissertation Content.pdf" (34 pages, 512151 bytes).
 PDF statistics:
- 418 PDF objects out of 1000 (max. 8388607)
- 121 named destinations out of 1000 (max. 500000)
+ 444 PDF objects out of 1000 (max. 8388607)
+ 130 named destinations out of 1000 (max. 500000)
  149 words of extra memory for PDF output out of 10000 (max. 10000000)
 

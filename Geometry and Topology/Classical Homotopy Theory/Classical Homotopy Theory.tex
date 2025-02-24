@@ -127,8 +127,36 @@ Equipped with the Cartesian closed structure in $\bold{CG}$ together with a cano
 \begin{defn}{The Mapping Path Space}{} Let $X,Y$ be spaces and let $f:X\to Y$ be a map. Define the mapping path space of $f$ to be $$P_f=\{(x,\gamma)\in X\times\text{Map}(I,Y)\;|\;\gamma(0)=f(x)\}$$ It is the pull back of $f$ and $\pi_0:\text{Map}(I,Y)\to Y$ given by $\pi_0(\gamma)=\gamma(0)$ in $\bold{CG}$. 
 \end{defn}
 
+\subsection{Base Point Independency}
+\begin{defn}{Well-Pointed Space}{} Let $(X,x_0)$ be a pointed space. We say that $(X,x_0)$ is well-pointed if $X\times\{0\}\cup\{x_0\}\times I$ is a retract of $X\times I$. In this case we call the base point non-degenerate. 
+\end{defn}
+
+\begin{prp}{}{} Let $(X,x_0)$ be a pointed space. Then $(X,x_0)$ is well-pointed if and only if the inclusion $x_0\to X$ is a cofibration. 
+\end{prp}
+
+\begin{prp}{}{} Let $(X,x_0)$ be a pointed space. If $(X,x_0)$ is well-pointed, then the reduced and unreduced cone are homotopy equivalent. 
+\end{prp}
+
+\begin{prp}{}{} Let $(X,x_0)$ be a pointed space. If $(X,x_0)$ is well-pointed, then the reduced and unreduced suspension are homotopy equivalent. 
+\end{prp}
+
+\subsection{Homotopy Commutative and Homotopy Coherence Squares}
+\begin{defn}{Homotopy Commutative Squares}{} Let $W,X,Y,Z$ be spaces. Consider the following diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	W & Y \\
+	X & Z
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g"', from=1-1, to=2-1]
+	\arrow["h", from=1-2, to=2-2]
+	\arrow["k"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+of spaces. We say that the square is homotopy commutative if there exists a homotopy $H$ from $k\circ f$ to $h\circ g$. 
+\end{defn}
+
+Commutative squares are homotopy commutative. 
+
 \pagebreak
-\section{(Co)Fibers of (Co)Fibrations}
+\section{Fibers and Cofibers, Fibrations and Cofibrations}
 \subsection{The Relative Point of View}
 \begin{defn}{Fibers of a Map}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. Define the fiber of $f$ at $y\in Y$ to be $$\text{Fib}_y(f)=f^{-1}(y)$$
 \end{defn}
@@ -206,7 +234,116 @@ It is clear that the fiber of $S^1\to\R$ is either empty, consist of one point, 
 
 There are two ways to proceed from here. We first try to find a set of maps in which all fibers are homotopy equivalent. This is the content of this section. Otherwise, we try and define a new notion of fiber so that we obtain homotopy equivalence. This is the content of the next section. 
 
-\subsection{(Co)Fibration Replacements}
+\subsection{Fiber and Cofiber Sequences}
+\begin{defn}{Fiber Sequences}{} Let $X,Y,Z$ be pointed spaces. Let $f:X\to Y$ and $g:Y\to Z$ be maps. We say that \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X & Y & Z
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+is a fiber sequence if $f$ induces a homotopy equivalence from $f$ to $g^{-1}(z_0)$ where $z_0$ is the base point of $Z$. 
+\end{defn}
+
+\begin{prp}{}{} Let $X,Y$ be pointed spaces. Let $f:X\to Y$ be maps. Then \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\text{fib}_y(f)} & X & Y
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+is a homotopy equivalence. 
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y,Z$ be pointed spaces. Let $f:X\to Y$ and $g:Y\to Z$ be maps. Let $z_0\in Z$. Suppose that \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X & Y & Z
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+is a fiber sequence. Then \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\Omega X} & {\Omega Y} & {\Omega Z}
+	\arrow["{\Omega f}", from=1-1, to=1-2]
+	\arrow["{\Omega g}", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+is also a fiber sequence. 
+\end{prp}
+
+\subsection{More on Fibrations and Cofibrations}
+\begin{prp}{}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. Let $x_0\in X$. Then the evaluation map $$\text{ev}_{x_0}:\text{Map}(X,Y)\to Y$$ defined by $f\mapsto f(x_0)$ is a fibration. 
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$. Let $f:X\to Y$ be a map. Then the following are true. 
+\begin{itemize}
+\item If $f$ is a fibration, then the induced map $$f_\ast:\text{Map}(Z,X)\to\text{Map}(Z,Y)$$ is a fibration. 
+\item If $f$ is a cofibration, then the map $$f\times\text{id}_Z:X\times Z\to Y\times Z$$ is a cofibration. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$. Let $p:X\to Y$ be a map. 
+\begin{itemize}
+\item If $p$ is a fibration and $f:Z\to Y$ is a map, then the pullback $X\times_YZ\to Z$ of $p$ and $f$ is a fibration \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{X\times_YZ} & X \\
+	Z & Y
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\text{fibration}}"', dashed, from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["f"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\item If $p$ is a cofibration and $g:X\to Z$ is a map, then the push forward $Z\to Z\coprod_XY$ of $p$ and $g$ is a cofibration \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X & Z \\
+	Y & {Z\coprod_XY}
+	\arrow["g", from=1-1, to=1-2]
+	\arrow["p"', from=1-1, to=2-1]
+	\arrow["{\text{cofibration}}", dashed, from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$. Let $p:X\to Y$ be a map. 
+\begin{itemize}
+\item If $p$ is a fibration and $f:Z\to Y$ is a (homotopy) weak equivalence, then the pullback $X\times_YZ\to X$ of $p$ and $f$ is a (homotopy) weak equivalence \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{X\times_YZ} & X \\
+	Z & Y
+	\arrow["\simeq", dashed, from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["{f,\simeq}"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\item If $p$ is a cofibration and $g:X\to Z$ is a (homotopy) weak equivalence, then the push forward $Y\to Z\coprod_XY$ of $p$ and $g$ is a (homotopy) weak equivalence \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X & Z \\
+	Y & {Z\coprod_XY}
+	\arrow["{g, \simeq}", from=1-1, to=1-2]
+	\arrow["p"', from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["\simeq"', dashed, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $E_1,E_2,B_1,B_2$ be spaces. Let $p_1:E_1\to B_1$ and $p_2:E_2\to B_2$ be fibrations. Let $(f:E_1\to E_2,g:B_1\to B_2)$ be a map from $p_1$ to $p_2$. If $f$ and $g$ are homotopy equivalences, then for any $b_1\in B_1$, the fibers $$\text{Fib}_{b_1}(p_1)\simeq\text{Fib}_{g(b_1)}(p_2)$$ are homotopy equivalent. This is displayed in the following diagram: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\text{Fib}_{b_1}(p_1)} & {\text{Fib}_{g(b_1)}(p_2)} \\
+	{E_1} & {E_2} \\
+	{B_1} & {B_2}
+	\arrow["\simeq", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[hook, from=1-2, to=2-2]
+	\arrow["{f, \simeq}", from=2-1, to=2-2]
+	\arrow["{p_1}"', from=2-1, to=3-1]
+	\arrow["{p_2}", from=2-2, to=3-2]
+	\arrow["{g, \simeq}"', from=3-1, to=3-2]
+\end{tikzcd}}\\~\\
+\end{prp}
+
+\begin{prp}{}{} Let $X_1,X_2,Y_1,Y_2$ be spaces. Let $p_1:X_1\to Y_1$ and $p_2:X_2\to Y_2$ be cofibrations. Let $(f:X_1\to X_2,g:Y_1\to Y_2)$ be a map from $p_1$ to $p_2$. If $f$ and $g$ are homotopy equivalences, then there are homotopy equivalences $$\text{cofib}(p_1)\simeq\text{cofib}(p_2)$$ induced by $g$. 
+\end{prp}
+
+\subsection{Fibration and Cofibration Replacements}
 \begin{prp}{}{} Let $X,Y\in\bold{CGWH}$ be spaces. Let $f:X\to Y$ be a map. Then the map $$q:P_f\to Y$$ given by $q(x,\gamma)=\gamma(1)$ is a fibration. \tcbline
 \begin{proof}
 Suppose that we are given a homotopy lifting problem: \\~\\
@@ -293,36 +430,6 @@ Dual to the factorization through the mapping path space, we can factorize a map
 \end{tikzcd}}
 \end{thm}
 
-\subsection{Long Exact Sequences from (Co)Fibrations}
-\begin{thm}{Homotopy Long Exact Sequence in Fibration}{} Let $p:E\to B$ be a fibration over a path connected space $B$ with fiber $F$. Let $\iota:F\hookrightarrow E$ be the inclusion of the fiber. Then there is a long exact sequence in homotopy groups: \\~\\
-\adjustbox{scale=0.75,center}{\begin{tikzcd}
-	\cdots & {\pi_{n+1}(B,b_0)} & {\pi_n(F,e_0)} & {\pi_n(E,e_0)} & {\pi_n(B,b_0)} & {\pi_{n-1}(F,e_0)} & \cdots & {\pi_1(E,e_0)} & {\pi_1(B,b_0)}
-	\arrow[from=1-1, to=1-2]
-	\arrow["\partial", from=1-2, to=1-3]
-	\arrow["{\iota_\ast}", from=1-3, to=1-4]
-	\arrow["{p_\ast}", from=1-4, to=1-5]
-	\arrow["\partial", from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-	\arrow[from=1-7, to=1-8]
-	\arrow["{p_\ast}", from=1-8, to=1-9]
-\end{tikzcd}}\\~\\
-for $e_0\in E$ and $b_0=p(e_0)$. Moreover, $p_\ast$ is an isomorphism. 
-\end{thm}
-
-\begin{thm}{Homology Long Exact Sequence in Cofibration}{} Let $p:X\to Y$ be a cofibration with cofiber $C=\frac{Y}{p(X)}$. Let $\text{proj}:Y\to C$ be the projection map. Then there is a long exact sequence in homology groups: \\~\\
-\adjustbox{scale=0.85,center}{\begin{tikzcd}
-	\cdots & {\widetilde{H}_{n+1}(C)} & {\widetilde{H}_n(X)} & {\widetilde{H}_n(Y)} & {\widetilde{H}_n(C)} & {\widetilde{H}_{n-1}(X} & \cdots & {\widetilde{H}_0(Y)} & {\widetilde{H}_0(B,b_0)}
-	\arrow[from=1-1, to=1-2]
-	\arrow["\partial", from=1-2, to=1-3]
-	\arrow["{f_\ast}", from=1-3, to=1-4]
-	\arrow["{\text{proj}_\ast}", from=1-4, to=1-5]
-	\arrow["\partial", from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
-	\arrow[from=1-7, to=1-8]
-	\arrow["{\text{proj}_\ast}", from=1-8, to=1-9]
-\end{tikzcd}}\\~\\
-\end{thm}
-
 \subsection{(Co)Fibers of a (Co)Fibration are Homotopic}
 The following definition is a supporting notion for our proof that fibers of a fibration are homotopy equivalent. 
 
@@ -371,10 +478,14 @@ Let $\gamma:I\to B$ be a path from $b_1$ to $b_2$. From the above, it follows th
 \end{proof}
 \end{thm}
 
+\subsection{Algebra of Fibrations and Cofibrations}
+\begin{prp}{}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a cofibration. Then for all spaces $Z$, the induced map $$f^\ast:\text{Map}(Y,Z)\to\text{Map}(X,Z)$$ is a fibration. 
+\end{prp}
+
 \pagebreak
 \section{Homotopy Fibers and Homotopy Cofibers}
 \subsection{Basic Definitions}
-\begin{defn}{Homotopy Fibers and Cofibers}{} Let $f:X\to Y$ be a map. Define the homotopy fiber of $f$ at $y\in Y$ to be $$\text{hofiber}_y(f)=\{(x,\phi)\in X\times\text{Map}(I,Y)\;|\;f(x)=\phi(0), \phi(1)=y\}=\text{Fib}_y(P_f\to Y)$$ Define the homotopy cofiber of $f$ to be $$\text{hocofiber}=\frac{(X\times I)\amalg Y}{(x,1)\sim f(x),(x,0)\sim(x',0)}=\text{Cofib}(X\to M_f)=C_f$$
+\begin{defn}{Homotopy Fibers and Cofibers}{} Let $f:X\to Y$ be a map. Define the homotopy fiber of $f$ at $y\in Y$ to be $$\text{hofiber}_y(f)=\{(x,\phi)\in X\times\text{Map}(I,Y)\;|\;f(x)=\phi(0), \phi(1)=y\}=\text{Fib}_y(P_f\to Y)$$
 \end{defn}
 
 TBA: hofiber = pullback $P_f\to Y\leftarrow\ast$ (time $t=1$ and $\ast\mapsto y$). \\~\\
@@ -400,59 +511,144 @@ and apply 2.4.6 to conclude.
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $X,Y$ be spaces. Let $f,g:X\to Y$ be maps. If $f,g$ are homotopic, then for all $y\in Y$, there is a homotopy equivalence $$\text{Hofib}_y(f)\simeq\text{Hofib}_y(g)$$ induced by the homotopy from $f$ to $g$. 
+\begin{prp}{}{} Let $X,Y$ be spaces. Let $f,g:X\to Y$ be maps. If $f,g$ are homotopic, then for all $y\in Y$, there is a homotopy equivalence $$\text{hofib}_y(f)\simeq\text{hofib}_y(g)$$ induced by the homotopy from $f$ to $g$. 
 \end{prp}
 
 \begin{eg}{}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. 
 \begin{itemize}
-\item The homotopy fiber of $\{y\}\hookrightarrow Y$ is given by $\text{Hofib}_y(\{y\}\hookrightarrow Y)\cong\Omega Y$
-\item If $f$ is null-homotopic, then the homotopy fiber of $f$ is given by $\text{Hofib}_y(f)\cong X\times\Omega Y$
+\item The homotopy fiber of $\{y\}\hookrightarrow Y$ is given by $\text{hofib}_y(\{y\}\hookrightarrow Y)\cong\Omega Y$
+\item If $f$ is null-homotopic, then the homotopy fiber of $f$ is given by $\text{hofib}_y(f)\cong X\times\Omega Y$
 \end{itemize}
 \end{eg}
 
-\subsection{The Fiber and Cofiber Sequences}
-\begin{defn}{Path Spaces}{} Let $(X,x_0)$ be a pointed space. Define the path space of $(X,x_0)$ to be $$PX=\{\phi:(I,0)\to(X,x_0)\;|\;\phi(0)=x_0\}=\text{Map}_\ast((I,0),(X,x_0))$$ together with the topology of the mapping space. 
+\begin{defn}{Homotopy Fibers and Cofibers}{} Let $f:X\to Y$ be a map. Define the homotopy cofiber of $f$ to be $$\text{hocofiber}(f)=\frac{(X\times I)\amalg Y}{(x,1)\sim f(x),(x,0)\sim(x',0)}=\text{Cofib}(X\to M_f)=C_f$$
 \end{defn}
 
-\begin{thm}{}{} Let $X$ be a space. Then the following are true. 
-\begin{itemize}
-\item The map $\pi:PX\to X$ defined by $\pi(\phi)=\phi(1)$ is a fibration with fiber $\Omega X$
-\item The map $\pi:X^I\to X$ defined by $\pi(\phi)=\phi(1)$ is a fibration with fiber homeomorphic to $PX$. 
-\end{itemize}
-\end{thm}
+\begin{prp}{}{} Let $f:X\to Y$ be a cofibration. Then there is a homotopy equivalence $$\text{hocofib}(f)\simeq\text{cofib}(f)$$ given by $(x,t)\mapsto(x,1)$. 
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y$ be spaces. Let $f,g:X\to Y$ be maps. If $f,g$ are homotopic, then for all $y\in Y$, there is a homotopy equivalence $$\text{hocofib}(f)\simeq\text{hocofib}(g)$$ induced by the homotopy from $f$ to $g$. 
+\end{prp}
+
+\subsection{The Fiber and Cofiber Sequences}
+\begin{defn}{Exact Sequence of Sets}{} Let $A,B,C$ be pointed sets. Let $f:A\to B$ and $g:B\to C$. We say that the diagram \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	A & B & C
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g", from=1-2, to=1-3]
+\end{tikzcd}}\\~\\
+is exact if $\im(f)=g^{-1}(c_0)$ where $c_0$ is the base point of $C$. 
+\end{defn}
 
 We now write a fibration as a sequence $F\to E\to B$ for $F$ the fiber of the fibration $p:E\to B$. This compact notation allows the following theorem to be formulated nicely. 
 
-\begin{thm}{}{} Let $f:X\to Y$ be a fibration with homotopy fiber $F_f$. Let $\iota:\Omega Y\to F_f$ be the inclusion map and $\pi:F_f\to X$ the projection map. Then up to homotopy equivalence of spaces, there is a sequence \\~\\
+\begin{thm}{}{} Let $X,Y$ be pointed spaces. Let $f:X\to Y$ be a map. Let $F_f=\text{hofiber}_y(f)$ denote the homotopy fiber. Define the following maps. 
+\begin{itemize}
+\item The map $-\Omega f:\Omega X\to\Omega Y$ given by $\gamma\mapsto\overline{f\circ\gamma}$ (reversing the traversal)
+\item The map $k:\Omega Y\hookrightarrow F_f$ given by inclusion. 
+\end{itemize}
+Consider the following diagram of spaces: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {\Omega^2 X} & {\Omega^2Y} & {\Omega F_f} & {\Omega X} & {\Omega_Y} & {F_f} & X & Y
+	\cdots & {\Omega^2 X} & {\Omega^2Y} & {\Omega F_f} & {\Omega X} & {\Omega Y} & {F_f} & X & Y
 	\arrow[from=1-1, to=1-2]
 	\arrow["{\Omega^2 f}", from=1-2, to=1-3]
-	\arrow["{-\Omega\iota}", from=1-3, to=1-4]
-	\arrow["{-\Omega\pi}", from=1-4, to=1-5]
+	\arrow["{-\Omega k}", from=1-3, to=1-4]
+	\arrow["{-\Omega\text{incl}}", from=1-4, to=1-5]
 	\arrow["{-\Omega f}", from=1-5, to=1-6]
-	\arrow["\iota", from=1-6, to=1-7]
-	\arrow["\pi", from=1-7, to=1-8]
+	\arrow["k", from=1-6, to=1-7]
+	\arrow["\text{incl}", from=1-7, to=1-8]
 	\arrow["f", from=1-8, to=1-9]
 \end{tikzcd}}\\~\\
-where any two consecutive maps form a fibration. Moreover, $-\Omega f:\Omega X\to\Omega Y$ is defined as $$(-\Omega f)(\zeta)(t)=(f\circ\zeta)(1-t)$$ for $\zeta\in\Omega X$. 
+Then up to homotopy equivalence, every two consecutive maps form a fiber sequence. 
+\end{thm}
+
+\begin{thm}{}{} Let $X,Y$ be pointed spaces. Let $f:X\to Y$ be a map. Let $F_f=\text{hofiber}_y(f)$ denote the homotopy fiber. Then for any space $Z$, \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {[Z,\Omega^2X]} & {[Z,\Omega^2Y]} & {[Z,\Omega F_f]} & {[Z,\Omega X]} & {[Z,\Omega Y]}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\Omega^2f\circ -}", from=1-2, to=1-3]
+	\arrow["{-\Omega k\circ -}", from=1-3, to=1-4]
+	\arrow["{-\Omega\text{incl}\circ -}", from=1-4, to=1-5]
+	\arrow["{-\Omega f\circ -}", from=1-5, to=1-6]
+\end{tikzcd}}\\~\\
+is an exact sequence of abelian groups. Moreover, the diagram of sets \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{[Z,\Omega Y]} & {[Z,F_f]} & {[Z,X]} & {[Z,Y]}
+	\arrow["{k\circ -}", from=1-1, to=1-2]
+	\arrow["{\text{incl}\circ -}", from=1-2, to=1-3]
+	\arrow["{f\circ -}", from=1-3, to=1-4]
+\end{tikzcd}}\\~\\
+is an exact sequence of sets. 
 \end{thm}
 
 There is then the dual notion of loop spaces and the corresponding sequence. Write a cofibration $f:A\to X$ with homotopy cofiber $B$ as $B\to A\to X$. 
 
-\begin{thm}{}{} Let $f:X\to Y$ be a cofibration with homotopy cofiber $C_f$. Let $i:Y\to C_f$ be the inclusion map and $\pi:C_f\to C_f/Y\cong\Sigma X$ be the projection map. Then up to homotopy equivalence of spaces, there is a sequence \\~\\
+\begin{thm}{}{} Let $X,Y$ be pointed spaces. Let $f:X\to Y$ be a map. Define the following maps. 
+\begin{itemize}
+\item The projection map $\pi:C_f\to\frac{C_f}{Y}\cong\Sigma X$. 
+\item The map $-\Sigma f:\Sigma X\to\Sigma Y$ given by $x\wedge t\mapsto f(x)\wedge(1-t)$. 
+\end{itemize}
+Consider the following diagram of spaces: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	X & Y & {C_f} & {\Sigma X} & {\Sigma Y} & {\Sigma C_f} & {\Sigma^2X} & {\Sigma^2Y} & \cdots
 	\arrow["f", from=1-1, to=1-2]
-	\arrow["i", from=1-2, to=1-3]
+	\arrow["\text{incl}", from=1-2, to=1-3]
 	\arrow["\pi", from=1-3, to=1-4]
 	\arrow["{-\Sigma f}", from=1-4, to=1-5]
-	\arrow["{-\Sigma i}", from=1-5, to=1-6]
+	\arrow["{-\Sigma\text{incl}}", from=1-5, to=1-6]
 	\arrow["{-\Sigma\pi}", from=1-6, to=1-7]
 	\arrow["{\Sigma^2 f}", from=1-7, to=1-8]
 	\arrow[from=1-8, to=1-9]
 \end{tikzcd}}\\~\\
-where any two consecutive maps form a cofibration. Moreover, $-\Sigma f:\Sigma X\to\Sigma Y$ is defined by $$(-\Sigma f)(x\wedge t)=f(x)\wedge(1-t)$$
+Then up to homotopy equivalence, every two consecutive maps form a cofiber sequence. 
+\end{thm}
+
+\begin{thm}{}{} Let $X,Y$ be pointed spaces. Let $f:X\to Y$ be a map. Then for any space $Z$, \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\cdots & {[\Sigma^2Y,Z]} & {[\Sigma^2X,Z]} & {[\Sigma C_f,Z]} & {[\Sigma Y,Z]} & {[\Sigma X,Z]}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{-\circ\Sigma^2 f}", from=1-2, to=1-3]
+	\arrow["{-\circ(-\Sigma\pi)}", from=1-3, to=1-4]
+	\arrow["{-\circ(-\Sigma\text{incl})}", from=1-4, to=1-5]
+	\arrow["{-\circ(-\Sigma f)}", from=1-5, to=1-6]
+\end{tikzcd}}\\~\\
+is an exact sequence of abelian groups. Moreover, the diagram of sets \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{[\Sigma X,Z]} & {[C_f,Z]} & {[Y,Z]} & {[X,Z]}
+	\arrow["{-\circ\pi}", from=1-1, to=1-2]
+	\arrow["{-\circ\text{incl}}", from=1-2, to=1-3]
+	\arrow["{-\circ f}", from=1-3, to=1-4]
+\end{tikzcd}}\\~\\
+is an exact sequence of sets. 
+\end{thm}
+
+\begin{thm}{Homotopy Long Exact Sequence in Fibration}{} Let $p:E\to B$ be a fibration over a path connected space $B$ with fiber $F$. Let $\iota:F\hookrightarrow E$ be the inclusion of the fiber. Then there is a long exact sequence in homotopy groups: \\~\\
+\adjustbox{scale=0.75,center}{\begin{tikzcd}
+	\cdots & {\pi_{n+1}(B,b_0)} & {\pi_n(F,e_0)} & {\pi_n(E,e_0)} & {\pi_n(B,b_0)} & {\pi_{n-1}(F,e_0)} & \cdots & {\pi_1(E,e_0)} & {\pi_1(B,b_0)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\partial", from=1-2, to=1-3]
+	\arrow["{\iota_\ast}", from=1-3, to=1-4]
+	\arrow["{p_\ast}", from=1-4, to=1-5]
+	\arrow["\partial", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+	\arrow[from=1-7, to=1-8]
+	\arrow["{p_\ast}", from=1-8, to=1-9]
+\end{tikzcd}}\\~\\
+for $e_0\in E$ and $b_0=p(e_0)$. Moreover, $p_\ast$ is an isomorphism. 
+\end{thm}
+
+\begin{thm}{Homology Long Exact Sequence in Cofibration}{} Let $p:X\to Y$ be a cofibration with cofiber $C=\frac{Y}{p(X)}$. Let $\text{proj}:Y\to C$ be the projection map. Then there is a long exact sequence in homology groups: \\~\\
+\adjustbox{scale=0.85,center}{\begin{tikzcd}
+	\cdots & {\widetilde{H}_{n+1}(C)} & {\widetilde{H}_n(X)} & {\widetilde{H}_n(Y)} & {\widetilde{H}_n(C)} & {\widetilde{H}_{n-1}(X} & \cdots & {\widetilde{H}_0(Y)} & {\widetilde{H}_0(B,b_0)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\partial", from=1-2, to=1-3]
+	\arrow["{f_\ast}", from=1-3, to=1-4]
+	\arrow["{\text{proj}_\ast}", from=1-4, to=1-5]
+	\arrow["\partial", from=1-5, to=1-6]
+	\arrow[from=1-6, to=1-7]
+	\arrow[from=1-7, to=1-8]
+	\arrow["{\text{proj}_\ast}", from=1-8, to=1-9]
+\end{tikzcd}}\\~\\
 \end{thm}
 
 \subsection{n-Connected Maps}
@@ -475,6 +671,37 @@ We can rephrase some of the corner stone theorems of homotopy theory using $n$-c
 
 \begin{lmm}{}{} Let $(X,x_0)$ be a pointed space. Then $(X,x_0)$ is $n$-connected if and only if the inclusion map $\iota:\{x_0\}\hookrightarrow X$ is $n$-connected. 
 \end{lmm}
+
+\begin{prp}{}{} Let $X$ be a space. Let $n\in\N$. Then the following are equivalent. 
+\begin{itemize}
+\item $X$ is $n$-connected. 
+\item $\pi_k(X)=0$ for all $0\leq k\leq n$. 
+\item For all $-1\leq k\leq n$, every map $S^k\to X$ extends to a map $D^{k+1}\to X$. 
+\item $(CX,X)$ is $(n+1)$-connected. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $(X,A)$ be a space. Let $n\in\N$. Then the following are equivalent. 
+\begin{itemize}
+\item $(X,A)$ is $n$-connected
+\item For all $0<k\leq n$, $\pi_k(X,A)=0$ and $\pi_0(A)\to\pi_0(X)$ is surjective. 
+\item $\iota:A\hookrightarrow X$ is $n$-connected. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. Let $n\in\N$. If $X$ is not empty, then the following are equivalent. 
+\begin{itemize}
+\item $f$ is $n$-connected
+\item $\text{hofiber}_y(f)$ is $n$-connected for all $y\in Y$. 
+\item For all $0<k\leq n$, $\pi_k(f)$ is an isomorphism and $\pi_n(f)$ is surjective. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. If $f$ is $k$-connected, then $\text{hocofib}(f)$ is $k$-connected. 
+\end{prp}
+
+\begin{prp}{}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. Let $X$ be simply connected. Then $\text{hocofib}(f)$ is $k$-connected if and only if $f$ is $k$-connected. 
+\end{prp}
 
 \pagebreak
 \section{Homotopy Pullbacks and Pushouts}

@@ -59,25 +59,33 @@ d_p((x_1,x_2),(y_1,y_2))^p&=d_1(x_1,y_1)^p+d_2(x_2,y_2)^p\\
 \end{proof}
 \end{prp}
 
-\subsection{Sets in a Metric Space}
+\subsection{Open and Closed Subsets}
 \begin{defn}{Open Sets}{} Let $M$ be a metric space. Let $U\subset M$. We say that $U$ is open if for every $a\in U$, there exists $r$ such that $$B_r(a)\subseteq U$$
 \end{defn}
 
 \begin{defn}{Closed Sets}{} Let $M$ be a metric space. Let $U\subset M$. We say that $U$ is closed if $M\setminus U$ is open. 
 \end{defn}
 
-\begin{lmm}{}{} Open balls are open. \tcbline
+\begin{lmm}{}{} Let $M$ be a metric space. Let $a\in M$ and $r\in\R_{\geq 0}$. Then $B_r(a)$ is an open set. \tcbline
 \begin{proof} Let $B_r(a)$ be our open ball. Let $x\in B_r(a)$. Then $$B_{(r-d(x,a))/2}(x)\subseteq B_r(a)$$ thus we are done. 
 \end{proof}
 \end{lmm}
 
-\begin{prp}{}{} Countable union of open sets is open and countable intersections of closed sets is closed. \tcbline
+\begin{prp}{}{} Let $M$ be a metric space. Then the following are true. 
+\begin{itemize}
+\item Let $\{U_i\;|\;i\in I\}$ be a family of open subsets of $M$. Then $\bigcup_{i\in I}U_i$ is an open subset of $M$. 
+\item Let $U_1,\dots,U_n$ be open subsets of $M$. Then $\bigcap_{i=1}^nU_i$ is an open subset of $M$. 
+\end{itemize} \tcbline
 \begin{proof} Let $U_1,U_2,\dots$ be a sequence of open sets. Let $U=\bigcup_{n\in\N}U_n$. Let $x\in U$. Then there exists $k\in\N$ such that $x\in U_k$. Since $U_k$ is open, there exists $r\in\R^+$ such that $$B_r(x)\subseteq U_k\subseteq U$$ and we are done. \linebreak\linebreak
 Observe that $$X\setminus\bigcup_{n\in\N}U_n=\bigcap_{n\in\N}(X\setminus U_n)$$ By definition of closed sets, $X\setminus U$ is closed and we are done. 
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Finite intersection of open sets is open and finite union of closed sets is closed. \tcbline
+\begin{prp}{}{} Let $M$ be a metric space. Then the following are true. 
+\begin{itemize}
+\item Let $U_1,\dots,U_n$ be closed subsets of $M$. Then $\bigcup_{i=1}^nU_i$ is an open subset of $M$. 
+\item Let $\{U_i\;|\;i\in I\}$ be a family of closed subsets of $M$. Then $\bigcap_{i\in I}U_i$ is an open subset of $M$. 
+\end{itemize} \tcbline
 \begin{proof}
 Let $U_1,\dots,U_n$ be opens sets. Then let $x\in\bigcap_{k=1}^nU_k$. Then $x\in U_k$ for all $k\in\{1,\dots,n\}$ and there exists $r_k>0$ such that $B_{r_k}(x)\subseteq U_k$ for each $k$. Take $r=\min\{r_1,\dots,r_n\}$. Then $$B_r(x)\subseteq B_{r_k}(x)\subseteq U_k$$ for each $k$ and thus $B_r(x)\subseteq\bigcap_{k=1}^nU_k$ and we are done. \linebreak\linebreak
 Observe that $$X\setminus\bigcap_{k=1}^nU_k=\bigcup_{k=1}^n(X\setminus U_k)$$ and by definition of closed sets, $X\setminus\bigcap_{k=1}^nU_k$ is closed and we are done. 
@@ -106,6 +114,16 @@ Let $U\cap\partial U=\emptyset$. Let $x\in U$. Then $x\notin\partial U$. Thus by
 
 \begin{prp}{}{} Let $M$ be a metric space. Let $U\subset M$. Then $U$ is closed if and only $$\overline{U}=U$$
 \end{prp}
+
+\subsection{Size and Distance for Subsets}
+\begin{defn}{Distance Between Subsets}{} Let $(M,d)$ be a metric space. Let $U,T\subseteq M$. Let $x\in M$. Define the distance between $U$ and $T$ to be $$d(U,T)=\inf\{d(u,t)\;|\;u\in U,t\in T\}$$
+\end{defn}
+
+\begin{defn}{Diameter of a Subset}{} Let $(M,d)$ be a metric space. Let $U\subseteq M$. Define the diameter of $U$ to be $$\text{diam}(U)=\sup\{d(x,y)\;|\;x,y\in U\}$$
+\end{defn}
+
+\begin{defn}{Neighbourhood of a Subset}{} Let $(M,d)$ be a metric space. Let $U,T\subseteq M$. Let $r\in\R_{\geq 0}$. Define the neighbourhood of $U$ with size $r$ to be $$N_r(U)=\{x\in M\;|\;d(U,\{x\})\leq r\}$$
+\end{defn}
 
 \subsection{Sequences, Limits and Continuity}
 \begin{defn}{Sequences}{} Let $X$ be a metric space. A sequence in $X$ is an ordered set of numbers $x_0,x_1,x_2,\dots$ such that they all are in $X$. We denote this sequence by $(x_n)_{n\in\N}$. 
@@ -149,7 +167,17 @@ and we are done.
 \end{lmm}
 
 \subsection{Geodesics}
-\begin{defn}{Geodesics}{} Let $(X,d)$ be a metric space. Let $\gamma:I\to X$ be a function. We say that $\gamma$ is a geodesic if $$d(\gamma(a),\gamma(b))=\abs{b-a}$$ for all $a,b\in I$. 
+\begin{defn}{Geodesics}{} Let $(X,d)$ be a metric space. Let $\gamma:I=[0,1]\to X$ be a function. We say that $\gamma$ is a geodesic if $$d(\gamma(a),\gamma(b))=\abs{b-a}$$ for all $a,b\in I$. 
+\end{defn}
+
+\begin{prp}{}{} Let $(X,d)$ be a metric space. Let $\gamma:I\to X$ be a geodesic. Then the following are true. 
+\begin{itemize}
+\item $\gamma$ is continuous and injective
+\item $I$ is homeomorphic to $\im(\gamma)$. 
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Geodesic Metric Spaces}{} Let $(X,d)$ be a metric space. We say that $X$ is geodesic if for all $a,b\in X$, there exists a geodesic $\gamma:I\to X$ from $a$ to $b$. 
 \end{defn}
 
 \pagebreak

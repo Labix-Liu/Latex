@@ -191,13 +191,66 @@ Suppose $f(t)$ is given by $\sum_{i=0}^Na_it^i$. Then we have $$HS_M(t)=\frac{f(
 \end{proof}
 \end{crl}
 
-\subsection{The Hilbert-Samuel Function}
+\subsection{The Hilbert Series Degree}
+Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be an $R$-module. Under these assumptions we can associate to $M$ a graded $R$-module $$\text{gr}_I(M)=\bigoplus_{n=0}^\infty\frac{I^nM}{I^{n+1}M}$$ and then apply the above theorem to the associated graded ring. First thing of note is that $HS_{\text{gr}_I(M)}(t)$ is of the form in 3.1.4. 
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be a finitely generated $R$-module. Then the Hilbert series of $\text{gr}_I(M)$ is given by $$HS_{\text{gr}_I(M)}(t)=\frac{f(t)}{(1-t)^d}$$ for some $f\in\Z[t]$ and $d\in\N$. 
+\end{prp}
+
+\begin{defn}{The Hilbert Series Degree}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be a finitely generated $R$-module. Define the Hilbert-Samuel degree to be $$d_I(M)=\min\{d\in\N\;|\;\lim_{t\to 1}(1-t)^dHS_{\text{gr}_I(M)}(t)<\infty\}$$ 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be a finitely generated $R$-module. Then there exists $f\in\Z[t]$ such that $$HS_{\text{gr}_I(M)}(t)=\frac{f(t)}{(1-t)^{d_I(M)}}$$ for $f$ and $1-t$ coprime. 
+\end{prp}
+
 In the following we use the convention $I^0=R$ for $I$ an ideal of the commutative ring $R$. 
 
 \begin{defn}{Hilbert-Samuel Function}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be a finitely generated $R$-module. Define the Hilbert-Samuel function of $M$ with respect to $I$ to be $$\chi_M^I(n)=l_R\left(\frac{M}{I^nM}\right)$$
 \end{defn}
 
+We should think $\chi_M^I$ as a function $\N\to\N$. If we restrict the domain to $n>\deg(f)$ where $\text{HS}_{\text{gr}_I(M)}(t)=\frac{f(t)}{(1-t)^{d_I(M)}}$ then $\chi_M^I$ is a polynomial in $n$. 
+
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be a finitely generated $R$-module. Then we have $$\chi_M^I(n)=\sum_{i=0}^nHF_{\text{gr}_I(M)}(i)=\sum_{i=0}^nl_R\left(\frac{I^iM}{I^{i+1}M}\right)$$
+\end{prp}
+
+We can think of the Hilbert-Samuel function as the partial sum of the coefficients of the Hilbert series of $\text{gr}_I(M)$. Indeed, the Hilbert series of the associated graded ring is given by $$HS_{\text{gr}_I(M)}(t)=l_R\left(\frac{M}{IM}\right)+l_R\left(\frac{IM}{I^2M}\right)t+l_R\left(\frac{I^2M}{I^3M}\right)t^2+\dots$$
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be a finitely generated $R$-module. Suppose that $$HS_{\text{gr}_I(M)}(t)=\frac{f(t)}{(1-t)^{d_I(M)}}$$ where $f$ and $1-t$ are coprime. Then the following are true. 
+\begin{itemize}
+\item $\deg(\chi_M^I)=d_I(M)$. 
+\item The leading term of $\chi_M^I(n)$ is given by $\frac{f(1)}{d_I(M)!}n^{d_I(M)}$. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Let $I$ be an $m$-primary ideal of $R$. Let the following be an exact sequence of finitely generated $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then we have $$d_I(M_2)=\max\{d_I(M_1),d_I(M_3)\}$$ Moreover, if $d_I(M_1)=d_I(M_2)=d_I(M_3)$ then the leading coefficient of $\chi_{M_2}^I$ is equal to the sum of the leading coefficients of $\chi_{M_1}^I$ and $\chi_{M_3}^I$. 
+\end{prp}
+
+\begin{crl}{}{} Let $(R,m)$ be a local ring that is an integral domain. Let $I$ be an $m$-primary ideal. Let $x\in R$ be non-zero. Then we have $$d_I\left(\frac{R}{(x)}\right)\leq d_I(R)-1$$ \tcbline
+\begin{proof}
+The multiplication by $x$ map is injective in this case, and so we obtain an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & R & R & \frac{R}{(x)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["\cdot x", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Applying the above prp gives $d_I(R)=\max\{d_I(R),d_I(R/(x))\}$. Assume for a contradiction that $d_I(R/(x))=d_I(R)$. Then the leading coefficient of $\chi_R^I$ is equal to the leading coefficients of $\chi_R^I$ and $\chi_{R/(x)}^I$ by the above prp. But this implies that the leading coefficient of $\chi_{R/(x)}^I$ is $0$, a contradiction. Hence $d_I(R/(x))$ is strictly less than $d_I(R)$, and so $d_I(R/(x))\leq d_I(R)-1$. 
+\end{proof}
+\end{crl}
+
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Let $I$ be an $m$-primary ideal. Let $M$ be a finitely generated $R$-module. Then $$d_I(M)=d_m(M)$$ In particular, the Hilbert series degree is invariant under the choice of $m$-primary ideal. \tcbline
+\begin{proof}
+Since $I$ is $m$-primary in a Noetherian local ring, we have $m^n\subseteq I\subseteq m$ for some $n$. Then we have $m^{nr}\subseteq I^r\subseteq m^r$. Hence we have $$l_R\left(\frac{M}{m^nM}\right)\leq l_R\left(\frac{M}{I^nM}\right)\leq l_R\left(\frac{M}{m^{rn}M}\right)$$ since $N\leq M$ implies that $l_R(M)=l_R(N)+l_R(M/N)\geq l_R(N)$. Hence for large $n$ we have $$\chi_M^m(n)\leq\chi_M^I(n)\leq\chi_M^m(rn)$$ Since the first and last polynomial in the inequality have the same degree, we conclude that $\chi_M^I$ has the same degree as $\chi_M^m$. 
+\end{proof}
 \end{prp}
 
 \subsection{Minimal Number of Generators of m-Primary Ideals}
@@ -207,10 +260,12 @@ Let $R$ be a commutative ring. Let $P$ be a prime ideal of $P$. Recall that an i
 \item $P=\sqrt{I}$
 \end{itemize}
 
+In particular, if $m$ is a maximal ideal of $R$, then $m$ is $m$-primary. 
+
 \begin{defn}{Minimal Number of Generators of an m-Primary Ideal}{} Let $R$ be a commutative ring. Let $m$ be a maximal ideal of $R$. Let $I$ be an $m$-primary ideal of $R$. Define $$\delta_I(R)=\min\{n\in\N\;|\;x_1,\dots,x_n\in R\text{ generates }I\}$$
 \end{defn}
 
-\begin{prp}{}{} Let $(R,m)$ be a local ring. Let $I$ be an $m$-primary ideal of $R$. Then $$\delta_I(R)=\delta_m(R)$$ In particular, $\delta_I$ is invariant of the choice of the $m$-primary ideal. 
+\begin{prp}{}{} Let $(R,m)$ be a local ring. Let $I$ be an $m$-primary ideal of $R$. Then $$\delta_I(R)=\delta_m(R)$$ In particular, $\delta_R$ is invariant of the choice of the $m$-primary ideal. 
 \end{prp}
 
 \begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Then $$\delta_m(R)=\dim_{R/m}(m/m^2)<\infty$$ \tcbline
@@ -220,20 +275,40 @@ We have seen this as a consequence of Nakayama's lemma in Commutative Algebra 1.
 \end{prp}
 
 \subsection{The Fundamental Theorem of Dimension Theory}
-\begin{thm}{The Fundamental Theorem of Dimension Theory}{} Let $(R,m)$ be a local Noetherian ring. Then the following numbers are equal. 
+\begin{thm}{The Fundamental Theorem of Dimension Theory}{} Let $(R,m)$ be a local Noetherian ring. Let $I$ be an $m$-primary ideal. Then the following numbers are equal. 
 \begin{itemize}
-\item The Krull dimension $\dim(R)$. 
-\item The smallest number $d\in\N$ such that $$\lim_{t\to 1}(1-t)^dHS_{\text{gr}_m(R)}(t)<\infty$$ (Called the order of the pole at $1$, equivalently the number $r$ so that $HS_{\text{gr}(R)}=\frac{f(t)}{(1-t)^r}$ and $f$ and $(1-t)$ are coprime. 
-\item The minimal number of generators $$\delta_m(R)=\min\{n\in\N\;|\;x_1,\dots,x_n\in R\text{ generates }m\}$$ (which is the same number as the minimal number of generators of any $m$-primary ideals). 
+\item The Krull dimension $$\dim(R)=\sup\{n\in\N\;|\;P_0\subset\cdots\subset P_n\text{ for each }P_i\in\text{Spec}(R)\}$$
+\item The Hilbert-Samuel degree $$d_I(R)=\min\{d\in\N\;|\;\lim_{t\to 1}(1-t)^dHS_{\text{gr}_I(M)}(t)<\infty\}$$
+\item The minimal number of generators $$\delta_R(I)=\min\{n\in\N\;|\;x_1,\dots,x_n\in R\text{ generates }I\}$$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $\dim(R)\leq d_I(R)$\\
+We induct on $d$. When $d_I(R)=0$, then $l\left(\frac{R}{m^n}\right)$ is eventually constant by 3.2.3. Then $m^n=m^{n+1}$ for some $n$. By Nakayama's lemma we conclude that $m^n=0$. Then $R$ is a Noetherian commutative ring that has a nilpotent maximal ideal. From Commutative Algebra 1 2.3.5 we conclude that $R$ is Artinian, and $\dim(R)=0$. \\~\\
+
+When $d\neq 0$, let $P_0\subseteq P_1\subseteq\cdots\subseteq P_r$ be a chain of prime ideals of $R$. Let $x\in P_1\setminus P_0$. Then the image $[x]$ of $x$ under the quotient map $R\to\frac{R}{P_0}$ is non-zero. Moreover, $\frac{R}{P_0}$ is an integral domain. Let $A=\frac{R/P_0}{([x])}\cong\frac{R}{P_0+xR}$. We can apply 3.2.5 to deduce that $d_m(A)\leq d_m(R/P_0)-1$. By inductive hypothesis we deduce that $\dim(A)\leq d_m(A)\leq d_m(R/P_0)-1$. \\~\\
+
+Write $p:R\to A$ the quotient map. It descends to a map $p:\frac{R}{P_i}\to\frac{A}{p(P_i)}$ for $1\leq i\leq r$. Since $A\cong\frac{R}{P_0+xR}$ we deduce that $\frac{A}{P_i}\cong\frac{R}{P_0+xR+P_i}\cong\frac{R}{P_i}$ since $x\in P_1$. Hence $p:\frac{R}{P_i}\to\frac{A}{p(P_i)}$ is an isomorphism. Since $P_i$ is prime, $\frac{R}{P_i}$ is an integral domain and so $\frac{A}{p(P_i)}$ is an integral domain and $p(P_i)$ is prime. This means that we now have a chain of prime ideals $p(P_1)\subset\cdots\subset p(P_r)$ in $A$. It is a strict chain since $\frac{R}{P_i}$ is strictly biggerthan $\frac{R}{P_{i+1}}$ implies that $\frac{A}{p(P_i)}$ is strictly bigger than $\frac{A}{p(P_{i+1})}$. Then we have $$r-1\leq\dim(A)\leq d_m(A)\leq d_m(R/P_0)-1$$~\\
+
+Finally, under the surjective map $p$, $R/m^n$ is sent to $A/p(m)^n$. Hence $l(R/m^n)\geq l(A/p(m)^n)$ so that $d_m(R)\geq d_m(R/P_0)$. Then combining with the above inequality we deduce that $r-1\leq d_m(R/P_0)-1\leq d_m(R)-1$ so that $r\leq d_m(R)$. Since this is true for all chains of prime ideals of $R$, we deduce that $\dim(R)\leq d_m(R)$. \\~\\
+
+\item $d_m(R)\leq\delta_m(R)$. Suppose that $x_1,\dots,x_r$ generate $m$. 
 \end{itemize}
+\end{proof}
 \end{thm}
 
-\begin{thm}{Krull's Height Theorem}{} Let $R$ be a Noetherian commutative ring. Let $I$ be a proper ideal generated by $n$ elements. Let $p$ be the smallest prime ideal containing $I$. Then $$\text{ht}_R(p)\leq n$$
+\begin{thm}{Krull's Principal Ideal Theorem}{} Let $R$ be a Noetherian commutative ring. Let $I$ be a principal ideal of $R$. Let $P$ be a smallest prime ideal containing $I$. Then we have $$\text{ht}_R(I)\leq 1$$ \tcbline
+\begin{proof}
+Suppose that $I=(x)$. I claim that $(x)_P$ is $PR_P$-primary ideal. Since $R$ is Noetherian, $R_P$ is Noetherian and this means that $(PR_P)^n=0$ for some $n$. Then $0\subset(x)_P\subseteq PR_P$ implies that $(x)_P$ is $PR_P$-primary. By the fundamental theorem of dimension theory, we have $$\text{ht}_R(P)=\dim(R_P)=\delta_{R_P}((x)_P)\leq 1$$ and so we are done. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{Krull's Height Theorem}{} Let $R$ be a Noetherian commutative ring. Let $I$ be a proper ideal generated by $n$ elements. Let $P$ be the smallest prime ideal containing $I$. Then $$\text{ht}_R(P)\leq n$$
 \end{thm}
 
 \begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Then we have $$\dim(R)\leq\dim_{R/m}\left(\frac{m}{m^2}\right)<\infty$$ \tcbline
 \begin{proof}
-We have seen in Commutative Algebra 1 that $\dim(R)=\dim(R_m)=\text{ht}_R(m)$. By Krull's height theorem, $\text{ht}_R(m)\leq\delta_m(R)$. Finally, by prp3.2.3 we have $\delta_m(R)=\dim_{R/m}(m/m^2)$ so we are done. 
+We have seen in Commutative Algebra 1 that $\dim(R)=\dim(R_m)=\text{ht}_R(m)$. By Krull's height theorem, $\text{ht}_R(m)\leq\delta_m(R)$. Finally, by prp3.2.3 we have $\delta_m(R)\leq\dim_{R/m}(m/m^2)$ so we are done. 
 \end{proof}
 \end{prp}
 
@@ -325,21 +400,19 @@ The differentials are given as follows.
 \subsection{Basic Properties}
 Regularity is an important concept in algebraic geometry to detecting singularities. We motivate the definition by the following proposition. 
 
-\begin{defn}{Regular Local Rings}{} Let $(R,m)$ be a Noetherian local ring. We say that $R$ is a regular local ring if $$\dim(R)\leq\dim_{R/m}\left(\frac{m}{m^2}\right)$$
+\begin{defn}{Regular Local Rings}{} Let $(R,m)$ be a Noetherian local ring. We say that $R$ is a regular local ring if $$\dim(R)=\dim_{R/m}\left(\frac{m}{m^2}\right)$$
 \end{defn}
 
-\begin{lmm}{}{} Let $(R,m)$ be a Noetherian local ring. Let $n$ be the minimal number of elements needed to generate $m$. Then $R$ is regular if and only if $n=\dim(R)$. 
-\end{lmm}
-
-\begin{thm}{}{} Let $A$ be a Noetherian local ring of dimension $1$ with maximal ideal $m$. Then the following are equivalent: 
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Then the following are equivalent. 
 \begin{itemize}
-\item $A$ is regular
-\item $m$ is principal
-\item $A$ is an integral domain, and all ideals are of the form $m^n$ for $n\geq 0$ or $(0)$
-\item $A$ is a principal ideal domain
+\item $R$ is a regular local ring. 
+\item $\text{gr}_m(R)$ is isomorphic to $k[x_1,\dots,x_{\dim(R)}]$ as a graded ring. 
+\item $m$ is generated by $n$ elements. 
 \end{itemize}
-\end{thm}
+\end{prp}
 
+\begin{prp}{}{} Let $(R,m)$ be a regular local ring. Then $m$ is generated by a regular sequence. 
+\end{prp}
 
 \subsection{Homological Methods}
 
@@ -360,6 +433,10 @@ Noetherian local rings enjoy the fundamental theorem of dimension theory, which 
 \end{defn}
 
 \subsection{Cohen-Macauley Rings}
+\begin{defn}{Cohen-Macauley Modules}{} Let $(R,m)$ be a Noetherian local ring. Let $M$ be a finitely generated $R$-module. We say that $M$ is Cohen-Macauley if $$\dim(R/\text{Ann}(M))=\text{depth}_m(M)$$
+\end{defn}
+Recall that $\dim(M)=\dim(R/\text{Ann}(M))$. 
+
 
 $$\substack{\text{Regular}\\\text{Local Rings}}\subset\substack{\text{Complete}\\\text{Intersection Rings}}\subset\substack{\text{Gorenstein}\\\text{Rings}}\subset\substack{\text{Cohen-Macauley}\\\text{Rings}}$$
 
