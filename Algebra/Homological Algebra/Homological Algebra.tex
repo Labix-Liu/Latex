@@ -862,6 +862,16 @@ M\arrow[r, "\exists h"', dashed] & I
 \end{tikzcd}} \\
 \end{prp}
 
+\begin{prp}{Baer's Criterion}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Then $M$ is injective if and only if for every left ideal $I$ of $R$ and $R$-module homomorphism $\phi:I\to M$, there exists a map $\overline{\phi}$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	I & M \\
+	R
+	\arrow["\phi", from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow["{\exists\overline{\phi}}"', dashed, from=2-1, to=1-2]
+\end{tikzcd}} \\
+\end{prp}
+
 \subsection{Flat Modules}
 While projective modules allows the exactness of $\Hom(M,-)$, flat modules allows the exactness of $-\otimes_RM$. 
 

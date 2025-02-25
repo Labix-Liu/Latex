@@ -322,7 +322,45 @@ If $\alpha$ is a weak equivalence, then since the top wide rectangle is a homoto
 \end{proof}
 \end{prp}
 
-Need: 3.7.29 (for Blakers-Massey)
+\begin{prp}{}{} Let $W,X,Y,Z\in\bold{CGWH}$ be spaces such that there is a homotopy pushout square \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	W & Y \\
+	X & Z
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+Then there exists a pushout square \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	W' & Y' \\
+	X' & Z'
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+such that $W'\to X'$ and $W'\to Y'$ are cofibrations, and a map of squares \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	&& {Y'} \\
+	{W'} && Y && {Z'} \\
+	W && {X'} && Z \\
+	&& X
+	\arrow[from=1-3, to=2-5]
+	\arrow[from=2-1, to=1-3]
+	\arrow[from=2-1, to=3-3]
+	\arrow[from=2-3, to=1-3]
+	\arrow[from=2-3, to=3-5]
+	\arrow[from=3-1, to=2-1]
+	\arrow[from=3-1, to=2-3]
+	\arrow[from=3-1, to=4-3]
+	\arrow[from=3-3, to=2-5]
+	\arrow[from=3-5, to=2-5]
+	\arrow[from=4-3, to=3-3]
+	\arrow[from=4-3, to=3-5]
+\end{tikzcd}}\\~\\
+where the vertical maps are homotopy equivalences. 
+\end{prp}
 
 \begin{defn}{Excisive Functors}{} Let $F:\bold{Spaces}\to\bold{Spaces}$ be a functor. We say that $F$ is excisive if the following are true. 
 \begin{itemize}
@@ -570,8 +608,10 @@ By the suspension loop adjunction, we will interchangably refer to the bonding m
 
 Given a space $X$ and a spectrum $\{Y_n,\sigma_n\}$, we can smash $X$ with the spectrum at each level and smashing with the identity will give bonding maps $$\Sigma(Y_n\wedge X)=S^1\wedge Y_n\wedge X\overset{\sigma_n\wedge\text{id}_X}{\to} Y_{n+1}\wedge X$$ (we work in $\bold{CGWH}$) which are usually not weak equivalences. We call them pre-spectra. (2.4.1 foundations of stable homotopy theory)
 
-\begin{thm}{}{} Let $\{K_n,\sigma_n\}$ be a spectrum. Then the functor $$X\mapsto\text{hocolim}(K_0\wedge X\rightarrow\Omega(K_1\wedge X)\rightarrow\Omega^2(K_2\wedge X)\rightarrow\cdots)$$ is an excisive functor. 
-\end{thm}
+\begin{prp}{}{} Let $\{K_n,\sigma_n\}$ be a spectrum. Then the functor $$X\mapsto\text{hocolim}(K_0\wedge X\rightarrow\Omega(K_1\wedge X)\rightarrow\Omega^2(K_2\wedge X)\rightarrow\cdots)$$ is an excisive functor. 
+\end{prp}
+
+To every spectrum we constructed an excisive functor. Conversely, given an excisive functor we can recover a spectrum by evaluating at the $n$-spheres. 
 
 \begin{prp}{}{} Let $F$ be an excisive functor. Then there exists structure maps $(S^n)\to \Omega F(S^{n+1})$ such that $\{F(S^n)\}$ is a spectra. \tcbline
 \begin{proof}
@@ -644,7 +684,7 @@ The suspension is a functor because we can also define it to be the composition 
 
 We can guarantee that looping is a functor in a similar way to $\Sigma$. 
 
-\begin{prp}{}{} Let $\mC$ be a stable infinity category. Then $\Omega$ and $\Sigma$ are both equivalence of infinity categories. 
+\begin{prp}{}{} Let $\mC$ be a stable infinity category. Then $\Omega$ and $\Sigma$ are both equivalence of infinity categories. \tcbline
 \begin{proof}
 Let $\mC$ be stable. Let $X\in\mC$. Then \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -676,7 +716,7 @@ Stable infinity categories are infinity categories in which pushouts and pullbac
 
 \begin{prp}{}{} Let $\mC,\mD$ be infinity categories. Suppose that $\mC$ is pointed and admits all finite colimits. Suppose that $\mD$ admits all finite limits. Then $$\text{Exc}_\ast(\mC,\mD)$$ is a stable infinity category. \tcbline
 \begin{proof}
-We first show that $\text{Exc}_\ast(\mC,\mD)$ is pointed. Let $\ast$ denote a final object of $\mC$. Since $\mD$ admits all finite limits and final objects are limits of the empty diagram, $\mD$ admits a final object $\ast'$. Let $X:\mC\to\mD$ be the constant functor given by $X(C)=\ast'$. It is clear that $X$ is reduced and excisive. Moreover, $X$ is a final object of $\text{Exc}_\ast(\mC,\mD)$ (Why ????). \\~\\
+We first show that $\text{Exc}_\ast(\mC,\mD)$ is pointed. Let $\ast$ denote a final object of $\mC$. Since $\mD$ admits all finite limits and final objects are limits of the empty diagram, $\mD$ admits a final object $\ast'$. Let $X:\mC\to\mD$ be the constant functor given by $X(C)=\ast'$. Evidently it is reduced and exicisve and is the final object of $\text{Exc}_\ast(\mC,\mD)$. \\~\\
 
 Now let $Y\in\text{Exc}_\ast(\mC,\mD)$. Since $X$ and $Y$ are reduced, the mapping space $\Hom_\mD(X(\ast),Y(\ast))$ is contractible. Consider the restriction map $$\Hom_{\text{Func}(\mC,\mD)}(X,Y)\to\Hom_\mD(X(\ast),Y(\ast))$$ given by sending a natural transformation $F:X\Rightarrow Y$ to $F(\ast):X(\ast)\to Y(\ast)$. Clearly \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -887,7 +927,29 @@ Conversely, suppose that $\Omega$ is an equivalence of infinity categories. Sinc
 \begin{proof}~\\
 \begin{itemize}
 \item Suppose that $F$ is commutes with finite limits. Given a pushout diagram in $\mC$, since $\mC$ is stable by prp2.1.3 we know that it is a pullback. Since $F$ commutes with finite limits, $F$ sends the pullback to a pullback. Hence $F$ is excisive. Let $\ast$ be a final object of $\mC$. Since $F$ is left exact and $\ast$ is the limit of the empty diagram, $F(\ast)$ is a final object of $\mD$. Hence $F$ is reduced. \\~\\
-\item Suppose that $F$ is reduced and excisive. Start with an equalizer. Then write it as a fiber. It is a pullback. It is also a pushout since stable. Then $F$ sends this to a pullback. 
+\item Suppose that $F$ is reduced and excisive. Given $X,Y\in\mC$, the product $X\times Y$ is a pullback so that the following is a pullback squares: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{X\times Y} & X \\
+	Y & \ast
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+Since $\mC$ is stable, the square is also a pushout. Then $F$ sends it to a pullback square: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{F(X\times Y)} & {F(X)} \\
+	{F(Y)} & \ast
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+where $F(\ast)\simeq\ast$ since $F$ is reduced. Thus we obtain an equivalence $F(X\times Y)\simeq F(X)\times F(Y)$. 
+
+
+
+Start with an equalizer. Then write it as a fiber. It is a pullback. It is also a pushout since stable. Then $F$ sends this to a pullback. 
 \end{itemize}
 \end{proof}
 \end{prp}
@@ -1229,7 +1291,18 @@ Clearly $f$ is a weak equivalence if and only if $f$ is $n$-connected for all $n
 
 \begin{prp}{Two-Out-Of-Three Property}{} Let $X,Y,Z$ be spaces. Let $f:X\to Y$ and $g:Y\to Z$ be maps. If any two of $f,g,g\circ f$ are weak equivalences, then so is the third one. \tcbline
 \begin{proof}
-If $f$ and $g$ are weak equivalences then it is clear that $g\circ f$ is a weak equivalence. If $g\circ f$ and $f$ are weak equivalences but $g$ is not, then $\pi_n(g)$ is not an isomorphism implies that $\pi_n(g\circ f)$ is not an isomorphism, a contradiction. Similarly if $g\circ f$ and $g$ are weak equivalences and $f$ is not, then $\pi_n(g\circ f)$ is not an isomorphism, a contradiction. 
+If $f$ and $g$ are weak equivalences then it is clear that $g\circ f$ is a weak equivalence. If $g$ and $g\circ f$ are weak equivalence but $f$ is not, then there exists $n$ such that $\pi_n(f):\pi_n(X,x_0)\to\pi_n(Y,f(x_0))$ is not an isomorphism for some $x_0\in X$. Since $\pi_n(g):\pi_n(Y,f(x_0))\to\pi_n(Z,g(f(x_0)))$ is an isomorphism, this means that $\pi_n(g)\circ\pi_n(f)$ is not an isomorphism. This is a contradiction since $\pi_n(g\circ f)$ is a weak equivalence. \\~\\
+
+Finally suppose that $f$ and $g\circ f$ are weak equivalences. If $f$ is surjective, suppose for a contradiction that $\pi_n(g):\pi_n(Y,y_0)\to\pi_n(Z,g(y_0))$ is not an isomorphism for some $n$ and $y_0\in Y$. Then $\pi_n(f)$ being an isomorphism implies that for any $x_0\in f^{-1}(y_0)$ ($f$ is surjective) then $\pi_n(g)\circ\pi_n(f)$ is not an isomorphism. This is a contradiction since $\pi_n(g\circ f)$ is an isomorphism. For the case that $f$ is not surjective, there exists $y_0\in Y$ that does not lie in $\im(f)$. Since $\pi_0(f)$ is an isomorphism, there exists some $x\in X$ such that $f(x)$ and $y$ lie in the same path component. Let $\gamma:I\to Y$ be a path from $f(x)$ to $y$. Then the following diagram commutes: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\pi_n(Y,f(x))} & {\pi_n(Z,g(f(x)))} \\
+	{\pi_n(Y,y_0)} & {\pi_n(Z,g(y_0))}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\cong"', from=1-1, to=2-1]
+	\arrow["\cong", from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+where the vertical maps are induced by conjugation with $\gamma$, and therefore the diagram is commutative. From the case where we assumed that $f$ is surjective, we can conclude that if $f$ and $g\circ f$ are weak equivalences, then $g|_{\im(f)}$ is a weak equivalence. Hence the top arrow is an isomorphism. Since three out of the four arrows in the commutative diagram is an isomorphism, the last arrow is also an isomorphism. Hence $g$ is a weak equivalence. 
 \end{proof}
 \end{prp}
 

@@ -157,84 +157,9 @@ Commutative squares are homotopy commutative.
 
 \pagebreak
 \section{Fibers and Cofibers, Fibrations and Cofibrations}
-\subsection{The Relative Point of View}
+\subsection{Fibers and Cofibers}
 \begin{defn}{Fibers of a Map}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. Define the fiber of $f$ at $y\in Y$ to be $$\text{Fib}_y(f)=f^{-1}(y)$$
 \end{defn}
-
-\begin{defn}{Cofibers of a Map}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. Define the cofiber of $f$ to be $$\text{Cofib}(f)=\frac{Y}{f(X)}$$
-\end{defn}
-
-Up until this point, in algebraic topology we have asked questions relating to two spaces and tried to answer them. For instance, we can ask whether two spaces are homeomorphic, homotopy equivalent or weakly equivalent. We can also ask these questions in a relative setting, this involves considering maps of spaces as objects themselves, instead of just the spaces. 
-
-\begin{defn}{Maps of Maps}{} Let $X,Y,A,B$ be spaces. Let $f:X\to Y$ and $g:A\to B$ be maps. A map from $f$ to $g$ is a pair of maps $(\alpha:X\to A,\beta:Y\to B)$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	X & Y \\
-	A & B
-	\arrow["f", from=1-1, to=1-2]
-	\arrow["\alpha"', from=1-1, to=2-1]
-	\arrow["\beta", from=1-2, to=2-2]
-	\arrow["g"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-\end{defn}
-
-\begin{defn}{Homotopy from Maps to Maps}{} Let $X,Y,A,B$ be spaces. Let $f:X\to Y$ and $g:A\to B$ be maps. Let $(a,b)$ and $(c,d)$ be two maps from $f$ to $g$. We say that $(a,b)$ and $(c,d)$ are homotopic if there exists maps $H:X\times I\to Y$ and $K:A\times I\to B$ such that the following diagram \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{X\times I} & {Y\times I} \\
-	A & B
-	\arrow["{f\times\text{id}_I}", from=1-1, to=1-2]
-	\arrow["H"', from=1-1, to=2-1]
-	\arrow["K", from=1-2, to=2-2]
-	\arrow["g"', from=2-1, to=2-2]
-\end{tikzcd}}\\~\\
-commutes and the following are true. 
-\begin{itemize}
-\item $H$ is a homotopy from $a$ to $c$
-\item $K$ is a homotopy from $b$ to $d$
-\end{itemize}
-\end{defn}
-
-We now restrict to the point of view where maps are over a fixed space $Z$ (In other words we are considering objects of $\bold{Top}_Z$). A map of maps becomes the following data: Let $f:X\to Z$ and $g:Y\to Z$ be maps. A map from $f$ to $g$ is a map $h:X\to Y$ such that $g\circ h=f$. In other words the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	X && Y \\
-	& Z
-	\arrow["h", from=1-1, to=1-3]
-	\arrow["f"', from=1-1, to=2-2]
-	\arrow["g", from=1-3, to=2-2]
-\end{tikzcd}}\\~\\
-
-A homotopy then becomes the following data: Let $f:X\to Z$ and $g:Y\to Z$ be two maps. Let $h,k:X\to Y$ be two maps from $f$ to $g$. We say that $h$ and $k$ are homotopic if there exists a homotopy $H:X\times I\to Y$ from $h$ to $k$ such that $H(-,t)$ for each $t$ is a map over $Z$. This means that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{X\times I} && Y \\
-	& Z
-	\arrow["H", from=1-1, to=1-3]
-	\arrow["{f\circ p_X}"', from=1-1, to=2-2]
-	\arrow["g", from=1-3, to=2-2]
-\end{tikzcd}}\\~\\
-
-We can now discuss homotopy equivalences on these maps. 
-
-\begin{defn}{Fiber Homotopy Equivalence}{} Let $X,Y,Z$ be spaces. Let $f:X\to Z$ and $g:Y\to Z$ be maps. We say that $f$ and $g$ are homotopy equivalent if there exists two maps $h:X\to Y$ and $k:Y\to X$ such that $k\circ h$ and $h\circ k$ are both homotopic to the identity over $Z$. 
-\end{defn}
-
-The reason that it is called a fiber homotopy equivalence is because it gives homotopy equivalences on fibers. 
-
-\begin{prp}{}{} Let $X,Y,Z$ be spaces. Let $f:X\to B$ and $g:Y\to B$ be maps. If $f$ and $g$ are homotopy equivalent, then for any $b\in B$, the fibers $$\text{Fib}_b(f)\simeq\text{Fib}_b(g)$$ are homotopy equivalent. \tcbline
-\begin{proof}
-Suppose that $f$ and $g$ are homotopy equivalent via two maps $h:X\to Y$ and $k:Y\to X$. This means that there exists a homotopy $H:X\times I\to X$ such that $H(-,0)=h\circ k$ and $H(-,1)=\text{id}_X$. Similarly, there exists a homotopy $K:Y\times I\to Y$ such that $K(-,0)=k\circ h$ and $K(-,1)=\text{id}_Y$. Consider the map $h|_{f^{-1}(b)}:f^{-1}(b)\to g^{-1}(b)$ and similarly for $k|_{g^{-1}(b)}$. Define two maps $\overline{H}:H|_{f^{-1}(b)\times I}$ and $\overline{K}=K|_{g^{-1}(b)\times I}$. To show that they are homotopies, we just need to show that $\overline{H}\subseteq f^{-1}(b)$ and similarly for $\overline{K}$. Now by definition, each $H(-,t):X\to Y$ is such that $g(H(-,t))=f$. Choose $x\in f^{-1}(b)$. Then $$g(H(x,t))=f(x)=b$$ Hence the entire homotopy $\overline{H}$ stays in the fiber $f^{-1}(b)$. Hence $\overline{H}$ is a well defined homotopy on $f^{-1}(b)$. Similarly for $\overline{K}$. Hence the two fibers are homotopy equivalent. 
-\end{proof}
-\end{prp}
-
-Unfortunately for most maps $f:X\to Y$, the fibers themselves are not homeomorphic, and not even homotopy equivalent. 
-
-\begin{eg}{}{} The fibers of the projection map $S^1\to\R$ to the $x$-axis are not homotopy equivalent. \tcbline
-\begin{proof}
-It is clear that the fiber of $S^1\to\R$ is either empty, consist of one point, or of two points. Neither two of the three are homotopy equivalent. 
-\end{proof}
-\end{eg}
-
-There are two ways to proceed from here. We first try to find a set of maps in which all fibers are homotopy equivalent. This is the content of this section. Otherwise, we try and define a new notion of fiber so that we obtain homotopy equivalence. This is the content of the next section. 
-
-\subsection{Fiber and Cofiber Sequences}
 \begin{defn}{Fiber Sequences}{} Let $X,Y,Z$ be pointed spaces. Let $f:X\to Y$ and $g:Y\to Z$ be maps. We say that \\~\\
 \adjustbox{scale=1,center}{\begin{tikzcd}
 	X & Y & Z
@@ -267,6 +192,25 @@ is a fiber sequence. Then \\~\\
 \end{tikzcd}}\\~\\
 is also a fiber sequence. 
 \end{prp}
+
+\begin{prp}{}{} Let $X,Y,B$ be spaces. Let $f:X\to B$ and $g:Y\to B$ be maps. If $f$ and $g$ are homotopy equivalent, then for any $b\in B$, the fibers $$\text{Fib}_b(f)\simeq\text{Fib}_b(g)$$ are homotopy equivalent. \tcbline
+\begin{proof}
+Suppose that $f$ and $g$ are homotopy equivalent via two maps $h:X\to Y$ and $k:Y\to X$. This means that there exists a homotopy $H:X\times I\to X$ such that $H(-,0)=h\circ k$ and $H(-,1)=\text{id}_X$. Similarly, there exists a homotopy $K:Y\times I\to Y$ such that $K(-,0)=k\circ h$ and $K(-,1)=\text{id}_Y$. Consider the map $h|_{f^{-1}(b)}:f^{-1}(b)\to g^{-1}(b)$ and similarly for $k|_{g^{-1}(b)}$. Define two maps $\overline{H}:H|_{f^{-1}(b)\times I}$ and $\overline{K}=K|_{g^{-1}(b)\times I}$. To show that they are homotopies, we just need to show that $\overline{H}\subseteq f^{-1}(b)$ and similarly for $\overline{K}$. Now by definition, each $H(-,t):X\to Y$ is such that $g(H(-,t))=f$. Choose $x\in f^{-1}(b)$. Then $$g(H(x,t))=f(x)=b$$ Hence the entire homotopy $\overline{H}$ stays in the fiber $f^{-1}(b)$. Hence $\overline{H}$ is a well defined homotopy on $f^{-1}(b)$. Similarly for $\overline{K}$. Hence the two fibers are homotopy equivalent. 
+\end{proof}
+\end{prp}
+
+Unfortunately for most maps $f:X\to Y$, the fibers themselves are not homeomorphic, and not even homotopy equivalent. 
+
+\begin{eg}{}{} The fibers of the projection map $S^1\to\R$ to the $x$-axis are not homotopy equivalent. \tcbline
+\begin{proof}
+It is clear that the fiber of $S^1\to\R$ is either empty, consist of one point, or of two points. Neither two of the three are homotopy equivalent. 
+\end{proof}
+\end{eg}
+
+There are two ways to proceed from here. We first try to find a set of maps in which all fibers are homotopy equivalent. This is the content of this section. Otherwise, we try and define a new notion of fiber so that we obtain homotopy equivalence. This is the content of the next section. 
+
+\begin{defn}{Cofibers of a Map}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. Define the cofiber of $f$ to be $$\text{Cofib}(f)=\frac{Y}{f(X)}$$
+\end{defn}
 
 \subsection{More on Fibrations and Cofibrations}
 \begin{prp}{}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. Let $x_0\in X$. Then the evaluation map $$\text{ev}_{x_0}:\text{Map}(X,Y)\to Y$$ defined by $f\mapsto f(x_0)$ is a fibration. 
@@ -530,7 +474,7 @@ and apply 2.4.6 to conclude.
 \begin{prp}{}{} Let $X,Y$ be spaces. Let $f,g:X\to Y$ be maps. If $f,g$ are homotopic, then for all $y\in Y$, there is a homotopy equivalence $$\text{hocofib}(f)\simeq\text{hocofib}(g)$$ induced by the homotopy from $f$ to $g$. 
 \end{prp}
 
-\subsection{The Fiber and Cofiber Sequences}
+\subsection{Fiber and Cofiber Sequences}
 \begin{defn}{Exact Sequence of Sets}{} Let $A,B,C$ be pointed sets. Let $f:A\to B$ and $g:B\to C$. We say that the diagram \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	A & B & C
@@ -1336,6 +1280,64 @@ Expanding things out show that $$f,g:\text{Map}(,A)\times\text{Map}(,B)$$
 \end{itemize}
 Define the homotopy colimit $\hocolim X$ of $X$ to be the coequalizer of the maps $$\hocolim X=\text{Coeq}(f,g)$$
 \end{defn}
+
+\pagebreak
+\section{???}
+
+\subsection{The Relative Point of View}
+Up until this point, in algebraic topology we have asked questions relating to two spaces and tried to answer them. For instance, we can ask whether two spaces are homeomorphic, homotopy equivalent or weakly equivalent. We can also ask these questions in a relative setting, this involves considering maps of spaces as objects themselves, instead of just the spaces. 
+
+\begin{defn}{Maps of Maps}{} Let $X,Y,A,B$ be spaces. Let $f:X\to Y$ and $g:A\to B$ be maps. A map from $f$ to $g$ is a pair of maps $(\alpha:X\to A,\beta:Y\to B)$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & Y \\
+	A & B
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["\alpha"', from=1-1, to=2-1]
+	\arrow["\beta", from=1-2, to=2-2]
+	\arrow["g"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+\end{defn}
+
+\begin{defn}{Homotopy from Maps to Maps}{} Let $X,Y,A,B$ be spaces. Let $f:X\to Y$ and $g:A\to B$ be maps. Let $(a,b)$ and $(c,d)$ be two maps from $f$ to $g$. We say that $(a,b)$ and $(c,d)$ are homotopic if there exists maps $H:X\times I\to Y$ and $K:A\times I\to B$ such that the following diagram \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X\times I} & {Y\times I} \\
+	A & B
+	\arrow["{f\times\text{id}_I}", from=1-1, to=1-2]
+	\arrow["H"', from=1-1, to=2-1]
+	\arrow["K", from=1-2, to=2-2]
+	\arrow["g"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+commutes and the following are true. 
+\begin{itemize}
+\item $H$ is a homotopy from $a$ to $c$
+\item $K$ is a homotopy from $b$ to $d$
+\end{itemize}
+\end{defn}
+
+We now restrict to the point of view where maps are over a fixed space $Z$ (In other words we are considering objects of $\bold{Top}_Z$). A map of maps becomes the following data: Let $f:X\to Z$ and $g:Y\to Z$ be maps. A map from $f$ to $g$ is a map $h:X\to Y$ such that $g\circ h=f$. In other words the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X && Y \\
+	& Z
+	\arrow["h", from=1-1, to=1-3]
+	\arrow["f"', from=1-1, to=2-2]
+	\arrow["g", from=1-3, to=2-2]
+\end{tikzcd}}\\~\\
+
+A homotopy then becomes the following data: Let $f:X\to Z$ and $g:Y\to Z$ be two maps. Let $h,k:X\to Y$ be two maps from $f$ to $g$. We say that $h$ and $k$ are homotopic if there exists a homotopy $H:X\times I\to Y$ from $h$ to $k$ such that $H(-,t)$ for each $t$ is a map over $Z$. This means that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X\times I} && Y \\
+	& Z
+	\arrow["H", from=1-1, to=1-3]
+	\arrow["{f\circ p_X}"', from=1-1, to=2-2]
+	\arrow["g", from=1-3, to=2-2]
+\end{tikzcd}}\\~\\
+
+We can now discuss homotopy equivalences on these maps. 
+
+\begin{defn}{Fiber Homotopy Equivalence}{} Let $X,Y,Z$ be spaces. Let $f:X\to Z$ and $g:Y\to Z$ be maps. We say that $f$ and $g$ are homotopy equivalent if there exists two maps $h:X\to Y$ and $k:Y\to X$ such that $k\circ h$ and $h\circ k$ are both homotopic to the identity over $Z$. 
+\end{defn}
+
+The reason that it is called a fiber homotopy equivalence is because it gives homotopy equivalences on fibers. 
 
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  14 FEB 2025 10:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  24 FEB 2025 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1185,7 +1185,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 816--817
 [23]
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 888--889
+Underfull \hbox (badness 10000) in paragraph at lines 898--899
 
  []
 
@@ -1194,45 +1194,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 888--889
 [25]
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1012--1022
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1012--1022
-
- []
-
-
 
 [27]
+Underfull \hbox (badness 10000) in paragraph at lines 1022--1032
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1022--1032
+
+ []
+
+
 
 [28]
-Overfull \hbox (3.34154pt too wide) in paragraph at lines 1069--1070
+
+[29]
+Overfull \hbox (3.34154pt too wide) in paragraph at lines 1079--1080
 []\T1/qpl/m/n/10 Notice that co-ho-mo-log-i-cal spec-tral se-quences are re-all
 y the same thing as ho-mo-log-i-cal spec-tral se-quences,
  []
 
 
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 1094--1103
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1094--1103
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1094--1103
-
- []
-
-
-
 [30]
+Underfull \hbox (badness 10000) in paragraph at lines 1104--1113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1104--1113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1104--1113
+
+ []
+
+
 
 [31]
 
@@ -1243,7 +1243,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 1094--1103
 [34]
 
 [35]
-Underfull \hbox (badness 1117) in paragraph at lines 1306--1307
+
+[36]
+Underfull \hbox (badness 1117) in paragraph at lines 1316--1317
 []\T1/qpl/m/n/10 Define sim-i-larly the ho-mo-topy cat-e-gories $\OML/cmm/m/it/
 10 K[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A\OT1/cmr/m/n/10 )$\T1/qpl/m/n/10 , $\O
 ML/cmm/m/it/10 K[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A\OT1/cmr/m/n/10 )$ \T1/qpl
@@ -1253,8 +1255,6 @@ n/10 )$ \T1/qpl/m/n/10 for $[][]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A\OT1/cmr/m/n
  []
 
 
-
-[36]
 
 [37]
 
@@ -1266,7 +1266,9 @@ n/10 )$ \T1/qpl/m/n/10 for $[][]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A\OT1/cmr/m/n
 
 [41]
 
-[42] (Homological Algebra.aux)
+[42]
+
+[43] (Homological Algebra.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
@@ -1275,10 +1277,10 @@ Package rerunfilecheck Info: File `"Homological Algebra".out' has not changed.
 (rerunfilecheck)             Checksum: 5B252D38FD8AD6C3FB662BBB9B25DA8A;8247.
  ) 
 Here is how much of TeX's memory you used:
- 38163 strings out of 473577
- 784074 string characters out of 5716318
- 1235666 words of memory out of 5000000
- 60577 multiletter control sequences out of 15000+600000
+ 38220 strings out of 473577
+ 785606 string characters out of 5716318
+ 1236630 words of memory out of 5000000
+ 60632 multiletter control sequences out of 15000+600000
  601492 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,18n,120p,654b,1471s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1304,9 +1306,9 @@ s/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/
 Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb>
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri
 .pfb>
-Output written on "Homological Algebra.pdf" (42 pages, 588655 bytes).
+Output written on "Homological Algebra.pdf" (43 pages, 590746 bytes).
 PDF statistics:
- 751 PDF objects out of 1000 (max. 8388607)
- 241 named destinations out of 1000 (max. 500000)
+ 757 PDF objects out of 1000 (max. 8388607)
+ 243 named destinations out of 1000 (max. 500000)
  357 words of extra memory for PDF output out of 10000 (max. 10000000)
 

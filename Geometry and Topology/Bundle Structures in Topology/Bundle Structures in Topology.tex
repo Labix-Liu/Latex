@@ -51,11 +51,6 @@ We can rewrite the coordinates of $S^3$ by $r_je^{i\theta_j}$. Then $$h(r_1e^{i\
 \end{proof}
 \end{eg}
 
-We will see that fibrations are a very well behaved class of maps in $\bold{Top}$. 
-
-\begin{lmm}{}{} Let $X,Y,Z$ be spaces. Let $f:X\to Z$ and $g:Y\to Z$ be maps. Let $h:X\to Y$ be a map over $Z$. If $f$ and $g$ are fibrations, then $h$ is a homotopy equivalence if and only if it is a fiber homotopy equivalence. 
-\end{lmm}
-
 \subsection{Cofibrations and The Homotopy Extension Property}
 \begin{defn}{The Homotopy Extension Property}{} Let $i:A\to X$ be a map and let $Y$ be a space. Denote $i_0$ the inclusion map $A\times\{0\}\hookrightarrow A\times I$. We say that $i$ has the homotopy extension property with respect to $Y$ if for every homotopy $H:A\times I\to Y$ and every map $f:X\to Y$ such that $$H\circ i_0=f\circ i$$ there exists a homotopy $\widetilde{H}:X\times I\to Y$ such that the following diagram commute: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -91,14 +86,14 @@ There is actually an easier way to write out cofibrations when $(X,A)$ is a pair
 \end{lmm}
 
 \subsection{Basic Properties of Fibrations and Cofibrations}
-\begin{prp}{}{} Let $X_1,X_2,Y,_1,Y_2\in\bold{CGWH}$. Let $p_1:X_1\to Y_1$ and $p_2:X_2\to Y_2$ be maps. Then the following are true. 
+\begin{prp}{}{} Let $X_1,X_2,Y,_1,Y_2$ be spaces. Let $p_1:X_1\to Y_1$ and $p_2:X_2\to Y_2$ be maps. Then the following are true. 
 \begin{itemize}
 \item If $p_1$ and $p_2$ are fibrations then $p_1\times p_2:X_1\times X_2\to Y_1\times Y_2$ is a fibration. 
 \item If $p_1$ and $p_2$ are cofibrations then $p_1\coprod p_2:X_1\coprod X_2\to Y_1\coprod Y_2$ is a cofibration. 
 \end{itemize}
 \end{prp}
 
-\begin{prp}{}{} Let $X,Y,Z\in\bold{CGWH}$. Let $f:X\to Y$ be a map. 
+\begin{prp}{}{} Let $X,Y,Z$ be spaces. Let $f:X\to Y$ be a map. 
 \begin{itemize}
 \item Let $f$ be a fibration. Consider the following lifting problem: \\~\\
 \adjustbox{scale=1,center}{\begin{tikzcd}

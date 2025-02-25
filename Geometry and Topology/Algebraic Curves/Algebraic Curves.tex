@@ -97,6 +97,22 @@ Let $\phi:X\to Y$ be a non-constant regular map between smooth irreducible and p
 \begin{lmm}{}{} Let $k$ be an algebraically closed field. Let $X$ be a smooth irreducible projective curve over $k$. Let $D\in\text{Div}(X)$ be a divisor. Then $\mL(D)$ is a vector space over $k$. 
 \end{lmm}
 
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $X$ be a smooth irreducible projective curve over $k$. Let $D,D'\in\text{Div}(X)$ be divisors. If $D\sim D'$ are linearly equivalent, then we have $$\dim_k(\mL(D))=\dim_k(\mL(D'))$$
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $X$ be a smooth irreducible projective curve over $k$. Let $D\in\text{Div}(X)$ be a divisor. Then the following are true. 
+\begin{itemize}
+\item If $\deg(D)<0$, then we have $$\dim_k(\mL(D))=0$$
+\item If $\deg(D)=0$, then we have $$\dim_k(\mL(D))=\begin{cases}
+0 & \text{ if }D\not\sim0\\
+1 & \text{ if }D\sim 0
+\end{cases}$$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $X$ be a smooth irreducible projective curve over $k$. Let $D\in\text{Div}(X)$ be a divisor. Then we have $$\dim_k(\mL(D))\leq\deg(D)-1$$
+\end{prp}
+
 \subsection{The Riemann-Roch Theorem}
 \begin{thm}{Riemann-Roch Theorem}{} Let $k$ be an algebraically closed field. Let $X$ be a smooth irreducible projective curve over $k$. Let $D\in\text{Div}(X)$ be a divisor on $X$ and let $K$ be the canonical divisor of $X$. Let $\mL(D)$ be the associated sheaf of the divisor $D$. Then $$\dim_k(\mL(D))+\dim_k(\mL(K-D))=\deg(D)+1-p_g(X)$$
 \end{thm}
