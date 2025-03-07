@@ -7,15 +7,18 @@
 \contentsline {subsection}{\numberline {2.1}Rational Functions and The Function Field}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Rational Maps between Varieties}{6}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Birational Equivalence}{7}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Different Types of Morphisms}{8}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Proper Morphisms}{8}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Finite Morphisms}{8}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Normal Varieties}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Normal Varieties}{9}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Normalization}{9}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Resolution of Singularities}{10}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Blowing Ups}{10}{subsection.5.1}%
+\contentsline {section}{\numberline {3}Differential Forms on Varieties}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Differential Forms as the Module of Kahler Differentials}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The Geometric Genus}{8}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Different Types of Morphisms}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Proper Morphisms}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Finite Morphisms}{9}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Normal Varieties}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Normal Varieties}{10}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Normalization}{10}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Theory of Divisors}{11}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Divisors of a Variety}{11}{subsection.6.1}%
-\contentsline {section}{\numberline {7}Intersection Theory}{13}{section.7}%
+\contentsline {section}{\numberline {6}Resolution of Singularities}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Blowing Ups}{11}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Normalization}{11}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Theory of Divisors}{12}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Divisors of a Variety}{12}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Intersection Theory}{14}{section.8}%

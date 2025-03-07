@@ -22,7 +22,7 @@
 \pagebreak
 
 \section{The General Theory of Sheaves}
-\subsection{Basic Definition of Sheaves}
+\subsection{Basic Definition of Presheaves}
 As with how we equipped to each variety $V$ its coordinate ring $k[V]$ which are functions on $V$, we want to equip to each spectrum some ring which are functions on them. It will not make sense that we can define functions on spectrums immediately. \\~\\
 
 In its full generality, sheaves are designed to encode all local information into one compact notation. It often has uses in complex geometry for its differential forms and smooth functions. In algebraic geometry it is fundamental for redefining the notion of a variety. 
@@ -56,19 +56,7 @@ Explicitly, a presheaf consists of the following data.
 \end{itemize}
 
 The reason that the map $\mathcal{F}(U)\to\mathcal{F}(V)$ is called a restriction is that we will soon see that elements of $\mathcal{F}(X)$ are actually functions over some ring or field. \\~\\
-Notation: we often use $\Gamma(U,\mathcal{F})$ to denote the set $\mathcal{F}(U)$ and $s|_V$ to denote $\text{res}_{UV}(s)$ for $s\in\mathcal{F}(U)$. 
-
-\begin{defn}{Sheaves}{} Let $X$ be a space. A sheaf on $X$ is a presheaf $\mF:\bold{Open}\to\bold{Sets}$ satisfying two additional properties
-\begin{itemize}
-\item Identity: If $\{U_i|i\in I\}$ is an open cover of $U$ and $\phi_1,\phi_2\in\mathcal{F}(U)$ and $\phi_1|_{U_i}=\phi_2|_{U_i}$ for all $i$, then $\phi_1=\phi_2$
-\item Gluing: If $\{U_i|i\in I\}$ is an open cover of $U$ and $\phi_i\in\mathcal{F}(U_i)$ for all $i\in I$ such that $\phi_i|_{U_i\cap U_j}=\phi_j|_{U_i\cap U_j}$ for all $i,j\in I$, then there is exists some $\phi\in\mathcal{F}(U)$ such that $\phi|_{U_i}=\phi_i$ for all $i\in I$. 
-\end{itemize}
-\end{defn}
-
-\begin{defn}{Abelian Sheaves}{} Let $X$ be a space. An abelian sheaf on $X$ is a presheaf $$\mF:\bold{Open}(X)\to\bold{Ab}$$ such that the underlying presheaf of sets $\mF:\bold{Open}(X)\to\bold{Set}$ is a sheaf. 
-\end{defn}
-
-We can define the category of sheaves on a topological space $X$ where objects are all the sheaves on $X$ and morphisms are all the morphisms between the sheaves. This will be seen formally later. \\~\\
+Notation: we often use $\Gamma(U,\mathcal{F})$ to denote the set $\mathcal{F}(U)$ and $s|_V$ to denote $\text{res}_{UV}(s)$ for $s\in\mathcal{F}(U)$. \\~\\
 
 Given a space $X$ and a point $p\in X$, the neighbourhoods of $p$ form a diagram in $\bold{Open}(X)$. Instead of going through the categorical definition, we write the colimit of $F:\bold{Open}(X)\to\bold{Set}$ under this diagram as $$\colim_{V_p}\mF(V_p)$$ denoting that the $V_p$ varies by restriction. 
 
@@ -91,6 +79,17 @@ An isomorphism of presheaves is just a morphism of presheaves such that each $\p
 \end{defn}
 
 Notice that the natural transformation $\phi$ here takes every open set $U$ and maps it to a group homomorphism $\phi(U):\mathcal{F}(U)\to\mathcal{G}(U)$ if $\mF$ and $\mG$ are presheaves with values in $\bold{Grp}$. 
+
+\subsection{Basic Definition of Sheaves}
+\begin{defn}{Sheaves}{} Let $X$ be a space. A sheaf on $X$ is a presheaf $\mF:\bold{Open}\to\bold{Sets}$ satisfying two additional properties
+\begin{itemize}
+\item Identity: If $\{U_i|i\in I\}$ is an open cover of $U$ and $\phi_1,\phi_2\in\mathcal{F}(U)$ and $\phi_1|_{U_i}=\phi_2|_{U_i}$ for all $i$, then $\phi_1=\phi_2$
+\item Gluing: If $\{U_i|i\in I\}$ is an open cover of $U$ and $\phi_i\in\mathcal{F}(U_i)$ for all $i\in I$ such that $\phi_i|_{U_i\cap U_j}=\phi_j|_{U_i\cap U_j}$ for all $i,j\in I$, then there is exists some $\phi\in\mathcal{F}(U)$ such that $\phi|_{U_i}=\phi_i$ for all $i\in I$. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Abelian Sheaves}{} Let $X$ be a space. An abelian sheaf on $X$ is a presheaf $$\mF:\bold{Open}(X)\to\bold{Ab}$$ such that the underlying presheaf of sets $\mF:\bold{Open}(X)\to\bold{Set}$ is a sheaf. 
+\end{defn}
 
 \begin{prp}{}{} Let $\phi:\mathcal{F}\to\mathcal{G}$ be a morphism of sheaves on a topological space $X$. Then $\phi$ is an isomorphism if and only if the induced map on the stalk $\phi_p:\mathcal{F}_{X,p}\to\mathcal{G}_{X,p}$ is an isomorphism for all $p\in X$. \tcbline
 \begin{proof}
@@ -162,7 +161,7 @@ However, it is hard to define sheaves with values on an arbitrary category $\mC$
 	\arrow["f", from=1-2, to=1-3]
 	\arrow["g", from=1-3, to=1-4]
 \end{tikzcd}}\\~\\
-where $f$ is given by the product of the unique maps $\mF(U)\to\mF(U_i)$ and $g$ is given by sending $(s_i)_{i\in I}$ to $(s_i|_{U_i\cap U_j}-s_j|_{U_i\cap U_j})_{i,j\in I}$
+where $f$ is given by the product of the unique maps $\mF(U)\to\mF(U_i)$ and $g$ is given by sending $(s_i)_{i\in I}$ to $(s_i|_{U_i\cap U_j}-s_j|_{U_i\cap U_j})_{i,j\in I}$ is exact. 
 \item For any open covering $U=\bigcup_{i\in I}U_i$, the following diagram \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	{\mF(U)} & {\prod_{i\in I}\mF(U_i)} & {\prod_{i,j\in I}\mF(U_i\cap U_j)}

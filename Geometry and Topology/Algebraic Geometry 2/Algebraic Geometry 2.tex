@@ -169,6 +169,19 @@ The zeroth graded component of $k(x_0,\dots,x_n)$ is given by $$(k(x_0,\dots,x_n
 \end{lmm}
 
 \pagebreak
+\section{Differential Forms on Varieties}
+\subsection{Differential Forms as the Module of Kahler Differentials}
+\begin{defn}{Differential Forms on Varieties}{} Let $k$ be a field. Let $X$ be a variety over $k$. Define the module of Kahler differentials of $X$ to be the module $$\Omega_X^1=\Omega_{k[X]/k}^1$$
+\end{defn}
+
+\begin{defn}{Differential $n$-Forms on Varieties}{} Let $k$ be a field. Let $X$ be a variety over $k$. Define the module of differential $n$-forms of $X$ to be the module $$\Omega_X^n=\bigwedge_{i=1}^n\Omega_{k[X]/k}^1$$
+\end{defn}
+
+\subsection{The Geometric Genus}
+\begin{defn}{Geometric Genus}{} Let $k$ be a field. Let $X$ be a variety over $k$. Define the geometric genus of $X$ to be $$p_g(X)=\dim_k\left(\Omega_X^{\dim(X)}\right)$$
+\end{defn}
+
+\pagebreak
 \section{Different Types of Morphisms}
 \subsection{Proper Morphisms}
 
@@ -252,7 +265,7 @@ A lot of varieties have the property that $\mO_{X,p}$ is a regular local ring. A
 \begin{defn}{Principal Divisors}{} Let $k$ be an algebraically closed field. Let $X$ be an irreducible variety over $k$ that is regular in codimension $1$. Define the subgroup of principal divisors of $X$ to be $$\text{Prin}(X)=\{\text{div}(f)\;|\;f\in K(X)\}\leq\text{Div}(X)$$
 \end{defn}
 
-\begin{defn}{Divisor Class Group}{} Let $k$ be an algebraically closed field. Let $X$ be an irreducible variety over $k$ that is regular in codimension $1$. Define the divisor class group of $X$ to be $$\text{Cl}(X)=\frac{\text{Div}(X)}{\text{Prin}(X)}$$ We say that two divisors $D$ and $D'$ of $X$ are linearly equivalent if $[D]=[D']\in\text{Cl}(X)$. 
+\begin{defn}{Divisor Class Group}{} Let $k$ be an algebraically closed field. Let $X$ be an irreducible variety over $k$ that is regular in codimension $1$. Define the divisor class group of $X$ to be $$\text{Pic}(X)=\frac{\text{Div}(X)}{\text{Prin}(X)}$$ We say that two divisors $D$ and $D'$ of $X$ are linearly equivalent if $[D]=[D']\in\text{Cl}(X)$. 
 \end{defn}
 
 \begin{defn}{Degree of a Divisor}{} Let $X$ be an irreducible variety. Define the degree homomorphism $\deg:\text{Div}(X)\to\Z$ to be $$\deg\left(\sum_{i=1}^rk_iY_i\right)=\sum_{i=1}^rk_i$$ 

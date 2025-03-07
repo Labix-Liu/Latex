@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  8 FEB 2025 13:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  25 FEB 2025 20:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1112,24 +1112,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
 
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
@@ -1138,43 +1138,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 155--156
 [6]
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 221--223
+Underfull \hbox (badness 10000) in paragraph at lines 223--225
 
  []
 
 
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 241--242
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 241--242
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
 
  []
 
 
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 252--254
+Underfull \hbox (badness 10000) in paragraph at lines 254--256
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--261
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--261
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
 
  []
 
 
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 301--303
+Underfull \hbox (badness 10000) in paragraph at lines 303--305
 
  []
 
@@ -1183,22 +1183,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 301--303
 [11]
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 351--352
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 351--352
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
 
  []
 
@@ -1249,7 +1249,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 360--361
 [34]
 
 [35]
-Underfull \hbox (badness 1097) in paragraph at lines 977--978
+Underfull \hbox (badness 1097) in paragraph at lines 979--980
 []\T1/qpl/m/n/10 If $\OML/cmm/m/it/10 f$ \T1/qpl/m/n/10 is uni-formly con-tin-u
 -ous on a set $\OML/cmm/m/it/10 I$ \T1/qpl/m/n/10 and $\OT1/cmr/m/n/10 (\OML/cm
 m/m/it/10 s[]\OT1/cmr/m/n/10 )[]$ \T1/qpl/m/n/10 is a Cauchy se-quence in $\OML
@@ -1271,38 +1271,38 @@ m/m/it/10 s[]\OT1/cmr/m/n/10 )[]$ \T1/qpl/m/n/10 is a Cauchy se-quence in $\OML
 [41]
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1112--1114
+Underfull \hbox (badness 10000) in paragraph at lines 1117--1119
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1119--1121
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1125--1127
+Underfull \hbox (badness 10000) in paragraph at lines 1130--1132
 
  []
 
 
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1138--1140
+Underfull \hbox (badness 10000) in paragraph at lines 1143--1145
 
  []
 
 
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1172--1174
+Underfull \hbox (badness 10000) in paragraph at lines 1177--1179
 
  []
 
 
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1181--1183
+Underfull \hbox (badness 10000) in paragraph at lines 1186--1188
 
  []
 
@@ -1311,14 +1311,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 1181--1183
 [46]
 
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 1241--1252
+Underfull \hbox (badness 10000) in paragraph at lines 1246--1257
 
  []
 
 
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 1265--1267
+Underfull \hbox (badness 10000) in paragraph at lines 1270--1272
 
  []
 
@@ -1361,13 +1361,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1265--1267
 [66]
 
 [67]
-Underfull \hbox (badness 10000) in paragraph at lines 1657--1660
+
+[68]
+Underfull \hbox (badness 10000) in paragraph at lines 1678--1681
 
  []
 
 
-
-[68]
 
 [69]
 
@@ -1384,13 +1384,13 @@ L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Elementary Real Analysis".out' has not chan
 ged.
-(rerunfilecheck)             Checksum: C04EAE7148FE2C39D363EEAA301A5A80;7171.
+(rerunfilecheck)             Checksum: 7FD7D821D85D54CAA1FC60B65FE3C497;7295.
  ) 
 Here is how much of TeX's memory you used:
- 33047 strings out of 473577
- 649952 string characters out of 5716318
+ 33055 strings out of 473577
+ 650088 string characters out of 5716318
  1078721 words of memory out of 5000000
- 55373 multiletter control sequences out of 15000+600000
+ 55378 multiletter control sequences out of 15000+600000
  601182 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,16n,120p,902b,1213s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1411,9 +1411,9 @@ lic/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Elementary Real Analysis.pdf" (73 pages, 674628 bytes).
+Output written on "Elementary Real Analysis.pdf" (73 pages, 678880 bytes).
 PDF statistics:
- 939 PDF objects out of 1000 (max. 8388607)
- 331 named destinations out of 1000 (max. 500000)
+ 942 PDF objects out of 1000 (max. 8388607)
+ 334 named destinations out of 1000 (max. 500000)
  357 words of extra memory for PDF output out of 10000 (max. 10000000)
 

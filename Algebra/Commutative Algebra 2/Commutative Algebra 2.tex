@@ -361,13 +361,8 @@ The differentials are given as follows.
 \begin{crl}{}{} Let $R$ be a commutative ring and let $x_1,\dots,x_n\in R$. If $x_1,\dots,x_n$ is a regular sequence, then the Koszul complex $K(x_1,\dots,x_n)$ is a free resolution of $R/(x_1,\dots,x_n)$. 
 \end{crl}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $x,y\in R$. If $x$ is a regular element and $H_1^\text{Kos}(x,y;M)=0$, then $x,y$ is a regular sequence. 
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Let $M$ be a finitely generated $R$-module. Let $x_1,\dots,x_n\in m$. Then $x_1,\dots,x_n$ is an $M$-regular sequence if and only if $H_1^\text{Kos}(x_1,\dots,x_n;M)=0$. 
 \end{prp}
-
-\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Let $M$ be a finitely generated $R$-module. Let $x,y\in m$. Then $x,y$ is an $M$-regular sequence if and only if $y,x$ is an $M$-regular sequence. 
-\end{prp}
-
-\subsection{Depth of an Ideal}
 
 \pagebreak
 \section{Homological Dimension Theory}
@@ -375,9 +370,21 @@ The differentials are given as follows.
 \begin{defn}{Projective Dimension}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Define the projective dimension of $M$ to be $$\text{pd}_R(M)=\min\{n\in\N\;|\;\text{there is a projective resolution of }M\text{ with }n\text{ terms}\}$$
 \end{defn}
 
+\subsection{Injective Dimension}
+\begin{defn}{Injective Dimension}{}
+\end{defn}
+
 \subsection{Depth of a Module}
 \begin{defn}{I-Depth of a Module}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $M$ be a finitely generated $R$-module. Define the $I$-depth of $M$ to be $$\text{depth}_I(M)=\min\{n\in\N\;|\;\text{Ext}_R^n(R/I,M)\neq 0\}$$
 \end{defn}
+
+\begin{prp}{}{} Let $R$ be a Noetherian commutative ring. Let $I$ be an ideal of $R$. Let $M$ be a finitely generated $R$-module such that $IM\neq M$. Let $n\in\N$. Then the following are equivalent. 
+\begin{itemize}
+\item For all $i<n$, $$\text{Ext}_R^i(N,M)=0$$ for all finitely generated $R$-module $N$ such that $\text{Supp}(N)\subseteq\{P\in\text{Spec}(R)\;|\;I\subseteq P\}$. 
+\item For all $i<n$, $$\text{Ext}_R^i(N,M)=0$$ for some finitely generated $R$-module $N$ such that $\text{Supp}(N)=\{P\in\text{Spec}(R)\;|\;I\subseteq P\}$. 
+\item For all $i<n$, $$\text{Ext}_R^i\left(\frac{R}{I},M\right)=0$$
+\end{itemize}
+\end{prp}
 
 \begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Let $M$ be a finitely generated $R$-module. Then we have $$\text{depth}_m(M)=\sup\{n\in\N\;|\;x_1,\dots,x_n\in m\text{ is an }M\text{-regular sequence }\}$$
 \end{prp}
@@ -388,6 +395,15 @@ The differentials are given as follows.
 \begin{thm}{Auslander–Buchsbaum formula}{} Let $(R,m)$ be a Noetherian local ring. Let $M$ be a finitely generated $R$-module. If $\text{pd}_R(M)$ is finite, then we have $$\text{pd}_R(M)+\text{depth}_m(M)=\text{depth}_m(R)$$
 \end{thm}
 
+\begin{thm}{Ischebeck's Theorem}{} Let $(R,m)$ be a Noetherian local ring. Let $M,N$ be non-zero finitely generated $R$-modules. Then we have $$\text{Ext}_R^i(N,M)=0$$ for all $0\leq i\leq\text{depth}_m(M)-\dim(N)$. 
+\end{thm}
+
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Let $M$ be a finitely generated $R$-module. Let $P\in\text{Ass}(M)$. Then we have $$\text{depth}_m(M)\leq\dim\left(\frac{R}{P}\right)$$
+\end{prp}
+
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Then we have $$\text{depth}_m(R)=\text{depth}_{\widehat{m}}(\widehat{R})$$
+\end{prp}
+
 \subsection{Global Dimensions}
 \begin{defn}{Global Dimension}{} Let $R$ be a commutative ring. Define the global dimension of $R$ to be $$\text{gl dim}(R)=\sup\{\text{pd}(M)\;|\;M\text{ is an }R\text{-module }\}$$
 \end{defn}
@@ -397,11 +413,33 @@ The differentials are given as follows.
 
 \pagebreak
 \section{Regular Local Rings}
+\subsection{System of Parameters}
+\begin{defn}{System of Parameters}{} Let $(R,m)$ be a Noetherian local ring of dimension $\dim(R)=d$. Let $x_1,\dots,x_d\in m$. We say that they form a system of parameters if $(x_1,\dots,x_d)$ is an $m$-primary ideal. 
+\end{defn}
+
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring of dimension $\dim(R)=d$. Let $x_1,\dots,x_d$ be a system of parameters of $R$. Then the following are true. 
+\begin{itemize}
+\item $\dim\left(\frac{R}{(x_1,\dots,x_i)}\right)=d-i$ for all $1\leq i\leq d$. 
+\item $\frac{R}{(x_1,\dots,x_d)}$ is Artinian. 
+\end{itemize}
+\end{prp}
+
 \subsection{Basic Properties}
 Regularity is an important concept in algebraic geometry to detecting singularities. We motivate the definition by the following proposition. 
 
 \begin{defn}{Regular Local Rings}{} Let $(R,m)$ be a Noetherian local ring. We say that $R$ is a regular local ring if $$\dim(R)=\dim_{R/m}\left(\frac{m}{m^2}\right)$$
 \end{defn}
+
+\begin{prp}{}{} Let $(R,m)$ be a regular local ring of dimension $\dim(R)=d$. Let $x_1,\dots,x_i\in m$ be an ordered sequence.  Then the following are equivalent. 
+\begin{itemize}
+\item The sequence $x_1,\dots,x_i$ can be extended to a system of parameters for $R$. 
+\item $[x_1],\dots,[x_i]$ are linearly independent in $\frac{m}{m^2}$. 
+\item $\frac{R}{(x_1,\dots,x_i)}$ is a regular local ring of dimension $d-i$. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a regular local ring. Then $R$ is an integral domain. 
+\end{prp}
 
 \begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Then the following are equivalent. 
 \begin{itemize}
@@ -410,11 +448,6 @@ Regularity is an important concept in algebraic geometry to detecting singularit
 \item $m$ is generated by $n$ elements. 
 \end{itemize}
 \end{prp}
-
-\begin{prp}{}{} Let $(R,m)$ be a regular local ring. Then $m$ is generated by a regular sequence. 
-\end{prp}
-
-\subsection{Homological Methods}
 
 \pagebreak
 \section{Two Important Rings Through the Koszul Complex}
@@ -429,13 +462,41 @@ Noetherian local rings enjoy the fundamental theorem of dimension theory, which 
 \begin{defn}{Gorenstein Rings}{}
 \end{defn}
 
-\begin{defn}{Injective Dimension}{}
+\subsection{Cohen-Macaulay Modules}
+\begin{defn}{Cohen-Macaulay Modules over Noetherian Local rings}{} Let $(R,m)$ be a Noetherian local ring. Let $M$ be a non-zero finitely generated $R$-module. We say that $M$ is Cohen-Macaulay if $$\dim(M)=\text{depth}_m(M)$$ By convention $M=0$ is also a Cohen-Macaulay module. 
 \end{defn}
 
-\subsection{Cohen-Macauley Rings}
-\begin{defn}{Cohen-Macauley Modules}{} Let $(R,m)$ be a Noetherian local ring. Let $M$ be a finitely generated $R$-module. We say that $M$ is Cohen-Macauley if $$\dim(R/\text{Ann}(M))=\text{depth}_m(M)$$
-\end{defn}
 Recall that $\dim(M)=\dim(R/\text{Ann}(M))$. 
+
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Let $M$ be Cohen-Macaulay $R$-module. Let $P\in\text{Ass}(M)$. Then we have $$\dim(M)=\text{depth}(M)=\dim\left(\frac{R}{P}\right)$$
+\end{prp}
+
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Let $M$ be Cohen-Macaulay. Let $P$ be a prime ideal of $R$. Then the following are true. 
+\begin{itemize}
+\item $M_P$ is a Cohen-Macaulay $R_P$-module. 
+\item $\text{depth}_P(M)=\text{depth}_{PR_P}(M_P)$. 
+\end{itemize}
+\end{prp}
+
+\subsection{Cohen-Macaulay Rings}
+\begin{prp}{}{} Let $(R,m)$ be a Noetherian local ring. Then $R$ is Cohen-Macaulay if and only if $\widehat{R}$ is Cohen-Macaulay. 
+\end{prp}
+
+\begin{defn}{Cohen-Macaulay Noetherian Rings}{} Let $R$ be a Noetherian ring. We say that $R$ is Cohen-Macaulay if for all maximal ideals $m$, $R_m$ is Cohen-Macaulay. 
+\end{defn}
+
+\begin{defn}{Unmixed Ideals}{} Let $R$ be a Noetherian ring. Let $I$ be an ideal of $R$. We say that $I$ is unmixed if all prime divisors of $I$ has the same height. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a Noetherian ring. Then $R$ is Cohen-Macaulay if and only if for all ideals $I$ of $R$ such that $I$ is generated by $\text{ht}_R(I)$ elements is unmixed. 
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a Noetherian ring. If $R$ is Cohen-Macaulay, then $R[x]$ is Cohen-Macaulay. 
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a regular local ring. Then $R$ is Cohen-Macaulay. 
+\end{prp}
+
 
 
 $$\substack{\text{Regular}\\\text{Local Rings}}\subset\substack{\text{Complete}\\\text{Intersection Rings}}\subset\substack{\text{Gorenstein}\\\text{Rings}}\subset\substack{\text{Cohen-Macauley}\\\text{Rings}}$$

@@ -237,6 +237,23 @@ in $\bold{CGWH}$. Let the right square be a homotopy pullback square. Then the l
 \end{proof}
 \end{prp} (6.3.3 Arkhowitz)
 
+5.72 strom. 
+
+\begin{prp}{}{} Let $X,Y,Z$ be spaces. Consider the following pullback square: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{X\times_ZY} & Y \\
+	X & Z
+	\arrow["h", from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["g", from=1-2, to=2-2]
+	\arrow["f"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+If $g$ is a fibration and $f$ is a weak equivalence, then $h$ is a weak equivalence. \tcbline
+\begin{proof}
+We ought to show that the induced map $[S^n,W]\to[S^n,Y]$ is a bijection for all $n$, if we write $W=X\times_ZY$. Suppose we have a map $k:S^n\to Y$. 
+\end{proof}
+\end{prp}
+
 \begin{prp}{}{} Let $W,X,Y,Z\in\bold{CGWH}$ be spaces such that there is a (not necessarily commutative) diagram \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	W & Y \\
@@ -250,7 +267,21 @@ Then the following are true.
 \begin{itemize}
 \item If the square is a homotopy pullback, and $Y\to Z$ is a weak equivalence, then $W\to X$ is a weak equivalence. 
 \item If $Y\to Z$ and $W\to X$ are weak equivalence, then the square is a homotopy pullback. 
-\end{itemize} 3.3.11 cubical 
+\end{itemize} \tcbline
+\begin{proof}
+The crucial square to consider is the following pullback square: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	\text{holim}(X\rightarrow Z\leftarrow Y) & Y \\
+	P_f & Z
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+where we replace the map $X\to Z$ via the map $X\to P_f\to Z$ so that the first map is an equivalence and the second map is a fibration. If $Y\to Z$ is a fibration and the square involving $W$ is a homotopy pullback, then the above implies that $\text{holim}(X\rightarrow Z\leftarrow Y)\to P_f$ is a weak equivalence. Since this map is given by the composition $\text{holim}(X\rightarrow Z\leftarrow Y)\to X\to P_f$ and $X\to P_f$ is a weak equivalence, the two out of three property gives that $\text{holim}(X\rightarrow Z\leftarrow Y)\to X$ is a weak equivalence. Since we have a weak equivalence $W\to\text{holim}(X\rightarrow Z\leftarrow Y)$, we again apply the two out of three property so that the composition $W\to X$ is a weak equivalence. \\~\\
+
+Conversely, if $Y\to Z$ and $W\to X$ are weak equivalence, then the same reasoning shows that $\text{holim}(X\rightarrow Z\leftarrow Y)\to P_f$ is a weak equivalence and hence $\text{holim}(X\rightarrow Z\leftarrow Y)\to X$ is a weak equivalence. Since $W\to X$ is also a weak equivalence, by the two out of three property we conclude that $W\to\text{holim}(X\rightarrow Z\leftarrow Y)$ is a weak equivalence and so the square in question is a homotopy pullback. 
+\end{proof}
 \end{prp}
 
 \begin{prp}{}{} Let $W,X,Y,Z\in\bold{CGWH}$ be spaces such that following is a (not necessarily commutative) square \\~\\
@@ -945,11 +976,42 @@ Since $\mC$ is stable, the square is also a pushout. Then $F$ sends it to a pull
 	\arrow[from=1-2, to=2-2]
 	\arrow[from=2-1, to=2-2]
 \end{tikzcd}}\\~\\
-where $F(\ast)\simeq\ast$ since $F$ is reduced. Thus we obtain an equivalence $F(X\times Y)\simeq F(X)\times F(Y)$. 
+where $F(\ast)\simeq\ast$ since $F$ is reduced. Thus we obtain an equivalence $F(X\times Y)\simeq F(X)\times F(Y)$. \\~\\
 
-
-
-Start with an equalizer. Then write it as a fiber. It is a pullback. It is also a pushout since stable. Then $F$ sends this to a pullback. 
+Let $f,g:X\to Y$ be two maps in $\mC$. Let $E$ be the equalizer of $f$ and $g$. Since $E$ is the pullback of the following diagram, \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X & {X\times X} & {X\times_YX}
+	\arrow["\Delta", from=1-1, to=1-2]
+	\arrow[from=1-3, to=1-2]
+\end{tikzcd}}\\~\\
+where the map on the right is given by the universal property of $X\times X$, we obtain a pullback square \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	E & {X\times_YX} \\
+	X & {X\times X}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["\Delta"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+Since $\mC$ is stable, this is also a pushout square. Since $F$ is excisive, the following is a pullback square: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{F(E)} & {F(X\times_YX)} \\
+	{F(X)} & {F(X\times X)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+Since $F$ sends pullbacks to pullbacks, we obtain equivalences $F(X\times_YX)\simeq F(X)\times_{F(Y)}F(X)$ and $F(X\times X)\simeq F(X)\times F(X)$. Hence the pullback square \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{F(E)} & {F(X)\times_{F(Y)}F(X)} \\
+	{F(X)} & {F(X)\times F(X)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+Therefore $F(E)$ is the equalizer of $F(f)$ and $F(g)$, and so $F$ preserves equalizers. Since $F$ preserves equalizers and products, we conclude that $F$ preserves all finite limits. 
 \end{itemize}
 \end{proof}
 \end{prp}
@@ -1191,14 +1253,91 @@ $K_{2n}(X)\cong K_0(X)=\lim_{n\to\infty}\pi_n(X\wedge BU\times\Z)$ and $K_{2n+1}
 \begin{thm}{Landweber exact functor theorem}{}
 \end{thm}
 
+We can also talk about reduced cohomology theories as well as its connection with spectra. In fact not only is there association from spectra to cohomology given by $\{X_n\}\mapsto E^n=[-,X_n]$, there is even a map going backwards given by the famous Brown's representability theorem. While the two maps are known to give bijection on isomorphism classes of objects (switzer) on both categories, (Lurie) there is a subtlety that the Hom sets are not bijections and is therefore not an equivalence of categories. \\~\\
+
+S-Duality?
+
 \subsection{A Map From Functors to (Co)Homology Theories}
 Given a excisive functor $F$, we pass it to the spectrum $F(S^n)$ and we can associated to it a reduced homology theory defined by $$X\mapsto\lim_{n\to\infty}\pi_{n+k}(X\wedge F(S^k))$$ But there is a more direct way that an excisive functor $F$ give rise to a reduced homology theory. 
 
 \begin{thm}{}{} Let $F$ be an excisive functor. Then $E_n(X)=\pi_n(F(X))$ defines a reduced homology theory. \tcbline
 \begin{proof}
-Firstly, note that $\pi_0(F(X))$ and $\pi_1(F(X))$ has the structure of an abelian group. Indeed using the weak equivalence $F(X)\to\Omega F(\Sigma X)$, We see that $\pi_1(F(X))\cong\pi_2(F(\Sigma X))$ so that $\pi_1(F(X))$ is abelian, and $\pi_0(F(X))\cong\pi_1(\Omega F(\Sigma X))$ so that $\pi_0(F(X))$ is abelian. Now we prove that $\pi_n\circ F$ satisfies the axioms for being a reduced homology theory. \\~\\
+Firstly, note that $\pi_0(F(X))$ and $\pi_1(F(X))$ has the structure of an abelian group. To see this, recall that from ????? we have \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	X & \ast \\
+	\ast & {\Sigma X}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+is a homotopy pushout. Since $F$ is excisive, we obtain a homotopy pullback square: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{F(X)} & {F(\ast)} \\
+	{F(\ast)} & {F(\Sigma X)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+and therefore we obtain a weak equivalence $F(X)\to\text{holim}(F(\ast)\rightarrow F(\Sigma X)\leftarrow F(\ast))$. On the other hand, we know that $\text{holim}(\ast\rightarrow F(\Sigma X)\leftarrow\ast)\cong\Omega F(\Sigma X)$. Finally, from the commutative diagram: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	\ast & {F(\Sigma X)} & \ast \\
+	{F(\ast)} & {F(\Sigma X)} & {F(\ast)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\simeq"', from=1-1, to=2-1]
+	\arrow["{\text{id}}"', from=1-2, to=2-2]
+	\arrow[from=1-3, to=1-2]
+	\arrow["\simeq", from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-3, to=2-2]
+\end{tikzcd}}\\~\\
+and the matching lemma, we deduce that we have a weak equivalence: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\text{holim}(\ast\rightarrow F(\Sigma X)\leftarrow\ast)} & {\text{holim}(F(\ast)\rightarrow F(\Sigma X)\leftarrow F(\ast))}
+	\arrow["\simeq", from=1-1, to=1-2]
+\end{tikzcd}}\\~\\
+Then we conclude that we have a chain of equivalences going the wrong way: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{F(X)} & {\text{holim}(F(\ast)\rightarrow F(\Sigma X)\leftarrow F(\ast))} & {\text{holim}(\ast\rightarrow F(\Sigma X)\leftarrow\ast)} & {\Omega F(\Sigma X)}
+	\arrow["\simeq"', from=1-1, to=1-2]
+	\arrow["\simeq", from=1-3, to=1-2]
+	\arrow["\cong"', from=1-4, to=1-3]
+\end{tikzcd}}\\~\\
+Regardless, we still have the fact that $\pi_n(F(X))\cong\pi_n(\Omega^2F(\Sigma ^2X))$ because $\pi_n$ sends weak equivalences to isomorphisms. Since $$\pi_n(\Omega^2F(\Sigma^2 X))\cong\pi_{n+1}(\Omega F(\Sigma^2 X))\cong\pi_{n+2}(F(\Sigma^2 X))$$ we conclude that the natural bijection $\pi_0(F(X))\cong\pi_2(F(\Sigma^2 X))$ gives an abelian group structure on $\pi_0(F(X))$, and $\pi_1(F(X))\cong\pi_2(\Omega F(\Sigma^2 X)$ show that $\pi_1(F(X))$ is abelian. Now we prove that $\pi_n\circ F$ satisfies the axioms for being a reduced homology theory. \\~\\
 
-Since $F$ is homotopy functor and $\pi_n$ sends weak equivalences to isomorphisms, we know that $\pi_n\circ F$ sends weak equivalences to isomorphisms. Also, if $f:X\to Y$ and $g:X\to Y$ are homotopic via the homotopy $H(x,t)$, then $F(f)$ and $F(g)$ are homotopic via ?????
+To show that $\pi_n\circ F$ is a homotopy functor, first consider the inclusion maps $i_0:X\times\{0\}\hookrightarrow X\times I$ and $i_1:X\times\{1\}\to X\times I$. They induces maps $\pi_n(F(i_0))$ and $\pi_n(F(i_1))$. I claim that these are the same map in $\bold{Ab}$. To see this, consider the post composition of both of these functions: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\pi_n(F(X))} && {\pi_n(F(X\times I))} && {\pi_n(F(X))}
+	\arrow["{\pi_n(F(i_0))}", shift left, from=1-1, to=1-3]
+	\arrow["{\pi_n(F(i_1))}"', shift right, from=1-1, to=1-3]
+	\arrow["{\pi_n(F(\text{proj}))}", from=1-3, to=1-5]
+\end{tikzcd}}\\~\\
+where the second map is induced by projection on the first coordinate. Since $I$ is contractible, this projection map is a weak equivalence. Since $F$ preserves weak equivalences and $\pi_n$ sends weak equivalences to isomorphisms, we conclude that the latter map in the diagram is an isomorphism. Now consider the composite $\pi_n(F(\text{proj}))\circ\pi_n(F(i_0))=\pi_n(F(\text{proj}\circ i_0))$. Since $\text{proj}\circ i_0$ is a weak equivalence, $F$ of this composite is also a weak equivalence and hence is an isomorphism after passing through $\pi_n$. Since the composite and $\pi_n(F(\text{proj}))$ is an isomorphism, we conclude that $\pi_n(F(i_0))$ is an isomorphism. A similar argument shows that $\pi_n(F(i_1))$ is an isomorphism. \\~\\
+
+Going back to the main proof, recall that we want to show that if $f$ and $g$ are homotopic, then $\pi_n(F(f))=\pi_n(F(g))$. Suppose that $H$ witnesses the homotopy from $f$ to $g$. Then we obtain a commutative diagram: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{X\times\{0\}} \\
+	& {X\times I} & Y \\
+	{X\times\{1\}}
+	\arrow["i_0", hook, from=1-1, to=2-2]
+	\arrow["f", from=1-1, to=2-3, bend left = 20]
+	\arrow["H", from=2-2, to=2-3]
+	\arrow["i_1", hook, from=3-1, to=2-2]
+	\arrow["g", from=3-1, to=2-3, bend right = 20]
+\end{tikzcd}}\\~\\
+where we identify $X\times\{0\}\cong X\cong X\times\{1\}$. Since $\pi_n\circ F$ is a functor, passing through $\pi_n\circ F$ gives the following commutative diagram: \\~\\
+\adjustbox{scale=1,center}{\begin{tikzcd}
+	{\pi_n(F(X\times\{0\}))} \\
+	& {\pi_n(F(X\times I))} & {\pi_n(F(Y))} \\
+	{\pi_n(F(X\times\{1\}))}
+	\arrow["\pi_n(F(i_0))"', from=1-1, to=2-2]
+	\arrow["{\pi_n(F(f))}", from=1-1, to=2-3, bend left = 20]
+	\arrow["{\pi_n(F(H))}", from=2-2, to=2-3]
+	\arrow["\pi_n(F(i_1))", from=3-1, to=2-2]
+	\arrow["{\pi_n(F(g))}"', from=3-1, to=2-3, bend right = 20]
+\end{tikzcd}}\\~\\
+Since the maps induced by $i_0$ and $i_1$ are isomorphisms and the diagram is commutative, we conclude that $\pi_n(F(f))=\pi_n(F(g))$. \\~\\
 
 If $f:X\to Y$ is a map, then $X\to Y\to C_f$ is a cofiber sequence, and we have a homotopy pushout \\~\\
 \adjustbox{scale=1,center}{\begin{tikzcd}
@@ -1281,8 +1420,17 @@ Every non-empty space is $(-1)$-connected.
 Every map is $(-1)$-connected since every non-empty space is $(-1)$-connected. 
 
 \subsection{Weak Equivalences}
-\begin{defn}{Weak Equivalences}{} Let $X,Y$ be spaces. Let $f:X\to Y$ be a map. We say that $f$ is a weak equivalence if $$\pi_n(f):\pi_n(X)\to\pi_n(Y)$$ is an isomorphism for all $n$. 
+\begin{defn}{Weak Equivalences}{} Let $(X,x_0),(Y,y_0)$ be pointed spaces. Let $f:X\to Y$ be a pointed map. We say that $f$ is a weak equivalence if the following are true. 
+\begin{itemize}
+\item $\pi_n(f):\pi_n(X,x_0)\to\pi_n(Y,y_0)$ is an isomorphism for all $n\geq 1$. 
+\item $\pi_0(f):\pi_0(X)\to\pi_0(Y)$ is a bijection. 
+\end{itemize}
 \end{defn}
+
+\begin{prp}{}{} Let $X,Y$ be pointed spaces. Let $f:X\to Y$ be a map. Then $f$ is a weak equivalence if and only if for all CW complexes $C$, the induced map $$[C,X]_\ast\to[C,Y]_\ast$$ is a bijection. 
+\end{prp}
+
+2.6.17 highly non-trivial. 
 
 Clearly $f$ is a weak equivalence if and only if $f$ is $n$-connected for all $n$. 
 
@@ -1321,6 +1469,16 @@ Limits of functors can be computed pointwise:
 \end{prp}
 
 In particular, by choosing the inclusion functor $\{d\}\hookrightarrow\mD$, we obtain the (co)limit preserving functor $$\text{ev}_d:\text{Func}(\mD,\mC)\to\text{Func}(\{d\},\mC)\simeq\mC$$ Now given any diagram $X:K\to\text{Func}(\mD,\mC)$ that admits a limit, $\lim_K X$ is an object $\text{Func}(\mD,\mC)$. To compute the value of this functor at $d\in\mD$, we use the evaluation map to get $$\left(\lim_K X\right)(d)=\text{ev}_d\left(\lim_KX\right)=\lim_K(\text{ev}_d\circ X)$$ where the limit on the right is now an object in $\mC$, and the diagram of the limit is given on objects by $F(d)$ for all $F$ in the image of $X$. (I.39 Fabian)
+
+\subsection{Test}
+\adjustbox{scale=3,center}{\begin{tikzcd}
+	{F(X)} & F(\ast) \\
+	F(\ast) & {F(\Sigma X)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
 
 
 

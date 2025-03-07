@@ -42,7 +42,7 @@
 \contentsline {section}{\numberline {8}Introduction to Dimension Theory for Rings}{40}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Krull Dimension}{40}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Height of Prime Ideals}{40}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}The Length of Modules over Commutative Rings}{41}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.3}The Length of Modules over Commutative Rings}{42}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}Structure Theorem for Artinian Rings}{42}{subsection.8.4}%
 \contentsline {section}{\numberline {9}Valuation and Valuation Rings}{44}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Valuation Rings}{44}{subsection.9.1}%

@@ -133,14 +133,16 @@ Since the both sides of the inequality is non-negative, we can take the square r
 
 These properties will also be used extensively throguhout the entire notes. The reader should be absolutely familiar with its properties so that they can understand the definitions and the proofs more smoothly. The geometric interpretation of the absolute value will serve as an extremely important visualization on limits and convergences. 
 
-\begin{defn}{Intervals}{} An interval in $\R$ is a non-empty set $I$ with the property that $a,b\in I$ and $a<x<b\implies x\in I$. An interval containing more than one point is called non-degenerate. We use the following notations to describe intervals. 
+\begin{defn}{Intervals}{} Let $I\subseteq\R$ be a subset. We say that $I$ is an interval if for all $a,b\in I$, we have $x\in I$ for all $a<x<b$. 
+\end{defn}
+
+We use the following convention: 
 \begin{itemize}
-\item $(a,b)=\{x\in\R\;|\;a<x<b\}$
+\item The open interval $(a,b)=\{x\in\R\;|\;a<x<b\}$
+\item The closed interval $[a,b]=\{x\in\R\;|\;a\leq x\leq b\}$
 \item $(a,b]=\{x\in\R\;|\;a<x\leq b\}$
 \item $[a,b)=\{x\in\R\;|\;a\leq x<b\}$
-\item $[a,b]=\{x\in\R\;|\;a\leq x\leq b\}$
 \end{itemize}
-\end{defn}
 
 \subsection{Density of the Real Numbers}
 In this chapter we will investigate another important property of the real numbers, albeit shared by the complex numbers as well. This is the density of the real numbers. We try to mathematically prove and formulate the fact that the real numbers are very rich. It is dense in the sense that for every two real numbers, you can always find another real number in between. Obviously if you simply consider the rationals or the irrationals, this is also true. But the main thing to take away here is that there would be an uncountably amount of rationals and irrationals each, between any two real numbers. This distribution can not be measured as well. The rationals and the irrationals are so interspersed and intertwined that there is no notion of "next" number in the reals. And you would not even know whether it is rational or irrational. \\~\\
@@ -1022,12 +1024,15 @@ Simple change of variables where $x=c+h$.
 \end{proof}
 \end{thm}
 
-\begin{defn}{$C^n$-Functions}{} Let $f:U\subseteq\R\to\R$ be a function. We say that $f$ is a function of class $C^n$ if the following are true. 
+\begin{defn}{$\mC^n$-Functions}{} Let $f:U\subseteq\R\to\R$ be a function. We say that $f$ is a function of class $\mC^n(U)$ if the following are true. 
 \begin{itemize}
 \item $f^{(k)}:U\to\R$ is differentiable for $0\leq k\leq n-1$
 \item $f^{(n)}:U\to\R$ is continuous. 
 \end{itemize}
 We say that $f$ is a smooth function if $f$ is $C^n$ for all $n\in\N$. 
+\end{defn}
+
+\begin{defn}{Smooth Functions}{} Let $f:U\subseteq\R\to\R$ be a function. We say that $f$ is a smooth function if $f\in\mC^n(U)$ for all $U$. In this case we write $f\in\mC^\infty(U)$. 
 \end{defn}
 
 \subsection{Inverse of the Derivative}
@@ -1166,7 +1171,7 @@ Finally, we can develop limits with better approximations to reach our goal. In 
 
 We now give the proper notion of integrability with Darboux Integrals. 
 
-\begin{defn}{Darboux Integrable Functions}{} A function $f$ which is bounded on $[a,b]$ is Darboux integrable on $[a,b]$ if $\sup_P\{L(f,P)\}=\inf_P\{U(f,P)\}$. In this case, the common number is called the integral of $f$ on $[a,b]$ and is denoted by $$\int_{a}^{b}f$$
+\begin{defn}{Darboux Integrable Functions}{} Let $f:[a,b]\to\R$ be a bounded function. We say that $f$ is Darboux integrable if $$\sup\{L(f,P)\;|\;P\text{ is a partition of [a,b]}\}=\inf\{U(f,P)\;|\;P\text{ is a partition of [a,b]}\}$$ In this case, we write the common number $$\int_{a}^{b}f$$
 \end{defn}
 
 Notice that the variable $x$ is not present in the integral representation of the equivalent supremum and infinum to indicate the number is the same regardless of what we take for $dx$, which is the length of the triangle. \\~\\
@@ -1625,8 +1630,24 @@ Finally, choose $\delta=\min(\delta_0,T-\abs{x})$ then $\abs{y-x}<\delta$ implie
 \begin{lmm}{}{} Every power series is a smooth function. 
 \end{lmm}
 
-\subsection{Taylor Series}
+\subsection{Analytic Functions and Taylor Series}
 Given a function $f:U\to\R$, we may ask whether $f$ can be represented as a power series. Since power series are infinitely differentiable, we expect any function representable by a power series to also be infinitely differentiable. However there are more conditions needed for $f$ to representable by a power series. 
+
+\begin{defn}{Analytic Functions}{} Let $f:U\subseteq\R\to\R$ be a function. Let $(a,b)\subseteq U$ be an open interval. We say that $f$ is analytic on $(a,b)$ if there exists $a_k\in\R$ for each $k\in\N$ and $c\in(a,b)$ such that $f$ can be expressed as a power series $$f(x)=\sum_{k=0}^\infty a_k(x-c)^k$$ for all $x\in(a,b)$. 
+\end{defn}
+
+\begin{prp}{}{} Let $f:U\subseteq\R\to\R$ be a function. Then the following are true. 
+\begin{itemize}
+\item If $f$ is analytic at $(a,b)\subseteq U$, then $f\in\mC^\infty(a,b)$. 
+\item Moreover, if the power series representation of $f$ at $(a,b)$ is given by $$f(x)=\sum_{k=0}^\infty a_k(x-c)^k$$ for some $c\in(a,b)$ and $a_k\in\R$, then we have $$a_k=\frac{f^{(k)}(c)}{k!}$$
+\end{itemize}
+\end{prp}
+
+Smooth functions may not be analytic in general. Consider the function $$f(x)=\begin{cases}
+e^{-\frac{1}{x^2}} & \text{ if }x\neq 0\\
+0 & \text{ if } x=0
+\end{cases}$$
+It is smooth but is not analytic at any interval containing $x=0$. 
 
 \begin{defn}{Taylor Series}{} Let $f:(a,b)\to\R$ be a smooth function. Let $c\in(a,b)$. Define the Taylor series of $f$ to be $$\sum_{k=0}^{\infty}\frac{f^{(k)}(c)}{k!}(x-c)^k$$
 \end{defn}

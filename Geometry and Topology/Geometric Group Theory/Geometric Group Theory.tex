@@ -23,6 +23,13 @@ Potentially good books: Humphreys, Erdmann and Wildson
 
 \pagebreak
 \section{Quasi-Isometries}
+\subsection{Some Metric Properties}
+\begin{defn}{Proper Metric Spaces}{} Let $X$ be a metric space. We say that $X$ is proper if $B_r(x)$ is compact for all $r\in R$ and $x\in X$. 
+\end{defn}
+
+\begin{defn}{}{} Let $X$ be a metric space. We say that $X$ is geodesic if for all $x,y\in X$, there exists a geodesic from $x$ to $y$. 
+\end{defn}
+
 \subsection{Quasi-Isometric Spaces}
 \begin{defn}{Quasi-Isometries}{} Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. Let $f:X\to Y$ be a function of sets. We say that $f$ is a quasi-isometry if the following are true. 
 \begin{itemize}
@@ -33,6 +40,9 @@ In this case we say that $X$ and $Y$ are quasi-isometric.
 \end{defn}
 
 \begin{prp}{}{} Quasi-isometry is an equivalence relation on metric spaces. 
+\end{prp}
+
+\begin{prp}{}{} Let $X$ and $Y$ be metric spaces. If $X$ and $Y$ are Lipshitz equivalence, then $X$ and $Y$ are quasi-isometric. 
 \end{prp}
 
 \subsection{Quasi-Geodesics}
@@ -133,7 +143,28 @@ We abuse notation sometimes and freely interchange the use of the Cayley graph a
 
 \pagebreak
 \section{Metric Properties of Cayley Graphs}
+\subsection{The Svarc-Milnor Lemma}
+Let $G$ be a group acting on a space $X$. Recall that $G$ is a properly discontinuous group action if for every compact set $K\subseteq X$, we have $$(g\cdot K)\cap K\neq\emptyset$$ for finitely many $g\in G$. 
+
+\begin{thm}{The Svarc-Milnor Lemma}{} Let $X$ be a geodesic metric space such that $B_r(x)$ is compact for all $x\in X$ and $r\in\R_{\geq 0}$. Let $G$ be a group acting on $X$ such that the action is properly discontinuous and $X/G$ is compact. Then the following are true. 
+\begin{itemize}
+\item $G$ is finitely generated. 
+\item For any finite generating set $S$ of $G$, $\abs{\text{Cay}(G,S)}$ is quasi-isometric to $(X,d)$
+\end{itemize}
+\end{thm}
+
+\begin{prp}{}{} Let $G$ be a group. Let $S,T$ be a finite generating sets of $G$. Then $\abs{\text{Cay}(G,S)}$ and $\abs{\text{Cay}(G,T)}$ are quasi-isometric via the identity map on $G$. 
+\end{prp}
+
 \subsection{Geodesics on Cayley Graphs}
+\begin{prp}{}{} Let $G$ be a group. Let $S$ be a finite generating set. Then the following are true. 
+\begin{itemize}
+\item $\abs{\text{Cay}(G,S)}$ is proper. 
+\item $\abs{\text{Cay}(G,S)}$ is complete. 
+\item $\abs{\text{Cay}(G,S)}$ is geodesic. 
+\end{itemize}
+\end{prp}
+
 \begin{defn}{Geodesic Words}{} Let $G$ be a group. Let $S$ be a generating set. Let $\gamma_V:[n]\to V(\text{Cay}(G,S))$ be a path in $\text{Cay}(G,S)$. We say that $\gamma_V$ is a geodesic word if $$d_S(\gamma_V(0),\gamma_V(n))=n$$
 \end{defn}
 
@@ -148,16 +179,6 @@ Recalling that the metric on $\text{Cay}(G,S)$ is defined as the minimum length 
 \end{lmm}
 
 Note: The converse is not true. Consider $G=\langle a,b\rangle a^3=b^2$. Both $a^3$ and $b^2$ are reduced words but they have different lengths. \\
-
-\subsection{The Svarc-Milnor Lemma}
-Let $G$ be a group acting on a space $X$. Recall that $G$ is a properly discontinuous group action if for every compact set $K\subseteq X$, we have $$(g\cdot K)\cap K\neq\emptyset$$ for finitely many $g\in G$. 
-
-\begin{thm}{The Svarc-Milnor Lemma}{} Let $X$ be a geodesic metric space such that $B_r(x)$ is compact for all $x\in X$ and $r\in\R_{\geq 0}$. Let $G$ be a group acting on $X$ such that the action is properly discontinuous and $X/G$ is compact. Then the following are true. 
-\begin{itemize}
-\item $G$ is finitely generated. 
-\item For any finite generating set $S$ of $G$, $\abs{\text{Cay}(G,S)}$ is quasi-isometric to $(X,d)$
-\end{itemize}
-\end{thm}
 
 \subsection{Representing Geodesics in a Canonical Way}
 Note: geodesics are not the unique distance minimizing curve between two elements. Therefore we want to find a representative. 
@@ -285,13 +306,23 @@ Intuitively, this means that when we restrict the metric to the subgroup, the sh
 \subsection{Dehn Presentations and The Word Problem}
 Recall that a group is finitely presented if $G\cong\langle S\;|\;R\rangle$ if $S$ and $R$ are finite sets. 
 
-\begin{defn}{Dehn Presentations}{} Let $G$ be a group. Let $G=\langle S\;|\;R\rangle$ be a finite presentation of $G$. Let $p:F_S\to G$ be the induced map by the universal property. A Dehn presentation of $G$ is a finite presentation $G\cong\langle S\;|\;R\rangle$ such that for all $w\in F(S)$ such that $p(w)=1_G$, there exists $r_1,r_2\in R$ such that the following are true. 
+\begin{defn}{Dehn Presentations}{} Let $G$ be a group. Let $G=\langle S\;|\;R\rangle$ be a finite presentation of $G$. Let $p:F_S\to G$ be the induced map by the universal property. We say that $\langle S\;|\;R\rangle$ is a Dehn presentation for $G$ if for all $w\in F(S)$ such that $p(w)=1_G$, there exists $r_1r_2^{-1}\in F(S)$ such that the following are true. 
 \begin{itemize}
 \item $\|r_1\|>\|r_2\|$. 
 \item $r_1$ is a subword of $w$. 
-\item Either $r_1\ast r_2$ or $r_2\ast r_1$ lie in $R$. 
+\item Some cyclic permutation of the letters in $r_1r_2^{-1}$ or $r_2^{-1}r_1$ lies in $R$. 
 \end{itemize}
 \end{defn}
+
+\begin{prp}{}{} The presentation $$\pi_1(\Sigma_2)\cong\langle a,b,c,d\;|\;abcda^{-1}b^{-1}c^{-1}d^{-1}\rangle$$ for the fundamental group of the compact orientable surface of genus $2$ is a Dehn presentation. \tcbline
+\begin{proof}
+Recall that $\Sigma_2$ can be represented as an octagon whose edges are given by $abcda^{-1}b^{-1}c^{-1}d^{-1}$. Let $p$ be the starting point of $a$. Then the starting and ending point of $a,b,c,d$ are all $p$ via the identification. In particular, the point $p$ has $4$ edges in and $4$ edges out of it. By definition of the universal covering space (it is a local homeomorphism), every point in the inverse image of $p$ of covering space intersects eight octagons at an vertex. This justifies why every vertex is the intersection of eight octagons at a vertex. This is the Cayley graph of $F(a,b,c,d)$ with generators $a,b,c,d$. In particular, it is the tiling of $\H^2$ using the octagon representing $\Sigma_2$. \\~\\
+
+Pick a lift of $\Sigma_2$ into the Cayley graph of $F(a,b,c,d)$. Call it $R_0$. Assuming $R_n$ is defined, we define $R_{n+1}$ to be the union of all octagons that intersect $R_n$ but does not intersect $R_{n-1}$ (by convention take $R_{-1}=\emptyset$. \\~\\
+
+Let $w\in F(a,b,c,d)$ such that $w$ is the identity in $\pi_1(\Sigma_2)$. By translation, without loss of generality we can take $w$ to start at the identity element of the free group. Moreover, without loss of generality take $w$ to be a reduced word. If $w$ is not the empty word, then since $w$ has finite length, it reaches the outer boundary of $R_n$ for some maximal $n\in\N$ and descends to $R_{n-1}$. It must run through the outermost boundary non-trivially (otherwise $w$ is not reduced), and hence runs through at least $5$ sides of some octagonal tile. Suppose it runs through $5\leq n\leq 8$ sides. In this case, choose $u$ to be the $n$ (consecutive) sides and $v$ to be the remaining sides such that $u\ast v$ is a cyclic permutation of $abcda^{-1}b^{-1}c^{-1}d^{-1}$ (this is possible since $u$ is a consecutive subword of some cyclic permutation of $abcda^{-1}b^{-1}c^{-1}d^{-1}$). Then the pair $u$ and $v$ satisfies the requirements for $\langle a,b,c,d\;|\;abcda^{-1}b^{-1}c^{-1}d^{-1}\rangle$ to be a Dehn presentation for all reduced words $w$. Hence we are done. 
+\end{proof}
+\end{prp}
 
 \begin{thm}{Dehn's Algorithm}{} Let $G$ be a group. If $G$ admits a Dehn presentation, then the word problem for $G$ is solvable. 
 \end{thm}

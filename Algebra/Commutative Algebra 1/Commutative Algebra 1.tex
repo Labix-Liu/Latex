@@ -1053,6 +1053,9 @@ We want to express ideal $I$ in $R$ as $I=P_1^{e_1}\cdots P_n^{e_n}$ similar to 
 \begin{lmm}{}{} Let $\phi:R\to S$ be a ring homomorphism and $Q$ be a primary ideal in $S$. Then $\phi^{-1}(Q)$ is primary in $R$. 
 \end{lmm}
 
+\begin{defn}{Prime Divisors of an Ideal}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. We say that a prime ideal $P$ of $R$ is a prime divisor of $I$ if $P=\sqrt{Q}$ for some ideal $Q$ that lies in a minimal primary decomposition of $I$. 
+\end{defn}
+
 \subsection{The Noetherian Case}
 \begin{thm}{}{} Let $R$ be a Noetherian commutative ring. Let $I$ be a proper ideal of $R$. Then $I$ admits a primary decomposition. 
 \end{thm}
@@ -1204,6 +1207,9 @@ Let $R$ be a field. Then the only proper prime ideal of $R$ is $(0)$. In particu
 Now let $R$ be Artinian. Let $P$ be a prime ideal of $R$. Then $R/P$ is an integral domain. Moreover, every quotient of an Artinian ring is Artinian. Hence $R/P$ is Artinian. By prp1.3.1, we conclude that $R/P$ is a field. Hence $P$ is a maximal ideal. Any chain of prime ideals of $R$ must terminate at the first prime ideal since it is maximal. Hence $\dim(R)=0$. 
 \end{proof}
 \end{lmm}
+
+\begin{defn}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Define the dimension of $M$ to be $$\dim(M)=\dim\left(\frac{R}{\text{Ann}_R(M)}\right)$$
+\end{defn}
 
 \subsection{Height of Prime Ideals}
 \begin{defn}{Height of a Prime Ideal}{} Let $R$ be a commutative ring. Let $p$ be a prime ideal of $R$. Define the height of $p$ to be $$\text{ht}(p)=\max\{t\in\N\;|\;p_0\subset\dots\subset p_t=p\text{ for }p_0,\dots,p_t\text{ prime ideals }\}$$

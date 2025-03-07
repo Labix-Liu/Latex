@@ -664,7 +664,7 @@ From linear algebra we know that $B(x,y)=x^TAy$ for some matrix $A$. If $T(x)=Cx
 
 \pagebreak
 \section{Vector Calculus}
-\subsection{Regions}
+\subsection{Regions in Euclidean Space}
 Before we define integration of functions, we need to make sense of the domain of our integral. 
 
 \begin{defn}{Regions}{} A region in $\R^n$ is a bounded open subset $\Omega$ of $\R^n$ such that there exists a function $f:\R^n\to\R$ with the property that 
@@ -684,41 +684,33 @@ Since $\nabla f(p)\neq 0$ for all $p\in\R^n$, we can apply the implicit function
 
 In particular, if $l=1$, then we call $r$ a curve. If $l=2$, then $r$ would be a surface. This is precisely the parametrization of a boundary, be it a curve or a surface. 
 
-\begin{defn}{Tangent Space}{} Let $\Omega\subset\R^n$ be a region with boundary $f(x)=0$ and parametrization $r:\R^l\to\R^n$. Define the tangent space at $p\in\partial\Omega$ to be $$T_p(\partial\Omega)=\text{span}\{\partial_{x_1}r,\dots,\partial_{x_l}r\}$$
-\end{defn}
-
-Tangent spaces will be given a more rigorous definition in differential geometry. But the notion does coincide. 
-
-\begin{prp}{}{} Let $\Omega\subset\R^n$ be a region with boundary $f(x)=0$ and parametrization $r:\R^l\to\R^n$. Let $p\in\partial\Omega$. Then $$T_p(\partial\Omega)=\ker(\partial f)$$ \tcbline
-\begin{proof}
-Notice that from the equation $f(r(x))=0$, we have that by the chain rule, $$(\partial f)(\partial r)=0$$ But $\partial r$ is precisely $\begin{pmatrix}\partial_{x_1}r,\dots,\partial_{x_l}r\end{pmatrix}$. Thus we are done. 
-\end{proof}
-\end{prp}
-
 \subsection{Differentiation and Integration of Curves}
 This section is dedicated to vector functions, which are functions with domain $\R$ and codomain $\R^n$. 
 
-\begin{defn}{Curves}{} Let $r:I\subset\R\to\R^n$. Then $$C=\{\vb{r}(t)|t\in I\}$$ is called a curve in $\R^n$. $r$ is a parametrization of $C$, and is called a vector function. 
+\begin{defn}{Curves in Euclidean Space}{} Let $C\subseteq\R^n$ be a subset. We say that $C$ is a curve if there exists a function continuous function $r:I\to\R^n$ such that $$C=\im(r)$$ In this case we call $r$ a parametrization of $C$. 
 \end{defn}
 
-\begin{defn}{Classifying Curves}{} Let $r:I\subseteq\R\to\R^3$ induce a curve $C$. 
+\begin{defn}{Simple and Closed Curves}{} Let $C\subseteq\R^n$ be a curve. 
 \begin{itemize}
-\item We say $r\in\mathcal{C}^k$ if it can be differentiated $k$ times. It is smooth if $r\in\mathcal{C}^\infty$
-\item $C$ is simple if it does not intersect itself
-\item $C$ is closed if $I=[a,b]$ and $r(a)=\vb{r}(b)$
-\item $C$ is regular if $r'(t)\neq0$ for all $t\in I$
+\item $C$ is if simple if there exists a parametrization $r:I\to\R^n$ of $C$ such that $r$ is injective. 
+\item $C$ is closed if there exists a region $\Omega\subseteq\R^n$ such that $C=\partial\Omega$. 
 \end{itemize}
 \end{defn}
 
-From regions, curves arises. On the other hand, we can construct regions from sufficiently nice curves. 
-
-\begin{prp}{}{} A curve $r:I\to\R^n$ gives rise to a region $\Omega$ if $r$ is in $\mathcal{C}^1$, $r$ is simple, closed and regular. 
-\end{prp}
-
-\begin{defn}{Arc Length Function and Parametrization}{} Let $r:I\to\R^n$ be a vector function. Define the Arc Length Function by $$s(t)=\int_{t_0}^{t}\abs{\vb{r}'(u)}du$$ Define the Arc Length Parametrization by $\vb{r}(s)$. 
+\begin{defn}{Differentiable and Regular Parameterizations}{} Let $C\subseteq\R^n$ be a curve. Let $r:I\to\R^n$ be a parametrization of $C$. 
+\begin{itemize}
+\item We say that $r\in\mC^n$ if $r^{(k)}$ is differentiable for all $0\leq k\leq n-1$, and $r^{(n)}$ is continuous. 
+\item We say that $r$ is regular if $\abs{r'(t)}\neq 0$ for all $t\in I$. 
+\end{itemize}
 \end{defn}
 
-\begin{lmm}{}{} $\vb{r}(s)$ has unit speed. \tcbline
+\begin{prp}{}{} Let $r:I\to\R^n$ be a function. If $\im(r)$ is simple, closed and $r$ is regular, then there exists a region $\Omega\subseteq\R^n$ such that $$\partial\Omega=\im(r)$$
+\end{prp}
+
+\begin{defn}{Arc Length Function and Parametrization}{} Let $r:I\to\R^n$ be a function. Define the Arc Length Function by $$s(t)=\int_{t_0}^{t}\abs{\vb{r}'(u)}du$$ Define the Arc Length Parametrization by $\vb{r}(s)$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $r:I\to\R^n$ be a function. Denote the arc length function by $s(t)$. Then we have $$\abs{r'(s(t))}=1$$ \tcbline
 \begin{proof} We show that $\abs{\vb{r}'(s)}=1$. By the chain rule, 
 \begin{align*}
 \abs{\frac{d}{ds}\vb{r}(s(t))}&=\abs{\frac{d\vb{r}}{dt}\cdot\frac{dt}{ds}}\\
@@ -736,7 +728,7 @@ $dr$ in the integral is justified by noting that if $r$ is a function of $t$, th
 There is no proper infinite sum that we can justify for $\int_Cf$ because it is simply a notation short hand for the integral on the right hand side. Notice that the parameterization $r$ does not appear on this notation because there can be mutiple parametrizations with the same image. 
 
 \subsection{Vector Fields}
-\begin{defn}{Vector Fields}{} We say that a function $v:U\subset\R^n\to\R^n$ is a vector field. For every $x\in\R^n$ it assigns a vector $v(x)\in\R^n$ to it. If each $v_k\in\mathcal{C}^1$ then we say that $v\in\mathcal{C}^1$. 
+\begin{defn}{Vector Fields}{} Let $U\subseteq\R^n$ be a subset. A vector field on $U$ is a function $v:U\to\R^n$. 
 \end{defn}
 
 \begin{defn}{Conservative Vector Fields}{} We say that a vector field $v:U\subset\R^n\to\R^n$ is conservative if there exsits some scalar function $\phi:\R^n\to\R$ such that $$v=\nabla\phi$$
