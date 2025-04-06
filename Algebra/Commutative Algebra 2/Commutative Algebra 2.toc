@@ -8,7 +8,7 @@
 \contentsline {subsection}{\numberline {2.4}Hensel's Lemma}{7}{subsection.2.4}%
 \contentsline {section}{\numberline {3}More on Dimension Theory}{8}{section.3}%
 \contentsline {subsection}{\numberline {3.1}The Hilbert Series}{8}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}The Hilbert Series Degree}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}The Hilbert Series Degree}{11}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Minimal Number of Generators of m-Primary Ideals}{13}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}The Fundamental Theorem of Dimension Theory}{13}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Regular Sequences}{16}{section.4}%
@@ -23,9 +23,9 @@
 \contentsline {subsection}{\numberline {6.1}System of Parameters}{20}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Basic Properties}{20}{subsection.6.2}%
 \contentsline {section}{\numberline {7}Two Important Rings Through the Koszul Complex}{21}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Gorenstein Rings}{21}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Cohen-Macaulay Modules}{21}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Cohen-Macaulay Rings}{21}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.1}Cohen-Macaulay Modules}{21}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Cohen-Macaulay Rings}{21}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Gorenstein Rings}{22}{subsection.7.3}%
 \contentsline {section}{\numberline {8}Kähler Differentials}{23}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Kähler Differentials}{23}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Transfering the System of Differentials}{28}{subsection.8.2}%

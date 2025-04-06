@@ -21,7 +21,7 @@
 \tableofcontents
 \pagebreak
 
-\section{Point Set Topology of Topological Manifolds}
+\section{The Topology of Topological Manifolds}
 \subsection{Triangulation of Manifolds}
 \begin{defn}{Triangulable Manifolds}{} Let $M$ be a $k$-manifold. We say that $M$ is triangulable if $M$ is a $\delta$-complex structure consisting of a finite number of top simplicies. 
 \end{defn}
@@ -30,24 +30,28 @@
 \begin{prp}{}{} Let $M$ be a manifold. Let $p:\tilde{M}\to M$ be a covering space. Then $\tilde{M}$ is also a manifold. 
 \end{prp}
 
+\subsection{General Homological Results of Manifolds}
+\begin{prp}{}{} Let $M$ be a compact manifold. Then $H_k(M)$ is finitely generated for all $k\in\N$. 
+\end{prp}
+
 \pagebreak
 \section{Orientability of a Topological Manifold}
-\subsection{Classical Orientability}
-The key observation in defining orientation through homology is the following proposition, which shows that the local homology groups on a manifold are isomorphic to $\Z$ on the top dimension. 
+\subsection{Local and Global Orientations}
+The key observation in defining orientation through homology is the following proposition, which shows that the local homology groups on a manifold are isomorphic to $R$ on the top dimension. 
 
-\begin{prp}{}{} Let $M$ be a $k$-dimensional topological manifold and $x\in M$ a point. Then $$H_n(M\;|\;\{x\})\cong\begin{cases}
-\Z & \text{ if } n=k\\
+\begin{prp}{}{} Let $M$ be a $k$-dimensional topological manifold and $x\in M$ a point. Let $R$ be a ring. Then $$H_n(M\;|\;\{x\};R)\cong\begin{cases}
+R & \text{ if } n=k\\
 0 & \text{ otherwise }
 \end{cases}$$ \tcbline
 \begin{proof}
-Let $x\in M$. Since $M$ is a manifold, there exists an open neighbourhood of $x$ such that $U\cong\R^k$ via some transition map $\varphi:U\to\R^k$. Since $M\setminus U$ is closed, we can apply excision to obtain an isomorphism $$H_n(M\;|\;\{x\})\cong H_n(U\;|\;\{x\})$$ By the homeomorphism $(U,U\setminus\{x\})\cong(\R^k,\R^k\setminus\{\varphi(x)\})$ and 6.3.2 in AT2, we obtain the desired result. 
+Let $x\in M$. Since $M$ is a manifold, there exists an open neighbourhood of $x$ such that $U\cong\R^k$ via some transition map $\varphi:U\to\R^k$. Since $M\setminus U$ is closed, we can apply excision to obtain an isomorphism $$H_n(M\;|\;\{x\};R)\cong H_n(U\;|\;\{x\};R)$$ By the homeomorphism $(U,U\setminus\{x\})\cong(\R^k,\R^k\setminus\{\varphi(x)\})$ and 6.3.2 in AT2, we obtain the desired result. 
 \end{proof}
 \end{prp}
 
-We can now consider locally what it means to have an orientation (because we excised the data to that of $\R^k$), and then try and glue all the choices of orientation into a coherent global orientation. 
-
-\begin{defn}{Local Orientation}{} Let $M$ be a $k$-dimensional topological manifold and let $x\in M$. A local orientation of $M$ at $x$ is a choice of generator of $$H_k(M\;|\;\{x\})\cong\Z$$
+\begin{defn}{Local Orientation}{} Let $M$ be a $k$-dimensional topological manifold and let $x\in M$. A local orientation of $M$ at $x$ is a choice of generator of $$H_k(M\;|\;\{x\};R)\cong R$$
 \end{defn}
+
+Notice that being a generator of $R$ is the same as saying that it is a unit of $R$. 
 
 \begin{defn}{Open and Closed Ball in Manifolds}{} Let $M$ be a $k$-dimensional topological manifold and let $(U,\varphi)$ be a chart of $M$. We say that $B\subset U$ is an open / closed ball if $\varphi(B)\subseteq\R^k$ is an open / closed ball of $\R^k$. 
 \end{defn}
@@ -68,9 +72,18 @@ given by deformation retracts. If $M$ is a $k$-manifold and $U\subseteq M$ is an
 \end{tikzcd}}\\~\\
 All of the above groups are just $\Z$, and a choice of local orientation is a choice of generators of the lower two homology groups. If we want the choice to be consistent, then we better have the two generators coincide to the same generator in $H_n(M\;|\;U)$ under the above isomorphisms. We note here that the isomorphism $$H_n(M\;|\;U)\overset{\cong}{\longrightarrow}H_n(M\;|\;\{x\})$$ for any $x\in U$ came from the inclusion map $(M,M\setminus U)\hookrightarrow(M,M\setminus\{x\})$. 
 
-\begin{defn}{Consistent Local Orientations}{} Let $M$ be a $k$-manifold. Let $B$ be an open ball in $M$. For each $x\in B$, let $\omega_x$ be a choice of local orientation at $x$. We say that the choices of local orientations at $B$ is consistent if there exists a generator $\omega_B\in H_k(M\;|\; B)$ such that for any $x,y\in B$, under the isomorphisms \\~\\
+If $M$ is a $k$-manifold and $U\subseteq M$ is an open ball, a similar argument as the case of $R=\Z$ shows that there are isomorphisms \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{H_k(M\;|\;\{x\})} & {H_k(M\;|\;B)} & {H_k(M\;|\;\{y\})} \\
+	& {H_k(M\;|\;U;R)} \\
+	{H_k(M\;|\;\{x\};R)} && {H_k(M\;|\;\{y\};R)}
+	\arrow["\cong"', from=1-2, to=2-1]
+	\arrow["\cong", from=1-2, to=2-3]
+\end{tikzcd}}\\~\\
+where all of the above groups are just $R$. We also obtain the same definition for consistent local orientations. 
+
+\begin{defn}{Consistent Local Orientations}{} Let $M$ be a $k$-manifold. Let $B$ be an open ball in $M$. For each $x\in B$, let $\omega_x$ be a choice of local orientation at $x$. We say that the choices of local orientations at $B$ is consistent if there exists a generator $\omega_B\in H_k(M\;|\; B;R)$ such that for any $x,y\in B$, under the isomorphisms \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{H_k(M\;|\;\{x\};R)} & {H_k(M\;|\;B;R)} & {H_k(M\;|\;\{y\};R)} \\
 	{\omega_x} & {\omega_B} & {\omega_y}
 	\arrow["\cong", from=1-1, to=1-2]
 	\arrow["\cong"', from=1-3, to=1-2]
@@ -80,14 +93,10 @@ All of the above groups are just $\Z$, and a choice of local orientation is a ch
 the choice of local orientation maps to the same generator $\omega_B$. 
 \end{defn}
 
-With this, we can now formally define orientations in a manifold. 
-
-\begin{defn}{Orientation of a Manifold}{} Let $M$ be a $k$-dimensional topological manifold. An orientation of $M$ is a function $$x\mapsto\omega_x\in H_k(M,M\setminus\{x\})$$ assigning every point to a local orientation such that for every $x\in M$, there exists an open ball $x\in B$ such that $(\omega_x)_{x\in B}$ a consistent local orientation. 
+\begin{defn}{R-Orientation of a Manifold}{} Let $M$ be a $k$-dimensional topological manifold. An orientation of $M$ is a function $$x\mapsto\omega_x\in H_k(M,M\setminus\{x\};R)$$ assigning every point to a local orientation such that for every $x\in M$, there exists an open ball $x\in B$ such that $(\omega_x)_{x\in B}$ a consistent local orientation. 
 \end{defn}
 
-\subsection{The Orientation Double Cover}
-In order to deduce orientability of a manifolds, we appeal to the theory of vector bundles. 
-
+\subsection{The Orientation Bundle}
 \begin{defn}{Orientation Bundle}{} Let $M$ be a topological manifold. Define the orientation bundle $\widetilde{M}$ to be the set of pairs $$\widetilde{M}=\left\{(x,\omega_x)\;\bigg{|}\;\; x\in M, \omega_x\text{ is a generator of }H_k(M\;|\; x)\right\}$$ together the projection map $\pi:\widetilde{M}\to M$ defined by $\pi(x,\omega_x)=x$. 
 \end{defn}
 
@@ -177,7 +186,92 @@ The second statement is precisely the contrapositive of the equivalent character
 \end{proof}
 \end{thm}
 
-An overview of what is happening: Let $M$ be a manifold. Then the orientation sheaf is a locally constant sheaf with constant value $\Z$. Since $M$ is locally connected, there is an equivalence between locally constant sheaves and covering spaces induced by the presheaf-bundle adjunction. The orientation sheaf then corresponds to the orientation bundle. (Why does the existence of global sections imply oreientability?)
+In order to deduce interesting results, we need to define a more general version than that of the orientation double cover. 
+
+\begin{defn}{Generalized Orientation Bundle}{} Let $M$ be a $k$-manifold. Let $R$ be a ring. Define the generalized orientation bundle $M_R$ of $M$ to be the set $$M_R=\{(x,\mu_r)\;|\;x\in M, r\in H_k(M\;|\; x;R)\cong R\}$$ together with the topology generated by each $B_r$ in $$\pi^{-1}(B)=\coprod_{r\in R\text{ is a unit}}B_r$$
+\end{defn}
+
+When $R=\Z$, we notice that $M_\Z\to M$ is infinite sheeted, and contains a copy of $M$ as the subspace of $M_\Z$ by choosing $\mu_r=0\in\Z$. More generally, if we write $$M_k=\{(x,\mu_x)\in M_\Z\;|\;\mu_x=\pm k\}$$ $M_\Z$ contains a copy of $M_k$ for $k\in\N\setminus\{0\}$, and each copy $M_k$ is homeomorphic to the orientation double cover $\widetilde{M}$. \\
+
+If we instead consider an arbitrary ring $R$, then we can similarly define $$M_r=\left\{(x,\mu_x)\in M_R\;|\;\substack{\mu_x\otimes r\in H_k(M\;|\; x)\otimes R\cong H_k(M\;|\; x;R)\\\mu_x\text{ is a generator }H_k(M\;|\;x)\cong\Z}\right\}$$ If $2r=0$ in the ring then $M_r$ becomes only one copy of $M$. Otherwise for each $r\in R$, $M_r$ is homemorphic to $\widetilde{M}$. Hence the covering space $M_R$ is a disjoint union of $M_r$ for $r\in R$, except that $M_r$ and $M_{-r}$ are not disjoint. 
+
+\begin{lmm}{}{} Let $M$ be a topological manifold. Let $R$ be a ring. Then $M$ is $R$-orientable if and only if there exists a section $M\to M_R$. In particular, the section is precisely the assignment required in the definition of $R$-orientability. \tcbline
+\begin{proof}
+Let $M$ be $R$-orientable. Then there exists an assignment $x\mapsto\omega_x\in H_k(M\;|\;x;R)$ for each $x\in M$. We can rewrite the assignment into $x\mapsto(x,\omega_x)$ so that the codomain is now $M_R$. It is clear that composing with the projection map gives the identity. It remains to show that the assignment is continuous. Since the topology of $M_R$ is generated by open balls, it suffices to check continuity on open balls. So let $\widetilde{B}$ be an open ball of $M_R$. It is clear that the preimage of $\widetilde{B}$ is given by $x\in M$ such that $(x,\omega_x)\in\widetilde{B}$. But this is the same set as $B=\pi(\widetilde{B})$, which by definition is an open ball. Hence $s$ is continuous. \\~\\
+
+Now let $s:M\to M_R$ be a section. By restricting to the second factor we obtain an assignment $x\mapsto\omega_x\in H_k(M\;|\;x;R)$. I claim that defines an orientation. By continuity of $s$, the preimage of each open ball $\widetilde{B}$ of $M_R$ by $s$ is also an open ball $B$ of $M$. For $x,y\in B$, $\omega_x$ and $\omega_y$ is in $\widetilde{B}$. But $\widetilde{B}$ is one of the factors of the disjoint union $\pi^{-1}(B)=\coprod_{r\in R\text{ is a unit}}B_r$, which by definition consists of consistent local orientations. Hence $\omega_x$ and $\omega_y$ are consistent. Thus we conclude. 
+\end{proof}
+\end{lmm}
+
+\begin{lmm}{}{} Let $M$ be a topological manifold. Let $R$ be a ring. Then the following are true. 
+\begin{itemize}
+\item If $M$ is orientable, then $M$ is $R$-orientable. 
+\item If $M$ is non-orientable, then $M$ is $R$-orientable if and only if $R$ contains a unit of order $2$. 
+\end{itemize}
+\end{lmm}
+
+\begin{defn}{Ring of Sections}{} Let $M$ be a compact $k$-manifold. Denote $p:M_R\to M$ the projection map. Define the ring of sections of $M$ to the orientation cover to be the set $$\Gamma(M,M_R)=\{s:M\to M_R\;|\;s\circ p=\text{id}_M\}$$ together with addition / multiplication defined by addition / multiplication of ring elements in the second variable. 
+\end{defn}
+
+\begin{prp}{}{} Let $M$ be a compact $k$-manifold. Then the following are true. 
+\begin{itemize}
+\item If $M$ is $R$-orientable, then there is an $R$-module isomorphism $$\Gamma(M,M_R)\cong\Hom(\pi_0(M),R)$$ of sets. This assignment is given by sending $s:\pi_0(M)\to R$ to the map $x\mapsto(x,s([x]))$. 
+\item If $M$ is connected and not $R$-orientable, then there are no global sections. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $M$ be a $k$-manifold. Let $K\subseteq M$ be compact. Then the following are true. 
+\begin{itemize}
+\item If $s:M\to M_R$ is a section sending $x$ to $(x,\mu_x)$, there exists a unique $\mu_K\in H_k(M\;|\;K;R)$ such that under induced map of inclusions $$H_k(M\;|\;K;R)\to H_k(M\;|\;x;R)$$ $\mu_K$ is mapped to $\mu_x$. 
+\item The local homology groups $H_i(M\;|\;K;R)=0$ for all $i>k$. 
+\end{itemize}
+\end{prp}
+
+\begin{thm}{}{} Let $M$ be a compact and connected $k$-dimensional manifold. Let $R$ be a ring. Then the following are true. 
+\begin{itemize}
+\item If $M$ is $R$-orientable, then the map $$H_k(M;R)\to H_k(M\;|\;x;R)\cong R$$ is an isomorphism for all $x\in M$. 
+\item If $M$ is not $R$-orientable, then the map $$H_k(M;R)\to H_k(M\;|\;x;R)\cong R$$ is injective and has image $\{r\in R\;|\;2r=0\}$ for all $x\in M$
+\end{itemize}
+\end{thm}
+
+Notice this theorem is not a definitive criterion for orientability in general. However, if $R=\Z$, then it becomes a sufficient criterion. 
+
+\subsection{Applications of Orientability}
+\begin{crl}{}{} Let $M$ be a compact and connected $k$-dimensional manifold. Then the following are true. 
+\begin{itemize}
+\item $M$ is orientable if and only if $H_k(M)\cong\Z$
+\item $M$ is non-orientable if and only if $H_k(M)=0$
+\item In any case, $H_k(M;\Z/2\Z)\cong\Z/2\Z$
+\end{itemize} \tcbline
+\begin{proof}
+Let $M$ be orientable. Then by the above theorem it is clear that $H_k(M)\cong\Z$. Now let $H_k(M)\cong\Z$. Suppose for a contradiction that $M$ is not orientable. Then the map $$\Z\cong H_k(M)\to H_k(M\;|\;x)\cong\Z$$ is injective and has image $\{k\in\Z\;|\;2k=0\}=\{0\}$. But if $\Z\to\Z$ is injective, its image must be non-trivial. Hence we have a contradiction, so that $M$ is orientable. \\~\\
+
+Let $M$ be non-orientable. Then the map $H_k(M)\to\Z$ must be injective with trivial image. Hence $H_k(M)=0$. Now let that $H_k(M)=0$. Then $0$ and $\Z$ are not isomorphic, by the contrapositive of the first statement of the above theorem, we conclude that $M$ is not orientable. \\~\\
+
+If $M$ is orientable then by the above theorem we are done. If $M$ is not orientable, then the image of the map $H_k(M;\Z/2\Z)\to\Z/2\Z$ is equal to $\{k\in\Z/2\Z\;|\;2k=0\}=\Z/2\Z$. Since the map is also injective, we conclude that $H_k(M;\Z/2\Z)\cong\Z/2\Z$. 
+\end{proof}
+\end{crl}
+
+We can summarize the situation as follows: $$M\text{ is orientable }\implies\substack{TFAE:\\M\text{ is }R\text{-orientable}\\\text{there exists a section }M\to M_R\\}\implies\substack{\Gamma(M,M_R)\cong\Hom(\pi_0(M),R)\\H_k(M;R)\cong H_k(M\;|\;x)\cong R}$$~
+
+$$\substack{TFAE:\\M\text{ is not }R\text{-orientable}\\\text{there are no sections }M\to M_R\\}\implies\substack{H_k(M;R)\longrightarrow H_k(M\;|\;x)\cong R\text{ is injective}}$$
+
+\begin{crl}{}{} Let $M$ be a compact, connected and orientable $k$-dimensional manifold. Let $R$ be a ring. Then the following are true. 
+\begin{itemize}
+\item There is an isomorphism $$H_k(M;R)\cong R$$
+\item The higher homology groups $$H_i(M;R)=0$$ for all $i>k$. 
+\end{itemize}
+\end{crl}
+
+\begin{crl}{}{} Let $M$ be a compact and connected $k$-dimensional manifold. Then the following are true. 
+\begin{itemize}
+\item If $M$ is orientable, then the torsion part of $H_{k-1}(M)$ is trivial. 
+\item If $M$ is not-orientable, then the torsion part of $H_{k-1}(M)$ is $\Z/2\Z$. 
+\end{itemize}
+\end{crl}
+
+\begin{crl}{}{} Let $M$ be a non-compact connected $k$-dimensional manifold. Let $R$ be a ring. Then we have $$H_i(M;R)=0$$ for all $i\geq k$. 
+\end{crl}
 
 \begin{crl}{}{} Any simply connected manifold is orientable. \tcbline
 \begin{proof}
@@ -217,134 +311,8 @@ Now $S^k$ being compact and $\R\Prj^k$ being Hausdorff together with $\tilde{q}$
 
 One has to be careful that homotopy equivalence does not preserve orientability. For example, the Mobius strip is homotopy equivalent to $S^1$ but the former is non-orientable while the latter is. 
 
-\subsection{Orientability in Arbitrary Coefficient Ring}
-\begin{prp}{}{} Let $M$ be a $k$-dimensional topological manifold and $x\in M$ a point. Let $R$ be a ring. Then $$H_n(M\;|\;\{x\};R)\cong\begin{cases}
-R & \text{ if } n=k\\
-0 & \text{ otherwise }
-\end{cases}$$ \tcbline
-\begin{proof}
-Let $x\in M$. Since $M$ is a manifold, there exists an open neighbourhood of $x$ such that $U\cong\R^k$ via some transition map $\varphi:U\to\R^k$. Since $M\setminus U$ is closed, we can apply excision to obtain an isomorphism $$H_n(M\;|\;\{x\};R)\cong H_n(U\;|\;\{x\};R)$$ By the homeomorphism $(U,U\setminus\{x\})\cong(\R^k,\R^k\setminus\{\varphi(x)\})$ and 6.3.2 in AT2, we obtain the desired result. 
-\end{proof}
-\end{prp}
-
-\begin{defn}{Local Orientation}{} Let $M$ be a $k$-dimensional topological manifold and let $x\in M$. A local orientation of $M$ at $x$ is a choice of generator of $$H_k(M\;|\;\{x\};R)\cong R$$
-\end{defn}
-
-Notice that being a generator of $R$ is the same as saying that it is a unit of $R$. \\
-
-If $M$ is a $k$-manifold and $U\subseteq M$ is an open ball, a similar argument as the case of $R=\Z$ shows that there are isomorphisms \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	& {H_k(M\;|\;U;R)} \\
-	{H_k(M\;|\;\{x\};R)} && {H_k(M\;|\;\{y\};R)}
-	\arrow["\cong"', from=1-2, to=2-1]
-	\arrow["\cong", from=1-2, to=2-3]
-\end{tikzcd}}\\~\\
-where all of the above groups are just $R$. We also obtain the same definition for consistent local orientations. 
-
-\begin{defn}{Consistent Local Orientations}{} Let $M$ be a $k$-manifold. Let $B$ be an open ball in $M$. For each $x\in B$, let $\omega_x$ be a choice of local orientation at $x$. We say that the choices of local orientations at $B$ is consistent if there exists a generator $\omega_B\in H_k(M\;|\; B;R)$ such that for any $x,y\in B$, under the isomorphisms \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{H_k(M\;|\;\{x\};R)} & {H_k(M\;|\;B;R)} & {H_k(M\;|\;\{y\};R)} \\
-	{\omega_x} & {\omega_B} & {\omega_y}
-	\arrow["\cong", from=1-1, to=1-2]
-	\arrow["\cong"', from=1-3, to=1-2]
-	\arrow[maps to, from=2-1, to=2-2]
-	\arrow[maps to, from=2-3, to=2-2]
-\end{tikzcd}}\\~\\
-the choice of local orientation maps to the same generator $\omega_B$. 
-\end{defn}
-
-\begin{defn}{R-Orientation of a Manifold}{} Let $M$ be a $k$-dimensional topological manifold. An orientation of $M$ is a function $$x\mapsto\omega_x\in H_k(M,M\setminus\{x\};R)$$ assigning every point to a local orientation such that for every $x\in M$, there exists an open ball $x\in B$ such that $(\omega_x)_{x\in B}$ a consistent local orientation. 
-\end{defn}
-
-In order to deduce interesting results, we need to define a more general version than that of the orientation double cover. 
-
-\begin{defn}{Generalized Orientation Bundle}{} Let $M$ be a $k$-manifold. Let $R$ be a ring. Define the generalized orientation bundle $M_R$ of $M$ to be the set $$M_R=\{(x,\mu_r)\;|\;x\in M, r\in H_k(M\;|\; x;R)\cong R\}$$ together with the topology generated by each $B_r$ in $$\pi^{-1}(B)=\coprod_{r\in R\text{ is a unit}}B_r$$
-\end{defn}
-
-When $R=\Z$, we notice that $M_\Z\to M$ is infinite sheeted, and contains a copy of $M$ as the subspace of $M_\Z$ by choosing $\mu_r=0\in\Z$. More generally, if we write $$M_k=\{(x,\mu_x)\in M_\Z\;|\;\mu_x=\pm k\}$$ $M_\Z$ contains a copy of $M_k$ for $k\in\N\setminus\{0\}$, and each copy $M_k$ is homeomorphic to the orientation double cover $\widetilde{M}$. \\
-
-If we instead consider an arbitrary ring $R$, then we can similarly define $$M_r=\left\{(x,\mu_x)\in M_R\;|\;\substack{\mu_x\otimes r\in H_k(M\;|\; x)\otimes R\cong H_k(M\;|\; x;R)\\\mu_x\text{ is a generator }H_k(M\;|\;x)\cong\Z}\right\}$$ If $2r=0$ in the ring then $M_r$ becomes only one copy of $M$. Otherwise for each $r\in R$, $M_r$ is homemorphic to $\widetilde{M}$. Hence the covering space $M_R$ is a disjoint union of $M_r$ for $r\in R$, except that $M_r$ and $M_{-r}$ are not disjoint. 
-
-\begin{lmm}{}{} Let $M$ be a topological manifold. Let $R$ be a ring. Then $M$ is $R$-orientable if and only if there exists a section $M\to M_R$. In particular, the section is precisely the assignment required in the definition of $R$-orientability. \tcbline
-\begin{proof}
-Let $M$ be $R$-orientable. Then there exists an assignment $x\mapsto\omega_x\in H_k(M\;|\;x;R)$ for each $x\in M$. We can rewrite the assignment into $x\mapsto(x,\omega_x)$ so that the codomain is now $M_R$. It is clear that composing with the projection map gives the identity. It remains to show that the assignment is continuous. Since the topology of $M_R$ is generated by open balls, it suffices to check continuity on open balls. So let $\widetilde{B}$ be an open ball of $M_R$. It is clear that the preimage of $\widetilde{B}$ is given by $x\in M$ such that $(x,\omega_x)\in\widetilde{B}$. But this is the same set as $B=\pi(\widetilde{B})$, which by definition is an open ball. Hence $s$ is continuous. \\~\\
-
-Now let $s:M\to M_R$ be a section. By restricting to the second factor we obtain an assignment $x\mapsto\omega_x\in H_k(M\;|\;x;R)$. I claim that defines an orientation. By continuity of $s$, the preimage of each open ball $\widetilde{B}$ of $M_R$ by $s$ is also an open ball $B$ of $M$. For $x,y\in B$, $\omega_x$ and $\omega_y$ is in $\widetilde{B}$. But $\widetilde{B}$ is one of the factors of the disjoint union $\pi^{-1}(B)=\coprod_{r\in R\text{ is a unit}}B_r$, which by definition consists of consistent local orientations. Hence $\omega_x$ and $\omega_y$ are consistent. Thus we conclude. 
-\end{proof}
-\end{lmm}
-
-\begin{lmm}{}{} Let $M$ be a topological manifold. Let $R$ be a ring. Then the following are true. 
-\begin{itemize}
-\item If $M$ is orientable, then $M$ is $R$-orientable. 
-\item If $M$ is non-orientable, then $M$ is $R$-orientable if and only if $R$ contains a unit of order $2$. 
-\end{itemize}
-\end{lmm}
-
-\subsection{Implications of R-Orientability}
-\begin{defn}{Ring of Sections}{} Let $M$ be a compact $k$-manifold. Denote $p:M_R\to M$ the projection map. Define the ring of sections of $M$ to the orientation cover to be the set $$\Gamma(M,M_R)=\{s:M\to M_R\;|\;s\circ p=\text{id}_M\}$$ together with addition / multiplication defined by addition / multiplication of ring elements in the second variable. 
-\end{defn}
-
-\begin{prp}{}{} Let $M$ be a compact $k$-manifold. Then the following are true. 
-\begin{itemize}
-\item If $M$ is $R$-orientable, then there is an $R$-module isomorphism $$\Gamma(M,M_R)\cong\Hom(\pi_0(M),R)$$ of sets. This assignment is given by sending $s:\pi_0(M)\to R$ to the map $x\mapsto(x,s([x]))$. 
-\item If $M$ is connected and not $R$-orientable, then there are no global sections. 
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Let $M$ be a $k$-manifold. Let $K\subseteq M$ be compact. Then the following are true. 
-\begin{itemize}
-\item If $s:M\to M_R$ is a section sending $x$ to $(x,\mu_x)$, there exists a unique $\mu_K\in H_k(M\;|\;K;R)$ such that under induced map of inclusions $$H_k(M\;|\;K;R)\to H_k(M\;|\;x;R)$$ $\mu_K$ is mapped to $\mu_x$. 
-\item The local homology groups $H_i(M\;|\;K;R)=0$ for all $i>k$. 
-\end{itemize}
-\end{prp}
-
-\begin{thm}{}{} Let $M$ be a compact and connected $k$-dimensional manifold. Let $R$ be a ring. Then the following are true. 
-\begin{itemize}
-\item If $M$ is $R$-orientable, then the map $$H_k(M;R)\to H_k(M\;|\;x;R)\cong R$$ is an isomorphism for all $x\in M$. 
-\item If $M$ is not $R$-orientable, then the map $$H_k(M;R)\to H_k(M\;|\;x;R)\cong R$$ is injective and has image $\{r\in R\;|\;2r=0\}$ for all $x\in M$
-\end{itemize}
-\end{thm}
-
-Notice this theorem is not a definitive criterion for orientability in general. However, if $R=\Z$, then it becomes a sufficient criterion. 
-
-\begin{crl}{}{} Let $M$ be a compact and connected $k$-dimensional manifold. Then the following are true. 
-\begin{itemize}
-\item $M$ is orientable if and only if $H_k(M)\cong\Z$
-\item $M$ is non-orientable if and only if $H_k(M)=0$
-\item In any case, $H_k(M;\Z/2\Z)\cong\Z/2\Z$
-\end{itemize} \tcbline
-\begin{proof}
-Let $M$ be orientable. Then by the above theorem it is clear that $H_k(M)\cong\Z$. Now let $H_k(M)\cong\Z$. Suppose for a contradiction that $M$ is not orientable. Then the map $$\Z\cong H_k(M)\to H_k(M\;|\;x)\cong\Z$$ is injective and has image $\{k\in\Z\;|\;2k=0\}=\{0\}$. But if $\Z\to\Z$ is injective, its image must be non-trivial. Hence we have a contradiction, so that $M$ is orientable. \\~\\
-
-Let $M$ be non-orientable. Then the map $H_k(M)\to\Z$ must be injective with trivial image. Hence $H_k(M)=0$. Now let that $H_k(M)=0$. Then $0$ and $\Z$ are not isomorphic, by the contrapositive of the first statement of the above theorem, we conclude that $M$ is not orientable. \\~\\
-
-If $M$ is orientable then by the above theorem we are done. If $M$ is not orientable, then the image of the map $H_k(M;\Z/2\Z)\to\Z/2\Z$ is equal to $\{k\in\Z/2\Z\;|\;2k=0\}=\Z/2\Z$. Since the map is also injective, we conclude that $H_k(M;\Z/2\Z)\cong\Z/2\Z$. 
-\end{proof}
-\end{crl}
-
-We can summarize the situation as follows: $$M\text{ is orientable }\implies\substack{TFAE:\\M\text{ is }R\text{-orientable}\\\text{there exists a section }M\to M_R\\}\implies\substack{\Gamma(M,M_R)\cong\Hom(\pi_0(M),R)\\H_k(M;R)\cong H_k(M\;|\;x)\cong R}$$~
-
-$$\substack{TFAE:\\M\text{ is not }R\text{-orientable}\\\text{there are no sections }M\to M_R\\}\implies\substack{H_k(M;R)\longrightarrow H_k(M\;|\;x)\cong R\text{ is injective}}$$
-
-\begin{crl}{}{} Let $M$ be a compact, connected and orientable $k$-dimensional manifold. Let $R$ be a ring. Then the following are true. 
-\begin{itemize}
-\item There is an isomorphism $$H_k(M;R)\cong R$$
-\item The higher homology groups $$H_i(M;R)=0$$ for all $i>k$. 
-\end{itemize}
-\end{crl}
-
-\begin{crl}{}{} Let $M$ be a compact and connected $k$-dimensional manifold. Then the following are true. 
-\begin{itemize}
-\item If $M$ is orientable, then the torsion part of $H_{k-1}(M)$ is trivial. 
-\item If $M$ is not-orientable, then the torsion part of $H_{k-1}(M)$ is $\Z/2\Z$. 
-\end{itemize}
-\end{crl}
-
-\begin{crl}{}{} Let $M$ be a non-compact connected $k$-dimensional manifold. Let $R$ be a ring. Then we have $$H_i(M;R)=0$$ for all $i\geq k$. 
-\end{crl}
-
 \subsection{Fundamental Class}
-\begin{defn}{Fundamental Class}{} Let $M$ be a compact and connected manifold of dimension $n$. Let $R$ be a ring. A fundamental class for $M$ with coefficients in $R$ is an element $[c]\in H_n(M;R)$ such that the element $[c]$ is sent to a generator under the induced map of inclusion $$H_n(M;R)\to H_n(M\;|\;x;R)\cong R$$ for any $x\in M$. 
+\begin{defn}{Fundamental Class}{} Let $M$ be a compact and connected manifold of dimension $n$. Let $R$ be a ring. A fundamental class for $M$ with coefficients in $R$ is an element $[M]\in H_n(M;R)$ such that the element $[M]$ is sent to a generator under the induced map of inclusion $$H_n(M;R)\to H_n(M\;|\;x;R)\cong R$$ for any $x\in M$. 
 \end{defn}
 
 \begin{lmm}{}{} Let $M$ be a compact and connected manifold of dimension $n$. Let $R$ be a ring. Then $M$ is $R$-orientable if and only if $M$ has a fundamental class for $M$ with coefficients in $R$. 
@@ -375,19 +343,68 @@ For $k=1$, $\sigma_+:\Delta^1\to S^1$ is the upper half circle oriented anticloc
 \subsection{Relation to Orientability of Smooth Manifolds}
 
 \pagebreak
-\section{Poincare Duality}
+\section{The Duality Theorems}
 \subsection{The Cap Product}
-\begin{defn}{The Cap Product}{} Let $\sigma=[v_0,\dots,v_k]\in C_k(X)$ and $\phi\in C^l(X)$ where $k\geq l$ with coefficients in a ring $R$. Define the cap product to be $$\sigma\frown\phi=\phi(\sigma|_{[v_0,\dots,v_l]})\sigma|_{[v_l,\dots,v_k]}\in C_{k-l}(X)$$
+\begin{defn}{The Cap Product}{} Let $X$ be a space. Let $R$ be a commutative ring. Let $\sigma|_[v_0,\dots,v_k]:\Sigma^k\to X$ be a $k$-simplex and $\phi\in C^l(X;R)$. Define the cap product to be $$\sigma\frown\phi=\phi(\sigma|_{[v_0,\dots,v_l]})\sigma|_{[v_l,\dots,v_k]}\in C_{k-l}(X)$$
 \end{defn}
 
-\begin{lmm}{}{} The cap product $\frown: C_k(X)\times C^l(X)\to C_{k-l}(X)$ with coefficients in a ring $R$ induces a cap product in homology $\frown: H_k(X)\times H^l(X,R)\to H_{k-l}(X)$ for $k\geq l$. 
+\begin{lmm}{}{} Let $X$ be a space. Let $R$ be a commutative ring. Let $\sigma|_[v_0,\dots,v_k]:\Sigma^k\to X$ be a $k$-simplex and $\phi\in C^l(X;R)$. Then we have $$\partial(\sigma\frown\phi)=(-1)^l(\partial(\sigma)\frown\phi-\sigma\frown\delta(\phi))$$
 \end{lmm}
 
-\subsection{The Duality Theorem}
-\begin{thm}{Poincare Duality}{} Let $M$ be a compact and oriented topological $n$-manifold. Then the map $$D:H^p(M)\to H_{n-p}(M)$$ defined by $D(\alpha)=\alpha\frown z$ for $z$ a fundamental class of $M$, is an isomorphism. 
+\begin{prp}{}{} Let $X$ be a space. Let $R$ be a commutative ring. Then the cap product descends to homology $$\frown:H_k(X;R)\times H^l(X;R)\to H_{k-l}(X;R)$$ and is well defined for $k\geq l$.
+\end{prp}
+
+\begin{lmm}{}{} Let $X,Y$ be spaces. Let $R$ be a commutative ring. Let $f:X\to Y$ be a map. Let $\alpha\in H_k(X;R)$ and $\phi\in H^l(Y;R)$. Then we have $$f_\ast(\alpha)\frown\phi=f_\ast(\alpha\frown f^\ast(\phi))$$
+\end{lmm}
+
+We can describe this lemma somewhat as a naturality condition: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{H_k(X;R)\times H^l(X;R)} & {H_{k-l}(X;R)} \\
+	{H_k(Y;R)\times H^l(Y;R)} & {H_{k-l}(Y;R)}
+	\arrow["\frown", from=1-1, to=1-2]
+	\arrow["{f_\ast}"', shift right=9, from=1-1, to=2-1]
+	\arrow["{f_\ast}", from=1-2, to=2-2]
+	\arrow["{f^\ast}"', shift right=9, from=2-1, to=1-1]
+	\arrow["\frown", from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+
+\subsection{Cap Products and Cup Products}
+\begin{lmm}{}{} Let $X$ be a space. Let $R$ be a commutative ring. Let $\alpha\in C_{k+l}(X;R)$ and $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Then we have $$\psi(\alpha\frown\phi)=(\phi\smile\psi)(\alpha)$$
+\end{lmm}
+
+\begin{prp}{}{} Let $X$ be a space. Let $R$ be a commutative ring. Suppose that $H_k(X)$ and $H_{k+l}(X)$ are free abelian groups. Let $\phi\in C^k(X;R)$ and $\psi\in C^l(X;R)$. Then the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	{H^k(X;R)} & {\Hom_\Z(H_k(X),R)} \\
+	{H^{k+l}(X;R)} & {\Hom_\Z(H_{k+l}(X),R)}
+	\arrow["h", from=1-1, to=1-2]
+	\arrow["{\phi\smile-}"', from=1-1, to=2-1]
+	\arrow["{(-\frown\psi)^\ast}", from=1-2, to=2-2]
+	\arrow["h"', from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+In particular, $-\frown\psi$ is the dual map of $\phi\smile-$. 
+\end{prp}
+
+\subsection{Poincare Duality}
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M$ be a connected $R$-orientable manifold of dimension $n$. Then the duality map $$D:H_c^p(M;R)\to H_{n-p}(M)$$ defined by $D(\alpha)=\alpha\frown[M]$ is an isomorphism. 
+\end{prp}
+
+\begin{thm}{Poincare Duality}{} Let $R$ be a commutative ring. Let $M$ be a compact connected $R$-orientable manifold of dimension $n$. Then the map $$D:H^p(M;R)\to H_{n-p}(M;R)$$ defined by $D(\alpha)=\alpha\frown[M]$ is an isomorphism. 
 \end{thm}
 
-\subsection{The Smooth Poincare Duality}
+\begin{crl}{}{} Let $M$ be a compact connected $\F$-orientable manifold of dimension $n$. Let $\F$ be a field. Then the Poincare duality induces isomorphisms $$H^k(M;\F)\cong H_{n-k}(M;\F)$$
+\end{crl}
+
+\begin{prp}{}{} Let $M$ be a compact manifold of dimension $2k+1$. Then $\chi(M)=0$. 
+\end{prp}
+
+\begin{prp}{}{} Let $M$ be a compact connected orientable manifold of dimension $n$. Suppose that $H^k(X)$ is a free abelian group for all $k$. Then the bilinear map $$H^k(M)\times H^{n-k}(M)\to\Z$$ defined by $(\phi,\psi)\mapsto(\phi\smile\psi)([M])$ is a perfect pairing. 
+\end{prp}
+
+\subsection{Alexander Duality}
+\begin{thm}{Alexander Duality}{} Let $n\in\N$. Let $K\subset S^n$ be compact, and such that it has a neighbourhood whose retract is $K$. Then there are isomorphisms $$\widetilde{H}_i(S^n\setminus K)\cong\widetilde{H}^{n-i-1}(K)$$
+\end{thm}
+
+\subsection{Lefschetz Duality}
 
 \pagebreak
 \section{The Theory of Surfaces}
@@ -446,7 +463,7 @@ The above two classes of compact surfaces together with the sphere exhausts all 
 \end{itemize}
 \end{thm}
 
-\subsection{Algebraic Invariants of the Orientable Surfaces}
+\subsection{Homology and Cohomology of Compact Orientable Surfaces}
 \begin{prp}{}{} Let $g\geq 0$. The homology of the $g$-holed torus $\Sigma_g$ is given by $$H_n(\Sigma_g)=\begin{cases}
 \Z & \text{ if } n=0,2\\
 \Z^{2g} & \text{ if } n=1\\
@@ -500,9 +517,9 @@ Let $U$ be as the proof above. Then the inclusion from $U$ to $\Sigma\setminus\{
 \end{proof}
 \end{crl}
 
-\begin{prp}{}{} Let $g\geq 0$. The singular cohomology of the $g$-holed torus $\Sigma_g$ with coefficients in $\Z$ is given by $$H^n(\Sigma_g;\Z)=\begin{cases}
-\Z & \text{ if } n=0,2\\
-\Z^{2g} & \text{ if } n=1\\
+\begin{prp}{}{} Let $g\geq 0$. Let $A$ be an abelian group. The singular cohomology of the $g$-holed torus $\Sigma_g$ with coefficients in $A$ is given by $$H^n(\Sigma_g;A)=\begin{cases}
+A & \text{ if } n=0,2\\
+A^{2g} & \text{ if } n=1\\
 0 & \text{otherwise}
 \end{cases}$$ \tcbline
 \begin{proof}
@@ -526,7 +543,7 @@ and $\alpha_i\smile\alpha_j=\beta_i\smile\beta_j=0$ for $1\leq i,j\leq g$. We co
 \end{proof}
 \end{prp}
 
-\subsection{Algebraic Invariants of the Non-Orientable Surfaces}
+\subsection{Homology and Cohomology of Compact Non-Orientable Surfaces}
 \begin{prp}{}{} Let $h\geq 1$. The homology of $N_h$ is given by $$H_n(N_h)=\begin{cases}
 \Z & \text{ if } n=0\\
 \Z^{h-1}\oplus\Z/2\Z & \text{ if } n=1\\
@@ -626,6 +643,12 @@ It follows directly by repeated applications of the above corollary.
 \end{crl}
 
 Recall that if $p:\widetilde{X}\to X$ is a $d$-sheeted covering and $X$ is a finite CW complex, then we have the formula $$\chi(\widetilde{X})=d\cdot\chi(X)$$
+
+\pagebreak
+\section{Higher Dimensional Manifolds}
+\subsection{Manifolds of Dimension 3}
+\begin{thm}{}{}
+\end{thm}
 
 
 

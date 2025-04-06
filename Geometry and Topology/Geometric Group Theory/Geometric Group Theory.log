@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  7 MAR 2025 13:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  8 MAR 2025 10:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1084,14 +1084,14 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 
 [2]
 LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 3
-6.
+9.
  (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 
 [3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
 enc}]
-Underfull \hbox (badness 1077) in paragraph at lines 62--62
+Underfull \hbox (badness 1077) in paragraph at lines 67--67
 []\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 G$ \T1/qpl/m/n/10 be a group. Let $\OML/
 cmm/m/it/10 S$ \T1/qpl/m/n/10 be a gen-er-at-ing set of $\OML/cmm/m/it/10 G$\T1
 /qpl/m/n/10 . Then $\OML/cmm/m/it/10 G$ \T1/qpl/m/n/10 acts on the Cay-ley grap
@@ -1101,7 +1101,7 @@ h
 
 
 [4]
-Underfull \hbox (badness 1502) in paragraph at lines 115--115
+Underfull \hbox (badness 1502) in paragraph at lines 120--120
 []\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 G$ \T1/qpl/m/n/10 be a group. Let $\OML/
 cmm/m/it/10 S$ \T1/qpl/m/n/10 be a gen-er-at-ing set of $\OML/cmm/m/it/10 G$\T1
 /qpl/m/n/10 . De-fine the ge-o-met-ric re-al-iza-tion 
@@ -1110,19 +1110,19 @@ cmm/m/it/10 S$ \T1/qpl/m/n/10 be a gen-er-at-ing set of $\OML/cmm/m/it/10 G$\T1
 
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
 
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
@@ -1146,20 +1146,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
 [15]
 
-[16] (Geometric Group Theory.aux)
+[16]
+
+[17] (Geometric Group Theory.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Geometric Group Theory".out' has not change
 d.
-(rerunfilecheck)             Checksum: E30D110CCAC055B4EA1548CB38717B08;5412.
+(rerunfilecheck)             Checksum: F76B6154090C94B9F772D9EE4DB1BDBC;5581.
  ) 
 Here is how much of TeX's memory you used:
- 32623 strings out of 473577
- 643654 string characters out of 5716318
+ 32634 strings out of 473577
+ 643823 string characters out of 5716318
  1071701 words of memory out of 5000000
- 55179 multiletter control sequences out of 15000+600000
+ 55184 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,13n,120p,1136b,1203s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1178,9 +1180,9 @@ sbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-
 gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/tex-gyre/qplri.pfb>
-Output written on "Geometric Group Theory.pdf" (16 pages, 365130 bytes).
+Output written on "Geometric Group Theory.pdf" (17 pages, 368906 bytes).
 PDF statistics:
- 392 PDF objects out of 1000 (max. 8388607)
- 105 named destinations out of 1000 (max. 500000)
- 229 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 408 PDF objects out of 1000 (max. 8388607)
+ 111 named destinations out of 1000 (max. 500000)
+ 237 words of extra memory for PDF output out of 10000 (max. 10000000)
 

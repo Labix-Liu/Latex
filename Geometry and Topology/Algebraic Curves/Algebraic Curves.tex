@@ -92,8 +92,10 @@ Let $\phi:X\to Y$ be a non-constant regular map between smooth irreducible and p
 \pagebreak
 \section{Classical Divisors on Curves}
 \subsection{The Pullback Map of Divisors}
-\begin{defn}{Pullback Map of Divisors}{} Let $k$ be an algebraically closed field. Let $X,Y$ be smooth irreducible projective curves over $k$. Let $\phi:X\to Y$ be a non-constant regular map. Define the induced pullback map $\phi^\ast:\text{Div}(Y)\to\text{Div}(X)$ by $$\phi^\ast\left(\sum_{q\in Y} n_q\cdot q\right)=\sum_{q\in Y}n_q\cdot\left(\sum_{p\in\phi^{-1}(q)}e_\phi(p)\cdot p\right)=\sum_{p\in X}n_{\phi(p)}e_\phi(p)\cdot p$$
+\begin{defn}{Pullback Map of Divisors}{} Let $k$ be an algebraically closed field. Let $C$ be a smooth irreducible projective curve over $k$. Let $Y$ be a smooth irreducible projective variety over $k$. Let $\phi:X\to Y$ be a non-constant regular map. Define the induced pullback map $\phi^\ast:\text{Div}(Y)\to\text{Div}(C)$ on generators as follows. For $H\subseteq Y$ a codimension one subvariety, define $$\phi^\ast(H)=\sum_{p\in X}\text{val}_p(\phi^\ast(g))\cdot p$$ where $g$ is a generator of $\I(H)\mO_{Y,\phi(p)}$. 
 \end{defn}
+
+When $Y$ is a curve, we essentially have the formula: $$\phi^\ast\left(\sum_{q\in Y} n_q\cdot q\right)=\sum_{q\in Y}n_q\cdot\left(\sum_{p\in\phi^{-1}(q)}e_\phi(p)\cdot p\right)=\sum_{p\in X}n_{\phi(p)}e_\phi(p)\cdot p$$
 
 \begin{prp}{}{} Let $k$ be an algebraically closed field. Let $X,Y$ be smooth irreducible projective curves over $k$. Let $\phi:X\to Y$ be a non-constant regular map. Then we have $$\deg(\phi^\ast(D))=\deg(\phi)\deg(D)$$ for any $D\in\text{Div}(Y)$. 
 \end{prp}
@@ -164,6 +166,35 @@ Let $\phi:X\to Y$ be a non-constant regular map between smooth irreducible and p
 \item There exists $D\in\text{Div}(C)$ with $\deg(D)>0$ such that $l(D)=\deg(D)+1$. 
 \end{itemize}
 \end{prp}
+
+\subsection{Base Point Free Divisors}
+\begin{defn}{Base Point Free Divisor}{} Let $C$ be a smooth projective irreducible curve over $\C$. Let $D\in\text{Div}(C)$ be a divisor given by $D=\sum_{p\in C}n_p\cdot p$. We say that $D$ is base point free if for all $p\in C$ and all $f\in\mL(D)$, we have $$\text{val}_p(f\pi^{n_p})\neq 0$$ where $\pi$ is a uniformizer of $\mO_{C,p}$. 
+\end{defn}
+
+\begin{defn}{Associated Map to Divisors}{} Let $C$ be a smooth projective irreducible curve over $\C$. Let $D\in\text{Div}(C)$ be a divisor. Define the associated rational map $F_D:C\to\Prj(\mL(D)^\ast)$ by $$p\mapsto\left(\substack{\phi_p:\mL(D)\to\C\\f\mapsto(f\cdot\pi^{n_p})(p)}\right)$$ where $\pi$ is the uniformizer of $\mO_{C,p}$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $C$ be a smooth projective irreducible curve over $\C$. Let $D\in\text{Div}(C)$ be a divisor. Then the associated map $F_D:C\to\Prj(\mL(D)^\ast)$ is a regular map. 
+\end{lmm}
+
+\begin{prp}{}{} Let $C$ be a smooth projective irreducible curve over $\C$. Let $D\in\text{Div}(C)$ be a divisor. Then $D$ is base point free if and only if $$\dim_\C(\mL(D-p))=\dim_\C(\mL(D))-1$$ for all $p\in C$. 
+\end{prp}
+
+\begin{crl}{}{} Let $C$ be a smooth projective irreducible curve over $\C$. Let $D\in\text{Div}(C)$ be a divisor. If $\deg(D)\geq 2g$ then $D$ is base point free. 
+\end{crl}
+
+\begin{prp}{}{} Let $C$ be a smooth projective irreducible curve over $\C$. Let $D\in\text{Div}(C)$ be a base point free divisor. Then there is a one-to-one correspondence $$\{H\subseteq\Prj(\mL(D)^\ast)\;|\;H\text{ is a hyperplane }\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\{E\in\text{Div}(C)\;|\;E\text{ is effective and }E\sim D\}$$ The map is given by $H\mapsto F_D^\ast(H)$. 
+\end{prp}
+
+\subsection{Very Ample Divisors}
+\begin{defn}{Very Ample Divisor}{} Let $C$ be a smooth projective irreducible curve over $\C$. Let $D\in\text{Div}(C)$. We say that $D$ is very ample if $D$ is base point free and the associated map $F_D:C\to\Prj(\mL(D)^\ast)$ is an embedding. 
+\end{defn}
+
+\begin{prp}{}{} Let $C$ be a smooth projective irreducible curve over $\C$. Let $D\in\text{Div}(C)$. Then $D$ is very ample if and only if for all $p,q\in C$, we have $$\dim_\C(\mL(D-p-q))=\dim_\C(\mL(D))-2$$
+\end{prp}
+
+\begin{crl}{}{} Let $C$ be a smooth projective irreducible curve over $\C$. Let $D\in\text{Div}(C)$. If $\deg(D)\geq 2g+1$ then $D$ is very ample. 
+\end{crl}
 
 
 \pagebreak

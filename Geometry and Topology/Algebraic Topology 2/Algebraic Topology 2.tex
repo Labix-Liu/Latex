@@ -1990,7 +1990,7 @@ where $d_k=\pm2$ if $k$ is even and $d_k=0$ if $k$ is odd. It follows that $$\de
 \end{thm}
 
 \pagebreak
-\section{Variants of Singular Homology}
+\section{Variants of Homology}
 \subsection{Unification of the Homology Theories}
 We studied three different homology theories, namely the simplicial homology $H_\ast^{\Delta}$, singular homology $H_\ast$ and Cellular homology $H_\ast^{\text{CW}}$. We have seen that $H_\ast^{\text{CW}}(X)\cong H_n(X)$ for a CW-complex $X$. We can also show that singular homology does not give new information compared to simplicial homology. 
 
@@ -2105,7 +2105,7 @@ A natural question would be to ask whether there is a relation between homology 
 
 The answer is yes, but it is not an isomorphism. Moreover, there is a way to measure the failure of the isomorphism in a natural and functorial way. This will be delayed to later sections. 
 
-\subsection{Axioms of Homology}
+\subsection{Axioms for Unreduced Homology}
 \begin{defn}{Generalized Homology Theory for CW Pairs}{} A Generalized Homology Theory is a collection of functors and natural transformations $$h_n:\bold{CW}^2\to\bold{Ab}\;\;\;\;\text{ and }\;\;\;\;\delta_n:h_n\Rightarrow h_n\circ F$$ where $F(X,Y)=(Y,\emptyset)$, for each $n\in\N$, such that the following are true. 
 \begin{itemize}
 \item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h_n(f)=h_n(g):h_n(X,A)\to h_n(Y,B)$$
@@ -2639,7 +2639,7 @@ in cohomology. \tcbline
 \begin{prp}{}{} Let $X$ be a space. Let $R$ be a ring. Let $M$ be an $R$-module. Then the following are true regarding the reduced cohomology of $X$. 
 \begin{itemize}
 \item For all $n>0$, $$\widetilde{H}^n(X;M)=H^n(X;M)$$
-\item When $n=0$, the universal coefficient theorem induces an isomorphism $$\widetilde{H}^0(X;M)\cong\Hom(H_0(X),M)$$
+\item When $n=0$, the universal coefficient theorem induces an isomorphism $$\widetilde{H}^0(X;M)\cong\Hom(\widetilde{H}_0(X),M)$$
 \end{itemize}
 \end{prp}
 
@@ -2734,8 +2734,8 @@ TBA: We can splice the dual of the exact sequence to obtain the cellular chain c
 \begin{prp}{}{} Let $X$ be a space. Let $A$ be an abelian group. Let $\{X_\alpha\subseteq X\;|\;\alpha\in I\}$ be a directed system of subspaces of $X$. Then there is an canonical isomorphism $$\lim_{\alpha\in I}H^n(X,X\setminus X_\alpha;A)\cong H_c^n(X;A)$$ induced by the universal property for any $n\in\N$. 
 \end{prp}
 
-\subsection{Axioms of Cohomology}
-\begin{defn}{Generalized Cohomology Theory for CW Pairs}{} A Generalized cohomology theory is a collection of contravariant functors and natural transformations $$h^n:\bold{CW}_2\to{_R\bold{Mod}}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n\circ F\Rightarrow h^{n+1}(X,A)$$ where $F(X,A)=(A,\emptyset)$, for each $n\in\N$ such that the following are true. 
+\subsection{Axioms for Unreduced Cohomology}
+\begin{defn}{Generalized Cohomology Theory for CW Pairs}{} A Generalized cohomology theory is a collection of contravariant functors and natural transformations $$h^n:\bold{CW}^2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n\circ F\Rightarrow h^{n+1}(X,A)$$ where $F(X,A)=(A,\emptyset)$, for each $n\in\N$ such that the following are true. 
 \begin{itemize}
 \item Homotopy Invariance: If $f\simeq g:(X,A)\to(Y,B)$ then $$h^n(f)=h^n(g):h^n(X,A)\to h^n(Y,B)$$
 \item Exactness: If $X$ is a CW-complex and $A\subseteq X$, then there is a short exact sequence \\~\\
@@ -2752,13 +2752,13 @@ TBA: We can splice the dual of the exact sequence to obtain the cellular chain c
 \end{itemize}
 \end{defn}
 
-\begin{defn}{Additive Cohomology Theories}{} Let $h_n:\bold{CW}^2\to{_R\bold{Mod}}$ be a generalized cohomology theory. We say that $h_n$ is additive if it satisfies the following axiom. 
+\begin{defn}{Additive Cohomology Theories}{} Let $h_n:\bold{CW}^2\to\bold{Ab}$ be a generalized cohomology theory. We say that $h_n$ is additive if it satisfies the following axiom. 
 \begin{itemize}
 \item Additivity: Denote the inclusion map as $\iota_k:(X_k,A_k)\to\coprod_{k\in I}(X_k,A_k)$. Then the product of the induced maps of inclusions induce an isomorphism $$\prod_{k\in I}(\iota_k)^\ast:h^n\left(\coprod_{k\in I}(X_k,A_k)\right)\overset{\cong}{\longrightarrow}\prod_{k\in I}h^n(X_k,A_k)$$
 \end{itemize}
 \end{defn}
 
-\begin{defn}{Generalized Cohomology Theory for Spaces}{} A Generalized cohomology theory is a collection of contravariant functors and natural transformations $$h^n:\bold{Top}_2\to{_R\bold{Mod}}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n\circ F\Rightarrow h^{n+1}(X,A)$$ where $F(X,A)=(A,\emptyset)$, for each $n\in\N$, satisfying the above first four axioms and the following. 
+\begin{defn}{Generalized Cohomology Theory for Spaces}{} A Generalized cohomology theory is a collection of contravariant functors and natural transformations $$h^n:\bold{Top}^2\to\bold{Ab}\;\;\;\;\;\;\;\text{ and }\;\;\;\;\;\;\;\delta^n:h^n\circ F\Rightarrow h^{n+1}(X,A)$$ where $F(X,A)=(A,\emptyset)$, for each $n\in\N$, satisfying the above first four axioms and the following. 
 \begin{itemize}
 \item Weak Equivalence: If $f:(X,A)\to(Y,B)$ is a weak equivalence, then $$f_\ast:h^n(Y,B)\to h^n(X,A)$$ is an isomorphism. 
 \end{itemize}
@@ -2777,7 +2777,7 @@ Then $h^n$ is called an ordinary cohomology theory.
 \pagebreak
 \section{The Ring Structure in Singular Cohomology}
 \subsection{The Cup Product}
-What separates singular cohomology from singular homology is that the abelian group arising from the cohomology groups has a natural structure of a ring. This in turns makes singular cohomology an invariant that associates to every space a graded ring, instead of just a sequence of abelian groups. \\~\\
+What separates singular cohomology from singular homology is that the abelian group arising from the cohomology groups has a natural structure of a ring. This in turns makes singular cohomology an invariant that associates to every space a graded ring, instead of just a sequence of abelian groups. 
 
 For this, we define the cup product which serves as multiplication between elements of the graded abelian groups. 
 
@@ -2944,7 +2944,7 @@ Such a number $n$ is called the Lusternik-Schnirelmann category of $X$.
 
 Recall that an $R$-module $M$ is finitely generated and free if and only if $M\cong R^n\cong R^{\oplus n}$ for some $n\in\N$. 
 
-\begin{thm}{The Kunneth Formula}{} Let $X$ and $Y$ be CW-complexes. Let $R$ be a commutative ring. Then the cross product $$\times:H^\ast(X;R)\otimes_R H^\ast(Y;R)\to H^\ast(X\times Y;R)$$ is graded ring homomorphism. Moreover, it is an isomorphism of graded rings if $H^k(Y;R)$ is a finitely generated free $R$-module for all $k$. 
+\begin{thm}{The Kunneth Formula}{} Let $X$ and $Y$ be CW-complexes. Let $R$ be a commutative ring. Then the cross product $$\times:H^\ast(X;R)\otimes_R H^\ast(Y;R)\to H^\ast(X\times Y;R)$$ defined by $a\otimes b\mapsto a\times b$ is graded ring homomorphism. Moreover, it is an isomorphism of graded rings if $H^k(Y;R)$ is a finitely generated free $R$-module for all $k$. 
 \end{thm}
 
 \begin{thm}{The Relative Kunneth Formula}{} Let $(X,A)$ and $(Y,B)$ be CW complex pairs. Let $R$ be a commutative ring. Then the cross product $$\times:H^\ast(X,A;R)\otimes_R H^\ast(Y,B;R)\to H^\ast(X\times Y,X\times B\cup A\times Y;R)$$ is graded ring homomorphism. Moreover, it is an isomorphism of graded rings if $H^k(Y,B;R)$ is a finitely generated free $R$-module for all $k$. 
@@ -3143,33 +3143,25 @@ Thus we have showed that under the conditions of all the given axioms of all suc
 Some authors indeed does not require the weak equivalence axiom to exist. In such cases the bijection between generalized homology theories and reduced homology theories can be constructed, but there is no passage between homology of CW complexes and homology of spaces in general. 
 
 \subsection{Reduced Cohomology Theories}
-\begin{defn}{Reduced Cohomology Theory for CW Complexes}{} A reduced cohomology theory is a collection of contravariant functors $$\widetilde{h}^n:\bold{CW}\to\bold{Ab}$$ satisfying the following. 
+\begin{defn}{Reduced Cohomology Theory for CW Complexes}{} A reduced cohomology theory is a collection of contravariant functors $$h^n:\bold{CW}_\ast\to\bold{Ab}$$, for each $n\in\N$ such that the following are true. 
 \begin{itemize}
-\item Homotopy Invariance: If $f\simeq g:X\to Y$ then $$\widetilde{h}^n(f)=\widetilde{h}^n(g):\widetilde{h}^n(X)\to\widetilde{h}^n(Y)$$
-\item Exactness: There exists a short exact sequence \\~\\
+\item Homotopy Invariance: If $f\simeq g:X\to Y$ then $$h^n(f)=h^n(g):h^n(X)\to h^n(Y)$$
+\item Exactness: If $f:A\to X$ is an inclusion of CW complexes, then there is an exact sequence \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {\widetilde{h}^n(X,A)} & {\widetilde{h}^n(X)} & {\widetilde{h}^n(A)} & {\widetilde{h}^{n+1}(X,A)} & {\widetilde{h}^{n+1}(X)} & \cdots
-	\arrow[from=1-1, to=1-2]
-	\arrow["\widetilde{h}_n(\pi)", from=1-2, to=1-3]
-	\arrow["\widetilde{h}_n(\iota)", from=1-3, to=1-4]
-	\arrow["{\delta_n}", from=1-4, to=1-5]
-	\arrow["\widetilde{h}_{n+1}(\pi)", from=1-5, to=1-6]
-	\arrow[from=1-6, to=1-7]
+	{h^n(C_f)} & {h^n(X)} & {h^n(A)}
+	\arrow["{h^n(i)}", from=1-1, to=1-2]
+	\arrow["{h^n(f)}", from=1-2, to=1-3]
 \end{tikzcd}}\\~\\
-where $\iota:A\to X$ is the inclusion and $\pi:X\to X/A$ is the projection. 
-\item Additivity: If $X=\bigvee_{i\in I}X_i$, then the direct sum of the inclusion maps $$\bigoplus_{i\in I}\widetilde{h}^n(X_i)\cong\widetilde{h}^n(X)$$ is an isomorphism
-\item Suspension: There is an isomorphism $$\widetilde{h}^n(\Sigma):\widetilde{h}^n(X)\overset{\cong}{\longrightarrow}\widetilde{h}^{n+1}(\Sigma X)$$
+where $i:X\to C_f$ is the inclusion map. 
+\item Suspension: There is a natural isomorphism of functors: $$\sigma:h^{n+1}\circ\Sigma\Rightarrow h^n$$
+\item Additivity: Let $i_k:X_k\to\bigwedge_{i\in I}X_i$ denote the inclusion map. Their products induce an isomorphism $$\prod_{k\in I}h^n(i_k):h^n\left(\bigwedge_{i\in I}X_i\right)\overset{\cong}{\longrightarrow}\prod_{i\in I}h^n(X_i)$$
 \end{itemize}
 \end{defn}
 
 \begin{lmm}{}{} Let $\widetilde{h}_n:\bold{CW}\to\bold{Ab}$ be a reduced homology theory. Then $$\widetilde{h}_n(\ast)=0$$
 \end{lmm}
 
-\begin{prp}{}{} Let $\widetilde{h}^n:\bold{CW}\to\bold{Ab}$ be a reduced cohomology theory. Then there is a natural isomorphism $$\widetilde{h}_{n+1}(\Sigma X)=\widetilde{h}_n(X)$$
-\end{prp}
-
 TBA: Unreduced = reduced. 
-
 
 \pagebreak
 \section{The Euler Characteristic}

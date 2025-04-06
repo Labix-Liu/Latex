@@ -27,11 +27,11 @@
 \contentsline {subsection}{\numberline {6.1}Degree of Continuous Maps}{50}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Local Degree}{53}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Cellular Homology}{56}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Variants of Singular Homology}{60}{section.7}%
+\contentsline {section}{\numberline {7}Variants of Homology}{60}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Unification of the Homology Theories}{60}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}The Tensor Product Functor}{61}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Homology with Coefficients}{62}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Axioms of Homology}{63}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.4}Axioms for Unreduced Homology}{63}{subsection.7.4}%
 \contentsline {section}{\numberline {8}Algebra of Cochain Complexes}{65}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Cochain Complexes}{65}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Producing a Cochain Complex from a Chain Complex}{66}{subsection.8.2}%
@@ -43,7 +43,7 @@
 \contentsline {section}{\numberline {10}Variants of Cohomology}{80}{section.10}%
 \contentsline {subsection}{\numberline {10.1}Simplicial and Cellular Cohomology}{80}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Cohomology with Compact Support}{80}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Axioms of Cohomology}{81}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.3}Axioms for Unreduced Cohomology}{81}{subsection.10.3}%
 \contentsline {section}{\numberline {11}The Ring Structure in Singular Cohomology}{83}{section.11}%
 \contentsline {subsection}{\numberline {11.1}The Cup Product}{83}{subsection.11.1}%
 \contentsline {subsection}{\numberline {11.2}The Relative Cup Product}{85}{subsection.11.2}%

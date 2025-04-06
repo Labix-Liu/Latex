@@ -1,0 +1,9 @@
+\frametitle{Two notions of differentials}
+
+From a differential geometry perspective, we may ask whether $\Omega_{\mC^\infty(M)/\R}^1$ and $\Omega^1(M)$ are the same thing.
+
+\begin{block}{The Two Modules Are Not Isomorphic In General} Consider $\R$ as a smooth manifold. Then $\Omega^1(\R)$ is not isomorphic to $\Omega_{C^\infty(\R)/\R}^1$. In particular, for $f(x)=x$ and $g(x)=e^x$, $d(e^x)=e^xd(x)$ in $\Omega^1(\R)$ but $d(e^x)$ and $d(x)$ are linearly independent in $\Omega_{C^\infty(\R)/\R}^1$.
+\end{block}
+
+The Leibniz rule and linearity of $d$ can only be applied finitely many times. For $e^x=\sum_{k=0}^\infty\frac{x^k}{k!}$ there is no reason for its derivative to be the same as its term by term derivative.
+

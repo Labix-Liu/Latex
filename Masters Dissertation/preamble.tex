@@ -10,12 +10,12 @@
 
 % You need to set the next two items. 
 % If you title is long, you may need to adjust the spacing in titlepage.tex
-\newcommand{\TheAuthor}{Your Name}
-\newcommand{\TheTitle}{Your Project title}
+\newcommand{\TheAuthor}{Labix Liu}
+\newcommand{\TheTitle}{Excisive Functors}
 
 % uncomment exacly one of these
-\newcommand{\TheModule}{\bf MA4K8 Scholarly Report}
-%\newcommand{\TheModule}{\bf MA4K9 Dissertation}
+%\newcommand{\TheModule}{\bf MA4K8 Scholarly Report}
+\newcommand{\TheModule}{\bf MA4K9 Dissertation}
 
 
 % Leave the following two as is
@@ -23,24 +23,28 @@
 \newcommand{\TheDept}{Mathematics Institute}
 
 % Set the correct submission year, e.g. replace 2000 with 2017
-\newcommand{\TheSubDate}{\monthyear \formatdate{5}{4}{2000}}
+\newcommand{\TheSubDate}{\monthyear \formatdate{31}{3}{2025}}
 
 % The are a lot of things you might find useful and want to uncomment. 
 % Most things you will want to uncomment or change will be near the top.
 
 % standard maths symbols (you probably want to uncomment all of these)
-% \newcommand{\Z}{\ensuremath{\mathbb{Z}}}% integers
-% \newcommand{\N}{\ensuremath{\mathbb{N}}}% natural numbers
-% \newcommand{\R}{\ensuremath{\mathbb{R}}}% real numbers
-% \newcommand{\C}{\ensuremath{\mathbb{C}}}% complex numbers
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}% integers
+\newcommand{\N}{\ensuremath{\mathbb{N}}}% natural numbers
+\newcommand{\R}{\ensuremath{\mathbb{R}}}% real numbers
+\newcommand{\C}{\ensuremath{\mathbb{C}}}% complex numbers
 
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\mD}{\mathcal{D}}
+\newcommand{\mS}{\mathcal{S}}
+\renewcommand\refname{}
 % Others 
 %\newcommand{\st}{\ensuremath{:}}% such that
 %\newcommand{\Tau}{\ensuremath{\mathcal{T}}}
 %\newcommand{\Nat}{\mathbb{N}}
 
 %\usepackage[numbers]{natbib}% round braces, sort multiple citations
-%\usepackage{hyperref}% creates hypertext links in pdf files (natbib compatible)
+\usepackage{hyperref}% creates hypertext links in pdf files (natbib compatible)
 \usepackage{setspace}
 %\usepackage{fancyhdr}
 %\usepackage{mathrsfs}
@@ -51,17 +55,31 @@
 % \usepackage{algorithmic}% format pseudocode
 %\usepackage[vlined,boxed,commentsnumbered,algochapter]{algorithm2e}
 % \usepackage[chapter]{algorithm}% float wrapper for algorithms
-%\usepackage{amsmath}% American Mathematical Society macros - essential!
-%\usepackage{amssymb}% contains amsfonts
-%\usepackage{amsthm}% allows more flexibility with theorems
+\usepackage{amsmath}% American Mathematical Society macros - essential!
+\usepackage{amssymb}% contains amsfonts
+\usepackage{amsthm}% allows more flexibility with theorems
 \usepackage[nodayofweek]{datetime} % change the format of printed dates (no american style!) 
 %\usepackage{ifdraft}% perform operations conditional on the draft option
 
-% \usepackage{mathptmx}
-% \usepackage{mathpazo}
-%\usepackage{amscd}
-% \usepackage{xy}
-% \usepackage{diagxy}
+
+
+
+
+\usepackage{physics}
+
+
+
+
+
+
+
+
+
+%\usepackage{mathptmx}
+\usepackage{mathpazo}
+\usepackage{amscd}
+%\usepackage{xy}
+%\usepackage{diagxy}
 %\usepackage{diagrams}
 
 %\usepackage{marginnote}
@@ -69,7 +87,8 @@
 %\usepackage{multirow}
 % \usepackage{polski}
 % \usepackage[T1]{fontenc}
-% \usepackage{tikzpicture}
+\usepackage{tikz-cd}
+\usepackage{adjustbox}
 % \usetikzlibrary{matrix,arrows}
 
 % \usepackage[inline]{showlabels}
@@ -86,7 +105,7 @@
 %\DeclareMathOperator{\Sym}{Sym}% symmetric group
 %\DeclareMathOperator{\Alt}{Alt}% alternating group
 %\DeclareMathOperator{\Id}{Id}
-%\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hom}{Hom}
 %\DeclareMathOperator{\Grp}{Grp}
 %\DeclareMathOperator{\supp}{supp}
 %\DeclareMathOperator{\fix}{fix}
@@ -100,14 +119,13 @@
 %\DeclareMathOperator{\Hall}{Hall}
 %\DeclareMathOperator{\pCore}{pCore}
 %\DeclareMathOperator{\Char}{char}
-%\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\im}{im}
 %\DeclareMathOperator{\Ker}{Ker}
 %\DeclareMathOperator{\Hcf}{hcf}
 %\DeclareMathOperator{\GL}{GL}
 %\DeclareMathOperator{\Pc}{Pc}
 %\DeclareMathOperator{\Stab}{Stab}
 %\DeclareMathOperator{\Orbit}{Orbit}
-
 
 % Hyphenation fixes
 %\newcommand{\letdash}[1]{$#1$\nobreakdash-\hspace{0pt}}% for n-element, k-transitive etc
@@ -154,16 +172,17 @@
 
 % Theorems
 %
-%\newtheorem{prop}{Proposition}[chapter]
-%\newtheorem{lemma}[prop]{Lemma}
-%\newtheorem{conjecture}[prop]{Conjecture}
-%\newtheorem{theorem}[prop]{Theorem}
-%\newtheorem{hyp}[prop]{Hypothesis}
-%\newtheorem{cor}[prop]{Corollary}
-%\newtheorem{claim}[prop]{Claim}
-%\newtheorem{remark}[prop]{Remark}
-%\newtheorem{notation}[prop]{Notation}
-%\newtheorem{defn}[prop]{Definition}
+\newtheorem{prp}{Proposition}[section]
+\newtheorem{lmm}[prp]{Lemma}
+\newtheorem{conjecture}[prp]{Conjecture}
+\newtheorem{thm}[prp]{Theorem}
+\newtheorem{hyp}[prp]{Hypothesis}
+\newtheorem{crl}[prp]{Corollary}
+\newtheorem{claim}[prp]{Claim}
+\newtheorem{remark}[prp]{Remark}
+\newtheorem{notation}[prp]{Notation}
+\newtheorem{defn}[prp]{Definition}
+\newtheorem{eg}[prp]{Example}
 
 
 % Numbering

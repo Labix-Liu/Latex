@@ -1,9 +1,11 @@
 \contentsline {section}{\numberline {1}Introduction to Infinity Categories}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Infinity Categories as Simplicial Sets}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Natural Transformations}{5}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Homotopies and Compositions}{5}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}The Homotopy Category of an Infinity Category}{7}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}The Core of an Infinity Category}{8}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.2}Objects and Morphisms}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Composition of Morphisms}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Functors between Infinity Categories}{6}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}The Homotopy Category of an Infinity Category}{7}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}The Core of an Infinity Category}{8}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}The Category of Infinity Categories}{8}{subsection.1.7}%
 \contentsline {section}{\numberline {2}The Joyal Model Structure}{9}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Weak Equivalences in the Joyal Structure}{9}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Homotopy Pullbacks and Pushouts}{9}{subsection.2.2}%
@@ -30,8 +32,15 @@
 \contentsline {subsection}{\numberline {7.2}Recognizing (Co)Limits as Homotopy (Co)Limits}{25}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Some Properties of Limits and Colimits}{25}{subsection.7.3}%
 \contentsline {section}{\numberline {8}Infinity Groupoids}{26}{section.8}%
-\contentsline {subsection}{\numberline {8.1}}{26}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Relation to Model Categories}{27}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Inverting Morphisms in an Infinity Category}{27}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Exhibiting a Model Category as an Infinity Category}{27}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}}{28}{subsection.9.3}%
+\contentsline {subsection}{\numberline {8.1}Basic Properties of Infinity Groupoids}{26}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Infinity Groupoids as Kan Complexes}{26}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Spaces as Infinity Groupoids}{27}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Objects and Morphisms}{27}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Categories as Infinity Categories}{28}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Objects and Morphisms}{28}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Categories as Objects}{28}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Recognizing Infinity Categories}{28}{subsection.10.3}%
+\contentsline {section}{\numberline {11}Model Categories as Infinity Categories}{29}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Inverting Morphisms in an Infinity Category}{29}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Exhibiting a Model Category as an Infinity Category}{29}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}}{30}{subsection.11.3}%

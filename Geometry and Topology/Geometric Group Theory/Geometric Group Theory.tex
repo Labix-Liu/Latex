@@ -31,10 +31,13 @@ Potentially good books: Humphreys, Erdmann and Wildson
 \end{defn}
 
 \subsection{Quasi-Isometric Spaces}
+\begin{defn}{Quasi-Isometric Embeddings}{} Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. Let $f:X\to Y$ be a function of sets. We say that $f$ is a quasi-isometric embedding if there exists $A\geq 1$ and $B\geq 0$ such that $$\frac{1}{A}d_X(x_1,x_2)-B\leq d_Y(f(x),f(y))\leq Ad_X(x,y)+B$$ for all $x_1,x_2\in X$. 
+\end{defn}
+
 \begin{defn}{Quasi-Isometries}{} Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. Let $f:X\to Y$ be a function of sets. We say that $f$ is a quasi-isometry if the following are true. 
 \begin{itemize}
-\item There exists $A\geq 1$ and $B\geq 0$ such that $$\frac{1}{A}d_X(x_1,x_2)-B\leq d_Y(f(x),f(y))\leq Ad_X(x,y)+B$$ for all $x_1,x_2\in X$. 
-\item There exists $C\geq 0$ and $x_0\in X$ such that $$d_Y(y,f(x_0))\geq C$$ for all $y\in Y$. 
+\item $f$ is a quasi-isometric embedding. 
+\item There exists $C\geq 0$ and $x_0\in X$ such that $$d_Y(y,f(x_0))\leq C$$ for all $y\in Y$. 
 \end{itemize}
 In this case we say that $X$ and $Y$ are quasi-isometric. 
 \end{defn}
@@ -46,6 +49,8 @@ In this case we say that $X$ and $Y$ are quasi-isometric.
 \end{prp}
 
 \subsection{Quasi-Geodesics}
+\begin{defn}{Quasi-Geodesics}{} Let $X$ be a metric space. Let $\gamma:I\to X$ be as path in $X$. We say that $\gamma$ is a quasi-geodesic if $\gamma$ is a quasi-isometric embedding. 
+\end{defn}
 
 \pagebreak
 \section{The Geometry of Presentations}
@@ -382,6 +387,13 @@ Examples: finite groups, free groups.
 \item The word problem for $G$ is decidable. 
 \end{itemize}
 \end{crl}
+
+\subsection{The Conjugacy Problem}
+\begin{defn}{The Conjugacy Problem}{} Let $G$ be a group. Let $S$ be a finite generating set for $G$. The conjugacy problem asks for an algorithm to input $u,v\in F(S)$ and out put $w\in F(S)$ such that $uw=wv$ in $G$. 
+\end{defn}
+
+\begin{thm}{}{} Let $G$ be a group. Let $S$ be a finite generating set for $G$. If $G$ is $\delta$-hyperbolic, then the conjugacy problem admits a solution. 
+\end{thm}
 
 
 

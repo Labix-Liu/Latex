@@ -1394,6 +1394,9 @@ We say that an element $r\in R$ is homogenous if $r\in R_k$ for some $k\in\N$.
 \begin{lmm}{}{} Let $R,S$ be graded rings. If $R$ and $S$ are graded commutative, then $R\otimes_\Z S$ is also graded commutative. 
 \end{lmm}
 
+\begin{defn}{Twisting Graded Modules}{} Let $R=\bigoplus_{i=0}^\infty R_i$ be a graded ring. Let $M=\bigoplus_{i=0}^\infty M_i$ be a graded $R$-module. Let $n\in\N$. Define the $n$th twisted module $M(n)$ of $M$ to be the graded module whose $d$th graded piece is given by $M(n)_d=M_{d+n}$. 
+\end{defn}
+
 \subsection{Homogenity}
 \begin{defn}{Homogenous Elements}{} Let $R$ be a graded ring. Let $M=\bigoplus_{i=0}^\infty M_i$ be a graded $R$-module. Let $m\in M$. We say that $m$ is homogenous if $m\in M_n$ for some $n\in\N$. 
 \end{defn}
@@ -1466,26 +1469,27 @@ In this section, $R$ is a commutative ring with identity and we assume that the 
 \end{prp}
 
 \subsection{Exterior Algebra}
-\begin{defn}{Alternating Quotient}{} Let $M$ be an $R$-module. The alternating quotient is the ideal $$A(M)=\langle m\otimes m|m\in M\rangle$$ of $T(M)$. 
+\begin{defn}{Alternating Quotient}{} Let $R$ be a ring. Let $M$ be an $R$-module. Define the alternating quotient of $M$ to be the ideal $$A(M)=\langle m\otimes m\;|\;m\in M\rangle$$ of $T(M)$. 
 \end{defn}
 
 \begin{lmm}{}{} The ideal $A(M)$ is a homogenous ideal. 
 \end{lmm}
 
-\begin{defn}{Exterior Algebra}{} Let $M$ be an $R$-module. Define the exterior algebra of $V$ to be the quotient $$\Lambda(M)=T(V)/A(M)$$ Elements of the form $m_1\otimes m_2$ are written as $m_1\wedge m_2$ by convention. 
+\begin{defn}{Exterior Algebra}{} Let $R$ be a ring. Let $M$ be an $R$-module. Define the exterior algebra of $M$ to be the quotient $$\Lambda(M)=\frac{T(M)}{\langle m\otimes m\;|\;m\in M\rangle}$$ Elements of the form $m_1\otimes m_2$ are written as $m_1\wedge m_2$ by convention. 
 \end{defn}
 
-\begin{prp}{}{} Let $M$ be an $R$-module. Then the following are true regarding the symmetric algebra. 
+\begin{defn}{Exterior Powers}{} Let $R$ be a ring. Let $M$ be an $R$-module. Define the $k$th exterior power of $M$ to be $$\Lambda^k(M)=\frac{T^k(M)}{\langle m_1\otimes\cdots\otimes m_k\;|\;m_1,\dots,m_k\in M\text{ and }m_i=m_j\text{ for some }i\
+neq j\rangle}$$
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $M$ be an $R$-module. Then the following are true regarding the symmetric algebra. 
 \begin{itemize}
-\item $\Lambda(M)$ is a graded ring with homogenous components $\Lambda^k(M)=T^k(M)/A^k(M)$ called the $k$th exterior power
+\item $\Lambda(M)$ is a graded ring with homogenous components $\Lambda^k(M)$. 
 \item $\Lambda^0(M)=R$
 \item $\Lambda^1(M)=M$
 \item $\Lambda(M)$ is an $R$-algebra. 
 \end{itemize}
 \end{prp}
-
-\begin{thm}{}{} Let $M$ be an $R$-module. Let $$I=\langle m_1\otimes\cdots\otimes m_k|m_1,\dots,m_k\in M, m_i=m_j\text{ for some }i\neq j\rangle$$ Then $\Lambda^k(M)=T^k(M)/I$. 
-\end{thm}
 
 \begin{prp}{}{} Let $\{v_1,\dots,v_n\}$ be a basis of the vector space $V$. Then $$\{v_{i_1}\wedge\dots\wedge v_{i_r}|1\leq i_1<\dots<i_r\leq n\}$$ is a basis of $\Lambda^r(V)$ and $$\dim(\Lambda^r(V))=\binom{n}{r}$$
 \end{prp}

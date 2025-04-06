@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  10 FEB 2025 22:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  19 MAR 2025 15:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1087,101 +1087,90 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
 d on input line 28.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--82
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--82
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--82
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--82
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--82
-
- []
-
-
-
-[3]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 8
-5.
- (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 5
+7.
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
-
- []
-
-
-
-[4{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+[3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
 enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 143--152
+Underfull \hbox (badness 10000) in paragraph at lines 71--80
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--152
+Underfull \hbox (badness 10000) in paragraph at lines 71--80
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--152
+Underfull \hbox (badness 10000) in paragraph at lines 71--80
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--163
+Underfull \hbox (badness 10000) in paragraph at lines 81--91
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--163
+Underfull \hbox (badness 10000) in paragraph at lines 81--91
 
  []
 
 
+
+[4]
 
 [5]
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 223--224
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
 
  []
 
 
 
 [7]
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
+Underfull \hbox (badness 10000) in paragraph at lines 221--244
 
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 221--244
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--244
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--244
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--244
+
+ []
+
+
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
+
+ []
+
+
+Underfull \hbox (badness 1596) in paragraph at lines 267--268
 \T1/qpl/m/n/10 Here we iden-tify the ver-tices of $\OT1/cmr/m/n/10 ^^A[]$ \T1/q
 pl/m/n/10 as $\OT1/cmr/m/n/10 0$ \T1/qpl/m/n/10 and $\OT1/cmr/m/n/10 1$\T1/qpl/
 m/n/10 , and we use the iso-mor-phism $\OMS/cmsy/m/n/10 C [] 
@@ -1198,17 +1187,17 @@ m/n/10 , and we use the iso-mor-phism $\OMS/cmsy/m/n/10 C []
 [12]
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 416--432
+Underfull \hbox (badness 10000) in paragraph at lines 415--431
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--432
+Underfull \hbox (badness 10000) in paragraph at lines 415--431
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--432
+Underfull \hbox (badness 10000) in paragraph at lines 415--431
 
  []
 
@@ -1217,85 +1206,85 @@ Underfull \hbox (badness 10000) in paragraph at lines 416--432
 [14]
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 473--474
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--495
+Underfull \hbox (badness 10000) in paragraph at lines 493--494
 
  []
 
 
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
 
  []
 
 
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 574--575
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
 
  []
 
 
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 588--589
+Underfull \hbox (badness 10000) in paragraph at lines 587--588
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--604
+Underfull \hbox (badness 10000) in paragraph at lines 602--603
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 610--621
+Underfull \hbox (badness 10000) in paragraph at lines 609--620
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 610--621
+Underfull \hbox (badness 10000) in paragraph at lines 609--620
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 610--621
+Underfull \hbox (badness 10000) in paragraph at lines 609--620
 
  []
 
 
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 621--632
+Underfull \hbox (badness 10000) in paragraph at lines 620--631
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 621--632
+Underfull \hbox (badness 10000) in paragraph at lines 620--631
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 621--632
+Underfull \hbox (badness 10000) in paragraph at lines 620--631
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 634--644
+Underfull \hbox (badness 10000) in paragraph at lines 633--643
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 634--644
+Underfull \hbox (badness 10000) in paragraph at lines 633--643
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 634--644
+Underfull \hbox (badness 10000) in paragraph at lines 633--643
 
  []
 
@@ -1308,12 +1297,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 634--644
 [22]
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 742--744
+Underfull \hbox (badness 10000) in paragraph at lines 741--743
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 745--746
+Underfull \hbox (badness 10000) in paragraph at lines 744--745
 
  []
 
@@ -1324,28 +1313,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 745--746
 [25]
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 844--845
+
+[27]
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 901--902
 
  []
 
 
 
-[27]
+[29]
 
-[28] (Higher Category Theory.aux)
+[30] (Higher Category Theory.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Higher Category Theory".out' has not change
 d.
-(rerunfilecheck)             Checksum: 86D487FDAD136AAFB9F0BDD3A16D8EE9;8299.
+(rerunfilecheck)             Checksum: 096C3DF6B999DE2BD6461D8DF23560EC;10433.
  ) 
 Here is how much of TeX's memory you used:
- 33950 strings out of 473577
- 675667 string characters out of 5716318
- 1081381 words of memory out of 5000000
- 56450 multiletter control sequences out of 15000+600000
+ 34023 strings out of 473577
+ 677127 string characters out of 5716318
+ 1083744 words of memory out of 5000000
+ 56503 multiletter control sequences out of 15000+600000
  600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,19n,120p,769b,1469s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1369,9 +1362,9 @@ ms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppDat
 a/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Higher Category Theory.pdf" (28 pages, 492099 bytes).
+Output written on "Higher Category Theory.pdf" (30 pages, 509316 bytes).
 PDF statistics:
- 569 PDF objects out of 1000 (max. 8388607)
- 158 named destinations out of 1000 (max. 500000)
- 309 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 643 PDF objects out of 1000 (max. 8388607)
+ 178 named destinations out of 1000 (max. 500000)
+ 381 words of extra memory for PDF output out of 10000 (max. 10000000)
 
