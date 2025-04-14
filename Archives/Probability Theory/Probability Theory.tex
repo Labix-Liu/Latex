@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 
-\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -22,24 +22,21 @@ Notes for the basics of Probability Theory.
 \tableofcontents
 \pagebreak
 
-\section{Probability with Set Language}
+\section{Foundations of Probability Theory}
 \subsection{Definition of Probability}
-\begin{defn}{Probability Measure}{} A probability measure is a function $P:\mathcal{F}\to[0,1]$ such that 
+\begin{defn}{Probability Space}{} A probability space is a triple $(\Omega,\mF,P)$ consisting of the following data: 
 \begin{itemize}
-\item $P(\Omega)=1$
-\item If $\{A_n|n\in\N\}$ are pairwise disjoint, then $P(\bigcup_{k=1}^\infty A_k)=\sum_{k=1}^{\infty}P(A_k)$
+\item $\Omega\neq\emptyset$ is a set called the sample space. 
+\item $\mF\subseteq\mP(\Omega)$ is a $\sigma$-algebra called events.  \item $P:\mF\to[0,1]$ is a set function. 
+\end{itemize}
+such that the following are true: 
+\begin{itemize}
+\item $P(\Omega)=1$. 
+\item If $\{A_n|n\in\N\}\subseteq\mF$ are pairwise disjoint, then $$P\left(\bigcup_{k=1}^\infty A_k\right)=\sum_{k=1}^{\infty}P(A_k)$$
 \end{itemize}
 \end{defn}
 
-\begin{defn}{Probability Space}{} A probability space is a triple $(\Omega,\mathcal{F},P)$ consisting of 
-\begin{itemize}
-\item the sample space $\Omega\neq\emptyset$
-\item the $\sigma$-algebra $\mathcal{F}\subseteq 2^{\Omega}$ called events
-\item the probability measure $P$
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $\Omega$ be the sample space of an experiment and $P$ the probability measure of $\Omega$. Let $A,B\subset\Omega$. Then 
+\begin{prp}{}{} Let $(\Omega,\mF,P)$ be a probability space. Let $A,B\in\mF$ be events. Then the following are true. 
 \begin{itemize}
 \item $P(\Omega\setminus A)=1-P(A)$
 \item $A\subset B\implies P(A)\leq P(B)$
@@ -152,12 +149,12 @@ P(A^c\cap B^c)&=1-P(A\cap B)\\
 \pagebreak
 \section{Distributions}
 \subsection{Random Variables}
-\begin{defn}{Random Variable}{} Let $(\Omega,\mathcal{F},P)$ be a probability space and $(E,\mathcal{E})$ a measurable space. Then an $(E,\mathcal{E})$ valued random variable is a measurable function $X:\Omega\to E$. \\~\\
-This means that for every $B\in\mathcal{E}$, $X^{-1}(B)$ is measurable in $\mathcal{F}$. \\~\\
-A random variable $X$ is real valued if the codomain of $X$ is $\R$ and $X^{-1}(-\infty,r)\in\mathcal{F}$. 
+\begin{defn}{Random Variable}{} Let $(\Omega,\mathcal{F},P)$ be a probability space. Let $(E,\mathcal{E})$ be a measurable space. An $(E,\mathcal{E})$ valued random variable is an $\mF$-measurable function $X:\Omega\to E$. 
 \end{defn}
 
-\begin{defn}{Probability Distribution}{} Let $(\Omega,E,\Prj)$ be a probability space. Let $X:\Omega\to\bar\R$ be a random variable. Define $\Prj_X$ as $$\Prj_X(A)=\Prj_X(X^{-1}(A))=\Prj(\{\omega\in\Omega:X(\omega)\in A\})$$ For every Borel set $A$. 
+Recall that $X$ is an $\mF$-measurable function if $X^{-1}(B)\in\mF$ for $B\in\mE$. 
+
+\begin{defn}{Probability Distribution}{} Let $(\Omega,E,\Prj)$ be a probability space. Let $(E,\mathcal{E})$ be a measurable space. Let $X:\Omega\to E$ be a measurable function. Define the probability distribution of $X$ to be the function $$P(X\in A)=P(X^{-1}(A))$$ for $A\in\mE$. 
 \end{defn}
 
 \begin{defn}{Discrete Random Variable}{} A discrete random variable on the probability space $(\Omega,E,\Prj)$ is a random variable such that $\im(X)=\{X(\omega):\omega\in\Omega\}$ is a countable subset of $\mathbb{R}$. 
@@ -628,18 +625,29 @@ Norm$(\mu,\sigma^2)$&$\mu$&$\sigma^2$\\\hline
 \pagebreak
 \section{Stochastic Processes}
 \subsection{Markov Chains}
-\begin{defn}{Stochastic Matrix}{} A matrix is a stochastic matrix if 
+\begin{defn}{Stochastic Matrix}{} Let $P=(p_{i,j})\in M_n(\R)$ be a matrix. We say that $P$ is a stochastic matrix if the following are true. 
 \begin{itemize}
-\item $0\leq p_{ij}\leq 1$ for all $i,j\in I$
-\item For all $i\in I$, we have $\sum_{j\in I}P_{ij}=1$
+\item $0\leq p_{i,j}\leq 1$ for $1\leq i,j\leq n$. 
+\item For any fixed $1\leq k\leq n$, we have $$\sum_{j=1}^np_{k,j}=1$$
 \end{itemize}
-In particular, we use a stochastic matrix to represent the full set of probability of transitions between states. 
 \end{defn}
 
-\begin{defn}{Markov Chain}{} Let $X_0,X_1,\dots X_n$ be a sequence of random variables with common image $I=\{E_0,\dots,E_k\}$ with $X_0\sim\lambda$ where $\lambda$ is some fixed distribution. We say $(X_n)_{n\geq 0}$ is a markov chain if $$\Prj(X_{n+1}=E_{n+1}|X_0=E_0,\dots,X_n=E_n)=\Prj(X_{n+1}=E_{n+1}|X_n=E_n)$$ for all $n\in\N$. 
+\begin{defn}{Markov Chain}{} Let $(\Omega,\mF,\Prj)$ be a probability space. Let $I=\{1,\dots,k\}$. Let $\{X_n:\Omega\to I\;|\;n\in\N\}$ be a sequence of random variables. Let $\lambda:I\to[0,1]$ be a probability distribution. Let $P=(p_{i,j})$ be a stochastic matrix. We say that $(X_n)_{n\geq 0}$ is a Markov chain with initial distribution $\lambda$ and transition matrix $P$ if the following are true. 
+\begin{itemize}
+\item $\Prj(X_0=i)=\lambda(i)$ for any $i\in I$. 
+\item For any $i_0,\dots,i_{n+1}\in I$, we have $$\Prj(X_{n+1}=i_{n+1}\;|\;X_k=i_k\text{ for }0\leq k\leq n)=\lambda(i_0)\cdot\prod_{j=0}^n p_{i_j,i_{j+1}}$$ 
+\end{itemize}
+In this case we say that $(X_n)_{n\geq 0}$ is $\text{Markov}(\lambda,P)$. 
 \end{defn}
 
 In other words, Markov chains are a sequence of random variables where the next step does not depends on what states you visited previously, but only on the state now. There is an important property that makes studying Markov chains worth while. 
+
+\begin{prp}{}{} Let $(\Omega,\mF,\Prj)$ be a probability space. Let $I=\{1,\dots,k\}$. Let $\{X_n:\Omega\to I\;|\;n\in\N\}$ be a sequence of random variables. Let $\lambda:I\to[0,1]$ be a probability distribution. Then $(X_n)_{n\geq 0}$ is a Markov chain if and only if $$\Prj(X_{n+1}=i_{n+1}\;|\;X_k=i_k\text{ for }0\leq k\leq n)=\Prj(X_{n+1}=i_{n+1}\;|\;X_n=i_n)$$ for any $i_0,\dots,i_{n+1}\in I$. In this case, the transition matrix of the Markov chain is given by $$P=\begin{pmatrix}
+\Prj(X_1=1\;|\;X_0=1) & \cdots & \Prj(X_1=k\;|\;X_0=1)\\
+\vdots & \ddots & \vdots\\
+\Prj(X_1=1\;|\;X_0=k) & \cdots & \Prj(X_1=k\;|\;X_0=k)
+\end{pmatrix}$$
+\end{prp}
 
 \begin{thm}{Markov Property}{} Let $(X_n)_{n\geq0}$ be a markov chain. Suppose that $X_m=E_m$ is given. Then $(X_{m+n})_{n\geq 0}$ is a Markov chain. 
 \end{thm}
@@ -651,13 +659,6 @@ Notice that the transition probabbility $\Prj(X_{n+1}=j|X_n=i)$ still depedns on
 \end{defn}
 
 This means that homogenous Markov chains are time independent. 
-
-\begin{defn}{Transition Matrix}{} Define the transition matrix of a homogenous Markov chain with state space $\{1,\dots,n\}$ to be $$P=\begin{pmatrix}
-\Prj(X_1=1|X_0=1) & \cdots & \Prj(X_1=n|X_0=1)\\
-\vdots & \ddots & \vdots\\
-\Prj(X_1=1|X_0=n) & \cdots & \Prj(X_1=n|X_0=n)
-\end{pmatrix}$$
-\end{defn}
 
 \begin{lmm}{}{} The transition matrix $P$ of a homogenous Markov chain is a Stochastic matrix. 
 \end{lmm}

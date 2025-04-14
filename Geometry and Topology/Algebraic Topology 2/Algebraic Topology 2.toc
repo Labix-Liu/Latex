@@ -43,23 +43,24 @@
 \contentsline {section}{\numberline {10}Variants of Cohomology}{80}{section.10}%
 \contentsline {subsection}{\numberline {10.1}Simplicial and Cellular Cohomology}{80}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Cohomology with Compact Support}{80}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Axioms for Unreduced Cohomology}{81}{subsection.10.3}%
-\contentsline {section}{\numberline {11}The Ring Structure in Singular Cohomology}{83}{section.11}%
-\contentsline {subsection}{\numberline {11.1}The Cup Product}{83}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}The Relative Cup Product}{85}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}The Kunneth Formula}{87}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Applications of the Cup Product}{88}{subsection.11.4}%
-\contentsline {section}{\numberline {12}Suspensions and Loopspaces}{89}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Suspensions of a Space}{89}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}The Construction of the Loop Space}{90}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}The Suspension-Loopspace Adjunction}{91}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Unpointed Suspensions and Mapping Spaces}{91}{subsection.12.4}%
-\contentsline {subsection}{\numberline {12.5}Group Structure on the Set of Maps}{92}{subsection.12.5}%
-\contentsline {subsection}{\numberline {12.6}The Art of Delooping}{92}{subsection.12.6}%
-\contentsline {section}{\numberline {13}Relation Between (Co)Homology Theories}{93}{section.13}%
-\contentsline {subsection}{\numberline {13.1}The Mapping Cone}{93}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Reduced Homology Theory}{93}{subsection.13.2}%
-\contentsline {subsection}{\numberline {13.3}Reduced Cohomology Theories}{96}{subsection.13.3}%
-\contentsline {section}{\numberline {14}The Euler Characteristic}{97}{section.14}%
-\contentsline {subsection}{\numberline {14.1}The Characteristic as an Invariant}{97}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}First Properties of the Euler Characteristic}{98}{subsection.14.2}%
+\contentsline {subsection}{\numberline {10.3}Axioms for Unreduced Cohomology}{82}{subsection.10.3}%
+\contentsline {section}{\numberline {11}The Ring Structure in Singular Cohomology}{84}{section.11}%
+\contentsline {subsection}{\numberline {11.1}The Cup Product}{84}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}The Relative Cup Product}{88}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}The Kunneth Formula}{89}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Applications of the Cup Product}{90}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Lusternik-Schnirelman Category}{90}{subsection.11.5}%
+\contentsline {section}{\numberline {12}Suspensions and Loopspaces}{92}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Suspensions of a Space}{92}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}The Construction of the Loop Space}{93}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}The Suspension-Loopspace Adjunction}{94}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Unpointed Suspensions and Mapping Spaces}{94}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}Group Structure on the Set of Maps}{95}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.6}The Art of Delooping}{95}{subsection.12.6}%
+\contentsline {section}{\numberline {13}Relation Between (Co)Homology Theories}{96}{section.13}%
+\contentsline {subsection}{\numberline {13.1}The Mapping Cone}{96}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Reduced Homology Theory}{96}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Reduced Cohomology Theories}{99}{subsection.13.3}%
+\contentsline {section}{\numberline {14}The Euler Characteristic}{100}{section.14}%
+\contentsline {subsection}{\numberline {14.1}The Characteristic as an Invariant}{100}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}First Properties of the Euler Characteristic}{101}{subsection.14.2}%

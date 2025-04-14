@@ -37,15 +37,17 @@ Let $R$ be a commutative ring. Recall that an ideal of $R$ is a subset $I\subset
 \end{itemize} \tcbline
 \begin{proof}~\\
 \begin{itemize}
-\item We prove the contrapositive by induction $k$. When $k=1$, the case is clear. Suppose that $I\not\subseteq P_i$ for $1\leq i\leq k-1$ implies $I\not\subseteq\bigcup_{i=1}^{k-1}P_i$. Suppose also that $I\not\subseteq P_k$. 
+\item We prove the contrapositive by induction $k$. When $k=1$, the case is clear. Suppose that $I\not\subseteq P_i$ for $1\leq i\leq k-1$ implies $I\not\subseteq\bigcup_{i=1}^{k-1}P_i$. Now suppose that $I\not\subseteq P_i$ for $1\leq i\leq k$. By induction hypothesis, for each $i$, there exists $x_j\in I$ such that $x_j\notin\bigcup_{i\neq j}P_i$. So $x_j\notin P_i$ for $j\neq i$. There are two cases. If $x_j\notin P_j$ for some $j$, then $x_j\notin\bigcup_{j\neq i}P_i\cup P_j=\bigcup_{i=1}^kP_i$ so we are done. If $x_j\in P_j$ for all $j$, then consider the element $y=\sum_{i=1}^k\prod_{j\neq i}x_j\in I$. Notice that $x_j\in P_j$ for $j\neq i$ implies that $\prod_{j\neq i}x_j$ lie in $P_k$ for any $k\neq i$. It is not an element of $P_i$ because $P_i$ is prime and $x_j\notin P_i$ for $j\neq i$. Then we conclude that $y$ does not lie in $P_i$ for any $i$. Hence $y\notin\bigcup_{i=1}^kP_i$ and we are done. 
+\item We prove the contrapositive. Suppose that $I_i\not\subseteq P$ for all $i$. Then for each $i$, there exists $x_i\in I_i$ such that $x_i\notin P$. Then $\prod_{i=1}^nx_i\in\bigcap_{i=1}^nI_i$ is not an element of $P$ since $P$ is a prime ideal. Hence we are done. 
+\item By the above, we have that $P=\bigcap_{i=1}^nI_i$ implies that $I_i\subseteq P$ for some $i$. Then $P=\bigcap_{i=1}^nI_i\subseteq I_i$ implies that $P=I_i$. 
 \end{itemize}
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $S,T\subseteq R$ be subsets of $R$. Then $$\langle S\cup T\rangle=\langle S\rangle +\langle T\rangle$$
-\end{prp}
-
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $I,J$ be ideals of $R$. Suppose that $I\subseteq J$. Let $\overline{J}$ denote the ideal of $R/I$ corresponding to $J$ under the correspondence theorem. Then there is an isomorphism $$\frac{R/I}{\overline{J}}\cong\frac{R}{I+J}$$ given by the formula $(r+I)+\overline{J}\mapsto r+(I+J)$. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I,J$ be ideals of $R$. Then there is an isomorphism of rings $$\frac{R}{I+J}\cong\frac{R/I}{(I+J)/I}$$ given by $r+(I+J)\mapsto(r+I)+((I+J)/I)$. \tcbline
+\begin{proof}
+Follows from the third isomorphism theorem of rings. 
+\end{proof}
 \end{prp}
 
 \begin{eg}{}{} There is an isomorphism given by $$\frac{\Z[x]}{(x+1,x^2+2)}\cong\Z/3\Z$$ \tcbline
@@ -59,16 +61,40 @@ Indeed, the ideal $(x^2+2)$ corresponds to the ideal $(3)$ in $\frac{\Z[x]}{(x+1
 \end{proof}
 \end{eg}
 
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I,J$ be ideals of $R$. Then $\frac{R}{I}\cong\frac{R}{J}$ as $R$-modules if and only if $I=J$. \tcbline
+\begin{proof}
+When $I=J$ it is clear that $R/I\cong R/J$. Conversely, suppose that $\phi:R/I\to R/J$ is an $R$-module isomorphism. For any $r\in J$, we have $$\phi(r+I)=(r+J)\phi(1+I)=(r+J)(1+J)=(r+J)=0$$ Since $\phi$ is an isomorphism, we conclude that $r+I=I$, so that $r\in I$. This shows that $J\subseteq I$. Similarly one can show that $I\subseteq J$. 
+\end{proof}
+\end{prp}
+
+\begin{defn}{Product of Ideals}{} Let $R$ be a commutative ring. Let $I,J$ be ideals of $R$. Define the product of $I$ and $J$ to be $$IJ=(ij\;|\;i\in I, j\in J)=\left\{\sum_{k=1}^na_kb_k\;|\;a_k\in I,b_k\in J\right\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $I_1,I_2$ be ideals of $R$. Then the following are true. 
+\begin{itemize}
+\item $I_1I_2$ is an ideal of $R$. 
+\item $I_1I_2\subseteq I_1,I_2$ is an $R$-submodule of $I_1$ and $I_2$. 
+\item If $I_1$ and $I_2$ are coprime, then $I_1I_2=I_1\cap I_2$. 
+\end{itemize}
+\end{lmm}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $I_1,I_2,I_3$ be ideals of $R$. Then the following are true. 
+\begin{itemize}
+\item Product is Commutative: $I_1I_2=I_2I_1$. 
+\item Product is Associative: $(I_1I_2)I_3=I_1(I_2I_3)$. 
+\item Distrbutivity: $I_1(I_2+I_3)=I_1I_2+I_1I_3$. 
+\end{itemize}
+\end{lmm}
+
 Some more important results from Groups and Rings and Rings and Modules include: 
 \begin{itemize}
-\item If $I$ and $J$ are coprime, then $IJ=I\cap J$
-\item Chinese Remainder Theorem: If $I$ and $J$ are coprime, then there is an isomorphism $$\frac{R}{I\cap J}\cong\frac{R}{I}\times\frac{R}{J}$$
+\item Chinese Remainder Theorem: If $I$ and $J$ are coprime, then there is an isomorphism $$\frac{R}{IJ}=\frac{R}{I\cap J}\cong\frac{R}{I}\times\frac{R}{J}$$
 \end{itemize}
 
 \subsection{The Radical of an Ideal}
 The radical of an ideal is a very different notion from the radical of module. 
 
-\begin{defn}{Radical of an Ideal}{} Let $I$ be an ideal of a ring $R$. Define the radical of $I$ to be $$\sqrt{I}=\{r\in R|r^n\in I\text{ for some }n\in\N\}$$
+\begin{defn}{Radical of an Ideal}{} Let $I$ be an ideal of a ring $R$. Define the radical of $I$ to be $$\sqrt{I}=\{r\in R\;|\;r^n\in I\text{ for some }n\in\N\}$$
 \end{defn}
 
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then the following are true. 
@@ -82,6 +108,8 @@ The radical of an ideal is a very different notion from the radical of module.
 \begin{itemize}
 \item Let $r\in I$. Then $r^1\in I$ Thus by choosing $n=1$ we shows that $r^n\in I$. Thus $r\in\sqrt{I}$. 
 \item By the above, we already know that $\sqrt{I}\subseteq\sqrt{\sqrt{I}}$. So let $r\in\sqrt{\sqrt{I}}$. Then there exists some $n\in\N$ such that $r^n\in\sqrt{I}$. But $r^n\in\sqrt{I}$ means that there exists some $m\in\N$ such that $(r^n)^m\in I$. But $nm\in\N$ is a natural number such that $r^{nm}\in I$. Hence $r\in\sqrt{I}$ and so we conclude. 
+\item Since $I^m\subseteq I$, we know that $\sqrt{I^m}\subseteq\sqrt{I}$. Let $x\in\sqrt{I}$. Then $x^n\in I$ for some $n\in\N$. Then we have $(x^n)^m=x^{n+m}\in I^m$ so that $x\in\sqrt{I^m}$. 
+\item Clearly if $I=R$ then $I\subseteq\sqrt{I}$ implies that $\sqrt{I}=R$. Conversely, $\sqrt{I}=R$ implies that $1\in\sqrt{I}$ and hence $1\in I$. Hence $I=R$. 
 \end{itemize}
 \end{proof}
 \end{prp}
@@ -89,12 +117,14 @@ The radical of an ideal is a very different notion from the radical of module.
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $I,J$ be ideals of $R$. Then the following are true. 
 \begin{itemize}
 \item If $I\subseteq J$ then $\sqrt{I}\subseteq\sqrt{J}$
-\item $\sqrt{IJ}=\sqrt{I\cap J}$
+\item $\sqrt{IJ}=\sqrt{I\cap J}=\sqrt{I}\cap\sqrt{J}$
 \item $\sqrt{I+J}=\sqrt{\sqrt{I}+\sqrt{J}}$
 \end{itemize} \tcbline
 \begin{proof}~\\
 \begin{itemize}
 \item Let $x\in\sqrt{IJ}$. Then $x^n\in IJ$. This means that there exists $i\in I$ and $j\in J$ such that $x^n=ij$. Since $I$ and $J$ are two sided ideals, we can conclude that $x^n=ij\in I,J$. Hence $x^n=ij\in I\cap J$. We conclude that $x\in\sqrt{I\cap J}$. Now let $x\in\sqrt{I\cap J}$. Then there exists $n\in\N$ such that $x^n\in I\cap J$. Then $x^n\in I$ and $x^n\in J$ implies that $x^{2n}=x^n\cdot x^n\in IJ$. We conclude that $x\in\sqrt{IJ}$. 
+\item Since $IJ\subseteq I\cap J\subseteq I,J$, we already have $\sqrt{IJ}\subseteq\sqrt{I\cap J}\subseteq\sqrt{I}\cap\sqrt{J}$. Let $x\in\sqrt{I}\cap\sqrt{J}$. Then there exists $n,m\in\N$ such that $x^n\in I$ and $x^m\in J$. Then $x^n\cdot x^m=x^{n+m}\in IJ$ implies that $x\in\sqrt{IJ}$. 
+\item Since $I,J\subseteq I+J$, we have $\sqrt{I}+\sqrt{J}\subseteq\sqrt{I+J}$ so that $\sqrt{\sqrt{I}+\sqrt{J}}\subseteq\sqrt{I+J}$. On the other hand, $I\subseteq\sqrt{I}$ and $J\subseteq\sqrt{J}$ implies that $I+J\subseteq\sqrt{I}+\sqrt{J}$. Then $\sqrt{I+J}\subseteq\sqrt{\sqrt{I}+\sqrt{J}}$ and so we are done. 
 \end{itemize}
 \end{proof}
 \end{prp}
@@ -107,12 +137,15 @@ The radical of an ideal is a very different notion from the radical of module.
 
 In particular, by the above lemma it follows that the radical of an ideal is a radical ideal. 
 
-\begin{lmm}{}{} Let $R$ be a ring. Let $P$ be a prime ideal of $R$. Then $P$ is radical. 
+\begin{lmm}{}{} Let $R$ be a ring. Let $P$ be a prime ideal of $R$. Then $P$ is radical. \tcbline
+\begin{proof}
+We already know that $P\subseteq\sqrt{P}$. Let $x\in\sqrt{P}$. Then $x^n\in P$ for some $n\in\N$. Since $P$ is prime, by inducting downwards we deduce that $x\in P$. Thus $P$ is radical. 
+\end{proof}
 \end{lmm}
 
 We conclude that there is an inclusion of types of ideal in which each inclusion is strict: $$\substack{\text{Maximal}\\\text{ideals}}\subset\substack{\text{Prime}\\\text{ideals}}\subset\substack{\text{Radical}\\\text{ideals}}$$
 
-\subsection{The Nilradical Ideal of Commutative Rings}
+\subsection{The Nilradical of Commutative Rings}
 Let $R$ be a ring. Recall that an element $r\in R$ is nilpotent if $r^n=0_R$ for some $n\in\N$. When $R$ is commutative, we can form an ideal out of nilpotent elements. 
 
 \begin{defn}{Nilradicals}{} Let $R$ be a ring. Define the nilradical of $R$ to be $$N(R)=\{r\in R\;|\;r\text{ is nilpotent}\}$$
@@ -154,14 +187,6 @@ By the correspondence theorem, $(x,y)/(x^2-y)$ is an maximal ideal of $R$. In pa
 \end{proof}
 \end{eg}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Then the following are equivalent. 
-\begin{itemize}
-\item $R$ has exactly one prime ideal given by $N(R)$. 
-\item Every element of $R$ is either a unit or nilpotent. 
-\item $N(R)$ is a maximal ideal. 
-\end{itemize}
-\end{prp}
-
 \begin{defn}{Reduced Rings}{} Let $R$ be a commutative ring. We say that $R$ is reduced if $N(R)=0$. 
 \end{defn}
 
@@ -174,6 +199,26 @@ So radical, prime and maximal ideals all have characterizations using the quotie
 \item $I$ is prime if and only if $R/I$ is an integral domain. 
 \item $I$ is radical if and only if $R/I$ is reduced. 
 \end{itemize}
+
+\subsection{The Jacobson Radical of Commutative Rings}
+Let $R$ be a commutative ring. Recall that the Jacobson radical of a ring is defined to be $$J(R)=\bigcap_{m\text{ a maximal ideal}}m$$ since left and right maximal ideals coincide in $R$. Properties of the Jacobson radical include: 
+\begin{itemize}
+\item $J(R/J(R))=0$. 
+\end{itemize}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Then $x\in J(R)$ if and only if $1-xy\in R^\times$ for all $y\in R$. \tcbline
+\begin{proof}
+Suppose that $x\notin J(R)$. Then $x\notin m$ for some maximal ideal $m$. Then $R=m+(x)$ since $m$ is maximal. Then there exists $p\in m$ and $y\in R$ such that $1=p+xy$. Then $1-xy=p\in m\notin R^\times$. \\~\\
+
+Suppose that $1-xy\notin R^\times$ for some $y\in R$. Then $(1-xy)$ is a proper ideal of $R$. Then there exists a maximal ideal $m$ such that $(1-xy)\subseteq m$. Since $1\notin m$ and $y$ is arbitrary, we must have that $x\notin m$. Hence $x\notin J(R)$. 
+\end{proof}
+\end{lmm}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Then $x\in R$ is a unit if and only if $[x]\in R/J(R)$ is a unit. \tcbline
+\begin{proof}
+Suppose that $x\in R$ is a unit. Then there exists $y\in R$ such that $xy=1$. Then $[x][y]=[1]$ so we are done. Now suppose that $[x][y]=[1]$ for some $y\in R$. Then there exists $m\in J(R)$ such that $xy=1+m$. By the above lemma, $1+m$ is a unit hence $x$ is a unit. 
+\end{proof}
+\end{lmm}
 
 \subsection{The Correspondence between Ideals and the Quotient}
 \begin{defn}{Max Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the max spectrum of $A$ to be $$\text{maxSpec}(A)=\{m\subseteq A\;|\;m\text{ is a maximal ideal of }A\}$$
@@ -236,12 +281,22 @@ Another way to write the bijections is via spectra: $$\text{Spec}(R/I)\;\;\overs
 
 \begin{prp}{}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $I,I_1,I_2$ be an ideal of $R$. Then the following are true regarding the extension of ideals. 
 \begin{itemize}
+\item If $I_1\subseteq I_2$, then $I_1^e\subseteq I_2^e$. 
 \item Closed under sum: $(I_1+I_2)^e=I_1^e+I_2^e$
 \item $(I_1\cap I_2)^e\subseteq I_1^e\cap I_2^e$
 \item Closed under products: $(I_1I_2)^e=I_1^eI_2^e$
-\item $(I_1/I_2)^e\subseteq I_1^e/I_2^e$
-\item $\text{rad}(I)^e\subseteq\text{rad}(I^e)$
+\item $(\sqrt{I})^e\subseteq\sqrt{I^e}$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $x\in I_1^e$. Then $x=\sum s_kf(i_k)$ for some $i_k\in I_1$. Then $i_k\in I_2$ implies that $x\in I_2^e$. 
+\item Since $I_1,I_2\subseteq I_1+I_2$, we have $I_1^e+I_2^e\subseteq(I_1+I_2)^e$. Conversely, let $x,\in(I_1+I_2)^e$. Then $x=\sum s_kf(i_k)$ for $i_k\in I_1+I_2$. Then we have $$x=\sum_{i_k\in I_1}s_kf(i_k)+\sum_{i_k\in I_2}s_kf(i_k)\in I_1^e+I_2^e$$ so we conclude. 
+\item Since $I_1\cap I_2\subseteq I_1,I_2$ we are done. 
+\item It suffices to check the generators lie in each other. Let $x\in I_1I_2$. Then $x=\sum i_kj_k$ for some $i_k\in I_1$ and $j_k\in I_2$. Then $f(x)=\sum f(i_k)f(j_k)$. Since $f(i_k)\in I_1^e$ and $f(j_k)^e$, then $f(x)\in I_1^eI_2^e$ so we conclude that $(I_1I_2)^e\subseteq I_1^eI_2^e$. Conversely, suppose that $x\in I_1^eI_2^e$. Then $x=\sum f(i_k)(j_k)$ for $i_k\in I_1$ and $j_k\in I_2$. Since $f$ is a ring homomorphism, we have that $$x=\sum f(i_k)f(j_k)=f\left(\sum i_kj_k\right)$$ Since $\sum i_kj_k\in I_1I_2$, we conclude that $x\in I_1^eI_2^e$. 
+\item We have that $$
+(\sqrt{I})^e=\left(f(i)\;\bigg{|}\;i\in\bigcap_{\substack{P\text{ prime}\\I\subseteq P}}P\right)\subseteq f\left(\bigcap_{\substack{P\text{ prime}\\I\subseteq P}}f(P)\right)\subseteq f\left(\bigcap_{\substack{Q\text{ prime}\\I^e\subseteq Q}}f(f^{-1}(Q))\right)$$ The last inclusion follows since for $I^e\subseteq Q$, we must have that $I\subseteq f^{-1}(Q)$. Then we have that $$(\sqrt{I})^e=f\left(\bigcap_{\substack{Q\text{ prime}\\I^e\subseteq Q}}Q\right)=\sqrt{I^e}$$ and so we are done. 
 \end{itemize}
+\end{proof}
 \end{prp}
 
 \begin{defn}{Contraction of Ideals}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $J$ be an ideal of $S$. Define the contraction $J^c$ of $J$ to $R$ to be the ideal $$J^c=f^{-1}(J)$$
@@ -249,12 +304,21 @@ Another way to write the bijections is via spectra: $$\text{Spec}(R/I)\;\;\overs
 
 \begin{prp}{}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $J,J_1,J_2$ be an ideal of $S$. Then the following are true regarding the extension of ideals. 
 \begin{itemize}
-\item $(J_1+J_2)^e\supseteq J_1^e+J_2^e$
-\item Closed under intersections: $(J_1\cap J_2)^e=J_1^e\cap J_2^e$
-\item $(J_1J_2)^e\supseteq J_1^eJ_2^e$
-\item $(J_1/J_2)^e\subseteq J_1^e/J_2^e$
-\item Closed under taking radicals: $\text{rad}(J)^e=\text{rad}(J^e)$
+\item If $J_1\subseteq J_2$, then $J_1^c\subseteq J_2^c$. 
+\item $(J_1+J_2)^c\supseteq J_1^c+J_2^c$
+\item Closed under intersections: $(J_1\cap J_2)^c=J_1^c\cap J_2^c$
+\item $(J_1J_2)^c\supseteq J_1^cJ_2^c$
+\item Closed under taking radicals: $\text{rad}(J)^c=\text{rad}(J^c)$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Clear since $f^{-1}(J_1)\subseteq f^{-1}(J_2)$ for $J_1\subseteq J_2$. 
+\item Since $J_1,J_2\subseteq J_1+J_2$, we have that $J_1^c+J_2^c\subseteq(J_1+J_2)^c$. 
+\item Since $J_1\cap J_2\subseteq J_1,J_2$, we have that $(J_1\cap J_2)^c\subseteq J_1^c\cap J_2^c$. Let $x\in J_1^c\cap J_2^c$. Then we have $f(x)\in J_1,J_2$ so that $f(x)\in J_1\cap J_2$. Hence $x\in(J_1\cap J_2)^c$. 
+\item Suppose that $x\in J_1^c$ and $y\in J_2^c$. Then $f(xy)=f(x)f(y)\in J_1^cJ_2^c$. Hence $xy\in J_1^cJ_2^c$. 
+\item 
 \end{itemize}
+\end{proof}
 \end{prp}
 
 \begin{prp}{}{} Let $R,S$ be commutative rings. Let $f:R\to S$ be a ring homomorphism. Let $I$ be an ideal of $R$ and let $J$ be an ideal of $S$. Then the following are true. 
@@ -263,7 +327,22 @@ Another way to write the bijections is via spectra: $$\text{Spec}(R/I)\;\;\overs
 \item $J^{ce}\subseteq J$
 \item $I^e=I^{ece}$
 \item $J^c=J^{cec}$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $x\in I$. Then $f(x)\in I^e$. Thus $x\in f^{-1}(I^e)$. 
+\item Since $J^{ce}$ is generated by $f(x)$ for all $x\in J^c$, it suffices to check that $f(x)\in J$ for all $x\in J^c$. But $x\in J^c$ implies that $f(x)\in J$ so we are done. 
+\item Since $I\subseteq I^{ec}$, we know that $I^e\subseteq I^{ece}$. Also, from the second item we take $J=I^e$ to get $I^{ece}\subseteq I^e$. 
+\item From the first item, take $I=J^c$ to get $J^c\subseteq J^{cec}$. Also, since $J^{ce}\subseteq J$, we have that $J^{cec}\subseteq J^c$. 
 \end{itemize}
+\end{proof}
+\end{prp}
+
+\subsection{Minimal Prime Ideals}
+\begin{defn}{Minimal Prime Ideals}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $P$ be a prime ideal of $R$. We say that $P$ is a minimal prime ideal over $I$ if for any other prime ideal $Q\supseteq I$ containing $I$, we have $P\subseteq Q$. 
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Then a minimal prime ideal over $I$ exists. 
 \end{prp}
 
 \subsection{Revisiting the Polynomial Ring}
@@ -367,12 +446,6 @@ Let $P$ be a prime ideal. Since quotients of Artinian rings are Artinian, $R/P$ 
 \end{proof}
 \end{prp}
 
-Recall some properties of the Jacobson radical from Rings and Modules. For a (not necessarily commutative ring $R$), 
-\begin{itemize}
-\item $J(R/J(R))=0$
-\item $J(R)=\bigcap_{m\in\text{maxSpec}(R)}m$
-\end{itemize}
-
 \begin{prp}{}{} Let $R$ be a commutative ring. If $R$ is Artinian, then $$N(R)=J(R)$$ \tcbline
 \begin{proof}
 Since every prime ideal in $R$ is maximal, we have that $$N(R)=\bigcap_{P\text{ a prime ideal}}P=\bigcap_{P\text{ a maximal ideal}}P=J(R)$$ and so we conclude. 
@@ -421,6 +494,22 @@ By the above proposition, we conclude that $M$ is the unique maximal ideal of $k
 \end{proof}
 \end{eg}
 
+\begin{prp}{}{} Let $R$ be a commutative ring. Then the following are equivalent. 
+\begin{itemize}
+\item $R$ has exactly one prime ideal. (It is given by $N(R)$).
+\item Every element of $R$ is either a unit or nilpotent. 
+\item $N(R)$ is a maximal ideal. 
+\end{itemize}
+Under these equivalent assumptions, $(R,N(R))$ is a local ring. \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $(1)\implies(2)$: We know that $N(R)$ is a prime ideal, hence it is the unique prime ideal and unique maximal ideal. Thus $R$ is a local ring. By the above, elements of $R\setminus N(R)$ are units and element of $N(R)$ are nilpotent. 
+\item $(2)\implies(3)$: It is clear that every nilpotent is a non-unit. By assumption, non-units of $R$ are nilpotents. Hence $N(R)$ is the set of all non-units. Since $N(R)$ is an ideal, by the above we conclude that $(R,N(R))$ is a local ring. In particular, $N(R)$ is the unique maximal ideal of $R$. 
+\item $(3)\implies(1)$: Suppose that $N(R)$ is a maximal ideal. Let $P\neq R$ be a prime ideal of $R$. Since $N(R)$ is the intersection of all prime ideals, we have $N(R)\subseteq P$. By the correspondence theorem, $P$ corresponds to a prime ideal of $R/N(R)$. But $R/N(R)$ is a field, and since $P\neq R$ we must have that $P=N(R)$. Thus $N(R)$ is the unique prime ideal of $R$. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
 \begin{prp}{}{} Let $R$ be a Noetherian commutative ring. Then the following are equivalent. 
 \begin{itemize}
 \item $R$ is an Artinian local ring. 
@@ -431,7 +520,7 @@ By the above proposition, we conclude that $M$ is the unique maximal ideal of $k
 \end{itemize} \tcbline
 \begin{proof}~\\
 \begin{itemize}
-\item $(1)\implies(2)$: Let $R$ be Artinian and local. By 2.1.4 we have $N(R)=J(R)=m$ since $J(R)$ is the intersection of all maximal ideals. Since $R$ is Artinian, $R$ is Noetherian. Then by 2.1.3 $N(R)=m$ is nilpotent. 
+\item $(1)\implies(2)$: Let $R$ be Artinian and local. By 2.1.4 we have $N(R)=J(R)=m$ since $J(R)$ is the intersection of all maximal ideals. Since $R$ is Noetherian, by 2.1.3 $N(R)=m$ is nilpotent. 
 \end{itemize}
 \end{proof}
 \end{prp}
@@ -444,7 +533,7 @@ Since every Artinian ring is Noetherian, the above proposition implies the follo
 \item $N(R)$ is the unique maximal ideal of $R$. 
 \item $N(R)$ is the unique prime ideal of $R$. 
 \item $N(R)$ is the unique radical ideal of $R$. 
-\item $N(R)^n=(0)$ for some $n\in\N$. 
+\item $N(R)$ is a nilpotent ideal. 
 \end{itemize}
 \end{crl}
 
@@ -467,7 +556,7 @@ When $R$ is a commutative ring, the first axiom is relaxed so that the resulting
 \begin{thm}{Cayley-Hamilton Theorem for Rings}{} Let $R$ be a commutative ring. Let $A\in M_{n\times n}(R)$ be a matrix. Then $c_A(A)=0$. 
 \end{thm}
 
-\begin{thm}{Cayley-Hamiliton Theorem for Modules}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. Let $\varphi\in\text{End}_R(M)$. If $\varphi(M)\subseteq IM$, then there exists $a_1,\dots,a_n\in I$ such that $$\varphi^n+a_1\varphi^{n-1}+\dots+a_{n-1}\varphi+\text{id}_M=0:M\to M$$ \tcbline
+\begin{thm}{Cayley-Hamiliton Theorem for Modules}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. Let $\varphi\in\text{End}_R(M)$. If $\varphi(M)\subseteq IM$, then there exists $a_1,\dots,a_{n-1}\in I$ such that $$\varphi^n+a_1\varphi^{n-1}+\dots+a_{n-1}\varphi+\text{id}_M=0:M\to M$$ \tcbline
 \begin{proof}
 Suppose that $M$ is generated by $x_1,\dots,x_n$. There exists a surjective map $\rho:R^n\to M$ given by $(r_1,\dots,r_n)\mapsto\sum_{k=1}^nr_kx_n$. Since $\varphi(M)\subseteq IM$, we havt that $$\varphi(x_k)=\sum_{i=1}^nr_{ki}x_i$$ for some $r_{ki}\in I$. Write $A$ to be the matrix $A=(a_{ki})$. We now have a commutative diagram: \\~\\
 In other words, we have the diagram: \\
@@ -490,6 +579,14 @@ c_A(\varphi(\rho(x)))&=0\tag{Diagram is commutative}
 Since $\rho$ is surjective, we conclude that for any $m\in M$, the above calculation gives $c_A(\varphi(m))=0$ so that $c_A(\varphi)$ is the zero map. 
 \end{proof}
 \end{thm}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $\phi:M\to M$ be a surjective $R$-module homomorphism. Then $\phi$ is an isomorphism. \tcbline
+\begin{proof}
+Consider $M$ as an $R[\phi]$-module via the action $\phi\cdot m=\phi(m)$. Notice that $(\phi)M=M$ since $\phi$ is surjective. By the Cayley-Hamilton theorem, there exists $\alpha_1,\dots,\alpha_{n-1}\in R$ such that $$\text{id}^n+\alpha_1\phi\text{id}^{n-1}+\dots+\alpha_{n-1}\phi\text{id}+\text{id}=0:M\to M$$ This simplifies to the equation $$(\alpha_1+\dots+\alpha_{n-1})\phi(m)+m=0$$ for all $m\in M$. \\~\\
+
+We want to show that $\phi$ is injective. Suppose that $\phi(m)=0$ for some $m\in M$. From the above equation, we see that $m=0$. Hence $\phi$ is an isomorphism. 
+\end{proof}
+\end{prp}
 
 \subsection{Nakayama's Lemma}
 \begin{lmm}{Nakayama's Lemma I}{} Let $R$ be a commutative ring. Let $M$ be a finitely generated $R$-module. Let $I$ be an ideal of $R$. If $IM=M$, then there exists $r\in R$ such that $rM=0$ and $r-1\in I$. \tcbline
@@ -551,8 +648,7 @@ Let $R$ be a ring. Let $M,N$ be $R$-modules. Recall that in Rings and Modules th
 \begin{itemize}
 \item For $\phi,\varphi:M\to N$ two $R$-module homomorphisms, define $\phi+\varphi:M\to N$ by $(\phi+\varphi)(m)=\phi(m)+\varphi(m)$ for all $m\in M$
 \item For $\phi:M\to N$ an $R$-module homomorphism and $r R$, define $r\phi:M\to N$ by $(r\phi)(m)=r\cdot\phi(m)$ for all $m\in M$. 
-\end{itemize} 
-In particular, it is an abelian group. \tcbline
+\end{itemize} \tcbline
 \begin{proof}
 We first show that the addition operation gives the structure of a group. 
 \begin{itemize}
@@ -652,8 +748,28 @@ Suppose that $A$ is a commutative ring together with a ring homomorphism $f:R\to
 
 Under the correspondence of associative algebra, the above proposition gives a another correspondence between the first one. $$\left\{(A,R)\;\bigg{|}\;\substack{A\text{ is a commutative }\\R\text{-algebra}}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{\phi:R\to A\;\bigg{|}\;\substack{\phi\text{ is a ring homomorphism}\\\text{ such that }f(R)\subseteq Z(A)=A}\right\}\;\;$$ In particular, the construction above are inverses of each other so that it gives the one-to-one correspondence. 
 
-\subsection{Finitely Generated Algebra}
-\begin{defn}{Finitely Generated Algebras}{} Let $R$ be a commutative ring. Let $A$ be an $R$-algebra. We say that $A$ is finitely generated if there exists $a_1,\dots,a_n\in A$ such that every element $a\in A$ can be written as a polynomial in $a_1,\dots,a_n$. This means that $$a=\sum_{i_1,\dots,i_n}r_{i_1,\dots,i_n}a_1^{i_1}\cdots a_n^{i_n}$$
+\subsection{Free Commutative Algebras}
+Let $R$ be a commutative ring. Let $X$ be a set. Recall that we defined $R\langle X\rangle$ to be the free (non-commutative) $R$-algebra over $X$. Explicitly, if $W=\{x_1\cdots x_n\;|\;x_1,\dots,x_n\in X\}$ is the set of words on $X$, then $$R\langle X\rangle=\bigoplus_{w\in W}R\cdot w$$ together with multiplication defined by $(x_1\cdots x_n)\cdot(y_1\cdots y_n)=x_1\cdots x_n\cdot y_1\cdots y_m$. 
+
+\begin{defn}{Free Commutative Algebra over a Ring}{} Let $R$ be a commutative ring. Let $X$ be a set. Define the free commutative $R$-algebra over $X$ to be the quotient $$\text{Free}_R(X)=\frac{R\langle X\rangle}{\langle x_ix_j-x_jx_i\;|\;x_i,x_j\in X\rangle}$$
+\end{defn}
+
+\begin{prp}{Universal Property of Free Commutative Algebras}{} Let $R$ be a commutative ring. Let $X$ be a set. The free commutative algebra $\text{Free}_R(X)$ satisfies the following universal property. If $A$ is a commutative $R$-algebra, then for every $f:X\to A$ a map of sets, there exists a unique homomorphism of algebras $\varphi:\text{Free}_R(X)\to A$ such that $\varphi(x_i)=f(x_i)$ for each $x_i\in X$. In other words, the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	X & {\text{Free}_R(X)} \\
+	& A
+	\arrow["\iota", hook, from=1-1, to=1-2]
+	\arrow["f"', from=1-1, to=2-2]
+	\arrow["{\exists!\varphi}", dashed, from=1-2, to=2-2]
+\end{tikzcd}}\\~\\
+where $\iota:X\to\text{Free}_R(X)$ is the inclusion. 
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $X$ be a set. Then there is an $R$-algebra homomorphism $$\text{Free}_R(X)\cong R[X]$$ with the polynomial ring over $X$. 
+\end{prp}
+
+\subsection{Finiteness Properties of Algebras}
+\begin{defn}{Finitely Generated Algebras}{} Let $R$ be a commutative ring. Let $A$ be a commutative $R$-algebra. We say that $A$ is finitely generated if there exists $a_1,\dots,a_n\in A$ such that every element $a\in A$ can be written as a polynomial in $a_1,\dots,a_n$. This means that $$a=\sum_{i_1,\dots,i_n}r_{i_1,\dots,i_n}a_1^{i_1}\cdots a_n^{i_n}$$
 \end{defn}
 
 Finitely generated algebras are also called algebra of finite type. 
@@ -675,7 +791,6 @@ Trivial since $\Z$ is a principal ideal domain.
 \end{proof}
 \end{lmm}
 
-\subsection{Finite Algebras}
 \begin{defn}{Finite Algebras}{} Let $R$ be a commutative ring. Let $A$ be an $R$-algebra. We say that $A$ is finite if $A$ is finitely generated as an $R$-module. 
 \end{defn}
 

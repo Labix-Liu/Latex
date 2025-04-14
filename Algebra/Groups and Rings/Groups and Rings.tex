@@ -1239,32 +1239,10 @@ Similar to the order of a group, we have the characteristic of a ring.
 \begin{defn}{Characteristic}{} Let $R$ be a ring. If there exists a positive integer $n$ such that $nx=0$ for $x\in R$, then the smallest of such integer is called the characteristic of $R$. If there is no such integer then it has characteristic $0$. 
 \end{defn}
 
-\subsection{Division Rings}
-\begin{defn}{Units of a Ring}{} Let $R$ be a ring. An element $a\in R$ is a unit in $R$ if there is some $b\in R$ such that $ab=ba=1$. The set of units in $R$ is denoted $R^\times$. 
+\begin{defn}{Commutative Rings}{} Let $R$ be a ring. We say that $R$ is commutative if $ab=ba$ for all $a,b\in R$. 
 \end{defn}
 
-\begin{defn}{Division Rings}{} A ring $R$ is a division ring if every non-zero element of $R$ is a unit in $R$. 
-\end{defn}
-
-In particular, division ring as the name suggests, allows division in the ring. This is because since every element in $R$ is a unit, for any $a,b\in R$, we have that $a=a(b^{-1}b)=(ab^{-1})(b)$. It looks ugly but if we let $k=ab^{-1}$, then we are in fact expressing $a=kb$ for any $a,b\in R$. Unfortunately we do not have the notion of size in a general division ring so it is not particularly useful that we can do this. \\~\\
-
-An important type division rings will be the following. 
-
-\begin{defn}{Fields}{} Let $F$ be a ring. We say that $F$ is a field if $F$ is a commutative division ring. 
-\end{defn}
-
-Fields are studied extensively in field theory, where its unique properties as a field is discussed. In groups and rings, we perform treatment on fields by considering its properties as a ring, rather than a field. 
-
-\begin{prp}{}{} Let $(R,+,\cdot)$ be a ring. Then $R$ is a field if and only if $(R,+)$ and $(R\setminus\{0\},\cdot)$ are abelian groups and the distributive law $a(b+c)=ab+ac$ holds. \tcbline
-\begin{proof}
-Let $R$ be a field. Then $(R,+)$ is already an abelian group. Since every field is a division ring, every element except $0$ is a unit and thus $(R,\cdot)$ is a group. Since a field is also commutative, $(R,\cdot)$ is abelian. Since every field is a ring, the distributive law already holds and we are done. \\~\\
-Suppose that the three criteria is satisfied. Then $R$ is a division ring since every nonzero element has an inverse in the group $(R,\cdot)$. It is also commutative since $(R,\cdot)$ is abelian thus we are done. 
-\end{proof}
-\end{prp}
-
-I give the distributive law here although it seems redundant. Sometimes we want to check that a set with two binary operations is a field. In this case, we will need the distributive law to link the two binary operations in to action. 
-
-\subsection{Integral Domains}
+\subsection{The Cancellation Law}
 We first proof some equivalent characterizations of the cancellation law. 
 \begin{prp}{Cancellation Law}{} The following are equivalent in a ring $R$. 
 \begin{itemize}
@@ -1294,12 +1272,6 @@ Note that we necessarily need $0\neq 1$ for this to work or else the cancellatio
 
 Integral domains appear commonly and we will work with them extensively throughout the next chapter. For now, see the following propsition. 
 
-\begin{prp}{}{} Every finite integral domain is a field. \tcbline
-\begin{proof}
-Let $\{0,a_1,\dots,a_n\}$ be elements of a finite integral domain. We simply show that every element has a mupltiplicative inverse. Fix $1\leq i\leq n$. Notice that the $n$ products $a_ia_j$ for $1\leq j\leq n$ are all distinct and nonzero. This means that $a_ia_1,\dots,a_ia_n$ is a permutation of $a_1,\dots,a_n$. Since one of $a_1,\dots,a_n$ is the multiplicative identity, we must have that for some $j$, $a_ia_j=1$ thus we are done. 
-\end{proof}
-\end{prp}
-
 \begin{defn}{Zero Divisors}{} A nonzero element $a\in R$ is called a zero divisor if there exists $b\in R$, where $b\neq 0$ such that $ab=0$ or $ba=0$. 
 \end{defn}
 
@@ -1309,17 +1281,56 @@ Suppose that there are no zero divisors in a commutative ring $R$. Then for ever
 \end{proof}
 \end{prp}
 
-Below lists two of the many relationships between the fancy rings. 
+\subsection{Division in a Ring}
+\begin{defn}{Units of a Ring}{} Let $R$ be a ring. An element $a\in R$ is a unit in $R$ if there is some $b\in R$ such that $ab=ba=1$. The set of units in $R$ is denoted $R^\times$. 
+\end{defn}
 
-\begin{prp}{}{} Every field is an integral domain. \tcbline
+\begin{lmm}{}{} Let $R$ be a ring. Let $a\in R$ be a unit. Then there exists a unique $b\in R$ such that $ab=ba=1$. \tcbline
 \begin{proof}
-Every field is necessarily commutative. It remains to show that the cancellation law applies. However, since every field is a division ring, this means that every nonzero element is a unit. Let $R$ be a field and $a,b\in R$ such that $ab=0$. Then $a^{-1}ab=a^{-1}0$ thus $b=0$ and we are done. 
+Suppose that $b,c\in R$ are two elements satisfying $ab=ba=1$ and $ac=ca=1$. Then we have that $$c1\cdot c=(ba)c=b(ac)=b\cdot 1=b$$ so we conclude. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $(R+,\cdot)$ be a ring. Then $(R^\times,\cdot)$ is a group. \tcbline
+\begin{proof}
+By the unitality axiom of rings, $1_R$ is the identity element of the group. By definition of units, every element of $R^\times$ has an inverse. Associativity follows from the associativity axiom of rings. 
 \end{proof}
 \end{prp}
 
+\begin{defn}{Division Rings}{} A ring $R$ is a division ring if every non-zero element of $R$ is a unit in $R$. 
+\end{defn}
+
+In particular, division ring as the name suggests, allows division in the ring. This is because since every element in $R$ is a unit, for any $a,b\in R$, we have that $a=a(b^{-1}b)=(ab^{-1})(b)$. It looks ugly but if we let $k=ab^{-1}$, then we are in fact expressing $a=kb$ for any $a,b\in R$. Unfortunately we do not have the notion of size in a general division ring so it is not particularly useful that we can do this. \\~\\
+
 \begin{prp}{}{} Every division ring is a domain. \tcbline
 \begin{proof}
-Similar to the above proof, since every element is a unit, the cancallation law must apply to every element. 
+Let $R$ be a division ring and $a,b\in R$ such that $ab=0$. Then $a^{-1}ab=a^{-1}0$ thus $b=0$ and we are done. 
+\end{proof}
+\end{prp}
+
+\begin{defn}{Fields}{} Let $F$ be a ring. We say that $F$ is a field if $F$ is a commutative division ring. 
+\end{defn}
+
+Fields are studied extensively in field theory, where its unique properties as a field is discussed. In groups and rings, we perform treatment on fields by considering its properties as a ring, rather than a field. 
+
+\begin{prp}{}{} Let $(R,+,\cdot)$ be a ring. Then $R$ is a field if and only if $(R,+)$ and $(R\setminus\{0\},\cdot)$ are abelian groups and the distributive law $a(b+c)=ab+ac$ holds. \tcbline
+\begin{proof}
+Let $R$ be a field. Then $(R,+)$ is already an abelian group. Since every field is a division ring, every element except $0$ is a unit and thus $(R,\cdot)$ is a group. Since a field is also commutative, $(R,\cdot)$ is abelian. Since every field is a ring, the distributive law already holds and we are done. \\~\\
+Suppose that the three criteria is satisfied. Then $R$ is a division ring since every nonzero element has an inverse in the group $(R,\cdot)$. It is also commutative since $(R,\cdot)$ is abelian thus we are done. 
+\end{proof}
+\end{prp}
+
+I give the distributive law here although it seems redundant. Sometimes we want to check that a set with two binary operations is a field. In this case, we will need the distributive law to link the two binary operations in to action. 
+
+\begin{prp}{}{} Every field is an integral domain. \tcbline
+\begin{proof}
+Let $R$ be a field. Since $R$ is a division ring, it is a domain. Since $R$ is also commutative, we thus have that $R$ is an integral domain. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Every finite integral domain is a field. \tcbline
+\begin{proof}
+Let $\{0,a_1,\dots,a_n\}$ be elements of a finite integral domain. We simply show that every element has a mupltiplicative inverse. Fix $1\leq i\leq n$. Notice that the $n$ products $a_ia_j$ for $1\leq j\leq n$ are all distinct and nonzero. This means that $a_ia_1,\dots,a_ia_n$ is a permutation of $a_1,\dots,a_n$. Since one of $a_1,\dots,a_n$ is the multiplicative identity, we must have that for some $j$, $a_ia_j=1$ thus we are done. 
 \end{proof}
 \end{prp}
 
@@ -1330,18 +1341,10 @@ The following diagram shows roughly the relationship between different types of 
 \centering
 \end{figure}
 
-I like that there is a subtle sense of symmetry here. The conditions on the arrow is the condition for the ring in the tail to be a ring in the arrow head. For instance, if a domain $R$ satisfies the property that elements in $R$ are commutative, then $R$ is an integral domain. On the other hand, every integral domain will necessarily be a domain. 
+There is a subtle sense of symmetry here. The conditions on the arrow is the condition for the ring in the tail to be a ring in the arrow head. For instance, if a domain $R$ satisfies the property that elements in $R$ are commutative, then $R$ is an integral domain. On the other hand, every integral domain will necessarily be a domain. 
 
 \pagebreak
-\subsection{Ring Homomorphisms and Ideals}
-\begin{defn}{Ring Homomorphism}{} Let $R,S$ be rings. A ring homomorphism is a map $\phi:R\to S$ such that the following are true: 
-\begin{itemize}
-\item $\phi(a+b)=\phi(a)+\phi(b)$ for all $a,b\in R$
-\item $\phi(ab)=\phi(a)\phi(b)$ for all $a,b\in R$
-\end{itemize}
-A bijective ring homomorphism is called a ring isomomorphism. 
-\end{defn}
-
+\subsection{Ideals and their Properties}
 \begin{defn}{Left, Right and Two-Sided Ideals}{} Let $(R,+,\cdot)$ be a ring. Let $I\subseteq R$. 
 \begin{itemize}
 \item $I$ is a left ideal of $R$ if $(I,+)$ is a subgroup of $(R,+)$ and $r\cdot i\in I$ for all $r\in R$ and $i\in I$
@@ -1349,6 +1352,9 @@ A bijective ring homomorphism is called a ring isomomorphism.
 \item $I$ is a two-sided ideal of $R$ is $I$ is both a left ideal and a right ideal
 \end{itemize}
 \end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $I\subseteq R$ be a subset. Then $I$ is a left ideal of $R$ if and only if $I$ is a right ideal of $R$. 
+\end{lmm}
 
 \begin{lmm}{}{} Let $R$ be a ring. Let $I$ be an ideal of $R$. Then $I=R$ if and only if $I$ contains a unit of $R$. \tcbline
 \begin{proof}
@@ -1358,41 +1364,10 @@ Let $I=R$. Then trivially $1\in I$. Now let $u\in I$ be a unit. Let $x\in R$, I 
 
 This lemma is also very useful if you consider the fact that the multiplicative identity is also a unit. 
 
-\begin{defn}{Operations on Ideals}{} Let $R$ be a ring. Let $I,J$ be ideals of $R$. 
-\begin{itemize}
-\item Define the sum of $I$ and $J$ by $$I+J=\{i+j|i\in I,j\in J\}$$
-\item Define the intersection of $I$ and $J$ by $$I\cap J=\{r\in R|r\in I,r\in J\}$$
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $R$ be a ring. Let $I,J$ be ideals of $R$. Then $I+J$ and $I\cap J$ are both ideals of $R$. \tcbline
-\begin{proof}
-Let $R$ be a ring and $I,J$ its ideals. 
-\begin{itemize}
-\item We first show that $I+J$ is an ideal. Let $i_1+j_1,i_2+j_2\in I+J$. Then since $R$ is an abelian group an $I,J$ are subgroups of $R$, $$i_1+j_1+i_2+j_2=(i_1+i_2)+(j_1+j_2)\in I+J$$ thus closure is satisfied. Associativity is satisfied since it inherits from $R$. We also have $0\in I,J$ thus $0\in I+J$. The inverse of $i+j\in I+J$ is $-i-j\in I+J$ since $-i\in I$ and $-j\in J$. Thus $I+J$ is a subgroup of $R$. \\~\\
-Now let $r\in R$ and $i+j\in I+J$. Then $r(i+j)=ri+rj$ by distributivity. Since $I,J$ are ideals, there exists $s\in I$ such that $s=ri$ and $t\in J$ such that $t=rj$. Then $r(i+j)=ri+rj=s+t\in I+J$ thus we are done. 
-\item $I\cap J$ are already subgroups of $R$. Let $k\in I\cap J$. Let $r\in R$. Then $rk\in r(I\cap J)$. Then there exists $i\in I$ and $j\in J$ such that $i=rk=j$. Then $i=j\in I\cap J$ thus we are done. 
-\end{itemize}
-\end{proof}
-\end{prp}
-
-\subsection{Types of Ideals}
-\begin{lmm}{}{} Let $R$ be a commutative ring and $a\in R$. Then $(a)=\{ar:r\in R\}$ is an ideal. \tcbline
-\begin{proof}
-Let $s,t\in(a)$. Then $s=ar_1$ and $t=ar_2$ for some $r_1,r_2\in R$. We show that $(a)$ is a subgroup of $R$. We have $$s+t=a(r_1+r_2)\in(a)$$ Identity is also in $(a)$ since $0\in R$ and $$a\cdot 0=0\in(a)$$ To show inverse we have that $u=-ar_1$ and $$s+u=ar_1-ar_1=0$$ By the subgroup criterion, $(a)$ is a group. We now show that $r(a)\subseteq(a)$. Let $r_1ar_2\in r(a)$. Then $$r_1ar_2=ar_1r_2\in(a)$$ since $R$ is commutative. Thus $(a)$ is an ideal. 
-\end{proof}
-\end{lmm}
-
-\begin{defn}{Principal Ideals}{} Let $R$ be a commutative ring with identity. Let $I$ be an ideal of $R$. Then an ideal $I$ of the form $$I=(a)$$ for some $a\in I$ is called a principal ideal. 
-\end{defn}
-
 \begin{defn}{Maximal Ideals}{} A proper ideal $M$ of a ring $R$ is a maximal ideal of $R$ is the ideal $M$ is not a proper subset of any ideal of $R$ except $R$ itself. 
 \end{defn}
 
 Becareful that maximal ideals are not necessarily unique. A typical example would be the fact that $(2)$ and $(3)$ are principle ideals that are both maximal in $\Z$. 
-
-\begin{defn}{Prime Ideals}{} A proper ideal $P$ in a commutative ring $R$ is called a prime ideal if $ab\in P$ implies $a\in P$ or $b\in P$. 
-\end{defn}
 
 \begin{prp}{}{} Let $R$ be a commutative ring with identity and $M$ an ideal of $R$. Then $M$ is maximal if and only if $R/M$ is a field. \tcbline
 \begin{proof}
@@ -1405,6 +1380,15 @@ Suppose that $M$ is a maximal ideal. Let $x\notin R$. We show that $x+M$ has an 
 Now suppose that $R/M$ is a field. Let $J$ be an ideal such that $I\subseteq J\subseteq R$ and $I\neq J$. Now let $x\in J\setminus I$. Then $I+x$ has a multiplicative inverse in $R/I$ since $I+x\neq I$, the additive identity. Let the inverse be $I+y$. Then $$I+1=(I+x)(I+y)=I+xy$$ Trivially $xy\in(x)$, thus $1\in I+(x)\subseteq J$. But if the identity is in the ideal, the ideal is equal to the ring thus we are done. 
 \end{proof}
 \end{prp}
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $I$ be an ideal of $R$. Then $I$ is a maximal left ideal if and only if $R/I$ is a division ring. \tcbline
+\begin{proof}
+Same proof as above. 
+\end{proof}
+\end{lmm}
+
+\begin{defn}{Prime Ideals}{} A proper ideal $P$ in a commutative ring $R$ is called a prime ideal if $ab\in P$ implies $a\in P$ or $b\in P$. 
+\end{defn}
 
 \begin{prp}{}{} Let $R$ be a commutative ring with identity not equal to $0$. Then $P$ is a prime ideal in $R$ if and only if $R/P$ is an integral domain. \tcbline
 \begin{proof}
@@ -1422,8 +1406,69 @@ If $M$ is maximal then $R/M$ being a field implies that $R/M$ is an integral dom
 The proof is rather inconstructive in the sense that it does not provide a good insight to the structure, the reasoning behind why every maximal ideal is prime. For a more structure-revealing proof, consider the following alternative approach: \\~\\
 Let $M$ be a maximal ideal of a commutative ring $R$. Let $ab\in M$ but $a\notin M$. Then $M+(a)=R$ since $M$ is maximal. Then $1\in R$ means that there exists $k\in M$ and $r\in R$ such that $k+ra=1$. Mutplying by $b$ gives $kb+rab=b$. Since $kb\in M$ and $rab\in M$, $b\in M$ and we are done. 
 
+\subsection{Operations on Ideals}
+\begin{defn}{Operations on Ideals}{} Let $R$ be a ring. Let $I,J$ be left ideals of $R$. 
+\begin{itemize}
+\item Define the sum of $I$ and $J$ by $$I+J=\{i+j\;|\;i\in I,j\in J\}$$
+\item Define the intersection of $I$ and $J$ by $$I\cap J=\{r\in R\;|\;r\in I,r\in J\}$$
+\item Define the product of $I$ and $J$ by $$IJ=\{\sum_{i=1}^ni_kj_k\;|\;i_k\in I, j_k\in J\}$$
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $I,J$ be left ideals of $R$. Then $I+J$ and $I\cap J$ are both left ideals of $R$. \tcbline
+\begin{proof}
+Let $R$ be a ring and $I,J$ its ideals. 
+\begin{itemize}
+\item We first show that $I+J$ is an ideal. Let $i_1+j_1,i_2+j_2\in I+J$. Then since $R$ is an abelian group an $I,J$ are subgroups of $R$, $$i_1+j_1+i_2+j_2=(i_1+i_2)+(j_1+j_2)\in I+J$$ thus closure is satisfied. Associativity is satisfied since it inherits from $R$. We also have $0\in I,J$ thus $0\in I+J$. The inverse of $i+j\in I+J$ is $-i-j\in I+J$ since $-i\in I$ and $-j\in J$. Thus $I+J$ is a subgroup of $R$. \\~\\
+Now let $r\in R$ and $i+j\in I+J$. Then $r(i+j)=ri+rj$ by distributivity. Since $I,J$ are ideals, there exists $s\in I$ such that $s=ri$ and $t\in J$ such that $t=rj$. Then $r(i+j)=ri+rj=s+t\in I+J$ thus we are done. 
+\item $I\cap J$ are already subgroups of $R$. Let $k\in I\cap J$. Let $r\in R$. Then $rk\in r(I\cap J)$. Then there exists $i\in I$ and $j\in J$ such that $i=rk=j$. Then $i=j\in I\cap J$ thus we are done. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{defn}{Elements Generating an Ideal}{} Let $R$ be a ring. Let $I$ be an indexing set. Let $\{a_i\;|\;i\in I\}\subseteq R$ be a set of elements of $R$. Define $$(r_i\;|\;i\in I)=\{\sum_{k=1}^nr_ka_k\;|\;r_k\in R\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $I$ be an indexing set. Let $\{a_i\;|\;i\in I\}\subseteq R$ be a set of elements of $R$. Then $(r_i\;|\;i\in I)$ is a left ideal of $R$. \tcbline
+\begin{proof}
+Let $s_1,s_2\in(r_i\;|\;i\in I)$. We can write $s_1=\sum_{k=1}^{n_1}r_ka_k$ and $s_2=\sum_{j=1}^{n_2}r_ja_j$. Then every term in $s_1+s_2$ is the product of $r\in R$ and $a\in\{a_i\;|\;i\in I\}$. Hence the additivity rule is satisfied. For $a=\sum_{k=1}^nr_ka_k\in(a_i\;|\;i\in I)$, we can use distibutivity to see that $$r\cdot a=r\cdot\sum_{k=1}^nr_ka_k\in(a_i\;|\;i\in I)=\sum_{k=1}^n(r\cdot r_k)\cdot a_k\in(a_i\;|\;i\in I)$$ for any $r\in R$. Hence we conclude. 
+\end{proof}
+\end{lmm}
+
+\begin{defn}{Generators of an Ideal}{} Let $R$ be a ring. Let $I$ be a left ideal of $R$. Let $i_1,\dots,i_n\in R$. We say that $i_1,\dots,i_n$ are generators of $I$ if $$I=(i_1,\dots,i_n)$$
+\end{defn}
+
+\begin{defn}{Principal Ideals}{} Let $R$ be a ring. Let $I$ be a left ideal of $R$. We say that $I$ is a principal ideal if $$I=(a)$$ is generated by a single element $a\in R$. 
+\end{defn}
+
 \pagebreak
 \section{The Isomorphism Theorem for Rings}
+\subsection{Ring Homomorphisms}
+\begin{defn}{Ring Homomorphism}{} Let $R,S$ be rings. A ring homomorphism is a map $\phi:R\to S$ such that the following are true: 
+\begin{itemize}
+\item $\phi(a+b)=\phi(a)+\phi(b)$ for all $a,b\in R$
+\item $\phi(ab)=\phi(a)\phi(b)$ for all $a,b\in R$
+\item $f(1_R)=1_S$
+\end{itemize}
+A bijective ring homomorphism is called a ring isomomorphism. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R,S$ be rings. Let $\phi:R\to S$ be a ring homomorphism. Then the following are true. 
+\begin{itemize}
+\item $\phi(0_R)=0_S$. 
+\item $\phi(-a)=-\phi(a)$. 
+\item $\phi|_{R^\times}:R^\times\to S^\times$ is a group homomorphism. Moreover, $\phi(a^{-1})=\phi(a)^{-1}$. 
+\end{itemize} \tcbline
+\begin{proof}
+We have that $$\phi(0_R)=\phi(0_R+0_R)=\phi(0_R)+\phi(0_R)$$ Since all elements of $S$ has an additive inverse, we conclude that $\phi(0_R)=0_S$ by applying the inverse on both sides. \\~\\
+
+We have that $$0_S=\phi(0_R)=\phi(a+(-a))=\phi(a)+\phi(-a)$$ Hence $\phi(-a)=-\phi(a)$. \\~\\
+
+We first show $\phi$ sends units to units. Let $r\in R^\times$. Then we have $$1_S=\phi(1_R)=\phi(r\cdot r^{-1})=\phi(r)\phi(r^{-1})$$ Since multiplicative inverses are unique, we conclude that $\phi(r^{-1})=\phi(r)^{-1}$. It follows that $\phi|_{R^\times}$ is a group homomorphism by the fact that $\phi(ab)=\phi(a)\phi(b)$. 
+\end{proof}
+\end{lmm}
+
+
 \subsection{Kernels and the Quotient Ring}
 \begin{defn}{Kernel}{} Let $R,S$ be rings. Let $\phi:R\to S$ be a ring homomorphism. Define the kernel of $\phi$ to be $$\ker(\phi)=\{r\in R\;|\;\phi(r)=0\}$$
 \end{defn}
@@ -1431,7 +1476,7 @@ Let $M$ be a maximal ideal of a commutative ring $R$. Let $ab\in M$ but $a\notin
 \begin{prp}{}{} Let $R,S$ be a ring. Let $\phi:R\to S$ be a ring homomorphism. Then $\ker(\phi)$ is an ideal of $R$. 
 \end{prp}
 
-\begin{prp}{}{} Let $I$ be an ideal of a ring $R$. Then the cosets of $I$ in $R$, $$R/I=\{r+I|r\in R\}$$ is a ring with addition defined the same as quotient groups $$(r+I)+(s+I)=(r+s)+I$$ and multiplication defined as $$(r+I)(s+I)=\{ab\in R|a\in r+I,b\in s+I\}=rs+I$$ \tcbline
+\begin{prp}{}{} Let $I$ be an ideal of a ring $R$. Then the cosets of $I$ in $R$, $$R/I=\{r+I\;|\;r\in R\}$$ is a ring with addition defined the same as quotient groups $$(r+I)+(s+I)=(r+s)+I$$ and multiplication defined as $$(r+I)(s+I)=\{ab\in R\;|\;a\in r+I,b\in s+I\}=rs+I$$ \tcbline
 \begin{proof}
 Since $(I,+)$ is a subgroup of $(R,+)$, we know that $R/I$ is already an abelian group. We simply show that multplication is well defined. Suppose that $x_1+I=x_2+I$ and $y_1+I=y_2+I$. Then 
 \begin{align*}
@@ -1499,13 +1544,7 @@ A rather unintuitive definition is that of coprime ideals.
 \begin{defn}{Coprime Ideals}{} We say that two ideals $A,B$ in a ring $R$ are coprime if $A+B=R$. 
 \end{defn}
 
-But there is indeed a good reason for the name. Notice that in $\Z$, the prime ideals are exactly the ideals $(p)$ where $p$ is a prime. We also have a nice inclusion of ideals whenever $p|a$ which is $(a)\subseteq(p)$, which we will prove later. This means that in general, the smaller the number $a$ is, the larger the ideal $(a)$ is and indeed, the smaller the number is in $\Z$, the more numbers it can possibly divide. Now recall that if $a$ and $b$ are coprime in $\Z$, then their gcd will be $1$. Indeed we will develop the notion of gcd for ideals as well, which is to say that if $d=\gcd(a,b)$ in the usual sense, then $(a)\subseteq(d)$ and $(b)\subseteq(d)$. Then if $a$ and $b$ are coprime, their ideals are both subsets of $(1)$, which is exactly $R$. This leads to why we say that two ideals are coprime. 
-
-\begin{prp}{}{} Let $A,B$ be ideals of a ring $R$. If $A$ and $B$ are coprime then $$AB=A\cap B$$ \tcbline
-\begin{proof}
-
-\end{proof}
-\end{prp}
+But there is indeed a good reason for the name. Notice that in $\Z$, the prime ideals are exactly the ideals $(p)$ where $p$ is a prime. We also have a nice inclusion of ideals whenever $p\;|\;a$ which is $(a)\subseteq(p)$, which we will prove later. This means that in general, the smaller the number $a$ is, the larger the ideal $(a)$ is and indeed, the smaller the number is in $\Z$, the more numbers it can possibly divide. Now recall that if $a$ and $b$ are coprime in $\Z$, then their gcd will be $1$. Indeed we will develop the notion of gcd for ideals as well, which is to say that if $d=\gcd(a,b)$ in the usual sense, then $(a)\subseteq(d)$ and $(b)\subseteq(d)$. Then if $a$ and $b$ are coprime, their ideals are both subsets of $(1)$, which is exactly $R$. This leads to why we say that two ideals are coprime. 
 
 \begin{thm}{Chinese Remainder Theorem}{} Let $I_1,\dots, I_n$ be ideals of a ring $R$. Then the ring homomorphism $$\phi:R\to\frac{R}{I_1}\times\cdots\times\frac{R}{I_n}$$ defined by $\phi(x)=(x+I_1,\dots,x+I_n)$ has kernel $$I=\bigcap_{k=1}^nI_k$$ Moreover, if each $I_j$ and $I_k$ are pairwise coprime, then there is an isomorphism $$\frac{R}{I}\cong\frac{R}{I_1}\times\cdots\times\frac{R}{I_n}$$ given by $\phi$. \tcbline
 \begin{proof}
@@ -1530,7 +1569,7 @@ Notice that the proof is instructive. Indeed we can simply follow the steps of t
 \pagebreak
 \section{Integral Domains}
 \subsection{Field of Fractions}
-\begin{defn}{Fractional Equivalence}{} Let $R$ be an integral domain. Let $$S=\{(a,b)|a,b\in R\text{ and }b\neq 0\}$$ Define a relation on $S$ by $(a,b)\sim(c,d)$ if $ad=bc$. 
+\begin{defn}{Fractional Equivalence}{} Let $R$ be an integral domain. Let $$S=\{(a,b)\;|\;a,b\in R\text{ and }b\neq 0\}$$ Define a relation on $S$ by $(a,b)\sim(c,d)$ if $ad=bc$. 
 \end{defn}
 
 \begin{lmm}{}{} The relation $\sim$ between elements of $S$ is an equivalence relation. \tcbline
@@ -1590,18 +1629,18 @@ Define a function $\phi:R\to Q(R)$ by $\phi(r)=\frac{r}{1}$. Then $\phi_R$ is th
 \subsection{Divisibility}
 Division is a property that only commutative rings enjoy. 
 
-\begin{defn}{Division}{} Let $R$ be a commutative ring and let $a,b\in R$ with $b\neq 0$. $a$ is said to be a multiple of $b$ if there exists an element $x\in R$ with $a=bx$. In this case $b$ is said to divide $a$ or be a divisor of $a$, written $b|a$. 
+\begin{defn}{Division}{} Let $R$ be a commutative ring and let $a,b\in R$ with $b\neq 0$. $a$ is said to be a multiple of $b$ if there exists an element $x\in R$ with $a=bx$. In this case $b$ is said to divide $a$ or be a divisor of $a$, written $b\;|\;a$. 
 \end{defn}
 
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $x,y\in R$ and $y\neq 0$. Then the following are equivalent. 
 \begin{itemize}
-\item $x|y$
+\item $x\;|\;y$
 \item $y\in(x)$
 \item $(y)\subseteq(x)$
 \end{itemize}\tcbline
 \begin{proof} Let $R$ be a commutative ring. Let $x,y\in R$ and $y\neq 0$. 
 \begin{itemize}
-\item $(1)\implies(2)$ Suppose that $y=kx=xk$ for some $k\in R$. Then $y\in(x)=\{ax|a\in R\}$ by definition. 
+\item $(1)\implies(2)$ Suppose that $y=kx=xk$ for some $k\in R$. Then $y\in(x)=\{ax\;|\;a\in R\}$ by definition. 
 \item $(2)\implies(3)$ Suppose that $y\in(x)$. Then there exists $k\in R$ such that $y=kx=xk$. To show that $(y)\subseteq(x)$, let $ry\in(y)$. Then $ry=rkx$ and $rk\in R$ thus $ry\in(x)$ thus we are done. 
 \item $(3)\implies(1)$ Suppose that $(y)\subseteq(x)$. Then there exists $k\in R$ such that $y=kx$. Then we are done. 
 \end{itemize}
@@ -1610,15 +1649,15 @@ Division is a property that only commutative rings enjoy.
 
 \begin{defn}{Greatest Common Divisor}{} Let $R$ be a commutative ring and let $a,b\in R$. A greatest common divisor of $a$ and $b$ is a non-zero element $d\in R$ such that 
 \begin{itemize}
-\item $d|a$ and $d|b$
-\item If $c|a$ and $c|b$ then $c|d$
+\item $d\;|\;a$ and $d\;|\;b$
+\item If $c\;|\;a$ and $c\;|\;b$ then $c\;|\;d$
 \end{itemize} It is denoted $\gcd(a,b)$. 
 \end{defn}
 
 \begin{defn}{Least Common Multiple}{} Let $R$ be a commutative ring and let $a,b\in R$. A least common multiple of $a$ and $b$ is a non-zero element $l\in R$ such that 
 \begin{itemize}
-\item $a|l$ and $b|l$
-\item If $a|m$ and $b|m$ then $l|m$
+\item $a\;|\;l$ and $b\;|\;l$
+\item If $a\;|\;m$ and $b\;|\;m$ then $l\;|\;m$
 \end{itemize} It is denoted $\lcm(a,b)$. 
 \end{defn}
 
@@ -1626,11 +1665,11 @@ Unfortunately, these numbers do not always exists for any $a,b$ in a general rin
 
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $x,y\in R$ such that they are nonzero. If the ideal generated by $a$ and $b$, namely $(a,b)$ is a principal ideal $(d)$, then $d$ is the gcd of $a$ and $b$. \tcbline
 \begin{proof}
-Suppose that $(a,b)=(d)$ for some $d\in R$. Then $a\in(d)$ and $b\in(d)$ already implies that $d|a$ and $d|b$. Suppose that $c|a$ and $c|b$. This means that $a\in(c)$ and $b\in(c)$. Since $d\in(a,b)$ there exists $r,s\in R$ such that $ra+sb=d$. This means that $d\in(c)$ thus $c|d$. 
+Suppose that $(a,b)=(d)$ for some $d\in R$. Then $a\in(d)$ and $b\in(d)$ already implies that $d\;|\;a$ and $d\;|\;b$. Suppose that $c\;|\;a$ and $c\;|\;b$. This means that $a\in(c)$ and $b\in(c)$. Since $d\in(a,b)$ there exists $r,s\in R$ such that $ra+sb=d$. This means that $d\in(c)$ thus $c\;|\;d$. 
 \end{proof}
 \end{prp}
 
-\begin{defn}{Associates}{} Let $R$ be a commutative ring. Let $x,y\in R$. We say that $x$ and $y$ are associates if $x|y$ and $y|x$. We denote it as $x\sim y$. 
+\begin{defn}{Associates}{} Let $R$ be a commutative ring. Let $x,y\in R$. We say that $x$ and $y$ are associates if $x\;|\;y$ and $y\;|\;x$. We denote it as $x\sim y$. 
 \end{defn}
 
 \begin{prp}{}{} Let $R$ be a integral domain. Let $x,y\in R$. Then the following are equivalent. 
@@ -1641,9 +1680,9 @@ Suppose that $(a,b)=(d)$ for some $d\in R$. Then $a\in(d)$ and $b\in(d)$ already
 \end{itemize} \tcbline
 \begin{proof}
 \begin{itemize}
-\item $(1)\implies(2)$: Suppose that $x\sim y$ then $x|y$ and $y|x$ which means that $(x)\subseteq(y)$ and $(y)\subseteq(x)$. 
+\item $(1)\implies(2)$: Suppose that $x\sim y$ then $x\;|\;y$ and $y\;|\;x$ which means that $(x)\subseteq(y)$ and $(y)\subseteq(x)$. 
 \item $(2)\implies(3)$: Suppose that $(x)=(y)$. Then since $x\in(y)$, there exists $s\in R$ such that $x=sy$ and likewise $y=tx$. Then $x=stx$ and since $R$ is an integral domain, $st=1$ which means that $s,t$ are units. 
-\item $(3)\implies(1)$: Suppose that $x=qy$ for some unit $q$. Then clearly $y|x$. Since $q$ is a unit, $q^{-1}x=y$ and thus $x|y$ which means that $x$ and $y$ are associates. 
+\item $(3)\implies(1)$: Suppose that $x=qy$ for some unit $q$. Then clearly $y\;|\;x$. Since $q$ is a unit, $q^{-1}x=y$ and thus $x\;|\;y$ which means that $x$ and $y$ are associates. 
 \end{itemize}
 \end{proof}
 \end{prp}
@@ -1654,18 +1693,18 @@ Primes and irreducibles are two similar concepts, their difference is only made 
 \begin{defn}{Irreducibles}{} Let $D$ be an integral domain. A nonzero element $p\in D$ that is not a unit is said to be irreducible if $p=ab$ implies $a$ or $b$ is a unit. 
 \end{defn}
 
-\begin{defn}{Primes}{} Let $D$ be an integral domain. A nonzero element $p\in D$ that is not a unit is said to be a prime if $p|ab$ implies $p|a$ or $p|b$. 
+\begin{defn}{Primes}{} Let $D$ be an integral domain. A nonzero element $p\in D$ that is not a unit is said to be a prime if $p\;|\;ab$ implies $p\;|\;a$ or $p\;|\;b$. 
 \end{defn}
 
 \begin{lmm}{}{} Let $D$ be an integral domain. Let $p$ be a non-unit. Then $p$ is prime if and only if $(p)$ is a prime ideal. \tcbline
 \begin{proof}
-Suppose that $p$ is prime. Suppose that $rp\in(p)$. Then $p\in P$ and we are done. Now suppose that $(p)$ is a prime ideal. Suppose that $p|ab$. Then $pd=ab$ for some $d\in D$ thus $ab\in(p)$. WLOG take $a\in(p)$ by definition of prime ideal. Then we are done since $a\in(p)$ implies $p|a$. 
+Suppose that $p$ is prime. Suppose that $rp\in(p)$. Then $p\in P$ and we are done. Now suppose that $(p)$ is a prime ideal. Suppose that $p\;|\;ab$. Then $pd=ab$ for some $d\in D$ thus $ab\in(p)$. WLOG take $a\in(p)$ by definition of prime ideal. Then we are done since $a\in(p)$ implies $p\;|\;a$. 
 \end{proof}
 \end{lmm}
 
 \begin{prp}{}{} Let $D$ be an integral domain and $p\in D$. If $p$ is a prime then $p$ is irreducible. \tcbline
 \begin{proof}
-Let $p$ be a prime in $D$. Suppose that $p=ab$. Then trivially $p|ab$ thus $p|a$ or $p|b$. WLOG take $p|a$. Trivially $a|p$ since $a|ab$. This means that $a$ and $p$ are associates. Thus $p=aq$ for some unit $q$. Then since $aq=ab$ and integral domains have cancellation law, we must have $q=b$ which means that $b$ is a unit. Thus $p$ is irreducible. 
+Let $p$ be a prime in $D$. Suppose that $p=ab$. Then trivially $p\;|\;ab$ thus $p\;|\;a$ or $p\;|\;b$. WLOG take $p\;|\;a$. Trivially $a\;|\;p$ since $a\;|\;ab$. This means that $a$ and $p$ are associates. Thus $p=aq$ for some unit $q$. Then since $aq=ab$ and integral domains have cancellation law, we must have $q=b$ which means that $b$ is a unit. Thus $p$ is irreducible. 
 \end{proof}
 \end{prp}
 
@@ -1681,7 +1720,7 @@ Notice that in general integral domains, primes are not the same as irreducibles
 
 \begin{prp}{}{} Let $D$ be a UFD and $p\in D$. Then $p$ is a prime if and only if $p$ is irreducible. \tcbline
 \begin{proof}
-We have already shown the forward implication. Now let $p$ be irreducible. We show that $(p)$ is prime. Let $ab\in(p)$. Then there exists $d\in D$ such that $pd=ab$. We can factorize $ab$ and $pd$ respectively into a product of irreducibles elements in $D$. But since they are equal, by uniqness of fatorization, $p$ is exactly an associate of one of the irreducibles in the factorization of $ab$. If $p$ is in the factorization of $a$ then $p|a$ and we are done. Otherwise it is in $b$ and we are also done. 
+We have already shown the forward implication. Now let $p$ be irreducible. We show that $(p)$ is prime. Let $ab\in(p)$. Then there exists $d\in D$ such that $pd=ab$. We can factorize $ab$ and $pd$ respectively into a product of irreducibles elements in $D$. But since they are equal, by uniqness of fatorization, $p$ is exactly an associate of one of the irreducibles in the factorization of $ab$. If $p$ is in the factorization of $a$ then $p\;|\;a$ and we are done. Otherwise it is in $b$ and we are also done. 
 \end{proof}
 \end{prp}
 
@@ -1694,7 +1733,7 @@ Notice that in the above proof, the fact that every prime is irreducible does no
 \begin{prp}{}{} Let $R$ be a PID and $x,y\in R$. Then $\gcd(x,y)$ and $\lcm(x,y)$ exists and there exists $r,s\in R$ such that $$\gcd(x,y)=rx+sy$$ \tcbline
 \begin{proof}
 Let $x,y\in R$. Then $(x)+(y)$ is an ideal of $R$, thus it must be prciniple, say $(d)=(x)+(y)$. Similarly, $(x)\cap(y)$ is also an ideal, say $(l)=(x)\cap(y)$. \\~\\
-We prove that $d$ and $l$ are the gcd and lcm respectively. Trivially, $(x)\subseteq(d)$ and $(y)\subseteq(d)$ implies $d|x$ and $d|y$. Also for any $z$ such that $z$ divides $x$ and $y$, $(x)\subseteq(z)$ and $(y)\subseteq(z)$ thus $(d)\subseteq(z)$. The proof is similar for $(l)$. \\~\\
+We prove that $d$ and $l$ are the gcd and lcm respectively. Trivially, $(x)\subseteq(d)$ and $(y)\subseteq(d)$ implies $d\;|\;x$ and $d\;|\;y$. Also for any $z$ such that $z$ divides $x$ and $y$, $(x)\subseteq(z)$ and $(y)\subseteq(z)$ thus $(d)\subseteq(z)$. The proof is similar for $(l)$. \\~\\
 Since $(d)=(x)+(y)$, there exists $r,s\in (x),(y)$ respectively such that $d=rx+sy$ and we are done. 
 \end{proof}
 \end{prp}
@@ -1706,13 +1745,13 @@ Since $(d)=(x)+(y)$, there exists $r,s\in (x),(y)$ respectively such that $d=rx+
 \item $p$ is prime ($(p)$ is prime)
 \end{itemize} \tcbline
 We have seen that every maximal ideal is a prime ideal. We have seen that if $(p)$ is a prime ideal then $p$ is prime. We have also seen that every prime is irreducible. We show separately that if $p$ is irreducible then $p$ is a prime, and also if $p$ is prime then $(p)$ is maximal. \\~\\
-For the first part, suppose that $p$ is irreducible. Suppose that $p|ab$ for $a,b\in R$. By the above proposition, $d=\gcd(p,a)$ exists. Then for some $t\in R$, $p=dt$. Since $p$ is irreducible, either $d$ or $t$ is a unit. We consider both cases. If $t$ is a unit, then $p$ and $d$ are associates and thus $p|d$. Since $d|a$, we have that $p|a$ and we are done. Now if $d$ is a unit, then $d=ra+sp$ for some $r,s\in R$. Multplying both sides with $b$ gives $db=rab+spb$. Since $p|ab$ and $p|spb$, we have that $p|db$. Then $pu=db$ for some unit $u\in R$. Since $d$ is a unit, we have that $d^{-1}pu=b$, which means that $p|b$ and we are done. \\~\\
+For the first part, suppose that $p$ is irreducible. Suppose that $p\;|\;ab$ for $a,b\in R$. By the above proposition, $d=\gcd(p,a)$ exists. Then for some $t\in R$, $p=dt$. Since $p$ is irreducible, either $d$ or $t$ is a unit. We consider both cases. If $t$ is a unit, then $p$ and $d$ are associates and thus $p\;|\;d$. Since $d\;|\;a$, we have that $p\;|\;a$ and we are done. Now if $d$ is a unit, then $d=ra+sp$ for some $r,s\in R$. Multplying both sides with $b$ gives $db=rab+spb$. Since $p\;|\;ab$ and $p\;|\;spb$, we have that $p\;|\;db$. Then $pu=db$ for some unit $u\in R$. Since $d$ is a unit, we have that $d^{-1}pu=b$, which means that $p\;|\;b$ and we are done. \\~\\
 Now we show that if $p$ is a prime then $(p)$ is maximal. We know that $(p)$ is a prime ideal. Suppose that $(p)\subseteq(q)\subseteq R$ for some ideal $q$ of $R$. Since $p\in(q)$, $p=tq$ for some $t\in R$. Since $p\in(p)$, we have that $tq\in(p)$. Now $(p)$ is prime implies that either $t\in(p)$ or $q\in(p)$. If $q\in(p)$ then $(q)\subseteq(p)$ and thus $(q)=(p)$ and we are done. If $t\in(p)$, then $t=rp$ for some $r\in R$, which means that $p=rpq$. Then $rq=1$ by cancallation law in integral domains. This means that $1\in(q)$ thus $(q)=R$ and we are done. 
 \end{prp}
 
 \begin{prp}{}{} Every PID is a UFD. \tcbline
 \begin{proof}
-Suppose that $D$ is a principal ideal domain. Suppose for a contradiction that $x$, a non-unit cannot be factorized into a product of irreducibles. Clearly $x$ is not irreducible else a contradiction. Then there exists $x_1,y_1$ non unit such that $x=x_1y_1$. Since $x$ is assumed to be not a product of irreducibles, WLOG take $x_1$ to be not irreducible. Then we can repeat the process to get non units $x_2y_2$ such that $x_1=x_2y_2$. Notice that $(x)\subset(x_1)$ is a proper containment of ideals if $x_1|x$. Then we have a chain of ideals $$(x)\subset(x_1)\subset(x_2)\subset\dots$$ I claim that $$I=\bigcup_{k=0}^\infty(x_k)$$ is an ideal. Indeed if $r,s\in I$, then $r\in(x_m)$ and $s\in(x_n)$ for some $m,n\in\N$. WLOG rtake $m\leq n$. Then $(x_m)\subseteq(x_n)$ implies $r,s\in(x_n)$ thus $r+s\in(x_n)\subseteq I$. Also if $t\in R$, then $tr\in(x_m)\subseteq I$ thus $I$ is indeed an ideal. \\~\\
+Suppose that $D$ is a principal ideal domain. Suppose for a contradiction that $x$, a non-unit cannot be factorized into a product of irreducibles. Clearly $x$ is not irreducible else a contradiction. Then there exists $x_1,y_1$ non unit such that $x=x_1y_1$. Since $x$ is assumed to be not a product of irreducibles, WLOG take $x_1$ to be not irreducible. Then we can repeat the process to get non units $x_2y_2$ such that $x_1=x_2y_2$. Notice that $(x)\subset(x_1)$ is a proper containment of ideals if $x_1\;|\;x$. Then we have a chain of ideals $$(x)\subset(x_1)\subset(x_2)\subset\dots$$ I claim that $$I=\bigcup_{k=0}^\infty(x_k)$$ is an ideal. Indeed if $r,s\in I$, then $r\in(x_m)$ and $s\in(x_n)$ for some $m,n\in\N$. WLOG rtake $m\leq n$. Then $(x_m)\subseteq(x_n)$ implies $r,s\in(x_n)$ thus $r+s\in(x_n)\subseteq I$. Also if $t\in R$, then $tr\in(x_m)\subseteq I$ thus $I$ is indeed an ideal. \\~\\
 Since $R$ is a PID, there exists some $d\in I$ such that $I=(d)$. This also means that $d\in(x_m)$ for some $m\in\N$. Then this means that $I=(d)\subseteq(x_m)$. This proves that the chain eventually stops and this is a contradiction since we assumed that the chain of ideals are properly contained. \\~\\
 This menas that $x$ can indeed be factorized into a product of irreducibles. 
 \end{proof}

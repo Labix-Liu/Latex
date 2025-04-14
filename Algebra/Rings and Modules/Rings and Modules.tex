@@ -132,7 +132,7 @@ I claim that $\ker(\phi)=A\cap B$. If $a\in\ker(\phi)$ then $a+B=B$ implies that
 
 \pagebreak
 \section{Constructing New Modules}
-\subsection{Direct Sum of Modules}
+\subsection{Direct Sum and Products of Modules}
 \begin{defn}{Direct Product of Modules}{} Let $I$ be an indexing set and $\{M_i\;|\;i\in I\}$ a family of $R$-modules. Define the direct product to be the set $$\prod_{i\in I}M_i=\left\{(m_i)_{i\in I}\;\bigg{|}m_i\in M_i\;\right\}$$ together with the left $R$-module structure inherited component wise. 
 \end{defn}
 
@@ -161,123 +161,6 @@ Thus there is no distinction in external and internal direct sum of modules, jus
 Firstly, it is clear that $\im(\phi)=\sum_{i\in I}N_i$ by definition of $\phi$. If $\phi$ is injective then we obtain an isomorphism $\bigoplus_{i\in I}N_i\cong\sum_{i\in I}N_i$ by the first isomorphism theorem of modules. Finally if $\phi$ is also surjective then we have $M=\sum_{i\in I}N_i\cong\bigoplus_{i\in I}N_i$ and so we are done. 
 \end{proof}
 \end{lmm}
-
-\subsection{Free Modules}
-Free modules is the module analogue of vector spaces. In general, they can be infinite dimensional. 
-
-\begin{defn}{Basis of a Module}{} Let $R$ be a ring and $M$ a left $R$-module. Let $B\subseteq M$. 
-\begin{itemize}
-\item We say that $B$ is linearly independent if for every $\{b_1,\dots,b_n\}\subseteq B$ such that $$\sum_{i=1}^nr_ib_i=0_M$$ we have that $r_1=\dots=r_n=0_R$
-\item We say that $B$ is a generating set of $M$ if for all $m\in M$, $$m=\sum_{b\in B}r_b\cdot b$$ for finitely many non zero $r_b$
-\item We say that $B$ is a basis of $M$ if $B$ is both linearly independent and is a generating set of $M$. 
-\end{itemize}
-\end{defn}
-
-By considering $r_b$ being dependent on $b\in B$, we can define $$\text{Fun}_f(B,R)=\{f:B\to R\;|\;f(b)=0_R\text{ for all but finitely many }b\in B\}$$ then we can rewrite the definition of generating sets to be if for every $m\in M$, there exists $f\in\text{Fun}_f(B,R)$ such that $m=\sum_{b\in B}f(b)\cdot b$. We can also define linear independence in a similar fashion. \\
-
-Basis for a module is similar to a basis for vector spaces. Indeed every field is a ring so one can think of modules as a generalization for vector spaces. However, not every module admits a basis just like the theory in vector spaces. When they do admit a basis, we call the module a free module. 
-
-\begin{defn}{Free R-Module}{} Let $R$ be a ring and $M$ a left $R$-module. We say that $M$ is a free $R$-module if $M$ admits a basis. 
-\end{defn}
-
-\begin{eg}{}{} Consider the following abelian groups as $\Z$-modules. 
-\begin{itemize}
-\item $\Z[x]$ is a free $\Z$-module isomorphic to $\bigoplus_{n\in\N}\Z\cdot x$. 
-\item $\Z[[x]]$ is not a free $\Z$-module but is isomorphic to $\prod_{n\in\N}\Z$. 
-\item $\Q$ is not a free $\Z$-module. 
-\item $\Q/\Z$ is not a free $\Z$-module. 
-\item $\R$ is not a free $\Z$-module. 
-\end{itemize}
-\end{eg}
-
-Notice that while the countable Cartesian product $\prod_{i\in I}R$ is indeed a left $R$-module, it is not a free module. Because in the definition of a generating set elements of the direct sum is a finite sum of elements. But elements in $\prod_{i\in I}R$ can have countably many long components. 
-
-\begin{lmm}{}{} Let $R$ be a ring. Let $B$ be a set. Then the external direct sum $$\bigoplus_{b\in B}R\cdot b$$ is a free left $R$-module with basis $B$. \tcbline
-\begin{proof}
-Notice that $\{1\cdot b\;|\;b\in B\}$ is a basis with cardinality $B$ since every element in $\bigoplus_{b\in B}R\cdot b$ only has finitely many non zero components so that it is a unique linear combination of the the set. 
-\end{proof}
-\end{lmm}
-
-\begin{prp}{}{} Let $R$ be a ring. Let $M$ be a free $R$-module. Then there is an isomorphism $$M\cong\bigoplus_{i\in I}R$$ for some indexing set $I$. 
-\end{prp}
-
-\begin{lmm}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. If $M$ is free, then $M$ is isomorphic $$M\cong\frac{\bigoplus_{i\in I}R}{J}$$ to a quotient of a free module for some left $R$-submodule $J$. \tcbline
-\begin{proof}
-Let $M$ be an $R$-module. Choose a generating set $B\subseteq M$. This is always possible because trivially we can choose $B=M$. Define a map $\pi_B:\bigoplus_{b\in B}R\to M$ by $$\pi_B(r_1,r_2,\dots)=\sum_{b\in B}r_b\cdot b$$ Note that the sum is finite since elements of $\bigoplus_{b\in B}R$ has finitely many non-zero components. It is clear that it is an $R$-module homomorphism. It is also surjective by definition of a generating set. By the first isomorphism theorem for module, we have that $$\frac{\bigoplus_{b\in B}R}{\ker(\pi_B)}\cong M$$ and so we conclude. 
-\end{proof}
-\end{lmm}
-
-The following is reminiscent of a theorem in linear algebra. However note that we require that $R$ to be a division ring. Because we only dealt with finite dimensional vector spaces in Linear Algebra, we will need Zorn's lemma to deal with the case that the basis set has countable cardinality. Recall Zorn's lemma: If $(\mP,\preceq)$ is a non empty poset such that every chain $P_1\preceq P_2\preceq\cdots$ has an upper bound, then $(\mP,\preceq)$ contains a maximal element. 
-
-\begin{thm}{}{} Let $R$ be a division ring. Let $M$ be a left $R$-module. Then
-\begin{itemize}
-\item Every linearly independent subset $S\subseteq M$ can be extended to a basis
-\item Every generating set $Q\subseteq M$ contains a basis
-\item $M$ is a free $R$-module
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item Let $S$ be a linearly independent set. Let $(\mP,\subseteq)$ be the poset ordered by inclusion, where elements are subsets $S\subseteq X\subseteq M$ and that $X$ is linearly independent. $\mP$ is non empty since $S\in\mP$. Let $\mC$ be a chain in $\mP$. If $\mC$ is empty, then any $X\in\mP$ is an upper bound. So assume that $\mC$ is non-empty. Consider the set $$T=\bigcup_{X\in\mC}X$$ Clearly $X\subseteq T$ for all $X\in\mC$. It remains to show that $T\in\mP$. \\~\\
-
-Clearly $S\subseteq T$. We now want to show that $T$ is a linearly independent set. Let $v_1,\dots,v_m\in T$ and $a_1,\dots,a_m\in R$ such that $$\sum_{k=1}^ma_kv_k=0$$ Since $T$ is the union of $X\in\mC$, each $v_j$ belongs to some $X_j\in\mC$. Since $\mC$ is a chain, one of these sets, $X_m$ contains all the other $X_j$. Thus $v_1,\dots,v_m\in X_m$. Since $X_m\in\mP$, we conclude that $a_1=\dots=a_m=0$. Thus $T$ is linearly independent so that $T\in\mP$. \\~\\
-
-By Zorn's lemma, $\mP$ has a maximal element $Z$. Suppose that $Z$ does not span $M$. Then there exists $v\in M$ that is not a finite linear combination of elements of $Z$. Since $Z$ is maximal, $Z\cup\{v\}$ does not belong to $\mP$ and hence is linearly dependent. Thus there are $v_1,\dots,v_m\in Z$ and $a_1,\dots,a_m,a\in R$ not all $0$ such that $$\sum_{k=1}^ma_kv_k+av=0$$ If $a=0$ then we have linear dependence among $v_1,\dots,v_m$, a contradiction. Thus $a\neq 0$. Since $R$ is a division ring, $a$ has an inverse $a^{-1}$. Hence $$v=-a^{-1}a_1v_1-\cdots-a^{-1}a_mv_m$$ This is a contradiction. Thus $Z$ is a basis. 
-
-\item Suppose that $(\mP,\subseteq)$ is the poset under inclusion with elements of $\mP$ being subsets $X\subseteq Q$ and $X$ is linearly independent. Notice that $\emptyset\in\mP$ so $\mP$ is non empty. By a similar argument as above, we can conclude that $\mP$ has an upper bound. By Zorn's lemma, $\mP$ has a maximal element $Z$. It is linearly independent and is contained in $Q$. Now $Z$ is a basis once we have shown that $Z$ generates $M$. Since every $v\in M$ is a finite linear combination of elements of $Q$, we just have to express every $q\in Q$ as a linear combination of $Z$. \\~\\
-
-Suppose that this is false. Then there exists $q\in Q$ such that $q$ is not a linear combination of $Z$. By a similar argument as above, $Z\cup\{q\}$ is a bigger element of $\mP$, contradicting the fact that $Z$ is maximal. Thus we are done. 
-
-\item Either apply the first point with $S=\emptyset$ or apply the second point with $Q=M$. 
-\end{itemize}
-This concludes the proof. 
-\end{proof}
-\end{thm}
-
-\begin{thm}{Universal Property of Free Modules}{} Let $R$ be a ring. Let $M$ be an $R$-module. Let $B$ be a set. Let $f:B\to M$ be a function of sets. Then $M$ is a free module with basis $B$ if and only if the following is true. \\~\\
-
-For every $R$-module $N$ and function of sets $g:B\to N$, there exists a unique $R$-module homomorphism $h:M\to N$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	B & M \\
-	& N
-	\arrow["f", from=1-1, to=1-2]
-	\arrow["g"', from=1-1, to=2-2]
-	\arrow["{\exists!}", dashed, from=1-2, to=2-2]
-\end{tikzcd}}\\~\\
-\end{thm}
-
-\subsection{Finitely Generated Modules}
-\begin{defn}{Finitely Generated Modules}{} Let $R$ be a ring. Let $M$ be a left $R$-module. We say that $M$ is finitely generated if $M$ has a finite generating set. 
-\end{defn}
-
-This notion should be somewhat familiar to us. A finitely generated $\Z$-module is just a finitely generated abelian group. We have already classified all finitely generated $\Z$-modules by the fundamental theorem of finitely generated abelian groups. \\
-
-On the other hand, a finitely generated $k$-module for a field $k$ is exactly a finite dimensional vector space over $k$. We have already classified all finitely generated $k$-modules as they are isomorphic to $k^n$ for some $n\in\N$. 
-
-\begin{prp}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Let $N\leq M$ be an $R$-submodule of $M$. If $M$ is finitely generated, then $M/N$ is finitely generated. \tcbline
-\begin{proof}
-Suppose that $M$ is generated by the elements $m_1,\dots,m_k$. Let $p:M\to M/N$ be the projection map. It is in particular surjective. I claim that $m_1+N,\dots,m_k+N$ generate $M/N$. Let $t+N\in M/N$. Since $p$ is surjective, there exists $u\in M$ such that $p(u)=t+N$. Since $M$ is finitely generated by $m_1,\dots,m_k$, we can write $u=r_1m_1+\dots+r_km_k$. Then $$t+N=p(u)=p(r_1m_1+\dots+r_km_k)=r_1p(m_1)+\dots+r_kp(m_k)=r_1m_1+N+\dots+r_km_k+N$$ Hence every element of $M/N$ can be written as an $R$-linear combination of $m_1+N,\dots,m_k+N$. Hence $M/N$ is finitely generated by $m_1+N,\dots,m_k+N$. 
-\end{proof}
-\end{prp}
-
-Beware that $N\leq M$ may not be finitely generated even when $M$ is finitely generated. For instance, the ring $R=\R[x_1,\dots,x_n,\dots]$ is finitely generated by the element $1_R$ over itself. But the ideal $I=(x_1,\dots,x_n,\dots)$ (which is an $R$-submodule) is clearly not finitely generated. 
-
-\begin{eg}{}{} Consider the following abelian groups as $\Z$-modules. 
-\begin{itemize}
-\item $\Z[x]$ is not a finitely generated $\Z$-module. 
-\item $\Z[[x]]$ is not a finitely generated $\Z$-module. 
-\item $\Q$ is not a finitely generated $\Z$-module. 
-\item $\Q/\Z$ is not a finitely generated $\Z$-module. 
-\item $\R$ is not a finitely generated $\Z$-module. 
-\end{itemize}
-\end{eg}
-
-\begin{prp}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Then $M$ is finitely generated if and only if there exists a surjective homomorphism $R^n\to M$ for some $n\in\N$. 
-\end{prp}
-
-While free modules mimic the notion of a vector space, finitely generated free modules mirror the notion of finite dimensional vector spaces. 
-
-\begin{prp}{}{} Let $R$ be a ring. Let $M$ be an $R$-module. If $M$ if finitely generated and free, then there is an isomorphism $$M\cong R^n\cong R^{\oplus n}$$ for some $n\in\N$. 
-\end{prp}
 
 \subsection{The Module of Homomorphisms}
 \begin{defn}{The Set of Homomorphisms}{} Let $R$ be a ring. Let $M,N$ be $R$-modules. Define the homomorphism ring of $R$ to be the set $$\Hom_R(M,N)=\{\phi:M\to N\;|\;\phi\text{ is an }R\text{-module homomorphism}\}$$ of all $R$-module homomorphisms from $M$ to $N$.
@@ -460,16 +343,139 @@ It is not a coincidence that we require $R$ to be a division ring. Every divisio
 \begin{defn}{Invariant Basis Number Property}{} Let $R$ be a ring. We say that $R$ has the invariant basis number (IBN) property if every free $R$-module has equal cardinality for basis. 
 \end{defn}
 
-\begin{prp}{}{} Every division ring is an IBN-ring. 
-\end{prp}
-
-\begin{prp}{}{} Every commutative ring is an IBN-ring. 
-\end{prp}
-
 \begin{prp}{}{} Let $R$ be a ring. Then $R$ is an IBN-ring if and only if $R^m\cong R^n$ implies that $m=n$. 
 \end{prp}
 
+\begin{prp}{}{} Every division ring is an IBN-ring. 
+\end{prp}
+
+\begin{prp}{}{} Every commutative ring is an IBN-ring. \tcbline
+\begin{proof}
+Let $R$ be a commutative ring. Let $m$ be a maximal ideal of $R$. Suppose that $R^k\cong R^n$. Then $(R/m)^k\cong(R/m)^n$ as vector spaces over $R/m$. Hence $k=n$. Thus $R$ is an IBN-ring. 
+\end{proof}
+\end{prp}
+
 \begin{prp}{}{} Let $f:R\to S$ be a surjective non zero ring homomorphism. Let $S$ be an IBN-ring. Then $R$ is also an IBN-ring. 
+\end{prp}
+
+\subsection{Free Modules}
+Free modules is the module analogue of vector spaces. In general, they can be infinite dimensional. 
+
+\begin{defn}{Basis of a Module}{} Let $R$ be a ring and $M$ a left $R$-module. Let $B\subseteq M$. 
+\begin{itemize}
+\item We say that $B$ is linearly independent if for every $\{b_1,\dots,b_n\}\subseteq B$ such that $$\sum_{i=1}^nr_ib_i=0_M$$ we have that $r_1=\dots=r_n=0_R$
+\item We say that $B$ is a generating set of $M$ if for all $m\in M$, $$m=\sum_{b\in B}r_b\cdot b$$ for finitely many non zero $r_b$
+\item We say that $B$ is a basis of $M$ if $B$ is both linearly independent and is a generating set of $M$. 
+\end{itemize}
+\end{defn}
+
+By considering $r_b$ being dependent on $b\in B$, we can define $$\text{Fun}_f(B,R)=\{f:B\to R\;|\;f(b)=0_R\text{ for all but finitely many }b\in B\}$$ then we can rewrite the definition of generating sets to be if for every $m\in M$, there exists $f\in\text{Fun}_f(B,R)$ such that $m=\sum_{b\in B}f(b)\cdot b$. We can also define linear independence in a similar fashion. \\
+
+Basis for a module is similar to a basis for vector spaces. Indeed every field is a ring so one can think of modules as a generalization for vector spaces. However, not every module admits a basis just like the theory in vector spaces. When they do admit a basis, we call the module a free module. 
+
+\begin{defn}{Free R-Module}{} Let $R$ be a ring and $M$ a left $R$-module. We say that $M$ is a free $R$-module if $M$ admits a basis. 
+\end{defn}
+
+\begin{eg}{}{} Consider the following abelian groups as $\Z$-modules. 
+\begin{itemize}
+\item $\Z[x]$ is a free $\Z$-module isomorphic to $\bigoplus_{n\in\N}\Z\cdot x$. 
+\item $\Z[[x]]$ is not a free $\Z$-module but is isomorphic to $\prod_{n\in\N}\Z$. 
+\item $\Q$ is not a free $\Z$-module. 
+\item $\Q/\Z$ is not a free $\Z$-module. 
+\item $\R$ is not a free $\Z$-module. 
+\end{itemize}
+\end{eg}
+
+Notice that while the countable Cartesian product $\prod_{i\in I}R$ is indeed a left $R$-module, it is not a free module. Because in the definition of a generating set elements of the direct sum is a finite sum of elements. But elements in $\prod_{i\in I}R$ can have countably many long components. 
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $B$ be a set. Then the external direct sum $$\bigoplus_{b\in B}R\cdot b$$ is a free left $R$-module with basis $B$. \tcbline
+\begin{proof}
+Notice that $\{1\cdot b\;|\;b\in B\}$ is a basis with cardinality $B$ since every element in $\bigoplus_{b\in B}R\cdot b$ only has finitely many non zero components so that it is a unique linear combination of the the set. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $M$ be a free $R$-module. Then there is an isomorphism $$M\cong\bigoplus_{i\in I}R$$ for some indexing set $I$. 
+\end{prp}
+
+\begin{lmm}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Then $M$ is isomorphic $$M\cong\frac{\bigoplus_{i\in I}R}{J}$$ to a quotient of a free module for some left $R$-submodule $J$. \tcbline
+\begin{proof}
+Let $M$ be an $R$-module. Choose a generating set $B\subseteq M$. This is always possible because trivially we can choose $B=M$. Define a map $\pi_B:\bigoplus_{b\in B}R\to M$ by $$\pi_B(r_1,r_2,\dots)=\sum_{b\in B}r_b\cdot b$$ Note that the sum is finite since elements of $\bigoplus_{b\in B}R$ has finitely many non-zero components. It is clear that it is an $R$-module homomorphism. It is also surjective by definition of a generating set. By the first isomorphism theorem for module, we have that $$\frac{\bigoplus_{b\in B}R}{\ker(\pi_B)}\cong M$$ and so we conclude. 
+\end{proof}
+\end{lmm}
+
+The following is reminiscent of a theorem in linear algebra. However note that we require that $R$ to be a division ring. Because we only dealt with finite dimensional vector spaces in Linear Algebra, we will need Zorn's lemma to deal with the case that the basis set has countable cardinality. Recall Zorn's lemma: If $(\mP,\preceq)$ is a non empty poset such that every chain $P_1\preceq P_2\preceq\cdots$ has an upper bound, then $(\mP,\preceq)$ contains a maximal element. 
+
+\begin{thm}{}{} Let $R$ be a division ring. Let $M$ be a left $R$-module. Then
+\begin{itemize}
+\item Every linearly independent subset $S\subseteq M$ can be extended to a basis
+\item Every generating set $Q\subseteq M$ contains a basis
+\item $M$ is a free $R$-module
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $S$ be a linearly independent set. Let $(\mP,\subseteq)$ be the poset ordered by inclusion, where elements are subsets $S\subseteq X\subseteq M$ and that $X$ is linearly independent. $\mP$ is non empty since $S\in\mP$. Let $\mC$ be a chain in $\mP$. If $\mC$ is empty, then any $X\in\mP$ is an upper bound. So assume that $\mC$ is non-empty. Consider the set $$T=\bigcup_{X\in\mC}X$$ Clearly $X\subseteq T$ for all $X\in\mC$. It remains to show that $T\in\mP$. \\~\\
+
+Clearly $S\subseteq T$. We now want to show that $T$ is a linearly independent set. Let $v_1,\dots,v_m\in T$ and $a_1,\dots,a_m\in R$ such that $$\sum_{k=1}^ma_kv_k=0$$ Since $T$ is the union of $X\in\mC$, each $v_j$ belongs to some $X_j\in\mC$. Since $\mC$ is a chain, one of these sets, $X_m$ contains all the other $X_j$. Thus $v_1,\dots,v_m\in X_m$. Since $X_m\in\mP$, we conclude that $a_1=\dots=a_m=0$. Thus $T$ is linearly independent so that $T\in\mP$. \\~\\
+
+By Zorn's lemma, $\mP$ has a maximal element $Z$. Suppose that $Z$ does not span $M$. Then there exists $v\in M$ that is not a finite linear combination of elements of $Z$. Since $Z$ is maximal, $Z\cup\{v\}$ does not belong to $\mP$ and hence is linearly dependent. Thus there are $v_1,\dots,v_m\in Z$ and $a_1,\dots,a_m,a\in R$ not all $0$ such that $$\sum_{k=1}^ma_kv_k+av=0$$ If $a=0$ then we have linear dependence among $v_1,\dots,v_m$, a contradiction. Thus $a\neq 0$. Since $R$ is a division ring, $a$ has an inverse $a^{-1}$. Hence $$v=-a^{-1}a_1v_1-\cdots-a^{-1}a_mv_m$$ This is a contradiction. Thus $Z$ is a basis. 
+
+\item Suppose that $(\mP,\subseteq)$ is the poset under inclusion with elements of $\mP$ being subsets $X\subseteq Q$ and $X$ is linearly independent. Notice that $\emptyset\in\mP$ so $\mP$ is non empty. By a similar argument as above, we can conclude that $\mP$ has an upper bound. By Zorn's lemma, $\mP$ has a maximal element $Z$. It is linearly independent and is contained in $Q$. Now $Z$ is a basis once we have shown that $Z$ generates $M$. Since every $v\in M$ is a finite linear combination of elements of $Q$, we just have to express every $q\in Q$ as a linear combination of $Z$. \\~\\
+
+Suppose that this is false. Then there exists $q\in Q$ such that $q$ is not a linear combination of $Z$. By a similar argument as above, $Z\cup\{q\}$ is a bigger element of $\mP$, contradicting the fact that $Z$ is maximal. Thus we are done. 
+
+\item Either apply the first point with $S=\emptyset$ or apply the second point with $Q=M$. 
+\end{itemize}
+This concludes the proof. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{Universal Property of Free Modules}{} Let $R$ be a ring. Let $M$ be an $R$-module. Let $B$ be a set. Let $f:B\to M$ be a function of sets. Then $M$ is a free module with basis $B$ if and only if the following is true. \\~\\
+
+For every $R$-module $N$ and function of sets $g:B\to N$, there exists a unique $R$-module homomorphism $h:M\to N$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	B & M \\
+	& N
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g"', from=1-1, to=2-2]
+	\arrow["{\exists!}", dashed, from=1-2, to=2-2]
+\end{tikzcd}}\\~\\
+\end{thm}
+
+\subsection{Finitely Generated Modules}
+\begin{defn}{Finitely Generated Modules}{} Let $R$ be a ring. Let $M$ be a left $R$-module. We say that $M$ is finitely generated if $M$ has a finite generating set. 
+\end{defn}
+
+This notion should be somewhat familiar to us. A finitely generated $\Z$-module is just a finitely generated abelian group. We have already classified all finitely generated $\Z$-modules by the fundamental theorem of finitely generated abelian groups. \\
+
+On the other hand, a finitely generated $k$-module for a field $k$ is exactly a finite dimensional vector space over $k$. We have already classified all finitely generated $k$-modules as they are isomorphic to $k^n$ for some $n\in\N$. 
+
+\begin{prp}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Let $N\leq M$ be an $R$-submodule of $M$. If $M$ is finitely generated, then $M/N$ is finitely generated. \tcbline
+\begin{proof}
+Suppose that $M$ is generated by the elements $m_1,\dots,m_k$. Let $p:M\to M/N$ be the projection map. It is in particular surjective. I claim that $m_1+N,\dots,m_k+N$ generate $M/N$. Let $t+N\in M/N$. Since $p$ is surjective, there exists $u\in M$ such that $p(u)=t+N$. Since $M$ is finitely generated by $m_1,\dots,m_k$, we can write $u=r_1m_1+\dots+r_km_k$. Then $$t+N=p(u)=p(r_1m_1+\dots+r_km_k)=r_1p(m_1)+\dots+r_kp(m_k)=r_1m_1+N+\dots+r_km_k+N$$ Hence every element of $M/N$ can be written as an $R$-linear combination of $m_1+N,\dots,m_k+N$. Hence $M/N$ is finitely generated by $m_1+N,\dots,m_k+N$. 
+\end{proof}
+\end{prp}
+
+Beware that $N\leq M$ may not be finitely generated even when $M$ is finitely generated. For instance, the ring $R=\R[x_1,\dots,x_n,\dots]$ is finitely generated by the element $1_R$ over itself. But the ideal $I=(x_1,\dots,x_n,\dots)$ (which is an $R$-submodule) is clearly not finitely generated. 
+
+\begin{eg}{}{} Consider the following abelian groups as $\Z$-modules. 
+\begin{itemize}
+\item $\Z[x]$ is not a finitely generated $\Z$-module. 
+\item $\Z[[x]]$ is not a finitely generated $\Z$-module. 
+\item $\Q$ is not a finitely generated $\Z$-module. 
+\item $\Q/\Z$ is not a finitely generated $\Z$-module. 
+\item $\R$ is not a finitely generated $\Z$-module. 
+\end{itemize}
+\end{eg}
+
+\begin{prp}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Then $M$ is finitely generated if and only if there exists a surjective homomorphism $R^n\to M$ for some $n\in\N$. 
+\end{prp}
+
+While free modules mimic the notion of a vector space, finitely generated free modules mirror the notion of finite dimensional vector spaces. 
+
+\begin{prp}{}{} Let $R$ be a ring. Let $M$ be an $R$-module. If $M$ if finitely generated and free, then there is an isomorphism $$M\cong R^n\cong R^{\oplus n}$$ for some $n\in\N$. \tcbline
+\begin{proof}
+When $R=0$ then it is trivial. Suppose that $R\neq 0$. Let $m$ be a maximal ideal of $R$. Since $M\cong\bigoplus_{I\in I}R$ for some indexing set $I$, we can quotient $m$ on both sides to deduce: $$\frac{M}{mM}\cong\bigoplus_{i\in I}\frac{R}{m}$$ Now $R/m$ is a division ring and it satisfies the invariant basis number property. Since $M/mM$ is a free $R/m$-module, we conclude that any basis of $M/mM$ and $\bigoplus_{i\in I}\frac{R}{m}$ has equal cardinality. Since $M/mM$ is finitely generated, the basis of $M$ is finite. Hence the indexing set $I$ is finite, say $\abs{I}=n$. Then $M\cong\bigoplus_{i=1}^nR$ and so we are done. 
+\end{proof}
 \end{prp}
 
 \subsection{Simple Modules}
@@ -902,7 +908,7 @@ Then $\dim(W)=\dim(V)+\dim(U)$.
 
 A prototypical example of an algebra would be a ring itself. Indeed for a ring $R$, $R$ is a left $R$-module via the action of left multiplication. 
 
-\begin{prp}{}{} Let $R$ be a ring. Then the following are equivalent characterizations of an $R$-algebra. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Then the following are equivalent characterizations of an $R$-algebra. 
 \begin{itemize}
 \item $A$ is an $R$-algebra. 
 \item $A$ is a ring together with a ring homomorphism $f:R\to A$ such that $f(R)\subseteq Z(A)$. 
@@ -913,19 +919,13 @@ This establishes a one-to-one correspondence $$\left\{(A,R)\;\bigg{|}\;A\text{ i
 
 Notice that when $R$ is a field, the algebra $A$ becomes a vector space over $R$. 
 
-\begin{lmm}{}{} Let $F$ be a field and $A$ be a commutative ring. Then $A$ is an $F$-algebra if and only if $A$ is a vector space over $F$. \tcbline
-\begin{proof}
-If $A$ is an $F$-algebra, then it is clear that properties of a vector space holds. Indeed $A$ is an abelian group and $F$ is a left action on $A$ such that distributivity, associativity and identity is satisfied. Conversely, if $A$ is a vector space over $F$, then the distributivity law is satisfied by definition of a vector space. Moreover $F$ satisfies associativity and identity so that $F$ is a ring action on $A$. 
-\end{proof}
-\end{lmm}
-
 \begin{lmm}{}{} Let $R$ be a ring. Then $R$ is an algebra over $\Z$. 
 \end{lmm}
 
-\begin{defn}{R-Subalgebra}{} Let $A$ be an $R$-algebra. An $R$-subalgebra of $A$ is a subring of $A$ which is also an $R$-algebra in its own right. 
+\begin{defn}{R-Subalgebra}{} Let $R$ be a commutative ring. Let $A$ be an $R$-algebra. An $R$-subalgebra of $A$ is a subring of $A$ which is also an $R$-algebra in its own right. 
 \end{defn}
 
-\begin{prp}{}{} Let $A$ be an $R$-algebra. Then any left, right or two-sided ideals of $A$ is an $R$-subalgebra of $A$. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $A$ be an $R$-algebra. Then any left, right or two-sided ideals of $A$ is an $R$-subalgebra of $A$. 
 \end{prp}
 
 \begin{defn}{R-Algebra Homomorphism}{} Let $R$ be a commutative ring and $A,B$ be both $R$-algebras. We say that a map of sets $f:A\to B$ is an $R$-algebra homomorphism if the following are satisfied: 
@@ -936,27 +936,10 @@ If $A$ is an $F$-algebra, then it is clear that properties of a vector space hol
 \end{defn}
 
 \subsection{Free Algebras}
-The polynomial rings defined in Group and Rings enjoy much more structure than just being a ring. In fact, the prototypical example of an algebra is the polynomial ring $R[x]$ for a ring $R$. It is in fact a free $R$-module with basis $\{1,x,x^2,\dots\}$. While $R[x]$ can be decomposed into a direct sum of $R$-modules, $R[x]$ itself is also an $R$-module so that $R[x]$ becomes a commutative algebra. 
-
-\begin{prp}{}{} Let $\F$ be a field. Then the polynomial ring $\F[x]$ is an $\F$ algebra. Its vector space structure has basis $\{x^n\;|\;n\in\N\}$. 
-\end{prp}
-
-If we do not allow the basis elements of $R[x]$ to commute, we obtain a free algebra. 
-
-\begin{defn}{Free Algebra}{} Let $R$ be a ring. Let $X=\{x_1,\dots,x_k\}$. The free algebra $R\langle X\rangle=\F\langle x_1,\dots,x_k\rangle$ is the free $R$-module with a basis consisting of all words over $X$ together with multiplication rule defined as follows: for $x_{i_1}\cdots x_{i_n}$ and $y_{j_1}\cdots y_{j_m}$ words of $\F\langle X\rangle$, $$(x_{i_1}\cdots x_{i_n})(y_{j_1}\cdots y_{j_m})=x_{i_1}\cdots x_{i_n}\cdot y_{j_1}\cdots y_{j_m}$$
+\begin{defn}{Free Algebra}{} Let $R$ be a commutative ring. Let $X$ be a set. Let $W=\{x_1\cdots x_n\;|\;x_1,\dots,x_n\in X\}$ be the set of words of $X$. Define the free $R$-algebra over $X$ to be the free $R$-module $$R\langle X\rangle=\bigoplus_{w\in W}R\cdot w$$ together with multiplication defined by $(x_1\cdots x_n)\cdot(y_1\cdots y_m)=x_1\cdots x_n\cdot y_1\cdots y_m$. 
 \end{defn}
 
-For $X=\{x\}$ to be a set of one element, then $\F\langle X\rangle$ has vector space basis $\{1,x,x^2,\dots\}$ which coincides with $\F[x]$. Thus $\F[x]=\F\langle x\rangle$. However, if $X=\{x,y\}$ is a set of two elements, then the basis of $\F\langle X\rangle$ as a vector space over $\F$ is $$\{1,x,y,x^2,xy,yx,y^2,\dots\}$$ Compare it to that of $\F[x,y]$ which has basis $$\{1,x,y,x^2,xy=yx,y^2,\dots\}$$ Since $\F\langle X\rangle$ not commuting, the cardinality of the basis becomes large. Fortunately, the size of the basis is still countable. 
-
-\begin{prp}{}{} If $X$ is a non-empty countable set, then the dimension $\dim_\F(\F\langle X\rangle)$ is countable. \tcbline
-\begin{proof}
-Relabel elements of $X$ as $X=\{x_1,x_2,\dots\}$. The monomials $x_i$ form a basis of $\F\langle X\rangle$. For each $d$, the monomials of degree $d$ are finite. Thus the basis of $X$ is a countable union of finite sets. Thus the basis is countable. 
-\end{proof}
-\end{prp}
-
-We use the notion of free algebras to define the universal property of $R$-algebras. 
-
-\begin{prp}{Universal Property}{} Let $X$ be a set. The free algebra $R\langle X\rangle$ over a ring $R$ satisfies the following universal property. If $A$ is an $R$-algebra, then for every $f:X\to A$ a map of sets, there exists a unique homomorphism of algebras $\varphi:R\langle X\rangle\to A$ such that $\varphi(x_i)=f(x_i)$ for each $x_i\in X$. In other words, the following diagram commutes: \\~\\
+\begin{prp}{Universal Property}{} Let $R$ be a commutative ring. Let $X$ be a set. The free algebra $R\langle X\rangle$ over a ring $R$ satisfies the following universal property. If $A$ is an $R$-algebra, then for every $f:X\to A$ a map of sets, there exists a unique homomorphism of algebras $\varphi:R\langle X\rangle\to A$ such that $\varphi(x_i)=f(x_i)$ for each $x_i\in X$. In other words, the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	X & {R\langle X\rangle} \\
 	& A
