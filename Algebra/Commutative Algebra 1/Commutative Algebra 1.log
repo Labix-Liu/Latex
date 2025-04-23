@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  13 APR 2025 15:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  19 APR 2025 18:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1196,28 +1196,28 @@ enc}]
 [12]
 
 [13]
+Underfull \hbox (badness 10000) in paragraph at lines 347--356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--387
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--387
+
+ []
+
+
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 378--387
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 378--387
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--421
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--421
-
- []
-
-
 
 [15]
 
@@ -1240,7 +1240,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 412--421
 [24]
 
 [25]
-Overfull \hbox (4.73502pt too wide) in paragraph at lines 752--752
+Overfull \hbox (4.73502pt too wide) in paragraph at lines 755--755
 \T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 R$ \T1/qpl/m/n/10 be a com-mu-ta-tive ring
 . Let $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/10 be a set. Re-call that we de-fined $\
 OML/cmm/m/it/10 R\OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 X\OMS/cmsy/m/n/10 i$ \T1/qp
@@ -1298,58 +1298,63 @@ l/m/n/10 to be the free (non-commutative)
 [49]
 
 [50]
-Overfull \hbox (30.0pt too wide) in paragraph at lines 1560--1561
+
+[51]
+
+[52]
+
+[53]
+
+[54]
+
+[55]
+
+[56]
+Overfull \hbox (30.0pt too wide) in paragraph at lines 1726--1727
 [][] 
  []
 
 
 
-[51]
+[57]
 
-[52]
-Overfull \hbox (24.5716pt too wide) in paragraph at lines 1610--1611
+[58]
+Overfull \hbox (24.5716pt too wide) in paragraph at lines 1776--1777
 []\T1/qpl/m/n/10 Dedekind sought for an in-te-gral do-main whose ide-als can be
  fac-tor-ized uniquely as a prod-uct of primes. 
  []
 
 
 
-[53]
-Underfull \hbox (badness 10000) in paragraph at lines 1666--1667
+[59]
+Underfull \hbox (badness 10000) in paragraph at lines 1832--1833
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1666--1667
+Underfull \hbox (badness 10000) in paragraph at lines 1832--1833
 
  []
 
 
 
-[54] (Commutative Algebra 1.aux)
+[60] (Commutative Algebra 1.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Commutative Algebra 1".out' has changed.
-
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Commutative Algebra 1".out':
-(rerunfilecheck)             Before: D453066CDA4C6167F72EE6B5E55468C2;10984
-(rerunfilecheck)             After:  0C5FD5029A00CFE1DE96F3299837FB7C;11075.
+Package rerunfilecheck Info: File `"Commutative Algebra 1".out' has not changed
+.
+(rerunfilecheck)             Checksum: F903F58808FA58F43789897984232829;10471.
  ) 
 Here is how much of TeX's memory you used:
- 36196 strings out of 473577
- 749858 string characters out of 5716318
- 1155315 words of memory out of 5000000
- 58527 multiletter control sequences out of 15000+600000
+ 36486 strings out of 473577
+ 757193 string characters out of 5716318
+ 1159170 words of memory out of 5000000
+ 58808 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,22n,120p,1445b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,22n,120p,1445b,1465s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1368,9 +1373,9 @@ onts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Commutative Algebra 1.pdf" (54 pages, 628788 bytes).
+Output written on "Commutative Algebra 1.pdf" (60 pages, 662780 bytes).
 PDF statistics:
- 951 PDF objects out of 1000 (max. 8388607)
- 326 named destinations out of 1000 (max. 500000)
- 477 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 970 PDF objects out of 1000 (max. 8388607)
+ 335 named destinations out of 1000 (max. 500000)
+ 461 words of extra memory for PDF output out of 10000 (max. 10000000)
 

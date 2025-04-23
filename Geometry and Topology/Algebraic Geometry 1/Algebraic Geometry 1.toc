@@ -10,9 +10,9 @@
 \contentsline {section}{\numberline {3}The Dictionary Between Algebra and Geometry}{13}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Forming an Ideal of a Set}{13}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}The Absolute Hilbert's Nullstellensatz}{15}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}The Coordinate Ring}{16}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}The Coordinate Ring}{17}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Relation to Reduced and Finitely Generated Algebras}{20}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}The Relative Nullstellensatz}{21}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.5}The Relative Nullstellensatz}{22}{subsection.3.5}%
 \contentsline {section}{\numberline {4}Introduction to Projective Varieties}{24}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Homogenous Functions}{24}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Projective Varieties}{24}{subsection.4.2}%
@@ -27,15 +27,18 @@
 \contentsline {subsection}{\numberline {6.1}Veronese Maps}{35}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}The Segre Map}{35}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}The Grassmannians Manifolds}{36}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Dimension Theory for Varieties}{39}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Dimension and its Properties}{39}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Comparing Dimensions}{40}{subsection.7.2}%
-\contentsline {section}{\numberline {8}Quasi-Projective Varieties}{42}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Quasi-Projective Varieties}{42}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Morphisms of Quasi-Projective Varieties}{43}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Redefining Varieties}{44}{subsection.8.3}%
-\contentsline {section}{\numberline {9}The Algebra of Regular Functions}{47}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Regular Functions on Quasi-Projective Varieties}{47}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Regular Functions Near a Point}{48}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Regular Functions Near a Variety}{50}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Regular Maps Between Varieties}{50}{subsection.9.4}%
+\contentsline {section}{\numberline {7}Enumerative Problems in Algebraic Geometry}{39}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Duality of Points and Hypersurfaces}{39}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Five Points Determine a Conic}{39}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Dimension Theory for Varieties}{41}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Dimension and its Properties}{41}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Comparing Dimensions}{42}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Quasi-Projective Varieties}{44}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Quasi-Projective Varieties}{44}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Morphisms of Quasi-Projective Varieties}{45}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Redefining Varieties}{46}{subsection.9.3}%
+\contentsline {section}{\numberline {10}The Algebra of Regular Functions}{49}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Regular Functions on Quasi-Projective Varieties}{49}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Regular Functions Near a Point}{50}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Regular Functions Near a Variety}{52}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Regular Maps Between Varieties}{52}{subsection.10.4}%

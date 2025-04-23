@@ -19,24 +19,22 @@
 \contentsline {subsection}{\numberline {5.1}Generalized Eigenspace}{19}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Jordan Canonical Form}{20}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}The Jordan-Chevalley Decompositions}{25}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Linearity in Two Variables}{26}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Quadratic Forms}{26}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Bilinear Forms}{29}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Sesquilinear Forms}{30}{subsection.6.3}%
-\contentsline {section}{\numberline {7}The Dual Space}{31}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Dual of a Vector Space}{31}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}The Double Dual}{32}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Perfect Pairings}{32}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Inner Product Spaces}{33}{section.8}%
-\contentsline {subsection}{\numberline {8.1}The Norm of a Space}{33}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Inner Products}{33}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}The Adjoint of a Linear Map}{35}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}The Trace of a Linear Map}{35}{subsection.8.4}%
-\contentsline {section}{\numberline {9}Orthogonality}{37}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Orthogonal Vectors}{37}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Orthonormal Basis}{38}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Orthogonal Complements}{39}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Orthogonal Maps}{40}{subsection.9.4}%
+\contentsline {section}{\numberline {6}The Dual Space}{26}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Dual of a Vector Space}{26}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}The Double Dual}{27}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Perfect Pairings}{27}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Linearity in Two Variables}{28}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Quadratic Forms}{28}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Bilinear Forms}{31}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Sesquilinear Forms}{33}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Inner Product Spaces}{34}{section.8}%
+\contentsline {subsection}{\numberline {8.1}The Norm of a Space}{34}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Inner Products}{34}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}The Adjoint of a Linear Map}{36}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}The Trace of a Linear Map}{36}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Orthogonality}{38}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Orthogonal Vectors}{38}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Orthogonality with Inner Products}{38}{subsection.9.2}%
 \contentsline {section}{\numberline {10}Reductions and Decompositions of Linear Maps over Real Vector Spaces}{42}{section.10}%
 \contentsline {subsection}{\numberline {10.1}Reduction of Quadratic Forms over $\mathbb {R}$}{42}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Reduction of Inner Products}{43}{subsection.10.2}%

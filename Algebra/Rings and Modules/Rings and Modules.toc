@@ -17,7 +17,7 @@
 \contentsline {subsection}{\numberline {3.6}Completely Reducible Modules}{20}{subsection.3.6}%
 \contentsline {section}{\numberline {4}Exact Sequences of Modules}{24}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Introduction to Exact Sequences}{24}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Split Exact Sequences}{26}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Split Exact Sequences}{28}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Algebras over a Ring}{30}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Associative Algebras}{30}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Free Algebras}{31}{subsection.5.2}%
@@ -32,13 +32,13 @@
 \contentsline {subsection}{\numberline {7.2}Artinian Rings and Modules}{40}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}The Length of a Modules}{42}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Composition Series}{42}{subsection.7.4}%
-\contentsline {section}{\numberline {8}Graded Structures}{44}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Graded Rings}{44}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Graded Modules}{45}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Homogenity}{46}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Graded Algebras}{47}{subsection.8.4}%
-\contentsline {section}{\numberline {9}Tensor Algebras}{48}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Multilinear Maps of R-Modules}{48}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Tensor Algebra}{48}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Exterior Algebra}{49}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Symmetric Algebra}{50}{subsection.9.4}%
+\contentsline {section}{\numberline {8}Graded Structures}{45}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Graded Rings}{45}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Graded Modules}{46}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Homogenity}{47}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Graded Algebras}{48}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Tensor Algebras}{49}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Multilinear Maps of R-Modules}{49}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Tensor Algebra}{49}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Exterior Algebra}{50}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Symmetric Algebra}{51}{subsection.9.4}%

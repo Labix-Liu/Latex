@@ -768,64 +768,6 @@ It is convenient to think of the exchange as follows. We can intersperse $\im(f_
 \end{tikzcd}}\\~\\
 that is NOT exact unless we fold up each pair of surjective map followed by an injective map into a single map. On the otherhand, we can ignore all other terms in the sequence except for an injective map followed by a surjective map. This will give us a short exact sequence. 
 
-\subsection{Split Exact Sequences}
-\begin{defn}{Split Exact Sequence}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {M_1} & {M_2} & {M_3} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["f", from=1-2, to=1-3]
-	\arrow["g", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-We say that the sequence is split exact if $M_2\cong M_1\oplus M_3$. 
-\end{defn}
-
-The following is an important equivalent characterization of split exact sequence. 
-
-\begin{prp}{The Splitting Lemma}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & A & B & C & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["f", from=1-2, to=1-3]
-	\arrow["g", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-Then the following are equivalent. 
-\begin{itemize}
-\item The short exact sequence is a split exact sequence
-\item There exists an $R$-module homomorphism $p:B\to A$ such that $p\circ f=\text{id}_A$
-\item There exists an $R$-module homomorphism $s:C\to B$ such that $g\circ s=\text{id}_C$
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item $(1)\implies(2),(3)$: Suppose that $B\cong A\oplus C$. Then the projection map $p:A\oplus C\to A$ and the inclusion map $s:C\to A\oplus C$ is such that $p\circ f=\text{id}_A$ and $g\circ s=\text{id}_C$. 
-
-\item $(2)\implies(1)$: For any $b\in B$, write $b=f(p(b))+(b-f(p(b)))$. Then $f(p(b))\in\im(f)$ and $b-f(p(b))\in\ker(p)$ since $p(b-f(p(b)))=p(b)-p(b)=0$. Now I claim that $\ker(p)\cap\im(f)=0$. Indeed if $b\in\ker(p)\cap\im(f)$, then there exists $a\in A$ such that $f(a)=b$. Then $$a=p(f(a))=p(b)=0$$ Thus $b=f(0)=0$. This shows that $B\cong\ker(p)\oplus\im(f)$. \\~\\
-
-Consider the restricted $g|_{\ker(p)}:\ker(p)\to C$. I want to show that $g$ is an isomorphism. Let $b\in\ker\left(g|_{\ker(p)}\right)$. By exactness, there exists $a\in A$ such that $f(a)=b$. Then $a=p(f(a))=p(b)=0$ since $b\in\ker(p)$. Thus $b=f(0)=0$ so that $b\in\ker\left(g|_{\ker(p)}\right)$. For surjectivity, let $c\in C$. By exactness, $g$ is surjective so there exists $b\in B$ such that $g(b)=c$. Since $B\cong\ker(p)\oplus\im(f)$, we can write $b=f(a)+k$ for some $a\in A$ and $k\in\ker(p)$. Then we have that $$c=g(b)=g(f(a)+k)=g(k)$$ which means that there exists $k\in\ker(p)$ such that $g|_{\ker(p)}(k)=c$. Thus $\ker(p)\cong C$. Since $f$ is injective, $im(f)=f(A)\cong A$. Thus we have that $B\cong\im(f)\oplus\ker(p)\cong A\oplus C$. 
-
-\item $(3)\implies(1)$: For any $b\in B$, write $b=(b-s(g(b)))+s(g(b))$. Then $s(g(b))\in\im(s)$ and $g(b)=g(b)-g(s(g(b))=0$ so that $b-s(g(b))\in\ker(g)$. Now I claim that $\ker(g)\cap\im(s)=0$. Indeed if $b\in\ker(g)\cap\im(s)$, then there exists $c\in C$ such that $s(b)=c$ and $$c=g(s(c))=g(b)=0$$ since $b\in\ker(g)$ so that $c=0$. This shows that $B\cong\ker(g)\oplus\im(s)$. \\~\\
-
-Since $\ker(g)=\im(f)$ by exactness, $f$ being injective also implies that $A\cong\im(f)=\ker(g)$. Since also we have that $g\circ s=\text{id}_C$, we have that $s$ is injective so that $\im(s)\cong C$. Thus we conclude that $B\cong\ker(g)\oplus\im(s)\cong A\oplus C$. 
-\end{itemize}
-Thus we conclude. 
-\end{proof}
-\end{prp}
-
-\begin{prp}{}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & A & B & C & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["f", from=1-2, to=1-3]
-	\arrow["g", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-If $C$ is a free $R$-module then it is a split exact sequence. \tcbline
-\begin{proof}
-Since $C$ is a free $R$-module, there exists a basis $X=\{c_1,\dots,c_n\}$ such that $C=\bigoplus_{i=1}^nRc_i$. Since $g$ is surjective, we can find $b_1,\dots,b_n\in B$ such that $g(b_i)=c_i$ for $1\leq i\leq n$. By the universal property of free $R$-modules, there exists an $R$-module homomorphism $s:C\to B$ such that $s(c_i)=b_i$ for $1\leq i\leq n$. Now notice that for $c\in C$, we can write $c=\sum_{i=1}^nk_ic_i$ for some $k_i\in\Z$. Since $s$ is an $R$-module homomorphism, we have that $s\left(\sum_{i=1}^nk_ic_i\right)=\sum_{i=1}^nk_ib_i$. Then we have that $$g(s(c))=g\left(\sum_{i=1}^nk_ib_i\right)=\sum_{i=1}^nk_ic_i$$ Thus $g\circ s=\text{id}_C$. By the splitting lemma, we conclude that $B\cong A\oplus C$. 
-\end{proof}
-\end{prp}
-
 The following two lemmas are very intuitive and straight forward to remember. 
 
 \begin{lmm}{Five Lemma}{} Let $R$ be a ring. Consider the commutative diagram \\~\\
@@ -900,6 +842,65 @@ Then $\rank(B)=\rank(A)+\rank(C)$.
 \end{tikzcd}}\\~\\
 Then $\dim(W)=\dim(V)+\dim(U)$. 
 \end{lmm}
+
+\subsection{Split Exact Sequences}
+\begin{defn}{Split Exact Sequence}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {M_1} & {M_2} & {M_3} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+We say that the sequence is split exact if $M_2\cong M_1\oplus M_3$. 
+\end{defn}
+
+The following is an important equivalent characterization of split exact sequence. 
+
+\begin{prp}{The Splitting Lemma}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & A & B & C & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Then the following are equivalent. 
+\begin{itemize}
+\item The short exact sequence is a split exact sequence
+\item There exists an $R$-module homomorphism $p:B\to A$ such that $p\circ f=\text{id}_A$
+\item There exists an $R$-module homomorphism $s:C\to B$ such that $g\circ s=\text{id}_C$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $(1)\implies(2),(3)$: Suppose that $B\cong A\oplus C$. Then the projection map $p:A\oplus C\to A$ and the inclusion map $s:C\to A\oplus C$ is such that $p\circ f=\text{id}_A$ and $g\circ s=\text{id}_C$. 
+
+\item $(2)\implies(1)$: For any $b\in B$, write $b=f(p(b))+(b-f(p(b)))$. Then $f(p(b))\in\im(f)$ and $b-f(p(b))\in\ker(p)$ since $p(b-f(p(b)))=p(b)-p(b)=0$. Now I claim that $\ker(p)\cap\im(f)=0$. Indeed if $b\in\ker(p)\cap\im(f)$, then there exists $a\in A$ such that $f(a)=b$. Then $$a=p(f(a))=p(b)=0$$ Thus $b=f(0)=0$. This shows that $B\cong\ker(p)\oplus\im(f)$. \\~\\
+
+Consider the restricted $g|_{\ker(p)}:\ker(p)\to C$. I want to show that $g$ is an isomorphism. Let $b\in\ker\left(g|_{\ker(p)}\right)$. By exactness, there exists $a\in A$ such that $f(a)=b$. Then $a=p(f(a))=p(b)=0$ since $b\in\ker(p)$. Thus $b=f(0)=0$ so that $b\in\ker\left(g|_{\ker(p)}\right)$. For surjectivity, let $c\in C$. By exactness, $g$ is surjective so there exists $b\in B$ such that $g(b)=c$. Since $B\cong\ker(p)\oplus\im(f)$, we can write $b=f(a)+k$ for some $a\in A$ and $k\in\ker(p)$. Then we have that $$c=g(b)=g(f(a)+k)=g(k)$$ which means that there exists $k\in\ker(p)$ such that $g|_{\ker(p)}(k)=c$. Thus $\ker(p)\cong C$. Since $f$ is injective, $im(f)=f(A)\cong A$. Thus we have that $B\cong\im(f)\oplus\ker(p)\cong A\oplus C$. 
+
+\item $(3)\implies(1)$: For any $b\in B$, write $b=(b-s(g(b)))+s(g(b))$. Then $s(g(b))\in\im(s)$ and $g(b)=g(b)-g(s(g(b))=0$ so that $b-s(g(b))\in\ker(g)$. Now I claim that $\ker(g)\cap\im(s)=0$. Indeed if $b\in\ker(g)\cap\im(s)$, then there exists $c\in C$ such that $s(b)=c$ and $$c=g(s(c))=g(b)=0$$ since $b\in\ker(g)$ so that $c=0$. This shows that $B\cong\ker(g)\oplus\im(s)$. \\~\\
+
+Since $\ker(g)=\im(f)$ by exactness, $f$ being injective also implies that $A\cong\im(f)=\ker(g)$. Since also we have that $g\circ s=\text{id}_C$, we have that $s$ is injective so that $\im(s)\cong C$. Thus we conclude that $B\cong\ker(g)\oplus\im(s)\cong A\oplus C$. 
+\end{itemize}
+Thus we conclude. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a ring. Let the following be an exact sequence of $R$-modules. \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & A & B & C & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+If $C$ is a free $R$-module then it is a split exact sequence. \tcbline
+\begin{proof}
+Since $C$ is a free $R$-module, there exists a basis $X=\{c_1,\dots,c_n\}$ such that $C=\bigoplus_{i=1}^nRc_i$. Since $g$ is surjective, we can find $b_1,\dots,b_n\in B$ such that $g(b_i)=c_i$ for $1\leq i\leq n$. By the universal property of free $R$-modules, there exists an $R$-module homomorphism $s:C\to B$ such that $s(c_i)=b_i$ for $1\leq i\leq n$. Now notice that for $c\in C$, we can write $c=\sum_{i=1}^nk_ic_i$ for some $k_i\in\Z$. Since $s$ is an $R$-module homomorphism, we have that $s\left(\sum_{i=1}^nk_ic_i\right)=\sum_{i=1}^nk_ib_i$. Then we have that $$g(s(c))=g\left(\sum_{i=1}^nk_ib_i\right)=\sum_{i=1}^nk_ic_i$$ Thus $g\circ s=\text{id}_C$. By the splitting lemma, we conclude that $B\cong A\oplus C$. 
+\end{proof}
+\end{prp}
+
 \pagebreak
 \section{Algebras over a Ring}
 \subsection{Associative Algebras}
@@ -1153,7 +1154,7 @@ Suppose that $M_2$ is Noetherian. Let $N_1\subseteq\cdots\subseteq N_k\subseteq\
 
 Now let $T_1\subseteq\cdots\subseteq T_k\subseteq\cdots$ be an increasing chain of $R$-submodules of $M_3$. Since $g$ is surjective, $g^{-1}(T_1)\subseteq\cdots\subseteq g^{-1}(T_k)\subseteq\cdots$ is an increasing chain of $R$-submodules of $M_2$. Since $M_2$ is Noetherian, the chain terminates at finitely many steps, say $g^{-1}(T_k)=g^{-1}(T_{k+1})=\cdots$. Hence $T_k=T_{k+1}=\cdots$ so that $M_3$ is Noetherian. \\~\\
 
-Suppose that $M_1$ and $M_3$ are Noetherian. Let $H_1\subseteq\cdots\subseteq H_k\subseteq\cdots$ be an increasing chain of $R$-submodules of $M_2$. Then $f^{-1}(H_1)\subseteq\cdots\subseteq f^{-1}(H_k)\subseteq\cdots$ is an increasing chain of $R$-submodules of $M_1$. Similarly $g(H_1)\subseteq\cdots\subseteq g(H_k)\subseteq\cdots$ is an increasing chain of $R$-submodules of $M_3$. Suppose they terminate at say $k_1\in\N$ and $k_2\in\N$ respectively. Then they certainly both terminate at $k=\max\{k_1,k_2\}$. I claim that $N_k=N_{k+1}$. We know that $N_k\subseteq N_{k+1}$. Let $x\in N_{k+1}$. Then $g(x)\in g(N_{k+1})=g(N_k)$. Hence there exists $y\in N_k$ such that $g(x)=g(y)$. This means that $x-y\in\ker(g)=\im(f)$. So $f(z)=x-y$ for some $z\in f^{-1}(N_{k+1})=f^{-1}(N_k)$. This means that $f(z)\in N_k$. Then $y\in N_k$ and $f(z)\in N_k$ implies $x=y+f(z)\in N_k$. Hence $N_k=N_{k+1}$. The argument is similar for $N_{k+1}=N_{k+2}$ and so on. Hence the increasing chain terminates so that $M_2$ is so Noetherian. 
+Suppose that $M_1$ and $M_3$ are Noetherian. Let $H_1\subseteq\cdots\subseteq H_k\subseteq\cdots$ be an increasing chain of $R$-submodules of $M_2$. Then $f^{-1}(H_1)\subseteq\cdots\subseteq f^{-1}(H_k)\subseteq\cdots$ is an increasing chain of $R$-submodules of $M_1$. Similarly $g(H_1)\subseteq\cdots\subseteq g(H_k)\subseteq\cdots$ is an increasing chain of $R$-submodules of $M_3$. Suppose they terminate at say $k_1\in\N$ and $k_2\in\N$ respectively. Then they certainly both terminate at $k=\max\{k_1,k_2\}$. I claim that $H_k=H_{k+1}$. We know that $H_k\subseteq H_{k+1}$. Let $x\in H_{k+1}$. Then $g(x)\in g(H_{k+1})=g(H_k)$. Hence there exists $y\in H_k$ such that $g(x)=g(y)$. This means that $x-y\in\ker(g)=\im(f)$. So $f(z)=x-y$ for some $z\in f^{-1}(H_{k+1})=f^{-1}(H_k)$. This means that $f(z)\in H_k$. Then $y\in H_k$ and $f(z)\in H_k$ implies $x=y+f(z)\in H_k$. Hence $H_k=H_{k+1}$. The argument is similar for $H_{k+1}=H_{k+2}$ and so on. Hence the increasing chain terminates so that $M_2$ is so Noetherian. 
 \end{proof}
 \end{prp}
 
@@ -1186,7 +1187,18 @@ By the above proposition we conclude.
 \end{proof}
 \end{crl}
 
-\begin{crl}{}{} Let $R$ be a Noetherian ring. Let $M$ be a left $R$-module. Then $M$ is Noetherian if and only if $M$ is a finitely generated $R$-module. 
+\begin{crl}{}{} Let $R$ be a Noetherian ring. Let $M$ be a left $R$-module. Then $M$ is Noetherian if and only if $M$ is a finitely generated $R$-module. \tcbline
+\begin{proof}
+Suppose that $M$ is Noetherian. Then by 7.1.3 $M$ is a finitely generated $R$-module. Now suppose that $M$ is finitely generated. Then there exists a surjective homomorphism $\phi:R^n\to M$ for some $n$. Then we have an exact sequence \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\ker(\phi)} & {R^n} & M & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["\phi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+Since $R$ is Noetherian, $R^n$ is Noetherian by 7.1.5. Then by 7.1.4 we have that $M$ is Noetherian. 
+\end{proof}
 \end{crl}
 
 \subsection{Artinian Rings and Modules}
@@ -1214,7 +1226,14 @@ Conversely, suppose every non-empty collection of $R$-submodules has a minimal e
 	\arrow["g", from=1-3, to=1-4]
 	\arrow[from=1-4, to=1-5]
 \end{tikzcd}}\\~\\
-is a short exact sequence. Then $M_2$ is Artinian if and only if $M_1$ and $M_3$ are Artinian. 
+is a short exact sequence. Then $M_2$ is Artinian if and only if $M_1$ and $M_3$ are Artinian. \tcbline
+\begin{proof}
+Suppose that $M_2$ is Artinian. Let $N_1\supseteq N_2\supseteq\cdots$ be a decreasing sequence of $R$-submodules of $M_1$. Then $\alpha(N_1)\supseteq\alpha(N_2)\supseteq\cdots$ is a decreasing sequence of $R$-submodules of $M_2$. It terminates since $M_2$ is Artinian. Then $\alpha(N_m)=\alpha(N_{m+k})$ for all $k$. Since $\alpha$ is injective, this implies that $N_m=N_{m+k}$ for all $k$. Hence $M_1$ is Artinian. \\~\\
+
+Now let $T_1\supseteq T_2\supseteq\cdots$ be a decreasing chain of $R$-submodules of $M_3$. Since $g$ is surjective, each $g^{-1}(T_k)$ is a well defined $R$-submodule of $M_2$. Hence $g^{-1}(T_1)\supseteq g^{-1}(T_2)\supseteq\cdots$ is a decreasing chain of $R$-submodules of $M_2$. Hence it terminates and so the original chain terminates. Thus $M_3$ is Artinian. \\~\\
+
+
+\end{proof}
 \end{prp}
 
 \begin{crl}{}{} Let $R$ be a ring. Let $M$ be a left $R$-module. Then the following are true. 

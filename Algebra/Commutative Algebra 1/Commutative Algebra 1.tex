@@ -67,29 +67,72 @@ When $I=J$ it is clear that $R/I\cong R/J$. Conversely, suppose that $\phi:R/I\t
 \end{proof}
 \end{prp}
 
-\begin{defn}{Product of Ideals}{} Let $R$ be a commutative ring. Let $I,J$ be ideals of $R$. Define the product of $I$ and $J$ to be $$IJ=(ij\;|\;i\in I, j\in J)=\left\{\sum_{k=1}^na_kb_k\;|\;a_k\in I,b_k\in J\right\}$$
+Let $R$ be a commutative ring. Recall that two ideals $I,J$ are coprime if $I+J=R$. In particular, this implies that $IJ=I\cap J$. Then the Chinese Remainder theorem reads as $$\frac{R}{\prod_{i=1}^kI_i}=\frac{R}{\bigcap_{i=1}^kI_i}\cong\prod_{i=1}^k\frac{R}{I_i}$$
+
+\subsection{The Nilradical of Commutative Rings}
+Let $R$ be a ring. Recall that an element $r\in R$ is nilpotent if $r^n=0_R$ for some $n\in\N$. When $R$ is commutative, we can form an ideal out of nilpotent elements. 
+
+\begin{defn}{Nilradicals}{} Let $R$ be a ring. Define the nilradical of $R$ to be $$N(R)=\{r\in R\;|\;r\text{ is nilpotent}\}$$
 \end{defn}
 
-\begin{lmm}{}{} Let $R$ be a commutative ring. Let $I_1,I_2$ be ideals of $R$. Then the following are true. 
+Note that this is different from nilpotent ideals, as nilpotency is a property of an ideal. However the Nilradical ideal is a nil ideal and every sub-ideal of the nilradical is a nil ideal. 
+
+\begin{prp}{}{} Let $R$ be a ring and $N(R)$ its nilradical. Then the following are true. 
 \begin{itemize}
-\item $I_1I_2$ is an ideal of $R$. 
-\item $I_1I_2\subseteq I_1,I_2$ is an $R$-submodule of $I_1$ and $I_2$. 
-\item If $I_1$ and $I_2$ are coprime, then $I_1I_2=I_1\cap I_2$. 
+\item $N(R)$ is an ideal of $R$
+\item $N(R/N(R))=0$
+\end{itemize}\tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Suppose that $r,s$ are nilpotent, meaning that $r^n=0$ and $s^m=0$. Then $(r+s)^{n+m}=0$. Moreover, if $t\in R$ then $t\cdot r$ is also nilpotent
+\item Let $r\notin N(R)$. Every element $r+N(R)\in R/N(R)$ has the property that $r^n\neq 0$. Consider $(r+N(R))^n=r^n+N(R)$. If $r^n\in N(R)$ then $r^n=u$ for some nilpotent $u$, which means that $r^n$ is nilpotent and thus $r$ is nilpotent, a contradiction. This means that $r+N(R)\notin N(R/N(R))$ for all $r\notin N(R)$ and thus $N(R/N(R))=0$
 \end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Then we have $$N(R)=\bigcap_{\substack{P\text{ is a prime}\\\text{ideal of }R}}P$$ \tcbline
+\begin{proof}
+Let $x\in N(R)$. Let $P$ be an arbitrary prime ideal. Since $x$ is nilpotent, $x^n=0$ for some $n\in\N$. If $x\notin P$, then $x^2\notin P$ since $P$ is a prime ideal. Recursively we see that $x^k\notin P$ for all $k\in N\setminus\{0\}$. But $x^n=0\in P$ is a contradiction. Hence $N(R)\subseteq\bigcap_{P\in\text{Spec}(R)}P$. \\~\\
+
+Now suppose that $x\in R$ is not nilpotent. Consider the set $$\Sigma=\{I\trianglelefteq R\;|\;x^k\notin I\text{ for all }k\geq 1\}$$ Notice that $(0)\in\Sigma$ and hence it is non-empty. Let $I_1\subseteq I_2\subseteq\cdots$ be a chain in $\Sigma$. Define $I=\bigcup_{k=1}^\infty I_k$. I claim that $I\in\Sigma$. First of all if $a,b\in I$ and $r\in R$, then $a\in I_m$ and $b\in I_n$ for some $m,n\geq 1$. Then $a,b\in I_{\max\{m,n\}}$ so that $a+b\in I_{\max\{m,n\}}\subseteq I$. Also $ra\in I_m\subseteq I$ since $I_m$ is an ideal. Hence $I$ itself is an ideal of $R$. Suppose for a contradiction that $x^n\in I$ for some $n$. Then $x^n\in I_k$ for some $k$. This is a contradiction since $I_k\in\Sigma$. Thus we know that $I\in\Sigma$. In particular, $I$ is an upper bound of $I_1\subseteq I_2\subseteq\cdots$. By Zorn's lemma, we conclude that $\Sigma$ has a maximal element, say $P$. \\~\\
+
+Suppose for a contradiction that $P$ is not a prime ideal. Let $ab\in P$ and $a,b\notin P$. Then $P\subset P+(a),P+(b)$. Since $P$ is maximal in $\Sigma$, $P+(a)$ and $P+(b)$ cannot be in $\Sigma$, and there exists $x^m\in P+(a)$ and $x^n\in P+(b)$ for some $m,n$. Then $$x^{m+n}=x^m\cdot x^n\in (P+(a))(P+(b))=P+(ab)$$ Hence $P+(ab)\notin\Sigma$. But $ab\in P$ implies that $P+(ab)=P$. We have reached a contradiction. Thus $P$ is a prime ideal that does not contain $x$. We show that $x\notin N(R)$ implies $x\notin P$ for some prime ideal $P$. The contrapositive of this statement is $x\in P$ for all prime ideals $P$ implies $x\in N(R)$. Hence we are done. 
+\end{proof}
+\end{prp}
+
+\begin{eg}{}{} Consider the ring $$R=\frac{\C[x,y]}{(x^2-y,xy)}$$ Then its nilradical is given by $N(R)=(x,y)$. \tcbline
+\begin{proof}
+Notice that in the ring $R$, $x^3=x(x^2)=xy=0$ and $y^3=x^6=(x^3)^2=0$ and hence $x$ and $y$ are both nilpotent elements of $R$. By definition of the nilradical, we conclude that $(x,y)\subseteq N(R)$. Now $(x,y)$ is a maximal ideal of $\C[x,y]$ because $\C[x,y]/(x,y)\cong\C$. Also notice that $(x,y)\supseteq(x^2-y,xy)$ because for any element $f(x)(x^2-y)+g(x)(xy)\in(x^2-y,xy)$, we have that 
+\begin{align*}
+f(x)(x^2-y)+g(x)(xy)\in(x^2-y,xy)&=(xf(x))x-f(x)y+(g(x)x)y\\
+&=(xf(x))x+(xg(x)-f(x))y\in (x,y)
+\end{align*}
+By the correspondence theorem, $(x,y)/(x^2-y)$ is an maximal ideal of $R$. In particular, $(x,y)$ is also a prime ideal. But the $N(R)$ is the intersection of all prime ideals and hence $N(R)\subseteq(x,y)$. We conclude that $N(R)=(x,y)$. 
+\end{proof}
+\end{eg}
+
+\begin{defn}{Reduced Rings}{} Let $R$ be a commutative ring. We say that $R$ is reduced if $N(R)=0$. 
+\end{defn}
+
+\subsection{The Jacobson Radical of Commutative Rings}
+Let $R$ be a commutative ring. Recall that the Jacobson radical of a ring is defined to be $$J(R)=\bigcap_{m\text{ a maximal ideal}}m$$ since left and right maximal ideals coincide in $R$. Properties of the Jacobson radical include: 
+\begin{itemize}
+\item $J(R/J(R))=0$. 
+\end{itemize}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Then $x\in J(R)$ if and only if $1-xy\in R^\times$ for all $y\in R$. \tcbline
+\begin{proof}
+Suppose that $x\notin J(R)$. Then $x\notin m$ for some maximal ideal $m$. Then $R=m+(x)$ since $m$ is maximal. Then there exists $p\in m$ and $y\in R$ such that $1=p+xy$. Then $1-xy=p\in m\notin R^\times$. \\~\\
+
+Suppose that $1-xy\notin R^\times$ for some $y\in R$. Then $(1-xy)$ is a proper ideal of $R$. Then there exists a maximal ideal $m$ such that $(1-xy)\subseteq m$. Since $1\notin m$ and $y$ is arbitrary, we must have that $x\notin m$. Hence $x\notin J(R)$. 
+\end{proof}
 \end{lmm}
 
-\begin{lmm}{}{} Let $R$ be a commutative ring. Let $I_1,I_2,I_3$ be ideals of $R$. Then the following are true. 
-\begin{itemize}
-\item Product is Commutative: $I_1I_2=I_2I_1$. 
-\item Product is Associative: $(I_1I_2)I_3=I_1(I_2I_3)$. 
-\item Distrbutivity: $I_1(I_2+I_3)=I_1I_2+I_1I_3$. 
-\end{itemize}
+\begin{lmm}{}{} Let $R$ be a commutative ring. Then $x\in R$ is a unit if and only if $[x]\in R/J(R)$ is a unit. \tcbline
+\begin{proof}
+Suppose that $x\in R$ is a unit. Then there exists $y\in R$ such that $xy=1$. Then $[x][y]=[1]$ so we are done. Now suppose that $[x][y]=[1]$ for some $y\in R$. Then there exists $m\in J(R)$ such that $xy=1+m$. By the above lemma, $1+m$ is a unit hence $x$ is a unit. 
+\end{proof}
 \end{lmm}
-
-Some more important results from Groups and Rings and Rings and Modules include: 
-\begin{itemize}
-\item Chinese Remainder Theorem: If $I$ and $J$ are coprime, then there is an isomorphism $$\frac{R}{IJ}=\frac{R}{I\cap J}\cong\frac{R}{I}\times\frac{R}{J}$$
-\end{itemize}
 
 \subsection{The Radical of an Ideal}
 The radical of an ideal is a very different notion from the radical of module. 
@@ -129,7 +172,22 @@ The radical of an ideal is a very different notion from the radical of module.
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then $$\sqrt{I}=\bigcap_{\substack{p\text{ a prime ideal}\\I\subseteq p\subseteq R}}p$$
+\begin{lmm}{}{} Let $R$ be a commutative ring. Then we have $$N(R)=\sqrt{(0)}$$ \tcbline
+\begin{proof}
+True from definitions. 
+\end{proof}
+\end{lmm}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $\pi:R\to R/I$ be the quotient homomorphism. Then we have $$\sqrt{I}=\pi^{-1}\left(N\left(\frac{R}{I}\right)\right)$$ \tcbline
+\begin{proof}
+Let $x\in R$. Then we have that $x^n\in I$ if and only if $\pi(x^n)=x^n+I=I$ if and only if $x+I\in N(R/I)$. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal. Then $$\sqrt{I}=\bigcap_{\substack{p\text{ a prime ideal}\\I\subseteq p\subseteq R}}p$$ \tcbline
+\begin{proof}
+Write $\pi:R\to R/I$ the quotient homomorphism. Using prp1.2.3 and the correspondence theorem, we have that $$\sqrt{I}=\pi^{-1}\left(\bigcap_{\substack{P\text{ is a prime}\\\text{ideal of }R}}P\right)=\bigcap_{\substack{P\text{ is a prime}\\\text{ideal of }R}}\pi^{-1}(P)=\bigcap_{\substack{p\text{ a prime ideal}\\I\subseteq p\subseteq R}}p$$
+\end{proof}
 \end{prp}
 
 \begin{defn}{Radical Ideals}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. We say that $I$ is radical if $$\sqrt{I}=I$$
@@ -145,51 +203,6 @@ We already know that $P\subseteq\sqrt{P}$. Let $x\in\sqrt{P}$. Then $x^n\in P$ f
 
 We conclude that there is an inclusion of types of ideal in which each inclusion is strict: $$\substack{\text{Maximal}\\\text{ideals}}\subset\substack{\text{Prime}\\\text{ideals}}\subset\substack{\text{Radical}\\\text{ideals}}$$
 
-\subsection{The Nilradical of Commutative Rings}
-Let $R$ be a ring. Recall that an element $r\in R$ is nilpotent if $r^n=0_R$ for some $n\in\N$. When $R$ is commutative, we can form an ideal out of nilpotent elements. 
-
-\begin{defn}{Nilradicals}{} Let $R$ be a ring. Define the nilradical of $R$ to be $$N(R)=\{r\in R\;|\;r\text{ is nilpotent}\}$$
-\end{defn}
-
-Note that this is different from nilpotent ideals, as nilpotency is a property of an ideal. However the Nilradical ideal is a nil ideal and every sub-ideal of the nilradical is a nil ideal. 
-
-\begin{prp}{}{} Let $R$ be a ring and $N(R)$ its nilradical. Then the following are true. 
-\begin{itemize}
-\item $N(R)$ is an ideal of $R$
-\item $N(R/N(R))=0$
-\end{itemize}\tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item Suppose that $r,s$ are nilpotent, meaning that $r^n=0$ and $s^m=0$. Then $(r+s)^{n+m}=0$. Moreover, if $t\in R$ then $t\cdot r$ is also nilpotent
-\item Let $r\notin N(R)$. Every element $r+N(R)\in R/N(R)$ has the property that $r^n\neq 0$. Consider $(r+N(R))^n=r^n+N(R)$. If $r^n\in N(R)$ then $r^n=u$ for some nilpotent $u$, which means that $r^n$ is nilpotent and thus $r$ is nilpotent, a contradiction. This means that $r+N(R)\notin N(R/N(R))$ for all $r\notin N(R)$ and thus $N(R/N(R))=0$
-\end{itemize}
-\end{proof}
-\end{prp}
-
-\begin{prp}{}{} Let $R$ be a commutative ring. Then we have $$N(R)=\bigcap_{\substack{P\text{ is a prime}\\\text{ideal of }R}}P=\sqrt{(0)}$$ \tcbline
-\begin{proof}
-Let $x\in N(R)$. Let $P$ be an arbitrary prime ideal. Since $x$ is nilpotent, $x^n=0$ for some $n\in\N$. If $x\notin P$, then $x^2\notin P$ since $P$ is a prime ideal. Recursively we see that $x^k\notin P$ for all $k\in N\setminus\{0\}$. But $x^n=0\in P$ is a contradiction. Hence $N(R)\subseteq\bigcap_{P\in\text{Spec}(R)}P$. \\~\\
-
-Now suppose that $x\in R$ is not nilpotent. Consider the set $$\Sigma=\{I\trianglelefteq R\;|\;x^k\notin I\text{ for all }k\geq 1\}$$ Notice that $(0)\in\Sigma$ and hence it is non-empty. Let $I_1\subseteq I_2\subseteq\cdots$ be a chain in $\Sigma$. Define $I=\bigcup_{k=1}^\infty I_k$. I claim that $I\in\Sigma$. First of all if $a,b\in I$ and $r\in R$, then $a\in I_m$ and $b\in I_n$ for some $m,n\geq 1$. Then $a,b\in I_{\max\{m,n\}}$ so that $a+b\in I_{\max\{m,n\}}\subseteq I$. Also $ra\in I_m\subseteq I$ since $I_m$ is an ideal. Hence $I$ itself is an ideal of $R$. Suppose for a contradiction that $x^n\in I$ for some $n$. Then $x^n\in I_k$ for some $k$. This is a contradiction since $I_k\in\Sigma$. Thus we know that $I\in\Sigma$. In particular, $I$ is an upper bound of $I_1\subseteq I_2\subseteq\cdots$. By Zorn's lemma, we conclude that $\Sigma$ has a maximal element, say $P$. \\~\\
-
-Suppose for a contradiction that $P$ is not a prime ideal. Let $ab\in P$ and $a,b\notin P$. Then $P\subset P+(a),P+(b)$. Since $P$ is maximal in $\Sigma$, $P+(a)$ and $P+(b)$ cannot be in $\Sigma$, and there exists $x^m\in P+(a)$ and $x^n\in P+(b)$ for some $m,n$. Then $$x^{m+n}=x^m\cdot x^n\in (P+(a))(P+(b))=P+(ab)$$ Hence $P+(ab)\notin\Sigma$. But $ab\in P$ implies that $P+(ab)=P$. We have reached a contradiction. Thus $P$ is a prime ideal that does not contain $x$. We show that $x\notin N(R)$ implies $x\notin P$ for some prime ideal $P$. The contrapositive of this statement is $x\in P$ for all prime ideals $P$ implies $x\in N(R)$. Hence we are done. 
-\end{proof}
-\end{prp}
-
-\begin{eg}{}{} Consider the ring $$R=\frac{\C[x,y]}{(x^2-y,xy)}$$ Then its nilradical is given by $N(R)=(x,y)$. \tcbline
-\begin{proof}
-Notice that in the ring $R$, $x^3=x(x^2)=xy=0$ and $y^3=x^6=(x^3)^2=0$ and hence $x$ and $y$ are both nilpotent elements of $R$. By definition of the nilradical, we conclude that $(x,y)\subseteq N(R)$. Now $(x,y)$ is a maximal ideal of $\C[x,y]$ because $\C[x,y]/(x,y)\cong\C$. Also notice that $(x,y)\supseteq(x^2-y,xy)$ because for any element $f(x)(x^2-y)+g(x)(xy)\in(x^2-y,xy)$, we have that 
-\begin{align*}
-f(x)(x^2-y)+g(x)(xy)\in(x^2-y,xy)&=(xf(x))x-f(x)y+(g(x)x)y\\
-&=(xf(x))x+(xg(x)-f(x))y\in (x,y)
-\end{align*}
-By the correspondence theorem, $(x,y)/(x^2-y)$ is an maximal ideal of $R$. In particular, $(x,y)$ is also a prime ideal. But the $N(R)$ is the intersection of all prime ideals and hence $N(R)\subseteq(x,y)$. We conclude that $N(R)=(x,y)$. 
-\end{proof}
-\end{eg}
-
-\begin{defn}{Reduced Rings}{} Let $R$ be a commutative ring. We say that $R$ is reduced if $N(R)=0$. 
-\end{defn}
-
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Then $R/I$ is reduced if and only if $I$ is a radical ideal. 
 \end{prp}
 
@@ -199,26 +212,6 @@ So radical, prime and maximal ideals all have characterizations using the quotie
 \item $I$ is prime if and only if $R/I$ is an integral domain. 
 \item $I$ is radical if and only if $R/I$ is reduced. 
 \end{itemize}
-
-\subsection{The Jacobson Radical of Commutative Rings}
-Let $R$ be a commutative ring. Recall that the Jacobson radical of a ring is defined to be $$J(R)=\bigcap_{m\text{ a maximal ideal}}m$$ since left and right maximal ideals coincide in $R$. Properties of the Jacobson radical include: 
-\begin{itemize}
-\item $J(R/J(R))=0$. 
-\end{itemize}
-
-\begin{lmm}{}{} Let $R$ be a commutative ring. Then $x\in J(R)$ if and only if $1-xy\in R^\times$ for all $y\in R$. \tcbline
-\begin{proof}
-Suppose that $x\notin J(R)$. Then $x\notin m$ for some maximal ideal $m$. Then $R=m+(x)$ since $m$ is maximal. Then there exists $p\in m$ and $y\in R$ such that $1=p+xy$. Then $1-xy=p\in m\notin R^\times$. \\~\\
-
-Suppose that $1-xy\notin R^\times$ for some $y\in R$. Then $(1-xy)$ is a proper ideal of $R$. Then there exists a maximal ideal $m$ such that $(1-xy)\subseteq m$. Since $1\notin m$ and $y$ is arbitrary, we must have that $x\notin m$. Hence $x\notin J(R)$. 
-\end{proof}
-\end{lmm}
-
-\begin{lmm}{}{} Let $R$ be a commutative ring. Then $x\in R$ is a unit if and only if $[x]\in R/J(R)$ is a unit. \tcbline
-\begin{proof}
-Suppose that $x\in R$ is a unit. Then there exists $y\in R$ such that $xy=1$. Then $[x][y]=[1]$ so we are done. Now suppose that $[x][y]=[1]$ for some $y\in R$. Then there exists $m\in J(R)$ such that $xy=1+m$. By the above lemma, $1+m$ is a unit hence $x$ is a unit. 
-\end{proof}
-\end{lmm}
 
 \subsection{The Correspondence between Ideals and the Quotient}
 \begin{defn}{Max Spectrum of a Ring}{} Let $A$ be a commutative ring. Define the max spectrum of $A$ to be $$\text{maxSpec}(A)=\{m\subseteq A\;|\;m\text{ is a maximal ideal of }A\}$$
@@ -345,30 +338,6 @@ Another way to write the bijections is via spectra: $$\text{Spec}(R/I)\;\;\overs
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Then a minimal prime ideal over $I$ exists. 
 \end{prp}
 
-\subsection{Revisiting the Polynomial Ring}
-\begin{prp}{}{} Let $R$ be a commutative ring. Then we have $$N(R[x])=N(R)[x]$$ \tcbline
-\begin{proof}
-Let $f=\sum_{k=0}^na_kx^k\in N(R)[x]$. Then each $a_k$ is nilpotent in $R$, and there exists $n_k\in\N$ such that $a_k^{n_k}=0$. This also proves that $a_kx^k$ is nilpotent. Since the sum of nilpotents is a nilpotent, we conclude that $f$ is nilpotent. \\~\\
-
-Now suppose that $f\in N(R[x])$. We induct on the degree of $f$. Let $\deg(f)=0$. Then $f$ is nilpotent and $f$ lies in $R$. Thus $f\in N(R)[x]$. Now suppose that the claim is true for $\deg(f)\leq n-1$. Let $\deg(g)=n$ with leading coefficient $b_n$. Since $g$ is nilpotent in $R[x]$, there exists $m\in\N$ such that $g^m=0$. Then in particular, $b_n^m=0$ so that $b_n$ is nilpotent. Then $b_nx^n$ is also nilpotent. Now since $N(R[x])$ is an ideal of $R[x]$, we have that $g-b_nx^n\in N(R[x])$. By inductive hypothesis, $g-b_nx^n\in N(R)[x]$. Since $N(R)$ is an ideal of $R$, we have that $N(R)[x]$ is an ideal of $R[x]$. So $g=(g-b_nx^n)+b_nx^n\in N(R)[x]$. Thus we are done. 
-\end{proof}
-\end{prp}
-
-Some more important results from Groups and Rings and Rings and Modules include: 
-\begin{itemize}
-\item If $R$ is an integral domain, then $R[x]$ is an integral domain. 
-\item $R$ is a UFD if and only if $R[x]$ is a UFD
-\item If $F$ is a field, then $F[x]$ is an Euclidean domain, a PID and a UFD
-\item If $F$ is a field, then the ideal generated by $p$ is maximal if and only if $p$ is irreducible. 
-\end{itemize}
-
-Regarding ideals of the polynomial ring, the following maybe useful: 
-\begin{itemize}
-\item $I[x]$ is an ideal of $R$
-\item There is an isomorphism $\frac{R[x]}{I[x]}\cong\frac{R}{I}[x]$ given by the map $$\left(f=\sum_{k=0}^na_kx^k+I[x]\right)\mapsto\left(\sum_{k=0}^n(a_k+I)x^k\right)$$
-\item If $I$ is a prime ideal of $R$, then $I[x]$ is a prime ideal of $R[x]$. 
-\end{itemize}
-
 \pagebreak
 \section{Basic Notions of Commutative Rings}
 \subsection{Noetherian Commutative Rings}
@@ -389,9 +358,6 @@ Then $M_2$ is Noetherian if and only if $M_1$ and $M_3$ are Noetherian.
 \item If $R$ is Noetherian and $I$ is an ideal of $R$, then $R/I$ is Noetherian. 
 \item Later when once has seen localization, we can also prove that: If $R$ is Noetherian then $S^{-1}R$ is Noetherian for any multiplicative subset $S$ of $R$. 
 \end{itemize}
-
-\begin{thm}{Hilbert's Basis Theorem}{} Let $R$ be a commutative ring. If $R$ is Noetherian, then $$R[x_1,\dots,x_n]$$ is a Noetherian ring. 
-\end{thm}
 
 \begin{prp}{}{} Let $R$ be a Noetherian commutative ring. Let $I$ be an ideal of $R$. Then there exists $n\in\N$ such that $$\sqrt{I}^n\subseteq I\subseteq\sqrt{I}$$ \tcbline
 \begin{proof}
@@ -539,6 +505,46 @@ Since every Artinian ring is Noetherian, the above proposition implies the follo
 
 We will discuss more of local rings in the topic of localizations. 
 
+\subsection{Revisiting the Polynomial Ring}
+\begin{lmm}{}{} Let $R$ be a commutative ring. Then $R[x]$ has infinitely many irreducible polynomials. \tcbline
+\begin{proof}
+If not, then there exists a finite list of irreducible polynomials $f_1,\dots,f_k$. Then $1+f_1,\dots,f_k$ is not divisible by $f_1,\dots,f_k$ and so must contain a monic irreducible factor not equal to $f_1,\dots,f_k$. This is a contradiction. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Then we have $$N(R[x])=N(R)[x]$$ \tcbline
+\begin{proof}
+Let $f=\sum_{k=0}^na_kx^k\in N(R)[x]$. Then each $a_k$ is nilpotent in $R$, and there exists $n_k\in\N$ such that $a_k^{n_k}=0$. This also proves that $a_kx^k$ is nilpotent. Since the sum of nilpotents is a nilpotent, we conclude that $f$ is nilpotent. \\~\\
+
+Now suppose that $f\in N(R[x])$. We induct on the degree of $f$. Let $\deg(f)=0$. Then $f$ is nilpotent and $f$ lies in $R$. Thus $f\in N(R)[x]$. Now suppose that the claim is true for $\deg(f)\leq n-1$. Let $\deg(g)=n$ with leading coefficient $b_n$. Since $g$ is nilpotent in $R[x]$, there exists $m\in\N$ such that $g^m=0$. Then in particular, $b_n^m=0$ so that $b_n$ is nilpotent. Then $b_nx^n$ is also nilpotent. Now since $N(R[x])$ is an ideal of $R[x]$, we have that $g-b_nx^n\in N(R[x])$. By inductive hypothesis, $g-b_nx^n\in N(R)[x]$. Since $N(R)$ is an ideal of $R$, we have that $N(R)[x]$ is an ideal of $R[x]$. So $g=(g-b_nx^n)+b_nx^n\in N(R)[x]$. Thus we are done. 
+\end{proof}
+\end{prp}
+
+\begin{thm}{Hilbert's Basis Theorem}{} Let $R$ be a commutative ring. If $R$ is Noetherian, then $R[x]$ is a Noetherian ring. \tcbline
+\begin{proof}
+It suffices to show that every ideal of $R[x]$ is finitely generated. Let $I$ be an ideal of $R[x]$. Let $I^{\leq n}$ be the ideal generated by $$I^{\leq n}=(f\in I\;|\;\deg(f)\leq n)$$ Notice that $I^{\leq n}$ is an $R$-submodule of $\bigoplus_{i=0}^nR\cdot x^i$. Since $R$ is Noetherian, $I^{\leq n}$ is finitely generated as an $R$-module. In particular, $I^{\leq n}$ is finitely generated as an $R[x]$-module with the same finite generating set. \\~\\
+
+I claim that the chain of ideals $$I^{\leq 0}\subseteq I^{\leq 1}\subseteq\cdots\subseteq I^{\leq k}\subseteq I=\bigcup_{i=0}^\infty I^{\leq i}$$ of $R[x]$ eventually stabilizes. Let $LC(f)$ be the leading coefficient of $f\in R[x]$. The define $$LC(I)=\{LC(f)\;|\;f\in I\}$$ Notice that $LC(I)$ is an ideal of $R$. Since $R$ is Noetherian, $LC(I)$ is finitely generated as an $R$-module by say $a_1,\dots,a_r$. This means that there exists $f_1,\dots,f_r\in R[x]$ such that $LC(f_i)=a_i$. Let $d=\max\{\deg(f_1),\dots,\deg(f_r)\}$. Without loss of assumption we can replace $f_i$ with $x^{d-\deg(f_i)}f_i$ so that $f_1,\dots,f_r$ have the same degree $d$. \\~\\
+
+I claim that $I^{\leq n}=I^{\leq n+1}$ for $n\geq d$. $I^{\leq n}\subseteq I^{\leq n+1}$ is trivial. Suppose that $f\in I^{\leq n+1}$. If $\deg(f)\leq n$ then we are done. So suppose that $\deg(f)=n+1$. Then the leading coefficient of $f$ is a linear combination of the leading coefficients of $f_1,\dots,f_r$. So there exists $b_1,\dots,b_r\in R$ such that $LC(f)=\sum_{i=1}^rb_iLC(f_i)$. Then $f-\left(\sum_{i=1}^rb_if_i\right)x^{n+1-d}\in I^{\leq n}$. Since $\sum_{i=1}^rb_if_i\in I^{\leq d}\subseteq I^{\leq n}$, we conclude that $f\in I^{\leq n}$. We conclude. 
+\end{proof}
+\end{thm}
+
+Some more important results from Groups and Rings and Rings and Modules include: 
+\begin{itemize}
+\item If $R$ is an integral domain, then $R[x]$ is an integral domain. 
+\item $R$ is a UFD if and only if $R[x]$ is a UFD
+\item If $F$ is a field, then $F[x]$ is an Euclidean domain, a PID and a UFD
+\item If $F$ is a field, then the ideal generated by $p$ is maximal if and only if $p$ is irreducible. 
+\end{itemize}
+
+Regarding ideals of the polynomial ring, the following maybe useful: 
+\begin{itemize}
+\item $I[x]$ is an ideal of $R$
+\item There is an isomorphism $\frac{R[x]}{I[x]}\cong\frac{R}{I}[x]$ given by the map $$\left(f=\sum_{k=0}^na_kx^k+I[x]\right)\mapsto\left(\sum_{k=0}^n(a_k+I)x^k\right)$$
+\item If $I$ is a prime ideal of $R$, then $I[x]$ is a prime ideal of $R[x]$. 
+\end{itemize}
+
 \pagebreak
 \section{Modules over a Commutative Ring}
 Recall from Rings and Modules that a module consists of an abelian group $M$ and a ring $R$ such that there is a binary operation $\cdot:R\times M\to M$ that mimic the notion of a group action: 
@@ -607,25 +613,22 @@ Since quotients of finitely generated modules are finitely generated, we know th
 \end{proof}
 \end{crl}
 
-\begin{crl}{}{} Let $R$ be a commutative ring. Let $m$ be a maximal ideal of $R$. Let $M$ be a finitely generated $R$-module. Then the following are true. 
+\begin{crl}{}{} Let $(R,m)$ be a local ring. Let $m$ be a maximal ideal of $R$. Let $M$ be a finitely generated $R$-module. Then the following are true. 
 \begin{itemize}
 \item $M/mM$ is a finite dimensional vector space over $R/m$. 
 \item $a_1,\dots,a_n\in M$ generates $M$ as an $R$-module if and only if $a_1+mM,\dots,a_n+mM$ generates $M/mM$ as a $R/m$ vector space. 
+\item $a_1,\dots,a_n\in M$ is a minimal set of generators of $M$ as an $R$-module if and only if $a_1+mM,\dots,a_n+mM$ is a basis for $M/mM$ as a $R/m$ vector space. 
 \end{itemize} \tcbline
 \begin{proof}
-For the first part, we already know that $M/mM$ is an $R$-module. We notice that for any $k\in m$ and $t+mM\in M/mM$ we have that $k(t+mM)=kt+kmM$. But $kt\in m$ means that $kt+kmM=mM$. Hence $M/mM$ is well defined as an $R/m$-module. Now suppose that $M$ is finitely generated by the elements $a_1,\dots,a_n$. Let $x+mM\in M/mM$. Then there exists $r_k\in R$ such that $x=r_1a_1+\dots+r_na_n$. But this means that $$x+mM=r_1(a_1+mM)+\dots+r_n(a_n+mM)$$ This means that $M/mM$ is generated by $a_1+mM,\dots,a_n+mM$. We conclude that $M/mM$ is finite dimensional. \\~\\
+Since the projection map $\pi:M\to M/mM$ is surjective, clearly any set of generators of $M$ is a set of generators for $M/mM$. This also shows that if $M$ is finitely generated then $M/mM$ is a finite dimensional $R/m$-vector space. 
 
-Suppose that $a_1,\dots,a_n\in M$ generates $M$ as an $R$-module. By the same argument as above, we can see that $a_1+mM,\dots,a_n+mM$ is a set of generators for $M/mM$. For the other direction, suppose that $a_1+mM,\dots,a_n+mM$ generates $M/mM$ as an $R/m$-vector space. Define $N=Ra_1+\dots+Ra_n\leq M$. Set $I=J(R)=m$. We want to show that $M=IM+N$. It is clear that $IM+N\leq M$. If $x\in M$, then there exists $r_k\in R$ such that $x+mM=r_1(a_1+mM)+\dots+r_n(a_n+M)$. In particular, this means that $$x-\sum_{k=1}^nr_ka_k\in mM$$ Hence $x\in IM+N$. We can now apply the above corollary to deduce that $M=N=Ra_1+\dots+Ra_n$ so that $M$ is generated by $a_1,\dots,a_n$. And so we are done. 
-\end{proof}
-\end{crl}
+For the other direction, suppose that $a_1+mM,\dots,a_n+mM$ generates $M/mM$ as an $R/m$-vector space. Define $N=Ra_1+\dots+Ra_n\leq M$. Set $I=J(R)=m$. We want to show that $M=IM+N$. It is clear that $IM+N\leq M$. If $x\in M$, then there exists $r_k\in R$ such that $x+mM=r_1(a_1+mM)+\dots+r_n(a_n+M)$. In particular, this means that $$x-\sum_{k=1}^nr_ka_k\in mM$$ Hence $x\in IM+N$. We can now apply the above corollary to deduce that $M=N=Ra_1+\dots+Ra_n$ so that $M$ is generated by $a_1,\dots,a_n$. And so we are done. \\~\\
 
-\begin{prp}{}{} Let $(R,m)$ be a local ring. Let $M$ be a finitely generated $R$-module. Then $a_1,\dots,a_n\in M$ is a minimal set of generators of $M$ as an $R$-module if and only if $a_1+mM,\dots,a_n+mM$ is a basis for $M/mM$ as a $R/m$ vector space. \tcbline
-\begin{proof}
 Suppose that $a_1,\dots,a_n$ generate $M$. The above shows that $a_1+mM,\dots,a_n+mM$ spans $M/mM$. So suppose for a contradiction that $a_1,\dots,a_n$ is a minimal generating set but $a_1+mM,\dots,a_n+mM$ is not a basis for $m/m^2$. This means that after relabelling, $a_1+mM,\dots,a_{n-1}+mM$ spans $M/mM$. By the above, this means that $a_1,\dots,a_{n-1}$ generate $M$. This is a contradiction of the minimality of the generating set $a_1,\dots,a_n$. Hence $a_1+mM,\dots,a_n+mM$ is a basis for $m/m^2$. \\~\\
 
-Now suppose that $a_1+mM,\dots,a_n+mM$ is a basis for $m/m^2$. We have seen above that $a_1,\dots,a_n$ generate $M$. If this is not minimal, then there is some smaller generating set $b_1,\dots,b_k$ that still generates $M$ where $k<n$. By the above, $b_1+mM,\dots,b_k+mM$ spans $m/m^2$ hence $n=\dim_{R/m}(m/m^2)\leq k$. This is a contradiction since $k<n$. Hence we are done. 
+Now suppose that $a_1+mM,\dots,a_n+mM$ is a basis for $M/mM$. We have seen above that $a_1,\dots,a_n$ generate $M$. If this is not minimal, then there is some smaller generating set $b_1,\dots,b_k$ that still generates $M$ where $k<n$. By the above, $b_1+mM,\dots,b_k+mM$ spans $M/mM$ hence $n=\dim_{R/m}(M/mM)\leq k$. This is a contradiction since $k<n$. Hence we are done. 
 \end{proof}
-\end{prp}
+\end{crl}
 
 \subsection{Change of Rings}
 \begin{defn}{Extension of Scalars}{} Let $R,S$ be commutative rings. Let $\varphi:R\to S$ be a ring homomorphism. Let $M$ be an $R$-module. Define the extension of $M$ to the ring $S$ to be the $S$-module $$S\otimes_R M$$
@@ -678,7 +681,7 @@ Thus we are done.
 \begin{lmm}{}{} Let $R$ be a commutative ring. Let $M_1,M_2,N$ be $R$-modules. Let $f:M_1\to M_2$ be an $R$-module homomorphism. Then the induced map $$f^\ast:\Hom(M_2,N)\to\Hom(M_1,N)$$ is an $R$-module homomorphism. 
 \end{lmm}
 
-\subsection{Failure of Exactness of Hom and Tensoring}
+\subsection{More on Exact Sequences}
 \begin{prp}{}{} Let $R$ be a commutative ring. Let the following be an exact sequence of $R$-modules. \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	0 & M_1 & M_2 & M_3 & 0
@@ -754,7 +757,9 @@ Let $R$ be a commutative ring. Let $X$ be a set. Recall that we defined $R\langl
 \begin{defn}{Free Commutative Algebra over a Ring}{} Let $R$ be a commutative ring. Let $X$ be a set. Define the free commutative $R$-algebra over $X$ to be the quotient $$\text{Free}_R(X)=\frac{R\langle X\rangle}{\langle x_ix_j-x_jx_i\;|\;x_i,x_j\in X\rangle}$$
 \end{defn}
 
-\begin{prp}{Universal Property of Free Commutative Algebras}{} Let $R$ be a commutative ring. Let $X$ be a set. The free commutative algebra $\text{Free}_R(X)$ satisfies the following universal property. If $A$ is a commutative $R$-algebra, then for every $f:X\to A$ a map of sets, there exists a unique homomorphism of algebras $\varphi:\text{Free}_R(X)\to A$ such that $\varphi(x_i)=f(x_i)$ for each $x_i\in X$. In other words, the following diagram commutes: \\~\\
+\begin{prp}{Universal Property of Free Commutative Algebras}{} Let $R$ be a commutative ring. Let $X$ be a set. The free commutative algebra $\text{Free}_R(X)$ satisfies the following universal property. 
+\begin{itemize}
+\item Universal Property: If $A$ is a commutative $R$-algebra, then for every $f:X\to A$ a map of sets, there exists a unique homomorphism of algebras $\varphi:\text{Free}_R(X)\to A$ such that $\varphi(x_i)=f(x_i)$ for each $x_i\in X$. In other words, the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	X & {\text{Free}_R(X)} \\
 	& A
@@ -763,9 +768,11 @@ Let $R$ be a commutative ring. Let $X$ be a set. Recall that we defined $R\langl
 	\arrow["{\exists!\varphi}", dashed, from=1-2, to=2-2]
 \end{tikzcd}}\\~\\
 where $\iota:X\to\text{Free}_R(X)$ is the inclusion. 
+\item $\text{Free}_R(X)$ is the unique $R$-algebra (up to unique isomorphism) that satisfies this property. 
+\end{itemize}
 \end{prp}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $X$ be a set. Then there is an $R$-algebra homomorphism $$\text{Free}_R(X)\cong R[X]$$ with the polynomial ring over $X$. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $X$ be a set. Then there is an $R$-algebra isomorphism $$\text{Free}_R(X)\cong R[X]$$ with the polynomial ring over $X$. 
 \end{prp}
 
 \subsection{Finiteness Properties of Algebras}
@@ -797,19 +804,6 @@ Trivial since $\Z$ is a principal ideal domain.
 \begin{eg}{}{} Let $R$ be a commutative ring. Then $R[x]$ is a finitely generated algebra over $R$ but is not a finite $R$-algebra. 
 \end{eg}
 
-\subsection{Zariski's Lemma}
-\begin{lmm}{}{} Let $F$ be a field. Let $f\in F[x]$. Then the localization $F[x]_f$ is not a field. 
-\end{lmm}
-
-\begin{thm}{Zariski's Lemma}{} Let $F$ be a field. Let $K$ be a field that is also a finitely generated algebra over $F$. Then $K$ is a finite algebra. In particular, $K$ is a finite dimensional vector space over $F$. 
-\end{thm}
-
-\begin{crl}{}{} Let $F$ be an algebraically closed field. Let $K$ be a field that is also a finitely generated algebra over $F$. Then the inclusion homomorphism $F\hookrightarrow K$ is an $F$-algebra isomorphism. 
-\end{crl}
-
-\begin{crl}{}{} Let $F$ be an algebraically closed field. Then every maximal ideal of $F[x_1,\dots,x_n]$ is of the form $(x_1-a_1,\dots,x_n-a_n)$ for some $a_1,\dots,a_n\in F$. 
-\end{crl}
-
 \pagebreak
 \section{Localization}
 \subsection{Localization of a Ring}
@@ -817,12 +811,6 @@ Trivial since $\Z$ is a principal ideal domain.
 \end{defn}
 
 \begin{defn}{Localization of a Ring}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set. Define the ring of fractions of $R$ with respect to $S$ by $$S^{-1}R=\left\{\frac{r}{s}\;\bigg{|}\;r\in R,s\in S\right\}/\sim$$ where we say that $r/s\sim r'/s'$ if there exists $t\in S$ such that $t(rs'-r's)=0$. 
-\end{defn}
-
-\begin{lmm}{}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Then the set $\{f^n\;|\;n\in\N\}$ is a multiplicative set. 
-\end{lmm}
-
-\begin{defn}{Localization at an Element}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Define the localization of $R$ at $f$ to be the ring $$R_f=\{f^n\;|\;n\in\N\}^{-1}R$$ It is also denoted as $R[1/f]$. 
 \end{defn}
 
 \begin{prp}{}{} Let $S^{-1}R$ be a ring of fractions. 
@@ -839,9 +827,15 @@ Trivial since $\Z$ is a principal ideal domain.
 \end{proof}
 \end{prp}
 
-\begin{prp}{Universal Property}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative set. Then $S^{-1}R$ and the localization map $k:R\to S^{-1}R$ satisfies the following universal property. \\~\\
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. Then localization map $R\to S^{-1}R$ is injective if and only if $S$ does not contain zero divisors. \tcbline
+\begin{proof}
+Suppose that $R\to S^{-1}R$ is injective. Then $sr=0$ implies $r=0$ for all $s\in S$. Hence $S$ does not contain zero divisors. Suppose that $S$ does not contain zero divisors. Then $sr=0$ implies that $r=0$ since $S$ has no zero divisors. Hence the localization map is injective. 
+\end{proof}
+\end{lmm}
 
-For any commutative ring $B$ and ring homomorphism $\phi:R\to B$ such that $\phi(s)\in B^\times$ for all $s\in S$, there exists a unique ring homomorphism $\phi:S^{-1}R\to B$ such that the following diagram commutes: \\~\\
+\begin{prp}{Universal Property}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative set. Then $S^{-1}R$ and the localization map $k:R\to S^{-1}R$ satisfies the following universal property. 
+\begin{itemize}
+\item For any commutative ring $B$ and ring homomorphism $\phi:R\to B$ such that $\phi(s)\in B^\times$ for all $s\in S$, there exists a unique ring homomorphism $\phi:S^{-1}R\to B$ such that the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	R & {S^{-1}R} \\
 	& B
@@ -849,13 +843,35 @@ For any commutative ring $B$ and ring homomorphism $\phi:R\to B$ such that $\phi
 	\arrow["\phi"', from=1-1, to=2-2]
 	\arrow["{\exists !\psi}", dashed, from=1-2, to=2-2]
 \end{tikzcd}} \\~\\
-Moreover, $S^{-1}R$ is the unique commutative ring (up to unique isomorphism) that has such a property. 
+\item $S^{-1}R$ is the unique commutative ring (up to unique isomorphism) that has such a property. 
+\end{itemize}
 \end{prp}
 
-\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset of $R$. If $R$ is Noetherian, then $S^{-1}R$ is Noetherian. 
+\begin{lmm}{}{} Let $R$ be a commutative ring. If $R$ is an integral domain, then then following are true. 
+\begin{itemize}
+\item If $S$ is a mutliplicative subset of $R$ such that $0\notin S$, then $S^{-1}R$ is an integral domain. 
+\item $\text{Frac}(R)=(0)$. 
+\item The localization map induces a ring isomorphism $$R\cong\bigcap_{m\text{ a maximal ideal}}R_m$$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Suppose that $0=\frac{a}{s}\cdot\frac{b}{t}$. By the equivalence relation this is the same as saying that $uab=0$ for some $u\in S$. Since $R$ is an integral domain and $0\neq S$, we conclude that $u\notin S$ so that $ab=0$. Again since $R$ is an integral domain this implies that $a=0$ or $b=0$. Hence either $a/s=0$ or $b/t=0$ in $S^{-1}R$. Hence $S^{-1}R$ is an integral domain. 
+\item Trivial. 
+\item Clearly the map is well defined. Moreover, since for each maximal ideal $m$, $0\notin R\setminus m$. Hence the localization map is injective. Suppose for a contradiction that the localization map is not surjective. Then there exists $x$ in the intersection such that $x\neq r/1$ for all $r\in R$.  Consider the ideal $I=\{r\in R\;|\;rx=s/1\text{ for some }s\in R\;\}$. Since $1\notin R$, $I$ is a proper ideal. So there exists a maximal ideal $m$ containing $I$. But $x$ also cannot lie in $R_m$ and hence the intersection. Indeed, if $x\in R_m$, then $x=a/b$ for some $a\in R$ and $b\notin m$. Then $bx=a\in R$ implies that $b\in I$. This is a contradiction to $b\notin m$. Thus no such $x$ exists. Hence the localization map is surjective. 
+\end{itemize}
+\end{proof}
 \end{lmm}
 
-\subsection{Localization Away from Prime Ideals}
+\subsection{Special Types of Localization}
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Then the set $\{f^n\;|\;n\in\N\}$ is a multiplicative set. 
+\end{lmm}
+
+\begin{defn}{Localization at an Element}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Define the localization of $R$ at $f$ to be the ring $$R_f=\{f^n\;|\;n\in\N\}^{-1}R$$
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Then there is an $R$-algebra isomorphism $$R_f\cong R\left[\frac{1}{f}\right]$$ given by $\frac{a}{f^k}\mapsto a\cdot\frac{1}{f^k}$. 
+\end{lmm}
+
 \begin{lmm}{}{} Let $R$ be a ring and $P$ a prime ideal of $R$. Then $R\setminus P$ is a multiplicative set. \tcbline
 \begin{proof}
 By definition, $xy\in P$ implies $x\in P$ or $y\in P$, since $R\setminus P$ removes all these elements, we have that $x\notin P$ and $y\notin P$ implies that $xy\notin P$. 
@@ -866,43 +882,75 @@ By definition, $xy\in P$ implies $x\in P$ or $y\in P$, since $R\setminus P$ remo
 \end{defn}
 
 \subsection{Localization of a Module}
-\begin{defn}{Localization of a Module}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set Let $M$ be a $R$-module. Define the ring of fractions of $M$ with respect to $S$ by $$S^{-1}M=\left\{\frac{m}{s}|m\in M,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{m}{s}\sim\frac{m'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(mu'-m'u)=0$$ If $S=\{1,f,f^2,\dots\}$ then we write $$S^{-1}M=M_f=M[1/f]$$
+\begin{defn}{Localization of a Module}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set Let $M$ be a $R$-module. Define the ring of fractions of $M$ with respect to $S$ by $$S^{-1}M=\left\{\frac{m}{s}|m\in M,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{m}{s}\sim\frac{m'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(mu'-m'u)=0$$
 \end{defn}
 
 \begin{lmm}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $S\subseteq R$ be a multiplicative subset. Then $S^{-1}M$ is an $S^{-1}R$-module with operation given by $$\left(\frac{r}{s_1},\frac{m}{s_2}\right)\mapsto\frac{r\cdot m}{s_1s_2}$$
 \end{lmm}
 
-\begin{defn}{Induced Map of Localization}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Define the induced map $$S^{-1}\phi:S^{-1}M\to S^{-1}N$$ by the formula $\frac{m}{s}\mapsto\frac{\phi(n)}{s}$. 
+\begin{defn}{Induced Map of Localization}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Define the induced map $$S^{-1}\phi:S^{-1}M\to S^{-1}N$$ by the formula $\frac{m}{s}\mapsto\frac{\phi(m)}{s}$. 
 \end{defn}
 
 \begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Then the induced map $$S^{-1}\phi:S^{-1}M\to S^{-1}N$$ is a well defined ring homomorphism. 
 \end{lmm}
 
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N,K$ be $R$-modules. Let $f:M\to N$ and $g:N\to K$ be $R$-module homomorphisms. Then the following are true. 
+\begin{itemize}
+\item Composition: $S^{-1}(g\circ f)=S^{-1}g\circ S^{-1}f:S^{-1}M\to K$. 
+\item Identity: $S^{-1}\text{id}_M=\text{id}_{S^{-1}M}$
+\end{itemize}
+\end{lmm}
+
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let the following be an exact sequence of $R$-modules. \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & M_1 & M_2 & M_3 & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["f", from=1-2, to=1-3]
-	\arrow["g", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
+	{M_1} & {M_2} & {M_3}
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g", from=1-2, to=1-3]
 \end{tikzcd}}\\~\\
 Then the following is an exact sequence of $S^{-1}R$-modules. \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & S^{-1}M_1 & S^{-1}M_2 & S^{-1}M_3 & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["S^{-1}f", from=1-2, to=1-3]
-	\arrow["S^{-1}g", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
+	{S^{-1}M_1} & {S^{-1}M_2} & {S^{-1}M_3}
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g", from=1-2, to=1-3]
+\end{tikzcd}} \tcbline
+\begin{proof}
+Since $\im(f)=\ker(g)$, we have that $g\circ f=0$ which implies that $0=S^{-1}0=S^{-1}(g\circ f)=S^{-1}g\circ S^{-1}f$. Hence $\im(S^{-1}f)\subseteq\ker(S^{-1}g)$. Conversely, let $m_2/s\in\ker(S^{-1}g)$. Then $g(m_2)/s=0$ and so $g(tm_2)=tg(m_2)=0$ for some $t\in S$. Since $\im(f)=\ker(g)$, there exists $m_1\in M_1$ such that $f(m_1)=tm_2$. Then we have $$(S^{-1}f)(m_1/ts)=f(m_1)/ts=tm_2/ts=m_2/s$$ Hence $m_2/s\in\im(S^{-1}(f))$. 
+\end{proof}
 \end{prp}
 
 \begin{crl}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M$ be an $R$-module. Then the following are true. 
 \begin{itemize}
-\item If $N_1,N_2$ are $R$-submodules of $M$, then $$S^{-1}(N_1+N_2)=S^{-1}N_1+S^{-1}N_2$$ as $S^{-1}R$-submodules of $S^{-1}M$. 
-\item If $N_1,N_2$ are $R$-submodules of $M$, then $$S^{-1}(N_1\cap N_2)=S^{-1}N_1\cap S^{-1}N_2$$ as $S^{-1}R$-submodules of $S^{-1}M$. 
-\item If $N$ is an $R$-submodule of $M$, then $$S^{-1}\frac{M}{N}\cong\frac{S^{-1}M}{S^{-1}N}$$ as $S^{-1}R$-modules. 
-\item If $N$ is an $R$-module, then $$S^{-1}(M\oplus N)\cong S^{-1}M\oplus S^{-1}N$$ as $S^{-1}R$-modules. 
-\end{itemize}
+\item Localization commutes with quotients: If $N$ is an $R$-submodule of $M$, then $$S^{-1}\frac{M}{N}\cong\frac{S^{-1}M}{S^{-1}N}$$ as $S^{-1}R$-modules. 
+\item Localization commutes with products: If $N$ is an $R$-module, then $$S^{-1}(M\times N)\cong S^{-1}M\times S^{-1}N$$ as $S^{-1}R$-modules. 
+\item Localization commutes with internal sums: If $N_1,N_2$ are $R$-submodules of $M$, then $$S^{-1}(N_1+N_2)\cong S^{-1}N_1+S^{-1}N_2$$ as $S^{-1}R$-submodules of $S^{-1}M$. 
+\item Localization commutes with intersections: If $N_1,N_2$ are $R$-submodules of $M$, then $$S^{-1}(N_1\cap N_2)=S^{-1}N_1\cap S^{-1}N_2$$ as $S^{-1}R$-submodules of $S^{-1}M$. 
+\end{itemize} \tcbline
+\begin{proof}
+Consider the exact sequences: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	& 0 & N & M & {M/N} & 0 \\
+	& 0 & M & {M\times N} & N & 0 \\
+	& 0 & {N_1} & {N_1+N_2} & {N_2} & 0 \\
+	0 & {N_1\cap N_2} && {N_1\times N_2} && {N_1+N_2} & 0
+	\arrow[from=1-2, to=1-3]
+	\arrow["{\text{incl.}}", from=1-3, to=1-4]
+	\arrow["{\text{proj.}}", from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=2-2, to=2-3]
+	\arrow["{\text{incl.}}", from=2-3, to=2-4]
+	\arrow["{\text{proj.}}", from=2-4, to=2-5]
+	\arrow[from=2-5, to=2-6]
+	\arrow[from=3-2, to=3-3]
+	\arrow["{\text{incl.}}", from=3-3, to=3-4]
+	\arrow["{\text{proj.}}", from=3-4, to=3-5]
+	\arrow[from=3-5, to=3-6]
+	\arrow[from=4-1, to=4-2]
+	\arrow["{n\mapsto(n,n)}", from=4-2, to=4-4]
+	\arrow["{(n_1,n_2)\mapsto n_1-n_2}", from=4-4, to=4-6]
+	\arrow[from=4-6, to=4-7]
+\end{tikzcd}}\\~\\
+respectively and apply the above proposition. 
+\end{proof}
 \end{crl}
 
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Then there is an isomorphism $$S^{-1}M\cong S^{-1}R\otimes_RM$$ of $S^{-1}R$-modules given by $\frac{m}{s}\mapsto\frac{1}{s}\otimes m$. 
@@ -911,34 +959,38 @@ Then the following is an exact sequence of $S^{-1}R$-modules. \\~\\
 \begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Then the following are true. 
 \begin{itemize}
 \item Localization commutes with kernels: $$S^{-1}\ker(\phi)\cong\ker(S^{-1}\phi)$$
-\item Localization commutes with images: $$S^{-1}(\im\phi)\cong\im(S^{-1}\phi)$$
 \item Localization commutes with cokernels: $$S^{-1}\frac{N}{\im(\phi)}\cong\frac{S^{-1}N}{\im(S^{-1}\phi)}$$
-\end{itemize}
-\end{lmm}
-
-\subsection{Localization of Integral Domains}
-\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. If $R$ is an integral domain, then then following are true. 
-\begin{itemize}
-\item The localization map $R\to S^{-1}R$ is injective. 
-\item If $0\notin S$, then $S^{-1}R$ is an integral domain. 
+\item Localization commutes with images: $$S^{-1}(\im\phi)\cong\im(S^{-1}\phi)$$
 \end{itemize} \tcbline
 \begin{proof}
-Suppose that $0=\frac{a}{s}\cdot\frac{b}{t}$. By the equivalence relation this is the same as saying that $uab=0$ for some $u\in S$. Since $R$ is an integral domain and $0\neq S$, we conclude that $u\notin S$ so that $ab=0$. Again since $R$ is an integral domain this implies that $a=0$ or $b=0$. Hence either $a/s=0$ or $b/t=0$ in $S^{-1}R$. Hence $S^{-1}R$ is an integral domain. 
+Consider the exact sequences: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\ker(\phi)} & M & N \\
+	&& M & N & {\frac{M}{\im(\phi)}} & 0 \\
+	0 & {\ker(\phi)} & M & {\im(\phi)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["\phi", from=1-3, to=1-4]
+	\arrow["\phi", from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+	\arrow[from=2-5, to=2-6]
+	\arrow[from=3-1, to=3-2]
+	\arrow[from=3-2, to=3-3]
+	\arrow[from=3-3, to=3-4]
+	\arrow[from=3-4, to=3-5]
+\end{tikzcd}}\\~\\
+respectively and apply 5.3.6. 
 \end{proof}
 \end{lmm}
-
-\begin{prp}{}{} Let $R$ be an integral domain. Then the following are true. 
-\begin{itemize}
-\item $\text{Frac}(R)=R_{(0)}$
-\item $R=\bigcap_{m\text{ a maximal ideal}}R_m$
-\end{itemize}
-\end{prp}
 
 \subsection{Ideals of a Localization}
 \begin{defn}{Ideals Closed Under Division}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. We say that $I$ is closed under division by $s$ if for all $s\in S$ and $a\in R$ such that $sa\in I$, we have $a\in I$. 
 \end{defn}
 
-\begin{lmm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then we have $$I^e=S^{-1}I$$
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then we have $$I^e=S^{-1}I$$ \tcbline
+\begin{proof}
+Let $f:R\to S^{-1}R$ be the localization map. Then $f(I)\subseteq S^{-1}I$ implies that $I^e\subseteq S^{-1}I$. Conversely, suppose that $i/s\in S^{-1}I$. Then $i/s=(1/s)\cdot f(i)\in I^e$. Hence $I^e=S^{-1}I$. 
+\end{proof}
 \end{lmm}
 
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. Let $P$ be a prime ideal of $R$. Then the following are true. 
@@ -969,7 +1021,7 @@ This shows that $S^{-1}(-)$ and $\phi^{-1}(-)$ are mutual inverses of each other
 
 Using the theorem we conclude that every ideal of $S^{-1}R$ is of the form $S^{-1}I$ for some ideal $I$ of $R$ such that $I$ is closed under division by $S$. 
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then the above bijection restricts to the following bijection $$\{J\;|\;J\text{ is a prime ideal of }S^{-1}R\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;\bigg{|}\;\substack{I\text{ is a prime ideal of }R\\\text{ and }I\cap S=\emptyset}\right\}$$ \tcbline
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $S\subseteq R$ be a multiplicative subset. Then the above bijection restricts to the following bijection $$\text{Spec}(S^{-1}R)\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;\bigg{|}\;\substack{I\text{ is a prime ideal of }R\\\text{ and }I\cap S=\emptyset}\right\}$$ \tcbline
 \begin{proof}
 Let $\phi:R\to S^{-1}R$ be the localization map. From the above we know that $Q=S^{-1}\phi^{-1}(Q)$ for any prime ideal $Q$ of $S^{-1}R$. This implies that $S^{-1}\phi^{-1}(Q)$ is prime. By 5.4.3 this implies that $\phi^{-1}(Q)\cap S=\emptyset$. Thus the map $J\mapsto\phi^{-1}(J)$ induces a well defined map on our given sets of prime ideals. \\~\\
 
@@ -977,7 +1029,7 @@ Conversely, by 5.4.3 we know that if $P$ is a prime ideal of $R$ such that $S\ca
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $P$ be a prime ideal of $R$. Then the above bijection gives $$\{J\;|\;J\text{ is a prime ideal of }R_P\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;\bigg{|}\;\substack{I\text{ is a prime ideal of }R\\\text{ and }I\subseteq P}\right\}$$ \tcbline
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $P$ be a prime ideal of $R$. Then the above bijection gives $$\text{Spec}(R_P)\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{I\;\bigg{|}\;\substack{I\text{ is a prime ideal of }R\\\text{ and }I\subseteq P}\right\}$$ \tcbline
 \begin{proof}
 Notice that the condition that $I\cap S=\emptyset$ in the above proposition translates to $I\cap (R\setminus P)=\emptyset$, which is the same as saying $I\subseteq P$. 
 \end{proof}
@@ -997,6 +1049,12 @@ Define a map $S^{-1}R\to R_P$ by the identity map. This is well defined because 
 \end{proof}
 \end{prp}
 
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset of $R$. If $R$ is Noetherian, then $S^{-1}R$ is Noetherian. \tcbline
+\begin{proof}
+Follows from the correspondence of ideals in localizations. 
+\end{proof}
+\end{lmm}
+
 \subsection{Localization of Graded Rings}
 \begin{prp}{}{} Let $R=\bigoplus_{i=0}^\infty R_i$ be a commutative ring that is graded. Let $P$ be a homogeneous prime ideal of $R$. Then $R_P$ is a graded ring in which the grading structure is given as follows: $f/g\in R_P$ has degree $\deg(f)-\deg(g)$. 
 \end{prp}
@@ -1008,6 +1066,15 @@ Define a map $S^{-1}R\to R_P$ by the identity map. This is well defined because 
 \end{prp}
 
 \subsection{Local Properties}
+\begin{defn}{Local Properties of Elements}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. A property of an element of $M$ is local if the following is true. $m\in M$ has the property if and only if $m\in M_P$ has the property. 
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Then $x\in M$ being the zero element is a local property. \tcbline
+\begin{proof}
+Suppose that $x=0$ in $M$. Then clearly $x=0$ in both $M_P$ and $M_m$ for all prime ideals $P$ and maximal ideals $m$. Now let $x=0$ in $M_m$ for all maximal ideals $m$. This means that there exists $a_m\in R\setminus m$ such that $a_mx=0$. Let $I$ be the ideal $$I=\sum_{m\text{ a maximal ideal}}a_mR\subseteq R$$ Since $a_m\in I$ but $a_m\notin m$, we must have that $I$ is not contained in any maximal ideals. Hence $I=R$. Then there exists $r_i\in R$ such that $1=\sum_{i=1}^nr_ia_{m_i}$ for some $a_{m_i}\in R\setminus m_i$. Then we have $$x=\sum_{i=1}^n(r_ia_{m_i}x)=0\in M$$
+\end{proof}
+\end{lmm}
+
 \begin{defn}{Local Properties of Modules}{} Let $R$ be a commutative ring. A property of $R$-modules is local if for any $R$-modules $M$, the following are equivalent. 
 \begin{itemize}
 \item $M$ has the property
@@ -1015,6 +1082,12 @@ Define a map $S^{-1}R\to R_P$ by the identity map. This is well defined because 
 \item $M_m$ has the property for all maximal ideals $m$
 \end{itemize}
 \end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Then the module being $0$ is a local property. \tcbline
+\begin{proof}
+If $M=0$, then clearly $M_P=0$ and $M_m=0$ for all prime ideals $P$ and maximal ideals $m$. Then using 5.6.2 we conclude that if $M_m=0$ for all maximal ideals $m$, then $M=0$. 
+\end{proof}
+\end{lmm}
 
 \begin{prp}{Injectivity and Surjectivity are Local Properties}{} Let $R$ be a commutative ring. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Let $S$ be a multiplicative subset of $R$. Then the following are equivalent. 
 \begin{itemize}
@@ -1024,42 +1097,36 @@ Define a map $S^{-1}R\to R_P$ by the identity map. This is well defined because 
 \end{itemize}
 \end{prp}
 
-More local properties: zero, nilpotent\\
+More local properties: nilpotent\\
 Non-local properties: freeness, domain
 
 \begin{prp}{Exactness is Local}{} Let $R$ be a commutative ring. Let $M_1,M_2,M_3$ be $R$-modules. Let $f:M_1\to M_2$ and $g:M_2\to M_3$ be $R$-module homomorphisms. Then the following conditions are equivalent. 
 \begin{itemize}
 \item The following sequence is exact: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & M_1 & M_2 & M_3 & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["f", from=1-2, to=1-3]
-	\arrow["g", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
+	{M_1} & {M_2} & {M_3}
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g", from=1-2, to=1-3]
 \end{tikzcd}}\\~\\
 \item The following sequence is exact: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & (M_1)_P & (M_2)_P & (M_3)_P & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["f_P", from=1-2, to=1-3]
-	\arrow["g_P", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
+	{(M_1)_P} & {(M_2)_P} & {(M_3)_P}
+	\arrow["{f_P}", from=1-1, to=1-2]
+	\arrow["{g_P}", from=1-2, to=1-3]
 \end{tikzcd}}\\~\\
 for all prime ideals $P$ of $R$. 
 \item The following sequence is exact: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & (M_1)_m & (M_2)_m & (M_3)_m & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["f_m", from=1-2, to=1-3]
-	\arrow["g_m", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
+	{(M_1)_m} & {(M_2)_m} & {(M_3)_m}
+	\arrow["{f_m}", from=1-1, to=1-2]
+	\arrow["{g_m}", from=1-2, to=1-3]
 \end{tikzcd}}\\~\\
 for all maximal ideals $m$ of $R$. 
-\end{itemize}
+\end{itemize} \tcbline
+\begin{proof}
+$(1)\implies(2),(3)$ is clear since localization preserves exact sequences. It remains to show that $(3)\implies(1)$. Let $x\in M$. Then we have that $g_m(f_m(x))=0$ for all maximal ideals $m$. Since being $0$ is a local property, we conclude that $g(f(x))=0$. Hence $\im(f)\subseteq\ker(g)$. Since kernels and images and quotients commute with localizations, we have that $$\left(\frac{\ker(g)}{\im(f)}\right)_m\cong\frac{\ker(g_m)}{\im(f_m)}=0$$ Since being a zero module is a local property, we conclude that $\im(f)=\ker(g)$. 
+\end{proof}
 \end{prp}
-
-\begin{defn}{Local Properties of Elements}{}A property of an element of $M$ is local if the following is true. $m\in M$ has the property if and only if $m\in M_P$ has the property. 
-\end{defn}
 
 \pagebreak
 \section{Primary Decomposition}
@@ -1199,11 +1266,21 @@ When $A$ and $B$ are field, this is a familiar notion in Field and Galois theory
 \item $b$ is integral over $A$
 \item $A[b]\subseteq B$ is finitely generated $A$-submodule. 
 \item There exists an $A$ sub-algebra $A'\subseteq B$ such that $A[b]\subseteq A'$ and $A'$ is finitely generated as an $A$-module. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item $(1)\implies(2)$: Since $b$ is integral over $A$, $b^n=a_{n-1}b^{n-1}+\dots+a_1b+a_0$. Hence $A[b]=\bigoplus_{i=0}^{n-1}A\cdot b^i$ is a finitely generated $A$-module. 
+\item $(2)\implies(3)$: Choose $A'=A[b]$. 
+\item $(3)\implies(1)$. By assumption, $A'$ is a finitely generated $A$-module. Let $\phi:A'\to A'$ be the ring homomorphism defined by $\phi(x)=bx$. By Cayley-Hamilton theorem, there exists $a_1,\dots,a_{n-1}\in A$ such that $$\phi^n+a_{n-1}\phi^{n-1}+\dots+a_1\phi+a_0=0$$ Since $\phi$ is the multiplication by $b$ map, we have $$(b^n+a_{n-1}b^{n-1}+\dots+a_1b_+a_0)(y)=0$$ for all $y\in A'$. Choosing $y=1$, we see that $b$ is integral over $A$. 
 \end{itemize}
+\end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $A\subseteq B$ be commutative rings. Then $B$ is a finitely generated $A$-module if and only if $B=A[x_1,\dots,x_n]$ for some $x_1,\dots,x_n\in B$ that is integral over $A$. 
-\end{prp}
+\begin{lmm}{}{} Let $A\subseteq B$ be commutative rings. Then $B$ is a finitely generated $A$-module if and only if $B=A[x_1,\dots,x_n]$ for some $x_1,\dots,x_n\in B$ that is integral over $A$. \tcbline
+\begin{proof}
+Induct on $n$ and use the fact that $x_i$ is integral over $A$ if and only if $A[x_i]$ is a finitely generated $A$-module, and the fact that $x_i$ is integral over $A[x_1,\dots,x_{i-1}]$. 
+\end{proof}
+\end{lmm}
 
 \begin{prp}{}{} Let $B$ be a commutative ring and let $A\subseteq B$ be a subring. Let $b_1,b_2\in B$ be integral over $A$. Then $b_1+b_2$ and $b_1b_2$ are both integral over $A$. 
 \end{prp}
@@ -1211,6 +1288,9 @@ When $A$ and $B$ are field, this is a familiar notion in Field and Galois theory
 \subsection{Integral Closure}
 \begin{defn}{Integral Closure}{} Let $B$ be a commutative ring. Let $A\subseteq B$ be a subring. Define the subring $$\overline{A}=\{b\in B\;|\;b\text{ is integral over }A\}$$ to be the integral closure of $A$ in $B$. 
 \end{defn}
+
+\begin{eg}{}{} The integral closure of $\Z\subseteq\Q$ is $\Z$. 
+\end{eg}
 
 \begin{prp}{}{} Let $B$ be a commutative ring. Let $A\subseteq B$ be a subring. Let $S$ be a multiplicatively closed subset of $A$. Then $$\overline{S^{-1}A}=S^{-1}\overline{A}$$
 \end{prp}
@@ -1221,29 +1301,67 @@ When $A$ and $B$ are field, this is a familiar notion in Field and Galois theory
 \begin{lmm}{}{} Let $A\subseteq B\subseteq C$ be commutative rings. Then $C$ is integral over $B$ and $B$ is integral over $A$ if and only if $C$ is integral over $A$. 
 \end{lmm}
 
-\begin{prp}{}{} Let $A,B$ be commutative rings such that $A\subset B$ is an integral extension. Let $J$ be an ideal of $B$. Then $\frac{B}{J}$ is integral over $\frac{A}{J\cap A}$. 
+\begin{prp}{}{} Let $A,B$ be commutative rings such that $A\subset B$ is an integral extension. Then the following are true. 
+\begin{itemize}
+\item Let $J$ be an ideal of $B$. Then $\frac{B}{J}$ is integral over $\frac{A}{J\cap A}$. 
+\item Let $S$ be a multiplicative subset of $B$. Then $S^{-1}B$ is integral over $S^{-1}A$. 
+\end{itemize} \tcbline
+\begin{proof}
+Suppose that $J$ is an ideal of $B$. Let $b+J\in B/J$. Since $b\in B$ and $B$ is integral over $A$, there exists $a_0,\dots,a_{n-1}\in A$ such that $$b^n+a_{n-1}b^{n-1}+\dots+a_1b+a_0=0$$ Reduction to $J$ gives $$(b+J)^n+(a_{n-1}+J)(b+J)^{n-1}+\dots+(a_1+J)(b+J)+(a_0+J)=J$$ This shows that $b+J$ is an integral element of $A/J\cap A$ because each $a_i+J$ is an element of $A/J\cap A$ by restriction to $A$. \\~\\
+
+Let $b/s\in S^{-1}B$. Since $B$ is integral over $A$, there exists $a_0,\dots,a_{n-1}\in A$ such that $$b^n+a_{n-1}b^{n-1}+\dots+a_1b+a_0=0$$ Dividing $s^n$ on both sides give $$\frac{b^n}{s^n}+\frac{a_{n-1}}{s}\frac{b^{n-1}}{s^{n-1}}+\dots+\frac{a_1}{s^{n-1}}\frac{b}{s}+\frac{a_0}{s^n}=0$$ This shows that $b/s$ is an integral element of $S^{-1}A$. 
+\end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $A,B$ be commutative rings such that $A\subset B$ is an integral extension. Let $S$ be a multiplicative subset of $B$. Then $S^{-1}B$ is integral over $S^{-1}A$. 
-\end{prp}
+\begin{lmm}{}{} Let $A,B$ be integral domains such that $A\subset B$ is an integral extension. Then $A$ is a field if and only if $B$ is a field. \tcbline
+\begin{proof}
+Suppose that $A$ is a field. Let $0\neq b\in B$. Then there exists $a_0,\dots,a_{n-1}\in A$ such that $$b^n+a_{n-1}b^{n-1}+\dots+a_1b+a_0=0$$ for smallest of such $n\in\N$. Rearranging gives $$b(b^{n-1}+a_{n-1}b^{n-2}+\dots+a_1)=-a_0$$ Notice that $a_0\neq 0$ because otherwise it contradicts the minimality of $n$. Since $A$ is a field, we can divide $-a_0\neq 0$ on both sides to find an inverse of $b$. Hence $B$ is a field. \\~\\
 
-\begin{lmm}{}{} Let $A,B$ be integral domains such that $A\subset B$ is an integral extension. Then $A$ is a field if and only if $B$ is a field. 
+Now assume that $B$ is a field. Let $0\neq a\in A$. Since $B$ is a field, $a^{-1}\in B$ is such that there exists $a_0,\dots,a_{n-1}\in A$ such that $$a^{-n}+a_{n-1}a^{-(n-1)}+\dots+a_1a^{-1}+a_0=0$$ Multiplying $a^{n-1}$ on both sides and rearranging, we get $$a^{-1}=-\left(a_{n-1}+\dots+a_1a^{n-2}+a_0a^{n-1}\right)$$ This shows that $a^{-1}\in A$. Hence $A$ is a field. 
+\end{proof}
 \end{lmm}
 
 \begin{defn}{Integrally Closed}{} Let $B$ be a commutative ring. Let $A\subseteq B$ be a subring. We say that $A$ is integrally closed in $B$ if $\overline{A}=A$. 
 \end{defn}
 
+\begin{thm}{Gauss's Lemma}{} Let $B$ be a commutative ring. Let $A\subseteq B$ be a subring. Suppose that $A$ is integrally closed in $B$. Then the following are true. 
+\begin{itemize}
+\item If $f,g\in B[x]$ are monic polynomials such that $fg\in A[x]$, then $f,g\in A[x]$. 
+\item If $f\in A[x]$ is irreducible, then $f$ is irreducible as a polynomial in $B[x]$. 
+\end{itemize} \tcbline
+\begin{proof}
+Clearly the first statement implies the second. We first prove that for any monic polynomial $f\in B[x]$, there exists a ring $C$ such that $B\subseteq C$ and $f$ factorizes as a product of linear terms in $C[x]$. To show this, we induct on $n$. If $n=1$ then we are done. Suppose that the hypothesis is true for some $k\in\N$. Suppose that $\deg(f)=k+1$. 
+\end{proof}
+\end{thm}
+
 \subsection{The Going-Up and Going-Down Theorems}
 We want to compare prime ideals between integral extensions. 
 
-\begin{prp}{}{} Let $A,B$ be rings such that $A\subset B$ is an integral extension. Let $Q$ be a prime ideal of $B$. Then $Q\cap A$ is a maximal ideal of $A$ if and only if $Q$ is a maximal ideal of $B$. 
-\end{prp}
+\begin{lmm}{}{} Let $A,B$ be rings such that $A\subset B$ is an integral extension. Let $Q$ be a prime ideal of $B$. Then $Q\cap A$ is a maximal ideal of $A$ if and only if $Q$ is a maximal ideal of $B$. \tcbline
+\begin{proof}
+By 7.2.6, we know that $B/Q$ is integral over $A/Q\cap A$. By 7.2.7, $B/Q$ is a field if and only if $A/Q\cap A$ is a field. Hence $Q$ is a maximal ideal of $B$ if and only if $Q\cap A$ is a maximal ideal of $A$. 
+\end{proof}
+\end{lmm}
 
 \begin{prp}{}{} Let $A,B$ be rings such that $A\subset B$ is an integral extension. Let $P$ be a prime ideal of $A$. Then the following are true. 
 \begin{itemize}
 \item There exists a prime ideal $Q$ of $B$ such that $P=Q\cap A$
 \item If $Q_1,Q_2$ are prime ideals of $B$ such that $Q_1\cap A=P=Q_2\cap B$ and $Q_1\subseteq Q_2$, then $Q_1=Q_2$. 
-\end{itemize}
+\end{itemize} \tcbline
+\begin{proof}
+Let $\alpha:A\to A_P$ and $\beta:B\to B_P$ be the localization maps. Let $m$ be a maximal ideal of $B_P$. Let $Q=\beta^{-1}(m)$. Then $Q$ is a prime ideal of $B$. By the above lemma, $m\cap A_P$ is a maximal ideal of $A_P$. But $A_P$ has a unique maximal ideal given by $PA_P$, and $\alpha^{-1}(PA_P)=P$. Hence $\alpha^{-1}(m\cap A_P)=P$. By commutativity of the diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	A & B \\
+	{A_P} & {B_P}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow["\alpha"', from=1-1, to=2-1]
+	\arrow["\beta", from=1-2, to=2-2]
+	\arrow[hook, from=2-1, to=2-2]
+\end{tikzcd}}\\~\\
+We conclude that $Q\cap A=P$. \\~\\
+
+Now suppose that $Q_1$ and $Q_2$ satisfies the above conditions. Since $Q_1B_P\cap A_P=PA_P=Q_2B_P\cap A_P$ are maximal ideals of $A_P$, the above lemma implies that $Q_1B_P$ and $Q_2B_P$ are maximal ideals of $B_P$. Then $Q_1B_P\subseteq Q_2B_P$ and the fact that they are maximal implies that $Q_1B_P=Q_2B_P$. Hence $Q_1=Q_2$ by contraction. 
+\end{proof}
 \end{prp}
 
 \begin{thm}{The Going-Up Theorem}{} Let $A,B$ be rings such that $A\subset B$ is an integral extension. Let $0\leq m<n$. Consider the following situation \\~\\
@@ -1256,8 +1374,51 @@ where $Q_i\cap A=P_i$ for $1\leq i\leq m$. Then there exists prime ideals $Q_{m+
 \begin{itemize}
 \item $Q_{m+1}\subseteq\cdots\subseteq Q_n$
 \item $Q_i\cap A=P_i$ for $m+1\leq i\leq n$
-\end{itemize}
+\end{itemize} \tcbline
+\begin{proof}
+By induction, it suffices to prove the case $m=1$ and $n=2$. This means that we want to find a prime ideal $Q_2$ such that $Q_1\subseteq Q_2$ and $Q_2\cap A=P_2$. By 7.2.6, $B/Q_1$ is integral over $A/P_1$. Since $P_2/P_1$ is a prime in $A/P_1$ by the correspondence theorem, by 7.3.2 there exists a prime ideal $Q_2/Q_1$ in $B/Q_1$ such that $Q_2/Q_1\cap A/P_1=P_2/P_1$. This implies that $Q_2\cap A=P_2$. Hence we are done. 
+\end{proof}
 \end{thm}
+
+\subsection{Zariski's Lemma}
+\begin{lmm}{}{} Let $F$ be a field. Let $f\in F[x]$ be a polynomial. Then the localization $F[x]_f$ is not a field. \tcbline
+\begin{proof}
+By 1.8.1, $F[x]$ has infinitely many irreducible polynomials. Then there exists a monic irreducible polynomial $g$ that does not divide $f$. Assume for a contradiction that $F[x]_f$ is a field. Then $g/1$ is invertible. So there exists $h\in F[x]$ and $n\in\N$ such that $1=g\cdot\frac{h}{f^n}$. This means that there exists $m\in\N$ such that $ghf^m=f^{n+m}\in F[x]$. If $n+m=0$, then $g$ is a unit, a contradiction. Otherwise, $g$ divides $f^{n+m}$. Since $g$ is irreducible, $g$ divides $f$ and is also a contradiction. Hence $F[x]_f$ is not a field. 
+\end{proof}
+\end{lmm}
+
+\begin{thm}{Zariski's Lemma}{} Let $F$ be a field. Let $K/F$ be a field extension. Then $K/F$ is a finite field extension if and only if $K$ is finitely generated as an $F$-algebra. \tcbline
+\begin{proof}
+Since $K$ is finitely generated as an $F$-algebra, there exists $x_1,\dots,x_n\in K$ such that every element in $K$ can be written as a polynomial in $x_1,\dots,x_n$. This means that $K=F(x_1,\dots,x_n)$ as fields. Suppose for a contradiction that $K/F$ is not an algebraic (integral) extension. Without loss of generality, suppose that $F(x_1,\dots,x_r)/F$ is transcendental (not integral) and $K/F(x_1,\dots,x_r)$ is algebraic (integral). \\~\\
+
+Let $L=F(x_1,\dots,x_{r-1})$. Consider the transcendental (not integral) extension $L(x_r)/L$. Now $K$ is generated as an $L$-algebra by the elements $x_1,\dots,x_n$. Since $K/L(x_r)$ is integral, there exists monic polynomials $p_i$ with coefficients in $L(x_r)$ such that $p_i(x_i)=0$. Since $L(x_r)$ is the field of fractions of the polynomial ring $L[x_r]$, each coefficient of $p_i$ can be expressed as a fraction $g/h$ for $g,h\in L(x_r)$ and $h\neq 0$. Let $f$ be the product of all denominators of the coefficient of $p_i$ for all $i$. Then $p_i$ can be considered as a monic polynomial in $L[x_r]_f$. So every $x_1,\dots,x_n$ satisfies a monic polynomial with coefficients in $L[x_r]_f$. Hence the $L[x_r]_f$ subalgebra of $K$ generated by $x_1,\dots,x_n$ is integral over $L[x_r]_f$. By 7.2.7, $L[x]_f$ is a field. This is a contradiction to the above lemma. Hence we are done. 
+\end{proof}
+\end{thm}
+
+There is a correspondence between the different terms used in Field and Galois Theory and Commutative Algebra
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{c|c}
+Field Extension $K/F$  & $B$ an $A$-algebra \\ \hline
+$x\in K$ is algebraic     & $b\in B$ is integral            \\
+$K/F$ is an algebraic extension    & $A\subseteq B$ is an integral extension       \\
+The algebraic closure $F<\overline{F}<K$     & The integral closure $A\subseteq\overline{A}\subseteq B$          \\
+$K/F$ is a finite extension & $S$ is a finitely generated $R$-algebra
+\end{tabular}
+\end{table}
+
+\begin{crl}{}{} Let $F$ be an algebraically closed field. Let $K$ be a field that is also a finitely generated algebra over $F$. Then $K=F$. \tcbline
+\begin{proof}
+By Zariski's lemma, $K/F$ is a finite field extension. Let $x\in K$. Let $f$ be the minimal polynomial of $x$. Since $F$ is algebraically closed, $f$ is linear. Hence $x\in F$. 
+\end{proof}
+\end{crl}
+
+\begin{crl}{}{} Let $F$ be an algebraically closed field. Then we have $$\text{maxSpec}(F[x_1,\dots,x_n])=\left\{(x_1-a_1,\dots,x_n-a_n)\;|\;(a_1,\dots,a_n)\in F^n\right\}$$ \tcbline
+\begin{proof}
+Let $m$ be a maximal ideal of $F[x_1,\dots,x_n]$. Then $F[x_1,\dots,x_n]/m$ is a finitely generated $F$-algebra that is a field. By the above, we have that $F[x_1,\dots,x_n]/m\cong F$. Then there exists $a_i\in F$ such that $a_i$ corresponds to $x_i+m$ by the isomorphism. This means that $a_i+m=x_i+m$, or $(x_i-a_i)\in m$. Hence $(x_1-a_1,\dots,x_n-a_n)\subseteq m$. Since $(x_1-a_1,\dots,x_n-a_n)$ is maximal by the evaluation homomorphism, we conclude that $m=(x_1-a_1,\dots,x_n-a_n)$. 
+\end{proof}
+\end{crl}
 
 \subsection{Normal Domains}
 We now concern ourselves with integral domains. Let $R$ be an integral domain. A special fact about $R$ is that the canonical homomorphism $R\to R_{(0)}=\text{Frac}(R)$ is an injection. This means that we can we can think of $R$ as living inside of $\text{Frac}(R)$ while preserving all the structure of $R$. 
@@ -1271,8 +1432,17 @@ We want to show that $S^{-1}R$ is integrally closed in $\text{Frac}(R)=\text{Fra
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. If $R$ is a UFD, then $R$ is normal. 
+\begin{prp}{}{} Let $R$ be a commutative ring. If $R$ is a UFD, then $R$ is normal. \tcbline
+\begin{proof}
+Let $a/b\in\text{Frac}(R)$ that is integral. Assume that $a,b$ do not have common factors. Then there exists $r_0,\dots,r_{n-1}\in R$ such that $$\frac{a^n}{b^n}+r_{n-1}\frac{a^{n-1}}{b^{n-1}}+\dots+r_1\frac{a}{b}+r_0=0$$ Rearranging, we get $$a^n=-b\left(r_{n-1}a^{n-1}+\dots+r_1a^1b^{n-2}+r_0b^{n-1}\right)$$ This shows that any irreducible element dividing $b$ also divides $a^n$, and hence $a$. Since $a$ and $b$ do not have common factors, this means that no irreducible element divides $b$. Since $R$ is a UFD, $b$ must be a unit. Hence $a/b\in R$. 
+\end{proof}
 \end{prp}
+
+\begin{eg}{}{} The integral closure of $\Z$ in $\Q[i]$ is $\Z[i]$. \tcbline
+\begin{proof}
+If $a+bi\in\Z[i]$, then $p(x)=x^2-2ax+a^2+b^2$ is a monic polynomial such that $p(a+bi)=0$. Conversely, let $z\in\Q[i]$ lie in the integral closure of $\Z$. Then $z$ is also an integral element of $\Z[i]$. Since $\Z[i]$ is a UFD, $\Z[i]$ is a normal domain and so is integrally closed in $\text{Frac}(\Z[i])=\Q[i]$. So $z\in\overline{\Z[i]}=\Z[i]$ shows that $\overline{\Z}\subseteq\overline{\Z[i]}$. 
+\end{proof}
+\end{eg}
 
 \begin{prp}{Normal is a Local Property}{} Let $R$ be an integral domain. Then the following are equivalent. 
 \begin{itemize}
@@ -1413,21 +1583,26 @@ By the correspondence of maximal ideals, $R/m_i^n$ has a unique maximal ideal $m
 \begin{defn}{Valuation Rings}{} Let $R$ be an integral domain. We say that $R$ is a valuation ring if for all $x\in\text{Frac}(R)$ and $x\neq 0$, then either $x$ or $x^{-1}$ is in $R$. 
 \end{defn}
 
+\begin{lmm}{}{} Let $R$ be an integral domain. Then $R$ is a valuation ring if and only if the ideals of $R$ are totally ordered by inclusion. \tcbline
+\begin{proof}
+Let $R$ be a valuation ring. Let $I,J$ be ideals of $R$. If $I$ is not a subset of $J$, there exists $x\in I$ such that $x\notin J$. Then for any $0\neq y\in J$, $x/y\in\text{Frac}(R)\setminus R$ since otherwise $y$ is a unit in $J$ so that $J=R$ and $I\subseteq R$. Then $y/x\in R$ so that $y=x(y/x)\in I$. Hence $J\subseteq I$. \\~\\
+
+Now suppose that the ideals of $R$ are totally ordered by inclusion. 
+\end{proof}
+\end{lmm}
+
 \begin{lmm}{}{} Let $R$ be a valuation ring. Then the following are true. 
 \begin{itemize}
 \item $R$ is a local ring. 
 \item $R$ is normal. 
 \end{itemize} \tcbline
 \begin{proof}
-Let $R$ be a valuation ring. The set of units of $R$ are precisely $S=\{x\in\text{Frac}(R)\;|\;x\in R\text{ and }x^{-1}\in R\}$. Let $m=R\setminus S$. Let $x\in m$ and $r\in R$. Then $rx$ is not a unit because if $arx=1$, then $ar\in R$ is an inverse of $x$, which is a contradiction since $x\in S$. Hence $rx\in R$. \\~\\
-
-Let $x,y\in m$. If one of them are zero then their sum lies in $m$. If both are not zero, then $xy^{-1}$ is an element of $\text{Frac}(R)$. Since $R$ is a valuation ring, either $xy^{-1}$ or $yx^{-1}$ is in $R$. In either case, we have $$x+y=y(y^{-1}x+1)=x(1+x^{-1}y)\in m$$ (one factor is in $m$ and the other in $R$). Hence $m$ is an ideal. By prp2.1.3 we conclude that $R$ is a local ring with unique maximal ideal $m$. \\~\\
+Since all ideals of $R$ are totally ordered, there is only one unique maximal ideal. \\~\\
 
 Let $x\in\text{Frac}(R)$ be integral over $R$. Then $$x^n+r_{n-1}x^{n-1}+\dots+r_1x+r_0=0$$ for some $r_0,\dots,r_{n-1}\in R$. If $x\in R$ then we are done. If $x\notin R$ then since $R$ is a valuation ring, $x^{-1}\in R$. Then $$x=-(r_1+r_2x^{-1}+\dots+r_nx^{1-n})\in R$$ so that $R$ is normal. 
 \end{proof}
 \end{lmm}
 
-\subsection{Valuations on a Field}
 \begin{defn}{Totally Ordered Group}{} Let $G$ be an abelian group. We say that $G$ is a totally ordered group if there is a total order "$\leq$" on $G$ such that $a\leq b$ implies $ca\leq cb$ for all $a,b,c\in G$. 
 \end{defn}
 
@@ -1445,7 +1620,7 @@ We use the convention that $v(0)=\infty$.
 \begin{lmm}{}{} Let $K$ be a field. Let $v$ be a discrete valuation on $K$. Then $R_v$ is a valuation ring. 
 \end{lmm}
 
-\subsection{Discrete Valuations and Normalizations}
+\subsection{Discrete Valuation Rings}
 \begin{defn}{Discrete Valuations}{} Let $K$ be a field. A discrete valuation on $K$ is a valuation $v:K^\times\to\Z$. 
 \end{defn}
 
@@ -1463,17 +1638,11 @@ Therefore we always work on normalized discrete valuation rings.
 \begin{defn}{Discrete Valuation Rings}{} Let $R$ be a commutative ring. We say that $R$ is a discrete valuation ring if there exists a field $K$ and a discrete valuation $v$ on $K$ such that $$R=R_v$$ is the associated valuation ring of $K$. 
 \end{defn}
 
-\begin{prp}{}{} Let $R$ be a discrete valuation ring with valuation $v$. Let $t\in R$ be such that $v(t)=1$. Then the following are true. 
-\begin{itemize}
-\item A nonzero element $u\in R$ is a unit if and only if $v(u)=0$
-\item $\dim(R)=1$
-\end{itemize}\tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item Let $R$ be a discrete valuation ring. Suppose that $x\in R$ is a unit. Then $v(x^{-1})=-v(x)$. Then $-v(x),v(x)\geq 0$ implies $v(x)=0$. Now if $v(y)>0$ , suppose for contradiction that $u\in R$ is an inverse of $y$, then $$0=v(1)=v(uy)=v(u)+v(y)$$ But $v(y)>0$ implies that $v(u)<0$ which implies that $u\notin R$, a contradiction. 
-\end{itemize}
+\begin{lmm}{}{} Let $R$ be a discrete valuation ring with valuation $v$. Then $0\neq u\in R$ is a unit if and only if $v(u)=0$. In particular, the maximal ideal of $R$ is given by $$\{r\in R\;|\;v(r)>0\}$$ \tcbline
+\begin{proof}
+Let $R$ be a discrete valuation ring. Suppose that $x\in R$ is a unit. Then $v(x^{-1})=-v(x)$. Then $-v(x),v(x)\geq 0$ implies $v(x)=0$. Now if $v(y)>0$ , suppose for contradiction that $u\in R$ is an inverse of $y$, then $$0=v(1)=v(uy)=v(u)+v(y)$$ But $v(y)>0$ implies that $v(u)<0$ which implies that $u\notin R$, a contradiction. 
 \end{proof}
-\end{prp}
+\end{lmm}
 
 \subsection{Uniformizing Parameters}
 \begin{defn}{Uniformizing Parameter}{} Let $R$ be a discrete valuation ring with valuation $v$. A uniformizing parameter for $R$ is an element $t\in R$ such that $v(t)=1$. 
@@ -1481,30 +1650,23 @@ Therefore we always work on normalized discrete valuation rings.
 
 \begin{prp}{}{} Let $R$ be a discrete valuation ring with valuation $v$. Let $t\in R$ be a uniformizing parameter of $R$. Then the following are true. 
 \begin{itemize}
-\item Every non-zero ideal of $R$ is a principal ideal of the form $(t^n)$ for some $n\geq 0$
-\item Every $r\in R\setminus\{0\}$ can be written in the form $r=ut^n$ for some unit $u$ and $n\geq 0$. 
-\end{itemize}\tcbline
+\item Every $r\in R\setminus\{0\}$ can be written in the form $$r=ut^n$$ for some unit $u$ and $n\geq 0$. 
+\item The valuation of any element $r=ut^n\in R$ is given by $$v(ut^n)=n$$
+\item The set of all ideals of $R$ is given by $$\{(t^n)\;|\;n\in\N\setminus\{0\}\}$$ In particular, the unique maximal ideal of $R$ is $(t)$. 
+\item $\dim(R)=1$
+\end{itemize} \tcbline
 \begin{proof}~\\
 \begin{itemize}
-\item Let $t\in R$ such that $v(t)=1$. Let $x\in m$ where $v(x)=n>0$. Then $v(x)=nv(t)=v(t^n)$ means that every $x\in m$ is of the form $t^n$. Thus $m=(t)$. Since every ideal $I$ is a subset of this maximal ideal, any ideal is of the form $I=(t^n)$ for some $n>0$. 
-\item Follows from the fact that $(t^n)$ is the unique maximal ideal. 
+\item If $x\in R$ is a unit then we are done. If not, then consider the element $u=t^{-n}x$ for $n=v(x)$. Then we have $$v(u)=v(t^{-n}x)=-n+v(x)=0$$ Hence $u$ is a unit. Multiplying $t^n$ on both sides of $u=t^{-n}x$ proves that $x=ut^n$ for some unit $u$ and $n\in\N$. 
+\item It follows that the valuation of $r=ut^n$ is $n$. 
+\item Let $I$ be an ideal of $R$. Let $n=\min\{v(x)\;|\;x\in I\}$. or all $x\in I$, we can write $x$ as $x=ut^k$ for some unit $u$ and $k\geq n$. Hence $I\subseteq(t^n)$. Since $n$ is a minimum, there exists $x\in I$ such that $x=ut^n$ for some unit $u$ and $n\in\N$. Then $u^{-}x=t^n\in I$ since $I$ is an ideal. Hence $I=(t^n)$. It follows that the unique maximal ideal of $R$ is given by $(t)$. 
+\item The smallest strictly ascending chain of prime ideals is given by $$(0)\subseteq (t)$$ Hence the dimension of $R$ is $1$. 
 \end{itemize}
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $R$ be a discrete valuation ring. Let $t$ be a uniformizing parameter of $R$. Let $u$ be a unit of $R$. Then $$v(ut^n)=n$$ for all $n\in\N$. 
-\end{prp}
-
 \subsection{Recognizing Discrete Valuation Rings}
 The rest of the section devotes efforts to recognizing discrete valuation rings. 
-
-\begin{prp}{}{} Let $R$ be a valuation ring. Then the following are equivalent. 
-\begin{itemize}
-\item $R$ is a discrete valuation ring. 
-\item $R$ is a principal ideal domain. 
-\item $R$ is Noetherian. 
-\end{itemize}
-\end{prp}
 
 \begin{prp}{Equivalent Characterizations of DVRs I}{} Let $R$ be an integral domain. Then the following are equivalent. 
 \begin{itemize}
@@ -1515,9 +1677,9 @@ The rest of the section devotes efforts to recognizing discrete valuation rings.
 \end{itemize} \tcbline
 \begin{proof}~\\
 \begin{itemize}
-\item $(1)\implies(3)$: We have seen that the set of non-units is precisely the set $m=\{x\in K|v(x)>0\}$. We show that this is an ideal. Clearly $x,y\in m$ implies $v(x+y)=\min\{v(x),v(y)\}>0$. Let $u\in R$. Then $v(ux)=v(u)+v(x)>0$ since $v(x)>0$ and $v(u)\geq 0$. \\~\\
-We have seen that every ideal is of the form $(t^n)$ for some $n>0$. Thus every ascending chains of ideal must be of the form $$(t^{n_1})\subset(t^{n_2})\subset\dots$$ for $n_1>n_2>\dots$. Since $n_1,n_2,\dots$ is strictly decreasing, the chain must eventually stabilizes. This proves that $R$ is Noetherian and has principal maximal ideal. 
-\item $(1)\implies(3)$:
+\item $(1)\implies(2)$: We have seen that $R$ is local and normal and $\dim(R)=1$. To see that $R$ is Noetherian, notice that any non-empty set of ideals $\{(t^i)\;|\;i\in I\subseteq\N\}$ of $R$ for $t$ a uniformizing parameter has a maximal element $(t^d)$ where $d=\min\{i\in I\}$. 
+\item $(1)\implies(3)$: We have seen that $R$ is local and that every ideal is principal and is of the form $(t^n)$ for $n\in\N$ and $t$ a uniformizing parameter. 
+
 \end{itemize}
 \end{proof}
 \end{prp}
@@ -1526,12 +1688,16 @@ We have seen that every ideal is of the form $(t^n)$ for some $n>0$. Thus every 
 \begin{itemize}
 \item $R$ is a discrete valuation ring. 
 \item $\dim(R)=1$ and $R$ is normal. 
-\item $\dim(R)=1$ and $\dim_{R/m}(m/m^2)=1$ ($R$ is a regular local ring)
 \item $R$ is not a field and $m$ is principal. 
+\item $\dim(R)=1$ and $\dim_{R/m}(m/m^2)=1$ ($R$ is a regular local ring)
 \item $I=m^k$ for all non-zero ideals $I$ of $R$
 \item There exists $t\in R$ and $k>0$ such that $I=(t^k)$ for all non-zero ideal $I$ of $R$
 \end{itemize} \tcbline
-\begin{proof}
+\begin{proof}~\\
+\begin{itemize}
+\item $(1)\implies(2)$: Clear from the above. 
+\item $(2)\implies(3)$: Choose $0\neq a\in m$. If $m=(a)$ then we are done. If not, then 
+\end{itemize}
 \end{proof}
 \end{prp}
 
@@ -1545,7 +1711,7 @@ In summary, if $R$ is a discrete valuation ring, then $R$ has the following prop
 \item $R$ is Noetherian and local
 \item $R$ has Krull dimension $1$. 
 \item $\dim_{R/m}(m/m^2)=1$ (these are called regular local rings as we will see in Commutative Algebra $2$)
-\item Every ideal $I$ of $R$ is equal to the power $m^k$ of the maximal ideal $m$. In particular if $m$ is generated by the uniformizing parameter $t$, then $=I=(t^k)$ in this case. 
+\item Every ideal $I$ of $R$ is equal to the power $m^k$ of the maximal ideal $m$. In particular if $m$ is generated by the uniformizing parameter $t$, then $I=(t^k)$ in this case. 
 \item Such a $t$ is an irreducible element (that is unique up to multiplication by a unit), and every element of $R$ can be written as $ut^n$ for $u$ a unit and $n\in\N$. 
 \end{itemize}
 

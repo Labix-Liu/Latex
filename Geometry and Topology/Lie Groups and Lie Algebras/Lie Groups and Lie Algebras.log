@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  10 APR 2025 13:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  23 APR 2025 08:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1162,7 +1162,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 (Lie Groups and Lie Algebras.toc
-LaTeX Font Info:    Trying to load font information for U+euf on input line 27.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 30.
 
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
@@ -1214,9 +1214,7 @@ Overfull \hbox (23.54445pt too wide) detected at line 193
 
 [16]
 
-[17
-
-]
+[17]
 
 [18]
 
@@ -1237,11 +1235,6 @@ Overfull \hbox (23.54445pt too wide) detected at line 193
 [26]
 
 [27]
-Overfull \hbox (74.51454pt too wide) detected at line 780
-[]
- []
-
-
 
 [28]
 
@@ -1250,70 +1243,81 @@ Overfull \hbox (74.51454pt too wide) detected at line 780
 [30]
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 895--896
-
- []
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 902.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 902.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 903--904
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 905--906
-
- []
-
-
 
 [32]
+Overfull \hbox (20.76598pt too wide) detected at line 968
+[]
+ []
+
+
 
 [33]
 
 [34]
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 997--998
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 999--1000
-
- []
-
-
 
 [36]
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1064
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1075.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1075.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1077
+
+ []
+
+
 
 [37]
+Underfull \hbox (badness 10000) in paragraph at lines 1078--1079
+
+ []
+
+
 
 [38]
 
+[39]
+
+[40]
+
+[41]
+
+[42]
+
+[43]
+
+[44]
+
+[45]
+
+[46]
+
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1108.
+(hyperref)                removing `math shift' on input line 1368.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1108.
+(hyperref)                removing `math shift' on input line 1368.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1110--1111
+Underfull \hbox (badness 10000) in paragraph at lines 1370--1371
 
  []
 
 
 
-[39]
-Overfull \hbox (10.13069pt too wide) detected at line 1160
+[47]
+Overfull \hbox (10.13069pt too wide) detected at line 1412
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10  \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^L\OT1/
 cmr/m/n/10 )(\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 k\OT1/cmr/m/n/
 10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 
@@ -1330,75 +1334,90 @@ r/m/n/10 (\OML/cmm/m/it/10 x; \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 h; \OT1/cmr/m/n
 
 
 
-[40]
+[48]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1183.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1183.
+(hyperref)                removing `math shift' on input line 1451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1183.
+(hyperref)                removing `subscript' on input line 1451.
 
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1451.
 
-[41]
 
-[42]
-Underfull \hbox (badness 10000) in paragraph at lines 1233--1243
+Underfull \hbox (badness 10000) in paragraph at lines 1452--1453
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1233--1243
+
+[49]
+
+[50]
+
+LaTeX Warning: Command \o invalid in math mode on input line 1551.
+
+Missing character: There is no ø in font cmr10!
+
+
+[51]
+
+[52]
+
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 1601--1611
 
  []
 
 
-Overfull \hbox (2.77159pt too wide) in paragraph at lines 1244--1245
+Underfull \hbox (badness 10000) in paragraph at lines 1601--1611
+
+ []
+
+
+
+[54]
+Overfull \hbox (2.77159pt too wide) in paragraph at lines 1612--1613
 []\T1/qpl/m/n/10 We will now show that Sim-ple Lie al-ge-bras give rise to ir-r
 e-ducible Dynkin di-a-grams and vice versa. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1247--1260
+
+[55]
+Underfull \hbox (badness 10000) in paragraph at lines 1681--1694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1247--1260
+Underfull \hbox (badness 10000) in paragraph at lines 1681--1694
 
  []
 
 
 
-[43]
+[56]
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1286.
-
-
-
-[44] (Lie Groups and Lie Algebras.aux)
+[57] (Lie Groups and Lie Algebras.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Lie Groups and Lie Algebras".out' has not c
 hanged.
-(rerunfilecheck)             Checksum: 15A09577612C2397E56833FFC5D627DA;9028.
+(rerunfilecheck)             Checksum: 6497B9FFF4F36AB0429A4CFDDADCF68C;10132.
  ) 
 Here is how much of TeX's memory you used:
- 35313 strings out of 473577
- 728684 string characters out of 5716318
- 1151087 words of memory out of 5000000
- 57706 multiletter control sequences out of 15000+600000
+ 35408 strings out of 473577
+ 730148 string characters out of 5716318
+ 1151093 words of memory out of 5000000
+ 57748 multiletter control sequences out of 15000+600000
  602834 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,27n,120p,1023b,1203s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,27n,120p,1224b,1221s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1423,9 +1442,9 @@ s/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/te
 x-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/tex-gyre/qplri.pfb>
-Output written on "Lie Groups and Lie Algebras.pdf" (44 pages, 582003 bytes).
+Output written on "Lie Groups and Lie Algebras.pdf" (57 pages, 660521 bytes).
 PDF statistics:
- 788 PDF objects out of 1000 (max. 8388607)
- 258 named destinations out of 1000 (max. 500000)
- 357 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 922 PDF objects out of 1000 (max. 8388607)
+ 311 named destinations out of 1000 (max. 500000)
+ 405 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -388,7 +388,18 @@ Since $V$ is Noetherian, $V$ is compact.
 Since every object we study in algebraic geometry is compact, this becomes not as useful as a notation in topology. However, we can redefine the notion of compactness so that it will give useful insights on varieties. 
 
 \subsection{The Absolute Hilbert's Nullstellensatz}
-\begin{thm}{Hilbert's Nullstellensatz I}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. Then $$\I(\V(I))=\sqrt{I}$$
+Recall that in Commutative Algebra, Zariski's lemma implies that every maximal ideal of $k[x_1,\dots,x_n]$ is of the form $$(x_1-a_1,\dots,x_n-a_n)$$ for some $(a_1,\dots,a_n)\in k^n$. We aim to extend our classification of maximal ideals into a classification of prime and radical ideals in the polynomial ring $k[x_1,\dots,x_n]$. This will also give us geometric context for the polynomial ring. 
+
+\begin{thm}{Weak Hilbert's Nullstellensatz}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. If $I\neq k[x_1,\dots,x_n]$, then $\V(I)\neq\emptyset$. \tcbline
+\begin{proof}
+Since $I$ is not the entire ring, $I$ is contained in some maximal ideal of the polynomial ring. By Zariski's lemma, the maximal ideal is of the form $(x_1-a_1,\dots,x_n-a_n)$ for some $(a_1,\dots,a_n)\in k^n$. Then $$\{(a_1,\dots,a_n)\}\subseteq\V(x_1-a_1,\dots,x_n-a_n)\subseteq\V(I)$$ implies that $\V(I)$ is non-empty. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{Hilbert's Nullstellensatz I}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. Then $$\I(\V(I))=\sqrt{I}$$ \tcbline
+\begin{proof}
+Clearly we have $\sqrt{I}\subseteq\I(\V(I))$. Now let $f\in\I(\V(I))$. let $g(x_1,\dots,x_n)=1-f(x_1,\dots,x_n)x_{n+1}$. Consider the ideal $J=I+(g)\subseteq k[x_1,\dots,x_{n+1}]$. For any $(a_1,\dots,a_{n+1})\in\A_k^{n+1}$, if $(a_1,\dots,a_n)\in\V(I)$ then $g(a_1,\dots,a_n,a_{n+1})=1$. If $(a_1,\dots,a_n)\notin\V(I)$, then there exists $h\in I\subseteq J$ such that $h(a_1,\dots,a_n)\neq 0$. In both cases, we can find $h\in J$ such that $h(a_1,\dots,a_{n+1})\neq 0$. Hence $\V(J)=\emptyset$. By the Weak Hilbert's Nullstellensatz, we have $J=k[x_1,\dots,x_{n+1}]$. So there exists $h_0,\dots,h_r\in J$ and $f_1,\dots,f_r\in I$ such that $$1=(1-fx_{n+1})h_0+h_1f_1+\dots+h_rf_r$$ Substituting $x_{n+1}=1/f(x_1,\dots,x_n)$ gives an equation in the fraction field $k(x_1,\dots,x_n)$: $$1=\sum_{i=1}^nf_i(x_1,\dots,x_n)h_i\left(x_1,\dots,x_n,\frac{1}{f(x_1,\dots,x_n)}\right)$$ Clearing denominators by multiplying powers of $f$ give the equation $$f^m=\sum_{i=1}^nf_i(x_1,\dots,x_n)f^mh_i\left(x_1,\dots,x_n,\frac{1}{f(x_1,\dots,x_n)}\right)$$ in $k[x_1,\dots,x_n]$, where each $f^mh_i\in k[x_1,\dots,x_n]$. Since $f_i\in I$, this shows that $f\in I$. 
+\end{proof}
 \end{thm}
 
 \begin{eg}{}{} The Hilbert's nullstellensatz fails on a field $k$ that is not algebraically closed. \tcbline
@@ -400,8 +411,8 @@ Consider the variety $\V(x^2+1)\subseteq\A_\R^1$. This set is empty. But $\I(\em
 \begin{thm}{Hilbert's Nullstellensatz II}{} Let $k$ be an algebraically closed field. Then the following are true. 
 \begin{itemize}
 \item There is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine varieties}\\\text{of }\A_k^n}\right\}$$ between the radical ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
-\item There is an inclusion reversing bijection $$\left\{\substack{\text{Prime ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Irreducible affine}\\\text{varieties of }\A_k^n}\right\}$$ between the prime ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
-\item There is a bijection $$\left\{\substack{\text{Maximal ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ between the maximal ideals of $k[x_1,\dots,x_n]$ and points in $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
+\item There is an inclusion reversing bijection $$\text{Spec}(k[x_1,\dots,x_n])=\left\{\substack{\text{Prime ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Irreducible affine}\\\text{varieties of }\A_k^n}\right\}$$ between the prime ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
+\item There is a bijection $$\text{maxSpec}(k[x_1,\dots,x_n])=\left\{\substack{\text{Maximal ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ between the maximal ideals of $k[x_1,\dots,x_n]$ and points in $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
 \end{itemize} \tcbline
 \begin{proof}~\\
 \begin{itemize}
@@ -416,13 +427,13 @@ By Hilbert's Nullstellensatz I, we have that $\I(\V(m))=m$. By 3.1.4, we have th
 \end{proof}
 \end{thm}
 
-Note that this bijection is compatible with subset inclusion in the sense of proposition 1.2.3. Bijections of this form that induce a relation on subsets are called Galois connections or Galois correspondence, mimicking his work in Galois theory. 
-
-\begin{prp}{}{} Let $k$ be an algebraically closed field. Then every maximal ideal of $k[x_1,\dots,x_n]$ is of the form $$(x_1-a_1,\dots,x_n-a_n)$$ for some $a_1,\dots,a_n\in k$. \tcbline
+\begin{lmm}{}{} Let $k$ be an algebraically closed field. Then there is a one-to-one correspondence $$\{(x_1-a_1,\dots,x_n-a_n)\;|\;(a_1,\dots,a_n)\in F^n\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ given by $(x_1-a_1,\dots,x_n-a_n)\mapsto(a_1,\dots,a_n)$. \tcbline
 \begin{proof}
-Let $m$ be a maximal ideal. By Hilbert's Nullstellensatz II, $\V(m)$ is a point $(a_1,\dots,a_n)\in\A_k^n$. Now $\I\{((a_1,\dots,a_n)\})$ is an ideal that contains the polynomials $(x_1-a_1),\dots,(x_n-a_n)$. The evaluation homomorphism on the point $(a_1,\dots,a_n)$ shows that $(x_1-a_1,\dots,x_n-a_n)$ is a maximal ideal, hence $$(x_1-a_1,\dots,x_n-a_n)=\I\{(a_1,\dots,a_n)\}=\I(\V(m))=m$$ and we are done. 
+Follows from the above and Zariski's lemma. 
 \end{proof}
-\end{prp}
+\end{lmm}
+
+Note that this bijection is compatible with subset inclusion in the sense of proposition 1.2.3. Bijections of this form that induce a relation on subsets are called Galois connections or Galois correspondence, mimicking his work in Galois theory. 
 
 \begin{prp}{}{} Let $k$ be an algebraically closed field. Every radical ideal $J$ in $k[x_1,\dots,x_n]$ is a finite intersection of prime ideals. \tcbline
 \begin{proof}
@@ -936,9 +947,7 @@ a_mb_0 & \cdots & a_mb_n
 Notice that $\Gr_1(\F^{n+1})=\F\Prj^n$. 
 
 \begin{lmm}{}{} Let $n,k\in\N\setminus\{0\}$ and $k\leq n$. Let $\F$ be a field. Then there is a bijection of sets $$\Gr_k(\F^n)\cong\frac{\{M\in M_{k\times n}(\F)\;|\;\rank(M)=k\}}{\sim}$$ where we say that $A\sim B$ if there exists $P\in\GL(k,\F)$ such that $PA=B$. This bijection is given as follows. For $V\in\Gr_k(\F^n)$ a $k$-dimensional subspace, choose a basis $e_1,\dots,e_k$ of $V$. Then $V$ is mapped to the equivalent class of the matrix $\begin{pmatrix}
-\vdots &&\vdots\\
-e_1 & \cdots & e_k\\
-\vdots &&\vdots
+e_1\\\vdots\\e_k
 \end{pmatrix}$. \tcbline
 \begin{proof}
 Let $V$ be a $k$-dimensional vector subspace of $\C^n$. Choose basis vectors $(a_{j1},\dots,a_{jn})$ where $j=1,\dots,k$ for $V$. Form the row matrix of basis vectors $$A=\begin{pmatrix}a_{11} & \cdots & a_{1n}\\\vdots & \ddots & \vdots\\ a_{n1} & \cdots & a_{nn}\end{pmatrix}$$
@@ -964,6 +973,61 @@ The affine maps between two open cover is given by the rational functions $\frac
 
 \begin{thm}{}{} The Grassmannians $G(k,n)$ is a projective algebraic variety. 
 \end{thm}
+
+\pagebreak
+\section{Enumerative Problems in Algebraic Geometry}
+\subsection{Duality of Points and Hypersurfaces}
+\begin{defn}{Hyperplanes in Projective Space}{} A hyperplane in $\Prj^n$ is projective variety of the form $$\V^H(A_0x_0+\cdots+A_nx_n)$$ such that at least one of $A_0,\dots,A_n$ is non-zero. 
+\end{defn}
+
+\begin{prp}{}{} There is a bijection $$\Prj^n\;\;\overset{1:1}{\leftrightarrow}\;\;\{V\subseteq\Prj^n\;|\;V\text{ is a hyperplane in }\Prj^n\}$$ given by $[A_0:\cdots:A_n]\mapsto\V(A_0x_0+\cdots+A_nx_n)$. 
+\end{prp}
+
+\begin{defn}{Hypersurfaces in Projective Space}{} Let $d\in\N$. A hypersurface of degree $d$ in $\Prj^n$ is a projective variety of the form $$\V(A_{(d,0,0,0)}x_0^d+A_{(d-1,0,0,0)}x_0^{d-1}x_1+\cdots+A_{(0,0,0,d)}x_n^d)$$
+\end{defn}
+
+\begin{prp}{}{} Let $d\in\N$. There is a bijection $$\Prj^{\binom{n+d}{d}-1}\;\;\overset{1:1}{\leftrightarrow}\;\;\{V\subseteq\Prj^n\;|\;V\text{ is a hypersurface in }\Prj^n\text{ of degree }d\}$$ given by $[A_{(d,0,0,0)}:\cdots:A_{(0,0,0,d)}]\mapsto\V(A_{(d,0,0,0)}x_0^d+\cdots+A_{(0,0,0,d)}x_n^d)$. 
+\end{prp}
+
+\subsection{Five Points Determine a Conic}
+\begin{defn}{Conics in $\Prj^2$}{} A conic in $\Prj^2$ is a hypersurface in $\Prj^2$ of degree $2$. Explicitly, a conic has the form $$\V(ax^2+bxy+cxz+dy^2+eyz+fz^2)$$
+\end{defn}
+
+\begin{prp}{}{} Let $p_1,\dots,p_4\in\Prj^2$ be points. Then there are infinitely many conics passing through $p_1,\dots,p_4$. 
+\end{prp}
+
+\begin{prp}{}{} Let $p_1,\dots,p_6\in\Prj^2$ be points. Then no conic passes through $p_1,\dots,p_6$. 
+\end{prp}
+
+\begin{prp}{}{} Let $p_1,\dots,p_5\in\Prj^2$ be points. If no four of $p_1,\dots,p_5$ lie on a common line, then there exists a unique conic passing through $p_1,\dots,p_5$. \tcbline
+\begin{proof}
+Let $p=[\alpha,\beta,\gamma]$ be a point in $\Prj^2$. Consider the set of all conics in $\Prj^2$ passing through $p$. It is given by 
+\begin{align*}
+&\;\;\;\;\;\;\{V=\V^H(ax^2+bxy+cxz+dy^2+eyz+fz^2)\;|\;p\in V\}\\
+&\overset{1:1}{\leftrightarrow}\;\;\{a,b,c,d,e,f\;|\;p\in\V^H(ax^2+bxy+cxz+dy^2+eyz+fz^2)\}\\
+&\overset{1:1}{\leftrightarrow}\;\;H_p=\V^H(\alpha^2a+\alpha\beta b+\alpha\gamma c+\beta^2d+\beta\gamma e+\gamma^2f)\subseteq\Prj_{[a:b:c:d:e:f]}^2
+\end{align*}
+This determines a map of sets $Prj^2\to\{\text{ Hyperplanes in }\Prj^5\}$. Since hyperplanes in $\Prj^5$ are in bijection with $\Prj^5$, there is a map $\Prj^2\to\Prj^5$ defined by $$[\alpha,\beta,\gamma]\mapsto[\alpha^2,\alpha\beta,\alpha\gamma,\beta^2,\beta\gamma,\gamma^2]$$ which is precisely the veronnese embedding $\nu_{2,2}:\Prj^2\to\Prj^5$. \\~\\
+
+Now we prove that if no four of $p_1,\dots,p_5$ lie on a common line, then $\nu_{2,2}(p_1),\dots,\nu_{2,2}(p_5)$ are linearly independent. \\~\\
+
+Finally, since the five points $\nu_{2,2}(p_1),\dots,\nu_{2,2}(p_5)$ are linearly independent, the intersection of the hyperplanes corresponding to the five points is a unique point in $\Prj^5$. This corresponds to a unique conic in $\Prj^2$. Hence we are done. 
+\end{proof}
+\end{prp}
+
+\begin{defn}{Degenerate Conics}{} Let $C=\V^H(f)\subseteq\Prj^2$ be a conic. 
+\begin{itemize}
+\item We say that $C$ is non-degenerate if $f$ is irreducible. 
+\item We say that $C$ is degenerate if $f$ is reducible. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $p_1,\dots,p_5\in\Prj^2$ be points. Then the following are true. 
+\begin{itemize}
+\item If three of $p_1,\dots,p_5$ lie on a common line, then the corresponding conic is degenerate, and consists of a pair of lines. 
+\item If four of $p_1,\dots,p_5$ lie on a common line say $L_1$, and line $L_2$ is any line passing through the last point, then $L_1\cup L_2$ is a conic passing through $p_1,\dots,p_5$. 
+\end{itemize}
+\end{prp}
 
 \pagebreak
 \section{Dimension Theory for Varieties}
@@ -1143,7 +1207,12 @@ It remains to show that $\psi\circ\phi$ and $\phi\circ\psi$ are identities. Inde
 \end{proof}
 \end{eg}
 
-Notice that the inverse above is a rational map. Recall that in earlier sections, morphisms between affine varieties must be polynomial maps. By using the definition of morphisms for quasi-projective varieties we also obtain a larger class of morphisms. 
+Notice that the inverse above is a rational map. Recall that in earlier sections, morphisms between affine varieties must be polynomial maps. By using the definition of morphisms for quasi-projective varieties we also obtain a larger class of morphisms. \\
+
+Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be closed subsets of affine space. Recall that $V\times W\subseteq\A_k^{n+m}$ is in general not a closed subset of $\A_k^{n+m}$ and therefore not an affine variety in the sense of previous sections. 
+
+\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be closed subsets of affine space. Then $V\times W\subseteq\A_k^n\times\A_k^m$ is an affine variety. 
+\end{prp}
 
 \begin{defn}{Basic Open Sets}{} Let $k$ be a field. A basic open set of $\A_k^n$ is a set of the form $$D(f)=V\setminus\V(f)$$ for some closed subset $V\subseteq\A_k^n$ and some $f\in k[V]$. 
 \end{defn}
@@ -1169,8 +1238,8 @@ In other words, $D(f)$ is exactly the points of $V$ where $f$ is not zero. Some 
 \begin{defn}{Extended Definition of Projective Varieties}{} A quasiprojective variety is said to be projective if it is isomorphic to a closed subvariety of projective space. 
 \end{defn}
 
-\begin{prp}{}{} Every quasiprojective variety is locally affine. 
-\end{prp}
+\begin{defn}{Zariski Topology on Products of Projective Space}{} Let $k$ be a field. Define the Zariski topology on $\Prj^n\times\Prj^m$ by transferring the Zariski topology of $\im(\Sigma_{m,n})$ to $\Prj^n\times\Prj^m$ via the bijection given by $\Sigma_{m,n}$. 
+\end{defn}
 
 \pagebreak
 \section{The Algebra of Regular Functions}

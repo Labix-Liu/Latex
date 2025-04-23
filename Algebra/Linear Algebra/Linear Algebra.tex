@@ -708,173 +708,6 @@ Let $T=PJP^{-1}$ be the Jordan canonical form of $x$. Then $J$ has non-zero entr
 \end{prp}
 
 \pagebreak
-\section{Linearity in Two Variables}
-\subsection{Quadratic Forms}
-\begin{defn}{Quadratic Forms}{} A quadratic form in $n$ variables $x_1,\dots,x_n$ over a field $K$ is a polynomial $$q(x_1,\dots,x_n)=\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j$$
-\end{defn}
-
-\begin{prp}{}{} Every quadratic form $q(x_1,\dots,x_n)=\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j$ can be represented by a matrix multiplication, namely $$q(x_1,\dots,x_n)=\begin{pmatrix}x_1 & \cdots & x_n\end{pmatrix}\begin{pmatrix}a_{11} & \frac{1}{2}a_{12} & \cdots & \frac{1}{2}a_{1n}\\
-\frac{1}{2}a_{21} & a_{22} & \cdots & \frac{1}{2}a_{2n}\\
-\vdots & \vdots & \ddots & \vdots\\
-\frac{1}{2}a_{n1} & \frac{1}{2}a_{n2} & \dots & a_{nn}
-\end{pmatrix}\begin{pmatrix}x_1 \\ \vdots \\ x_n\end{pmatrix}$$ In particular, this matrix is symmetric with $a_{ij}=a_{ji}$ for $i,j\in\{1,\dots,n\}$. \tcbline
-\begin{proof}
-Multiplying out the entries of the matrix multiplication gives the original quadratic form. 
-\end{proof}
-\end{prp}
-
-\begin{prp}{}{} A change of basis via the change of basis matrix $P$ also changes the symmetric matrix of the quadratic form by $P^TAP$
-\end{prp}
-
-\begin{defn}{Congruent Matrices}{} Let $A,B\in M_{n\times n}(\F)$ be two square matrices. We say that $A$ and $B$ are congruent if there exists some invertible matrix $P\in GL(n,\F)$ such that $$B=P^TAP$$
-\end{defn}
-
-\begin{prp}{}{} Two symmetric matrices are congruent if and only if they represent the same quadratic form with respect to different bases. 
-\end{prp}
-
-Using this we can establish a one-to-one correspondence $$\left\{q:\F^n\to\F\;|\;q\text{ is a quadratic form}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\frac{\left\{M\in M_{n\times n}(\F)\;|\;M\text{ is symmetric}\right\}}{\cong}$$ where $\cong$ denotes the congruence relation. Moreover, within each congruence class of a quadratic form $q$ contains all possible symmetric matrices that represent $q$ in all possible bases. 
-
-\begin{thm}{}{} Let $q(x_1,\dots,x_n)$ be a quadratic form in $n$ variables over a field $K$ whose characteristic is not $2$. Then there exists a basis such that $q(y_1,\dots,y_n)=c_1y_1^2+\dots+c_ny_n^2$ for some $c_1,\dots,c_n\in K$. \tcbline
-\begin{proof}
-There is a shorter proof for this theorem, but for the sake of the construction of $c_1,\dots,c_n$, we will prove the theorem constructively. Suppose that $q$ is represented by the symmetric matrix $A=(a_{ij})_{n\times n}$ with respect to the basis $b_1,\dots,b_n$. There are three steps in the construction. I use $b_1,\dots,b_n$ to indicate the old basis and $b_1',\dots,b_n'$ to indicate the basis after the step. \\~\\
-Step 1: Arrange such that $q(b_1)\neq 0$. There are four cases here. 
-\begin{itemize}
-\item If $a_{11}\neq 0$, then we are done. 
-\item If $a_{11}=0$ but $a_{kk}\neq 0$ for some $1<k\leq n$. Then just set $b_1'=b_k$ and $b_k'=b_1$. At the same time, the matrix for the quadratic form is changed by swapping rows $r_1$ and $r_k$, and then swapping the columns $c_1$ and $c_k$
-\item If $a_{kk}=0$ for all $k\in\{1,\dots,n\}$, but there are some $i,j$ such that $a_{ij}\neq 0$, then set $b_i'=b_i+b_j$ since $q(b_i+b_j)=2a_{ij}\neq 0$ and so we reduced this case to the previous two cases.The matrix then becomes $$\begin{pmatrix}
-2a_{1k} & a_{12}+a_{k2} & \dots & a_{1k} & \cdots & a_{1n}+a_{kn} \\
- a_{12}+a_{k2} & 0 & \cdots & a_{2k} & \cdots & a_{2n} \\
-\vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
-a_{1k} & a_{k2} & \cdots & 0 & \cdots & a_{kn}\\
-\vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
-a_{1n}+a_{kn} & a_{n2} & \cdots & a_{nk} & \cdots & 0
-\end{pmatrix}$$
-\item If $a_{ij}=0$ for all $i,j\in\{1,\dots,n\}$ then it is the zero function. 
-\end{itemize}
-In this step the change of basis matrix is just the elementary matrices. \\~\\
-
-Step 2: Now we modify $b_2,\dots,b_n$ to make them orthogonal to $b_1$. Now set $b_k'=b_k-\frac{a_{1k}}{a_{11}}b_1$. This way, the matrix entry $a_{1k}$ becomes zero. Now the change of basis matrix becomes $$P=\begin{pmatrix}
-1 & -\frac{a_{12}}{a_{11}} & \cdots & -\frac{a_{1n}}{a_{11}}\\
-0 & 1 & \cdots & 0\\
-\vdots & \vdots & \ddots & \vdots\\
-0 & 0 & \cdots & 0
-\end{pmatrix}$$
-After this step all the change of basis matrix should be compiled and calculated so that the new matrix for the quadratic form can be formed. \\~\\
-Step 3: Since the matrix for the quadratic form is now $$\begin{pmatrix}
-a_{11} & 0 & \cdots & 0\\
-0 & ? & \cdots & ?\\
-\vdots & \vdots & \ddots & \vdots\\
-0 & ? & \cdots & ?
-\end{pmatrix}$$
-We can induct on $n$ by repeating the process of step 1 with the entry $a_{22}$ until we reach $a_{nn}$. 
-\end{proof}
-\end{thm}
-
-
-This main theorem of quadratic forms shows that every quadratic form is congruent to a diagonal matrix. It also proves that within every equivalence class of congruent matrices, there must be at least one diagonal matrix. To illustrate the process of reduction, we look an example. 
-
-\begin{eg}{}{} Find a nice basis for the quadratic form $q\left(\begin{pmatrix}x\\y\\z\end{pmatrix}\right)=xy+3yz-5xz$. \tcbline
-\begin{proof}
-Using the formula, we construct the matrix of $q$ as $$A=\begin{pmatrix}
-0 & \frac{1}{2} & -\frac{5}{2}\\
-\frac{1}{2} & 0 & \frac{3}{2}\\
--\frac{5}{2} & \frac{3}{2} & 0
-\end{pmatrix}$$ ~\\
-We start the first change of basis. Notice that $a_{11}=a_{22}=a_{33}=0$ in the matrix while $a_{12}$ is not. Denote the standard basis by $b_1,b_2,b_3$. We perform the first basis change by $\{b_1'=b_1+b_2,b_2'=b_2,b_3'=b_3\}$. This means that the change of basis matrix from new to old is $$P'=\begin{pmatrix}
-1 & 0 & 0\\
-1 & 1 & 0\\
-0 & 0 & 1
-\end{pmatrix}$$
-To change $A$ into the new matrix $A'$, we simply replace $r_1$ by $r_1+r_2$ and replace $c_1$ by $c_1+c_2$. This gives $$A'=\begin{pmatrix}
-1 & \frac{1}{2} & -1\\
-\frac{1}{2} & 0 & \frac{3}{2}\\
--1 & \frac{3}{2} & 0
-\end{pmatrix}$$
-We keep track of changing the basis for clarity. We now have $A'=(P')^TAP'$. \\~\\
-The next step is to set the new basis to $b_2''=b_2'-\frac{1}{2}b_1'$ and $b_3''=b_3'+b_1'$. This means that the new basis is now $\{b_1+b_2,\frac{1}{2}(b_2-b_1),b_1+b_2+b_3\}$. The change of basis from this basis back to the old one is now $$P''=\begin{pmatrix}
-1 & -\frac{1}{2} & 1\\
-1 & \frac{1}{2} & 1\\
-0 & 0 & 1
-\end{pmatrix}$$ Now the new matrix $A''$ is formed by replacing $r_2$ with $r_2$ by $r_2-\frac{1}{2}r_1$ and $r_3$ with $r_3+r_1$. Noticing that $A''$ must be symmetric, we need to take the new elements and replace the remanining lower traingualr elements so that $A''$ maintains symmetric. Also observe that the replacement of rows is exactly one changes into the new basis from the previous basis, where $b_2''=b_2'-\frac{1}{2}b_1'$ etc. Now we have $$A''=\begin{pmatrix}
-1 & 0 & 0\\
-0 & -\frac{1}{4} & 2\\
-0 & 2 & -1
-\end{pmatrix}$$
-We now have $A''=(P'')^TAP''$. \\~\\
-Now we perform the next change of basis. We set $b_3'''=b_3''-\frac{2}{-\frac{1}{4}}b_2''=b_3''+8b_2''$. Now the new basis is $\{b_1+b_2,\frac{1}{2}(b_2-b_1),-3b_1+5b_2+b_3\}$. The change of basis matrix is now $$P'''=\begin{pmatrix}
-1 & -\frac{1}{2} & -3\\
-1 & \frac{1}{2} & 5\\
-0 & 0 & 1
-\end{pmatrix}$$ Similar to the above, we replace $r_3$ with the same transformation and adjust $A'''$ so that it remains symmetric. Thus now we have $$A'''=\begin{pmatrix}
-1 & 0 & 0\\
-0 & -\frac{1}{4} & 0\\
-0 & 0 & 15
-\end{pmatrix}$$
-This means that we are done with $A'''=(P''')^TAP'''$. 
-\end{proof}
-\end{eg}
-
-In general, this result of diagonalization is different from that of similar matrices. One should not be confusing reduction of congruent matrices into diagonal matrices and reduction of similar matrices into JCF as well as reduction of diagonalizable matrices into diagonal matrices. 
-
-\subsection{Bilinear Forms}
-\begin{defn}{Bilinear Maps}{} Let $V,W$ be vector spaces over a field $\F$. A bilinear map on $V$ and $W$ is a map $\tau:V\times W\to\F$ such that 
-\begin{itemize}
-\item $\tau(a_1+a_2v_2,w)=a_1\tau(v_1,w)+a_2\tau(v_2,w)$
-\item $\tau(v,b_1w_1+b_2w_2)=b_1\tau(v,w_1)+b_2\tau(v,w_2)$
-\end{itemize}
-\end{defn}
-
-\begin{thm}{}{} Let $V$ and $W$ has basis $e_1,\dots e_n$ and $f_1,\dots,f_m$ respectively. Let $\tau(v,w)$ be a bilinear map. Then $$\tau(v,w)=v^T\begin{pmatrix}
-\tau(e_1,f_1) & \cdots & \tau(e_1,f_m)\\
-\vdots & \ddots & \vdots\\
-\tau(e_n,f_1) & \cdots & \tau(e_n,f_m)
-\end{pmatrix}w$$ \tcbline
-\begin{proof}
-Simple to see by expanding the matrix multiplication. 
-\end{proof}
-\end{thm}
-
-\begin{prp}{}{} Let $V,W$ be vector spaces over $\F$. Let $\tau:V\times W\to\F$ be a bilinear map. Consider the following data. 
-\begin{itemize}
-\item Let $A\in M_n(\F)$ represent $\tau$ with the bases $e_1,\dots,e_n$ of $V$ and $f_1,\dots,f_m$ of $W$ respectively. 
-\item Let $B\in M_n(\F)$ represent $\tau$ with the bases $e_1',\dots,e_n'$ of $W$ and $f_1',\dots,f_m'$ of $W$ respectively
-\item Let $P\in GL(n,\F)$ be the change of basis matrix from $e_1,\dots,e_n$ to $e_1',\dots,e_n'$
-\item Let $Q\in GL(m,\F)$ be the change of basis matrix from $f_1,\dots,f_,m$ to $f_1',\dots,f_m'$
-\end{itemize}
-Then we have that $$B=P^TAQ$$
-\end{prp}
-
-\begin{defn}{Bilinear Forms}{} Let $V$ be a vector space over a field $\F$. A bilinear form on $V$ is a bilinear map $$\tau:V\times V\to\F$$
-\end{defn}
-
-\begin{defn}{Types of Bilinear Forms}{} Let $k$ be a field. Let $V$ be a vector space over $k$. Let $\tau:V\times V\to k$ be a bilinear form. 
-\begin{itemize}
-\item We say that $\tau$ is symmetric if $\tau(v,w)=\tau(w,v)$
-\item We say that $\tau$ is antisymmetric if $\tau(v,w)=-\tau(w,v)$
-\item We say that $\tau$ is positive definite if $\tau(v,v)>0$ for all $v\in V$. 
-\item We say that $\tau$ is non-degenerate if $\tau(v,w)=0$ for all $w\in V$ implies that $v=0$. 
-\end{itemize}
-\end{defn}
-
-\begin{prp}{}{} Let $q:V\to K$ be a function. Then the following are equivalent. 
-\begin{itemize}
-\item $q$ is a quadratic form
-\item $q(cv)=c^2v$ for $c\in K$ and $v\in V$ and $\tau(v,w)=\frac{1}{2}(q(v+w)-q(v)-q(w))$ is a bilinear form on $V$
-\item $q(v)=\tau(v,v)$ is a symmetric bilinear form on $V$
-\end{itemize} \tcbline
-\begin{proof}
-Let $q:V\to K$ be a function. 
-\begin{itemize}
-\item $(1)\implies (2)$: Since every term in a quadratic form is quadratic, $q(cv)=c^2q(v)$ is natural. The fact that $\tau(v,w)$ is bilinear is also easy to check. 
-\item $(2)\implies (3)$: From $(2)$ we know that $\tau(v,v)=q(v)$ by substituting $v$ in the position of $w$ and thus it clearly is a bilinear form. The position of $w$ and $v$ are also interchangable and thus it is symmetric. 
-\item $(3)\implies (1)$: If $\tau(v,v)$ is a symmetric bilinear form then the matrix of $\tau$ is symmetric since $a_{ij}=\tau(e_i,f_j)=\tau(f_j,e_i)=a_{ji}$. Thus $q(v)=\tau(v,v)$ defines a quadratic form. 
-\end{itemize}
-\end{proof}
-\end{prp}
-
-\subsection{Sesquilinear Forms}
-
-\pagebreak
 \section{The Dual Space}
 \subsection{Dual of a Vector Space}
 Recall that for $V$ and $W$ two vector spaces over a field $\F$, the set of all linear maps $\Hom(V,W)$ can be equipped with a vector space structure. We consider the case where $W=\F$. 
@@ -939,6 +772,212 @@ Explicitly, the vector space operations are defined as follows.
 \subsection{Perfect Pairings}
 
 \pagebreak
+\section{Linearity in Two Variables}
+\subsection{Quadratic Forms}
+\begin{defn}{Quadratic Forms}{} A quadratic form in $n$ variables $x_1,\dots,x_n$ over a field $K$ is a polynomial $$q(x_1,\dots,x_n)=\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j$$
+\end{defn}
+
+\begin{prp}{}{} Every quadratic form $q(x_1,\dots,x_n)=\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j$ can be represented by a matrix multiplication, namely $$q(x_1,\dots,x_n)=\begin{pmatrix}x_1 & \cdots & x_n\end{pmatrix}\begin{pmatrix}a_{11} & \frac{1}{2}a_{12} & \cdots & \frac{1}{2}a_{1n}\\
+\frac{1}{2}a_{21} & a_{22} & \cdots & \frac{1}{2}a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{1}{2}a_{n1} & \frac{1}{2}a_{n2} & \dots & a_{nn}
+\end{pmatrix}\begin{pmatrix}x_1 \\ \vdots \\ x_n\end{pmatrix}$$ In particular, this matrix is symmetric with $a_{ij}=a_{ji}$ for $i,j\in\{1,\dots,n\}$. \tcbline
+\begin{proof}
+Multiplying out the entries of the matrix multiplication gives the original quadratic form. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} A change of basis via the change of basis matrix $P$ also changes the symmetric matrix of the quadratic form by $P^TAP$
+\end{prp}
+
+\begin{defn}{Congruent Matrices}{} Let $A,B\in M_{n\times n}(\F)$ be two square matrices. We say that $A$ and $B$ are congruent if there exists some invertible matrix $P\in GL(n,\F)$ such that $$B=P^TAP$$
+\end{defn}
+
+\begin{prp}{}{} Two symmetric matrices are congruent if and only if they represent the same quadratic form with respect to different bases. 
+\end{prp}
+
+Using this we can establish a one-to-one correspondence $$\left\{q:\F^n\to\F\;|\;q\text{ is a quadratic form}\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\frac{\left\{M\in M_{n\times n}(\F)\;|\;M\text{ is symmetric}\right\}}{\cong}$$ where $\cong$ denotes the congruence relation. Moreover, within each congruence class of a quadratic form $q$ contains all possible symmetric matrices that represent $q$ in all possible bases. 
+
+\begin{thm}{}{} Let $q(x_1,\dots,x_n)$ be a quadratic form in $n$ variables over a field $K$ whose characteristic is not $2$. Then there exists a basis such that $q(y_1,\dots,y_n)=c_1y_1^2+\dots+c_ny_n^2$ for some $c_1,\dots,c_n\in K$. \tcbline
+\begin{proof}
+There is a shorter proof for this theorem, but for the sake of the construction of $c_1,\dots,c_n$, we will prove the theorem constructively. Suppose that $q$ is represented by the symmetric matrix $A=(a_{ij})_{n\times n}$ with respect to the basis $b_1,\dots,b_n$. There are three steps in the construction. I use $b_1,\dots,b_n$ to indicate the old basis and $b_1',\dots,b_n'$ to indicate the basis after the step. \\~\\
+Step 1: Arrange such that $q(b_1)\neq 0$. There are four cases here. 
+\begin{itemize}
+\item If $a_{11}\neq 0$, then we are done. 
+\item If $a_{11}=0$ but $a_{kk}\neq 0$ for some $1<k\leq n$. Then just set $b_1'=b_k$ and $b_k'=b_1$. At the same time, the matrix for the quadratic form is changed by swapping rows $r_1$ and $r_k$, and then swapping the columns $c_1$ and $c_k$
+\item If $a_{kk}=0$ for all $k\in\{1,\dots,n\}$, but there are some $i,j$ such that $a_{ij}\neq 0$, then set $b_i'=b_i+b_j$ since $q(b_i+b_j)=2a_{ij}\neq 0$ and so we reduced this case to the previous two cases.The matrix then becomes $$\begin{pmatrix}
+2a_{1k} & a_{12}+a_{k2} & \dots & a_{1k} & \cdots & a_{1n}+a_{kn} \\
+ a_{12}+a_{k2} & 0 & \cdots & a_{2k} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{1k} & a_{k2} & \cdots & 0 & \cdots & a_{kn}\\
+\vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{1n}+a_{kn} & a_{n2} & \cdots & a_{nk} & \cdots & 0
+\end{pmatrix}$$
+\item If $a_{ij}=0$ for all $i,j\in\{1,\dots,n\}$ then it is the zero function. 
+\end{itemize}
+In this step the change of basis matrix is just the elementary matrices. \\~\\
+
+Step 2: Now we modify $b_2,\dots,b_n$ to make them orthogonal to $b_1$. Now set $b_k'=b_k-\frac{a_{1k}}{a_{11}}b_1$. This way, the matrix entry $a_{1k}$ becomes zero. Now the change of basis matrix becomes $$P=\begin{pmatrix}
+1 & -\frac{a_{12}}{a_{11}} & \cdots & -\frac{a_{1n}}{a_{11}}\\
+0 & 1 & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & 0 & \cdots & 0
+\end{pmatrix}$$
+After this step all the change of basis matrix should be compiled and calculated so that the new matrix for the quadratic form can be formed. \\~\\
+Step 3: Since the matrix for the quadratic form is now $$\begin{pmatrix}
+a_{11} & 0 & \cdots & 0\\
+0 & ? & \cdots & ?\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & ? & \cdots & ?
+\end{pmatrix}$$
+We can induct on $n$ by repeating the process of step 1 with the entry $a_{22}$ until we reach $a_{nn}$. 
+\end{proof}
+\end{thm}
+
+This main theorem of quadratic forms shows that every quadratic form is congruent to a diagonal matrix. It also proves that within every equivalence class of congruent matrices, there must be at least one diagonal matrix. To illustrate the process of reduction, we look an example. 
+
+\begin{eg}{}{} Find a nice basis for the quadratic form $q\left(\begin{pmatrix}x\\y\\z\end{pmatrix}\right)=xy+3yz-5xz$. \tcbline
+\begin{proof}
+Using the formula, we construct the matrix of $q$ as $$A=\begin{pmatrix}
+0 & \frac{1}{2} & -\frac{5}{2}\\
+\frac{1}{2} & 0 & \frac{3}{2}\\
+-\frac{5}{2} & \frac{3}{2} & 0
+\end{pmatrix}$$ ~\\
+We start the first change of basis. Notice that $a_{11}=a_{22}=a_{33}=0$ in the matrix while $a_{12}$ is not. Denote the standard basis by $b_1,b_2,b_3$. We perform the first basis change by $\{b_1'=b_1+b_2,b_2'=b_2,b_3'=b_3\}$. This means that the change of basis matrix from new to old is $$P'=\begin{pmatrix}
+1 & 0 & 0\\
+1 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}$$
+To change $A$ into the new matrix $A'$, we simply replace $r_1$ by $r_1+r_2$ and replace $c_1$ by $c_1+c_2$. This gives $$A'=\begin{pmatrix}
+1 & \frac{1}{2} & -1\\
+\frac{1}{2} & 0 & \frac{3}{2}\\
+-1 & \frac{3}{2} & 0
+\end{pmatrix}$$
+We keep track of changing the basis for clarity. We now have $A'=(P')^TAP'$. \\~\\
+The next step is to set the new basis to $b_2''=b_2'-\frac{1}{2}b_1'$ and $b_3''=b_3'+b_1'$. This means that the new basis is now $\{b_1+b_2,\frac{1}{2}(b_2-b_1),b_1+b_2+b_3\}$. The change of basis from this basis back to the old one is now $$P''=\begin{pmatrix}
+1 & -\frac{1}{2} & 1\\
+1 & \frac{1}{2} & 1\\
+0 & 0 & 1
+\end{pmatrix}$$ Now the new matrix $A''$ is formed by replacing $r_2$ with $r_2$ by $r_2-\frac{1}{2}r_1$ and $r_3$ with $r_3+r_1$. Noticing that $A''$ must be symmetric, we need to take the new elements and replace the remanining lower traingualr elements so that $A''$ maintains symmetric. Also observe that the replacement of rows is exactly one changes into the new basis from the previous basis, where $b_2''=b_2'-\frac{1}{2}b_1'$ etc. Now we have $$A''=\begin{pmatrix}
+1 & 0 & 0\\
+0 & -\frac{1}{4} & 2\\
+0 & 2 & -1
+\end{pmatrix}$$
+We now have $A''=(P'')^TAP''$. \\~\\
+Now we perform the next change of basis. We set $b_3'''=b_3''-\frac{2}{-\frac{1}{4}}b_2''=b_3''+8b_2''$. Now the new basis is $\{b_1+b_2,\frac{1}{2}(b_2-b_1),-3b_1+5b_2+b_3\}$. The change of basis matrix is now $$P'''=\begin{pmatrix}
+1 & -\frac{1}{2} & -3\\
+1 & \frac{1}{2} & 5\\
+0 & 0 & 1
+\end{pmatrix}$$ Similar to the above, we replace $r_3$ with the same transformation and adjust $A'''$ so that it remains symmetric. Thus now we have $$A'''=\begin{pmatrix}
+1 & 0 & 0\\
+0 & -\frac{1}{4} & 0\\
+0 & 0 & 15
+\end{pmatrix}$$
+This means that we are done with $A'''=(P''')^TAP'''$. 
+\end{proof}
+\end{eg}
+
+In general, this result of diagonalization is different from that of similar matrices. One should not be confusing reduction of congruent matrices into diagonal matrices and reduction of similar matrices into JCF as well as reduction of diagonalizable matrices into diagonal matrices. 
+
+\subsection{Bilinear Forms}
+\begin{defn}{Bilinear Maps}{} Let $V,W$ be vector spaces over a field $\F$. A bilinear map on $V$ and $W$ is a map $\tau:V\times W\to\F$ such that 
+\begin{itemize}
+\item $\tau(a_1+a_2v_2,w)=a_1\tau(v_1,w)+a_2\tau(v_2,w)$
+\item $\tau(v,b_1w_1+b_2w_2)=b_1\tau(v,w_1)+b_2\tau(v,w_2)$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Matrix Representing Bilinear Forms}{} Let $\F$ be a field. Let $V,W$ be finite dimensional vector spaces over $\F$. Let $E$ be a basis of $V$ and let $F$ be a basis of $W$. Let $\tau:V\times W\to\F$ be a bilinear map. Define the matrix representing $\tau$ under the basis $E$ and $F$ to be $$A=\begin{pmatrix}
+\tau(e_1,f_1) & \cdots & \tau(e_1,f_m)\\
+\vdots & \ddots & \vdots\\
+\tau(e_n,f_1) & \cdots & \tau(e_n,f_m)
+\end{pmatrix}$$
+\end{defn}
+
+\begin{prp}{}{} Let $\F$ be a field. Let $V,W$ be finite dimensional vector spaces over $\F$. Let $E$ be a basis of $V$ and let $F$ be a basis of $W$. Let $\tau:V\times W\to\F$ be a bilinear map. Let $A$ be the matrix representing $\tau$ under the given bases. Then for any $v\in V$ and $w\in W$, we have $$\tau(v,w)=v^TAw$$ \tcbline
+\begin{proof}
+Simple to see by expanding the matrix multiplication. 
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $V,W$ be vector spaces over $\F$. Let $\tau:V\times W\to\F$ be a bilinear map. Consider the following data. 
+\begin{itemize}
+\item Let $A\in M_{n\times m}(\F)$ represent $\tau$ with the bases $E$ of $V$ and $F$ of $W$ respectively. 
+\item Let $B\in M_{n\times m}(\F)$ represent $\tau$ with the bases $E'$ of $W$ and $F'$ of $W$ respectively
+\item Let $P\in GL(n,\F)$ be the change of basis matrix from $E$ to $E'$
+\item Let $Q\in GL(m,\F)$ be the change of basis matrix from $F$ to $F'$
+\end{itemize}
+Then we have that $$B=P^TAQ$$
+\end{prp}
+
+\begin{defn}{Bilinear Forms}{} Let $V$ be a vector space over a field $\F$. A bilinear form on $V$ is a bilinear map $$\tau:V\times V\to\F$$
+\end{defn}
+
+\begin{defn}{Types of Bilinear Forms}{} Let $k$ be a field. Let $V$ be a vector space over $k$. Let $\tau:V\times V\to k$ be a bilinear form. 
+\begin{itemize}
+\item We say that $\tau$ is symmetric if $\tau(v,w)=\tau(w,v)$
+\item We say that $\tau$ is skew-symmetric if $\tau(v,w)=-\tau(w,v)$
+\item We say that $\tau$ is non-degenerate if $\tau(v,w)=0$ for all $w\in V$ implies that $v=0$. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $\F$ be a field. Let $V$ be a vector space over $\F$. Let $\tau:V\times V\to\F$ be a bilinear form. Then the following are true. 
+\begin{itemize}
+\item $\tau$ is symmetric if and only if the matrix representing $\tau$ over any basis is symmetric. 
+\item $\tau$ is skew-symmetric if and only if the matrix representing $\tau$ over any basis is skew-symmetric. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $\F$ be a field. Let $V$ be a vector space over $\F$. Let $\tau:V\times V\to\F$ be a bilinear form. Then the following are true. Then the following are equivalent. 
+\begin{itemize}
+\item $\tau$ is non-degenerate. 
+\item The matrix representing $\tau$ over any basis of $V$ is invertible. 
+\item Every element of $V^\ast$ is of the form $\tau(v,-)$ for some $v\in V$. 
+\item Every element of $V^\ast$ is of the form $\tau(v,-)$ for some unique $v\in V$. 
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Types of Bilinear Forms}{} Let $k$ be a field. Let $V$ be a vector space over $k$. Let $\tau:V\times V\to k$ be a bilinear form. 
+\begin{itemize}
+\item We say that $\tau$ is positive definite if $\tau(v,v)>0$ for all $v\in V\setminus\{0\}$. 
+\item We say that $\tau$ is positive semi-definite if $\tau(v,v)\geq 0$ for all $v\in V$. 
+\item We say that $\tau$ is negative definite if $\tau(v,v)<0$ for all $v\in V$. 
+\item We say that $\tau$ is negative semi-definite if $\tau(v,v)\leq 0$ for all $v\in V$. 
+\item We say that $\tau$ is indefinite otherwise. 
+\end{itemize}
+\end{defn}
+
+\begin{prp}{}{} Let $q:V\to K$ be a function. Then the following are equivalent. 
+\begin{itemize}
+\item $q$ is a quadratic form
+\item $q(cv)=c^2v$ for $c\in K$ and $v\in V$ and $\tau(v,w)=\frac{1}{2}(q(v+w)-q(v)-q(w))$ is a bilinear form on $V$
+\item $q(v)=\tau(v,v)$ is a symmetric bilinear form on $V$
+\end{itemize} \tcbline
+\begin{proof}
+Let $q:V\to K$ be a function. 
+\begin{itemize}
+\item $(1)\implies (2)$: Since every term in a quadratic form is quadratic, $q(cv)=c^2q(v)$ is natural. The fact that $\tau(v,w)$ is bilinear is also easy to check. 
+\item $(2)\implies (3)$: From $(2)$ we know that $\tau(v,v)=q(v)$ by substituting $v$ in the position of $w$ and thus it clearly is a bilinear form. The position of $w$ and $v$ are also interchangable and thus it is symmetric. 
+\item $(3)\implies (1)$: If $\tau(v,v)$ is a symmetric bilinear form then the matrix of $\tau$ is symmetric since $a_{ij}=\tau(e_i,f_j)=\tau(f_j,e_i)=a_{ji}$. Thus $q(v)=\tau(v,v)$ defines a quadratic form. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\subsection{Sesquilinear Forms}
+\begin{defn}{Sesquilinear Form}{} Let $V$ be a vector space over $\C$. A sesquilinear form on $V$ is a map $\tau:V\times V\to\C$ such that the following are true. 
+\begin{itemize}
+\item $\tau(\lambda v_1+\mu v_2,w)=\overline{\lambda}\tau(v_1,w)+\overline{\mu}\tau(v_2,w)$
+\item $\tau(v,\lambda w_1+\mu w_2)=\lambda\tau(v,w_1)+\mu\tau(v,w_2)$
+\end{itemize}
+\end{defn}
+
+\begin{defn}{Types of Sesquilinear Forms}{} Let $V$ be a vector space over $\C$. Let $\tau:V\times V\to\C$ be a sesquilinear form. 
+\begin{itemize}
+\item We say that $\tau$ is Hermitian if $\tau(v,w)=\overline{\tau(w,v)}$ for all $v,w\in V$. 
+\end{itemize}
+\end{defn}
+
+\pagebreak
 \section{Inner Product Spaces}
 \subsection{The Norm of a Space}
 Throughout this section, $\F$ means either $\R$ or $\C$. In general normed vector spaces only perform well in these two fields. 
@@ -965,46 +1004,37 @@ Throughout this section, $\F$ means either $\R$ or $\C$. In general normed vecto
 \subsection{Inner Products}
 Inner products are only properly defined for vector spaces over $\R$ and $\C$. From this point onwards we will limit our discussions with $V=\R^n$ or $\C^n$ and $K=\R$ or $\C$. 
 
-\begin{defn}{Inner Products}{} Let $V$ be a vector space over $\R$ or $\C$. An inner product on $V$ is a function that takes each ordered pair $(x,y)$ of a vector space $V$ to a number $\langle x,y\rangle\in K$ such that 
+\begin{defn}{Inner Product over $\R$}{} Let $V$ be a vector space over $\R$. An inner product on $V$ is a bilinear form $\langle-,-\rangle:V\times V\to\R$ such that the following are true. 
 \begin{itemize}
-\item $\langle x,x\rangle\geq0$ for all $x\in V$ with equality if and only if $x=0$. 
-\item $\langle x+z,y\rangle=\langle x,y\rangle+\langle z,y\rangle$ for all $x$ for all $x,y,z\in V$
-\item $\langle \lambda x,y\rangle=\lambda\langle x,y\rangle$ for all $x,y\in V$ and $\lambda\in K$
-\item $\langle x,y\rangle=\overline{\langle y,x\rangle}$ for all $x,y\in V$
+\item Positive definite: $\langle x,x\rangle\geq0$ for all $x\in V$ with equality if and only if $x=0$. 
+\item Symmetric: $\langle x,y\rangle=\langle y,x\rangle$ for all $x,y\in V$
 \end{itemize}
 In this case $V$ is called an inner product space. 
 \end{defn}
 
-Notice that this is the same as saying the vector space is equipped with a symmetric bilinear form if the underlying field is $\R$. 
-
-\begin{prp}{}{} Let $u,v,w\in V$. Let $\lambda\in K$. Then the following are true. 
+\begin{prp}{}{} Let $V$ be a finite dimensional vector space over $\R$. Let $\tau:V\times V\to\R$ be a bilinear form. Then the following are equivalent. 
 \begin{itemize}
-\item $\langle 0,u\rangle=\langle u,0\rangle=0$
-\item $\langle u,v+w\rangle=\langle u,v\rangle+\langle u,w\rangle$
-\item $\langle u,\lambda v\rangle=\overline{\lambda}\langle u,v\rangle$
-\end{itemize}\tcbline
-\begin{proof} Let $\langle \cdot,\cdot\rangle$ be an inner product over $V$. 
-\begin{itemize}
-\item $\langle 0,u\rangle=\langle 0,u\rangle+\langle 0,u\rangle$ thus $\langle 0,u\rangle=0$. $\langle u,0\rangle=0$ can be proven using the below property. 
-\item Let $u,v,w\in V$. Then 
-\begin{align*}
-\langle u,v+w\rangle&=\overline{\overline{\langle u,v+w\rangle}}\\
-&=\overline{\langle v+w,u\rangle}\\
-&=\overline{\langle v,u\rangle+\langle w,u\rangle}\\
-&=\overline{\langle v,u\rangle}+\overline{\langle w,u\rangle}\\
-&=\langle u,v\rangle+\langle u,w\rangle\\
-\end{align*}
-\item Applying the same technique as above gives the desired result. 
+\item $\tau$ is an inner product on $V$. 
+\item The matrix representing $\tau$ over any basis of $V$ is symmetric and positive definite. 
+\item For any matrix $A$ representing $\tau$ over some basis of $V$, there exists $P\in GL_{\dim(V)}(\R)$ such that $A=P^TP$. 
 \end{itemize}
-\end{proof}
 \end{prp}
 
-\begin{prp}{}{} Every inner product induces a norm. \tcbline
-\begin{proof} Define the norm to be $\|x\|=\sqrt{\langle x,x\rangle}$. 
-\end{proof}
+\begin{defn}{Inner Product over $\C$}{} Let $V$ be a vector space over $\C$. An inner product on $V$ is a sesquilinear form $\langle-,-\rangle:V\times V\to\C$ such that the following are true. 
+\begin{itemize}
+\item Positive definite: $\langle x,x\rangle\geq0$ for all $x\in V$ with equality if and only if $x=0$. 
+\item Hermitian: $\langle x,y\rangle=\overline{\langle y,x\rangle}$ for all $x,y\in V$
+\end{itemize}
+In this case $V$ is called an inner product space. 
+\end{defn}
+
+\begin{lmm}{}{} Let $\F=\R$ or $\C$. Let $(V,\langle-,-\rangle)$ be an inner product space over $\F$. Then $\langle-,-\rangle$ is non-degenerate. 
+\end{lmm}
+
+\begin{prp}{}{} Let $\F=\R$ or $\C$. Let $(V,\langle-,-\rangle)$ be an inner product space over $\F$. Then the map $\|-\|:V\to\F$ defined by $$\|v\|=\langle v,v\rangle$$ is a norm for $V$. 
 \end{prp}
 
-\begin{prp}{Cauchy-Schwartz Inquality}{} For all $x,y\in V$, $$\abs{\langle x,y\rangle}\leq\|x\|\cdot\|y\|$$ with equality if and only if $y=\lambda x$ for some $\lambda\in\F$. 
+\begin{prp}{Cauchy-Schwartz Inquality}{} Let $\F=\R$ or $\C$. Let $(V,\langle-,-\rangle)$ be an inner product space over $\F$. Let $\|-\|$ be the induced norm from the inner product. For all $x,y\in V$, we have $$\abs{\langle x,y\rangle}\leq\|x\|\cdot\|y\|$$ with equality if and only if $y=\lambda x$ for some $\lambda\in\F$. \tcbline
 \begin{proof} Let $z=x-\frac{\abs{\langle x,y\rangle}}{\|y\|^2}y$. We have $\|z\|\geq0$. 
 \begin{align*}
 \|z\|^2&=\left\langle x-\frac{\abs{\langle x,y\rangle}}{\|y\|^2}y,x-\frac{\abs{\langle x,y\rangle}}{\|y\|^2}y\right\rangle\\
@@ -1066,22 +1096,37 @@ TBA: Invariance under choice of basis.
 \pagebreak
 \section{Orthogonality}
 \subsection{Orthogonal Vectors}
-\begin{defn}{Orthogonal Vectors}{} Two vectors $u,v\in V$ an inner product space are called orthogonal if $\langle u,v\rangle=0$. 
+\begin{defn}{Orthogonal Vectors}{} Let $\F=\R$ (or $\C$). Let $V$ be a vector space over $\F$. Let $\tau:V\times V\to\F$ be a symmetric (Hermitian) bilinear form. We say that $v,w\in V$ are orthogonal if $$\tau(v,w)=0$$
 \end{defn}
 
-\begin{crl}{}{} Let $V$ be an inner product space. Let $u,v\in V$. Then the following are true. 
-\begin{itemize}
-\item $0$ is orthogonal to every vector in $V$
-\item $0$ is the only vector in $V$ that is orthogonal to itself. 
-\end{itemize} \tcbline
-\begin{proof}
-Easy check involving properties of the inner product. 
-\end{proof}
-\end{crl}
+\begin{defn}{Orthogonal Complement}{} Let $\F=\R$ (or $\C$). Let $V$ be a vector space over $\F$. Let $\tau:V\times V\to\F$ be a symmetric (Hermitian) bilinear form. Let $W\subseteq V$ be a subspace of $V$. Define the orthogonal complement of $W$ to be $$W^{\perp}=\{v\in V|\langle v,w\rangle=0\text{ for all }w\in W\}$$
+\end{defn}
 
-\begin{thm}{Pythagorean Theorem}{} Suppose that $u,v\in V$ an inner product space and $u,v$ are orthogonal. Then $$\|u+v\|^2=\|u\|^2+\|v\|^2$$ \tcbline
+\begin{prp}{}{} Let $\F=\R$ (or $\C$). Let $V$ be a vector space over $\F$. Let $\tau:V\times V\to\F$ be a symmetric (Hermitian) bilinear form. Then the following are equivalent. 
+\begin{itemize}
+\item $\tau$ is non-degenerate. 
+\item The matrix representing $\tau$ over any basis of $V$ is invertible. 
+\item $V^\perp=\{0\}$. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $\F=\R$ (or $\C$). Let $V$ be a vector space over $\F$. Let $\tau:V\times V\to\F$ be a symmetric (Hermitian) bilinear form. Let $W$ be a subspace of $V$. Then the following are equivalent. 
+\begin{itemize}
+\item $\tau|_{W\times W}$ is non-degenerate on $W$. 
+\item $W\cap W^\perp=\{0\}$. 
+\item $V=W\oplus W^\perp$. 
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $\F=\R$ (or $\C$). Let $V$ be a vector space over $\F$. Let $\tau:V\times V\to\F$ be a symmetric (Hermitian) bilinear form. Let $W$ be a subspace of $V$. If $\tau|_{W\times W}$ is non-degenerate on $W$, then we have $$W=(W^\perp)^\perp$$
+\end{prp}
+
+\subsection{Orthogonality with Inner Products}
+With the added benefit of positive definiteness, we can produce bases for inner product spaces that are pairwise orthogonal. 
+
+\begin{thm}{Pythagorean Theorem}{} Let $\F=\R$ or $\C$. Let $(V,\langle-,-\rangle$ be an inner product space over $\F$. Let $\|-\|$ be the induced norm. If $u,v\in V$ are orthogonal, then we have $$\|u+v\|^2=\|u\|^2+\|v\|^2$$ \tcbline
 \begin{proof}
-The norm here is induced by the inner product and thus $\|x\|=\sqrt{\langle x,x\rangle}$. We have that 
+We have that 
 \begin{align*}
 \|u+v\|^2&=\langle u+v,u+v\rangle\\
 &=\langle u,u\rangle+\langle u,v\rangle+\langle v,u\rangle+\langle v,v\rangle\\
@@ -1091,7 +1136,7 @@ The norm here is induced by the inner product and thus $\|x\|=\sqrt{\langle x,x\
 \end{proof}
 \end{thm}
 
-\begin{thm}{Orthogonal Decomposition}{} Let $u,v\in V$ and $v\neq 0$. Set $c=\frac{\langle u,v\rangle}{\|v\|^2}$ and $w=u-\frac{\langle u,v\rangle}{\|v\|^2}v$. Then $\langle w,v\rangle=0$ and $u=cv+w$. \tcbline
+\begin{thm}{Orthogonal Decomposition}{} Let $\F=\R$ or $\C$. Let $(V,\langle-,-\rangle$ be an inner product space over $\F$. Let $\|-\|$ be the induced norm. Let $u,v\in V$ and $v\neq 0$. Set $c=\frac{\langle u,v\rangle}{\|v\|^2}$ and $w=u-\frac{\langle u,v\rangle}{\|v\|^2}v$. Then $\langle w,v\rangle=0$ and $u=cv+w$. \tcbline
 \begin{proof}
 The fact that $u=cv+w$ is natural so we only have to prove that $\langle w,v\rangle=0$. We have that 
 \begin{align*}
@@ -1105,27 +1150,25 @@ Thus we are done.
 \end{proof}
 \end{thm}
 
-\begin{prp}{}{} Every orthonormal list of vectors are linearly independent. \tcbline
+\begin{prp}{}{} Let $\F=\R$ or $\C$. Let $(V,\langle-,-\rangle)$ be an inner product space over $\F$. Let $v_1,\dots,v_n\in V\setminus\{0\}$ be pairwise orthogonal. Then $v_1,\dots,v_n$ are linearly independent.  \tcbline
 \begin{proof}
-Suppose that $v_1,\dots,v_n$ are orthnormal. We want to show that $v_n=\sum_{k=1}^{n-1}a_kv_k$ imnplies $a_1=\dots=a_{n-1}=0$. Then $$\langle v_n, v_i\rangle=\sum_{k=1}^{n-1}a_k(v_k\cdot v_i)=a_i\|v_i\|^2$$ for $i\in\{1,\dots,n-1\}$ since $v_1,\dots,v_{n-1}$ are orthonormal. But since $\langle v_n, v_k\rangle=0$ we must have $a_i=0$. This means that $a_1=\dots=a_{n-1}=0$ and thus $v_1,\dots,v_n$ are linearly independent. 
+We want to show that $v_n=\sum_{k=1}^{n-1}a_kv_k$ implies $a_1=\dots=a_{n-1}=0$. For $i\neq n$, we have that $$0=\langle v_n, v_i\rangle=\sum_{k=1}^{n-1}a_k\tau(v_k,v_i)=a_i\langle v_i,v_i\rangle$$ Since $\langle-,-\rangle$ is positive definite, $\langle v_i,v_i\rangle\neq 0$. Then $a_i=0$. 
 \end{proof}
 \end{prp}
 
-\subsection{Orthonormal Basis}
-\begin{defn}{Orthonormal Basis}{} A basis $v_1,\dots,v_n$ of an inner product space $V$ with $\dim(V)=n$ is called orthonormal if 
+\begin{defn}{Orthonormal Basis}{} Let $\F=\R$ or $\C$. Let $(V,\langle-,-\rangle)$ be an inner product space over $\F$. Let $b_1,\dots,b_n\in V$ be vectors. We say that they form an orthonormal basis of $V$ is the following are true. 
 \begin{itemize}
+\item $\{b_1,\dots,b_n\}$ is a basis for $V$. 
 \item $\|b_i\|=1$ for $i\in\{1,\dots,n\}$
-\item $\langle b_i,b_j\rangle=\delta_{ij}$ for $i,j\in\{1,\dots,n\}$
+\item The vectors $b_1,\dots,b_n$ are pairwise orthogonal. 
 \end{itemize}
 \end{defn}
 
-\begin{prp}{}{} The orthonormal basis is indeed a basis for an inner product space $V$. \tcbline
-\begin{proof}
-Since lists of orthonormal vectors are linearly independent and there are $n$ vectors, they must also span $V$ and thus is a basis. 
-\end{proof}
-\end{prp}
-
-\begin{thm}{}{} Let $b_1,\dots,b_n$ be an orthonormal basis and $v=\sum_{k=1}^na_kb_k$. Then $$\|v\|^2=\sum_{k=1}^n\abs{a_k}^2$$ \tcbline
+\begin{prp}{}{} Let $\F=\R$ or $\C$. Let $(V,\langle-,-\rangle)$ be an inner product space over $\F$. Let $\|-\|$ be the induced norm. Let $b_1,\dots,b_n$ be an orthonormal basis for $V$. Let $v=\sum_{k=1}^na_kb_k\in V$. Then the following are true. 
+\begin{itemize}
+\item $\|v\|^2=\sum_{k=1}^n\abs{a_k}^2$
+\item $v=\sum_{k=1}^n\langle v,b_k\rangle b_k$
+\end{itemize} \tcbline
 \begin{proof}
 We have that 
 \begin{align*}
@@ -1134,49 +1177,26 @@ We have that
 &=\sum_{i=1}^n\sum_{j=1}^na_ia_j\delta_{ij}\\
 &=\sum_{k=1}^n\abs{a_k}^2
 \end{align*}
-and we are done. 
-\end{proof}
-\end{thm}
+and we are done. \\~\\
 
-\begin{prp}{}{} Let $b_1,\dots,b_n$ be an orthonormal basis of $V$. Then $$v=\sum_{k=1}^n\langle v,b_k\rangle b_k$$ \tcbline
-\begin{proof}
 Applying the inner product with $b_i$ for each $i\in\{1,\dots,n\}$ gives $a_i=\langle v,b_i\rangle$ since $\langle b_i,b_k\rangle=0$ for any $k\neq i$. Thus if $v=\sum_{k=1}^na_kb_k$ then $v=\sum_{k=1}^n\langle v,b_k\rangle b_k$ and we are done. 
 \end{proof}
 \end{prp}
 
-\begin{thm}{Gram-Schmidt Procedure}{} Let $v_1,\dots v_m$ be a list of linearly independent vectors of $V$. Let $b_1=\frac{v_1}{\|v_1\|}$. For $i=2,\dots,m$. Define $$b_i=\frac{v_i-\sum_{k=0}^{i-1}\langle v_i,b_k\rangle b_k}{\|v_i-\sum_{k=0}^{i-1}\langle v_i,b_k\rangle b_k\|}$$ Then $b_1,\dots,b_m$ are orthonormal and has the same span as $v_1,\dots,v_m$. 
+\begin{thm}{Gram-Schmidt Procedure}{} Let $\F=\R$ or $\C$. Let $(V,\langle-,-\rangle)$ be an inner product space over $\F$. Let $\|-\|$ be the induced norm. Let $v_1,\dots v_m$ be a list of linearly independent vectors of $V$. Define the following vectors. 
+\begin{itemize}
+\item $b_1=\frac{v_1}{\|v_1\|}$. 
+\item For $i=2,\dots,m$, define $$b_i=\frac{v_i-\sum_{k=0}^{i-1}\langle v_i,b_k\rangle b_k}{\|v_i-\sum_{k=0}^{i-1}\langle v_i,b_k\rangle b_k\|}$$
+\end{itemize}
+Then $b_1,\dots,b_m$ are orthonormal and has the same span as $v_1,\dots,v_m$. 
 \end{thm}
 
-\begin{thm}{}{} Every finite dimensional inner product space has an orthonormal basis. \tcbline
+\begin{crl}{}{} Every finite dimensional inner product space has an orthonormal basis. \tcbline
 \begin{proof}
 By the Gram-Schmidt procedure, every basis can be transformed into an orthonormal basis. 
 \end{proof}
-\end{thm}
+\end{crl}
 
-\subsection{Orthogonal Complements}
-\begin{defn}{Orthogonal Complement}{} Let $V$ be an inner product space. Let $U$ be a vector subspace of $V$. Define the orthogonal complement $U^\perp$ of $U$ in $V$ to be $$U^{\perp}=\{v\in V|\langle v,u\rangle=0\text{ for all }u\in U\}$$
-\end{defn}
-
-\begin{lmm}{}{} Let $(V,\langle-,-\rangle)$ be an inner product space. Then $\langle-,-\rangle$ is non-degenerate if and only if $V^\perp=0$. 
-\end{lmm}
-
-\begin{prp}{}{} Let $U$ be a subset of $V$. 
-\begin{itemize}
-\item $U$ is a subspace of $V$ if and only if $U^\perp$ is a subspace of $V$. 
-\item $\{0\}^\perp=V$
-\item $V^\perp=\{0\}$
-\item $U\cap U^\perp=\{0\}$
-\item If $W\subseteq U$, then $U^\perp\subseteq W^\perp$
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Let $U$ be a finite dimensional subspace of $V$. Then $$U=(U^\perp)^\perp$$
-\end{prp}
-
-\begin{thm}{}{} Suppose $U$ is a finite dimensional subspace of $V$. Then $$V=U\oplus U^\perp$$ and $$\dim(U)+\dim(U^\perp)=\dim(V)$$
-\end{thm}
-
-\subsection{Orthogonal Maps}
 \begin{defn}{Orthgonal Maps}{} A linear map $T:V\to V$ is said to be orthogonal if $$\langle T(v), T(w)\rangle=\langle v, w\rangle$$ for all $v,w\in V$. 
 \end{defn}
 
