@@ -23,13 +23,23 @@
 \pagebreak
 \section{Ideals Of a Commutative Ring}
 \subsection{Basic Operations on Ideals}
+Recall that $(R,+,\cdot)$ is a ring if the following axioms hold. 
+\begin{itemize}
+\item $(R,+)$ is an abelian group. 
+\item Multiplicative Associativity: $x\cdot(y\cdot z)=(x\cdot y)\cdot z$. 
+\item Multiplicative Identity: There exists $1_R\in R$ such that $x\cdot 1_R=x=1_R\cdot x$ for all $x\in R$. 
+\item Left distributivity: $r\cdot(x+y)=r\cdot x+r\cdot y$ for all $r,x,y\in R$. 
+\item Right distributivity: $(x+y)\cdot r=x\cdot r+y\cdot r$ for all $r,x,y\in R$. 
+\end{itemize}
+A ring $R$ is commutative if $$x\cdot y=y\cdot x$$ for all $x,y\in R$. \\
+
 Let $R$ be a commutative ring. Recall that an ideal of $R$ is a subset $I\subseteq R$ such that
 \begin{itemize}
 \item If $a,b\in I$, then $a+b\in I$. 
 \item If $r\in R$ and $a\in I$, then $ra\in I$. 
 \end{itemize}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $I_1,\dots,I_n$ be ideals of $R$. Let $P_1,\dots,P_k$ be prime ideals of $R$. 
+\begin{prp}{Plenty of Primes}{} Let $R$ be a commutative ring. Let $I_1,\dots,I_n$ be ideals of $R$. Let $P_1,\dots,P_k$ be prime ideals of $R$. 
 \begin{itemize}
 \item Let $I$ be an ideal of $R$. If $I\subseteq\bigcup_{i=1}^kP_i$, then $I\subseteq P_i$ for some $i$. 
 \item Let $P$ be an ideal of $R$. If $P\subseteq\bigcap_{i=1}^nI_i$, then $I_i\subseteq P$ for some $i$. 
@@ -44,12 +54,6 @@ Let $R$ be a commutative ring. Recall that an ideal of $R$ is a subset $I\subset
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $R$ be a commutative ring. Let $I,J$ be ideals of $R$. Then there is an isomorphism of rings $$\frac{R}{I+J}\cong\frac{R/I}{(I+J)/I}$$ given by $r+(I+J)\mapsto(r+I)+((I+J)/I)$. \tcbline
-\begin{proof}
-Follows from the third isomorphism theorem of rings. 
-\end{proof}
-\end{prp}
-
 \begin{eg}{}{} There is an isomorphism given by $$\frac{\Z[x]}{(x+1,x^2+2)}\cong\Z/3\Z$$ \tcbline
 \begin{proof}
 Using the above propositions, we have that 
@@ -57,9 +61,19 @@ Using the above propositions, we have that
 \frac{\Z[x]}{(x+1,x^2+2)}&=\frac{\Z[x]}{(x+1)+(x^2+2)}\\
 &\cong\frac{\Z[x]/(x+1)}{(3)}
 \end{align*}
-Indeed, the ideal $(x^2+2)$ corresponds to the ideal $(3)$ in $\frac{\Z[x]}{(x+1)}$ because the remainder of $x^2+2$ divided by $(x+1)$ is $(3)$. Now $\Z[x]/(x+1)\cong\Z$ by the evaluation homomorphism. Thus quotieting by the ideal $(3)$ gives the field $\Z/3\Z$. 
+Indeed, the ideal $(x^2+2)$ corresponds to the ideal $(3)$ in $\frac{\Z[x]}{(x+1)}$ because the remainder of $x^2+2$ divided by $(x+1)$ is $(3)$. Now $\Z[x]/(x+1)\cong\Z$ by the evaluation homomorphism. Thus quotienting by the ideal $(3)$ gives the field $\Z/3\Z$. 
 \end{proof}
 \end{eg}
+
+Let $R$ be a commutative ring. Recall that $R$ can be considered as an $R$-module by the action of multiplication. 
+
+\begin{prp}{}{} Let $R$ be a commutative ring. Then the following are true. 
+\begin{itemize}
+\item Let $I\subseteq R$. Then $I$ is an $R$-submodule of $R$ if and only if $I$ is an ideal of $R$. 
+\item Let $M$ be an $R$-module. Then $M$ is cyclic if and only if there is an isomorphism of $R$-modules $$M\cong R/I$$ for some ideal $I\subseteq R$. 
+\item Let $M$ be an $R$-module. Then $M$ is a simple $R$-module if and only if there is an isomorphism of $R$-modules $$M\cong R/m$$ for some maximal ideal $m\subseteq R$. 
+\end{itemize}
+\end{prp}
 
 \begin{prp}{}{} Let $R$ be a commutative ring. Let $I,J$ be ideals of $R$. Then $\frac{R}{I}\cong\frac{R}{J}$ as $R$-modules if and only if $I=J$. \tcbline
 \begin{proof}
@@ -72,7 +86,7 @@ Let $R$ be a commutative ring. Recall that two ideals $I,J$ are coprime if $I+J=
 \subsection{The Nilradical of Commutative Rings}
 Let $R$ be a ring. Recall that an element $r\in R$ is nilpotent if $r^n=0_R$ for some $n\in\N$. When $R$ is commutative, we can form an ideal out of nilpotent elements. 
 
-\begin{defn}{Nilradicals}{} Let $R$ be a ring. Define the nilradical of $R$ to be $$N(R)=\{r\in R\;|\;r\text{ is nilpotent}\}$$
+\begin{defn}{Nilradicals}{} Let $R$ be a commutative ring. Define the nilradical of $R$ to be $$N(R)=\{r\in R\;|\;r\text{ is nilpotent}\}$$
 \end{defn}
 
 Note that this is different from nilpotent ideals, as nilpotency is a property of an ideal. However the Nilradical ideal is a nil ideal and every sub-ideal of the nilradical is a nil ideal. 
@@ -124,7 +138,7 @@ Let $R$ be a commutative ring. Recall that the Jacobson radical of a ring is def
 \begin{proof}
 Suppose that $x\notin J(R)$. Then $x\notin m$ for some maximal ideal $m$. Then $R=m+(x)$ since $m$ is maximal. Then there exists $p\in m$ and $y\in R$ such that $1=p+xy$. Then $1-xy=p\in m\notin R^\times$. \\~\\
 
-Suppose that $1-xy\notin R^\times$ for some $y\in R$. Then $(1-xy)$ is a proper ideal of $R$. Then there exists a maximal ideal $m$ such that $(1-xy)\subseteq m$. Since $1\notin m$ and $y$ is arbitrary, we must have that $x\notin m$. Hence $x\notin J(R)$. 
+Suppose that $1-xy\notin R^\times$ for some $y\in R$. Then $(1-xy)$ is a proper ideal of $R$. Then there exists a maximal ideal $m$ such that $(1-xy)\subseteq m$. If $x\in m$ then $yx\in m$ which implies that $1=xy+1-xy\in m$. This is a contradiction and so $x\notin m$. Hence $x\notin J(R)$. 
 \end{proof}
 \end{lmm}
 
@@ -165,7 +179,7 @@ The radical of an ideal is a very different notion from the radical of module.
 \end{itemize} \tcbline
 \begin{proof}~\\
 \begin{itemize}
-\item Let $x\in\sqrt{IJ}$. Then $x^n\in IJ$. This means that there exists $i\in I$ and $j\in J$ such that $x^n=ij$. Since $I$ and $J$ are two sided ideals, we can conclude that $x^n=ij\in I,J$. Hence $x^n=ij\in I\cap J$. We conclude that $x\in\sqrt{I\cap J}$. Now let $x\in\sqrt{I\cap J}$. Then there exists $n\in\N$ such that $x^n\in I\cap J$. Then $x^n\in I$ and $x^n\in J$ implies that $x^{2n}=x^n\cdot x^n\in IJ$. We conclude that $x\in\sqrt{IJ}$. 
+\item Let $x\in\sqrt{I}$. Then $x^n\in I$ for some $n\in\N$. Then $x^n\in J$ so $x\in\sqrt{J}$. 
 \item Since $IJ\subseteq I\cap J\subseteq I,J$, we already have $\sqrt{IJ}\subseteq\sqrt{I\cap J}\subseteq\sqrt{I}\cap\sqrt{J}$. Let $x\in\sqrt{I}\cap\sqrt{J}$. Then there exists $n,m\in\N$ such that $x^n\in I$ and $x^m\in J$. Then $x^n\cdot x^m=x^{n+m}\in IJ$ implies that $x\in\sqrt{IJ}$. 
 \item Since $I,J\subseteq I+J$, we have $\sqrt{I}+\sqrt{J}\subseteq\sqrt{I+J}$ so that $\sqrt{\sqrt{I}+\sqrt{J}}\subseteq\sqrt{I+J}$. On the other hand, $I\subseteq\sqrt{I}$ and $J\subseteq\sqrt{J}$ implies that $I+J\subseteq\sqrt{I}+\sqrt{J}$. Then $\sqrt{I+J}\subseteq\sqrt{\sqrt{I}+\sqrt{J}}$ and so we are done. 
 \end{itemize}
@@ -331,6 +345,13 @@ Another way to write the bijections is via spectra: $$\text{Spec}(R/I)\;\;\overs
 \end{proof}
 \end{prp}
 
+\begin{eg}{}{} Let $S$ be a commutative ring and let $R\subseteq S$ be a subring. Let $f:R\to S$ be the inclusion map. Let $I\subseteq R$ be an ideal of $R$ and let $J\subseteq S$ be an ideal of $S$. Then the following are true. 
+\begin{itemize}
+\item $I^e=S\cdot I$. 
+\item $J^c=J\cap R$. 
+\end{itemize}
+\end{eg}
+
 \subsection{Minimal Prime Ideals}
 \begin{defn}{Minimal Prime Ideals}{} Let $R$ be a commutative ring. Let $I$ be an ideal of $R$. Let $P$ be a prime ideal of $R$. We say that $P$ is a minimal prime ideal over $I$ if for any other prime ideal $Q\supseteq I$ containing $I$, we have $P\subseteq Q$. 
 \end{defn}
@@ -372,28 +393,9 @@ By the above, there exists $n\in\N$ such that $(N(R))^n=\sqrt{(0)}^n\subseteq (0
 \end{prp}
 
 \subsection{Artinian Commutative Rings}
-We recall some facts about Artinian modules. 
+Let $R$ be a commutative ring. Recall that $R$ is Artinian if any descending chain of ideals $$I_1\supseteq I_2\supseteq\cdots$$ terminates at finitely many steps, meaning $I_k=I_k+n$ for some $k\in\N$. 
 
 \begin{itemize}
-\item If we have a short exact sequence of $R$-modules: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {M_1} & {M_2} & {M_3} & 0
-	\arrow[from=1-1, to=1-2]
-	\arrow["f", from=1-2, to=1-3]
-	\arrow["g", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-\end{tikzcd}}\\~\\
-Then $M_2$ is Artinian if and only if $M_1$ and $M_3$ are Artinian. 
-\item If $M$ and $N$ are $R$-modules, then $M\oplus N$ is Artinian if and only if $M$ and $N$ are Artinian. 
-\item If $M$ is an $R$-module and $N$ is an $R$-submodule of $M$, then $M$ is Artinian if and only if $N$ and $M/N$ are Artinian.
-\end{itemize}
-
-Let $R$ be a (not necessarily commutative ring). If $R$ is left Artinian, then the following are true. 
-
-\begin{itemize}
-\item If $I$ is an ideal of $R$, then $R/I$ is Artinian. 
-\item Every prime ideal of $R$ is maximal. 
-\item $R$ only has finitely many maximal ideals. 
 \item $J(R)$ is a nilpotent ideal. 
 \item $R$ is Noetherian. 
 \end{itemize}
@@ -806,86 +808,14 @@ Trivial since $\Z$ is a principal ideal domain.
 
 \pagebreak
 \section{Localization}
-\subsection{Localization of a Ring}
+\subsection{Localization of Modules}
 \begin{defn}{Multiplicative Set}{} Let $R$ be a commutative ring. $S\subseteq R$ is a multiplicative set if $1\in S$ and $S$ is closed under multiplication: $x,y\in S$ implies $xy\in S$
 \end{defn}
 
-\begin{defn}{Localization of a Ring}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set. Define the ring of fractions of $R$ with respect to $S$ by $$S^{-1}R=\left\{\frac{r}{s}\;\bigg{|}\;r\in R,s\in S\right\}/\sim$$ where we say that $r/s\sim r'/s'$ if there exists $t\in S$ such that $t(rs'-r's)=0$. 
+\begin{defn}{Localization of a Module}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set Let $M$ be a $R$-module. Define the ring of fractions of $M$ with respect to $S$ by $$S^{-1}M=\left\{\frac{m}{s}\;\bigg{|}\;m\in M,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{m}{s}\sim\frac{m'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(mu'-m'u)=0$$
 \end{defn}
 
-\begin{prp}{}{} Let $S^{-1}R$ be a ring of fractions. 
-\begin{itemize}
-\item $\sim$ as defined in the ring of fractions is an equivalence relation
-\item $(S^{-1}R,+,\times)$ is a ring
-\item The map $k:R\to S^{-1}R$ defined by $r\mapsto r/1$ is a ring homomorphism, called the localization map. 
-\end{itemize}\tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item Trivial
-\item Define addition by $\frac{r}{s}+\frac{r'}{s'}=\frac{rs'+r's}{ss'}$ and multiplication by $\frac{r}{s}\cdot\frac{r'}{s'}=\frac{rr'}{ss'}$. Clearly addition is abelian, and has identity $\frac{0}{1}$ and inverse $\frac{-r}{s}$ for any $\frac{r}{s}\in S^{-1}R$. Multiplication also has identity $\frac{1}{1}$. 
-\end{itemize}
-\end{proof}
-\end{prp}
-
-\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. Then localization map $R\to S^{-1}R$ is injective if and only if $S$ does not contain zero divisors. \tcbline
-\begin{proof}
-Suppose that $R\to S^{-1}R$ is injective. Then $sr=0$ implies $r=0$ for all $s\in S$. Hence $S$ does not contain zero divisors. Suppose that $S$ does not contain zero divisors. Then $sr=0$ implies that $r=0$ since $S$ has no zero divisors. Hence the localization map is injective. 
-\end{proof}
-\end{lmm}
-
-\begin{prp}{Universal Property}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative set. Then $S^{-1}R$ and the localization map $k:R\to S^{-1}R$ satisfies the following universal property. 
-\begin{itemize}
-\item For any commutative ring $B$ and ring homomorphism $\phi:R\to B$ such that $\phi(s)\in B^\times$ for all $s\in S$, there exists a unique ring homomorphism $\phi:S^{-1}R\to B$ such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	R & {S^{-1}R} \\
-	& B
-	\arrow["k", from=1-1, to=1-2]
-	\arrow["\phi"', from=1-1, to=2-2]
-	\arrow["{\exists !\psi}", dashed, from=1-2, to=2-2]
-\end{tikzcd}} \\~\\
-\item $S^{-1}R$ is the unique commutative ring (up to unique isomorphism) that has such a property. 
-\end{itemize}
-\end{prp}
-
-\begin{lmm}{}{} Let $R$ be a commutative ring. If $R$ is an integral domain, then then following are true. 
-\begin{itemize}
-\item If $S$ is a mutliplicative subset of $R$ such that $0\notin S$, then $S^{-1}R$ is an integral domain. 
-\item $\text{Frac}(R)=(0)$. 
-\item The localization map induces a ring isomorphism $$R\cong\bigcap_{m\text{ a maximal ideal}}R_m$$
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item Suppose that $0=\frac{a}{s}\cdot\frac{b}{t}$. By the equivalence relation this is the same as saying that $uab=0$ for some $u\in S$. Since $R$ is an integral domain and $0\neq S$, we conclude that $u\notin S$ so that $ab=0$. Again since $R$ is an integral domain this implies that $a=0$ or $b=0$. Hence either $a/s=0$ or $b/t=0$ in $S^{-1}R$. Hence $S^{-1}R$ is an integral domain. 
-\item Trivial. 
-\item Clearly the map is well defined. Moreover, since for each maximal ideal $m$, $0\notin R\setminus m$. Hence the localization map is injective. Suppose for a contradiction that the localization map is not surjective. Then there exists $x$ in the intersection such that $x\neq r/1$ for all $r\in R$.  Consider the ideal $I=\{r\in R\;|\;rx=s/1\text{ for some }s\in R\;\}$. Since $1\notin R$, $I$ is a proper ideal. So there exists a maximal ideal $m$ containing $I$. But $x$ also cannot lie in $R_m$ and hence the intersection. Indeed, if $x\in R_m$, then $x=a/b$ for some $a\in R$ and $b\notin m$. Then $bx=a\in R$ implies that $b\in I$. This is a contradiction to $b\notin m$. Thus no such $x$ exists. Hence the localization map is surjective. 
-\end{itemize}
-\end{proof}
-\end{lmm}
-
-\subsection{Special Types of Localization}
-\begin{lmm}{}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Then the set $\{f^n\;|\;n\in\N\}$ is a multiplicative set. 
-\end{lmm}
-
-\begin{defn}{Localization at an Element}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Define the localization of $R$ at $f$ to be the ring $$R_f=\{f^n\;|\;n\in\N\}^{-1}R$$
-\end{defn}
-
-\begin{lmm}{}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Then there is an $R$-algebra isomorphism $$R_f\cong R\left[\frac{1}{f}\right]$$ given by $\frac{a}{f^k}\mapsto a\cdot\frac{1}{f^k}$. 
-\end{lmm}
-
-\begin{lmm}{}{} Let $R$ be a ring and $P$ a prime ideal of $R$. Then $R\setminus P$ is a multiplicative set. \tcbline
-\begin{proof}
-By definition, $xy\in P$ implies $x\in P$ or $y\in P$, since $R\setminus P$ removes all these elements, we have that $x\notin P$ and $y\notin P$ implies that $xy\notin P$. 
-\end{proof}
-\end{lmm}
-
-\begin{defn}{Localization at Prime Ideals}{} Let $R$ be a commutative ring. Let $P$ be a prime ideal. Denote $$R_p=(R\setminus P)^{-1}R$$ the localization of $R$ at $P$. 
-\end{defn}
-
-\subsection{Localization of a Module}
-\begin{defn}{Localization of a Module}{} Let $R$ be a commutative ring and $S\subseteq R$ be a multiplicative set Let $M$ be a $R$-module. Define the ring of fractions of $M$ with respect to $S$ by $$S^{-1}M=\left\{\frac{m}{s}|m\in M,s\in S\right\}/\sim$$ where $\sim$ is defined by $$\frac{m}{s}\sim\frac{m'}{s'}\text{ if and only if }\exists v\in S\text{ such that }v(mu'-m'u)=0$$
-\end{defn}
-
-\begin{lmm}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $S\subseteq R$ be a multiplicative subset. Then $S^{-1}M$ is an $S^{-1}R$-module with operation given by $$\left(\frac{r}{s_1},\frac{m}{s_2}\right)\mapsto\frac{r\cdot m}{s_1s_2}$$
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $S\subseteq R$ be a multiplicative subset. Then $S^{-1}M$ is a well defined $S^{-1}R$-module with operation given by $$\left(\frac{r}{s_1},\frac{m}{s_2}\right)\mapsto\frac{r\cdot m}{s_1s_2}$$
 \end{lmm}
 
 \begin{defn}{Induced Map of Localization}{} Let $R$ be a commutative ring. Let $S\subseteq R$ be a multiplicative subset. Let $M,N$ be $R$-modules. Let $\phi:M\to N$ be an $R$-module homomorphism. Define the induced map $$S^{-1}\phi:S^{-1}M\to S^{-1}N$$ by the formula $\frac{m}{s}\mapsto\frac{\phi(m)}{s}$. 
@@ -980,6 +910,72 @@ Consider the exact sequences: \\~\\
 	\arrow[from=3-4, to=3-5]
 \end{tikzcd}}\\~\\
 respectively and apply 5.3.6. 
+\end{proof}
+\end{lmm}
+
+\subsection{Localization at Single Elements and Away from Prime Ideals}
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Then the set $\{f^n\;|\;n\in\N\}$ is a multiplicative set. 
+\end{lmm}
+
+\begin{defn}{Localization at an Element}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $f\in R$ be non-zero. Define the localization of $M$ at $f$ to be the ring $$M_f=\{f^n\;|\;n\in\N\}^{-1}R$$
+\end{defn}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $f\in R$ be non-zero. Then there is an $R$-algebra isomorphism $$R_f\cong R\left[\frac{1}{f}\right]$$ given by $\frac{a}{f^k}\mapsto a\cdot\frac{1}{f^k}$. 
+\end{lmm}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring and $P$ a prime ideal of $R$. Then $R\setminus P$ is a multiplicative set. \tcbline
+\begin{proof}
+By definition, $xy\in P$ implies $x\in P$ or $y\in P$, since $R\setminus P$ removes all these elements, we have that $x\notin P$ and $y\notin P$ implies that $xy\notin P$. 
+\end{proof}
+\end{lmm}
+
+\begin{defn}{Localization at Prime Ideals}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Let $P$ be a prime ideal. Denote $$M_p=(R\setminus P)^{-1}M$$ the localization of $M$ at $P$. 
+\end{defn}
+\subsection{The Localization Map}
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. Then the following are true. 
+\begin{itemize}
+\item $(S^{-1}R,+,\times)$ is a ring
+\item The map $k:R\to S^{-1}R$ defined by $r\mapsto r/1$ is a ring homomorphism, called the localization map. 
+\end{itemize}\tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Define addition by $\frac{r}{s}+\frac{r'}{s'}=\frac{rs'+r's}{ss'}$ and multiplication by $\frac{r}{s}\cdot\frac{r'}{s'}=\frac{rr'}{ss'}$. Clearly addition is abelian, and has identity $\frac{0}{1}$ and inverse $\frac{-r}{s}$ for any $\frac{r}{s}\in S^{-1}R$. Multiplication also has identity $\frac{1}{1}$. 
+\end{itemize}
+\end{proof}
+\end{prp}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative subset of $R$. Then localization map $R\to S^{-1}R$ is injective if and only if $S$ does not contain zero divisors. \tcbline
+\begin{proof}
+Suppose that $R\to S^{-1}R$ is injective. Then $sr=0$ implies $r=0$ for all $s\in S$. Hence $S$ does not contain zero divisors. Suppose that $S$ does not contain zero divisors. Then $sr=0$ implies that $r=0$ since $S$ has no zero divisors. Hence the localization map is injective. 
+\end{proof}
+\end{lmm}
+
+\begin{prp}{Universal Property}{} Let $R$ be a commutative ring. Let $S$ be a multiplicative set. Then $S^{-1}R$ and the localization map $k:R\to S^{-1}R$ satisfies the following universal property. 
+\begin{itemize}
+\item For any commutative ring $B$ and ring homomorphism $\phi:R\to B$ such that $\phi(s)\in B^\times$ for all $s\in S$, there exists a unique ring homomorphism $\phi:S^{-1}R\to B$ such that the following diagram commutes: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	R & {S^{-1}R} \\
+	& B
+	\arrow["k", from=1-1, to=1-2]
+	\arrow["\phi"', from=1-1, to=2-2]
+	\arrow["{\exists !\psi}", dashed, from=1-2, to=2-2]
+\end{tikzcd}} \\~\\
+\item $S^{-1}R$ is the unique commutative ring (up to unique isomorphism) that has such a property. 
+\end{itemize}
+\end{prp}
+
+\begin{lmm}{}{} Let $R$ be a commutative ring. If $R$ is an integral domain, then then following are true. 
+\begin{itemize}
+\item If $S$ is a mutliplicative subset of $R$ such that $0\notin S$, then $S^{-1}R$ is an integral domain. 
+\item $\text{Frac}(R)=(0)$. 
+\item The localization map induces a ring isomorphism $$R\cong\bigcap_{m\text{ a maximal ideal}}R_m$$
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Suppose that $0=\frac{a}{s}\cdot\frac{b}{t}$. By the equivalence relation this is the same as saying that $uab=0$ for some $u\in S$. Since $R$ is an integral domain and $0\neq S$, we conclude that $u\notin S$ so that $ab=0$. Again since $R$ is an integral domain this implies that $a=0$ or $b=0$. Hence either $a/s=0$ or $b/t=0$ in $S^{-1}R$. Hence $S^{-1}R$ is an integral domain. 
+\item Trivial. 
+\item Clearly the map is well defined. Moreover, since for each maximal ideal $m$, $0\notin R\setminus m$. Hence the localization map is injective. Suppose for a contradiction that the localization map is not surjective. Then there exists $x$ in the intersection such that $x\neq r/1$ for all $r\in R$.  Consider the ideal $I=\{r\in R\;|\;rx=s/1\text{ for some }s\in R\;\}$. Since $1\notin R$, $I$ is a proper ideal. So there exists a maximal ideal $m$ containing $I$. But $x$ also cannot lie in $R_m$ and hence the intersection. Indeed, if $x\in R_m$, then $x=a/b$ for some $a\in R$ and $b\notin m$. Then $bx=a\in R$ implies that $b\in I$. This is a contradiction to $b\notin m$. Thus no such $x$ exists. Hence the localization map is surjective. 
+\end{itemize}
 \end{proof}
 \end{lmm}
 
@@ -1349,7 +1345,7 @@ By 7.2.6, we know that $B/Q$ is integral over $A/Q\cap A$. By 7.2.7, $B/Q$ is a 
 \item If $Q_1,Q_2$ are prime ideals of $B$ such that $Q_1\cap A=P=Q_2\cap B$ and $Q_1\subseteq Q_2$, then $Q_1=Q_2$. 
 \end{itemize} \tcbline
 \begin{proof}
-Let $\alpha:A\to A_P$ and $\beta:B\to B_P$ be the localization maps. Let $m$ be a maximal ideal of $B_P$. Let $Q=\beta^{-1}(m)$. Then $Q$ is a prime ideal of $B$. By the above lemma, $m\cap A_P$ is a maximal ideal of $A_P$. But $A_P$ has a unique maximal ideal given by $PA_P$, and $\alpha^{-1}(PA_P)=P$. Hence $\alpha^{-1}(m\cap A_P)=P$. By commutativity of the diagram: \\~\\
+Let $\alpha:A\to A_P$ and $\beta:B\to B_P$ be the localization maps. Consider the following commutative diagram. \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	A & B \\
 	{A_P} & {B_P}
@@ -1358,9 +1354,9 @@ Let $\alpha:A\to A_P$ and $\beta:B\to B_P$ be the localization maps. Let $m$ be 
 	\arrow["\beta", from=1-2, to=2-2]
 	\arrow[hook, from=2-1, to=2-2]
 \end{tikzcd}}\\~\\
-We conclude that $Q\cap A=P$. \\~\\
+Since $PB_P$ is the unique maximal ideal of $B_P$, we know that $PA_P=PB_P\cap A_P$ is the unique maximal ideal of $A_P$. On the other hand, we also know that $\beta^{-1}(PB_P)$ is a prime ideal of $B$. By commutativity of the diagram, we have that $P$ is mapped to $\beta^{-1}(PB_P)$. Then by definition of extension we have that $\beta^{-1}(PB_P)\cap B=P$. \\~\\
 
-Now suppose that $Q_1$ and $Q_2$ satisfies the above conditions. Since $Q_1B_P\cap A_P=PA_P=Q_2B_P\cap A_P$ are maximal ideals of $A_P$, the above lemma implies that $Q_1B_P$ and $Q_2B_P$ are maximal ideals of $B_P$. Then $Q_1B_P\subseteq Q_2B_P$ and the fact that they are maximal implies that $Q_1B_P=Q_2B_P$. Hence $Q_1=Q_2$ by contraction. 
+Let $Q_1,Q_2$ be as given. We have that $$(Q_1\cap A)A_P=PA_P=(Q_2\cap A)A_P$$ is the same maximal ideal of $A_P$ since they both contract to $P$ in $A$. By the above lemma, $(Q_1\cap A)B_P$ and $(Q_2\cap A)B_P$ are both maximal ideals of $B_P$. By commutativity of the diagram, $(Q_1\cap A)B_P=Q_1B_P$ and $(Q_2\cap A)B_P=Q_2B_P$. Since $Q_1\subseteq Q_2$, we have that $Q_1B_P\subseteq Q_2B_P$. Since $Q_1B_P$ and $Q_2B_P$ are both maximal ideals, they must be equal. Hence by contraction we deduce that $Q_1=Q_2$. 
 \end{proof}
 \end{prp}
 
@@ -1391,7 +1387,7 @@ By 1.8.1, $F[x]$ has infinitely many irreducible polynomials. Then there exists 
 \begin{proof}
 Since $K$ is finitely generated as an $F$-algebra, there exists $x_1,\dots,x_n\in K$ such that every element in $K$ can be written as a polynomial in $x_1,\dots,x_n$. This means that $K=F(x_1,\dots,x_n)$ as fields. Suppose for a contradiction that $K/F$ is not an algebraic (integral) extension. Without loss of generality, suppose that $F(x_1,\dots,x_r)/F$ is transcendental (not integral) and $K/F(x_1,\dots,x_r)$ is algebraic (integral). \\~\\
 
-Let $L=F(x_1,\dots,x_{r-1})$. Consider the transcendental (not integral) extension $L(x_r)/L$. Now $K$ is generated as an $L$-algebra by the elements $x_1,\dots,x_n$. Since $K/L(x_r)$ is integral, there exists monic polynomials $p_i$ with coefficients in $L(x_r)$ such that $p_i(x_i)=0$. Since $L(x_r)$ is the field of fractions of the polynomial ring $L[x_r]$, each coefficient of $p_i$ can be expressed as a fraction $g/h$ for $g,h\in L(x_r)$ and $h\neq 0$. Let $f$ be the product of all denominators of the coefficient of $p_i$ for all $i$. Then $p_i$ can be considered as a monic polynomial in $L[x_r]_f$. So every $x_1,\dots,x_n$ satisfies a monic polynomial with coefficients in $L[x_r]_f$. Hence the $L[x_r]_f$ subalgebra of $K$ generated by $x_1,\dots,x_n$ is integral over $L[x_r]_f$. By 7.2.7, $L[x]_f$ is a field. This is a contradiction to the above lemma. Hence we are done. 
+Let $L=F(x_1,\dots,x_{r-1})$. Consider the transcendental (not integral) extension $L(x_r)/L$. Now $K$ is generated as an $L$-algebra by the elements $x_1,\dots,x_n$. Since $K/L(x_r)$ is integral, there exists monic polynomials $p_i\in L(x_r)[y]$ such that $p_i(x_i)=0$. Since $L(x_r)$ is the field of fractions of the polynomial ring $L[x_r]$, each coefficient of $p_i$ can be expressed as a fraction $g/h$ for $g,h\in L(x_r)$ and $h\neq 0$. Let $f$ be the product of all denominators of the coefficient of $p_i$ for all $i$. Then $p_i\in L[x_r]_f[y]$. So every $x_1,\dots,x_n$ satisfies a monic polynomial with coefficients in $L[x_r]_f$. Hence the $L[x_r]_f$ subalgebra of $K$ generated by $x_1,\dots,x_n$ is integral over $L[x_r]_f$. By 7.2.7, $L[x]_f$ is a field. This is a contradiction to the above lemma. Hence we are done. 
 \end{proof}
 \end{thm}
 
@@ -1606,9 +1602,9 @@ Let $x\in\text{Frac}(R)$ be integral over $R$. Then $$x^n+r_{n-1}x^{n-1}+\dots+r
 \begin{defn}{Totally Ordered Group}{} Let $G$ be an abelian group. We say that $G$ is a totally ordered group if there is a total order "$\leq$" on $G$ such that $a\leq b$ implies $ca\leq cb$ for all $a,b,c\in G$. 
 \end{defn}
 
-\begin{defn}{Valuation on a Field}{} Let $K$ be a field. Let $G$ be a totally ordered abelian group. A valuation on $K$ with values in $G$ is a group homomorphism $v:K^\times\to G$ such that for all $x,y\in K^\ast$, we have 
+\begin{defn}{Valuation on a Field}{} Let $K$ be a field. Let $G$ be a totally ordered abelian group. A valuation on $K$ with values in $G$ is a map $v:K^\times\to G$ such that for all $x,y\in K^\ast$, we have 
 \begin{itemize}
-\item $v(xy)=v(x)+v(y)$
+\item $v(xy)=v(x)+v(y)$ ($v$ is a group homomorphism)
 \item $v(x+y)\geq\min\{v(x),v(y)\}$
 \end{itemize}
 We use the convention that $v(0)=\infty$. 
@@ -1643,6 +1639,16 @@ Therefore we always work on normalized discrete valuation rings.
 Let $R$ be a discrete valuation ring. Suppose that $x\in R$ is a unit. Then $v(x^{-1})=-v(x)$. Then $-v(x),v(x)\geq 0$ implies $v(x)=0$. Now if $v(y)>0$ , suppose for contradiction that $u\in R$ is an inverse of $y$, then $$0=v(1)=v(uy)=v(u)+v(y)$$ But $v(y)>0$ implies that $v(u)<0$ which implies that $u\notin R$, a contradiction. 
 \end{proof}
 \end{lmm}
+
+\begin{eg}{}{} Let $n\in\N$. Define $\text{ord}_n:\Q\to\Z$ as follows. For $p/q\in\Q$, let $p=p'n^i$ and $q=q'n^j$ such that $\gcd(p',n)=\gcd(q',n)=1$. Then define $$\text{ord}_n\left(\frac{p}{q}\right)=\text{ord}_n\left(n^{i-j}\frac{p'}{q'}\right)=i-j$$ Then $\text{ord}_n$ is a discrete valuation if and only if $n$ is prime. In this case, the valuation ring of $\text{ord}_n$ is given by $$R_{\text{ord}_n}=\Z_n$$ \tcbline
+\begin{proof}
+Suppose that $n$ is a prime. Let $n^sp_1/q_1\in\Q$ and $n^tp_2/q_2$ be in lowest terms. Then $n^{s+t}(p_1p_2/q_2q_2)$ is in lowest terms since $n$ is prime. Then we have $$\text{ord}_n(n^{s+t}(p_1p_2/q_2q_2))=s+t=v(n^sp_1/q_1)+v(n^tp_2/q_2)$$ Without loss of generality, suppose that $s\leq t$. Then $n^sp_1/q_1+n^tp_2/q_2=n^s(p_1/q_1+n^{t-s}p_2/q_2)$ is in lowest terms since $n$ is prime. Then we have $$v(n^sp_1/q_1+n^tp_2/q_2)=v(n^s(p_1/q_1+n^{t-s}p_2/q_2))=s=\min\{v(n^sp_1/q_1), v(n^tp_2/q_2)\}$$ Thus $\text{ord}_n$ is a discrete valuation. \\~\\
+
+If $n$ is composite, without loss of generality suppose that $n=pq$ for $p$ and $q$ primes. \\~\\
+
+The valuation ring of $\text{ord}_n$ for $n$ prime is given by $$R_{\text{ord}_n}=\left\{\frac{p}{q}\in\Q\;\bigg{|}\;n\text{ does not divide }q\right\}$$ Hence $R_{\text{ord}_n}=\Z_n$. 
+\end{proof}
+\end{eg}
 
 \subsection{Uniformizing Parameters}
 \begin{defn}{Uniformizing Parameter}{} Let $R$ be a discrete valuation ring with valuation $v$. A uniformizing parameter for $R$ is an element $t\in R$ such that $v(t)=1$. 
