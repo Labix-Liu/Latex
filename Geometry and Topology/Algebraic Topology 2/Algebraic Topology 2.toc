@@ -47,9 +47,8 @@
 \contentsline {section}{\numberline {11}The Ring Structure in Singular Cohomology}{84}{section.11}%
 \contentsline {subsection}{\numberline {11.1}The Cup Product}{84}{subsection.11.1}%
 \contentsline {subsection}{\numberline {11.2}The Relative Cup Product}{88}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}The Kunneth Formula}{89}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Applications of the Cup Product}{90}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}Lusternik-Schnirelman Category}{90}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11.3}The Kunneth Formula}{90}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Lusternik-Schnirelman Category}{91}{subsection.11.4}%
 \contentsline {section}{\numberline {12}Suspensions and Loopspaces}{92}{section.12}%
 \contentsline {subsection}{\numberline {12.1}Suspensions of a Space}{92}{subsection.12.1}%
 \contentsline {subsection}{\numberline {12.2}The Construction of the Loop Space}{93}{subsection.12.2}%

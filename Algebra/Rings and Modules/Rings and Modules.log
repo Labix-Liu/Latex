@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  19 APR 2025 11:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  26 APR 2025 19:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1193,63 +1193,63 @@ la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 [10]
 
 [11]
-Overfull \hbox (1.65096pt too wide) in paragraph at lines 362--363
+
+[12]
+Overfull \hbox (1.65096pt too wide) in paragraph at lines 368--369
 \T1/qpl/m/n/10 Free mod-ules is the mod-ule ana-logue of vec-tor spaces. In gen
 -eral, they can be in-fi-nite di-men-sional. 
  []
 
 
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 378--379
 
  []
 
 
-
-[13]
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 
  []
 
 
-
-[15]
 
 [16]
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 535--536
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 535--536
-
- []
-
-
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 545--546
+Underfull \hbox (badness 10000) in paragraph at lines 541--542
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 547--548
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 547--548
+Underfull \hbox (badness 10000) in paragraph at lines 541--542
 
  []
 
 
 
 [19]
+Underfull \hbox (badness 10000) in paragraph at lines 551--552
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 553--554
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 553--554
+
+ []
+
+
 
 [20]
 
@@ -1258,30 +1258,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 547--548
 [22]
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 701--715
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 701--715
-
- []
-
-
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 759--770
+Underfull \hbox (badness 10000) in paragraph at lines 707--721
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 759--770
+Underfull \hbox (badness 10000) in paragraph at lines 707--721
 
  []
 
 
 
 [25]
+Underfull \hbox (badness 10000) in paragraph at lines 765--776
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 765--776
+
+ []
+
+
 
 [26]
 
@@ -1295,29 +1295,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 759--770
 
 [31]
 
-LaTeX Warning: Citation `Zar-Sam' on page 32 undefined on input line 1003.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1003--1004
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1003--1004
-
- []
-
-
-
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
-
- []
+LaTeX Warning: Citation `Zar-Sam' on page 33 undefined on input line 1009.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 1009--1010
@@ -1332,32 +1312,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 1009--1010
 
 
 [33]
+Underfull \hbox (badness 10000) in paragraph at lines 1013--1014
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1013--1014
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1015--1016
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1015--1016
+
+ []
+
+
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1049--1050
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1049--1050
-
- []
-
-
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1102--1103
+Underfull \hbox (badness 10000) in paragraph at lines 1055--1056
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1102--1103
+Underfull \hbox (badness 10000) in paragraph at lines 1055--1056
 
  []
 
 
 
 [36]
+Underfull \hbox (badness 10000) in paragraph at lines 1108--1109
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1108--1109
+
+ []
+
+
 
 [37]
 
@@ -1389,7 +1389,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 1102--1103
 
 [51]
 
-[52] (Rings and Modules.aux)
+[52]
+
+[53] (Rings and Modules.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
@@ -1402,10 +1404,10 @@ Package rerunfilecheck Info: File `"Rings and Modules".out' has not changed.
 (rerunfilecheck)             Checksum: E70948DADB1A038EB46151BF83630833;7354.
  ) 
 Here is how much of TeX's memory you used:
- 36828 strings out of 473577
- 767088 string characters out of 5716318
- 1190165 words of memory out of 5000000
- 59203 multiletter control sequences out of 15000+600000
+ 36833 strings out of 473577
+ 767163 string characters out of 5716318
+ 1189165 words of memory out of 5000000
+ 59206 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,17n,120p,1096b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1426,9 +1428,9 @@ lic/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Rings and Modules.pdf" (52 pages, 598841 bytes).
+Output written on "Rings and Modules.pdf" (53 pages, 603206 bytes).
 PDF statistics:
- 816 PDF objects out of 1000 (max. 8388607)
- 282 named destinations out of 1000 (max. 500000)
+ 822 PDF objects out of 1000 (max. 8388607)
+ 284 named destinations out of 1000 (max. 500000)
  365 words of extra memory for PDF output out of 10000 (max. 10000000)
 

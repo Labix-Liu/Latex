@@ -21,10 +21,13 @@
 \tableofcontents
 \pagebreak
 
-\section{The Topology of Topological Manifolds}
+\section{Structural Theorems of Topological Manifolds}
 \subsection{Triangulation of Manifolds}
 \begin{defn}{Triangulable Manifolds}{} Let $M$ be a $k$-manifold. We say that $M$ is triangulable if $M$ is a $\delta$-complex structure consisting of a finite number of top simplicies. 
 \end{defn}
+
+\begin{prp}{}{} Every finite CW complex is homotopy equivalent to a topological manifold. 
+\end{prp}
 
 \subsection{Covering Spaces of Manifolds}
 \begin{prp}{}{} Let $M$ be a manifold. Let $p:\tilde{M}\to M$ be a covering space. Then $\tilde{M}$ is also a manifold. 
@@ -210,20 +213,50 @@ Now let $s:M\to M_R$ be a section. By restricting to the second factor we obtain
 \end{itemize}
 \end{lmm}
 
-\begin{defn}{Ring of Sections}{} Let $M$ be a compact $k$-manifold. Denote $p:M_R\to M$ the projection map. Define the ring of sections of $M$ to the orientation cover to be the set $$\Gamma(M,M_R)=\{s:M\to M_R\;|\;s\circ p=\text{id}_M\}$$ together with addition / multiplication defined by addition / multiplication of ring elements in the second variable. 
+\begin{defn}{Set of Sections}{} Let $M$ be a compact $k$-manifold. Denote $p:M_R\to M$ the projection map. Define the set of sections of $M$ to the orientation cover to be the set $$\Gamma(M,M_R)=\{s:M\to M_R\;|\;s\circ p=\text{id}_M\}$$
 \end{defn}
-
-\begin{prp}{}{} Let $M$ be a compact $k$-manifold. Then the following are true. 
-\begin{itemize}
-\item If $M$ is $R$-orientable, then there is an $R$-module isomorphism $$\Gamma(M,M_R)\cong\Hom(\pi_0(M),R)$$ of sets. This assignment is given by sending $s:\pi_0(M)\to R$ to the map $x\mapsto(x,s([x]))$. 
-\item If $M$ is connected and not $R$-orientable, then there are no global sections. 
-\end{itemize}
-\end{prp}
 
 \begin{prp}{}{} Let $M$ be a $k$-manifold. Let $K\subseteq M$ be compact. Then the following are true. 
 \begin{itemize}
 \item If $s:M\to M_R$ is a section sending $x$ to $(x,\mu_x)$, there exists a unique $\mu_K\in H_k(M\;|\;K;R)$ such that under induced map of inclusions $$H_k(M\;|\;K;R)\to H_k(M\;|\;x;R)$$ $\mu_K$ is mapped to $\mu_x$. 
 \item The local homology groups $H_i(M\;|\;K;R)=0$ for all $i>k$. 
+\end{itemize} \tcbline
+\begin{proof}
+Step 1: If the statement is true for compact subsets $A,B,A\cap B$, then it is true for $A\cup B$. \\
+We obtain an exact sequence: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {H_k(M\;|\;A\cup B;R)} & {H_k(M\;|\;A;R)\oplus H_k(M\;|\;B;R)} & {H_k(M\;|\;A\cap B;R)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\Phi", from=1-2, to=1-3]
+	\arrow["\Psi", from=1-3, to=1-4]
+\end{tikzcd}}\\~\\
+using the Mayer Vietoris sequence. Since $H_i(M\;|\;A;R)$ and $H_i(M\;|\;B;R)$ is $0$ for all $i>k$, we conclude that $H_i(M\;|\;A\cup B;R)=0$ for all $i>k$. This proves the second half of the proposition. For the first half, let $s:M\to M_R$ be a section sending $x$ to $(x,\mu_x)$. Then we obtain unique classes $\mu_A\in H_k(M\;|\;A;R)$ and $\mu_B(M\;|\;;B;R)$ and $\mu_{A\cap B}\in H_k(M\;|\;A\cap B;R)$ such that for $x\in A\cap B$, $\mu_A$, $\mu_B$ and $\mu_{A\cap B}$ are all mapped to $\mu_x$ in the maps $$H_k(M\;|\;A;R),H_k(M\;|\;B;R),H_k(M\;|\;A\cap B;R)\to H_k(M\;|\;x;R)$$ Then $\Psi(\mu_A,-\mu_B)=\mu_{A\cap B}-\mu_{A\cap B}=0$ implies that $(\mu_A,-\mu_B)\in\ker(\Psi)$. By exactness of the above sequence, there exists $\mu_{A\cup B}\in H_k$ such that $\Phi(\mu_{A\cup B})=(\mu_A,-\mu_B)$. \\~\\
+
+For uniqueness, suppose that $\mu_{A\cup B}$ and $\mu_{A\cup B}'$ be two such elements satisfying the requirements. Consider the following diagram: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {H_k(M\;|\;A\cup B;R)} & {H_k(M\;|\;A;R)\oplus H_k(M\;|\;B;R)} & {H_k(M\;|\;A\cap B;R)} \\
+	\\
+	&& {H_k(M\;|\;x;R)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\Phi", from=1-2, to=1-3]
+	\arrow[from=1-2, to=3-3]
+	\arrow["\Psi", from=1-3, to=1-4]
+	\arrow[from=1-3, to=3-3]
+	\arrow[from=1-4, to=3-3]
+\end{tikzcd}}\\~\\
+It is commutative since $\Phi$ and $\Psi$ are induced by inclusions. Then the image of $\mu_{A\cap B}-\mu_{A\cap B}'$ is $0$ in $H_k(M\;|\;x;R)$. By commutativity of the left triangle, the image of $\mu_A-\mu_A'$ and $\mu_B-\mu_B'$ is $0$ in $H_k(M\;|\;x;R)$. Since $\Phi$ is injective, this implies that $\mu_{A\cap B}=\mu_{A\cap B}'$. \\~\\
+
+Step 2: Reduce to the case of $M=\R^n$. \\
+If $K\subseteq M$ is compact, then there exists compact subsets $K_1,\dots,K_n$ of $M$, each contained in a local chart and hence homeomorphic to a subset of $\R^n$, such that $K=K_1\cup\cdots\cup K_n$. By step 1, it sufficies to consider $K_1$. Then by excision, it sufficies to consider a compact subset $K$ of $\R^n$. \\~\\
+
+Step 3: Reduce to the case of a convex compact subset of $\R^n$. \\
+\end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $M$ be a compact $k$-manifold. Then the following are true. 
+\begin{itemize}
+\item If $M$ is $R$-orientable, then there is an $R$-module isomorphism $$\Gamma(M,M_R)\cong\Hom(\pi_0(M),R)$$ of sets. This assignment is given by sending $s:\pi_0(M)\to R$ to the map $x\mapsto(x,s([x]))$. 
+\item If $M$ is connected and not $R$-orientable, then there are no global sections. 
 \end{itemize}
 \end{prp}
 
@@ -620,6 +653,9 @@ H^n(N_h;\Z)&\cong\Hom(H_n(N_h),\Z)\oplus\text{Ext}(H_{n-1}(N_h),\Z)\\
 \end{align*}
 and so we conclude. 
 \end{proof}
+\end{prp}
+
+\begin{prp}{}{} Let $h\geq 1$. Then there is a graded ring isomorphism $$H^\ast(N_h;\Z)\cong\frac{\Z[\alpha_1,\dots,\alpha_h]}{(\alpha_i^3,\alpha_i\alpha_j,\alpha_i^2-\alpha_j^2\;|\;1\leq i\neq j\leq n)}$$ where each $\alpha_i$ has degree $1$. 
 \end{prp}
 
 \subsection{The Euler Characteristic}

@@ -16,11 +16,6 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-Algebraic Geometry is such a messy subject in a sense that a different books and lecture notes introduce different materials in a different orders, as well as having different prerequisites. After understanding a bit more in the subject, I believe that there is the need to give a clear distinction between traditional algebraic geometry and contemporary algebraic geometry. Although there are undoubtedly many overlapping between the two, I attempt to separate them to make clear their motivations as well as their results. \\~\\
-
-This book will mainly cover traditional algebraic geometry in the sense that the construction of affine and projective varieties will be covered, as well as the Hilbert Nullstellensatz theorems, morphisms, tangent maps and smoothness as well as classical constructions of some varieties. Affine schemes and sheaf theory are left for another time where they attempt to reinvent the fundamentals of algebraic geometry. \\~\\
-
-Knowledge on commutative algebra is required as a prerequisite. These set of notes make use of
 \begin{itemize}
 \item Algebraic Geometry I by I. R. Shafarevich and V. I. Danilov
 \item Algebraic Geometry by R. Hartshorne
@@ -282,32 +277,38 @@ Such a regular map may not be given by a unique set of polynomials.
 \item $F_1(x,y)=(x^2,x^3)$ and 
 \item $F_2(x,y)=((y-x^2+1)x^2,x^3)$. 
 \end{itemize}
-Then $F_1$ and $F_2$ define the same regular map $$(F_1)|_V=(F_2)|_V:V\to W$$ \tcbline
+Then $F_1$ and $F_2$ define the same morphism $$(F_1)|_V=(F_2)|_V:V\to W$$ \tcbline
 \begin{proof}
 Indeed, when restricted to $V=\V(y-x^2)$, we conclude that $y-x^2=0$ and hence $F_2$ simplifies to the map $F_1$. 
 \end{proof}
 \end{eg}
 
-While the preimage of a subvariety is a subvariety, the image of a subvariety may not be a variety in general, but its closure still is. 
-
-\begin{lmm}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $f:V\to W$ be a regular map. If $U\subseteq V$ is an irreducible subvariety of $V$, then $\overline{f(U)}\subseteq W$ is an irreducible subvariety of $W$. 
-\end{lmm}
-
-\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a regular map. Then $\phi$ is continuous with respective to the Zariski topology. \tcbline
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a morphism. Then $\phi$ is continuous with respective to the Zariski topology. \tcbline
 \begin{proof}
 Let $U$ be an affine algebraic subset of $W$. Then $U$ is also an affine algebraic set in its own right. This means that $U=V(\{f_i\;|\;i\in I\})$ for some collection of polynomials. By 2.4.2, we have that $\phi^{-1}(U)=V(\{f_i\circ\phi\;|\;i\in I\})$ and hence is a closed set of $V$. Thus $\phi$ is continuous. 
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V,W,U$ be affine varieties over $k$. If $f:V\to W$ and $g:W\to U$ are regular maps, then $g\circ f:V\to U$ is also a regular map. 
+Morphisms are continuous by the above, while in general they are not closed maps. 
+
+\begin{eg}{}{} The image of the map $\phi:\V(xy-1)\subseteq\A_\C^2\to\A_\C^1$ defined by $$\phi(x,y)=x$$ is not a subvariety of $\V(xy-1)$. \tcbline
+\begin{proof}
+Indeed, the image $\A_\C^1\setminus\{0\}$ is not closed in $\A_\C^1$.
+\end{proof}
+\end{eg}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V,W,U$ be affine varieties over $k$. If $f:V\to W$ and $g:W\to U$ are morphisms, then $g\circ f:V\to U$ is also a morphism. 
 \end{prp}
 
-\begin{defn}{Isomorphic Varieties}{} Let $k$ be an algebraically closed field. Let $X,Y$ be affine varieties over $k$. A regular map $\phi:X\to Y$ between two varieties is an isomorphism if it has an inverse that is a regular map. $X$ and $Y$ are said to be isomorphic in this case. 
+\begin{lmm}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $f:V\to W$ be a morphism. If $U\subseteq V$ is an irreducible subvariety of $V$, then $\overline{f(U)}\subseteq W$ is an irreducible subvariety of $W$. 
+\end{lmm}
+
+\begin{defn}{Isomorphic Varieties}{} Let $k$ be an algebraically closed field. Let $X,Y$ be affine varieties over $k$. A morphism $\phi:X\to Y$ between two varieties is an isomorphism if it has an inverse that is a morphism. $X$ and $Y$ are said to be isomorphic in this case. 
 \end{defn}
 
-Note that even $\phi$ is a homeomorphism, $\phi$ may not necessarily be a regular map. This is because of the added condition that the inverse of $\phi$ also has to be a polynomial map. 
+Note that even $\phi$ is a homeomorphism, $\phi$ may not necessarily be a morphism. This is because of the added condition that the inverse of $\phi$ also has to be a polynomial map. 
 
-\begin{eg}{}{} Let $h:\A_\C^1\to\A_\C^2$ be the regular map defined by $t\mapsto(t^2,t^3)$. Then $h$ is a homeomorphism and not an isomorphism of varieties. \tcbline
+\begin{eg}{}{} Let $h:\A_\C^1\to\A_\C^2$ be the morphism defined by $t\mapsto(t^2,t^3)$. Then $h$ is a homeomorphism and not an isomorphism of varieties. \tcbline
 \begin{proof}
 It is clear that the inverse of $h$ is given by $$(x,y)\mapsto\begin{cases}
 \frac{y}{x} & \text{ if }x\neq 0\\
@@ -472,19 +473,19 @@ It is clear from ring theory that $\I(V)$ is a prime ideal if and only if $k[V]$
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be an affine variety. Let $\phi:V\to W$ be a regular map. Then we have $$\Hom_{\bold{Aff}_k}(V,\A_k^1)=k[V]$$ \tcbline
+\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be an affine variety. Let $\phi:V\to W$ be a morphism. Then we have $$\Hom_{\bold{Aff}_k}(V,\A_k^1)=k[V]$$ \tcbline
 \begin{proof}
 Clearly the assignment $k[x_1,\dots,x_n]\to\Hom_{\bold{Aff}_k}(V,\A_k^1)$ given by $F\to F|_V$ is surjective. Moreover, $F|_V=0_V$ if and only if $F|_V\in\I(V)$. This shows that the kernel of the map is $\I(V)$. 
 \end{proof}
 \end{prp}
 
-\begin{lmm}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a regular map. Then $\phi$ is given by $$\phi=(\phi_1,\dots,\phi_m)$$ for some $\phi_1,\dots,\phi_m\in k[V]$. \tcbline
+\begin{lmm}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a morphism. Then $\phi$ is given by $$\phi=(\phi_1,\dots,\phi_m)$$ for some $\phi_1,\dots,\phi_m\in k[V]$. \tcbline
 \begin{proof}
 Any polynomial map $\A_k^n\to\A_k^m$ that descends to give $\phi$ consists of $m$-components which are given by elements of $\Hom_{\bold{Aff}_k}(V,\A_k^1)$. 
 \end{proof}
 \end{lmm}
 
-\begin{defn}{Pullback of a Regular Map}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a morphism. Define the pull back of $\phi$ to be the map $$\phi^\ast:k[W]\to k[V]$$ given by the formula $\phi^\ast(p)=p\circ\phi$ for each $p\in k[W]$. 
+\begin{defn}{Pullback of a morphism}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a morphism. Define the pull back of $\phi$ to be the map $$\phi^\ast:k[W]\to k[V]$$ given by the formula $\phi^\ast(p)=p\circ\phi$ for each $p\in k[W]$. 
 \end{defn}
 
 \begin{lmm}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a morphism. Then the pullback map $\phi^\ast:k[W]\to k[V]$ is a well defined $k$-algebra homomorphism. \tcbline
@@ -509,7 +510,7 @@ We show that this system of assignments has functorial properties.
 
 \begin{prp}{}{} Let $k$ be a field. Let $V,W,U$ be affine varieties over $k$. Then the following are true regarding the pullback morphisms. 
 \begin{itemize}
-\item If $f:V\to W$ and $g:W\to U$ are regular maps, then $(g\circ f)^\ast=f^\ast\circ g^\ast$
+\item If $f:V\to W$ and $g:W\to U$ are morphisms, then $(g\circ f)^\ast=f^\ast\circ g^\ast$
 \item The pullback of the identity $\text{id}^\ast:k[V]\to k[V]$ is the identity. 
 \end{itemize}
 \end{prp}
@@ -715,6 +716,12 @@ Conversely, we can ask if every well defined polynomials in the projective space
 \end{itemize}
 \end{prp}
 
+\begin{eg}{}{} The map $\varphi:\Prj^1\to\Prj^2$ defined by $$\varphi([s:t])=[s^2:st:t^2]$$ is a morphism of projective varieties. \tcbline
+\begin{proof}
+Notice that $s^2=st=t^2=0$ if and only if $s=t=0$. Hence the first condition is satisfied. The second condition is also satisfied since $s^2,st,t^2$ are homogeneous polynomials of the same degree. 
+\end{proof}
+\end{eg}
+
 \begin{defn}{Set of Morphisms between Projective Varieties}{} Let $k$ be a field. Let $V\subseteq\Prj_k^n$ and $W\subseteq\Prj_k^m$ be affine varieties. Define the set of morphisms of between $V$ and $W$ to be $$\Hom_{\bold{Prj}_k}(V,W)$$
 \end{defn}
 
@@ -799,6 +806,12 @@ There is virtually no difference between $k^H[V]$ and $k[V]$ (because affine var
 
 Moreover, this ring depends on the choice of embedding of $X$ in $\A_k^{n+1}$. This means that $V_1\cong V_2$ as projective varieties but they may have non-isomorphic coordinate rings. 
 
+\begin{eg}{}{} Let $k$ be an algebraically closed field. The projective varieties $\Prj^1$ and $X=\V^H(xz-y^2)\subseteq\Prj^2$ are isomorphic varieties but $k^H[\Prj^1]$ is not isomorphic to $k^H[X]$. \tcbline
+\begin{proof}
+Define the map $\varphi:\Prj^1\to X$ by $\varphi([s:t])=[s^2:st:t^2]$. Notice that the map is well defined, and is a morphism of projective varieties. Moreover, its inverse is given by the projection map $\pi:\Prj^2\to\Prj^1$ defined by $[x:y:z]\mapsto[x:y]$. Hence $\Prj^1\cong X$. Now the homogeneous coordinate ring of $\Prj^1$ is given by $k^H[\Prj^1]=k[s,t]$. But we have $$k^H[X]=\frac{k[x,y,z]}{(xz-y^2)}$$ and it is not a UFD, while $k[s,t]$ is a UFD. Hence they are not isomorphic. 
+\end{proof}
+\end{eg}
+
 \begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\Prj_k^n$ be a projective variety over $k$. Let $(U_i,\varphi_i)$ be an affine chart of $\Prj^n$. Then there is a natural isomorphism of $k$-algebras $$k[\varphi_i(U_i\cap V)]\cong(k^H[V]_{x_i})_0$$ induced by the map $$f\mapsto\frac{H_i(f)}{x_i^{\deg(f)}}$$ (Localization is done by localizing at an element, and taking degree $0$ elements). \tcbline
 \begin{proof}
 Firstly, note that this is a well defined map $k[y_1,\dots,y_n]\to(k^H[x_0,\dots,x_n]_{x_i})_0$ because the function $x_i$ is invertible in $(k^H[x_0,\dots,x_n]_{x_i})_0$, and that $\deg(H_i(f))=\deg(f)$ so that the target lies in the $0$th graded component. Moreover, it is clear that the mapping gives a $k$-algebra homomorphism. We want to also prove that this is an isomorphism. We construct the inverse map by $$\frac{f}{x_i^{\deg(f)}}\in(k^H[x_0,\dots,x_n]_{x_i})_0\mapsto D_i(f)$$ We have that $$D_i\left(\frac{H_i(f)}{x_i^{\deg(f)}}\right)=D_i(H_i(f))=f$$ by prp5.1.5. On the other hand, we have that $$\frac{g}{x_i^{\deg(g)}}\overset{D_i}{\mapsto}D_i(g)\mapsto\frac{H_i(D_i(g))}{x_i^{\deg(g)}}$$ But by assumption $g$ has no common factors with $x_i$ so by prp5.1.5 we have $H_i(D_i(g))=g$ and both maps are indeed inverses of each other. \\~\\
@@ -858,34 +871,31 @@ Applying the above proposition gives $$\V^H(H_i(f)\;|\;f\in I)=\V^H(\I^H(\overli
 \end{itemize}
 \end{defn}
 
-\begin{defn}{Projectivization}{} Let $k$ be a field. Let $X$ be an affine variety of $\A_k^n$. Let $p:\A_k^n\setminus\Prj_k^n$ denote the projection map. Define the projectivization of $X$ to be the image $$P(X)=p(X\setminus\{0\})$$
+\begin{defn}{Projectivization}{} Let $k$ be a field. Let $X$ be an affine variety of $\A_k^n$. Let $p:\A_k^n\setminus\{0\}\to\Prj_k^n$ denote the projection map. Define the projectivization of $X$ to be the image $$P(X)=p(X\setminus\{0\})$$
 \end{defn}
 
-\begin{defn}{The Cone of a Projective Variety}{} Let $k$ be a field. Let $X$ be an projective variety of $\Prj_k^n$. Let $p:\A_k^n\setminus\Prj_k^n$ denote the projection map. Define the cone of $X$ to be $$C(X)=\{0\}\cup p^{-1}(X)$$
+\begin{defn}{The Cone of a Projective Variety}{} Let $k$ be a field. Let $X$ be an projective variety of $\Prj_k^n$. Let $p:\A_k^n\setminus\{0\}\to\Prj_k^n$ denote the projection map. Define the cone of $X$ to be $$C(X)=\{0\}\cup p^{-1}(X)$$
 \end{defn}
 
 \begin{lmm}{}{} Let $k$ be a field. Let $X$ be a projective variety Then the cone $C(X)$ is an affine cone. 
 \end{lmm}
 
-\begin{lmm}{}{} Let $k$ be a field. Then the following are true. 
-\begin{itemize}
-\item Let $F$ be a subset of non-constant homogeneous polynomials of $k[x_0,\dots,x_n]$. Then $\V(F)$ is an affine cone. 
-\item Let $X$ be an affine cone in $\A_k^n$. Then $\I(X)$ is a homogeneous ideal. 
-\end{itemize}
-\end{lmm}
-
-\begin{prp}{}{} Let $k$ be a field. Then there is a bijection $$\text{Cones in }\A_k^{n+1}\;\;\overset{1:1}{\longleftrightarrow}\text{Projective Varieties in }\Prj_k^n$$ given by the maps $P(-)$ and $C(-)$. 
+\begin{prp}{}{} Let $k$ be a field. Then there is a bijection $$\text{Cones in }\A_k^{n+1}\;\;\overset{1:1}{\longleftrightarrow}\;\;\text{Projective Varieties in }\Prj_k^n$$ given by the maps $P(-)$ and $C(-)$. 
 \end{prp}
 
 \pagebreak
 \section{Classical Constructions}
 \subsection{Veronese Maps}
-\begin{defn}{Veronese Maps}{} Let $n,d\in\N\setminus\{0\}$. Define the $d$th veronese map of $\Prj^n$ to be the morphism $\nu_d:\Prj^n\to\Prj^m$ given by $$\nu_d([x_0:\cdots:x_n])=[x_0^d:x_0^{d-1}x_1:\cdots:x_n^d]$$ where $m=\binom{d+n}{n}-1$. 
+\begin{defn}{Veronese Maps}{} Let $n,d\in\N\setminus\{0\}$. Define the $d$th veronese map of $\Prj^n$ to be the morphism $\nu_n^d:\Prj^n\to\Prj^m$ given by $$\nu_n^d([x_0:\cdots:x_n])=[x_0^d:x_0^{d-1}x_1:\cdots:x_n^d]$$ where $m=\binom{d+n}{n}-1$. 
 \end{defn}
 
-When $n=1$ and $d=2$, the Veronese map $\nu_2:\Prj^1\to\Prj^2$ is defined by $$\nu_2([s:t])=[s^2:st:t^2]$$
+When $n=1$ and $d=2$, the Veronese map $\nu_1^2:\Prj^1\to\Prj^2$ is defined by $$\nu_1^2([s:t])=[s^2:st:t^2]$$
 
-\begin{prp}{}{} The veronese mapping $\nu_d$ defines an isomorphism of $\Prj^n$ onto its image. 
+\begin{prp}{}{} Let $n,d\in\N\setminus\{0\}$. Then the following are true. 
+\begin{itemize}
+\item Write the coordinates of $\Prj^{\binom{d+n}{n}-1}$ as $z_{i_0,\dots,i_n}$ for $i_0+\dots+i_n=d$. Then we have $$\im(\nu_n^d)=\V^H(z_{i_0,\dots,i_n}z_{j_0,\dots,j_n}-z_{k_0,\dots,k_n}z_{l_0,\dots,l_n}\;|\;i_s+j_s=k_s+l_s\text{ for }0\leq s\leq n)$$
+\item $\nu_n^d:\Prj^n\to\im(\nu_n^d)$ is an isomorphism of projective varieties. 
+\end{itemize}
 \end{prp}
 
 \subsection{The Segre Map}
@@ -958,6 +968,12 @@ This matrix is formed by a basis thus the rows must be linearly independent, whi
 \begin{defn}{Plucker Embedding}{} Denote $\Delta_{i_1,\dots,i_k}$ the $k\times k$ subdeterminant of $A\in M_{k\times n}(\C)$. formed by the columns $i_1,\dots,i_k$ in $A$. The Plucker embedding is the map $\phi:\Gr_k(\C^n)\to\C\Prj^{\binom{n}{k}-1}$ given by $$\phi\left(\begin{pmatrix}a_{11} & \cdots & a_{1n}\\\vdots & \ddots & \vdots\\ a_{n1} & \cdots & a_{nn}\end{pmatrix}\right)=[\Delta_{1,\dots,k}:\dots:\Delta_{i_1,\dots,i_k}:\dots:\Delta_{n-k+1,\dots,n}]$$ 
 \end{defn}
 
+\begin{eg}{}{} The Plucker embedding $\phi:\text{Gr}_2(\C^4)\to\Prj_\C^5$ is given by $$\phi\left(\begin{pmatrix}
+x_1 & x_2 & x_3 & x_4\\
+y_1 & y_2 & y_3 & y_4
+\end{pmatrix}\right)=[x_1y_2-x_2y_1:x_1y_3-x_3y_1:x_1y_4-x_4y_1:x_2y_3-x_3y_2:x_2y_4-x_4y_2:x_3y_4-x_4y_3]$$
+\end{eg}
+
 \begin{prp}{}{} The Plucker embedding is well defined and is injective. \tcbline
 \begin{proof}
 This map is well defined since for any two matrices of rank $k$ that span the same subspace that differ by multiplication of $G\in GL(k)$, they give the same point since multiplying $G$ changes the subdeterminants by a factor of $\det(G)$, and in projective space they mean the same point. Moreover, since matrices in $G$ has full rank, there must be at least one subdeterminant is nonzero. 
@@ -1007,7 +1023,7 @@ Let $p=[\alpha,\beta,\gamma]$ be a point in $\Prj^2$. Consider the set of all co
 &\overset{1:1}{\leftrightarrow}\;\;\{a,b,c,d,e,f\;|\;p\in\V^H(ax^2+bxy+cxz+dy^2+eyz+fz^2)\}\\
 &\overset{1:1}{\leftrightarrow}\;\;H_p=\V^H(\alpha^2a+\alpha\beta b+\alpha\gamma c+\beta^2d+\beta\gamma e+\gamma^2f)\subseteq\Prj_{[a:b:c:d:e:f]}^2
 \end{align*}
-This determines a map of sets $Prj^2\to\{\text{ Hyperplanes in }\Prj^5\}$. Since hyperplanes in $\Prj^5$ are in bijection with $\Prj^5$, there is a map $\Prj^2\to\Prj^5$ defined by $$[\alpha,\beta,\gamma]\mapsto[\alpha^2,\alpha\beta,\alpha\gamma,\beta^2,\beta\gamma,\gamma^2]$$ which is precisely the veronnese embedding $\nu_{2,2}:\Prj^2\to\Prj^5$. \\~\\
+This determines a map of sets $\Prj^2\to\{\text{ Hyperplanes in }\Prj^5\}$. Since hyperplanes in $\Prj^5$ are in bijection with $\Prj^5$, there is a map $\Prj^2\to\Prj^5$ defined by $$[\alpha,\beta,\gamma]\mapsto[\alpha^2,\alpha\beta,\alpha\gamma,\beta^2,\beta\gamma,\gamma^2]$$ which is precisely the veronnese embedding $\nu_{2,2}:\Prj^2\to\Prj^5$. \\~\\
 
 Now we prove that if no four of $p_1,\dots,p_5$ lie on a common line, then $\nu_{2,2}(p_1),\dots,\nu_{2,2}(p_5)$ are linearly independent. \\~\\
 
@@ -1028,6 +1044,8 @@ Finally, since the five points $\nu_{2,2}(p_1),\dots,\nu_{2,2}(p_5)$ are linearl
 \item If four of $p_1,\dots,p_5$ lie on a common line say $L_1$, and line $L_2$ is any line passing through the last point, then $L_1\cup L_2$ is a conic passing through $p_1,\dots,p_5$. 
 \end{itemize}
 \end{prp}
+
+\subsection{27 Lines on a Smooth Cubic Surface}
 
 \pagebreak
 \section{Dimension Theory for Varieties}
@@ -1080,7 +1098,7 @@ Suppose that $Z_0\subset\cdots\subset Z_n$ is a maximal chain of irreducibles of
 \end{proof}
 \end{lmm}
 
-\begin{prp}{}{} Let $k$ be a field. Let $X\subseteq\A_k^n$ and $Y\subseteq\A_k^m$ be varieties. Let $f:X\to Y$ be a regular map. Then the following are true. 
+\begin{prp}{}{} Let $k$ be a field. Let $X\subseteq\A_k^n$ and $Y\subseteq\A_k^m$ be varieties. Let $f:X\to Y$ be a morphism. Then the following are true. 
 \begin{itemize}
 \item If $f$ is closed and surjective and $X,Y$ are irreducible, then $\dim(X)\geq\dim(Y)$
 \item If $f$ is surjective, then $\dim(X)\geq\dim(Y)$
@@ -1211,26 +1229,11 @@ Notice that the inverse above is a rational map. Recall that in earlier sections
 
 Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be closed subsets of affine space. Recall that $V\times W\subseteq\A_k^{n+m}$ is in general not a closed subset of $\A_k^{n+m}$ and therefore not an affine variety in the sense of previous sections. 
 
-\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be closed subsets of affine space. Then $V\times W\subseteq\A_k^n\times\A_k^m$ is an affine variety. 
-\end{prp}
-
-\begin{defn}{Basic Open Sets}{} Let $k$ be a field. A basic open set of $\A_k^n$ is a set of the form $$D(f)=V\setminus\V(f)$$ for some closed subset $V\subseteq\A_k^n$ and some $f\in k[V]$. 
-\end{defn}
-
-\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be a closed subset (an affine varieties in the old sense). Let $f\in k[V]$. Then there is an isomorphism of quasi-projective varieties $$D(f)=V\setminus\V(f)\cong\{(p,1/g(p))\subseteq\A_k^{n+1}\;|\;p\in V\}$$ Moreover, there is an isomorphism of $k$-algebras $$k[V\setminus\V(f)]\cong k[V][1/f]$$
-\end{prp}
-
-In other words, $D(f)$ is exactly the points of $V$ where $f$ is not zero. Some literature like to use $V_f$ for notation. 
-
-\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be a closed subset. Then the following are true. 
-\begin{itemize}
-\item Every open subset of $V$ is a union of basic open sets
-\item The set of all basic open sets of $V$ forms a basis for the Zariski Topology of $V$. 
-\end{itemize}
-\end{prp}
-
 \begin{defn}{The Coordinate Ring}{} Let $X$ be an affine variety. Choose an isomorphism $F:X\overset{\cong}{\longrightarrow}V$ where $V$ is a closed subset of affine space. Define the coordinate ring of $X$ to be the pullback of the coordinate ring $\C[V]$ of $V$ via $F$. 
 \end{defn}
+
+\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be closed subsets of affine space. Then $V\times W\subseteq\A_k^{n+m}$ is an affine variety. Moreover, we have $$k[V\times W]\cong k[V]\otimes_kk[W]$$ and $\dim(V\times W)=\dim(V)+\dim(W)$. 
+\end{prp}
 
 \begin{prp}{}{} Let $X,Y$ be affine varieties (in the traditional sense). Let $F:X\to Y$ be a map of sets. Then $F$ is a morphism of quasi-projective varieties if and only if $F$ is a morphism of affine varieties in the traditional sense. 
 \end{prp}
@@ -1240,6 +1243,40 @@ In other words, $D(f)$ is exactly the points of $V$ where $f$ is not zero. Some 
 
 \begin{defn}{Zariski Topology on Products of Projective Space}{} Let $k$ be a field. Define the Zariski topology on $\Prj^n\times\Prj^m$ by transferring the Zariski topology of $\im(\Sigma_{m,n})$ to $\Prj^n\times\Prj^m$ via the bijection given by $\Sigma_{m,n}$. 
 \end{defn}
+
+\subsection{Basic Open Sets}
+\begin{defn}{Basic Open Sets}{} Let $k$ be a field. A basic open set of $\A_k^n$ is a set of the form $$D(f)=V\setminus\V(f)$$ for some closed subset $V\subseteq\A_k^n$ and some $f\in k[V]$. 
+\end{defn}
+
+\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be a closed subset (an affine varieties in the old sense). Let $f\in k[V]$. Then there is an isomorphism of quasi-projective varieties $$D(f)=V\setminus\V(f)\cong\{(p,1/f(p))\subseteq\A_k^{n+1}\;|\;p\in V\setminus\V(f)\}$$ Moreover, there is an isomorphism of $k$-algebras $$k[V\setminus\V(f)]\cong k[V][1/f]$$ \tcbline
+\begin{proof}
+Consider $V\setminus\V(f)$ as a projective variety contained in $U_0$. Let $W=\{(p,1/f(p))\subseteq\A_k^{n+1}\;|\;p\in V\}$. Consider $W$ as a projective variety contained in $U_0$. We wish to supply two morphisms of quasi-projective varieties between $V$ and $W$ that are inverses of each other. \\~\\
+
+Define the map $\phi:\Prj^n\to\Prj^{n+1}$ by $$\phi([x_0:\cdots:x_n])=\left[x_0H_0(f)(x_0,\dots,x_n):\cdots:x_nH_0(f)(x_0,\dots,x_n)):x_0^{\deg(f)+1}\right]$$ Now $\phi|_{U_0}$ is the map 
+\begin{align*}
+\phi([1:x_1:\cdots:x_n])&=\left[H_0(f)(1,x_1,\dots,x_n):\cdots:H_0(f)(1,x_1,\dots,x_n):1\right]\\
+&=[f(x_1,\dots,x_n):x_1f(x_1,\dots,x_n):\cdots:x_nf(x_1,\dots,x_n):1]
+\end{align*}
+Since $(x_1,\dots,x_n)\in V\setminus\V(f)$, we notice that $\im(\phi|_{U_0})\subseteq U_0$. Hence $\phi$ descends to a map $\A_k^n\to\A_k^{n+1}$ defined by $$(x_1,\dots,x_n)\mapsto(x_1,\dots,x_n,1/f(x_1,\dots,x_n))$$ Hence we obtain a forward map $V\to W$. \\~\\
+
+Now consider the projection map $\pi:\Prj^{n+1}\to\Prj^n$ by dropping the last coordinate. This descends to the projection map on $U_0$. Clearly this gives a map $W\to V$. \\~\\
+
+It remains to show that the two are inverses of each other. But it is clear that $\pi\circ\phi=\text{id}_V$ and $\phi\circ\pi=\text{id}_W$ by a simple computation. 
+\end{proof}
+\end{prp}
+
+\begin{eg}{}{} Let $n\in\N\setminus\{0\}$. Then $GL_n(\C)$ is an affine variety. \tcbline
+\begin{proof}
+The map $\det:M_n(\C)\cong\A_k^{n^2}\to\A_k^1$ sending a matrix to its determinant is a polynomial. Hence by the above prp, $GL_n(\C)=\A_k^{n^2}\setminus\V(\det)$ is an affine variety. 
+\end{proof}
+\end{eg}
+
+\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ be a closed subset. Then the following are true. 
+\begin{itemize}
+\item Every open subset of $V$ is a union of basic open sets
+\item The set of all basic open sets of $V$ forms a basis for the Zariski Topology of $V$. 
+\end{itemize}
+\end{prp}
 
 \pagebreak
 \section{The Algebra of Regular Functions}
@@ -1270,21 +1307,43 @@ Slogan: Regular functions are locally rational functions.
 
 These information organize well into a presheaf. 
 
+\begin{lmm}{}{} Let $k$ be an algebraically closed field. Let $V$ be a quasi-projective variety. If $U\subseteq V$ is dense, then the map $$\C[V]\to\mO_V(U)$$ given by $f\mapsto f/1$ is injective. 
+\end{lmm}
+
+\subsection{Globally Regular Functions}
 \begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V$ be a quasi-projective variety. Then we have $$\mO_V(V)=\Hom_{\bold{Var}_k}(V,\A_k^1)$$
 \end{prp}
 
-\begin{prp}{}{} Let $V\subseteq\A_\C^n$ be an irreducible affine variety. Then there is an isomorphism $$\C[V]\cong\mO_V(V)$$ given by the map $f\mapsto\frac{f}{1}$. 
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V$ be an affine variety. Then there is a $k$-algebra isomorphism $$\Hom_{\bold{Var}_k}(V,\A_k^1)=\mO_V(V)\cong k[V]$$
 \end{prp}
 
-This is the same as saying regular functions on $V$ are precisely the morphism of varieties from $V$ to $\C$. 
+\begin{eg}{}{} The quasi-projective variety $\A_\C^2\setminus\{(0,0)\}$ is not affine. \tcbline
+\begin{proof}
+Let $V=\A_\C^2\setminus\{(0,0)\}$. Let $U_x=\A_\C^2\setminus\V(x)$. Then we have 
+\begin{align*}
+\mO_V(U_x)&=\mO_{U_x}(U_x)\\
+&=\C[U_x]\tag{prp10.1.9}\\
+&=\C[x,y,1/x]\tag{prp9.4.2}
+\end{align*}
+Similarly, we have that $\mO_V(U_y)=\C[x,y,1/y]$. Now let $F\in\mO_V(V)$. Then $F|_{U_x}\in\C[x,y,1/x]$ and $F|_{U_y}\in\C[x,y,1/y]$. Hence $F|_{U_x}=\frac{g}{x^r}$ and $F|_{U_y}=\frac{h}{y^s}$ for $g,h\in\C[x,y]$ and $x$ does not divide $g$ and $y$ does not divide $h$. On the intersection $U_x\cap U_y$, we have that 
+\begin{align*}
+F|_{U_x}&=F|_{U_y}\\
+\frac{g}{x^r}&=\frac{h}{y^s}\\
+y^sg&=x^rh
+\end{align*}
+Now $U_x\cap U_y$ is dense in $\A_\C^2$. By prp10.1.8, $y^sg=x^rh$ on $U_x\cap U_y$ as functions on $V$ implies that $y^sg=x^rh$ in $\A_\C^2$. Hence $y^sg=x^rh$ in $\C[x,y]$. Since $\C[x,y]$ is a UFD, $y$ does not divide $x$ and $h$ implies that $s=0$. Similarly, $x$ does not divide $y$ and $g$ implies that $r=0$. Hence $F=g=h\in\C[x,y]$. Hence we have $\mO_VV\subseteq\C[x,y]$ Conversely, any polynomial $F\in\C[x,y]$ is an element of $\mO_VV$ by restriction. Thus we have $\mO_VV=\C[x,y]$. \\~\\
 
-\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\Prj^n$ be a projective variety over $k$. Then there is a $k$-algebra isomorphism $$\mO_V(V)\cong k$$
+Now suppose for a contradiction that $V$ is affine. By prp10.1.9, $\mO_VV\cong\C[V]$. Then $\C[x,y]\cong\C[V]$. By the nullstellensatz, any non-unit ideal of $\C[x,y]$ and hence $\C[V]$ has non-empty vanishing locus. But notice that $\V(x,y)=\emptyset$ in $V$. This is a contradiction. Hence $V$ is not affine. 
+\end{proof}
+\end{eg}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V$ be a projective variety, then there is a $k$-algebra isomorphism $$\Hom_{\bold{Var}_k}(V,\A_k^1)=\mO_V(V)\cong k$$
 \end{prp}
 
 \begin{prp}{}{} Let $V$ be a quasi-projective variety over $\C$. Let $f\in\C[V]$. Then there is an isomorphism $$\mO_V(D(f))\cong\C[V]_f$$
 \end{prp}
 
-\subsection{Regular Functions Near a Point}
+\subsection{Locally Regular Functions}
 \begin{defn}{Ring of Germs of Regular Functions}{} Let $p$ be a point of a variety $X$. Define the local ring of $p$ on $X$ to be $$\mO_{X,p}=\{(U,f)\;|\;U\subseteq X\text{ is open}, p\in U, f\text{ is regular on }U\}/\sim$$ where $(U,f)\sim(V,g)$ if and only if $f=g$ on $U\cap V$. 
 \end{defn}
 
@@ -1342,21 +1401,6 @@ By 5.2.2, we obtain a further isomrphism $$\mO_{\varphi_i(U_i\cap V),\varphi(p)}
 \begin{defn}{Regular Maps between Affine Varieties}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties over $k$. Let $f:V\to W$ be a map of sets. We say that $f$ is a regular map if $f$ is given as $$f(p)=(\phi_1(p),\dots,\phi_m(p))$$ for some $\phi_1,\dots\phi_m\in\mO_V(V)$. 
 \end{defn}
 
-\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties over $k$. Let $f:V\to W$ be a map of sets. Then the following are equivalent. 
-\begin{itemize}
-\item $f$ is regular. 
-\item $f$ is continuous, and $\varphi\in\mO_W(W)$ implies $\varphi\circ f\in\mO_V(V)$. 
-\item $f$ is a morphism of affine varieties. 
-\end{itemize} \tcbline
-\begin{proof}
-The equivalence between the second and the third statements is true since $\mO_V(V)\cong k[V]$. \\~\\
-
-Let $f$ be regular. It is clear that the coordinate functions $c_1,\dots,c_n:W\to k$ is regular on $W$. By definition, we have that $c_1\circ f,\dots,c_n\circ f$ are regular. Hence $f=(c_1\circ f,\dots,c_n\circ f)$. \\~\\
-
-Conversely, 
-\end{proof}
-\end{prp} (Gathman 4.7)
-
 \begin{defn}{Regular Maps}{} Let $k$ be a field. Let $V,W$ be varieties over $k$. Let $f:V\to W$ be a map of sets. We say that $f$ is regular if for all $p\in X$, there exists charts $p\in U_i$ and $f(p)\in U_j$ such that the map $$f|_{U_i}:U_i\to U_j$$ is a regular map between affine varieties. 
 \end{defn}
 
@@ -1365,10 +1409,7 @@ Conversely,
 \item $f$ is regular. 
 \item $f$ is a morphism of quasi-projective varieties. 
 \item $f$ is continuous, and $\varphi\in\mO_W(W)$ implies $\varphi\circ f\in\mO_V(V)$. 
-\end{itemize} \tcbline
-\begin{proof}
-Suppose that $f$ is regular. Let $p\in V$. Then $f(p)$ is contained in some affine chart $(U_i,\phi_i)$. Moreover, $f^{-1}(U)$ is an open neighbourhood of $p$, and the restriction $f|_{f ^{-1}(U_i)}:f^{-1}(U_i)\to U_i$ is regular. Since $p\in f^{-1}(U)\subseteq V$, we can also choose an affine chart of $p$ and consider its intersection with $f^{-1}(U)$. Call it $U$. Then $f|_U:U\to U_i$ is a regular map. This restriction is contained entirely in an affine piece of the projective space. By the above we can write $$f|_U=(f_1,\dots,f_n)$$ for $f_1,\dots,f_n$ regular functions on $U$. 
-\end{proof}
+\end{itemize}
 \end{prp}
 
 

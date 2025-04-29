@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  19 APR 2025 16:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  29 APR 2025 13:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1156,27 +1156,9 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
 LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
-5.
+0.
+
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
@@ -1199,7 +1181,7 @@ la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 [4]
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
 
  []
 
@@ -1218,7 +1200,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--130
 [11]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 319.
+d on input line 320.
 
 
 
@@ -1231,40 +1213,40 @@ d on input line 319.
 [15]
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 444--445
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
 
  []
 
 
-
-[17]
 
 [18]
 
 [19]
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 588--602
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 588--602
-
- []
-
-
 
 [21]
+Underfull \hbox (badness 10000) in paragraph at lines 589--603
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 649--650
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 589--603
 
  []
 
 
 
+[22]
+
 [23]
+Underfull \hbox (badness 10000) in paragraph at lines 650--651
+
+ []
+
+
 
 [24]
 
@@ -1277,20 +1259,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 649--650
 [28]
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 798--799
+
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 805--806
 
  []
 
 
-Overfull \hbox (8.02295pt too wide) detected at line 808
+Overfull \hbox (8.02295pt too wide) detected at line 821
 \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 '[]\OT1/cmr/m/n/10 (\OML/cm
 m/m/it/10 U[] \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 V\OT1/cmr/m/n/10 )] = [] [] [
 ] [] [][] = [][]
  []
 
 
-
-[30]
 
 [31]
 
@@ -1305,6 +1287,18 @@ m/m/it/10 U[] \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 V\OT1/cmr/m/n/10 )] = [] [] [
 [36]
 
 [37]
+Overfull \hbox (28.51106pt too wide) detected at line 974
+\OML/cmm/m/it/10 ^^^ [] \OT1/cmr/m/n/10 = [\OML/cmm/m/it/10 x[]y[] \OMS/cmsy/m/
+n/10 ^^@ \OML/cmm/m/it/10 x[]y[] \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 x[]y[] \OMS
+/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 x[]y[] \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 x[]
+y[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 x[]y[] \OT1/cmr/m/n/10 : \OML/cmm/m/i
+t/10 x[]y[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 x[]y[] \OT1/cmr/m/n/10 : \OML
+/cmm/m/it/10 x[]y[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 x[]y[] \OT1/cmr/m/n/1
+0 : \OML/cmm/m/it/10 x[]y[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 x[]y[]\OT1/cm
+r/m/n/10 ]
+ []
+
+
 
 [38]
 
@@ -1321,20 +1315,20 @@ m/m/it/10 U[] \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 V\OT1/cmr/m/n/10 )] = [] [] [
 [44]
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1185--1186
-
- []
-
-
 
 [46]
-Underfull \hbox (badness 10000) in paragraph at lines 1210--1211
+Underfull \hbox (badness 10000) in paragraph at lines 1203--1204
 
  []
 
 
 
 [47]
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1229
+
+ []
+
+
 
 [48]
 
@@ -1346,20 +1340,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 1210--1211
 
 [52]
 
-[53] (Algebraic Geometry 1.aux)
+[53]
+
+[54]
+
+[55] (Algebraic Geometry 1.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Algebraic Geometry 1".out' has not changed.
 
-(rerunfilecheck)             Checksum: 13F80439950F62D64654CDD35200F181;9104.
+(rerunfilecheck)             Checksum: 63E82D22B5B17BBFB3DC0E847DE77635;9654.
  ) 
 Here is how much of TeX's memory you used:
- 35508 strings out of 473577
- 732956 string characters out of 5716318
- 1151045 words of memory out of 5000000
- 57869 multiletter control sequences out of 15000+600000
+ 35525 strings out of 473577
+ 733193 string characters out of 5716318
+ 1152045 words of memory out of 5000000
+ 57874 multiletter control sequences out of 15000+600000
  600947 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,17n,120p,1375b,1439s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1383,9 +1381,9 @@ al/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/
 liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Us
 ers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Geometry 1.pdf" (53 pages, 636856 bytes).
+Output written on "Algebraic Geometry 1.pdf" (55 pages, 649793 bytes).
 PDF statistics:
- 848 PDF objects out of 1000 (max. 8388607)
- 293 named destinations out of 1000 (max. 500000)
- 365 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 884 PDF objects out of 1000 (max. 8388607)
+ 305 named destinations out of 1000 (max. 500000)
+ 389 words of extra memory for PDF output out of 10000 (max. 10000000)
 

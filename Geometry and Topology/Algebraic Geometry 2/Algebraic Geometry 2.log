@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  7 MAR 2025 17:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  28 APR 2025 18:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -916,6 +916,84 @@ Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@dima=\skip80
 \bigstrutjot=\dimen318
 )
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/nicematrix\nicematrix.s
+ty
+Package: nicematrix 2025/03/30 v7.1b Enhanced arrays with the help of PGF/TikZ
+\g__nicematrix_env_int=\count347
+\g__nicematrix_NiceMatrixBlock_int=\count348
+\g__nicematrix_notes_caption_int=\count349
+\l__nicematrix_columns_width_dim=\dimen319
+\l__nicematrix_col_width_dim=\dimen320
+\g__nicematrix_row_total_int=\count350
+\g__nicematrix_col_total_int=\count351
+\g__nicematrix_last_row_node_int=\count352
+\l__nicematrix_key_nb_rows_int=\count353
+\g__nicematrix_blocks_wd_dim=\dimen321
+\g__nicematrix_blocks_ht_dim=\dimen322
+\g__nicematrix_blocks_dp_dim=\dimen323
+\l__nicematrix_width_dim=\dimen324
+\l__nicematrix_tabular_width_dim=\dimen325
+\l__nicematrix_rule_width_dim=\dimen326
+\l__nicematrix_old_iRow_int=\count354
+\l__nicematrix_old_jCol_int=\count355
+\g__nicematrix_total_X_weight_int=\count356
+\l__nicematrix_X_columns_dim=\dimen327
+\l__nicematrix_x_initial_dim=\dimen328
+\l__nicematrix_y_initial_dim=\dimen329
+\l__nicematrix_x_final_dim=\dimen330
+\l__nicematrix_y_final_dim=\dimen331
+\l__nicematrix_tmpc_dim=\dimen332
+\l__nicematrix_tmpd_dim=\dimen333
+\l__nicematrix_tmpe_dim=\dimen334
+\l__nicematrix_tmpf_dim=\dimen335
+\g__nicematrix_dp_row_zero_dim=\dimen336
+\g__nicematrix_ht_row_zero_dim=\dimen337
+\g__nicematrix_ht_row_one_dim=\dimen338
+\g__nicematrix_dp_ante_last_row_dim=\dimen339
+\g__nicematrix_ht_last_row_dim=\dimen340
+\g__nicematrix_dp_last_row_dim=\dimen341
+\g__nicematrix_width_last_col_dim=\dimen342
+\g__nicematrix_width_first_col_dim=\dimen343
+\l__nicematrix_row_min_int=\count357
+\l__nicematrix_row_max_int=\count358
+\l__nicematrix_col_min_int=\count359
+\l__nicematrix_col_max_int=\count360
+\l__nicematrix_start_int=\count361
+\l__nicematrix_end_int=\count362
+\l__nicematrix_local_start_int=\count363
+\l__nicematrix_local_end_int=\count364
+\g__nicematrix_static_num_of_col_int=\count365
+\l__nicematrix_rounded_corners_dim=\dimen344
+\l__nicematrix_tab_rounded_corners_dim=\dimen345
+\l__nicematrix_offset_dim=\dimen346
+\l__nicematrix_line_width_dim=\dimen347
+\g__nicematrix_block_box_int=\count366
+\l__nicematrix_submatrix_extra_height_dim=\dimen348
+\l__nicematrix_submatrix_left_xshift_dim=\dimen349
+\l__nicematrix_submatrix_right_xshift_dim=\dimen350
+\l__nicematrix_first_row_int=\count367
+\l__nicematrix_first_col_int=\count368
+\l__nicematrix_last_row_int=\count369
+\l__nicematrix_last_col_int=\count370
+\c@tabularnote=\count371
+\g__nicematrix_tabularnote_int=\count372
+\c@nicematrix_draft=\count373
+\l__nicematrix_cell_space_top_limit_dim=\dimen351
+\l__nicematrix_cell_space_bottom_limit_dim=\dimen352
+\l__nicematrix_xdots_inter_dim=\dimen353
+\l__nicematrix_xdots_shorten_start_dim=\dimen354
+\l__nicematrix_xdots_shorten_end_dim=\dimen355
+\l__nicematrix_xdots_radius_dim=\dimen356
+\l__nicematrix_notes_above_space_dim=\dimen357
+\l__nicematrix_left_margin_dim=\dimen358
+\l__nicematrix_right_margin_dim=\dimen359
+\l__nicematrix_extra_left_margin_dim=\dimen360
+\l__nicematrix_extra_right_margin_dim=\dimen361
+\c__nicematrix_max_l_dim=\dimen362
+\l__nicematrix_position_int=\count374
+\l__nicematrix_multiplicity_int=\count375
+\l__nicematrix_brace_yshift_dim=\dimen363
+)
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\tgpagella.sty
 Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
 ) (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
@@ -965,8 +1043,8 @@ File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
 w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
 ))
-\c@tcb@cnt@thm=\count347
-Package hyperref Info: Option `colorlinks' set `true' on input line 256.
+\c@tcb@cnt@thm=\count376
+Package hyperref Info: Option `colorlinks' set `true' on input line 252.
 ) (Algebraic Geometry 2.aux)
 \openout1 = `"Algebraic Geometry 2.aux"'.
 
@@ -1027,16 +1105,16 @@ LaTeX Font Info:    ... okay on input line 16.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count348
-\scratchdimen=\dimen319
+\scratchcounter=\count377
+\scratchdimen=\dimen364
 \scratchbox=\box88
-\nofMPsegments=\count349
-\nofMParguments=\count350
+\nofMPsegments=\count378
+\nofMParguments=\count379
 \everyMPshowfont=\toks54
-\MPscratchCnt=\count351
-\MPscratchDim=\dimen320
-\MPnumerator=\count352
-\makeMPintoPDFobject=\count353
+\MPscratchCnt=\count380
+\MPscratchDim=\dimen365
+\MPnumerator=\count381
+\makeMPintoPDFobject=\count382
 \everyMPtoPDFconversion=\toks55
 )
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -1049,7 +1127,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count354
+\c@lstlisting=\count383
 Package hyperref Info: Link coloring ON on input line 16.
  (Algebraic Geometry 2.out) (Algebraic Geometry 2.out)
 \@outlinefile=\write4
@@ -1058,6 +1136,13 @@ Package hyperref Info: Link coloring ON on input line 16.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
+\c__nicematrix_shift_Ldots_last_row_dim=\dimen366
+\c__nicematrix_shift_exterior_Vdots_dim=\dimen367
+\c__nicematrix_innersep_middle_dim=\dimen368
+\c@tabularnotesi=\count384
+\enitdp@tabularnotes=\count385
+\c@tabularnotes*i=\count386
+\enitdp@tabularnotes*=\count387
 
 Couldn't patch \deferred@thm@head!
 LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
@@ -1141,49 +1226,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
 [13]
 
-[14] (Algebraic Geometry 2.aux)
+[14]
+
+[15] (Algebraic Geometry 2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
+Package rerunfilecheck Info: File `"Algebraic Geometry 2".out' has not changed.
 
-
-Package rerunfilecheck Warning: File `"Algebraic Geometry 2".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Algebraic Geometry 2".out':
-(rerunfilecheck)             Before: 5A19AF0BCB24FA5093A7F0D9267133B3;4630
-(rerunfilecheck)             After:  B20009F92697104306542D675B3A21C4;4738.
+(rerunfilecheck)             Checksum: B6F42BA95479C43C4F0AF923362E3855;4894.
  ) 
 Here is how much of TeX's memory you used:
- 32594 strings out of 473577
- 643100 string characters out of 5716318
- 1071682 words of memory out of 5000000
- 55162 multiletter control sequences out of 15000+600000
+ 34954 strings out of 473577
+ 722661 string characters out of 5716318
+ 1145029 words of memory out of 5000000
+ 57513 multiletter control sequences out of 15000+600000
  600020 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,12n,120p,981b,1140s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,17n,120p,981b,1463s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/li
-ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/
-Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.
-pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
-ymbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Algebraic Geometry 2.pdf" (14 pages, 363000 bytes).
+fonts/cmextra/cmex7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/User
+s/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+msy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on "Algebraic Geometry 2.pdf" (15 pages, 381364 bytes).
 PDF statistics:
- 367 PDF objects out of 1000 (max. 8388607)
- 93 named destinations out of 1000 (max. 500000)
- 205 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 98 named destinations out of 1000 (max. 500000)
+ 221 words of extra memory for PDF output out of 10000 (max. 10000000)
 

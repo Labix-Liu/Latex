@@ -1955,7 +1955,7 @@ On computation, one crucial fact to notice is that the map $\pi_\beta$ is a proj
 
 We can now compute the singular homology of more complicated spaces such as the projective space. 
 
-\begin{thm}{}{} Let $n\geq 1$. Then the real projective space $\R\Prj^n$ has the following homology groups: $$H_k(\R\Prj^n)=\begin{cases}
+\begin{eg}{}{} Let $n\geq 1$. Then the real projective space $\R\Prj^n$ has the following homology groups: $$H_k(\R\Prj^n)=\begin{cases}
 \Z & \text{ if }k=0\text{ and }k=n\text{ is odd}\\
 \Z/2\Z & \text{ if } 0<k<n\text{ and }k\text{ is odd}\\
 0 & \text{otherwise}
@@ -1987,7 +1987,7 @@ where $d_k=\pm2$ if $k$ is even and $d_k=0$ if $k$ is odd. It follows that $$\de
 0 & \text{ if } n \text{ is odd}
 \end{cases}$$
 \end{proof}
-\end{thm}
+\end{eg}
 
 \pagebreak
 \section{Variants of Homology}
@@ -2241,7 +2241,7 @@ We have now defined a series of functors. We also recap on the material in secti
 \end{itemize}
 
 \subsection{Free Resolutions}
-\begin{defn}{Free Resolutions}{} Let $H$ be a group. An exact sequence of the form \\~\\
+\begin{defn}{Free Resolutions}{} Let $H$ be an abelian group. An exact sequence of the form \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 \cdots\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & H\arrow[r] & 0
 \end{tikzcd}}\\~\\
@@ -2310,19 +2310,25 @@ And so we conclude.
 \end{proof}
 \end{prp}
 
-It follows from the algebra of chain complexes that any two such homotopic chain maps of free resolutions induce isomorphic cohomology groups. 
-
-\begin{lmm}{}{} Every free resolution of an abelian group $H$ is of the form \\~\\
-\adjustbox{scale=1.1,center}{\begin{tikzcd}
-0\arrow[r] & F_1\arrow[r] & F_0\arrow[r, "h"] & H\arrow[r] & 0
-\end{tikzcd}}\\~\\
-where $F_0$ and $F_1$ is determined as follows. 
-\begin{itemize}
-\item Choose a set of generators $A$ of $H$. Define $F_0=\langle A\rangle$ and define the map $f_0:F_0\to H$ by sending basis elements to generators. 
-\item $F_1=\ker(f_0)$ and $f_1:F_1\to F_0$ is the inclusion. 
-\end{itemize} \tcbline
+\begin{crl}{}{} Let $H$ be an abelian group. Then any two resolutions $F_\bullet\to H$ and $E_\bullet\to H$ of $H$ are chain homotopy equivalent. \tcbline
 \begin{proof}
-We want to show that using the above data to construct the free resolution gives an exact sequence. Clearly since $f_1:F_1\to F_0$ is the inclusion, it is injective. Also, $h$ is defined to be surjective. It remains to show that $\im(f_1)=\ker(f_0)$. But by definition, $f_1$ is the inclusion map of $\ker(f_0)$ to $F_1$ hence $\im(f_1)=\ker(f_0)$. 
+By the above, the chain map $F_\bullet\to E_\bullet\to F_\bullet$ induced by the identity map is chain homotopic to the identity map. Similarly for the chain map $E_\bullet\to F_\bullet\to E_\bullet$ induced by the identity map. Hence $F_\bullet$ and $E_\bullet$ are chain homotopy equivalent. 
+\end{proof}
+\end{crl}
+
+It follows from the algebra of chain complexes that any two free resolutions induces isomorphic homology groups. 
+
+\begin{lmm}{}{} Let $A$ be an abelian group. Then the following is a free resolution of $A$: \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\ker(\pi)} & {\bigoplus_{a\in A}\Z\cdot a} & A & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\pi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}}\\~\\
+where $\pi:\bigoplus_{a\in A}\Z\cdot a\to A$ is the projection map. \tcbline
+\begin{proof}
+Clearly the sequence is exact. Moreover, every subgroup of a free abelian group is free abelian. Hence $\ker(\pi)$ is free abelian and the sequence is indeed a free resolution. 
 \end{proof}
 \end{lmm}
 
@@ -2336,11 +2342,31 @@ Define the ext group of $H$ with coefficients in $G$ to be the first cohomology 
 
 The Ext group is well defined because of any choice of free resolution are chain chomotopic by a unique chain map. Moreover, chain homotopic maps induce isomorphisms on homology. This isomorphism is moreover canonical because the chain homotopy is given by a unique chain map. \\
 
-A kind note: This is not the most general definition of an ext group. There are a few ways to advance this definition into the general one (as in Homological Algebra). Notice that every abelian group is a $\Z$-module. So we can define Ext groups depending on the underlying ring / module structure. For instance, if $M,N$ are $R$-modules, then there is a notion $\text{Ext}_R^1(M,N)$. In this case we no longer consider only free resolutions because free here refers to every abelian group is a $\Z$-module. Moreover, not every such resolution will only consist of two elements just as lmm 11.1.3. \\~\\
-
 This leads to the second way of extending it. One can consider not using free groups for the resolution, and instead in the setting of $R$-modules, consider using projective / injective modules (again in Homological Algebra). \\~\\
 
 For us, we are only considering abelian groups which are $\Z$-modules. Be wary of this assumption throughout the entire section. 
+
+\begin{eg}{}{} Let $n,m\geq 1$. Then we have $$\text{Ext}\left(\frac{\Z}{n\Z},\frac{\Z}{m\Z}\right)\cong\frac{\Z}{\gcd(m,n)\Z}$$ \tcbline
+\begin{proof}
+Notice that a free resolution for $\Z/n\Z$ is given by \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & \Z & \Z & {\Z/n\Z} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\times n}", from=1-2, to=1-3]
+	\arrow[two heads, from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}} \\~\\
+Applying the functor $\Hom(-,\Z/m\Z)$ gives a chain complex of the form \\~\\
+\adjustbox{scale=1.0,center}{\begin{tikzcd}
+	0 & {\Z/\gcd(m,n)\Z} && {\Z/m\Z} & {\Z/m\Z} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{1\mapsto\frac{m}{\gcd(n,m)}}", from=1-2, to=1-4]
+	\arrow["{\times n}", two heads, from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+\end{tikzcd}} \\~\\
+Then the first cohomology group of the chain complex is precisely $\frac{\Z/m\Z}{n\Z/m\Z}$. I claim that this $Z$-module is equal to $\frac{\Z/m\Z}{\gcd(n,m)\Z/m\Z}$. Let $[nk]\in\Z/m\Z$. Then $[nk]=\left[\gcd(n,m)\frac{nk}{\gcd(n,m)}\right]$ so that $[nk]\in\gcd(n,m)\Z/m\Z$. Conversely, let $[\gcd(n,m)k]\in\gcd(n,m)\Z/m\Z$. By Bezout's lemma, we know that $\gcd(n,m)=nx+my$ for some $x,y\in\Z$. Then $[\gcd(n,m)k]=[nkx+mky]=[nkx]\in\gcd(n,m)\Z$. Hence $[\gcd(n,m)k]\in n\Z/m\Z$. Thus we have $\frac{\Z/m\Z}{n\Z/m\Z}=\frac{\Z/m\Z}{\gcd(n,m)\Z/m\Z}$. By the third isomorphism theorem, the first cohomology group is isomorphic to $\Z/\gcd(m,n)\Z$. 
+\end{proof}
+\end{eg}
 
 \begin{prp}{}{} Let $G,H,K$ be abelian groups. Then the following are true regarding the Ext group. 
 \begin{itemize}
@@ -2371,14 +2397,6 @@ with the direct sum of the obvious maps is a free resolution of $H\oplus K$. But
 \end{proof}
 \end{prp}
 
-\begin{eg}{}{} The following are some computations of the Ext group. 
-\begin{itemize}
-\item $\text{Ext}(\Z/2\Z,\Z/3\Z)\cong\Z/6\Z$
-\item $\text{Ext}(\Z/6\Z,\Z/2\Z)$
-\item $\text{Ext}(\Z/4\Z,\Z/8\Z)$
-\end{itemize}
-\end{eg}
-
 \begin{prp}{}{} Let $A,B,G$ be abelian groups. Let $f:A\to B$ be a group homomorphism. Define the induced map $$f^\ast:\text{Ext}(B,G)\to\text{Ext}(A,G)$$ as follows. Then $f^\ast$ is a group homomorphism. Moreover, the following are true. 
 \begin{itemize}
 \item Let $C$ be an abelian group and let $g:B\to C$ be a homomorphism. Then $$(g\circ f)^\ast=f^\ast\circ g^\ast$$ 
@@ -2403,13 +2421,17 @@ We conclude that $\text{Ext}$ is a functor of the first variable. It is also a f
 
 The point of the Ext group is that it forms an error term to measure how far away is the cohomology of the dualized chain complex from the homology of the chain complex. 
 
-\begin{thm}{Universal Coefficient Theorem for Cohomology}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex of free abelian groups. Let $G$ be an abelian group. Then there exists a natural map $h:H^n(C_\bullet;G)\to\Hom(H_n(C_\bullet;G))$ such that $$\text{Ext}(H_{n-1}(C_\bullet),G)\cong\ker(h)$$ and a split exact sequence (that is not natural) of the form \\~\\
+\begin{thm}{Universal Coefficient Theorem for Cohomology}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex of free abelian groups. Let $G$ be an abelian group. Then there is a split exact sequence (that does not split naturally) of the form \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-0\arrow[r] & \text{Ext}(H_{n-1}(C_\bullet),G)\arrow[r] & H^n(C_\bullet;G)\arrow[r, "h"] & \Hom(H_n(C_\bullet),G)\arrow[r] & 0
+	0 & {\text{Ext}(H_{n-1}(C_\bullet),G)} & {H^n(C_\bullet;G)} & {\Hom(H_n(C_\bullet),G)} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["h", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
 \end{tikzcd}}\\~\\
-for any $n\in\N$. In particular, split exactness implies that there is an isomorphism $$H^n(C_\bullet;G)\cong\text{Ext}(H_{n-1}(C_\bullet),G)\oplus\Hom(H_n(C_\bullet),G)$$ for any $n\in\N$. \tcbline
+where $h$ is the map defined by $[\alpha]\mapsto[\overline{\alpha|_{Z_n(C_\bullet)}}]$ for any $n\in\N$. \tcbline
 \begin{proof}
-Define $h$ as follows. Let $[\alpha]\in H^n(C_\bullet,G)$. Then $\alpha\in\ker(\delta:C^n\to C^{n+1})\leq C^n$. Rephrasing shows that $\alpha$ is a homomorphism $C_n\to G$. We can then restrict $\alpha$ to the subgroup $Z_n\leq C_n$. I claim that $\alpha|_{Z_n}$ descends to a map in homology. This means that there exists a unique map $\overline{\alpha|_{Z_n}}:H_n(C_\bullet)\to G$ such that the following diagram commutes \\~\\
+I claim that $\alpha|_{Z_n}$ descends to a map in homology. This means that there exists a unique map $\overline{\alpha|_{Z_n}}:H_n(C_\bullet)\to G$ such that the following diagram commutes \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	{Z_n} & {\frac{Z_n}{B_n}=H_n(C_\bullet)} \\
 	& G
@@ -2642,6 +2664,26 @@ in cohomology. \tcbline
 \item When $n=0$, the universal coefficient theorem induces an isomorphism $$\widetilde{H}^0(X;M)\cong\Hom(\widetilde{H}_0(X),M)$$
 \end{itemize}
 \end{prp}
+
+\begin{eg}{}{} Let $n\in\N$. Let $A$ be an abelian group. The singular cohomology of $S^n$ with coefficients in $A$ is given by $$H^k(S^n;A)=\begin{cases}
+A & \text{ if } k=0\text{ or }n\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{eg}
+
+\begin{eg}{}{} Let $n\geq 1$. Let $A$ be an abelian group. The singular cohomology of $\R\Prj^n$ with coefficients in $A$ is given by $$H^k(\R\Prj^n;A)=\begin{cases}
+A & \text{ if } k=0\\
+A/2A & \text{ if } 0<k<n\text{ and }k\text{ even }\\
+\{a\in A\;|\;2\text{ divides }\abs{a}\} & \text{ if } 0<k<n\text{ and }k\text{ odd }\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{eg}
+
+\begin{eg}{}{} Let $n\geq 1$. Let $A$ be an abelian group. The singular cohomology of $\C\Prj^n$ with coefficients in $A$ is given by $$H^k(\C\Prj^n;A)=\begin{cases}
+A & \text{ if } 0\leq k\leq 2n\text{ even }\\
+0 & \text{ otherwise }
+\end{cases}$$
+\end{eg}
 
 \subsection{Relative Cohomology}
 \begin{defn}{Relative Cochain Complex}{} Let $X$ be a space and let $A\subseteq X$ be a subspace. Let $G$ be an abelian group. Define the relative cochain complex $(C^\bullet(X,A;G),\partial^\ast)$ with coefficients in $G$ to be given by the following data. 
@@ -2919,8 +2961,21 @@ It is important to note that the above proposition (graded commutativity) is onl
 \end{proof}
 \end{thm}
 
-\begin{lmm}{}{} Let $X,Y$ be spaces. Let $R$ be a commutative ring. Let $f:X\to Y$ be a map. Then the induced map $$f^\ast:H^\ast(Y;R)\to H^\ast(X;R)$$ is a ring homomorphism. 
+\begin{lmm}{}{} Let $X,Y$ be spaces. Let $R$ be a commutative ring. Let $f:X\to Y$ be a map. Then the induced map $$f^\ast:H^\ast(Y;R)\to H^\ast(X;R)$$ is a graded ring homomorphism. 
 \end{lmm}
+
+\begin{eg}{}{} Let $n\in\N$. Then there is an isomorphism of graded rings $$H^\ast(S^n;\Z)\cong\frac{\Z[t]}{(t^2)}$$ where $t$ is of degree $n$ in the graded structure. 
+\end{eg}
+
+\begin{eg}{}{} Let $n\geq 1$. Then the following are true. 
+\begin{itemize}
+\item There is an isomorphism of graded rings $$H^\ast(\R\Prj^n;\Z/2\Z)\cong\frac{\Z/2\Z[t]}{(t^{n+1})}$$ where $t$ is of degree $1$ in the graded structure. 
+\item There is an isomorphism of graded rings $$H^\ast(\C\Prj^n;\Z)\cong\frac{\Z[t]}{(t^{n+1})}$$ where $t$ is of degree $2$ in the graded structure. 
+\end{itemize}
+\end{eg}
+
+\begin{prp}{}{} Let $\R^n$ be equipped with the structure of a division algebra over $\R$. Then $n$ is a power of $2$. 
+\end{prp}
 
 \subsection{The Relative Cup Product}
 \begin{defn}{The Relative Cup Product}{} Let $X$ be a space. Let $A,B\subseteq X$ be open. Let $R$ be a ring. Define the relative cup product of $A$ and $B$ to be the map $$\smile:H^k(X,A;R)\times H^l(X,B;R)\to H^{k+l}(X,A\cup B;R)$$ by the formula $$(\phi\smile\psi)(\sigma)=\phi(\sigma|_{[v_0,\dots,v_k]})\cdot\psi(\sigma|_{[v_k,\dots,v_{k+l}]})$$ for $\phi\in C_\text{Sing}^k(X,A;R)$ and $\psi\in C_\text{Sing}^l(X,B;R)$. 
@@ -2996,25 +3051,16 @@ By the 5-lemma, we conclude that the middle map is an isomorphism and so we conc
 \begin{prp}{}{} Let $X,Y$ be topological spaces. Let $R$ be a commutative ring. Let $a,c\in H^\ast(X;R)$ and $b,d\in H^\ast(Y;R)$ with $c\in H^m(X;R)$ and $d\in H^n(Y;R)$ we have $$(a\times b)\smile(c\times d)=(-1)^{mn}(a\smile c)\times(b\smile d)$$
 \end{prp}
 
-Recall that an $R$-module $M$ is finitely generated and free if and only if $M\cong R^n\cong R^{\oplus n}$ for some $n\in\N$. 
+Let $R$ be a commutative ring. Let $M$ and $N$ be graded $R$-modules. Recall that their tensor product can also be given a grading where $$(M\otimes N)_n=\bigoplus_{i+j=n}M_i\otimes_R N_j$$
 
 \begin{thm}{The Kunneth Formula}{} Let $X$ and $Y$ be CW-complexes. Let $R$ be a commutative ring. Then the cross product $$\times:H^\ast(X;R)\otimes_R H^\ast(Y;R)\to H^\ast(X\times Y;R)$$ defined by $a\otimes b\mapsto a\times b$ is graded ring homomorphism. Moreover, it is an isomorphism of graded rings if $H^k(Y;R)$ is a finitely generated free $R$-module for all $k$. 
 \end{thm}
 
+\begin{eg}{}{} There is an isomorphism of graded rings $$H^\ast(T;\Z)\cong\frac{\Z\langle s,t\rangle}{(s^2,t^2,st+ts)}$$ where $s,t$ are elements of degree $1$. 
+\end{eg}
+
 \begin{thm}{The Relative Kunneth Formula}{} Let $(X,A)$ and $(Y,B)$ be CW complex pairs. Let $R$ be a commutative ring. Then the cross product $$\times:H^\ast(X,A;R)\otimes_R H^\ast(Y,B;R)\to H^\ast(X\times Y,X\times B\cup A\times Y;R)$$ is graded ring homomorphism. Moreover, it is an isomorphism of graded rings if $H^k(Y,B;R)$ is a finitely generated free $R$-module for all $k$. 
 \end{thm}
-
-\subsection{Applications of the Cup Product}
-\begin{prp}{}{} Let $n\in\N$. Then the following are true. 
-\begin{itemize}
-\item There is an isomorphism of graded rings $$H^\ast(\R\Prj^n;\Z/2\Z)\cong\frac{\Z/2\Z[t]}{(t^{n+1})}$$ where $t$ is of degree $1$ in the graded structure. 
-\item There is an isomorphism of graded rings $$H^\ast(\C\Prj^n;\Z)\cong\frac{\Z[t]}{(t^{n+1})}$$ where $t$ is of degree $2$ in the graded structure. 
-\end{itemize}
-\end{prp}
-
-\begin{prp}{}{} Let $\R^n$ be equipped with the structure of a division algebra over $\R$. Then $n$ is a power of $2$. 
-\end{prp}
-
 
 \subsection{Lusternik-Schnirelman Category}
 \begin{defn}{Lusternik-Schnirelman Category}{} Let $X$ be a space. Define the Lusternik-Schnirelman category of $X$ to be the smallest $n\in\N$ such that there exists an open cover $X=\bigcup_{i=1}^nU_i$ so that $U_i\hookrightarrow X$ is null-homotopic. 
@@ -3236,7 +3282,7 @@ Some authors indeed does not require the weak equivalence axiom to exist. In suc
 \end{tikzcd}}\\~\\
 where $i:X\to C_f$ is the inclusion map. 
 \item Suspension: There is a natural isomorphism of functors: $$\sigma:h^{n+1}\circ\Sigma\Rightarrow h^n$$
-\item Additivity: Let $i_k:X_k\to\bigwedge_{i\in I}X_i$ denote the inclusion map. Their products induce an isomorphism $$\prod_{k\in I}h^n(i_k):h^n\left(\bigwedge_{i\in I}X_i\right)\overset{\cong}{\longrightarrow}\prod_{i\in I}h^n(X_i)$$
+\item Additivity: Let $i_k:X_k\to\bigvee_{i\in I}X_i$ denote the inclusion map. Their products induce an isomorphism $$\prod_{k\in I}h^n(i_k):h^n\left(\bigvee_{i\in I}X_i\right)\overset{\cong}{\longrightarrow}\prod_{i\in I}h^n(X_i)$$
 \end{itemize}
 \end{defn}
 
@@ -3250,9 +3296,12 @@ TBA: Unreduced = reduced.
 The Euler characteristic is similar to a notion of size. In set theory we have cardinality, in linear algebra we have dimensions, in abelian groups we have rank. The Euler characteristic acts similar to these quantities. 
 
 \subsection{The Characteristic as an Invariant}
-\begin{crl}{}{} Let $C_\bullet$ be a chain complex with only finitely many non-zero terms, all of which are finitely generated abelian groups. Then $$\sum_{n\in\Z}(-1)^n\rank(C_n)=\sum_{n\in\Z}(-1)^n\rank(H_n(C_\bullet))$$ \tcbline
+\begin{defn}{The Euler Characteristic}{} Let $X$ be a space with only finitely many non-zero homology groups, all of which are finitely generated abelian groups. Then the Euler characteristic is defined as $$\chi(X)=\sum_{n\geq 0}(-1)^n\rank(H_n(X))$$
+\end{defn}
+
+\begin{lmm}{}{} Let $C_\bullet$ be a chain complex with only finitely many non-zero terms, all of which are finitely generated abelian groups. Then $$\sum_{n\in\Z}(-1)^n\rank(C_n)=\sum_{n\in\Z}(-1)^n\rank(H_n(C_\bullet))$$ \tcbline
 \begin{proof}
-We have two short exact sequences for al $n$ given by \\~\\
+We have two short exact sequences for all $n$ given by \\~\\
 \adjustbox{scale=1,center}{\begin{tikzcd}
 	0 & {Z_n} & {C_n} & {B_{n-1}} & 0 \\
 	0 & {B_n} & {Z_n} & {H_n} & 0
@@ -3273,20 +3322,16 @@ We therefore have that
 \end{align*}
 and so we conclude. 
 \end{proof}
-\end{crl}
+\end{lmm}
 
-\begin{prp}{}{} Let $X$ be a topological space that admits the structure of a CW-complex. Then the alternating sum $$\sum_{n\geq 0}(-1)^n\abs{\{n\text{-cells}\}}$$ is independent of the choice of CW-complex structure. \tcbline
+\begin{crl}{}{} Let $X$ be a CW complex. Then the alternating sum $$\chi(X)=\sum_{n\geq 0}(-1)^n\abs{\{n\text{-cells}\}}$$ In particular, $\chi(X)$ is independent of the choice of CW structure. \tcbline
 \begin{proof}
 By the above corollary, we have that the sum is equal to $\sum_{n\in\Z}(-1)^n\rank(H_n(X))$ and the rank of $H_n(X)$ is independent of the cell structure. 
 \end{proof}
-\end{prp}
+\end{crl}
 
-The above proposition allows the following definition to be well defined under different CW-complexes. 
-
-\begin{defn}{The Euler Characteristic}{} Let $X$ be a space with only finitely many non-zero homology groups, all of which are finitely generated abelian groups. Then the Euler characteristic is defined as $$\chi(X)=\sum_{n\geq 0}(-1)^n\rank(H_n(X))$$
-\end{defn}
-
-Note that if $X$ is a finite CW-complex, then the alternating sum coincides with that of the Euler characteristic. \\~\\
+\begin{lmm}{}{} Let $X$ be a space with only finitely many non-zero homology groups, all of which are finitely generated abelian groups. Let $\F$ be a field. Then we have $$\chi(X)=\sum_{n\geq 0}(-1)^n\dim_\F(H^n(X;\F))$$
+\end{lmm}
 
 \begin{defn}{Plane Graph}{} A plane graph is a finite $1$-dimensional CW-complex embedded in the real plane $\R^2$. Equivalently, it is a finite graph in the plane in which the edges do not cross. A planar graph is a finite $1$-dimensional CW-complex that exhibits such an embedding. \\~\\
 

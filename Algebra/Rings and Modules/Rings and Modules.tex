@@ -188,6 +188,12 @@ Thus we are done.
 \end{proof}
 \end{prp}
 
+\begin{eg}{}{} Let $n,m\geq 1$. Then we have $$\Hom_\Z\left(\frac{\Z}{n\Z},\frac{\Z}{m\Z}\right)\cong\frac{\Z}{\gcd(m,n)\Z}$$ \tcbline
+\begin{proof}
+Any $\Z$-module homomorphism is determined by where $1$ is mapped to. Let $\varphi_a:\Z/n\Z\to\Z/m\Z$ be the $\Z$-module homomorphism given by $[1]\mapsto[a]$. Then $$[0]=[n]=n\cdot[1]\mapsto n\cdot[a]$$ implies that $[na]=[0]$. Hence $m$ divides $na$. Let $km=na$ for some $k\in\N$. Then $a=\frac{km}{n}$. Now we know that $m/\gcd(m,n)$ and $n/\gcd(m,n)$ are coprime. Then this means that the possible choices for $k$ are $$\left\{\frac{n}{\gcd(m,n)},2\frac{n}{\gcd(m,n)},\dots,\gcd(m,n)\frac{n}{\gcd(m,n)}\right\}$$ and so the only possible choices for $a$ are $$\left\{\frac{m}{\gcd(m,n)},2\frac{m}{\gcd(m,n)},\dots,\gcd(m,n)\frac{m}{\gcd(m,n)}\right\}$$ and so $\Hom_\Z\left(\frac{\Z}{n\Z},\frac{\Z}{m\Z}\right)\cong\frac{\Z}{\gcd(m,n)\Z}$. 
+\end{proof}
+\end{eg}
+
 \subsection{The Endomorphism Ring}
 \begin{defn}{Endomorphisms of a Module}{} Let $R$ be a ring and $M$ a left $R$-module. An endomorphism of $M$ is a homomorphism $\phi:M\to M$. Denote the set of all $R$-endomorphisms by $$\text{End}_R(M)=\{\phi:M\to M\;|\;\phi\text{ is an isomorphism of }M\}$$
 \end{defn}
