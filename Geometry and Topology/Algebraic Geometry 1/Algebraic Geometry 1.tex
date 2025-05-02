@@ -82,12 +82,12 @@ Algebraic geometry is all about the study of polynomials. By collecting all the 
 
 Notice that point wise this is exactly the same as $k^n$. The whole point of this is that $k^n$ has the structure of a vector space, as well as having the standard topology. We do not want both of these because we will define a different topology on these same set of points. Therefore we may as well give it another name. 
 
-\begin{defn}{Affine Varieties}{} Let $k$ be a field. Let $F=\{f_i\}$ be a collection of polynomials in $k[x_1,\dots,x_n]$. The zero locus of $F$ is defined to be $$\V(F)=\{x\in\A^n|f(x)=0\text{ for all }f\in F\}\subseteq\A^n$$ Subsets of $\A^n$ of this form is called affine varieties. 
+\begin{defn}{Affine Varieties}{} Let $k$ be a field. Let $F=\{f_i\}$ be a collection of polynomials in $k[x_1,\dots,x_n]$. The zero locus of $F$ is defined to be $$\V(F)=\{x\in\A^n\;|\;f(x)=0\text{ for all }f\in F\}\subseteq\A^n$$ Subsets of $\A^n$ of this form is called affine varieties. 
 \end{defn}
 
-We can also define affine subvarieties as a relative version of the above, in the sense that we have defined particular subsets of $\A_k^n$ to be affine varieties. We can also define particular subsets of an affine algebraic set $X$ to be an affine algebraic subset. 
+We can also define affine subvarieties as a relative version of the above, in the sense that we have defined particular subsets of $\A_k^n$ to be affine varieties. We can also define particular subsets of an affine variety $X$ to be an affine algebraic subset. 
 
-\begin{defn}{Affine Subvarieties}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. An affine subvarieties $Y$ of $X$ is a subset of $X$ that is also an affine variety of $\A_k^n$. 
+\begin{defn}{Affine Subvarieties}{} Let $k$ be a field. Let $X$ be an affine variety of $\A_k^n$. An affine subvariety $Y$ of $X$ is a subset of $X$ that is also an affine variety of $\A_k^n$. 
 \end{defn}
 
 In particular, the affine algebraic subsets of $\A_k^n$ are precisely the affine varieties of $\A_k^n$. 
@@ -119,17 +119,7 @@ Since $F\subseteq I$, we conclude that $V(I)\subseteq V(F)$ by the above proposi
 \end{proof}
 \end{prp}
 
-Thus from now on we need not consider ourselves with the affine variety of a countable collection of polynomials since we know that the ring of polynomials of $n$ variables is finitely generated. 
-
-Recall from Commutative Algebra 1 that Zariski's lemma says the following: Let $F$ be a field. Let $K$ be a field that is also a finitely generated algebra over $F$. Then $K$ is a finite algebra. In particular, $K$ is a finitely generated vector space over $F$. \\
-
-We used this to show that every maximal ideal of $k[x_1,\dots,x_n]$ of an algebraically closed field $k$ must be of the form $$(x_1-a_1,\dots,x_n-a_n)$$ for $a_1,\dots,a_n\in F$. We can use this to conclude that any proper ideal of $k[x_1,\dots,x_n]$ has non-zero vanishing locus
-
-\begin{lmm}{}{} Let $k$ be an algebraically closed field. Let $I$ be a proper ideal of $k[x_1,\dots,x_n]$. Then we have $$\V(I)\neq\emptyset$$ \tcbline
-\begin{proof}
-Since $I$ is proper, it is contained in some maximal ideal $m$. We have seen from Commutative Algebra 1 that every maximal ideal of $m$ is of the form $$m=(x_1-a_1,\dots,x_n-a_n)$$ for $a_1,\dots,a_n\in F$. Let $f\in I\subseteq m$. Then $f$ is a linear combination of the linear polynomials $x_1-a_1,\dots,x_n-a_n$. But such polynomials vanish on $(a_1,\dots,a_n)$. Hence $f\in\V(m)\subseteq\V(I)$ so that $\V(I)$ is non-empty. 
-\end{proof}
-\end{lmm}
+Thus from now on we need not consider ourselves with the affine variety of a countable collection of polynomials since we know that the ring of polynomials of $n$ variables is finitely generated. \\
 
 If we restrict our attention of $V(-)$ only to ideals, we obtain the following nice properties of $V(-)$ which improves on the set based one. 
 
@@ -183,7 +173,7 @@ Let $U$ be an open set in the Zariski topology. By the above argument we conclud
 \end{proof}
 \end{lmm}
 
-Using the Zariski topology on $\A_k^n$, we can now endow a subspace topology on any affine algebraic set of $\A_k^n$. By definition, closed sets of an affine algebraic set $X$ can be characterized in the following way: $$\left\{\text{Closed subsets of }X\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{Y\cap X\;|\; Y\text{ is an affine algebraic set of }\A_k^n\right\}$$ Some funky things happen with the Zariski topology. 
+Using the Zariski topology on $\A_k^n$, we can now endow a subspace topology on any affine variety of $\A_k^n$. By definition, closed sets of an affine variety $X$ can be characterized in the following way: $$\left\{\text{Closed subsets of }X\right\}\;\;\overset{1:1}{\longleftrightarrow}\;\;\left\{Y\cap X\;|\; Y\text{ is an affine variety of }\A_k^n\right\}$$ Some funky things happen with the Zariski topology. 
 
 \begin{lmm}{}{} Let $k$ be a field. Then every closed set of $\A_k^1$ is a finite set. \tcbline
 \begin{proof}
@@ -212,15 +202,15 @@ Consider the diagonal $\{(x,x)\;|\;x\in\A^1\}\subseteq\A^2$. This set is closed 
 
 Recall that given a space and a subspace $A\subseteq B$, $P\subseteq A$ is closed in $A$ if $A$ is closed in $B$ and $P$ is closed in $B$. 
 
-\begin{lmm}{}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Then $Y\subseteq X$ is an affine algebraic subset of $X$ if and only if $Y$ is closed in $X$. \tcbline
+\begin{lmm}{}{} Let $k$ be a field. Let $X$ be an affine variety of $\A_k^n$. Then $Y\subseteq X$ is an affine algebraic subset of $X$ if and only if $Y$ is closed in $X$. \tcbline
 \begin{proof}
-Let $Y$ be an affine algebraic subset of $X$. Then we deduce from definitions that $Y\subseteq X$ and $Y$ is an affine algebraic set of $\A_k^n$. Hence $Y$ is closed in $\A_k^n$. Moreover, $X$ is a closed set of $X$. Thus $Y$ is closed in $X$. \\~\\
+Let $Y$ be an affine algebraic subset of $X$. Then we deduce from definitions that $Y\subseteq X$ and $Y$ is an affine variety of $\A_k^n$. Hence $Y$ is closed in $\A_k^n$. Moreover, $X$ is a closed set of $X$. Thus $Y$ is closed in $X$. \\~\\
 
-Now suppose that $Y\subseteq X$ is closed. By definition of closed sets, there exists some closed set $P\subseteq\A_k^n$ such that $Y=P\cap X$. Since $X$ and $P$ are affine varieties of $\A_k^n$, by prp1.1.4 the intersection $Y=P\cap X$ is also an affine algebraic set of $\A_k^n$. Thus we conclude. 
+Now suppose that $Y\subseteq X$ is closed. By definition of closed sets, there exists some closed set $P\subseteq\A_k^n$ such that $Y=P\cap X$. Since $X$ and $P$ are affine varieties of $\A_k^n$, by prp1.1.4 the intersection $Y=P\cap X$ is also an affine variety of $\A_k^n$. Thus we conclude. 
 \end{proof}
 \end{lmm}
 
-This lemma showed that there is a one-to-one correspondence in the following way: $$\left\{\text{Closed subsets of }X\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\text{Affine algebraic subsets of }X\right\}$$ for any affine algebraic set $X$ of $\A_k^n$. In fact, this simplifies quite a lot topologically. Recall that because closed and open sets are relative, we often need to state whether a set is closed relative to the subspace or closed in the underlying space. However, we see in the Zariski topology that they both really mean the same thing, namely it is the zero set of some collection of polynomials. 
+This lemma showed that there is a one-to-one correspondence in the following way: $$\left\{\text{Closed subsets of }X\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\text{Affine algebraic subsets of }X\right\}$$ for any affine variety $X$ of $\A_k^n$. In fact, this simplifies quite a lot topologically. Recall that because closed and open sets are relative, we often need to state whether a set is closed relative to the subspace or closed in the underlying space. However, we see in the Zariski topology that they both really mean the same thing, namely it is the zero set of some collection of polynomials. 
 
 \subsection{Irreducible Varieties}
 \begin{defn}{Irreducible Affine Varieties}{} Let $k$ be a field. An affine variety $V\subseteq\A_k^n$ is said to be irreducible if it is irreducible as a topological space. In other words, for any affine varieties $V_1,V_2\subseteq\A_k^n$ such that $$V=V_1\cup V_2$$ we have that either $V_1=V$ or $V_2=V$. 
@@ -252,7 +242,7 @@ As with any other field of maths, we need a correct notion of morphism between v
 \begin{defn}{Polynomial Maps}{} Let $k$ be a field. We say that a map of sets $f:\A_k^n\to\A_k^m$ is polynomial if there exists $f_1,\dots,f_m\in k[x_1,\dots,x_n]$ such that $$f(p)=(f_1(p),\dots,f_m(p))$$ for all $p\in\A_k^n$. 
 \end{defn}
 
-\begin{prp}{}{} Let $k$ be a field. Let $\phi:\A_k^n\to\A_k^m$ be a polynomial map. Let $W=\V(\{f_i\;|\;i\in I\})\subseteq\A_k^m$ be an affine algebraic set of $\A_k^m$. Then $$\phi^{-1}(W)=\V(\{f_i\circ\phi\;|\;i\in I\})$$ \tcbline
+\begin{prp}{}{} Let $k$ be a field. Let $\phi:\A_k^n\to\A_k^m$ be a polynomial map. Let $W=\V(\{f_i\;|\;i\in I\})\subseteq\A_k^m$ be an affine variety of $\A_k^m$. Then $$\phi^{-1}(W)=\V(\{f_i\circ\phi\;|\;i\in I\})$$ \tcbline
 \begin{proof}
 Let us first consider the case of the zero set $\V(g)$ of one polynomial. Suppose that $x\in\phi^{-1}(\V(g))$. Then $\phi(x)\in\V(g)$ which means that $g(\phi(x))=0$. The converse is entirely true. Hence we proved that $\phi^{-1}(\V(g))=\V(g\circ\phi)$. \\~\\
 
@@ -285,7 +275,7 @@ Indeed, when restricted to $V=\V(y-x^2)$, we conclude that $y-x^2=0$ and hence $
 
 \begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be affine varieties. Let $\phi:V\to W$ be a morphism. Then $\phi$ is continuous with respective to the Zariski topology. \tcbline
 \begin{proof}
-Let $U$ be an affine algebraic subset of $W$. Then $U$ is also an affine algebraic set in its own right. This means that $U=V(\{f_i\;|\;i\in I\})$ for some collection of polynomials. By 2.4.2, we have that $\phi^{-1}(U)=V(\{f_i\circ\phi\;|\;i\in I\})$ and hence is a closed set of $V$. Thus $\phi$ is continuous. 
+Let $U$ be an affine algebraic subset of $W$. Then $U$ is also an affine variety in its own right. This means that $U=V(\{f_i\;|\;i\in I\})$ for some collection of polynomials. By 2.4.2, we have that $\phi^{-1}(U)=V(\{f_i\circ\phi\;|\;i\in I\})$ and hence is a closed set of $V$. Thus $\phi$ is continuous. 
 \end{proof}
 \end{prp}
 
@@ -388,72 +378,6 @@ Since $V$ is Noetherian, $V$ is compact.
 
 Since every object we study in algebraic geometry is compact, this becomes not as useful as a notation in topology. However, we can redefine the notion of compactness so that it will give useful insights on varieties. 
 
-\subsection{The Absolute Hilbert's Nullstellensatz}
-Recall that in Commutative Algebra, Zariski's lemma implies that every maximal ideal of $k[x_1,\dots,x_n]$ is of the form $$(x_1-a_1,\dots,x_n-a_n)$$ for some $(a_1,\dots,a_n)\in k^n$. We aim to extend our classification of maximal ideals into a classification of prime and radical ideals in the polynomial ring $k[x_1,\dots,x_n]$. This will also give us geometric context for the polynomial ring. 
-
-\begin{thm}{Weak Hilbert's Nullstellensatz}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. If $I\neq k[x_1,\dots,x_n]$, then $\V(I)\neq\emptyset$. \tcbline
-\begin{proof}
-Since $I$ is not the entire ring, $I$ is contained in some maximal ideal of the polynomial ring. By Zariski's lemma, the maximal ideal is of the form $(x_1-a_1,\dots,x_n-a_n)$ for some $(a_1,\dots,a_n)\in k^n$. Then $$\{(a_1,\dots,a_n)\}\subseteq\V(x_1-a_1,\dots,x_n-a_n)\subseteq\V(I)$$ implies that $\V(I)$ is non-empty. 
-\end{proof}
-\end{thm}
-
-\begin{thm}{Hilbert's Nullstellensatz I}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. Then $$\I(\V(I))=\sqrt{I}$$ \tcbline
-\begin{proof}
-Clearly we have $\sqrt{I}\subseteq\I(\V(I))$. Now let $f\in\I(\V(I))$. let $g(x_1,\dots,x_n)=1-f(x_1,\dots,x_n)x_{n+1}$. Consider the ideal $J=I+(g)\subseteq k[x_1,\dots,x_{n+1}]$. For any $(a_1,\dots,a_{n+1})\in\A_k^{n+1}$, if $(a_1,\dots,a_n)\in\V(I)$ then $g(a_1,\dots,a_n,a_{n+1})=1$. If $(a_1,\dots,a_n)\notin\V(I)$, then there exists $h\in I\subseteq J$ such that $h(a_1,\dots,a_n)\neq 0$. In both cases, we can find $h\in J$ such that $h(a_1,\dots,a_{n+1})\neq 0$. Hence $\V(J)=\emptyset$. By the Weak Hilbert's Nullstellensatz, we have $J=k[x_1,\dots,x_{n+1}]$. So there exists $h_0,\dots,h_r\in J$ and $f_1,\dots,f_r\in I$ such that $$1=(1-fx_{n+1})h_0+h_1f_1+\dots+h_rf_r$$ Substituting $x_{n+1}=1/f(x_1,\dots,x_n)$ gives an equation in the fraction field $k(x_1,\dots,x_n)$: $$1=\sum_{i=1}^nf_i(x_1,\dots,x_n)h_i\left(x_1,\dots,x_n,\frac{1}{f(x_1,\dots,x_n)}\right)$$ Clearing denominators by multiplying powers of $f$ give the equation $$f^m=\sum_{i=1}^nf_i(x_1,\dots,x_n)f^mh_i\left(x_1,\dots,x_n,\frac{1}{f(x_1,\dots,x_n)}\right)$$ in $k[x_1,\dots,x_n]$, where each $f^mh_i\in k[x_1,\dots,x_n]$. Since $f_i\in I$, this shows that $f\in I$. 
-\end{proof}
-\end{thm}
-
-\begin{eg}{}{} The Hilbert's nullstellensatz fails on a field $k$ that is not algebraically closed. \tcbline
-\begin{proof}
-Consider the variety $\V(x^2+1)\subseteq\A_\R^1$. This set is empty. But $\I(\emptyset)=\R[x]$. But $(x^2+1)$ is a radical ideal. And in particular $(x^2+1)$ does not generate the entire ring $\R[x]$. 
-\end{proof}
-\end{eg}
-
-\begin{thm}{Hilbert's Nullstellensatz II}{} Let $k$ be an algebraically closed field. Then the following are true. 
-\begin{itemize}
-\item There is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine varieties}\\\text{of }\A_k^n}\right\}$$ between the radical ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
-\item There is an inclusion reversing bijection $$\text{Spec}(k[x_1,\dots,x_n])=\left\{\substack{\text{Prime ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Irreducible affine}\\\text{varieties of }\A_k^n}\right\}$$ between the prime ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
-\item There is a bijection $$\text{maxSpec}(k[x_1,\dots,x_n])=\left\{\substack{\text{Maximal ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ between the maximal ideals of $k[x_1,\dots,x_n]$ and points in $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
-\end{itemize} \tcbline
-\begin{proof}~\\
-\begin{itemize}
-\item Let $I\subseteq k[x_1,\dots,x_n]$ be a radical ideal. By Hillbert's Nullstellensatz I, we have $\I(\V(I))=I$. Moreover, we have see that $\I(V)$ is a radical ideal for any affine variety $V\subseteq\A_k^n$. Finally, we have seen that $\V(\I(V))=V$. Hence this is a well defined bijection. We have also see that the bijection is inclusion reversing. 
-\item Let $V\subseteq\A_k^n$ be an irreducible affine variety. We have seen that $\I(V)$ is a prime ideal. Also, if $I$ is a prime ideal, then $\V(I)$ is irreducible since $\I(\V(I))=I$ is a prime ideal. Hence the above bijection descends to a well defined inclusion reversing bijection. 
-\item Let $m$ be a maximal ideal. It is clear that $\V(m)$ is non-empty and contains at least one point $(a_1,\dots,a_n)\in\V(m)$. Suppose for a contradiction that $(b_1,\dots,b_n)\in\V(m)$ is another point. Then $\{(b_1,\dots,b_n)\}\subset\V(m)$ and applying $\I(-)$ gives $$m=\I(\V(m))\subset\I(\{b_1,\dots,b_n)\})\neq k[x_1,\do,x_n]$$ This is a contradiction because $m$ is maximal. Thus $\V(m)$ consists of exactly one point of $\A_k^m$. \\~\\
-
-Now if $(a_1,\dots,a_n)$ is a point in $\A_k^n$, then $\I\{((a_1,\dots,a_n)\})$ is an ideal that contains the polynomials $(x_1-a_1),\dots,(x_n-a_n)$. The evaluation homomorphism on the point $(a_1,\dots,a_n)$ shows that $(x_1-a_1,\dots,x_n-a_n)$ is a maximal ideal, hence $$(x_1-a_1,\dots,x_n-a_n)=\I\{(a_1,\dots,a_n)\})$$ and we are done. \\~\\
-
-By Hilbert's Nullstellensatz I, we have that $\I(\V(m))=m$. By 3.1.4, we have that $\V\I(\{(a_1,\dots,a_n)\})=\{(a_1,\dots,a_n)\}$ so $\V(-)$ and $\I(-)$ gives a bijection. 
-\end{itemize}
-\end{proof}
-\end{thm}
-
-\begin{lmm}{}{} Let $k$ be an algebraically closed field. Then there is a one-to-one correspondence $$\{(x_1-a_1,\dots,x_n-a_n)\;|\;(a_1,\dots,a_n)\in F^n\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ given by $(x_1-a_1,\dots,x_n-a_n)\mapsto(a_1,\dots,a_n)$. \tcbline
-\begin{proof}
-Follows from the above and Zariski's lemma. 
-\end{proof}
-\end{lmm}
-
-Note that this bijection is compatible with subset inclusion in the sense of proposition 1.2.3. Bijections of this form that induce a relation on subsets are called Galois connections or Galois correspondence, mimicking his work in Galois theory. 
-
-\begin{prp}{}{} Let $k$ be an algebraically closed field. Every radical ideal $J$ in $k[x_1,\dots,x_n]$ is a finite intersection of prime ideals. \tcbline
-\begin{proof}
-Given a radical ideal $I$, translate it over to its corresponding affine variety $V(I)$. Then the affine variety can be decomposed into a finite union of algebraic varieties $V(I)=\bigcup_{i=1}^nV_i$. These algebraic varities are able to be matched with a prime ideal by the above proposition. This bijection conjugates the union to the intersection and we are done. 
-\end{proof}
-\end{prp}
-
-Up until this point, we constructed a small dictionary between algebra and geometry: \\
-\begin{center}\begin{tabular}{c|c}
-Algebra & Geometry\\
-\hline
-The Polynomial Ring $k[x_1,\dots,x_n]$ & The Space $\A_k^n$\\
-Radical Ideals of $k[x_1,\dots,x_n]$ & Affine Varieties in $\A_k^n$\\
-Prime Ideals of $k[x_1,\dots,x_n]$ & Affine Algebraic Varieties in $\A_k^n$\\
-Maximal Ideals of $k[x_1,\dots,x_n]$ & Points in $\A_k^n$
-\end{tabular}\end{center}
-
-This is the absolute point of view in the sense we are considering every object in geometry under the setting of $\A_k^n$. However we see that it is easy to replace $\A_k^n$ with an affine variety. However we do need a corresponding notion in the algebra side. This is called the coordinate ring. 
-
 \subsection{The Coordinate Ring}
 We have worked with the case of $\A_k^n$ up until this point, and considered varieties $V$ of $\A_k^n$  as objects of $\A_k^n$. We would also like to develop the relative point of view. This means that we think of each variety $V$ as the background space, and think of subvarieties of $V$. In order to establish the Nullstellensatz for this case, we need to define the corresponding algebraic object, similar to how the affine space $\A_k^n$ corresponds to the polynomial ring $k[x_1,\dots,x_n]$. 
 
@@ -551,34 +475,17 @@ Now suppose that $F$ is not dominant. Then $\overline{F(V)}\subseteq W$ is a str
 \end{proof}
 \end{lmm}
 
-\subsection{Relation to Reduced and Finitely Generated Algebras}
 \begin{prp}{}{} Let $k$ be a field. Let $R$ be a $k$-algebra. Then $R$ is reduced and finitely generated over $k$ if and only if $R$ is isomorphic to the coordinate ring of some affine variety $V$ of $\A_k^n$. \tcbline
 \begin{proof}
 It is clear that every coordinate ring is a reduced and finitely generated $k$-algebra. Let $R$ be a reduced and finitely generated $k$-algebra. Suppose that $R$ is generated by $b_1,\dots,b_n$ over $k$. Then be definition of a finitely generated $k$-algebra, there is a surjective homomorphism $$\varphi:k[x_1,\dots,x_n]\to R$$ defined by $x_i\mapsto b_i$. By the first isomorphism theorem for $k$-algebras, there is an isomorphism $$\frac{k[x_1,\dots,x_n]}{\ker(\varphi)}\cong R$$ induced by $\varphi$. Now $R$ is reduced, hence $\ker(\varphi)$ is a radical ideal. By Hilbert's Nullstellensatz (it corollary), there exists an affine variety $V\subseteq\A_k^n$ such that $\I(V)=\ker(\varphi)$. Thus we conclude. 
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $k$ be a field. Let $$R\cong k[V]\;\;\;\;\text{ and }\;\;\;\; S\cong k[W]$$ be finitely generated and reduced $k$-algebra for $V,W$ affine varieties over $k$. Let $\phi:S\to R$ be a $k$-algebra homomorphism. Let $V',W'$ be affine varieties over $k$ such that $$R\cong k[V']\;\;\;\;\text{ and }\;\;\;\; S\cong k[W']$$ By 3.3.7 there exists unique isomorphisms $\alpha:V'\to V$ and $\beta:W'\to W$. Then the unique morphisms $F:V\to W$ and $G:V'\to W'$ given by 3.3.7 is such that the following diagram commutes: \\~\\
-\adjustbox{scale=1.0,center}{\begin{tikzcd}
-	{k[V]} & {k[W]} && {V'} & {W'} \\
-	{k[V']} & {k[W']} && V & W
-	\arrow["{F^\ast}", from=1-1, to=1-2]
-	\arrow["{\alpha^\ast, \cong}"', from=1-1, to=2-1]
-	\arrow["{\beta^\ast, \cong}", from=1-2, to=2-2]
-	\arrow["G", from=1-4, to=1-5]
-	\arrow["\alpha"', from=1-4, to=2-4]
-	\arrow["\beta", from=1-5, to=2-5]
-	\arrow["{G^\ast}"', from=2-1, to=2-2]
-	\arrow["F"', from=2-4, to=2-5]
-\end{tikzcd}} \\~\\
-\end{prp}
-
 \begin{prp}{}{} Let $k$ be a field. Let $V,W$ be affine varieties over $k$. Then $V\cong W$ if and only if $k[V]\cong k[W]$. 
 \end{prp}
 
-\begin{crl}{}{} Let $k$ be a field. Then there is a one-to-one bijection $$\frac{\left\{\text{Affine varieties over }k\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}}{\cong}\;\;\frac{\left\{\substack{\text{Reduced and }\\\text{finitely generated }k\text{-algebra}}\right\}}{\cong}$$ where the equivalence classes are precisely the isomorphism classes. 
+\begin{crl}{}{} Let $k$ be a field. Then there is a one-to-one bijection $$\frac{\left\{\text{Affine varieties over }k\right\}}{\cong}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\frac{\left\{\substack{\text{Reduced and }\\\text{finitely generated }k\text{-algebra}}\right\}}{\cong}$$ where the equivalence classes are precisely the isomorphism classes. 
 \end{crl}
-
 
 The upshot is that all of this proves the following: The category of affine varieties over a field $k$ is equivalent to the category of finitely generated and reduced $k$-algebras. Indeed we have defined two functors in the following way:
 \begin{itemize}
@@ -588,8 +495,8 @@ The upshot is that all of this proves the following: The category of affine vari
 
 Notice that to show that these two functors define an equivalence of categories, we need to show that composition in both ways is naturally isomorphic to the identity functor. This means that we want to show that there exist isomorphisms in the vertical directions such that the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	V & W && {k[V']} & {k[W']} \\
-	{V'} & {W'} && {k[V]} & {k[W]}
+	V & W && {k[W']} & {k[V']} \\
+	{V'} & {W'} && {k[W]} & {k[V]}
 	\arrow["\phi", from=1-1, to=1-2]
 	\arrow[from=1-1, to=2-1]
 	\arrow[from=1-2, to=2-2]
@@ -599,26 +506,91 @@ Notice that to show that these two functors define an equivalence of categories,
 	\arrow["\psi"', from=2-1, to=2-2]
 	\arrow["{\phi^\ast}"', from=2-4, to=2-5]
 \end{tikzcd}} \\~\\
-But this is precisely the content of 3.4.2
- 
+
+\subsection{The Absolute Hilbert's Nullstellensatz}
+Recall that in Commutative Algebra, Zariski's lemma implies that every maximal ideal of $k[x_1,\dots,x_n]$ is of the form $$(x_1-a_1,\dots,x_n-a_n)$$ for some $(a_1,\dots,a_n)\in k^n$. We aim to extend our classification of maximal ideals into a classification of prime and radical ideals in the polynomial ring $k[x_1,\dots,x_n]$. This will also give us geometric context for the polynomial ring. 
+
+\begin{thm}{Weak Hilbert's Nullstellensatz}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. If $I\neq k[x_1,\dots,x_n]$, then $\V(I)\neq\emptyset$. \tcbline
+\begin{proof}
+Since $I$ is not the entire ring, $I$ is contained in some maximal ideal of the polynomial ring. By Zariski's lemma, the maximal ideal is of the form $(x_1-a_1,\dots,x_n-a_n)$ for some $(a_1,\dots,a_n)\in k^n$. Then $$\{(a_1,\dots,a_n)\}\subseteq\V(x_1-a_1,\dots,x_n-a_n)\subseteq\V(I)$$ implies that $\V(I)$ is non-empty. 
+\end{proof}
+\end{thm}
+
+\begin{thm}{Hilbert's Nullstellensatz I}{} Let $k$ be an algebraically closed field. Let $I$ be an ideal of $k[x_1,\dots,x_n]$. Then $$\I(\V(I))=\sqrt{I}$$ \tcbline
+\begin{proof}
+Clearly we have $\sqrt{I}\subseteq\I(\V(I))$. Now let $f\in\I(\V(I))$. let $g(x_1,\dots,x_n)=1-f(x_1,\dots,x_n)x_{n+1}$. Consider the ideal $J=I+(g)\subseteq k[x_1,\dots,x_{n+1}]$. For any $(a_1,\dots,a_{n+1})\in\A_k^{n+1}$, if $(a_1,\dots,a_n)\in\V(I)$ then $g(a_1,\dots,a_n,a_{n+1})=1$. If $(a_1,\dots,a_n)\notin\V(I)$, then there exists $h\in I\subseteq J$ such that $h(a_1,\dots,a_n)\neq 0$. In both cases, we can find $h\in J$ such that $h(a_1,\dots,a_{n+1})\neq 0$. Hence $\V(J)=\emptyset$. By the Weak Hilbert's Nullstellensatz, we have $J=k[x_1,\dots,x_{n+1}]$. So there exists $h_0,\dots,h_r\in J$ and $f_1,\dots,f_r\in I$ such that $$1=(1-fx_{n+1})h_0+h_1f_1+\dots+h_rf_r$$ Substituting $x_{n+1}=1/f(x_1,\dots,x_n)$ gives an equation in the fraction field $k(x_1,\dots,x_n)$: $$1=\sum_{i=1}^nf_i(x_1,\dots,x_n)h_i\left(x_1,\dots,x_n,\frac{1}{f(x_1,\dots,x_n)}\right)$$ Clearing denominators by multiplying powers of $f$ give the equation $$f^m=\sum_{i=1}^nf_i(x_1,\dots,x_n)f^mh_i\left(x_1,\dots,x_n,\frac{1}{f(x_1,\dots,x_n)}\right)$$ in $k[x_1,\dots,x_n]$, where each $f^mh_i\in k[x_1,\dots,x_n]$. Since $f_i\in I$, this shows that $f\in I$. 
+\end{proof}
+\end{thm}
+
+\begin{eg}{}{} The Hilbert's nullstellensatz fails on a field $k$ that is not algebraically closed. \tcbline
+\begin{proof}
+Consider the variety $\V(x^2+1)\subseteq\A_\R^1$. This set is empty. But $\I(\emptyset)=\R[x]$. But $(x^2+1)$ is a radical ideal. And in particular $(x^2+1)$ does not generate the entire ring $\R[x]$. 
+\end{proof}
+\end{eg}
+
+\begin{thm}{Hilbert's Nullstellensatz II}{} Let $k$ be an algebraically closed field. Then the following are true. 
+\begin{itemize}
+\item There is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[x_1,\dots,x_n]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine varieties}\\\text{of }\A_k^n}\right\}$$ between the radical ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
+\item There is an inclusion reversing bijection $$\text{Spec}(k[x_1,\dots,x_n])\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Irreducible affine}\\\text{varieties of }\A_k^n}\right\}$$ between the prime ideals of $k[x_1,\dots,x_n]$ and affine varieties of $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
+\item There is a bijection $$\text{maxSpec}(k[x_1,\dots,x_n])\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ between the maximal ideals of $k[x_1,\dots,x_n]$ and points in $\A_k^n$ given by $\V(-)$ and $\I(-)$. 
+\end{itemize} \tcbline
+\begin{proof}~\\
+\begin{itemize}
+\item Let $I\subseteq k[x_1,\dots,x_n]$ be a radical ideal. By Hillbert's Nullstellensatz I, we have $\I(\V(I))=I$. Moreover, we have see that $\I(V)$ is a radical ideal for any affine variety $V\subseteq\A_k^n$. Finally, we have seen that $\V(\I(V))=V$. Hence this is a well defined bijection. We have also see that the bijection is inclusion reversing. 
+\item Let $V\subseteq\A_k^n$ be an irreducible affine variety. We have seen that $\I(V)$ is a prime ideal. Also, if $I$ is a prime ideal, then $\V(I)$ is irreducible since $\I(\V(I))=I$ is a prime ideal. Hence the above bijection descends to a well defined inclusion reversing bijection. 
+\item Let $m$ be a maximal ideal. It is clear that $\V(m)$ is non-empty and contains at least one point $(a_1,\dots,a_n)\in\V(m)$. Suppose for a contradiction that $(b_1,\dots,b_n)\in\V(m)$ is another point. Then $\{(b_1,\dots,b_n)\}\subset\V(m)$ and applying $\I(-)$ gives $$m=\I(\V(m))\subset\I(\{b_1,\dots,b_n)\})\neq k[x_1,\do,x_n]$$ This is a contradiction because $m$ is maximal. Thus $\V(m)$ consists of exactly one point of $\A_k^m$. \\~\\
+
+Now if $(a_1,\dots,a_n)$ is a point in $\A_k^n$, then $\I\{((a_1,\dots,a_n)\})$ is an ideal that contains the polynomials $(x_1-a_1),\dots,(x_n-a_n)$. The evaluation homomorphism on the point $(a_1,\dots,a_n)$ shows that $(x_1-a_1,\dots,x_n-a_n)$ is a maximal ideal, hence $$(x_1-a_1,\dots,x_n-a_n)=\I\{(a_1,\dots,a_n)\})$$ and we are done. \\~\\
+
+By Hilbert's Nullstellensatz I, we have that $\I(\V(m))=m$. By 3.1.4, we have that $\V\I(\{(a_1,\dots,a_n)\})=\{(a_1,\dots,a_n)\}$ so $\V(-)$ and $\I(-)$ gives a bijection. 
+\end{itemize}
+\end{proof}
+\end{thm}
+
+\begin{lmm}{}{} Let $k$ be an algebraically closed field. Then there is a one-to-one correspondence $$\{(x_1-a_1,\dots,x_n-a_n)\;|\;(a_1,\dots,a_n)\in k^n\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\\A_k^n}\right\}$$ given by $(x_1-a_1,\dots,x_n-a_n)\mapsto(a_1,\dots,a_n)$. \tcbline
+\begin{proof}
+Follows from the above and Zariski's lemma. 
+\end{proof}
+\end{lmm}
+
+Note that this bijection is compatible with subset inclusion in the sense of proposition 1.2.3. Bijections of this form that induce a relation on subsets are called Galois connections or Galois correspondence, mimicking his work in Galois theory. 
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Every radical ideal $J$ in $k[x_1,\dots,x_n]$ is a finite intersection of prime ideals. \tcbline
+\begin{proof}
+Given a radical ideal $I$, translate it over to its corresponding affine variety $V(I)$. Then the affine variety can be decomposed into a finite union of algebraic varieties $V(I)=\bigcup_{i=1}^nV_i$. These algebraic varities are able to be matched with a prime ideal by the above proposition. This bijection conjugates the union to the intersection and we are done. 
+\end{proof}
+\end{prp}
+
+Up until this point, we constructed a small dictionary between algebra and geometry: \\
+\begin{center}\begin{tabular}{c|c}
+Algebra & Geometry\\
+\hline
+The Polynomial Ring $k[x_1,\dots,x_n]$ & The Space $\A_k^n$\\
+Radical Ideals of $k[x_1,\dots,x_n]$ & Affine Varieties in $\A_k^n$\\
+Prime Ideals of $k[x_1,\dots,x_n]$ & Affine Algebraic Varieties in $\A_k^n$\\
+Maximal Ideals of $k[x_1,\dots,x_n]$ & Points in $\A_k^n$
+\end{tabular}\end{center}
+
+This is the absolute point of view in the sense we are considering every object in geometry under the setting of $\A_k^n$. However we see that it is easy to replace $\A_k^n$ with an affine variety. However we do need a corresponding notion in the algebra side. This is called the coordinate ring. 
+
 \subsection{The Relative Nullstellensatz}
 We also have the relative version of Hilbert's Nullstellensatz. We begin with the relative version of the vanishing loci and ideal. 
 
 \begin{defn}{Relative Vanishing Loci and Ideal}{} Let $k$ be a field. Let $X$ be an affine variety of $\A_k^n$. 
 \begin{itemize}
-\item Let $F\subset k[X]$ be a subset. Define the vanishing loci of $F$ in $X$ to be $$\V_X(F)=\{p\in X\;|;f(p)=0\text{ for all }f\in F\}$$
+\item Let $F\subset k[X]$ be a subset. Define the vanishing loci of $F$ in $X$ to be $$\V_X(F)=\{p\in X\;|\;f(p)=0\text{ for all }f\in F\}$$
 \item Let $S\subset X$ be a subset of the affine variety. Define the ideal of $S$ in $X$ to be $$\I_X(S)=\{f\in k[X]\;|\;f(s)=0\text{ for all }s\in S\}$$
 \end{itemize}
 \end{defn}
 
-\begin{lmm}{}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Let $Y$ be an affine algebraic subset of $X$. Then $$k[Y]=\frac{k[X]}{\I_X(Y)}$$
+\begin{lmm}{}{} Let $k$ be a field. Let $X$ be an affine variety of $\A_k^n$. Let $Y$ be an affine algebraic subset of $X$. Then $$k[Y]=\frac{k[X]}{\I_X(Y)}$$
 \end{lmm}
 
-\begin{thm}{Relative Nullstellensatz}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Then the following are true. 
+\begin{thm}{Relative Nullstellensatz}{} Let $k$ be a field. Let $X$ be an affine variety of $\A_k^n$. Then the following are true. 
 \begin{itemize}
 \item There is an inclusion reversing bijection $$\left\{\substack{\text{Radical ideals of}\\ k[X]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine subvarieties}\\ W\text{ of }V}\right\}$$
-\item There is an inclusion reversing bijection $$\left\{\substack{\text{Prime ideals of}\\ k[X]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Affine algebraic}\\\text{subvarieties of }X}\right\}$$
-\item There is an inclusion reversing bijection $$\left\{\substack{\text{Maximal ideals of}\\ k[X]}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\X}\right\}$$
+\item There is an inclusion reversing bijection $$\text{Spec}(k[X])\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Irreducible affine}\\\text{varieties of }X}\right\}$$
+\item There is an inclusion reversing bijection $$\text{maxSpec}(k[X])\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Points in}\\X}\right\}$$
 \end{itemize} 
 all of which given by $\V_X(-)$ and $\I_X(-)$. \tcbline
 \begin{proof}
@@ -632,8 +604,8 @@ Moreover, this bijection is inclusion reversing because the Hilbert's Nullstelle
 \end{proof}
 \end{thm}
 
-\begin{thm}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an affine algebraic set. Then there exists $V_1,\dots,V_n$ affine algebraic varieties such that $$V=V_1\cup\cdots\cup V_n$$ and $V_i$ does not contain $V_j$ for $i\neq j$. Moreover, such a decomposition is unique up to reordering of the varieties. 
-\end{thm}
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an affine variety. Then there exists $V_1,\dots,V_n$ affine algebraic varieties such that $$V=V_1\cup\cdots\cup V_n$$ and $V_i$ does not contain $V_j$ for $i\neq j$. Moreover, such a decomposition is unique up to reordering of the varieties. 
+\end{prp}
 
 \begin{defn}{Irreducible Components}{} Let $k$ be an algebraically closed field. Let $V\subseteq\A_k^n$ be an affine variety. Define the irreducible components of $V$ to be the full collection of irreducible algebraic varieties $V_1,\dots,V_n$ in the decomposition of $V$ into irreducible varieties. 
 \end{defn}
@@ -644,7 +616,7 @@ Suppose that $V=V_1\cup\cdots\cup V_n$ is the decomposition of $V$ into irreduci
 \end{proof}
 \end{lmm}
 
-\begin{lmm}{}{} Let $k$ be a field. Let $X$ be an affine algebraic set of $\A_k^n$. Then there is a bijection $$\left\{\substack{\text{Irreducible}\\\text{Components of } X}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Minimal prime}\\\text{ideals of }k[X]}\right\}$$ given by $V_X(-)$ and $I_X(-)$. 
+\begin{lmm}{}{} Let $k$ be a field. Let $X$ be an affine variety of $\A_k^n$. Then there is a bijection $$\left\{\substack{\text{Irreducible}\\\text{Components of } X}\right\}\;\;\overset{\text{1:1}}{\longleftrightarrow}\;\;\left\{\substack{\text{Minimal prime}\\\text{ideals of }k[X]}\right\}$$ given by $\V_X(-)$ and $\I_X(-)$. 
 \end{lmm}
 
 We can now expand our dictionary into: \\
@@ -658,7 +630,7 @@ Maximal Ideals of $k[X]$ & Points in $X$\\
 Minimal Prime Ideals of $k[X]$ & Irreducible Components of $X$
 \end{tabular}\end{center}
 
-All such bijections are moreover given by the construction of $V_X(-)$ and $I_X(-)$. 
+All such bijections are moreover given by the construction of $\V_X(-)$ and $\I_X(-)$. 
 
 \pagebreak
 \section{Introduction to Projective Varieties}
@@ -857,7 +829,7 @@ Now suppose that $F\in\I^H(\overline{W})$. Taking the projective vanishing locus
 \end{proof}
 \end{prp}
 
-\begin{crl}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Choose an affine piece $U_i\subseteq\Prj_\C^n$. Then the projective closure of $V\subseteq U_i$ in $\Prj_\C^n$ is given by $$\V^H(H_i(f)\;|\;f\in I)$$ \tcbline
+\begin{crl}{}{} Let $V\subseteq\A_\C^n$ be an affine variety. Choose an affine piece $U_i\subseteq\Prj_\C^n$. Then the projective closure of $V\subseteq U_i$ in $\Prj_\C^n$ is given by $$\overline{V}=\V^H(H_i(f)\;|\;f\in I)$$ \tcbline
 \begin{proof}
 Applying the above proposition gives $$\V^H(H_i(f)\;|\;f\in I)=\V^H(\I^H(\overline{V}))=\overline{V}$$
 \end{proof}
@@ -999,36 +971,17 @@ The affine maps between two open cover is given by the rational functions $\frac
 \begin{prp}{}{} There is a bijection $$\Prj^n\;\;\overset{1:1}{\leftrightarrow}\;\;\{V\subseteq\Prj^n\;|\;V\text{ is a hyperplane in }\Prj^n\}$$ given by $[A_0:\cdots:A_n]\mapsto\V(A_0x_0+\cdots+A_nx_n)$. 
 \end{prp}
 
-\begin{defn}{Hypersurfaces in Projective Space}{} Let $d\in\N$. A hypersurface of degree $d$ in $\Prj^n$ is a projective variety of the form $$\V(A_{(d,0,0,0)}x_0^d+A_{(d-1,0,0,0)}x_0^{d-1}x_1+\cdots+A_{(0,0,0,d)}x_n^d)$$
+\begin{defn}{Hypersurfaces in Projective Space}{} Let $d\in\N$. A hypersurface of degree $d$ in $\Prj^n$ is a projective variety of the form $$\V^H(A_{(d,0,0,0)}x_0^d+A_{(d-1,0,0,0)}x_0^{d-1}x_1+\cdots+A_{(0,0,0,d)}x_n^d)$$
 \end{defn}
 
 \begin{prp}{}{} Let $d\in\N$. There is a bijection $$\Prj^{\binom{n+d}{d}-1}\;\;\overset{1:1}{\leftrightarrow}\;\;\{V\subseteq\Prj^n\;|\;V\text{ is a hypersurface in }\Prj^n\text{ of degree }d\}$$ given by $[A_{(d,0,0,0)}:\cdots:A_{(0,0,0,d)}]\mapsto\V(A_{(d,0,0,0)}x_0^d+\cdots+A_{(0,0,0,d)}x_n^d)$. 
 \end{prp}
 
 \subsection{Five Points Determine a Conic}
-\begin{defn}{Conics in $\Prj^2$}{} A conic in $\Prj^2$ is a hypersurface in $\Prj^2$ of degree $2$. Explicitly, a conic has the form $$\V(ax^2+bxy+cxz+dy^2+eyz+fz^2)$$
+\begin{defn}{Conics in $\Prj^2$}{} A conic in $\Prj^2$ is a hypersurface in $\Prj^2$ of degree $2$. Explicitly, a conic has the form $$\V^H(ax^2+bxy+cxz+dy^2+eyz+fz^2)$$
 \end{defn}
 
 \begin{prp}{}{} Let $p_1,\dots,p_4\in\Prj^2$ be points. Then there are infinitely many conics passing through $p_1,\dots,p_4$. 
-\end{prp}
-
-\begin{prp}{}{} Let $p_1,\dots,p_6\in\Prj^2$ be points. Then no conic passes through $p_1,\dots,p_6$. 
-\end{prp}
-
-\begin{prp}{}{} Let $p_1,\dots,p_5\in\Prj^2$ be points. If no four of $p_1,\dots,p_5$ lie on a common line, then there exists a unique conic passing through $p_1,\dots,p_5$. \tcbline
-\begin{proof}
-Let $p=[\alpha,\beta,\gamma]$ be a point in $\Prj^2$. Consider the set of all conics in $\Prj^2$ passing through $p$. It is given by 
-\begin{align*}
-&\;\;\;\;\;\;\{V=\V^H(ax^2+bxy+cxz+dy^2+eyz+fz^2)\;|\;p\in V\}\\
-&\overset{1:1}{\leftrightarrow}\;\;\{a,b,c,d,e,f\;|\;p\in\V^H(ax^2+bxy+cxz+dy^2+eyz+fz^2)\}\\
-&\overset{1:1}{\leftrightarrow}\;\;H_p=\V^H(\alpha^2a+\alpha\beta b+\alpha\gamma c+\beta^2d+\beta\gamma e+\gamma^2f)\subseteq\Prj_{[a:b:c:d:e:f]}^2
-\end{align*}
-This determines a map of sets $\Prj^2\to\{\text{ Hyperplanes in }\Prj^5\}$. Since hyperplanes in $\Prj^5$ are in bijection with $\Prj^5$, there is a map $\Prj^2\to\Prj^5$ defined by $$[\alpha,\beta,\gamma]\mapsto[\alpha^2,\alpha\beta,\alpha\gamma,\beta^2,\beta\gamma,\gamma^2]$$ which is precisely the veronnese embedding $\nu_{2,2}:\Prj^2\to\Prj^5$. \\~\\
-
-Now we prove that if no four of $p_1,\dots,p_5$ lie on a common line, then $\nu_{2,2}(p_1),\dots,\nu_{2,2}(p_5)$ are linearly independent. \\~\\
-
-Finally, since the five points $\nu_{2,2}(p_1),\dots,\nu_{2,2}(p_5)$ are linearly independent, the intersection of the hyperplanes corresponding to the five points is a unique point in $\Prj^5$. This corresponds to a unique conic in $\Prj^2$. Hence we are done. 
-\end{proof}
 \end{prp}
 
 \begin{defn}{Degenerate Conics}{} Let $C=\V^H(f)\subseteq\Prj^2$ be a conic. 
@@ -1037,6 +990,25 @@ Finally, since the five points $\nu_{2,2}(p_1),\dots,\nu_{2,2}(p_5)$ are linearl
 \item We say that $C$ is degenerate if $f$ is reducible. 
 \end{itemize}
 \end{defn}
+
+\begin{lmm}{}{} There is a bijection $$\Prj^5\;\;\overset{1:1}{\longleftrightarrow}\;\;\{V\subseteq\Prj^2\;|\;V\text{ is a conic }\}$$ In particular, the set of degenerate conics is a closed subset of $\Prj^5$. 
+\end{lmm}
+
+\begin{prp}{}{} Let $p_1,\dots,p_5\in\Prj^2$ be points. If no four of $p_1,\dots,p_5$ lie on a common line, then there exists a unique conic passing through $p_1,\dots,p_5$. \tcbline
+\begin{proof}
+Let $p=[\alpha,\beta,\gamma]$ be a point in $\Prj^2$. Consider the set of all conics in $\Prj^2$ passing through $p$. It is given by 
+\begin{align*}
+&\;\;\;\;\;\;\{V=\V^H(ax^2+bxy+cxz+dy^2+eyz+fz^2)\;|\;p\in V\}\\
+&\overset{1:1}{\leftrightarrow}\;\;\{a,b,c,d,e,f\;|\;p\in\V^H(ax^2+bxy+cxz+dy^2+eyz+fz^2)\}\\
+&\overset{1:1}{\leftrightarrow}\;\;H_p=\V^H(\alpha^2a+\alpha\beta b+\alpha\gamma c+\beta^2d+\beta\gamma e+\gamma^2f)\subseteq\Prj_{[a:b:c:d:e:f]}^5
+\end{align*}
+This determines a map of sets $\Prj^2\to\{\text{ Hyperplanes in }\Prj^5\}$. Since hyperplanes in $\Prj^5$ are in bijection with $\Prj^5$, there is a map $\Prj^2\to\Prj^5$ defined by $$[\alpha,\beta,\gamma]\mapsto[\alpha^2,\alpha\beta,\alpha\gamma,\beta^2,\beta\gamma,\gamma^2]$$ which is precisely the veronnese embedding $\nu_{2,2}:\Prj^2\to\Prj^5$. \\~\\
+
+Now we prove that if no four of $p_1,\dots,p_5$ lie on a common line, then $\nu_{2,2}(p_1),\dots,\nu_{2,2}(p_5)$ are linearly independent. \\~\\
+
+Finally, since the five points $\nu_{2,2}(p_1),\dots,\nu_{2,2}(p_5)$ are linearly independent, the intersection of the hyperplanes corresponding to the five points is a unique point in $\Prj^5$. This corresponds to a unique conic in $\Prj^2$. Hence we are done. 
+\end{proof}
+\end{prp}
 
 \begin{prp}{}{} Let $p_1,\dots,p_5\in\Prj^2$ be points. Then the following are true. 
 \begin{itemize}
@@ -1197,7 +1169,7 @@ Similar to homeomorphisms between spaces, it is not enough to just require that 
 \end{prp}
 
 \subsection{Redefining Varieties}
-\begin{defn}{Extended Definition of Affine Varieties}{} A quasiprojective variety is said to be affine if it is isomorphic to a closed subset of affine space. 
+\begin{defn}{Affine Varieties}{} Let $k$ be a field. A quasiprojective variety $X$ over $k$ is said to be affine if it is isomorphic to a closed subset of affine space $\A_k^n$. 
 \end{defn}
 
 We should think of affine varieties in this new definition as a purely abstract construct. Previously, we only thought of affine varieties with a particular embedding into $\A_k^n$. This is similar to how we first learn of manifolds without being embedded into $\R^n$. \\
@@ -1229,20 +1201,32 @@ Notice that the inverse above is a rational map. Recall that in earlier sections
 
 Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be closed subsets of affine space. Recall that $V\times W\subseteq\A_k^{n+m}$ is in general not a closed subset of $\A_k^{n+m}$ and therefore not an affine variety in the sense of previous sections. 
 
-\begin{defn}{The Coordinate Ring}{} Let $X$ be an affine variety. Choose an isomorphism $F:X\overset{\cong}{\longrightarrow}V$ where $V$ is a closed subset of affine space. Define the coordinate ring of $X$ to be the pullback of the coordinate ring $\C[V]$ of $V$ via $F$. 
+\begin{defn}{The Coordinate Ring}{} Let $k$ be an algebraically closed field. Let $X$ be an affine variety. Choose an isomorphism $F:X\overset{\cong}{\longrightarrow}V$ where $V\subseteq\A_k^n$ is a closed subset of affine space. Define the coordinate ring of $X$ to be the pullback of the coordinate ring $\C[V]$ of $V$ via $F$. 
 \end{defn}
-
-\begin{prp}{}{} Let $k$ be a field. Let $V\subseteq\A_k^n$ and $W\subseteq\A_k^m$ be closed subsets of affine space. Then $V\times W\subseteq\A_k^{n+m}$ is an affine variety. Moreover, we have $$k[V\times W]\cong k[V]\otimes_kk[W]$$ and $\dim(V\times W)=\dim(V)+\dim(W)$. 
-\end{prp}
 
 \begin{prp}{}{} Let $X,Y$ be affine varieties (in the traditional sense). Let $F:X\to Y$ be a map of sets. Then $F$ is a morphism of quasi-projective varieties if and only if $F$ is a morphism of affine varieties in the traditional sense. 
 \end{prp}
 
-\begin{defn}{Extended Definition of Projective Varieties}{} A quasiprojective variety is said to be projective if it is isomorphic to a closed subvariety of projective space. 
+\begin{defn}{Projective Varieties}{} Let $k$ be a field. A quasiprojective variety $X$ is said to be projective if it is isomorphic to a closed subset of projective space $\Prj_k^n$. 
 \end{defn}
 
-\begin{defn}{Zariski Topology on Products of Projective Space}{} Let $k$ be a field. Define the Zariski topology on $\Prj^n\times\Prj^m$ by transferring the Zariski topology of $\im(\Sigma_{m,n})$ to $\Prj^n\times\Prj^m$ via the bijection given by $\Sigma_{m,n}$. 
+\subsection{Product Varieties}
+\begin{defn}{Product of Quasi-Projective Varieties}{} Let $k$ be an algebraically closed field. Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasi-projective varieties. Define the product of $X$ and $Y$ to be $$X\times Y=\Sigma_{m,n}(X,Y)$$ together with the subspace topology of $\Prj^{(m+1)(n+1)-1}$. 
 \end{defn}
+
+\begin{lmm}{}{} Let $k$ be an algebraically closed field. Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be quasi-projective varieties. Then the following are true. 
+\begin{itemize}
+\item $X\times Y$ is a quasi-projective variety. 
+\item If $X$ and $Y$ are projective, then $X\times Y$ is projective. 
+\item If $X$ and $Y$ are affine, then $X\times Y$ is affine. 
+\end{itemize}
+\end{lmm}
+
+\begin{defn}{Bihomogeneous Polynomials}{} Let $k$ be an algebraically closed field. Let $f\in k[x_0,\dots,x_n,y_0,\dots,y_m]$. We say that $f$ is $(d_1,d_2)$-bihomogenous if each term of $f$ has total degree $d_1$ in $x_0,\dots,x_n$ and each term of $f$ has total degree $d_2$ in $y_0,\dots,y_m$. 
+\end{defn}
+
+\begin{prp}{}{} Let $k$ be an algebraically closed field. Let $X\subseteq\Prj^n$ and $Y\subseteq\Prj^m$ be projective varieties. Let $V\subseteq X\times Y$ be a closed subset. Then $$V=\V(f_1,\dots,f_r)$$ for some $f_1,\dots,f_r\in k[x_0,\dots,x_n,y_0,\dots,y_m]$ bihomogeneous. 
+\end{prp}
 
 \subsection{Basic Open Sets}
 \begin{defn}{Basic Open Sets}{} Let $k$ be a field. A basic open set of $\A_k^n$ is a set of the form $$D(f)=V\setminus\V(f)$$ for some closed subset $V\subseteq\A_k^n$ and some $f\in k[V]$. 

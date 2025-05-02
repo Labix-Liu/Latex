@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  27 APR 2025 17:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  1 MAY 2025 23:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1170,32 +1170,32 @@ a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 [2]
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 62--76
+Underfull \hbox (badness 10000) in paragraph at lines 72--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--76
+Underfull \hbox (badness 10000) in paragraph at lines 72--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--76
+Underfull \hbox (badness 10000) in paragraph at lines 72--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--76
+Underfull \hbox (badness 10000) in paragraph at lines 72--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--86
+Underfull \hbox (badness 10000) in paragraph at lines 88--96
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--86
+Underfull \hbox (badness 10000) in paragraph at lines 88--96
 
  []
 
@@ -1206,23 +1206,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--86
 [5]
 
 [6]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 1
-78.
- (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
-File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
-)
-
-[7{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 197--198
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
 
  []
 
 
 
-[8]
+[7]
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 1
+97.
+ (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
+File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
+)
+
+[8{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+enc}]
 
 [9]
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
+
+ []
+
+
 
 [10]
 
@@ -1231,61 +1236,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 197--198
 [12]
 
 [13]
+Underfull \hbox (badness 10000) in paragraph at lines 381--391
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--391
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--391
+
+ []
+
+
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 393--403
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 393--403
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 393--403
-
- []
-
-
 
 [15]
 
 [16]
-<Image 1.png, id=280, 440.64626pt x 570.13pt>
+<Image 1.png, id=279, 440.64626pt x 570.13pt>
 File: Image 1.png Graphic file (type png)
 <use Image 1.png>
-Package pdftex.def Info: Image 1.png  used on input line 463.
+Package pdftex.def Info: Image 1.png  used on input line 461.
 (pdftex.def)             Requested size: 352.51747pt x 456.10463pt.
 
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 466--467
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--467
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
 
  []
 
-<Image 2.png, id=290, 517.935pt x 485.815pt>
+<Image 2.png, id=289, 517.935pt x 485.815pt>
 File: Image 2.png Graphic file (type png)
 <use Image 2.png>
-Package pdftex.def Info: Image 2.png  used on input line 471.
+Package pdftex.def Info: Image 2.png  used on input line 469.
 (pdftex.def)             Requested size: 155.38168pt x 145.74562pt.
 
 
 [18 <./Image 1.png>]
-<Image 3.png, id=296, 532.99126pt x 471.7625pt>
+<Image 3.png, id=295, 532.99126pt x 471.7625pt>
 File: Image 3.png Graphic file (type png)
 <use Image 3.png>
-Package pdftex.def Info: Image 3.png  used on input line 482.
+Package pdftex.def Info: Image 3.png  used on input line 480.
 (pdftex.def)             Requested size: 159.8986pt x 141.52983pt.
-<Image 4.png, id=297, 522.95375pt x 480.79625pt>
+<Image 4.png, id=296, 522.95375pt x 480.79625pt>
 File: Image 4.png Graphic file (type png)
 <use Image 4.png>
-Package pdftex.def Info: Image 4.png  used on input line 509.
+Package pdftex.def Info: Image 4.png  used on input line 507.
 (pdftex.def)             Requested size: 156.88733pt x 144.23997pt.
 
 
@@ -1294,10 +1299,10 @@ Package pdftex.def Info: Image 4.png  used on input line 509.
 [20 <./Image 4.png>]
 
 [21]
-<Image 5.png, id=321, 519.9425pt x 483.8075pt>
+<Image 5.png, id=320, 519.9425pt x 483.8075pt>
 File: Image 5.png Graphic file (type png)
 <use Image 5.png>
-Package pdftex.def Info: Image 5.png  used on input line 589.
+Package pdftex.def Info: Image 5.png  used on input line 587.
 (pdftex.def)             Requested size: 155.98395pt x 145.14337pt.
 
 
@@ -1314,16 +1319,16 @@ L3 programming layer <2024-12-09>
  ***********
 Package rerunfilecheck Info: File `"Topological Manifolds".out' has not changed
 .
-(rerunfilecheck)             Checksum: 55169CA4D940475E79ACDA10F039A830;4969.
+(rerunfilecheck)             Checksum: 688E61D88FF867C0867D2B80A27BAF6F;5120.
  ) 
 Here is how much of TeX's memory you used:
- 35956 strings out of 473577
- 746760 string characters out of 5716318
+ 35950 strings out of 473577
+ 746661 string characters out of 5716318
  1154035 words of memory out of 5000000
- 58499 multiletter control sequences out of 15000+600000
+ 58495 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,18n,120p,1320b,1442s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,18n,120p,1320b,1444s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cmextra/cmex7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/typ
@@ -1342,9 +1347,9 @@ nts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Topological Manifolds.pdf" (25 pages, 896421 bytes).
+Output written on "Topological Manifolds.pdf" (25 pages, 894057 bytes).
 PDF statistics:
- 443 PDF objects out of 1000 (max. 8388607)
- 114 named destinations out of 1000 (max. 500000)
+ 441 PDF objects out of 1000 (max. 8388607)
+ 112 named destinations out of 1000 (max. 500000)
  230 words of extra memory for PDF output out of 10000 (max. 10000000)
 

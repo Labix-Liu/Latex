@@ -2197,24 +2197,22 @@ The construction of cohomology groups are functorial because the homology groups
 Notice that obtaining cohomology from chain complexes is covariant. 
 
 \subsection{Producing a Cochain Complex from a Chain Complex}
-Let $R$ be a ring. Let $M,N$ be $R$-modules. Recall that $\Hom_R(M,N)$ is only an abelian group, and at most a $Z(R)$-ring in general. However, when $R$ is commutative, $\Hom_R(M,N)$ becomes an $R$-module. Here we treat the more general case and consider the case when $R$ is a general ring. 
+Let $R$ be a ring. Let $M,N$ be $R$-modules. Recall that $\Hom_R(M,N)$ is only an abelian group, and at most a $Z(R)$-module in general. However, when $R$ is commutative, $\Hom_R(M,N)$ becomes an $R$-module. Here we treat the more general case and consider the case when $R$ is a general ring. 
 
-\begin{defn}{Dualization of a Chain Complex}{} Let $R$ be a ring. Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Let $M$ be an $R$-module. For each $R$-module $C_n$, define the associated cochain group to be $$C^n=\Hom_R(C_n,M)$$ Also define the coboundary map $\delta^n=\partial_n^\ast:C^{n-1}\to C^n$ by $$\delta^n(\phi)(\alpha)=\psi(\partial_{n+1}(\alpha))$$
+\begin{defn}{Dualization of a Chain Complex}{} Let $R$ be a commutative ring. Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Let $M$ be an $R$-module. For each $R$-module $C_n$, define the associated cochain group to be $$C^n=\Hom_R(C_n,M)$$ Also define the coboundary map $\delta^n=\partial_n^\ast:C^{n-1}\to C^n$ by $$\delta^n(\phi)(\alpha)=\psi(\partial_{n+1}(\alpha))$$
 \end{defn}
 
 \begin{lmm}{}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex and let $C^\bullet$ and $\delta^\bullet$ be the associated cochain groups and coboundary maps respectively. Then $$\delta^n\circ\delta^{n-1}=0$$ for all $n$ such that $(C^\bullet,\delta^\bullet)$ is a cochain complex. 
 \end{lmm}
 
-\begin{defn}{The Hom Functor on Chain Complexes}{} Let $R$ be a ring. Let $M$ be an $R$-module. Define the (contravariant) Hom functor on chain complexes to be the functor $$\Hom(-;M):\bold{Ch}(R)\to\bold{CCh}(\Z)$$ consisting of the following data. 
+\begin{defn}{The Hom Functor on Chain Complexes}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. Define the (contravariant) Hom functor on chain complexes to be the functor $$\Hom_R(-;M):\bold{Ch}(R)\to\bold{CCh}(R)$$ consisting of the following data. 
 \begin{itemize}
-\item For $(C_\bullet,\partial_\bullet)$ a chain complex, define a cochain complex by $C^n=\Hom(C_n;G)$ and coboundary map by $\delta_n=\partial_n^\ast$
+\item For $(C_\bullet,\partial_\bullet)$ a chain complex, define a cochain complex by $C^n=\Hom_R(C_n,M)$ and coboundary map by $\delta_n=\partial_n^\ast$
 \item For a chain map $f_\bullet:(C_\bullet,\delta_\bullet)\to(D_\bullet,\delta_\bullet)$, define a chain map $f^\ast:D^n\to C^n$ by $\varphi\mapsto\varphi\circ f$. 
 \end{itemize}
 \end{defn}
 
-If $R$ is commutative, we can upgrade the structure of the Hom sets to get a Hom functor of the form $$\Hom(-;M):\bold{Ch}(R)\to\bold{Ch}(R)$$
-
-\begin{prp}{}{} Let $C_\bullet,D_\bullet,E_\bullet\in\bold{Ch}(\Z)$ be chain complexes such that the short exact sequence \\~\\
+\begin{prp}{}{} Let $C_\bullet,D_\bullet,E_\bullet\in\bold{Ch}(R)$ be chain complexes such that the short exact sequence \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	0 & {C_\bullet} & {D_\bullet} & {E_\bullet} & 0
 	\arrow[from=1-1, to=1-2]
@@ -2235,23 +2233,23 @@ is also a short exact sequence of chain complexes.
 
 We have now defined a series of functors. We also recap on the material in section 1. 
 \begin{itemize}
-\item We have defined the homology functor of chain complexes $$H_n:\bold{Ch}(\Z)\to\bold{Ab}$$ for each $n\in\N$. 
-\item Using the very same functor, but thinking about cochain complexes as chain complexes in the wrong direction, we have also defined the cohomology functor of cochain complexes $$H^n:\bold{CCh}(\Z)\to\bold{Ab}$$ for each $n\in\N$. 
-\item Specializing to the case $R=\Z$, we have a functorial method of dualizing chain complexes into cochain complexes by the functor $$\Hom(-;A):\bold{Ch}(\Z)\to\bold{CCh}(\Z)$$ for any abelian group $A$. 
+\item We have defined the homology functor of chain complexes $$H_n:\bold{Ch}(R)\to\bold{Mod}_R$$ for each $n\in\N$. 
+\item Using the very same functor, but thinking about cochain complexes as chain complexes in the wrong direction, we have also defined the cohomology functor of cochain complexes $$H^n:\bold{CCh}(R)\to\bold{Mod}_R$$ for each $n\in\N$. 
+\item We have a functorial method of dualizing chain complexes into cochain complexes by the functor $$\Hom_R(-,M):\bold{Ch}(R)\to\bold{CCh}(R)$$ for any $R$-module $M$. 
 \end{itemize}
 
 \subsection{Free Resolutions}
-\begin{defn}{Free Resolutions}{} Let $H$ be an abelian group. An exact sequence of the form \\~\\
+\begin{defn}{Free Resolutions}{} Let $R$ be a commutative ring. Let $M$ be an $R$-module. An exact sequence of the form \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-\cdots\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & H\arrow[r] & 0
+\cdots\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & M\arrow[r] & 0
 \end{tikzcd}}\\~\\
-is said to be a free resolution of $H$ if $F_n$ is a free group for $n\in\N$. 
+is said to be a free resolution of $M$ if $F_n$ is a free $R$-module for $n\in\N$. 
 \end{defn}
 
-\begin{prp}{}{} Let $G$ and $H$ be abelian groups. Let $f:G\to H$ be a homomorphism. Suppose that there are free resolutions \\~\\
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M,N$ be $R$-modules. Let $f:M\to N$ be an $R$-module homomorphism. Suppose that there are free resolutions \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	\cdots & {F_1} & {F_0} & G & 0 \\
-	\cdots & {E_1} & {E_0} & H & 0
+	\cdots & {F_1} & {F_0} & M & 0 \\
+	\cdots & {E_1} & {E_0} & N & 0
 	\arrow[from=1-1, to=1-2]
 	\arrow["p_1", from=1-2, to=1-3]
 	\arrow["p_0", from=1-3, to=1-4]
@@ -2262,7 +2260,7 @@ is said to be a free resolution of $H$ if $F_n$ is a free group for $n\in\N$.
 	\arrow["q_0", from=2-3, to=2-4]
 	\arrow[from=2-4, to=2-5]
 \end{tikzcd}}\\~\\
-for $G$ and $H$ respectively. Let $f:G\to H$ be a group homomorphism. Then there exists a chain map extending $f$ such that the following diagram commutes: \\~\\
+for $M$ and $N$ respectively. Then there exists a chain map extending $f$ such that the following diagram commutes: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 	\cdots & {F_1} & {F_0} & G & 0 \\
 	\cdots & {E_1} & {E_0} & H & 0
@@ -2310,7 +2308,7 @@ And so we conclude.
 \end{proof}
 \end{prp}
 
-\begin{crl}{}{} Let $H$ be an abelian group. Then any two resolutions $F_\bullet\to H$ and $E_\bullet\to H$ of $H$ are chain homotopy equivalent. \tcbline
+\begin{crl}{}{} Let $R$ be a commutative ring. Let $M$ be an abelian group. Then any two free resolutions $F_\bullet\to M$ and $E_\bullet\to M$ of $M$ are chain homotopy equivalent. \tcbline
 \begin{proof}
 By the above, the chain map $F_\bullet\to E_\bullet\to F_\bullet$ induced by the identity map is chain homotopic to the identity map. Similarly for the chain map $E_\bullet\to F_\bullet\to E_\bullet$ induced by the identity map. Hence $F_\bullet$ and $E_\bullet$ are chain homotopy equivalent. 
 \end{proof}
@@ -2333,11 +2331,11 @@ Clearly the sequence is exact. Moreover, every subgroup of a free abelian group 
 \end{lmm}
 
 \subsection{Universal Coefficient Theorem for Cohomology}
-\begin{defn}{Ext Group}{} Let $G,H$ be an abelian group. Choose a free resolution $F_\bullet$ of $H$: \\~\\
+\begin{defn}{Ext Group}{} Let $R$ be a commutative ring. Let $M,N$ be a $R$-modules. Choose a free resolution $F_\bullet$ of $M$: \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
 0\arrow[r] & F_1\arrow[r] & F_0\arrow[r] & H\arrow[r] & 0
 \end{tikzcd}}\\~\\
-Define the ext group of $H$ with coefficients in $G$ to be the first cohomology group of the cochain complex with coefficients in $G$ associated to this chain complex: $$\text{Ext}(H,G)=\text{Ext}_\Z^1(H,G)=\frac{\Hom(F_1,G)}{\im(\Hom(F_0,G)\to\Hom(F_1,G))}=H^1(\Hom(F_\bullet;G))$$
+Define the ext group of $M$ with coefficients in $N$ to be the first cohomology group of the cochain complex with coefficients in $N$ associated to this chain complex: $$\text{Ext}_R(M,N)=\frac{\Hom(F_1,N)}{\im(\Hom(F_0,N)\to\Hom(F_1,N))}=H^1(\Hom(F_\bullet;N))$$
 \end{defn}
 
 The Ext group is well defined because of any choice of free resolution are chain chomotopic by a unique chain map. Moreover, chain homotopic maps induce isomorphisms on homology. This isomorphism is moreover canonical because the chain homotopy is given by a unique chain map. \\
@@ -2346,7 +2344,7 @@ This leads to the second way of extending it. One can consider not using free gr
 
 For us, we are only considering abelian groups which are $\Z$-modules. Be wary of this assumption throughout the entire section. 
 
-\begin{eg}{}{} Let $n,m\geq 1$. Then we have $$\text{Ext}\left(\frac{\Z}{n\Z},\frac{\Z}{m\Z}\right)\cong\frac{\Z}{\gcd(m,n)\Z}$$ \tcbline
+\begin{eg}{}{} Let $n,m\geq 1$. Then we have $$\text{Ext}_\Z\left(\frac{\Z}{n\Z},\frac{\Z}{m\Z}\right)\cong\frac{\Z}{\gcd(m,n)\Z}$$ \tcbline
 \begin{proof}
 Notice that a free resolution for $\Z/n\Z$ is given by \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
@@ -2368,12 +2366,12 @@ Then the first cohomology group of the chain complex is precisely $\frac{\Z/m\Z}
 \end{proof}
 \end{eg}
 
-\begin{prp}{}{} Let $G,H,K$ be abelian groups. Then the following are true regarding the Ext group. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M,N,K$ be $R$-modules. Then the following are true. 
 \begin{itemize}
-\item $\text{Ext}(H\oplus K,G)\cong\text{Ext}(H,G)\oplus\text{Ext}(K,G)$
-\item $\text{Ext}(H,G)=0$ if $H$ is a free group. 
-\item $\text{Ext}(\Z/n\Z,G)\cong G/nG$
-\item $\text{Ext}(G,\Q)=0$
+\item $\text{Ext}_R(M\oplus N,K)\cong\text{Ext}_R(M,K)\oplus\text{Ext}_R(N,K)$
+\item $\text{Ext}_R(M,N)=0$ if $M$ is a free $R$-module. 
+\item If $A$ is an abelian group, then $\text{Ext}_\Z(\Z/n\Z,A)\cong A/nA$
+\item If $A$ is an abelian group, then $\text{Ext}_\Z(A,\Q)=0$
 \end{itemize} \tcbline
 \begin{proof}~\\
 \begin{itemize}
@@ -2397,10 +2395,10 @@ with the direct sum of the obvious maps is a free resolution of $H\oplus K$. But
 \end{proof}
 \end{prp}
 
-\begin{prp}{}{} Let $A,B,G$ be abelian groups. Let $f:A\to B$ be a group homomorphism. Define the induced map $$f^\ast:\text{Ext}(B,G)\to\text{Ext}(A,G)$$ as follows. Then $f^\ast$ is a group homomorphism. Moreover, the following are true. 
+\begin{prp}{}{} Let $R$ be a commutative ring. Let $M,N,K$ be $R$-modules. Let $f:M\to N$ be an $R$-module homomorphism. Define the induced map $$f^\ast:\text{Ext}_R(N,K)\to\text{Ext}_R(M,K)$$ as follows. Then $f^\ast$ is a group homomorphism. Moreover, the following are true. 
 \begin{itemize}
-\item Let $C$ be an abelian group and let $g:B\to C$ be a homomorphism. Then $$(g\circ f)^\ast=f^\ast\circ g^\ast$$ 
-\item We have that $$\text{id}^\ast=\text{id}_{\text{Ext}(A,G)}:\text{Ext}(A,G)\to\text{Ext}(A,G)$$
+\item Let $T$ be an $R$-module and let $g:N\to T$ be an $R$-module homomorphism. Then $$(g\circ f)^\ast=f^\ast\circ g^\ast$$ 
+\item We have that $$\text{id}^\ast=\text{id}_{\text{Ext}_R(M,K)}:\text{Ext}_R(M,K)\to\text{Ext}_R(M,K)$$
 \end{itemize}
 \end{prp}
 
@@ -2421,9 +2419,9 @@ We conclude that $\text{Ext}$ is a functor of the first variable. It is also a f
 
 The point of the Ext group is that it forms an error term to measure how far away is the cohomology of the dualized chain complex from the homology of the chain complex. 
 
-\begin{thm}{Universal Coefficient Theorem for Cohomology}{} Let $(C_\bullet,\partial_\bullet)$ be a chain complex of free abelian groups. Let $G$ be an abelian group. Then there is a split exact sequence (that does not split naturally) of the form \\~\\
+\begin{thm}{Universal Coefficient Theorem for Cohomology}{} Let $R$ be a PID. Let $(C_\bullet,\partial_\bullet)$ be a chain complex. Let $M$ be an $R$-module. Then there is a split exact sequence (that does not split naturally) of the form \\~\\
 \adjustbox{scale=1.0,center}{\begin{tikzcd}
-	0 & {\text{Ext}(H_{n-1}(C_\bullet),G)} & {H^n(C_\bullet;G)} & {\Hom(H_n(C_\bullet),G)} & 0
+	0 & {\text{Ext}_R(H_{n-1}(C_\bullet;R),M)} & {H^n(C_\bullet;M)} & {\Hom(H_n(C_\bullet;R),M)} & 0
 	\arrow[from=1-1, to=1-2]
 	\arrow[from=1-2, to=1-3]
 	\arrow["h", from=1-3, to=1-4]

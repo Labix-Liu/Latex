@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  28 APR 2025 16:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  29 APR 2025 17:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1190,17 +1190,17 @@ d on input line 53.
 [6]
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 180--189
+Underfull \hbox (badness 10000) in paragraph at lines 183--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--189
+Underfull \hbox (badness 10000) in paragraph at lines 183--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--189
+Underfull \hbox (badness 10000) in paragraph at lines 183--192
 
  []
 
@@ -1223,7 +1223,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 180--189
 [15]
 
 [16]
-Overfull \hbox (18.39568pt too wide) detected at line 428
+Overfull \hbox (18.39568pt too wide) detected at line 431
 []
  []
 
@@ -1232,27 +1232,27 @@ Overfull \hbox (18.39568pt too wide) detected at line 428
 [17]
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
+Underfull \hbox (badness 10000) in paragraph at lines 465--466
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
+Underfull \hbox (badness 10000) in paragraph at lines 465--466
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 472--474
+Underfull \hbox (badness 10000) in paragraph at lines 475--477
 
  []
 
@@ -1269,49 +1269,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 472--474
 [23]
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 629--634
+Underfull \hbox (badness 10000) in paragraph at lines 632--637
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--634
+Underfull \hbox (badness 10000) in paragraph at lines 632--637
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--634
+Underfull \hbox (badness 10000) in paragraph at lines 632--637
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--636
+Underfull \hbox (badness 10000) in paragraph at lines 638--639
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--636
+Underfull \hbox (badness 10000) in paragraph at lines 638--639
 
  []
 
 
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 670--678
+Underfull \hbox (badness 10000) in paragraph at lines 673--681
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 670--678
+Underfull \hbox (badness 10000) in paragraph at lines 673--681
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 687--688
+Underfull \hbox (badness 10000) in paragraph at lines 690--691
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 687--688
+Underfull \hbox (badness 10000) in paragraph at lines 690--691
 
  []
 
@@ -1332,12 +1332,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 687--688
 [32]
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 889--890
+Underfull \hbox (badness 10000) in paragraph at lines 892--893
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 889--890
+Underfull \hbox (badness 10000) in paragraph at lines 892--893
 
  []
 
@@ -1354,21 +1354,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 889--890
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
+Package rerunfilecheck Info: File `"Algebraic Geometry 3".out' has not changed.
 
-
-Package rerunfilecheck Warning: File `"Algebraic Geometry 3".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Algebraic Geometry 3".out':
-(rerunfilecheck)             Before: 9E4C0A5F06CEDB28163B919688883CF2;9007
-(rerunfilecheck)             After:  94380D0D54E07A540554A4B870742B5C;8916.
+(rerunfilecheck)             Checksum: 94380D0D54E07A540554A4B870742B5C;8916.
  ) 
 Here is how much of TeX's memory you used:
- 35597 strings out of 473577
- 735818 string characters out of 5716318
+ 35599 strings out of 473577
+ 735853 string characters out of 5716318
  1151048 words of memory out of 5000000
- 57999 multiletter control sequences out of 15000+600000
+ 58000 multiletter control sequences out of 15000+600000
  600564 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,27n,120p,820b,1436s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1395,9 +1389,9 @@ pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/q
 plb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gy
 re/qplr.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/te
 x-gyre/qplri.pfb>
-Output written on "Algebraic Geometry 3.pdf" (37 pages, 580920 bytes).
+Output written on "Algebraic Geometry 3.pdf" (37 pages, 581811 bytes).
 PDF statistics:
- 768 PDF objects out of 1000 (max. 8388607)
- 252 named destinations out of 1000 (max. 500000)
+ 771 PDF objects out of 1000 (max. 8388607)
+ 253 named destinations out of 1000 (max. 500000)
  381 words of extra memory for PDF output out of 10000 (max. 10000000)
 
