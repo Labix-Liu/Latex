@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  11 APR 2025 23:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  8 MAY 2025 01:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -148,6 +148,13 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip59
 \thm@headsep=\skip60
 \dth@everypar=\toks28
+)
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/bbm\bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
 )
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -1044,7 +1051,7 @@ w.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
 ))
 \c@tcb@cnt@thm=\count376
-Package hyperref Info: Option `colorlinks' set `true' on input line 252.
+Package hyperref Info: Option `colorlinks' set `true' on input line 254.
 ) (Probability Theory.aux)
 \openout1 = `"Probability Theory.aux"'.
 
@@ -1156,27 +1163,26 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-(Probability Theory.toc)
+(Probability Theory.toc
+
+[1
+
+{C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
+a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}])
 \tf@toc=\write5
 \openout5 = `"Probability Theory.toc"'.
 
 
 
-[1
-
-{C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
-a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
-9.
-
-(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
+[2]
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 3
+2.
+ (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 
-[2{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+[3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
 enc}]
-
-[3]
 
 [4]
 
@@ -1215,17 +1221,21 @@ enc}]
 [21]
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 673--674
+
+[23]
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 661--662
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 673--674
+Underfull \hbox (badness 10000) in paragraph at lines 661--662
 
  []
 
 
-Overfull \hbox (2.09526pt too wide) in paragraph at lines 675--676
+Overfull \hbox (2.09526pt too wide) in paragraph at lines 663--664
 \T1/qpl/m/n/10 squence $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 )[
 ]$ \T1/qpl/m/n/10 of ran-dom vri-ables is Markov, try and write $\OML/cmm/m/it/
 10 X[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 X[] \OT1/cmr/m/n/10 + []\OML/cmm/m/it
@@ -1233,10 +1243,6 @@ Overfull \hbox (2.09526pt too wide) in paragraph at lines 675--676
  []
 
 
-
-[23]
-
-[24]
 
 [25]
 
@@ -1246,29 +1252,42 @@ Overfull \hbox (2.09526pt too wide) in paragraph at lines 675--676
 
 [28]
 
-[29] (Probability Theory.aux)
+[29]
+
+[30]
+
+[31]
+
+[32]
+
+[33]
+
+[34]
+
+[35]
+
+[36]
+
+[37]
+
+[38]
+
+[39] (Probability Theory.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Probability Theory".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Probability Theory".out':
-(rerunfilecheck)             Before: A3A7AA332F7E79CE4600A21218AEABA4;4847
-(rerunfilecheck)             After:  20D7731BF5EDBE0785530ED6BA01B983;4867.
+Package rerunfilecheck Info: File `"Probability Theory".out' has not changed.
+(rerunfilecheck)             Checksum: D33D2B64421DA828E41B40F1B37AE12E;8050.
  ) 
 Here is how much of TeX's memory you used:
- 34993 strings out of 473577
- 721679 string characters out of 5716318
- 1146014 words of memory out of 5000000
- 57449 multiletter control sequences out of 15000+600000
+ 35342 strings out of 473577
+ 729061 string characters out of 5716318
+ 1147280 words of memory out of 5000000
+ 57739 multiletter control sequences out of 15000+600000
  599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,15n,120p,652b,1203s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,25n,120p,667b,1426s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1286,9 +1305,9 @@ lic/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on "Probability Theory.pdf" (29 pages, 461877 bytes).
+Output written on "Probability Theory.pdf" (39 pages, 520886 bytes).
 PDF statistics:
- 568 PDF objects out of 1000 (max. 8388607)
- 201 named destinations out of 1000 (max. 500000)
- 245 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 755 PDF objects out of 1000 (max. 8388607)
+ 256 named destinations out of 1000 (max. 500000)
+ 381 words of extra memory for PDF output out of 10000 (max. 10000000)
 

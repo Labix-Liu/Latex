@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  6 MAY 2025 16:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  6 MAY 2025 16:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"./Point Set Topology.tex"
-(Point Set Topology.tex
+**"./Measure Theory.tex"
+(Measure Theory.tex
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -1052,8 +1052,8 @@ Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
 ))
 \c@tcb@cnt@thm=\count376
 Package hyperref Info: Option `colorlinks' set `true' on input line 254.
-) (Point Set Topology.aux)
-\openout1 = `"Point Set Topology.aux"'.
+) (Measure Theory.aux)
+\openout1 = `"Measure Theory.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
@@ -1136,9 +1136,9 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 \c@lstlisting=\count383
 Package hyperref Info: Link coloring ON on input line 16.
- (Point Set Topology.out) (Point Set Topology.out)
+ (Measure Theory.out) (Measure Theory.out)
 \@outlinefile=\write4
-\openout4 = `"Point Set Topology.out"'.
+\openout4 = `"Measure Theory.out"'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
@@ -1163,325 +1163,85 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 19--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--22
-
- []
-
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
-5.
-(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
-File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
-)
 
 [1
 
 {C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
-a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}{C:/Users/liu
-la/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
-(Point Set Topology.toc)
+a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
+(Measure Theory.toc)
 \tf@toc=\write5
-\openout5 = `"Point Set Topology.toc"'.
+\openout5 = `"Measure Theory.toc"'.
 
 
 
 [2]
 
-[3]
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 25.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sigma' on input line 25.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 25.
+
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 2
+8.
+(C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
+File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
+)
+
+[3{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+enc}]
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
-
- []
-
-
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
-
- []
-
-
 
 [6]
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 215--217
-
- []
-
-
 
 [8]
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 273--275
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 283--286
-
- []
-
-
-
-[10]
-Overfull \hbox (2.665pt too wide) in paragraph at lines 332--333
-[]\T1/qpl/m/n/10 The fol-low-ing are some prop-er-ties that we will see later w
-hich are in-deed topo-log-i-cal in-vari-ants: $\OML/cmm/m/it/10 T[]; T[]; T[]$
- []
-
-
-
-[11]
-
-[12]
-
-[13]
-
-[14]
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
-
- []
-
-
-
-[16]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 463.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 463.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 463.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 463.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 463.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 463.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 463.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 463.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 463.
-
-
-
-[17]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 529.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 529.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 529.
-
-
-
-[18]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 554.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 554.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 554.
-
-
-
-[19]
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 581--583
-
- []
-
-
-
-[21]
-
-[22]
-
-[23]
-
-[24]
-
-[25]
-
-[26]
-
-[27]
-
-[28]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 804.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 804.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 804.
-
-
-
-[29]
-
-[30]
-
-[31]
-
-[32]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 938.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 938.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 938.
-
-
-
-[33]
-
-[34]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 955.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 955.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 955.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 955.
-
-
-
-[35]
-
-[36]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1003.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1003.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1003.
-
-
-
-[37]
-
-[38] (Point Set Topology.aux)
+[10] (Measure Theory.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
-Package rerunfilecheck Info: File `"Point Set Topology".out' has not changed.
-(rerunfilecheck)             Checksum: D540F4D533D1654039AAEC56D98EA216;6777.
+Package rerunfilecheck Info: File `"Measure Theory".out' has not changed.
+(rerunfilecheck)             Checksum: C9E8F879EB43350BEF2EE3061B40C0DD;2386.
  ) 
 Here is how much of TeX's memory you used:
- 35254 strings out of 473577
- 727139 string characters out of 5716318
- 1153236 words of memory out of 5000000
- 57661 multiletter control sequences out of 15000+600000
- 599637 words of font info for 75 fonts, out of 8000000 for 9000
+ 34731 strings out of 473577
+ 717259 string characters out of 5716318
+ 1146196 words of memory out of 5000000
+ 57323 multiletter control sequences out of 15000+600000
+ 596737 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,16n,120p,1046b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,11n,120p,565b,1201s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cmextra/cmex7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/liula/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/liu
-la/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/U
-sers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pf
-b><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmr8.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/l
-iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Use
-rs/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:
-/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pf
-b>
-Output written on "Point Set Topology.pdf" (38 pages, 542185 bytes).
+fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi12.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
+liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
+:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
+/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/font
+s/type1/public/tex-gyre/qplr.pfb>
+Output written on "Measure Theory.pdf" (10 pages, 270752 bytes).
 PDF statistics:
- 724 PDF objects out of 1000 (max. 8388607)
- 246 named destinations out of 1000 (max. 500000)
- 325 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 262 PDF objects out of 1000 (max. 8388607)
+ 62 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

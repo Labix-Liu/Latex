@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 
-\input{Headers}
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -22,228 +22,166 @@
 \pagebreak
 
 \section{Measure Theory}
-\subsection{Sigma Fields}
-\begin{defn}[Sigma Fields] A $\sigma$-field on a non-empty set $S$ is a collection $\mathcal{F}$ of subsets of $S$ such that
+\subsection{$\sigma$-Algebra}
+\begin{defn}{$\sigma$-algebra}{} Let $X$ be a set. Let $\mF\subseteq\mP(X)$. We say that $\mF$ is a $\sigma$-algebra if the following are true. 
 \begin{itemize}
-\item $S,\emptyset\in\mathcal{F}$
-\item $A\in\mathcal{F}$ implies $A^c\in\mathcal{F}$
-\item $A_k\in\mathcal{F}$, $k\in\N$ implies $\bigcup_{k=1}^\infty A_k\in\mathcal{F}$
+\item $S\in\mF$. 
+\item If $A\in\mF$, then $X\setminus A\in\mF$. 
+\item If $A_k\in\mF$ for $k\in\N\setminus\{0\}$, then $\bigcup_{k=1}^\infty A_k\in\mF$
+\end{itemize}
+We say that $A\in\mF$ is a measurable set. 
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a set. Let $\mF$ a $\sigma$-algebra. Then the following are true. 
+\begin{itemize}
+\item $\emptyset\in\mF$. 
+\item If $A_k\in\mF$ for $k\in\N$, then $\bigcap_{k=0}^\infty A_k\in\mF$. 
+\end{itemize}
+\end{lmm}
+
+\begin{defn}{Smallest $\sigma$-algebra Containing a Set}{} Let $X$ be a set. Let $P\subseteq P(X)$. Define the smallest $\sigma$-algebra containing $P$ by $\sigma(P)$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $X$ be a set. Let $P\subseteq P(X)$ be a subset. Then we have $$\sigma(P)=\bigcap_{\substack{\mF\supseteq P\\\mF\text{ is measurable}}}\mF$$
+\end{lmm}
+
+\subsection{Measures}
+\begin{defn}{Measure}{} Let $X$ be a set. Let $\mF$ be a $\sigma$-algebra of $X$. Let $\mu:\mF\to[0,\infty)$ be a function. We say that $\mu$ is a measure if the following are true. 
+\begin{itemize}
+\item $\mu(\emptyset)=0$
+\item If $A_1,\dots,A_k,\dots$ are pairwise disjoint in $\mF$, then $$\mu\left(\bigcup_{k=1}^\infty A_k\right)=\sum_{k=1}^\infty\mu(A_k)$$
 \end{itemize}
 \end{defn}
 
-\begin{defn}[Measure] A measure on a $\sigma$-field $\mathcal{F}$ of subsets of $S$ is a function $\mu:\mathcal{F}\to[0,+\infty]$ such that 
+\begin{prp}{}{} Let $X$ be a set. Let $\mF$ be a $\sigma$-algebra of $X$. Let $\mu:\mF\to[0,\infty)$ be a measure on $X$. 
 \begin{itemize}
-\item $\mu(\emptyset)=$
-\item $\mu\left(\bigcup_{k=1}^\infty A_k\right)=\sum_{k=1}^\infty\mu\left(A_k\right)$ where $A_k\in\mathcal{F}$ are pairwise disjoint. 
+\item If $A_1,A_2\in\mF$ and $A_1\subseteq A_2$, then $$\mu(A_1)\leq\mu(A_2)$$
+\item If $A_k\in\mF$ for $k\in\N\setminus\{0\}$, then we have $$\mu\left(\bigcup_{k=1}^\infty A_k\right)\leq\sum_{k=1}^\infty\mu(A_k)$$
+\item For any $A_1,A_2\in\mF$, we have $$\mu(A_1)+\mu(A_2)=\mu(A_1\cup A_2)-\mu(A_1\cap A_2)$$
+\end{itemize}
+\end{prp}
+
+\begin{prp}{}{} Let $X$ be a set. Let $\mF$ be a $\sigma$-algebra of $X$. Let $\mu:\mF\to[0,\infty)$ be a measure on $X$. The the following are true. 
+\begin{itemize}
+\item If $A_1\subseteq A_2\subseteq\cdots\subseteq A_k\subseteq\cdots$ are measurable subsets, then we have $$\mu\left(\bigcup_{k=1}^\infty A_k\right)=\lim_{k\in\N}\mu(A_k)$$
+\item If $B_1\supseteq B_2\supseteq\cdots\supseteq B_k\supseteq\cdots$ are measurable subsets, then we have $$\mu\left(\bigcap_{k=1}^\infty B_k\right)=\lim_{k\in\N}\mu(B_k)$$
+\end{itemize}
+\end{prp}
+
+\begin{defn}{Outer Measures}{} Let $X$ be a set. Let $\nu:P(X)\to\emptyset$. We say that $\nu$ is an outer measure. 
+\begin{itemize}
+\item $\nu(\emptyset)=0$. 
+\item If $A_1\subseteq A_2$, then $$\nu(A_1)\leq\nu(A_2)$$
+\item If $A_1,\dots,A_k,\dots$ are subsets, then $$\nu\left(\bigcup_{k=1}^\infty A_k\right)\leq\sum_{k=1}^\infty\nu(A_k)$$
 \end{itemize}
 \end{defn}
 
-\begin{prp} Let $\mu$ be a measure on a $\sigma$-field $\mathcal{F}$ and $A_1,A_2,\dots\in\mathcal{F}$
+\begin{lmm}{}{} Let $X$ be a set. Let $\mF$ be a $\sigma$-algebra. Let $\mu$ be a measure. Then $\mu$ is an outer measure. 
+\end{lmm}
+
+\subsection{Borel Measures}
+\begin{defn}{Borel $\sigma$-algebra}{} Let $(X,\mT)$ be a topological space. Define the Borel $\sigma$-algebra of $X$ to be $$\mB(X)=\sigma(\mT)$$
+\end{defn}
+
+\begin{defn}{Borel Measure}{} Let $X$ be a topological space. A Borel measure is a measure $\mu:\mB(X)\to[0,\infty)$ on $X$. 
+\end{defn}
+
+\begin{defn}{Radon Measure}{} Let $X$ be a topological space. Let $\mu$ be a Borel measure. We say that $X$ is Radon if for any compact subset $K\in\mB(X)$, we have $$\mu(K)<\infty$$
+\end{defn}
+
+\pagebreak
+\section{Measure Spaces}
+\subsection{Measure Spaces}
+\begin{defn}{Measurable Space}{} Let $X$ be a set. We say that $X$ is measurable if there exists a $\sigma$-algebra $\mF$ and a measure $\mu:\mF\to[0,\infty)$ on $X$. 
+\end{defn}
+
+\begin{defn}{Measure Space}{} A measure space $(X,\mF,\mu)$ consists of a set $X$, a $\sigma$-algebra $\mF$ and a measure $\mu$ on $X$. 
+\end{defn}
+
+\begin{defn}{Finiteness of Measure Spaces}{} Let $(X,\mF,\mu)$ be a measure space. 
 \begin{itemize}
-\item If $A_1\subseteq A_2$, then $\mu(A_1)\leq\mu(A_2)$
-\item $\mu(\bigcup_{k=1}^\infty A_k)\leq\sum_{k=1}^\infty\mu(A_k)$
-\item $\mu(A_1)+\mu(A_2)=\mu(A_1\cup A_2)+\mu(A_1\cap A_2)$
+\item We say that $X$ is finite if $\mu(X)<\infty$. 
+\item We say that $X$ is $\sigma$-finite if there exists a collection $\{U_k\in\mF\;|\;k\in\N\setminus\{0\}\}$ such that $X=\bigcup_{k=1}^\infty U_k$ and $\mu(U_k)<\infty$. 
 \end{itemize}
+\end{defn}
+
+\begin{lmm}{}{} Let $(X,\mF,\mu)$ be a measure space. If $X$ is finite, then $X$ is $\sigma$-finite. 
+\end{lmm}
+
+\subsection{Measurable Functions}
+\begin{defn}{Measurable Functions}{} Let $(E,\mE)$ and $(F,\mF)$ be measurable spaces. Let $f:E\to F$. We say that $f$ is measurable if for all $A\in\mF$, $f^{-1}(A)\in\mE$. 
+\end{defn}
+
+\begin{lmm}{}{} Let $(E,\mE)$, $(F,\mF)$ and $(G,\mG)$ be measurable spaces. Then the following are true. 
+\begin{itemize}
+\item If $f:E\to F$ and $g:F\to G$ are measurable functions, then $g\circ f$ is measurable. 
+\item $\text{id}_E:E\to E$ is measurable. 
+\end{itemize}
+\end{lmm}
+
+\begin{defn}{Pushforward Measure}{} Let $(E,\mE)$ and $(F,\mF)$ be measurable spaces. Let $f:E\to F$ be a measurable function. Let $\mu:\mE\to[0,\infty)$ be a measure. Define the push forward measure $\mu_\ast:\mF\to[0,\infty)$ by $$\mu_\ast(A)=\mu(f^{-1}(A))$$
+\end{defn}
+
+\subsection{Convergence}
+\begin{defn}{Convergence Almost Everywhere}{} Let $(E,\mE)$ and $(F,\mF)$ be measurable spaces. Let $\mu:\mE\to[0,\infty)$ be a measure. Let $(f_n:E\to F)_{n\in\N\setminus\{0\}}$ be a sequence of measurable functions. We say that $(f_n)_{n\in\N\setminus\{0\}}$ converges almost everywhere to a measurable function $f:E\to F$ if $$\mu(\{x\in E\;|\;(f_n(x))_{n\in\N\setminus\{0\}}\text{ does not converge to }f(x)\})=0$$
+\end{defn}
+
+\begin{defn}{Convergence in Measure}{} Let $(E,\mE)$ be a measurable space. Let $\mu:\mE\to[0,\infty)$ be a measure. Let $(f_n:E\to \R)_{n\in\N\setminus\{0\}}$ be a sequence of measurable functions. We say that $(f_n)_{n\in\N\setminus\{0\}}$ converges in measure to a measurable function $f:E\to F$ if $$\mu(\{x\in E\;|\;\abs{f(x)-f_n(x)}>\varepsilon\})\to0$$ as $n\to\infty$. 
+\end{defn}
+
+\pagebreak
+\section{Integration Theory}
+\subsection{Integration of Measurable Functions}
+\begin{defn}{Simple Functions}{} Let $(E,\mE,\mu)$ be a measure space. A simple function is a function of the form $$f(x)=\sum_{k=1}^na_k1_{A_k}(x)$$ for $A_1,\dots,A_n$ disjoint measurable sets and $a_k\in[0,\infty)$. 
+\end{defn}
+
+\begin{defn}{Lebesgue Integral for Simple Functions}{} Let $(E,\mE,\mu)$ be a measure space. Let $f(x)=\sum_{k=1}^na_k1_{A_k}(x)$ be a simple function. Define the Lebesgue integral of $f$ to be $$\int f\;d\mu=\sum_{k=1}^na_k\mu(A_k)$$
+\end{defn}
+
+\begin{lmm}{}{}
+\end{lmm}
+
+\begin{defn}{Lebesgue Integral for Positive Functions}{} Let $(E,\mE,\mu)$ be a measure space. Let $f:E\to\R$ be a positive measurable function. Define the Lebesgue integral of $f$ to be $$\int f\;d\mu=\sup\left\{\int g\;d\mu\;|\;g\text{ is a simple function and }g\leq f\right\}$$
+\end{defn}
+
+\begin{defn}{Lebesgue Integral for General Functions}{} Let $(E,\mE,\mu)$ be a measure space. Let $f:E\to\R$ be a measurable function. Let $f_+$ be the positive part of $f$ and let $f_-$ be the negative part of $f$. Define the Lebesgue integral of $f$ to be $$\int f\;d\mu=\int f_+\;d\mu+\int -f_-\;d\mu$$
+\end{defn}
+
+\subsection{Properties of the Lebesgue Integral}
+\begin{thm}{Monotone Convergence Theorem}{} Let $(E,\mE,\mu)$ be a measure space. Let $f:E\to[0,\infty)$ be a non-negative measurable function. Let $(f_n:E\to[0,\infty))_{n\in\N\setminus\{0\}}$ be a sequence of non-negative measurable functions. If $(f_n)\uparrow f$, then $$\int f_n\;d\mu\uparrow\int f\;d\mu$$
+\end{thm}
+
+\begin{prp}{Beppo-Levi}{} Let $(E,\mE,\mu)$ be a measure space. Let $(f_n:E\to\R)_{n\in\N\setminus\{0\}}$ be a sequence of measurable functions. Then we have $$\int\sum_nf_n\;d\mu=\sum_n\int f_n\;d\mu$$
+\end{prp}
+
+\begin{thm}{Fatou's Lemma}{} Let $(E,\mE,\mu)$ be a measure space. Let $(f_n:E\to[0,\infty))_{n\in\N\setminus\{0\}}$ be a sequence of non-negative measurable functions. Then we have $$\int\left(\liminf_nf_n\right)\;d\mu\leq\liminf_n\int f_n\;d\mu$$
+\end{thm}
+
+\begin{thm}{Dominated Convergence Theorem}{} Let $(E,\mE,\mu)$ be a measure space. Let $(f_n:E\to\R)_{n\in\N\setminus\{0\}}$ be a sequence of measurable functions. Let $f:E\to\R$ be a measurable function such that $f_n$ converges to $f$ almost everywhere. Suppose that there exists a positive function $g:E\to\R$ such that $\abs{f}\leq g$ and $\abs{f_n}\leq g$ for all $n$ and $\int g<\infty$. Then we have $$\lim_n\int f_n\;d\mu=\int f\;d\mu$$
+\end{thm}
+
+\subsection{Comparison to Riemann Integrability}
+
+\subsection{The Space of Measurable Functions}
+\begin{defn}{The $L^p$ Space of a Measure Space}{} Let $(E,\mE,\mu)$ be a measure space. Let $p\geq 1$. Define the associated $L^p$ space of $E$ to be the set of measurable functions $$L^p(E)=\{f:E\to\R\;|\;f\text{ is measurable }\}$$ together with the norm function $\|\cdot\|_p:L^p(E)\to\R$ defined by $$\|f\|_p=\left(\int\abs{f}^p\;d\mu\right)^{1/p}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $(E,\mE,\mu)$ be a measure space. Let $p\geq 1$. Then $L^p(E)$ is a normed space. 
+\end{lmm}
+
+\begin{prp}{Holder's Inequality}{} Let $(E,\mE,\mu)$ be a measure space. Let $p,q\geq 1$ such that $1/p+1/q=1$. Let $f,g:E\to\R$ be measurable functions. Then we have $$\|fg\|_1\leq\|f\|_p\|g\|_q$$
+\end{prp}
+
+\begin{prp}{Minkowski's Inequality}{} Let $(E,\mE,\mu)$ be a measure space. Let $p\geq 1$. Let $f,g:E\to\R$ be measurable functions. Then we have $$\|f+g\|_p\leq\|f\|_p+\|g\|_p$$
+\end{prp}
+
+\begin{prp}{Markov's Inequality}{} Let $(E,\mE,\mu)$ be a measure space. Let $f:E\to[0,\infty)$ be a non-negative measurable function. Let $\lambda>0$. Then we have $$\mu(\{x\in E\;|\;f(x)>\lambda\})\leq\frac{1}{\lambda}\int f\;d\mu$$
 \end{prp}
 
 \pagebreak
-\section{Lebesgue Measure}
-\subsection{Elementary Measure}
-\begin{defn}[Intervals] An interval $I$ is a subset of $\R$ of the form 
-\begin{itemize}
-\item $[a,b]=\{x\in\R|a\leq x\leq b\}$
-\item $(a,b]=\{x\in\R|a<x\leq b\}$
-\item $[a,b)=\{x\in\R|a\leq x<b\}$
-\item $(a,b)=\{x\in\R|a<x<b\}$
-\end{itemize} Define the measure of an interval to be its length, $m(I)=b-a$
-\end{defn}
+\section{Differentiation}
+\subsection{Existence of Anti-Derivatives}
 
-\begin{defn}[Boxes] A box in $\R^n$ is a cartesian product $$B=I_1\times I_2\times\dots\times I_n$$ of $n$ intervals. Define the measure of a box to be its "volume", $$m(B)=\abs{B}=\abs{I_1}\cdots\abs{I_n}$$
-\end{defn}
-
-\begin{defn}[Elementary Sets] An elementary set is a finite union of boxes. Denote the set of all Elementary sets to be $\mathcal{M}_E$. 
-\end{defn}
-
-\begin{prp} Let $E,F\in\mathcal{M}_E$. $E\cap F$, $E\cup F$, $E/F\in\mathcal{M}_E$. 
-\end{prp}
-
-\begin{prp} Let $E$ be an elementary set of $\R^n$. 
-\begin{itemize}
-\item $E$ can be partitioned into finite union of disjoint boxes. 
-\item The measure of $E$ is independent of the partition. 
-\end{itemize}
-\end{prp}
-
-\begin{prp} Let $E,F$ be an elementary set. Elementary measures have the following properties. 
-\begin{itemize}
-\item $m(E)\geq 0$
-\item $m(E\cup F)=m(E)+m(F)$ if $E\cap F=\emptyset$
-\item $m(\emptyset)=0$
-\item $E\subset F\implies m(E)\leq m(F)$
-\item $m(E\cup F)\leq m(E)+m(F)$
-\end{itemize}
-\end{prp}
-
-\begin{thm} The elementary measure function is unqiue up to a constant multiple. 
-\end{thm}
-
-\subsection{Jordan Measure}
-\begin{defn}[Jordan Inner Measure] Let $E\subset\R^n$ be a bounded set. Define the Jordan Inner Measure as $$m_{J\ast}(E)=\sup_{A\subset E,A\in\mathcal{M}_E}m(A)$$
-\end{defn}
-
-\begin{defn}[Jordan Outer Measure] Let $E\subset\R^n$ be a bounded set. Define the Jordan Outer Measure as $$m^{J\ast}(E)=\inf_{E\subset A,A\in\mathcal{M}_E}m(A)$$
-\end{defn}
-
-\begin{defn}[Jordan Measurable] We say that $E$ is Jordan mesurable if $$m_{J\ast}(E)=m^{J\ast}(E)$$ Denote the set of all Jordan measurable sets to be $\mathcal{M}_J$. 
-\end{defn}
-
-\begin{lmm} $\mathcal{M}_E\subseteq\mathcal{M}_J$ and $m(E)$ is consistent if $E\in\mathcal{M}_E$
-\end{lmm}
-
-\begin{prp} Let $E,F\in\mathcal{M}_J$. 
-\begin{itemize}
-\item $E\cap F\in\mathcal{M}_J$
-\item $E\cup F\in\mathcal{M}_J$
-\item $E/F\in\mathcal{M}_J$
-\end{itemize}
-\end{prp}
-
-\begin{prp} A set $E\subset\R^n$ is Jordna measurable if and only if for every $\epsilon>0$ there exists $A\subset E\subset B$ such that $m(B/A)<\epsilon$
-\end{prp}
-
-\begin{prp} Let $E,F\in\mathcal{M}_J$. Elementary measures have the following properties. 
-\begin{itemize}
-\item $m(E)\geq 0$
-\item $m(E\cup F)=m(E)+m(F)$ if $M\cap F=\emptyset$
-\item $m(\emptyset)=0$
-\item $E\subset F\implies m(E)\leq m(F)$
-\item $m(E\cup F)\leq m(E)+m(F)$
-\end{itemize}
-\end{prp}
-
-\begin{thm} The Jordan measure function is unqiue up to a constant multiple. 
-\end{thm}
-
-\begin{prp} Let $E\subset\R^n$ and $F\subset\R^m$ be Jordan measurable. $E\times F$ is also Jordan Measurable and $m(E\times F)=m(E)\times m(F)$. 
-\end{prp}
-
-\begin{prp} $B_r(x)\subset\R^n$ and $\overline{B}_r(x)\subset\R^n$ are Jordan Measurable with Jordan Measure $c_nr^n$ for some $c_n>0$ depending on $n$. 
-\end{prp}
-
-\begin{prp} Let $E\in\mathcal{M}_J$. 
-\begin{itemize}
-\item $m^{J\ast}(E)=m^{J\ast}(\overline{E})$
-\item $m_{J\ast}(E)=m^{J\ast}(E^\circ)$
-\item $E\in\mathcal{M}_J$ if and only if $m^{J\ast}(\partial E)=0$
-\end{itemize}
-\end{prp}
-
-\begin{prp}[Jordan Measurable implies Riemann Integrable] Let $E\in\mathcal{M}_J$ and $E\subset[a,b]$. Let $$1_E=\begin{cases}
-1 & x\in E\\
-0 & x\notin E
-\end{cases}$$ Then $1_E$ is Riemann Integrable and $\int_a^b 1_E(x)\,dx=m(E)$
-\end{prp}
-
-\begin{prp} Let $f:[a,b]\to\R$ be bounded. $f$ is Riemann integrable if and only if $E_\ast=\{(x,t)|x\in[a,b],f(x)\leq t\leq 0\}$ and $E^\ast=\{(x,t)|x\in[a,b],0\leq t\leq f(x)\}$ are Jordan Measurable. In this case, $$\int_a^bf(x)\,dx=m(E^\ast)-m(E_\ast)$$
-\end{prp}
-
-\begin{lmm} Let $E_n\in\mathcal{M}_J$ for all $n$. $\bigcup_{n=1}^\infty E_n$ and $\bigcap_{n=1}^\infty E_n$ may not be Jordan Measurable. 
-\end{lmm}
-
-\subsection{Lebesgue Outer Measure}
-\begin{defn}[Lebesgue Outer Measure] Let $E\subset\R^n$ be a bounded set. Define the Lebesgue Outer Measure as $$m^\ast(E)=\inf_{E\subset \bigcup_{n=1}^\infty A_n,A_n\in\mathcal{M}_E}\sum_{n=1}^\infty\abs{A_n}$$
-\end{defn}
-
-\begin{prp} $m^\ast(E)\leq m^{J\ast}(E)$
-\end{prp}
-
-\begin{prp} Let $E,F\subset\R^n$. 
-\begin{itemize}
-\item $m^\ast(\emptyset)=0$
-\item $E\subset F$ implies $m^\ast(E)\leq m^\ast(F)$
-\item Let $E_n\subset\R^n$ for all $n$. Then $$m^\ast\left(\bigcup_{n=1}^\infty E_n\right)\leq\sum_{n=1}^\infty m^\ast(E_n)$$
-\end{itemize}
-\end{prp}
-
-\begin{lmm} Let $E,F\subset\R^n$ such that $\dist(E,F)>0$. Then $$m^\ast(E\cup F)=m^\ast(E)+m^\ast(F)$$
-\end{lmm}
-
-\begin{defn}[Almost Disjoint Sets] Two boxes $E,F$ are almost disjoint if $$E^\circ\cap F^\circ=\emptyset$$
-\end{defn}
-
-\begin{lmm} Let $E=\bigcup_{n=1}^\infty B_n$ be a countable union of almost disjoint boxes. Then $$m^\ast(E)=\sum_{n=1}^\infty\abs{B_n}$$
-\end{lmm}
-
-\begin{lmm} If $E\subset\R^n$ is expressible as a countable union of almost disjoint boxes, then $m^\ast(E)=m_{J\ast}(E)$
-\end{lmm}
-
-\begin{lmm} Open sets can be expressed as a countable union of almost disjoint boxes. 
-\end{lmm}
-
-\begin{lmm} Let $E\subset\R^n$ be an arbitrary set. Then $$m^\ast(E)=\inf_{E\subset U,U\text{ open}}m^\ast(U)$$
-\end{lmm}
-
-\subsection{Lebesque Measure}
-\begin{defn}[Lebesgue Measurability] A set $E\subset\R^n$ is Lebesgue mesurable if for every $\epsilon>0$, there exists an open set $U\subset\R^n$ with $E\subset U$ such that $m^\ast(U/E)<\epsilon$. Denote the set of all Lebesgue measurable sets to be $\mathcal{M}_L$. 
-\end{defn}
-
-\begin{prp} There exists Lebesgue mesurable sets. 
-\begin{itemize}
-\item Every open set is Lebesgue measurable
-\item Every closed set is Lebesgue measurable
-\item Every set of Lebesgue outer measure $0$ is measurable
-\item $\emptyset\in\mathcal{M}_L$
-\item If $E\subset\R^n\in\mathcal{M}_L$ implies $\R^n/E\in\mathcal{M}_L$
-\item Let $E_n\in\mathcal{M}_L$ for all $n$ and $E_n\subset\R^n$. Then $\bigcup_{n=1}^\infty E_n\in\mathcal{M}_L$ and $\bigcap_{n=1}^\infty E_n\in\mathcal{M}_L$
-\end{itemize}
-\end{prp}
-
-\begin{thm}[Criteria for Measurability] Let $E\subset\R^n$. The following are equivalent
-\begin{itemize}
-\item $E\in\mathcal{M}_L$
-\item For every $\epsilon>0$ there exists an open set $U$ such that $E\subset U$ with $m^\ast(U/E)<\epsilon$
-\item For every $\epsilon>0$ there exists an open set $U$ such that $m^\ast(U\bigtriangleup E)<\epsilon$
-\item For every $\epsilon>0$, there exists a closed set $F$ such that $F\subset E$ with $m^\ast(E/F)<\epsilon$
-\item For every $\epsilon>0$ there exists a closed set $F$ such that $m^\ast(F\bigtriangleup E)<\epsilon$
-\item For every $\epsilon>0$ there exists $L\in\mathcal{M}_L$ such that $m^\ast(L\bigtriangleup E)<\epsilon$. 
-\end{itemize}
-\end{thm}
-
-\begin{lmm} $\mathcal{M}_J\subset\mathcal{M}_L$ and $m(E)$ is consistent if $E\in\mathcal{M}_J$. 
-\end{lmm}
-
-\begin{prp}[Measure Axioms] Let $E,F\subset\R^n$. 
-\begin{itemize}
-\item $m(\emptyset)=0$
-\item Let $E_n\subset\R^n$ for all $n$. Then $$m\left(\bigcup_{n=1}^\infty E_n\right)=\sum_{n=1}^\infty m(E_n)$$
-\end{itemize}
-\end{prp}
-
-\begin{thm}[Monotone Convergence Theorem] Let $E_n$ be measurable for all $n$. 
-\begin{itemize}
-\item Suppose $E_1\subset E_2\subset\dots\subset\R^d$. Then $m\left(\bigcup_{n=1}^\infty E_n\right)=\lim_{n\to\infty}m(E_n)$
-\item Suppose $\R^d\supset E_1\supset E_2\supset\dots$. Then $m\left(\bigcap_{n=1}^\infty E_n\right)=\lim_{n\to\infty}m(E_n)$
-\end{itemize}
-\end{thm}
-
-\begin{defn}[Set Convergence] We say that $\{E_n\}$ converges to $E$ if the indicator functionsd $1_{E_n}$ converges pointwise to $E$. 
-\end{defn}
-
-\begin{thm} Suppose that $\{E_n\}\subset\mathcal{M}_L$ and $\{E_n\to E\}$ pointwise. Then $E\in\mathcal{M}_L$. 
-\end{thm}
-
-\begin{thm}[Dominated Convergence Theorem] Suppose that $E_n$ are all contained in another Lebesgue measurable set $F$ of finite measure. Then $$\lim_{n\to\infty}m(E_n)=m(E)$$
-\end{thm}
-
-\subsection{Lebesque Integral}
-\begin{defn}[Simple Functions] A simple function $f:\R^d\to\C$ is a finite linear combination $$f=c_11_{E_1}+\dots+c_k1_{E_k}$$ of indicator functions $1_{E_i}$ that are from Lesbegue measurable sets $E_i\subset\R^d$ for $i\in\{1,\dots,k\}$, where $k\in\N$ and $c_1,\dots,c_k\in\C$. 
-\end{defn}
-
-\begin{defn}[Unsigned Simple Functions] A simple function is unsigned if $f:\R^d\to[0,+\infty]$ and $c_i$ is a function mapping to the positive reals. 
-\end{defn}
-
-\begin{defn} Let $f$ be an unsigned simple function. Then define $$S\left(\int_{R^d}f(x)\,dx\right)=\sum_{k=1}^nc_km(E_k)$$
-\end{defn}
 
 
 

@@ -1,6 +1,6 @@
 \documentclass[a4paper]{article}
 
-\input{C:/Users/liula/Desktop/Latex/Headers.tex}
+\input{C:/Users/liula/Desktop/Latex/Headers V1.2.tex}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -20,11 +20,48 @@
 \tableofcontents
 \pagebreak
 
-\section{Banach Spaces}
-\subsection{Normed Spaces}
-Recall from linear algebra that a normed space is a vector space equipped with a norm. 
+\section{Vector Spaces with a Topological Structure}
+\subsection{Topological Vector Spaces}
+\begin{defn}{Topological Field}{} Let $k$ be a field equipped with a topology. We say that $k$ is a topological field if the following are true. 
+\begin{itemize}
+\item The addition map $+:k\times k\to k$ is continuous. 
+\item The multiplication map $\cdot:k\times k\to k$ is continuous. 
+\item The inverse map $(\cdot)^{-1}:k\to k$ is continuous. 
+\end{itemize}
+\end{defn}
 
-\begin{defn}{Isometrically Isomorphic Normed Spaces}{} Two normed spaces $V$ and $W$ are isometrically isomorphic if there is a surjective linear isometry $L:V\to W$. IN this case, we write $V\cong W$. 
+\begin{defn}{Topological Vector Space}{} Let $k$ be a topological field. Let $V$ be a vector space over a field $k$ that is also a topological space. We say that $V$ is a topological vector space if the following are true. 
+\begin{itemize}
+\item The addition map $+:V\times V\to V$ is continuous. 
+\item The scalar multiplication map $\cdot:k\times V\to V$ is continuous. 
+\end{itemize}
+\end{defn}
+
+\subsection{Normed Spaces}
+Let $\F$ be a field. Let $V$ be a vector space over $\F$. Recall that a norm on $V$ is a function $\|\cdot\|:V\to\F$ satisfying the following rules: 
+\begin{itemize}
+\item $\|x\|\geq 0$ with equality if and only if $x=0$. 
+\item $\|\lambda x\|=\abs{\lambda}\|x\|$ for any $\lambda\in\F$ and $x\in V$. 
+\item $\|x+y\|\leq\|x\|+\|y\|$ for all $x,y\in V$. 
+\end{itemize}
+
+\begin{lmm}{}{} Let $(V,\|\cdot\|)$ be a normed space. Then the induced topology given by the induced metric space from the norm gives $V$ the structure of a topological space. 
+\end{lmm}
+
+\begin{prp}{}{} Let $V$ be a finite dimensional normed space. Let $U\subseteq X$ be a subset of $V$. Then $U$ is compact if and only if $V$ is closed and bounded. 
+\end{prp}
+
+\begin{lmm}{Riesz's Lemma}{} Let $(X,\|\cdot\|)$ be a normed space and $Y$ a non-empty closed subspace of $X$ not equal to $X$. Then there exists $x\in X$ with $\|x\|=1$ such that $\|x-y\|\geq \frac{1}{2}$ for every $y\in Y$. 
+\end{lmm}
+
+\begin{prp}{}{} Let $V$ be a normed space. Let $U\subseteq V$ be a finite dimensional vector subspace of $V$. Then $U$ is closed. 
+\end{prp}
+
+\begin{prp}{}{} Let $V$ be a normed space. Then $V$ is finite dimensional if and only if $B_1(0)$ is compact. 
+\end{prp}
+
+\subsection{Isomorphisms that Preserve Distance}
+\begin{defn}{Isometrically Isomorphic Normed Spaces}{} Two normed spaces $V$ and $W$ are isometrically isomorphic if there is a surjective linear isometry $L:V\to W$. In this case, we write $V\cong W$. 
 \end{defn}
 
 \begin{prp}{}{} Let $(X,\|\cdot\|_X)$ be a normed space. Let $V$ be a vector space over the same field and $L:V\to X$ a linear isomorphism. Then the pullback norm $$\|v\|_V=\|L(v)\|_X$$ defines a norm on $V$.  In particular, $L:(V,\|\cdot\|_V)\to(X,\|\cdot\|_X)$ is a linear isometry. 
@@ -35,32 +72,16 @@ Recall from linear algebra that a normed space is a vector space equipped with a
 
 Recall that every normed space is a vector space by defining $d(x,y)=\|x-y\|$ for $x,y$ in a normed space $X$. We thus have the notion of convergence in normed spaces. 
 
-\subsection{Condition for Finite-Dimensional}
-\begin{thm}{}{} A compact set in a normed space is closed and bounded. 
-\end{thm}
+\pagebreak
+\section{Banach Spaces}
+\subsection{Banach Spaces}
+\begin{defn}{Banach Spaces}{} Let $(V,\|\cdot\|)$ be a normed space. We say that $V$ is a Banach space if $V$ is complete as a metric space. 
+\end{defn}
 
-Recall in topology that compactness is preserved by continuity. This allows us to construct an argument proving the following. 
-
-\begin{thm}{}{} Let $X$ be a finite dimensional normed space. Then a subset $U$ of $X$ is compact if and only if it is closed and bounded. 
-\end{thm}
-
-\begin{lmm}{Riesz's Lemma}{} Let $(X,\|\cdot\|)$ be a normed space and $Y$ a non-empty closed subspace of $X$ not equal to $X$. Then there exists $x\in X$ with $\|x\|=1$ such that $\|x-y\|\geq \frac{1}{2}$ for every $y\in Y$. 
-\end{lmm}
-
-\begin{prp}{}{} Every finite dimensional subspace of a normed space is closed. 
+\begin{prp}{}{} Let $V$ be a finite dimensional normed space. Then $V$ is a Banach space. 
 \end{prp}
 
-\begin{thm}{}{} A normed space $X$ is finite dimensional if and only if its closed unit ball is compact. 
-\end{thm}
-
-\subsection{Banach Spaces}
-\begin{defn}{Complete Spaces}{} A normed space $(X,\|\cdot\|)$ is complete if any Cauchy sequence in $X$ converges to some $x\in X$. 
-\end{defn}
-
-\begin{defn}{Banach Spaces}{} A complete normed space is called a Banach space.
-\end{defn}
-
-\begin{lmm}{}{} Suppose that $(X,\|\cdot\|_X)\cong(Y,\|\cdot\|_Y)$ are isometrically isomorphic. Then $X$ is complete if and only if $Y$ is complete. 
+\begin{lmm}{}{} Suppose that $(X,\|\cdot\|_X)\cong(Y,\|\cdot\|_Y)$ are isometrically isomorphic. Then $X$ is a Banach space if and only if $Y$ is a Banach space. 
 \end{lmm}
 
 \begin{lmm}{}{} If $\|\cdot\|_1$ and $\|\cdot\|_2$ are equivalent norms on a vector space $X$ then $(X,\|\cdot\|_1)$ is complete if and only if $(X,\|\cdot\|_2)$ is complete. 
@@ -68,9 +89,6 @@ Recall in topology that compactness is preserved by continuity. This allows us t
 
 \begin{prp}{}{} Both $\R^n$ and $\C^n$ are complete. 
 \end{prp}
-
-\begin{crl}{}{} Every finite dimensional normed space $(V,\|\cdot\|)$ is complete. 
-\end{crl}
 
 \subsection{Separability of Banach Spaces}
 Recall the notion of separability: A space is separable if it has a countably dense subset. 
@@ -83,21 +101,25 @@ Recall the notion of separability: A space is separable if it has a countably de
 \end{itemize}
 \end{lmm}
 
+\subsection{The Completion of a Normed Space}
+
 \pagebreak
-\section{Linear Maps Between Banach Spaces}
-\subsection{Boundedness and Continuity}
-\begin{defn}{Bounded Linear Maps}{} A linear map $A$ from a normed space $(X,\|\cdot\|_X)$ to $(Y,\|\cdot\|_Y)$ is bounded if there exists a constant $M$ such that $$\|Ax\|_Y\leq M\|x\|_X$$ for all $x\in X$. \\~\\
-Denote the space of all bounded linear operators by $B(X,Y)$. 
+\section{The Space of Bounded Linear Maps}
+\subsection{Basic Definitions}
+\begin{defn}{Bounded Linear Maps}{} Let $V,W$ be normed space over a field $k$. Let $T:V\to W$ be a linear map. We say that $T$ is bounded if there exists $M>0$ such that $$\|T(x)\|_W\leq M\|x\|_V$$ for all $x\in V$. 
 \end{defn}
 
-\begin{lmm}{}{} If $X$ is a finite dimensional space then any linear map $T:(X,\|\cdot\|_X)\to(Y,\|\cdot\|_Y)$ is bounded. 
+\begin{lmm}{}{} Let $V,W$ be normed spaces over a field $k$. Let $T:V\to W$ be a linear map. Then $T$ is bounded if and only if $T$ is continuous. 
 \end{lmm}
 
-\begin{lmm}{}{} A linear map $T:X\to Y$ is continuous if and only if it is bounded. 
+\begin{defn}{The Space of Bounded Linear Maps}{} Let $V,W$ be normed spaces over a field $k$. Define the space of bounded linear maps to be the vector subspace $$B(V,W)=\{T\in\Hom_k(V,W)\;|\;T\text{ is bounded }\}$$ together with the operator norm $\|\cdot\|_{\text{op}}:B(V,W)\to k$ defined by $$\|T\|_{\text{op}}=\sup\{\|T(v)\|_W\;|\;v\in V\text{ such that }\|v\|_V=1\}$$
+\end{defn}
+
+\begin{lmm}{}{} Let $V,W$ be normed spaces. If $V$ is finite dimensional, then we have $$B(V,W)=\Hom_k(V,W)$$
 \end{lmm}
 
-\begin{thm}{}{} Let $X$ be a normed space and $Y$ a Banach space. Then $B(X,Y)$ is Banach space. 
-\end{thm}
+\begin{lmm}{}{} Let $V,W$ be normed spaces over a field $k$. Then $B(V,W)$ is a Banach space. 
+\end{lmm}
 
 \subsection{Invertibility}
 \begin{crl}{}{} Let $T\in B(X,Y)$ for $X,Y$ vector spaces. Then $\ker(T)$ is a closed linear subspace of $X$. 
@@ -135,7 +157,7 @@ Since we know that $B(X,Y)$ is a Banach space for any normed space $X$ and Banac
 \pagebreak
 \section{Hilbert Spaces}
 \subsection{Hilbert Spaces}
-\begin{defn}{Hilbert Spaces}{} A Hilbert space is a complete inner product space, where complete means complete using the norm induced by the inner product. 
+\begin{defn}{Hilbert Spaces}{} Let $V$ be an inner product space. We say that $V$ is a Hilbert space if $V$ is a Banach space. 
 \end{defn}
 
 \subsection{Orthogonality in Hilbert Spaces}
