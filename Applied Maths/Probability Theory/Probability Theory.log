@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  8 MAY 2025 02:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.7)  8 MAY 2025 02:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"./Selected Topics.tex"
-(Selected Topics.tex
+**"./Probability Theory.tex"
+(Probability Theory.tex
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -1052,27 +1052,27 @@ Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
 ))
 \c@tcb@cnt@thm=\count376
 Package hyperref Info: Option `colorlinks' set `true' on input line 254.
-) (Selected Topics.aux)
-\openout1 = `"Selected Topics.aux"'.
+) (Probability Theory.aux)
+\openout1 = `"Probability Theory.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1135,10 +1135,10 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 \c@lstlisting=\count383
-Package hyperref Info: Link coloring ON on input line 16.
- (Selected Topics.out) (Selected Topics.out)
+Package hyperref Info: Link coloring ON on input line 17.
+ (Probability Theory.out) (Probability Theory.out)
 \@outlinefile=\write4
-\openout4 = `"Selected Topics.out"'.
+\openout4 = `"Probability Theory.out"'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
@@ -1152,51 +1152,42 @@ Package caption Info: End \AtBeginDocument code.
 \enitdp@tabularnotes*=\count387
 
 Couldn't patch \deferred@thm@head!
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 
 
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+(Probability Theory.toc)
+\tf@toc=\write5
+\openout5 = `"Probability Theory.toc"'.
+
+
 
 [1
 
 {C:/Users/liula/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/liul
 a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
-(Selected Topics.toc
-
-[2])
-\tf@toc=\write5
-\openout5 = `"Selected Topics.toc"'.
-
-
-
-[3]
-Underfull \hbox (badness 1701) in paragraph at lines 44--44
-[]\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/10 be a com-pact Haus-dor
-ff space. De-fine the com-plex K-theory of $\OML/cmm/m/it/10 X$ \T1/qpl/m/n/10 
-to be the 
- []
-
-
-Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 50.
-
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 5
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 3
 2.
+
 (C:\Users\liula\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 
+[2{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
+enc}]
+
+[3]
+
 [4]
 
-[5{C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
-enc}]
+[5]
 
 [6]
 
@@ -1205,16 +1196,6 @@ enc}]
 [8]
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
-
- []
-
-
 
 [10]
 
@@ -1227,505 +1208,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--177
 [14]
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 305--306
-
- []
-
-
-Underfull \hbox (badness 1735) in paragraph at lines 321--321
-[]\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 R$ \T1/qpl/m/n/10 be a ring. De-fine the
- el-e-men-tary sym-met-ric poly-no-mi-als to be the el-e-ments 
- []
-
-
 
 [16]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 328.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 328.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 328.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 329.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 329.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 329.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 330--331
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 332--334
-
- []
-
-
-
 [17]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 384.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 384.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 384.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 399.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 399.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 399.
-
-
-Underfull \hbox (badness 4120) in paragraph at lines 400--400
-[]\T1/qpl/m/n/10 Let $\OML/cmm/m/it/10 R$ \T1/qpl/m/n/10 be a $\OML/cmm/m/it/10
- ^^U$\T1/qpl/m/n/10 -ring. We say that $\OML/cmm/m/it/10 R$ \T1/qpl/m/n/10 is a
-n aug-mented $\OML/cmm/m/it/10 ^^U$\T1/qpl/m/n/10 -ring if it comes with a $\OM
-L/cmm/m/it/10 ^^U$\T1/qpl/m/n/10 - 
- []
-
-
 
 [18]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 408.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 408.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 408.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 415.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 415.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 415.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 417.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 417.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 417.
-
-
-
 [19]
 
-[20]
-
-[21]
-
-[22]
-Overfull \hbox (0.59756pt too wide) in paragraph at lines 542--543
-[]\T1/qpl/m/n/10 The Te-ich-muller rep-re-sen-ta-tive is in gen-eral not a ring
- ho-mo-mor-phism, but it is still mul-ti-plica-tive. 
- []
-
-
-
-[23]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 579.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 579.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 579.
-
-
-
-[24]
-
-[25]
-! Undefined control sequence.
-l.632 ...g $f$ to be the space $$X\ast_YU=\hocolim
-                                                  (X\longleftarrow X\times U...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.643 ...sto F(X\ast_YU)$. Define $$T_nF(X)=\holim
-                                                  (\mX)=\holim_{U\in\mP(n+1)...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.643 ...YU)$. Define $$T_nF(X)=\holim(\mX)=\holim
-                                                  _{U\in\mP(n+1)}(F(X\ast_YU...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-
-[26]
-
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 697--725
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 697--725
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 697--725
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 697--725
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 697--725
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 697--725
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 697--725
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 697--725
-
- []
-
-! Undefined control sequence.
-l.725 ...a X)$. Now recall that $$P_1F(X)=\hocolim
-                                                  (F(X)\overset{t_1F(X)}{\lo...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.725 ...we can write $P_1F$ as $$P_1F(X)=\hocolim
-                                                  (F(X)\overset{t_1F(X)}{\lo...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.725 ... further simplifies to $$P_1F(X)=\hocolim
-                                                  (F(X)\to\Omega F(\Sigma X)...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.725 ...ow)$$ Thus in general, $$P_1F(X)=\hocolim
-                                                  _{n\to\infty}(\Omega^n F(\...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 730--747
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 730--747
-
- []
-
-
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 747--799
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 747--799
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 747--799
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 747--799
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 747--799
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 747--799
-
- []
-
-
-
-[29]
-Underfull \hbox (badness 2134) in paragraph at lines 807--808
-\T1/qpl/m/n/10 given as fol-lows. For a lin-ear func-tor $\OML/cmm/m/it/10 F$\T
-1/qpl/m/n/10 , we as-so-ciate to it the se-quence of spaces 
- []
-
-
-
-[30]
-! Undefined control sequence.
-l.843 ...s a functor defined by $$P_0F(X)=\hocolim
-                                                  \left(F(X)\to (T_0F)(X)\to...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.844 ...unctor defined by $$P_1F(X)\simeq\hocolim
-                                                  _{n\to\infty}\Omega^nF(\Si...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 849--850
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 849--850
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 863--873
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 863--873
-
- []
-
-
-
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 873--882
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 873--882
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 873--882
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 882--891
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 882--891
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 882--891
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 895--904
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 895--904
-
- []
-
-
-
-[32]
-
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 953--954
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 953--954
-
- []
-
-
-
-[34]
-
-[35]
-
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 1053--1054
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1053--1054
-
- []
-
-
-
-[37]
-
-[38]
-
-[39] (Selected Topics.aux)
+[20] (Probability Theory.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
-
-
-Package rerunfilecheck Warning: File `"Selected Topics".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Selected Topics".out':
-(rerunfilecheck)             Before: 5557379FFBD57DABF29D3E6EDBBADB39;9248
-(rerunfilecheck)             After:  71873BA58785AF112BFD1D34EA409200;8588.
+Package rerunfilecheck Info: File `"Probability Theory".out' has not changed.
+(rerunfilecheck)             Checksum: 014C6D81F141092CBC066AE51DF780E0;3242.
  ) 
 Here is how much of TeX's memory you used:
- 36702 strings out of 473577
- 763441 string characters out of 5716318
- 1175755 words of memory out of 5000000
- 59102 multiletter control sequences out of 15000+600000
- 603344 words of font info for 88 fonts, out of 8000000 for 9000
+ 34889 strings out of 473577
+ 720178 string characters out of 5716318
+ 1146260 words of memory out of 5000000
+ 57410 multiletter control sequences out of 15000+600000
+ 599637 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,22n,120p,739b,1465s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{subsection.17.4} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.17.3} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.17.2} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.17.1} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.17} has been referenced but does not exist,
- replaced by a fixed one
-
-<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-bx10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmbx7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/liula/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/l
-iula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/
-Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.p
-fb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmsy5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liula/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/liula/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/
-liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Us
-ers/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C
-:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.p
-fb>
-Output written on "Selected Topics.pdf" (39 pages, 565346 bytes).
+ 103i,14n,120p,652b,1203s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmex10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi5.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/liula/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liula/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/liula/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/liula/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/li
+ula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/
+Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.
+pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
+ymbols/msbm10.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/symbols/msbm7.pfb><C:/Users/liula/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/tex-gyre/qplb.pfb><C:/Users/liula/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/liula/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on "Probability Theory.pdf" (20 pages, 399727 bytes).
 PDF statistics:
- 819 PDF objects out of 1000 (max. 8388607)
- 247 named destinations out of 1000 (max. 500000)
- 469 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 402 PDF objects out of 1000 (max. 8388607)
+ 132 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
